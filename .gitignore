@@ -1,0 +1,4 @@
+# Keep Codex/workspace support folders out of the study repository.
+.agents/
+.aws/
+.codex/
