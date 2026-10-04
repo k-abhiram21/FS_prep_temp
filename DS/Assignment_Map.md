@@ -4,6 +4,18 @@
 
 **Day 1 selection:** Product Except Self and Climbing Stairs from NeetCode 150, plus local factorial/recursion/counting drills. The list has no unambiguous direct counterpart for the first two. `StairCase` requires its statement.
 
+**Day 2 selection:** Climbing Stairs, Reverse String and Happy Number are direct NeetCode 150 practice matches; Fibonacci and generalised jumps are local exercises from the lecture. The supplied college titles do not clearly identify any of these four exact problems. U2_BS_SP_LCP and U2_BS_SP_LCP HashMap concern longest common prefix, so do not count them as reverse-string duplicates. Avoid treating U2_BS_AP_StairCase as Climbing Stairs until its statement confirms the recurrence.
+
+## Day 2 practice map
+
+| Lecture topic | Practice to use | Relationship |
+|---|---|---|
+| Fibonacci and accumulator recursion | fibIterative, fibState, and the paper traces in [Day_02_Practice.md](Day_02_Practice.md) | Custom drills; no exact supplied assignment title |
+| Climbing Stairs | [NeetCode Climbing Stairs](https://neetcode.io/problems/climbing-stairs/question) / [LC 70](https://leetcode.com/problems/climbing-stairs/) | Direct NeetCode 150 match; use U2_BS_AP_StairCase only after reading its statement |
+| Reverse String | [LC 344](https://leetcode.com/problems/reverse-string/) | Direct string exercise; no exact college title supplied |
+| Happy Number | [LC 202](https://leetcode.com/problems/happy-number/) | Direct NeetCode 150 match; no exact college title supplied |
+| General jumps 1..m | countWays(n,m) in [day02_reference.cpp](code/day02_reference.cpp) | Custom extension; useful recurrence practice, not an identified college duplicate |
+
 ## 1. Useful overlaps to deduplicate later
 
 The NeetCode side of this shortlist was checked against the [official problem registry](https://github.com/neetcode-gh/leetcode/blob/main/.problemSiteData.json). “Likely same” still depends on the college statement. A related pattern is not a problem equivalence.

@@ -1,0 +1,1398 @@
+0:00
+Uh then we looked at uh the Fibonacci series. Uh we looked at
+0:07
+the climbing states. Now let's uh look at uh
+0:12
+can you m can you mute yourself please? Yeah. Uh let's look at the Fibonacci.
+0:18
+And uh many of you did solve the Fibonacci but uh uh as we discussed in the uh previous session uh you used a
+0:26
+very very uh inefficient uh algorithm. So I'm going to take you through uh that
+0:32
+simple code. Uh sometimes you know you can use a tool like uh cla or chatgpt
+0:39
+and they and they could give you code which is inefficient. And I'm going to show you one of them today. uh when we
+0:45
+do look at Fibonacci uh which we uh discuss using non-recussion first uh
+0:51
+then we look at bad recussion uh then we will optimize that to good recussion so
+0:57
+let's look at Fibonacci series Fibonacci code share the screen fiver
+1:16
+Yeah. Are you able to see the code? Are you able to see the screen?
+1:24
+Yeah. One.
+1:30
+Are you able to see? Can you? Yeah. Great. Now look at the
+1:35
+first part of uh the Fibonacci series uh which is uh the non-recursive
+1:40
+implementation. Just look at that code.
+1:46
+Uh we understand what uh the base conditions are. When n is zero uh the
+1:51
+first value is zero. When n is one the first value is one. and the next number would be the sum of uh the previous two.
+2:00
+So considering that look at line 10 where we say n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n one is zero, n2 is 1 and
+2:06
+n3 is equal to whatever. So we know the first two values which are 0 and 1. So we start with the first third one which
+2:13
+is I= 2. Hello mute yourself please.
+2:21
+Can you mute everybody? Close that window now.
+2:28
+Uh, all of you please mute yourself. Okay, fine. Let's continue.
+2:34
+Close this. Why do you need that window? Close that new. You're going there to Yeah. close that. Yeah. So, uh, are you
+2:42
+clear on this code? Uh, we have considered n0 n1 and then we look at
+2:47
+from 2 to n. So look at that line 15 where we say the next element is sum of
+2:53
+previous n1 and n2. Uh any questions on that.
+3:07
+So we have the first two then the next one would be the sum of them. And after
+3:12
+we do we do that we are saying n1 is equal to 1 and n_sub_2 is equal to 1. So
+3:18
+again when it goes back to the loop n3 will be 1 + 1 2 and n1 is equal to n_sub_2 which is 1 and n2 is 2. So then
+3:26
+that would be three and n1.
+3:32
+n1 is uh now two n_sub_2 is three and this would be
+3:48
+2 + 3 5 and so on.
+3:56
+Are you guys clear?
+4:03
+Are you guys clear?
+4:08
+Yes sir. Great. Now this is a very simple non-recursive uh implementation. Uh what
+4:14
+do you think is the space complexity
+4:21
+and what do you think is the time complexity? Come on answer.
+4:33
+Come on guys. One of you. You're supposed to be the smartest batch of KMIT. CSC, ABC D, CSM, AB,
+4:47
+space complexity and time complexity. Uh sir, the time complexity should be
+4:53
+off and because you're using just one loop I guess. Okay, this is time and what about space
+4:58
+sir? Um I don't know sir. You don't know. look at it and tell me
+5:05
+no sir am I using any extra area or anything to store
+5:11
+no sir just I'm just having three variables so it will be O of three which is O of one
+5:17
+oh are you clear there is no extra array no other collection no nothing no recursive
+5:25
+call for stack space so basically O of one okay very very simple code now let's
+5:31
+look at bad recussion We'll erase this. Let's look at the bad recussion which most of you did.
+5:42
+Okay. Now can you scroll down slightly? Show the entire code. Now look at this please. Uh what did you do in the bad
+5:48
+recussion? In the bad recussion
+5:57
+in the give me access to Yeah. show the
+6:02
+code. Yeah, the if you look at the bad recussion,
+6:09
+if I take n is equal to five, you're saying for each value of n, you're
+6:15
+calling Fibonacci. For each value of n, you're calling
+6:20
+Fibonacci bad, right? And [clears throat] when you're doing that,
+6:28
+what is happening?
+6:34
+connected. What is happening when you're doing
+6:39
+that? You're calling fib of n minus one plus n minus 2.
+6:45
+Are you guys there? Okay, it it doesn't look bad right now,
+6:51
+but let's run this with n is equal to five.
+6:59
+Let's run this with n is equal to 5. Can you run this sir?
+7:05
+Sir, there is no condition when to stop it. It is there. No sir, look at line 64. If
+7:12
+uh sir, for each and every number they again and again calling. They should either store it.
+7:20
+No, we are not storing it. That we will discuss when we talk about dynamic programming. But this is how most of you wrote code that day. Do you agree or
+7:26
+not? Yes sir. Yeah. So I'm trying to show you what is
+7:32
+bad in that code and how we will fix it. Yeah. Fine. Now erase that sir. Yeah. Now if
+7:42
+you look at it when n is equal to 5 we called that 19 times. I have the static variable count. Now run run that with n
+7:48
+is equal to 6.
+7:55
+34 times. N is 7 59 times. See for every increase in one
+8:02
+value how many extra times are we iterating? Run n is equal to 10
+8:10
+27 11 453 12
+8:18
+740 13. Now just for a moment imagine for every
+8:25
+iteration you have a token which you are paying for. Isn't the token price increasing drastically for every
+8:32
+additional number you want? when in reality it is what previous to some addition right
+8:39
+but you see from n= 12 to n= 13 I am pretty much having 500 extra calls
+8:46
+because of that horrible code we wrote in that line 76 to 79
+8:53
+just because we wanted a value of one variable we are iterating and printing
+8:59
+it this is bad way of writing code many of you did this We discussed that in the
+9:05
+class but I put a count variable to show you the impact of such code.
+9:11
+Okay. Now let's look at how we can improve this uh goss.
+9:19
+Now look at just plain simple recussion. Now first notice change in line 50. We
+9:25
+are calling that Fibonacci only once. Are you seeing that line 50?
+9:31
+In the bad in the bad recussion we were looping through and calling for n number of times. Okay. And in each call we were
+9:38
+calling Fibonacci twice. Fib of uh n minus one plus fib of n minus 2. Bad
+9:44
+code. Bad code. Scroll down sir. Bad code. Are you seeing that fib of n
+9:51
+minus one plus n1 for every call. Now what are we doing in the good code? We are initializing the first two values.
+10:00
+We are initializing the first two values with fib 01 n. So these are the first
+10:06
+two values. So what are we doing? If n is equal to0 return zero. n is equal to
+10:12
+5. In our case n is equal to 5. It is not zero. So what are we printing? A. What are we printing? First number a.
+10:19
+Then what are we replacing? A with b 1. And then the second element will be the
+10:24
+sum of the previous two which is 0 + 1 comma 4. Now this when you call we are
+10:31
+again printing a. So we are calling with b 1 + 1 comma
+10:42
+comma 3. You need to do something
+10:49
+3. Are you guys there?
+10:55
+Yes sir. I'm having some problem with that marker but it's three column.
+11:03
+Okay. This should be not unable to write three here. We'll figure then again when
+11:10
+you call it next time we print B. What is B? Two. And then what will A + B be?
+11:15
+3, N - 1. 3 - 1 will be 2. So if you look at this code uh there are
+11:23
+multiple advantages although both of them give me the same output one of them gives me uh the Fibonacci generated more
+11:30
+number of times than what is actually required and this code calls it only those many number of times so now you'll
+11:37
+see the impact of that what is the name of this class sir
+11:45
+what is the name of this class recussion let's run is Fibonacci
+11:50
+recussion
+11:56
+run sir clear that yeah
+12:08
+n is equal to five six count is six n is six
+12:16
+one More. One more. Are you guys seeing now? Run
+12:22
+the bad recussion with eight. Bad recussion with nine.
+12:27
+No, you have that. I get that. Yeah. Nine.
+12:33
+169. Run the good one with 15.
+12:41
+Yeah. 15. You got the answer. Are you there? Now run the bad one with 15.
+12:51
+I guess see the impact guys. So many of us say what is the big deal sir such a simple code I know how to write code and
+12:58
+you end up writing code which is totally inefficient with respect to time and
+13:03
+space. Why am I calling space? Because every recussion uh function, every recursive function uses a stack space
+13:10
+and you're calling that. Now run with 20 bad recussion,
+13:17
+run with 30, run with 50.
+13:24
+At some point it will stop. It'll not even work. Are you guys getting it? This is how you can get simple time limit
+13:31
+exceeded when you solve on online platforms. It doesn't matter when you have small uh
+13:39
+uh value of n it works. But now just see the impact of this bad recussion. Are
+13:44
+you able to appreciate? Stop sir. No point wasting time. Now
+13:51
+let's look at the good recussion with 50. Yeah, you got the answer. Although there may
+13:58
+be an overflow that's fine. So we'll take a longer value and not a integer.
+14:04
+Are you there? Yes sir. Yes sir. Yeah sir. Again show them the recussion
+14:10
+and let them also look at the bad recussion. Just look at the recursive code. I'll give you a minute and then
+14:16
+you can look at the bad recussion.
+14:26
+Okay. No, I don't know.
+14:32
+Yeah, we'll fix that. Okay, now look at the bad recussion. The the problem with the bad recussion
+14:38
+is that for loop in that main and again we are also calling uh that more number
+14:45
+of times than what is required fib of n minus one plus fib of n minus2.
+14:50
+So that's being called for each n value twice. Whereas in the good recussion we
+14:55
+are having two extra variables as parameter function call and getting that magic done.
+15:04
+Okay. So even though you use claude or chat GPT or any other tool to generate
+15:12
+code what I would strongly recommend is please run through the code understand
+15:17
+is it efficient code if it is not optimize it and make it better.
+15:23
+Okay. Yeah. Uh let me know if you're clear. We'll move on.
+15:34
+Yes, sir. Yeah. Okay. Great. Uh now we'll move on to
+15:41
+give me access. Show it.
+15:49
+Yeah. Yeah.
+15:58
+Yeah. Uh we had also discussed in the last class climbing states problem.
+16:18
+Okay. Slow channel. Thank you. Yeah, let's uh redisuss that
+16:25
+climbing states again and what we will then yeah climbing
+16:32
+states problem. Yeah. So while he gets this ready uh we have seen uh you're given n number of
+16:39
+states and uh uh basically
+16:48
+you didn't get the download the latest code. No, it's not.
+16:54
+No. Yeah. Okay, we'll do it later. Yeah. So,
+17:00
+let's look at the climbing stairs problem. Uh, you're given n number of states.
+17:08
+You're given n number of stairs.
+17:14
+Let's say you're given four steps. Okay. Uh, you need to start from here. You
+17:19
+need to reach the top and you could come climb one or two steps. So we have seen
+17:26
+multiple solutions. You can climb one step, one step, one step and one step.
+17:31
+So n is equal to four. Or you can climb two steps, two steps. Or you can climb one, two,
+17:40
+one or one, one and two. Or there could
+17:46
+be one more possibility 2 one one 2 one one. So what are the different ways you
+17:53
+have five different ways all single ones twos and then 1 2 1 112 21 2 1. So there
+18:00
+are five different steps. So if you look at this it is like your Fibonacci series
+18:05
+where you have where you have
+18:14
+pi. So if n is equal to five you know the next one will be 8. If n is equal to
+18:20
+6 you know the next one will be 13. So we have seen how we can do that using uh
+18:26
+climb steps uh climb steps n minus one plus climb
+18:34
+steps n minus2 which is like saying uh if this is my uh uh input data
+18:49
+there are No, it's nothing. It's nothing to
+18:56
+erase this. Please erase this bottom part.
+19:02
+Erase that.
+19:10
+If this is my input data, what we said is if I have one way, if I
+19:15
+have climbed the first step, then what are the different ways to climb this? Or if I've climbed a sec two steps in in
+19:22
+the first go, what are the different ways to climb this? Which is what we say climbing steps n minus one + n minus2.
+19:29
+If I'm already reached the first step, in how many different ways can I reach the rest of it? Or if I've reached the
+19:36
+first two steps, in how many different ways can I reach the rest of it? Is that clear to everybody?
+19:45
+Yes, sir. Yeah. Go to the document.
+19:51
+Word document. Yeah. Erase that.
+19:56
+Yeah. Scroll down. Yeah. Down, sir.
+20:01
+Yeah.
+20:06
+Yeah. Climb down. Yeah. Yeah. So, this is what we have seen. If n is equal to two,
+20:12
+there are two ways. You can climb one one step or you can go two steps at a time. If n is equal to three uh we have
+20:20
+seen what the different ways are 11 1 2 1 2 uh 21 1 2 1 and 22. Okay. Now what
+20:29
+we will look at is a more generalized problem. Uh the generalized problem is
+20:41
+give me access. The generalized problem is if there are n steps
+20:49
+okay 1 2 3 4 5 let's say five steps here n is equal to five in the earlier
+20:55
+problem we have solved what are the different ways in which you can if you were to climb one step or two steps now
+21:02
+the problem is modified to what if there are m number of steps you can climb at a
+21:08
+time that could be m could be four that means Means I can climb
+21:14
+one step at a time, two steps at a time, three steps at a time, four steps at a time. If the number of steps I can climb
+21:21
+is either 1 2 3 4 and if the number of steps given are five, what do you think
+21:26
+the answer would be? Can you manually do and tell me
+21:33
+all of you? Hello.
+21:38
+Yes sir. Yes, I do. Yeah. Yeah. You got that? You understood the problem. I'll repeat again for everybody's benefit. There are five
+21:45
+steps given and there are four different ways you can climb which is you can
+21:50
+climb one step at a time, two, three or four. What are the uh distinct ways of
+21:57
+climbing a staircase of five steps? If there are four different ways of
+22:02
+climbing it, again m can be anything. M can be two, M
+22:09
+can be five as long as M is less than equal to N.
+22:27
+Do that manually. Let's uh do that while you uh if you're doing it, you can tell
+22:32
+me. I'll write down. One way is we can climb all wall once.
+22:38
+The possible steps are 1 2 3 or four.
+22:44
+Okay. Or I can climb 1 4
+22:50
+1 1 3 1 1 2
+22:57
+Likewise you'll have multiple such answers. So can one of you tell me what will the result be? Uh sir if uh 113 and
+23:06
+311 are two different ways. So we are going to consider that right?
+23:11
+Yes we are. Okay. 113 means I have climbed the first step then second step and then three steps
+23:18
+after that. And 131 is first step. Three steps after that one. So they are distinct. 311 is anyway distinct. So 113
+23:26
+1 3 1 uh 311 are different ways of climbing. Anyway,
+23:35
+likewise you have 1 1 2 You can say 1 1 2 1 1 2 1 1 2 1 1
+23:42
+sir 10 10. No, it's more than 10. I have already written on how many? 1 2 3 4 5 6
+23:49
+7 8 9 Okay. Uh figure out there'll be more. So four sir, there is no possible way other
+23:55
+than one for 41. Why 113?
+24:01
+Yes, it's already covered. No, but there are more, sir. Why not two and three steps? Why not three and two
+24:07
+steps? [laughter] 3 2 3.
+24:12
+Huh? Why not two 221?
+24:20
+Why? Why not two? Why not 212?
+24:26
+Are you seeing that? Yes sir. Yeah. So right now tell me how many?
+24:32
+15. 15 sir. Sure.
+24:38
+Yes sir. Did I miss anything? I got all 15. Did I miss anything? I'm seeing with all ones
+24:44
+we covered all ones. 1 4 4 1 11 1 3 1 3 1 3 1. That's done. So with twos 1 1 2 1
+24:51
+1 2 1 1 2 1 1 1 2 1 1 1 and again 2 2 1 1 22 and then 2 three combination is
+24:58
+only 2 3 or 32. Okay, we'll see the answer later. So how
+25:04
+do you think you can do this now?
+25:12
+So we can use uh the permutation and combination technique where uh first we
+25:17
+list out uh four or five taking from four and one and uh 3 1 and 3 22 I mean
+25:26
+like I'm I'm just taking uh I'm making uh you say possibilities as uh one group
+25:33
+and trying out permutations for it. And then what are you going to do? add them to a set and see the set count.
+25:40
+Yes. No. Why? We we are talking about recussion. Okay. I mean uh the arrangements the
+25:49
+number of arrangements going to be the we don't care about these arrangements.
+25:54
+We are looking at distinct arrangements. Whether is 1 14 or 41 is okay for us.
+26:01
+We just want the count. We don't know what we don't want to know what the arrangement is.
+26:09
+Yes sir. But uh yeah exactly s uh sir uh it sir could you write uh four and one so that I can
+26:16
+explain yeah four and one what I'm thinking four and one yeah so this is one of the possibilities
+26:24
+yes of uh so it can be done in two ways of what the combination of four and one the
+26:30
+stairs can be climbed in two ways either four first and then one and one first then four
+26:36
+okay yeah fine so so two two In in this set there are two elements. So it has two factorial
+26:42
+ways of doing it. Huh? And such that if we can now next take 311 and 322. So 311 will have
+26:50
+311 uh 3 uh 2. Yeah. So 311 will have uh 3 factorial by
+26:58
+two factorial vs and 32 3 and two will have again two ways.
+27:03
+So how the number of elements in the set formed
+27:09
+by that factorial will be the number of ways which we have. Now if you were to look at it from a
+27:14
+recursive perspective, how will the recurrence relationship be formed? I just giving you an example. Remember
+27:21
+if I climb one step here then I need to figure out what are the distinct ways of climbing the remaining
+27:28
+steps. Say n is equal to 5 then what will the distinct ways of climbing four be? If I climb two steps then what will
+27:36
+be the distinct ways of climbing the remaining three? If I climb three steps what will the distinct ways of climbing
+27:42
+remaining tob and so on. Sir the return function will be uh let's
+27:49
+suppose the function you're defining is climbing stairs. Huh? So it will be returning climbing
+27:55
+stairs n -1 plus n uh plus n -2 plus n - 3 plus n -4
+28:01
+like four of uh but is it taking only one argument or more than one argument? Assuming it
+28:07
+takes one argument returning plus+ plus but what is the significance of this m is equal to 4 then
+28:14
+you're subtracting four -1 -2 - 3 and -4 that like that
+28:20
+okay so you're saying cs n -1 + uh cs n
+28:27
+-2 + cs n -3 + cs
+28:33
+nus 4 Okay. Why four only?
+28:38
+So because there like like like the way we thought previously. So if it climbs one stairs, what are the other ways it
+28:45
+can climb the other stairs? Similarly, if it climbs first four four stairs,
+28:50
+what are the other ways you can climb the other remaining stairs? Okay. So he's like saying I have already
+28:55
+gone to the first step. Tell me what are the different ways of climbing the remaining four. Yes sir.
+29:01
+Which is n minus one. Yes sir. I've already climbed the first two. What are the different ways of
+29:06
+climbing three remaining three and so on? Good. Anybody else?
+29:20
+Anybody would like to throw more inputs?
+29:33
+Anybody else are you convinced about it? It's like you know uh if I know if I've
+29:39
+already gone to the third step in n number of ways I now have to figure out what are the different ways of going to
+29:44
+the fourth step. Likewise if I've gone to the first step I need to figure out what are the remaining ways of the n
+29:51
+minus one. Probably not my the most optimal solution but yeah
+29:58
+this might not be the most optimal solution and like I'm not getting to think. No no obviously these are not
+30:04
+optimal because there'll be a lot of repetition again that optimal will come when we talk about dynamic programming
+30:09
+where we store the old values and not recmp compute them again even we saw that day I mean that fibonaki right
+30:16
+yes sir how the same thing repeats so even here the same thing will happen
+30:22
+when you talk about n minus one there'll also be n minus2 in that again
+30:27
+yes sir when you talk about n minus there will be n minus 3 repeat n minus 3 will again have n minus four. So there'll be lot of
+30:33
+the repetition when you look at that tree formation you know. Yes. All of that. So that is obviously not
+30:40
+unless we look at dynamic programming recursive functions result in you know
+30:46
+uh larger time complexity because the same uh recursive function is being
+30:51
+computed multiple times. Uh when we talk about dynamic programming using tabulation and memorization we'll say if
+30:58
+we already have the value we'll return that value. If you don't have the value, we'll compute it and uh store it. That
+31:05
+we'll discuss later. We are not worried about that. Our focus is how to come up
+31:10
+with the recurrence relationship and generate the recursive call.
+31:16
+Okay.
+31:22
+Are you guys okay? Yeah. Yes, sir. Yeah. Yeah. We'll erase
+31:27
+and look at the word document. Yeah. Continue sir.
+31:36
+Now so this is what is inefficient. You look at it count ways four is count ways
+31:42
+n minus one when there are only two steps. Okay. And are you seeing that count ways two is repeating. Count ways
+31:49
+one is repeating. Count ways three may repeat if you call it with count ways five. Are you are you guys there? So
+31:55
+obviously this is not efficient. repetition of the recursive call is being made. I do not disagree there.
+32:03
+Okay. However, that is something we'll discuss later when we talk about DP.
+32:10
+Okay. Let's move on. Yeah, that's the code we have seen. Yeah,
+32:18
+now look at this. How do we count the number of ways if a person can climb up to M states for a
+32:26
+given value of M? For example, if M is four, the person can climb either one,
+32:32
+two, three or four states at a time. So the generalized approach to that is
+32:38
+count ways n minus m is equal to count ways n minus one m which is like saying
+32:44
+if I've already gone to the first step tell me what are the different ways of climbing the remaining n minus one. If
+32:50
+I've gone to the first two, what are the days of what are the different ways of counting the remaining n minus2?
+32:56
+Likewise, if I've gone to the mth step, the remaining ways will be m minus n,
+33:02
+which is whatever. So that is what the parameters are. We need m also.
+33:09
+Are you seeing why there are two parameters here?
+33:20
+Is everybody clear why there are two parameters? Uh yes sir. Because I I have to figure
+33:27
+out when to stop which is n minus m.
+33:32
+Imagine there are three five steps n is equal to five and number of ways are
+33:38
+three. Then I would stop when I go to the uh uh n minus one two. If I've
+33:44
+climbed two, then I know the only way of going to that is somewhere else. Is it clear?
+33:50
+So, this would be uh count ways uh 4a 3
+33:56
++ 3a 3 + [snorts] 2a 3 + 1a 3.
+34:09
+And if m and n are same this will end up with 0a 3.
+34:19
+Sorry here is m is 4. Is everybody clear?
+34:33
+So when I say n minus one that is the present stair where I am. What are the
+34:39
+ways to go from there till the end? When I say n minus m, I'm at that position.
+34:45
+From there, how do I go to the end? That is what it means. In this approach, to reach the nth stair, try climbing all
+34:52
+possible number of stairs less than or equal from the present. The present will
+34:58
+be n minus one. Where are you currently?
+35:07
+Yeah, let me know if you guys are clear. Uh yes sir. Okay. So I will not show you the code. I
+35:14
+would like you to implement this. This problem is also added. Uh you'll
+35:20
+have to implement that. This is not in the syllabus but a generalized climbing states problem. Why restricted to only
+35:27
+one step or two steps at a time? Allow me to climb as many as possible. Let's take another example. Just to help you
+35:34
+recap this blank screen.
+35:40
+Yeah. So, let's say we have four steps.
+35:52
+Okay. This is where we start from. Okay. So, number of steps are four and number
+35:58
+of ways is three which is 1 2 or three. So how do you visualize it? I have
+36:04
+already gone to the first step. Okay. Then I need to say oh from this
+36:11
+step to the uh okay n is four. I wrote five one 1 2 3 4 four steps. N is equal
+36:19
+to four. I've already gone to the first. Now what are the different ways I can go from first to
+36:26
+fourth? Climbing 1 2 3. So when I've gone to the first it means I took one
+36:32
+step at a time. Now from here to here what are the different ways which is n -1 comma m. Now I've taken two steps
+36:41
+initially. Now what are the different ways of climbing to this nus 2 m. So if I'm
+36:49
+already here what are the different ways in which I can go here? Two steps are left. Can I take three
+36:55
+steps? No. So what are the possibilities? I can take either one step one step or I can take two steps.
+37:00
+So one possible answer is 2 1 1 or 2 comma two. Is that making sense? I to I
+37:09
+took the first step which is two steps at a time. I'm here from here. What are
+37:14
+the possible ways of going to the fourth step? N minus 2 m. What is n? Now when
+37:20
+there are only two steps I can go one one at a time or I can go
+37:28
+sorry I can take one step at a time which is one one combination or I can take directly two steps. So while I'm
+37:35
+here going here can be this option or it can directly be jump here. Are you
+37:41
+there? It's like a problem which is breaking down into given two steps what
+37:47
+are the different ways of going going there are only two distinct ways one one or two and that is what we are trying to
+37:53
+do here if I'm at the third step let's say I'm at this step what are the different ways of going here n - 3 m
+38:04
+guys are you getting it and finally it will be n - ma m in our
+38:11
+case m is three. So this is what is fulfilled.
+38:18
+So it's like say for i is equal to0 i less than m i ++ we basically go for n
+38:24
+minus i. We call that n minus i times and each of
+38:31
+them will recursively call it again. So when when i is equal to when n is four next time n will become three next time
+38:37
+n will become two next time n will become one so on. Are we good? Shall we move on?
+38:52
+Yes sir. Yeah. Guys, rest of you also who are attending, if you don't understand,
+38:58
+please ask. Please ask. We are not in any rush to finish anything.
+39:04
+We want you to understand. If anybody has any doubts, please uh
+39:10
+talk. Don't type because we are not seeing the chat window. You need to talk.
+39:18
+I'll wait for 15 seconds more and then we'll continue.
+39:31
+Here is this next topic. Next problem.
+39:38
+Yeah, that's fine. Scroll down, sir. Next problem.
+39:44
+Yeah, reverse a string. Uh, so blank screen.
+39:51
+You're given a string like uh kit
+39:57
+and you need to output.
+40:02
+Now, how do we do this? Tell me without recussion and then we
+40:08
+look at recussion
+40:17
+anybody extracting the last element and adding it to another string. Okay. 1 minute. 1 minute. So basically
+40:24
+create a new string of the same space as the original.
+40:29
+Correct. So first you have to allocate extra memory. Right sir.
+40:35
+Yes. Can you let me know your name so I can address you with your name? Ibrahim sir.
+40:41
+Ibrahim. Yeah. So Ibrahim is this clear? First thing is extra space and array
+40:46
+equal to the original string length. Great. Then I start from the reverse and
+40:53
+keep adding it to the new string. So I decrement from the right in the original
+41:01
+and increment from the left in the new. Is that clear Ibrahim?
+41:09
+Yes sir. Great. Now this is a working solution and I did not give you any constraint.
+41:15
+Now I'm giving you a constraint saying no extra space.
+41:22
+Okay. What would the time complexity of this be? O of N I guess
+41:28
+O of N where N is the length of the string and what is the space complexity
+41:34
+again O of N where N is the space of the string uh given that memory is
+41:39
+allocated. Yeah. Okay. Great. So we have that space. Now this is good works. Now
+41:47
+constraint is no extra space.
+41:56
+Um sir, we could add the first letter to the end of the string.
+42:01
+One minute. I can add this to the end of it. But my No, but my string is this size.
+42:08
+No. Yes. Yes. So we can swap the last.
+42:14
+Yes. So we can swap the first and last element and we can use a two pointer approach.
+42:19
+Uh good. Let's look at it. Erase everything, sir. I'll rewrite the strings.
+42:24
+So we have a string called game it. Uh yeah who was giving that uh two pointer
+42:31
+approach? Can you continue sir? Yes sir. Yeah. So we can start from K.
+42:38
+So my left pointer will be at index index zero
+42:44
+and my right pointer will be at index n minus one.
+42:50
+Yeah. Okay. Then I swap both of them.
+42:58
+Correct? Yes sir. Using a simple swapping function. Okay.
+43:03
+Then do what? Then we increment uh the left pointer and decrement the right pointer.
+43:09
+So my left pointer will go here and my right pointer will go here. Okay. Very
+43:14
+good. And then I will go and
+43:19
+Okay. And then what sir? After that what is the condition?
+43:25
+Uh the condition would be until left not equal right.
+43:30
+Not equal to. Okay. Then not equal. Then you'll increment left
+43:37
+and decrement right. Left must be less than right.
+43:42
+Left must be less than equal to right.
+43:50
+Don't put not equal sir. Not equal will mean left will come here and right will
+43:56
+go here and then again they get trapped and then left will go. [laughter] Yeah. Okay. And
+44:03
+odd parent room as well. If we use L less than equal to right, right? Less than equal to right. Now you take a
+44:09
+case like uh uh hello. Okay. My left is here, my right is here.
+44:16
+We swap them. My left is here. My right is here. We
+44:23
+uh swap them. So L and E, then we say while left not equal to
+44:32
+right. So if I increment this and decrement uh this, what happens? It will
+44:39
+match. And then we will go and interchange that element which is anyway not required. It's okay. No harm.
+44:49
+Are you there? Or when you say left less than right, it is is better because then
+44:55
+it will not even have to worry about that odd data. Yes. Middle element of odd length.
+45:03
+Okay. What is the time complexity of this? Now just look at the earlier time
+45:08
+complexity. N2. Earlier it was O of N because you were
+45:15
+taking every element and going in the reverse order
+45:20
+right? Yes sir. What is the time complexity of this?
+45:26
+It's not even O of N. It is N by two by two.
+45:32
+Are you there? Yes sir. So this is a very simple uh two-pointer
+45:38
+approach uh where we uh basically
+45:44
+take left right pointer swap the contents increment left by one and
+45:50
+decrement right till left less than equal to right. Now if you have to
+45:56
+convert this into a recursive code. Now here I don't need a recussion. I can just write a simple while loop or a for
+46:03
+loop to do it. Are you clear guys?
+46:10
+Yes sir. Yes sir. Now if I if I have to convert this into recursive call sir erase it. What would
+46:16
+the recursive function look like?
+46:22
+What will the recursive? So I'll call this function reverse
+46:29
+what parameters will it take?
+46:40
+So it can take uh the index of L and index of R.
+46:47
+Okay. What else?
+46:53
+Is that enough or you need to do something else?
+47:01
+String sir. String length string sir. It will take the string.
+47:06
+It'll take the left index and the right index. And somewhere from the main
+47:13
+we'll call it with reverse
+47:18
+s comma 0 comma n minus one where n is the length of the string or I'll say
+47:25
+length minus one. Length minus one. Now you have to fill this function.
+47:31
+Okay. Yes sir. Okay. That's rather interesting problem.
+47:37
+uh any other way you can do reverse. Uh one recussion we have seen recussion
+47:43
+internally uses two pointers without two pointers we have seen with extra space and extra time where you take a new
+47:50
+array and copy everything from the reverse order. Any other way you can do it using the Java API?
+48:01
+Where is this? any other way without no I I'll put the question differently without writing your own
+48:08
+logic try reversing the string using a built-in API
+48:26
+I repeat without writing your own logic
+48:32
+Try building the string, reversing the string using the built-in
+48:39
+Java API.
+48:49
+Are you guys there?
+48:54
+Okay, tell me what do you do?
+49:06
+Tell me GP and tell me.
+49:14
+You're right. String buffer is good. Tell me more about it.
+49:24
+Yes.
+49:37
+Come on guys, ask chat GP and tell me ask chat GPT write code to reverse the
+49:43
+string using string builder. We'll give you code and explain to me what that
+49:48
+code is.
+50:14
+What? Cat GP is not responding.
+50:28
+Hello. Just see people are there. So the string builder function creates a
+50:34
+mutable string one one minute. Uh so what is the what
+50:40
+is the code I need to write sir? Tell me pseudo code. There's a reverse function
+50:46
+which takes a string s. Yeah.
+50:51
+Tell me sir. Yes sir. It would be string builder
+50:56
+variable name uh let's say SB equal to new string builder where the parameter
+51:03
+is S parameter yes okay yes then
+51:10
+string uh reversed R
+51:17
+[snorts] equal to uh SB dot reversed reverse SB dot reverse M SB dot reverse is a
+51:25
+built-in function which takes a string and returns you the reverse of it. And then what do you do?
+51:31
+And then you do dot to string. I didn't understand this part sir. Now [clears throat] what is
+51:38
+SB reverse returns a string or string builder? It returns a builder and then when you
+51:44
+do it to string it returns a string value to it. So correct. Does it return a new string
+51:50
+builder or does it do in place? So,
+51:55
+does it reverse the string in place or does it return another string builder? It returns another string builder. So,
+52:02
+okay. I'll call that I'll call this string builder reverse. And then I need to
+52:08
+convert this to string. So, I'll say sbr dot two string. Two string.
+52:13
+Two string returns a string representation of an object. So you'll get now this is very very simple because
+52:20
+you're not writing your own code you're using a built-in API and people who know Java understand this. So sometimes you
+52:26
+have to get into this practice of why should I write code when I can use a built-in API but there is obviously lot
+52:34
+of extra memory here. First memory is string builder second one more string builder. Are you guys there?
+52:42
+Yes sir. So I'm just trying to show you if you write code how you can make it more efficient than sometimes using a
+52:49
+built-in API. Now does anyone know what is the difference between string builder
+52:57
+string builder versus string buffer.
+53:03
+There are two classes in Java which basically do the same thing. String builder and string buffer. Their API is
+53:10
+exactly the same. You can look at the Java uh documentation. But what is the fundamental difference between builder
+53:15
+and a buffer? Well, this is not part of DA, but I'm
+53:22
+just covering so you guys uh get better understanding of Java language.
+53:38
+anybody? So I asked RGBDN is giving me that uh
+53:45
+string builders are used in single threaded programs while string buffers are used in multi-threaded programs. I'm
+53:50
+not understanding this though. Yeah. And sometimes they give you documentation like string builder is
+53:55
+thread safe and buffer is sorry uh string buffer is thread safe and builder
+54:00
+is single threaded thank you multi-threaded or they'll say
+54:08
+not thread safe
+54:13
+and this is thread safe okay great doesn't matter what yeah so now you know
+54:18
+now uh jack gpd doesn't sometimes help you. Somebody has to explain to
+54:24
+you. Anyone can explain what is this not thread safe and thread safe mean?
+54:29
+Sir, uh safe and non thread safe means uh the the execution is synchronized in
+54:35
+string builder and uh it's not uh synchronized in buffer.
+54:41
+So sir, sorry sir, which is thread safe? Uh
+54:46
+thread safe is uh string builder. No buffer.
+54:52
+Okay, wait. What is charge telling you?
+54:58
+I think charge was telling me the right thing but I just you have to give me string buffer is thread safe. So
+55:04
+correct the correct string buffers are thread safe. That is why they are preferred in a multi-threaded
+55:09
+environment. String builder is not thread safe which is why it is preferred in single thread. So when you have only
+55:16
+a single thread of execution where is a question of multiple threads trying to
+55:21
+access when there are no multiple threads trying to access why do you want why do you want to add thread safety and
+55:28
+reduce the performance here we talking about performance again every code which
+55:34
+takes care of thread safety has to worry about synchronization has to worry about locking and all of it so when we have
+55:42
+only a single thread of execution we should also So use a class which is built for single thread which is not
+55:48
+thread safe and that that is what a string builder is. But when you start building a multi-threaded application
+55:55
+with three t1 t2 t3 all try to access the string uh builder builder class then
+56:02
+it is not thread safe. So to make it thread safe you have to worry about synchronization.
+56:08
+Whereas could I not have used string buffer which is anyway taking care of thread safety and that is useful in
+56:14
+multi-threaded. Are you guys seeing why I'm deviating? Again we are talking about performance
+56:20
+issues here. Anything which is thread safe is more
+56:25
+expensive than which is not thread safe because there is additional bookkeeping
+56:30
+which it has to do internally to ensure uh only one thread can access at a time.
+56:38
+Are you all there? So in this example when I'm doing reverse of a string and if I know it is going to be called only
+56:44
+by one thread I will go for a builder. But if I think it can be called by multiple threads I will then provide
+56:50
+thread safety and go for a buffer. So string builders and buffers are identical. Okay. Now coming to another
+56:58
+fundamental question. Why do we have a string buffer when we already have a string class? What is the difference
+57:04
+between a string builder and a string class? Strings are immutable. String buffers
+57:10
+and string builders are mutable. Mutable. Okay. Very good. Wonderful.
+57:16
+Again, is it Ibrahim? Yes sir. Yeah. From the voice. Clear screen.
+57:23
+Explain more about what do you mean by mutable string builder string uh buffer
+57:33
+over immutable
+57:38
+which is a string. What is what does immutable uh for you mean when you say
+57:43
+strings are immutable? So it means that the object cannot be changed.
+57:49
+object cannot be changed. Okay, great. Let's clear this. I say uh string s is
+57:57
+equal to kit and later I say s is equal to
+58:07
+s + ng and if I say s o s
+58:16
+uh what do you think I'll get according to you you're saying we cannot change the object right? I mean the object can
+58:23
+be changed. It's just that no the object itself can cannot be changed. But when you're writing something like that you're creating another object.
+58:31
+Okay. So what will I get when I say the object? You're creating another object. So what will I get when I say SOP?
+58:40
+Uh should be getting an error. I think
+58:47
+you think so. Have we not done in our SOP kmit
+58:53
+plus ngit plus something? Don't we do this in SOP
+58:59
+concatenating strings? Have you never done this sir?
+59:06
+I have done this. Then how is this different from this
+59:13
+sir? uh in the first one you're just giving km and ng and here you're you're
+59:20
+like calling that variable and adding it to another string I mean like whatever
+59:26
+was before with you okay so you mean to say this will uh give you
+59:32
+an error it should so sir
+59:38
+it should let's write code sir write a new Java code so I'm going to keep digressing as and
+59:46
+when required when we do discuss the related topics. Is it okay with everybody or you don't want me to cover?
+59:52
+Let me know. It's okay sir. Others others
+59:57
+it is okay sir. Yeah. Don't worry. We'll finish dark. We have enough time to finish the Yeah. Yeah. Call that
+1:00:04
+class test.
+1:00:11
+S1 is kit and then say S1 is equal to.
+1:00:17
+So it is uh giving the output as K. Yeah, it will. [laughter]
+1:00:23
+And now print S1. Good. Now you said strings are
+1:00:29
+immutable. Now again justify
+1:00:34
+sir. Yes sir. So when we created the object S1 is equal to KMID, it stored it in a
+1:00:41
+location and called it I mean it store as KMID. But we did we made it when we
+1:00:48
+added S1 NG to it. It made a different object at a different location. KMID and G. The KMID
+1:00:56
+object itself wasn't changed. Okay. So basically now if I say copy that line five paste
+1:01:05
+it S2.
+1:01:14
+Okay. Now you say after that you say s_sub_1 is equal to
+1:01:24
+s_ub_2 and then in line 9 you print s1 and s_ub_2
+1:01:33
+and make that guy line six s_ub_2 is equal to k genesis.
+1:01:40
+Yeah. Now what will the output of s1 and s2 be?
+1:01:56
+will both be same or will both be different?
+1:02:06
+Uh, both will be different. I guess both will be different. I think you guess. Okay. Now, let let me draw
+1:02:12
+the memory layout for you. uh s1. Now the way you read this is s_ub_1 is a reference on the stack
+1:02:19
+pointing to a heap which is again I'll talk about string pools later which has
+1:02:24
+got a value kmit. Now s_ub_2 was pointing to another string pool which
+1:02:30
+had a value genesis. Now s1 is equal to answer would be genesis.
+1:02:36
+No one minute. One minute. One minute. I'm just showing you the memory. Now this is gone. Okay. Then S1 is equal to
+1:02:43
+S1 + NG. So S1 is pointing to Genesis. So S_sub_1 will be uh Genesis
+1:02:52
+NG. Okay. So S1 is equal to now when I do this what happens? S1 will now point to
+1:02:59
+another memory location whose data will be genesis
+1:03:05
+ng which means this is gone. Are you there?
+1:03:10
+Yes sir. Now you have the answer. What is S1? Genesis ng. What is S_2 still
+1:03:16
+pointing to? Genesis. Genesis. So the answer. So when you get programs like this, always draw the
+1:03:21
+memory layout. So that you know exactly what it means. So now coming back to when we say strings are immutable. It
+1:03:29
+means whatever S1 is pointing to this content cannot change.
+1:03:36
+However, I can change the reference of it. S1 now can point to a different memory location.
+1:03:43
+When whenever we say any object is immutable be it Java, be it Python, be it any other programming language, it
+1:03:49
+means whatever the contents of that object are, they cannot be modified but
+1:03:55
+the reference of it can be modified. So S1 content I cannot change but S1
+1:04:00
+reference I'm changing. S1 reference I'm changing. Is that clear what we mean by immutable?
+1:04:08
+Yes sir. Yes sir. Now run. Yeah. Run this sir. You'll get the output as what we just discussed.
+1:04:21
+Move that window now. Yeah
+1:04:26
+sir. You didn't save it.
+1:04:34
+See Genesis NG Genesis. Is everybody clear?
+1:04:41
+Yes sir. Yes sir. Now uh go back to after line 10.
+1:04:46
+After line after line nine just say S1 of zero
+1:04:55
+is equal to capital K and then you print S1.
+1:05:04
+What will the output be?
+1:05:22
+So it should give an error because we're trying to take change the contents of
+1:05:27
+that object. Very good. Yes, it you get a compilation error in line 10. Yeah. Item assignment
+1:05:34
+not possible. Yes, sir. Run.
+1:05:39
+See array required by string found. You cannot do this. Not allowed because this would mean you're modifying the zero
+1:05:46
+character. When strings are immutable, you cannot change the contents. If you want to do any of this, convert that to
+1:05:52
+character array, modify it and reconvert that character array back to string. But strings by themselves are immutable.
+1:05:59
+Is that point clear to everyone? By making it into a string builder or a string buffer also, right? Yeah. Yeah. You can do that using
+1:06:05
+string. That is why string builders and string buffers are immutable. If you keep that that is why we have a
+1:06:11
+method called append. It'll keep modifying to wherever it is pointing to. It'll not create a new address every
+1:06:17
+time you call an append function. So whenever you have a large set of string which you need to concatenate especially
+1:06:23
+when you uh generate uh HTML output for building a web page you're going to
+1:06:28
+basically use a string buffer or a builder and keep calling append and finally you'll convert that to string
+1:06:34
+and return it. So all the intermediate operations will be done through append function call.
+1:06:41
+Are you getting the practical use case?
+1:06:46
+We'll talk more about it later. But again talking about efficiency
+1:06:53
+and why the string builder buffer is not preferred for reversing a string is
+1:06:58
+there extra memory which you are creating. Whereas if we had used the two-pointer approach we were basically
+1:07:04
+doing the in place swapping using the left and the right pointer. Are you clear guys? Shall we move on?
+1:07:16
+Yes sir. Yes sir. Okay. Yeah. Move on. Yes sir. Next problem.
+1:07:31
+Yeah. Happy number. Yeah.
+1:07:37
+Yeah. A happy number is a number which which eventually reaches one when
+1:07:43
+replaced by the sum of the square of each digit. Okay, I'll explain. Give me blank screen.
+1:07:53
+Now you have number 13. Uh what is the
+1:08:00
+sum of the digits? 1 square + 3 squar which is 1 + 9 which is 10. So you take
+1:08:08
+this again get the sum of the digits and then you get one. So if you get one
+1:08:14
+then we say the number is happy number. Are you with me?
+1:08:23
+Yes sir. Yes sir. Yeah. What happened?
+1:08:30
+What happened? They're able to see. Where do you want to stop sharing? You're all able to see,
+1:08:36
+right? Yes, sir. Yes, sir. Yes, sir. Yeah. Yeah. No. No. There was some
+1:08:42
+concern from one student, so we're just checking. Yeah. Now, take 36.
+1:08:50
+Is 36 a happy number? Check and let me know. Keep getting that. Keep getting
+1:08:55
+the sum of the squares till we get one.
+1:09:04
+All of you.
+1:09:45
+Where is this? Where is everything? Is okay again?
+1:09:52
+[snorts] Yeah. 36. Is 36 a happy number? 3 squar + 6²
+1:10:01
+9 + 36 45 is 4² +
+1:10:08
+2² 16 + 25 41
+1:10:15
+41 is 16 + 1 17 is 1 + 49 50
+1:10:23
+is 25 4 + 25 29 Yeah guys tell me.
+1:10:30
+So both are not happy about. What are both? I'm only talking about 30. 36 and 41.
+1:10:35
+No no no sir 36 has given me 41. Sir look at the steps.
+1:10:42
+I'm going through this. Okay. Okay. Then 41 has become 50. 50 has become 25.
+1:10:50
+25 has become again 295 89.
+1:10:56
+Yeah. So how do you when do you know when to stop? Now one is if I get one I
+1:11:02
+return true happy number but when do I return false?
+1:11:08
+So through the process of evaluation if we get back the same number then maybe we can stop then
+1:11:13
+same number. Oh my god. Anything easier sir? I think uh when the next iteration
+1:11:19
+the next iteration you get a bigger number than the last iteration then [clears throat] I think you should stop.
+1:11:25
+we should stop. Okay. So if we get the same number, we should stop. Or if we get the next number larger than it, we
+1:11:32
+should stop. Okay. Uh
+1:11:38
+okay. Anybody? Anything else? So you means to say I'll look at 36 45 and I
+1:11:44
+will stop. Yes sir. Any test case we have it fails.
+1:11:53
+Okay. Consider
+1:11:58
+uh
+1:12:08
+uh consider 63. What does 63 also return me? 45.
+1:12:19
+Right? Yes sir. So you'll continue according to you.
+1:12:26
+45 then 41 then
+1:12:31
+50 41. Yes sir. Then you're stopping at 50.
+1:12:37
+Okay. Great. Now let's look at
+1:12:48
+I take four.
+1:12:59
+16. Okay, I take Okay, let's take very
+1:13:05
+simple number seven. Okay, erase all. So, you gave me two possible answers.
+1:13:12
+one. If uh the result is equal to original number, return true
+1:13:21
+or if next
+1:13:27
+iteration is larger number return
+1:13:35
+false. You you made these assumptions based on the test case I gave. Now I take input
+1:13:42
+is seven. What is the result of this?
+1:13:48
+49 according to you. We should stop right
+1:13:56
+sir. Yes. No. No. Yes. But you do this. No. One minute. Do this. What is 49? 16
+1:14:04
++ which is what? Uh 97. Yes sir.
+1:14:11
+97 is 81 + 49 49 which is
+1:14:18
+120 130. Yes sir. 130 is
+1:14:25
+130 is 1 + 9 9 + 0. This is
+1:14:30
+right. Yeah. So so according to your logic this is not true. Do you agree?
+1:14:36
+Yes I agree. Good. Yeah. Now continue. Now madam look at this. Who said this? If result is
+1:14:43
+equal to that original number then we return true. We got seven and we got the
+1:14:48
+result as one. Anyway when we get one we return true.
+1:14:54
+But did we get anywhere seven in this process?
+1:15:02
+No sir. Okay. Take a very simple number four.
+1:15:07
+Take a very simple number. Sorry. Take a simple number two. I'm just running through examples. Uh take a number. Uh
+1:15:15
+can I erase this? One minute. Can I erase? Yes sir. Okay. Erase sir.
+1:15:22
+Uh number is equal to two. Now tell me when I give two is it happy number or
+1:15:28
+not? Two will give me four.
+1:15:35
+4 gives me 16. 16 gives me 37. 37 gives
+1:15:40
+me 9 + uh 49 56.
+1:15:46
+Correct? 56. I make a mistake. Everything will go for the wrong cost. No 50
+1:15:51
+58 58 sir. 9 + 69. This is 25 + 88 64
+1:15:58
+which is uh 89. Oh my god. 81 + 64
+1:16:04
+which is 145 and 145 again gives me what?
+1:16:11
+42 1 + 16 + 25 42
+1:16:18
+42 gives me what? 16 + uh four 20
+1:16:23
+20 and 20 gives me again what four four and we are back to this loop.
+1:16:31
+Are you seeing there's a four from two and after all this we again got a four and again four will give me four.
+1:16:43
+If we so if we iterate and if we get a four then we should stop iterating and
+1:16:48
+consider that it's not a happy number. Yes, very true. If you get one it is a
+1:16:53
+happy number. If you end up getting a four we know it is not a happy number.
+1:17:01
+That's the only case where we stop. Sir no let's try some other test cases.
+1:17:07
+uh uh test case which is not a happy number
+1:17:12
+sir even 36 number we got four yeah that's what I'm trying to come to
+1:17:17
+21 try 21 try 21 erase this sir erase everything
+1:17:24
+I'll write down 21 faster 21 now 21
+1:17:30
+4 + 1 5 is 25 is 29 29 is 85 Five, right? 81 + 4 85 64 + 25
+1:17:43
+89. Is it 85?
+1:17:49
+And again 85 is this? Is it correct? 4 + 1 53.
+1:17:58
+So 83 then 67. 1 minute. How is it 83? I'm just I know I something went wrong. I know. 25 + 4
+1:18:04
+29 20 8 83 No two squared sir 85
+1:18:12
+85 is uh 64 25 89 so you're back to the same number no 89 89 is what again 81 +
+1:18:21
+64 you get 145 now 145 is 25 + 17 42 42 is
+1:18:30
+again 20 and that is again Four. See this 20 is again four. Are you
+1:18:37
+getting this? Yes sir. Any number which is not a happy number
+1:18:43
+will result in four. So the conditions are if you get one
+1:18:49
+return true. If you get four return false. No point continuing because four will
+1:18:56
+always give you four again. And you know how to get the digits
+1:19:02
+right? Use a modulus and division you'll get the digits some square. So you you
+1:19:07
+you can write separate functions one just to get the digits square and then the other to check is it a happy number
+1:19:13
+or not. For for it to check happy number it should either result in one true otherwise four. Is it clear guys? So you
+1:19:19
+let take an example which is not a happy number. Any other example which is not a happy number. 116
+1:19:27
+116 blank screen calculate 116 on your own and tell me
+1:19:34
+what are the intermediate values you get I'm not going to write down you tell me I'll write down
+1:19:42
+what are the immediate value 38 38
+1:19:48
+73 73
+1:19:53
+uh 56 6 58 decide. Decide. Okay.
+1:19:59
+9 + 49 58. Huh? 89. 89. Remember we got 89 before [laughter]
+1:20:08
+it's going to go down to four again. So I think uh 145 and
+1:20:13
+20 then four. Yes. So again not a happy number. So you
+1:20:19
+can say 116 is not a happy number. False. because we got four. Are you clear guys?
+1:20:28
+Yes sir. Great sir. Instead of iterating till four, we can stop at 89 and say that it's anyway
+1:20:35
+going to go to No, but why 89? There may be some other number which may not go to 89. No sir,
+1:20:40
+what if I just give you 145 as input? So if you can give 89 I mean just
+1:20:48
+no if I give input as 145 will 145 ever give you 89
+1:20:54
+no okay no no so you can't go to 89 the best is four
+1:21:00
+today you'll get 89 tomorrow something else will give you four but what about all these intermediate values 20 gives
+1:21:06
+you four 145 gives you four something else may give you four you know
+1:21:11
+so that's why I'm saying the lowest Not a happy number is four.
+1:21:22
+Are we good? Yes sir. Great. So we going to now stop the sorry
+1:21:28
+we going to now uh stop the recording and start the programs. Uh we will continue with the previous days programs
+1:21:35
+and today's programs are uh please optimize your Fibonacci code and make it
+1:21:41
+better like what we discussed today. Okay. Uh I'm stopping the recording but
+1:21:46
+this session will be online for next uh 45 till 4:30 and uh you can continue
+1:21:52
+your coding. If you have any questions you can ask us uh on this. Okay. Google
+1:21:58
+Meet. Okay sir. Yeah. Stop the recording sir. Yeah. And uh
