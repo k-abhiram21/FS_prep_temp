@@ -1,0 +1,1692 @@
+0:00
+Good afternoon. Uh any questions? Okay. Uh we'll first discuss that problem
+0:08
+which we looked at last class and show you three possible ways of doing it. one
+0:14
+using the division operator which is what we were not supposed to use and
+0:21
+then we'll again quickly recap how we solved it using n²
+0:26
+and then we realized that no the problem statement was primarily O of N time
+0:32
+complexity and O of N space complexity. So obviously uh having a squared
+0:39
+solution would result in TLE and your test cases would not pass. So we have
+0:45
+seen how that can also be solved. But for everybody's benefit, I'm sure some of you did not come last class.
+0:53
+For their benefit, we will look at that problem once again. There is this guy Rana who is writing uh a math exam and
+1:02
+one question is given an integer array replace every element with the product
+1:08
+of every other element without using the division operator. We'll look at how we
+1:14
+can solve using the division operator in O of N. And then we'll look at how we
+1:20
+have solved it using N² and then subsequently how we solved it using O of
+1:26
+N using the left array and the right array. So how many of you completed this
+1:32
+problem using O of N time complexity? Can you raise your hand please? Okay,
+1:38
+good. Yeah. So given so I'll take some test data
+1:44
+give me a blank screen uh let's look at some test data test data three 2 1 4 and 5 if we were
+1:56
+to solve this problem without any restriction which is not using the
+2:03
+division operator what we would first do is [snorts]
+2:09
+uh get the product of all and this product would be
+2:16
+120. You know in just a simple for loop get the product and then use one more
+2:21
+for loop where we say we divide the product by a
+2:28
+of i. So if I is equal to 0 it would be 120 /
+2:35
+3 40 which is exactly what this is 2 into 1 into 4 into 5. If I is equal to 1
+2:42
+it would be 120 divided by 260. So you end up getting what we are looking at.
+2:47
+Are you all clear? Using the division operator we can achieve using O of N
+2:53
+time complexity and obviously we don't need any additional space like O of N.
+3:00
+We can just do it with a simple scalar value which is one number which is the product. Are we all clear? Then we
+3:08
+looked at yeah this obviously cannot be done because the constraint was you cannot use the division operator. So if
+3:16
+you cannot use the division operator whatever be the time complexity is
+3:22
+meaningless because you are violating the constraint which is no division
+3:27
+operator. Then we have seen how we can solve this using n² time complexity. What did we
+3:35
+do? We said yeah we will write two for loops. Scroll up sir. We will write two for
+3:43
+loops. So if this is my data 3 2 1 4 5
+3:48
+we will write two for loops. One outer
+3:54
+and then one inner.
+4:01
+What did we then discuss? If I and J are same, we just exclude it. Otherwise, we
+4:08
+find the product of the remaining. So, we have somewhere called product is
+4:13
+equal to 1 uh which could be a long variable. And then we say if I uh is
+4:20
+equal to j continue otherwise product
+4:27
+is equal to product into a of i where a is the array
+4:34
+and i is the index guys have you not done this and I'm sure many of you have
+4:40
+done this. What does it do? It excludes that element when i and j are basically
+4:46
+same. Now imagine you start with outer loop I is equal to Z. What is the inner
+4:51
+loop? J is zero. So do you want to consider zero element? No. Because for
+4:56
+zero element I would consider everything except zero. So I'm saying if it is same
+5:02
+continue otherwise get the product. So when I is 0 and J is one I get the
+5:07
+product which is 1 into a of 1. When i is zero and j is 2, I get a of 1 into a
+5:14
+of 2 and three and up to n minus one. Likewise, when i is equal to 1, we
+5:19
+exclude one and consider 0 2 3 4. Is this clear?
+5:25
+But what is the time complexity here? The time complexity is obviously not what you expect, which is O of N. It is
+5:33
+N². Well, we did solve it, but then we later modified it to O of N because we
+5:41
+understand if N is a very large number. Imagine N is th00and and look at the number of iterations I would go into
+5:47
+which is 1,000 into,000 which is so much larger than just O of N which is thousand. You may not appreciate the
+5:54
+magnitude of it when you consider N as two or three but imagine N is 1 million records. Imagine N is 10 million
+6:01
+records. You know how much extra time we have to take if we have to go through n²
+6:08
+iterations over n iterations. Are you seeing what we understand by the time
+6:13
+complexity here? So obviously this is a solution but not optimal solution. Now
+6:20
+why are we looking at this? This is like a brute force. Many a times in the interview when you are given a problem
+6:27
+you may not get an optimized solution to solving it. What you can still do is
+6:33
+come up with the solution which works then buy some time and try optimizing it
+6:39
+to see how you can make it better. That is so much better than telling oh I don't know an optimized solution. I have
+6:46
+a solution let me see if I can optimize it. Sometimes the interviewer is pretty happy if you give a solution. If you can
+6:54
+optimize it, great. If your thought process is towards the correct way of optimizing it, that is still good. Even
+7:00
+if you don't get the complete solution. So, what they're not looking at is a byarted answer. What they're looking at
+7:06
+is given a problem, are you able to approach logically and take us through step by step on how to solve it, which
+7:13
+is exactly what an algorithm is. Given some input, expected output, a sequence of operations which we have to complete.
+7:20
+Okay. So now let's look at the the solution which we expect. I'll take you
+7:26
+through the code a little later. But let's look at this now. 3 2 1 4 5 which
+7:33
+is like for this consider the rest of them and what do I get as output? 40.
+7:39
+For this consider the rest of them I would get an output 60. For this
+7:45
+consider the rest of them I get an output 120. and likewise I would get uh
+7:50
+uh 30 and here I would get 24. This is the output expected for this input.
+7:59
+So now let's look at the solution which is O of N time complexity and O of N
+8:07
+space complexity. We have seen this using what is called
+8:14
+the two array approach. the left array and the right array which is like saying
+8:20
+given any index I get me the product of all the elements prior to I which is I
+8:27
+minus one and get me the product of all the elements after I which is i + 1. So
+8:34
+I would do for the left array and likewise I would do for the right. So it
+8:40
+is like so it is like it is like saying if this is the element I am considering
+8:48
+what would the left element product be? 3 into
+8:54
+2. And what would the right element product be? 4 into 5.
+9:01
+Are you there? Now the product of the entire array would be the left into the
+9:09
+right and excluding this. Anyway, are you there? Now if you consider this
+9:17
+element five, the left element product would be
+9:23
+uh 24 and what would the right product be?
+9:29
+One. So we get an answer 24. So we have to first compute an array
+9:35
+which contains all the left computations and then we have to get an array which
+9:41
+computes all the right and then do the product of both to give you the answer
+9:47
+for every index value. Okay. So considering that now let's see
+9:53
+how we can fill this array. Okay. Sir can you scroll up again?
+9:59
+So if this is my 3 2 1 4 5, I will create a left array.
+10:08
+I will create a right array. Okay, but before we actually start
+10:13
+creating the left array and the right array, there are two initializations we need to do. The leftmost element has a
+10:19
+value one, which is index zero, index one, index two, index three, and index four.
+10:25
+And the rightmost element has a value one which is array n minus one value
+10:31
+would be one. So you got that index 0 is one left index one is one. Now when you
+10:38
+go to the second element in the left array what do we multiply that with?
+10:44
+Whatever is the value in the element prior to it is what I am going to consider
+10:52
+because I have to exclude two. Are you there? Because I have to exclude
+10:58
+that index one which is a value two 3 2 1 4 5. If I have to consider that value
+11:04
+two then what do I basically have to do?
+11:10
+Yeah guys tell me what will the value at this location be
+11:15
+now it is a of i -1 into
+11:24
+into whatever is the element in that original array
+11:29
+I would sorry not left a of i minus one into array of i. So when I is equal to 1
+11:39
+it would be LA a 0 plus a ar r of sorry into zero.
+11:48
+Isn't that what we expect that if I am looking at this what is the product on the left side three how did I get three
+11:56
+the value into 1 which is three. So when I'm at index 2 when i is equal
+12:03
+to 2 what would it be? LA I - one LA 1 what is LA 1 3 into what is the value at
+12:11
+a R r of 1 2 so I'll get 3 into 2
+12:18
+six guys are you understanding
+12:23
+are you understanding now what will the third element value be whatever was la of two because LA of two
+12:30
+is computed from the left till that index into whatever that element is.
+12:38
+So it is like saying I got the product of three and two. Now I'm going to compute that with the element at that
+12:45
+index which is one. Are you all there?
+12:50
+So what did I get there? I will get six. What about uh this guy now?
+12:58
+What about this guy? LA of two
+13:04
+into array of two which is nothing but 6 into 1 6. What about this guy? L of 3
+13:11
+into a array of three which is 6 into 4 24. So this is the left array result.
+13:19
+That means I'm going from left to right. When I'm going from left to right, I am
+13:24
+calculating all the elements so far. the previous value will be the product of
+13:31
+all the elements up to that index. So when the next value product has to be
+13:36
+computed, I take the next element value into the result of the previous.
+13:43
+Is that clear? Now likewise, if you have understood this, can you fill the right
+13:49
+array where we start from the n minus one and go all the way up to zero.
+13:57
+What is at n minus one? At n minus one it is one. Now what will the n minus 2
+14:04
+be? It is n -1 into array of n minus one.
+14:14
+Initialization is important. The leftmost element has to be one and the rightmost has to be one. So the next
+14:20
+element would be right element which is array of n minus one into right array or
+14:27
+write uh element n minus one. So 5 into 1 would be this guy.
+14:34
+Are you there? So the way I would write this is a right array n minus one into array of
+14:43
+n minus one. when I'm talking about right array n minus2
+14:51
+is it clear so what is array n minus one initialize to one what is array of n
+14:56
+minus one five so right array is one five this is five what would this element be
+15:03
+what would this be now come again I can't hear you sir
+15:12
+it would be five into this element three uh oh sorry this element is four this is
+15:19
+index sorry my bad this is index and this is value so four 5 into 4 20
+15:27
+what about this guy 20 into 1
+15:32
+this guy 20 into 2 guys are you clear on how the right
+15:39
+element got filled and how the left element got filled left to right and how the right element got filled right to
+15:45
+left. So we start now we have individual arrays left array and right array. Then
+15:51
+you multiply one to one element and you get the result which makes sense right the left had only the leftmost elements
+15:58
+of it. So given this index the right has only the rightmost product. The result of left product and right product at
+16:04
+every index will give me the output expected.
+16:09
+Anybody is not clear. We'll look at the code in a moment. But before we look at the code, any questions on this.
+16:17
+Now this gives you the complexity expected as O of N. And since we are
+16:24
+talking about two arrays creation, it is 2 into O of N which is still O of N. Any
+16:30
+constant into that is not going to make a difference. So it is still O of N. So this is the solution which is the
+16:38
+optimized solution. No division operator and the time and space complexity is as
+16:44
+expected. Are we good everybody? Yeah. Great sir.
+16:50
+Can we see the code of the earlier one n square first? Yeah. Like I said earlier
+16:55
+the main has to be only for input and output. No programming logic should be in main. Uh the way we are figuring out
+17:03
+the solution is writing a method called fine product. What does fine product take? two arguments, one array and the
+17:10
+length of it. Are you all clear? Input is taken in the main. We are
+17:16
+calling a method. The method does all the work, returns you the result and that result is what we are printing in
+17:22
+line 58. Arrays dot two string. I mean you don't need to use a for loop to print. You can call a method arrays dot
+17:30
+two string for a single dimensional array. Okay. Sir shows the fine product.
+17:37
+Yeah. Now the first thing we do is we create a copy of it. Line 31. Uh clone
+17:44
+is a built-in method in Java API which is to create a copy. So what did we
+17:50
+create? A copy of the original array which is stored in B. Then look at that
+17:56
+line 32 and line 35. Two for loops.
+18:01
+This is O of N². And what are we doing in that for loop? If I is not equal to J, we get the
+18:08
+product. Or if I is equal to J, you continue otherwise get the product. In
+18:13
+fact, this is better. There's no need to write a continue. If I is not equal to J, we get the product. If it is equal,
+18:18
+anyway, we do nothing. Are we clear? Anybody has any questions
+18:24
+on this code? If this works, most of you, I think, did a great job last
+18:29
+class, but then the time complexity is obviously not great.
+18:37
+Shall we move on? Let's see the optimized solution.
+18:43
+Yeah. Yeah. See the time complexity is O of N.
+18:52
+So main sir, the time complexity is O of N and the space complexity is O of N. Now again we
+18:58
+are calling a method find product. Show us the find product sir. Yeah. Scroll down. Yeah. Great. Now look at that. We
+19:05
+have two additional arrays. One left and one right. Okay. What do they contain
+19:12
+initially? Nothing. But what is the size of the array? The size of the array is the size of the original array that is
+19:19
+long of n. Now scroll down. Yeah guys go through that code. Uh 41 and 47. Please
+19:26
+go through the code. If you have questions let me know. A very important point is line 40 where we initialize the
+19:31
+leftmost to one and line uh 46 where we initialize the rightmost to one. That
+19:37
+initialization is important. If it is not done properly then you'll get a totally different output. Okay. Yeah
+19:45
+guys are we clear on that code? We ran through the test cases here and
+19:51
+that is what the code is which is like saying at any point of time a particular index I left will be
+19:59
+the product of all the elements to the left of it and right will be the product of all. If I want the product of the
+20:05
+entire array I do the product of left element at that index into the right element at that index which is like
+20:12
+excluding that element anyway. Are we good? Uh so after we have done both the products we now then update the
+20:20
+original array with left and right product. Is that clear? If you want
+20:26
+maybe take a paper pen take some sample data and try filling your left array and right array maybe few minutes if you
+20:32
+want to. If you're clear, great. So it is very very important every time you
+20:38
+write piece of code, you now have to evaluate for yourself how much additional space am I [clears throat]
+20:44
+using to solve the problem and what is the time complexity of it. So you can
+20:50
+very easily figure out what the time complexity is based on number of loops you write. Whether is a while loop
+20:56
+within that one more while loop or a for loop doesn't matter. That's going to increase the time complexity if you have
+21:04
+nested loops which you iterate through n or k number of times. Okay. Here the
+21:10
+time complexities of n. Is it good? Can we move on? Yeah. So this is what we
+21:18
+will be doing going forward. Uh we will look at different ways of solving a problem. Some which are efficient and
+21:25
+obviously some which are brute force. Yeah, it works but obviously it is not
+21:30
+the best way of doing things. Okay. Yeah. Can we now look at the next topicical representation of what uh big
+21:39
+Oo, big theta and big omega are which are asytoic
+21:45
+notations. Uh before we look at that can you show the graph diagram? Yeah guys please look
+21:52
+at uh this uh diagram. Uh again if you look at it you understand on the yaxis
+22:01
+on the y-axis we have the time and x-axis you have the n value as the value
+22:08
+of n increases the time taken to solve that
+22:13
+uh problem increases. Are you are you seeing that? Imagine it was n² time
+22:19
+would obviously increase drastically for every n. If it is n cube, you know what
+22:24
+is going to happen? You know, at some point you'll be like, you know, uh for a very small increment of uh n, the time
+22:32
+will increment drastically unlike a a smooth sign curve. You know,
+22:37
+it's going to be a very very rapid jump. Okay. The bigger notation describes an
+22:43
+upper bound on the asytoic growth rate of the function f. notation describes an
+22:49
+upper bound on the asytoic growth rate of the function f. So we are saying fn
+22:55
+is equal to bigo of gn g of n. Okay.
+23:00
+Read as f of n is bigo of g of n if and if there exists a positive constant c
+23:07
+and n0 such that f of n is less than equal to c into g of n for every n
+23:15
+greater than n0. Now look at that graph closely. Pay attention to n pay
+23:20
+attention to n0. Are you seeing that is n0 for some values of n which is below
+23:28
+before below n0 the graph is very different. Are you seeing that if you
+23:33
+look at f of n is larger than c of gn. Look at this uh point here.
+23:41
+Look at this point here. But for every value of n larger than n0
+23:47
+what happens? f of n is lesser than equal to c into g of n. Now let's
+23:54
+understand this through some uh formula or through some mathematical equation
+24:01
+and see how we calculate what is the worst case time complexity. Big notation
+24:07
+refers to the worst case time complexity. Okay, let's see some
+24:12
+mathematical equations to understand and also understand how this graph relates
+24:18
+to it. But please pay attention to this part where for some particular value of
+24:25
+n0 f of n is larger than c of gn. See
+24:30
+this this is c of gn and this is f of n. But for every other value after that and
+24:37
+that will continue probably this will be always smaller than C of
+24:42
+GN. Let's look at it through some mathematical equations. So scroll down.
+24:48
+Yeah, stop. The definition states that for every function fn that every
+24:54
+function fn is at most c * the function except when n is smaller than n0 at that
+25:02
+point it is larger and not smaller. Now take this example 3 n + 2 less than
+25:09
+equal to 4n. Now when do you think this condition
+25:14
+will be true? For what value of n0 will it be false? And for what value of n it
+25:20
+will be true? I repeat see 3n
+25:26
+our function is f of n is equal to 3 n + 2. Now we are saying f of n is 3 n + 2.
+25:32
+So when is that 3 n + 2 less than equal to c into g of n? c is a constant. So
+25:38
+what is that? What did I replace that constant with? Four and n. So when do
+25:43
+you think for what value of n will that be true? If n is equal to 1, will that be true?
+25:51
+Is lesser than equal to 4? When n is equal to two, what happens?
+25:58
+n is equal to 3. lesser 3 n + 2 is lesser n is equal to 4
+26:05
+lesser. Do you all agree? So it is like saying at this point n0
+26:12
+below that it will be false. So if n is equal to 1 it is false. So that is at n0
+26:18
+at that point f of n will be larger and not lesser. But for every other value n
+26:26
+two and above this will always hold true. So because it always holds true
+26:33
+what are we then substituting? We saying for every n greater than equal to 2 that
+26:38
+will be true. So we can say uh 3 n + 2 is equal to big of n.
+26:45
+So what do you think is the time complexity to address such a mathematical uh equation?
+26:53
+n for every n larger than two I don't need n square here because what if the
+27:00
+left hand side contain only n so if the left hand side contains only n there is some factor of it which is the right
+27:06
+hand side which I have to consider so for every n larger than two we can say f
+27:12
+of n is less than equal to c into g of n where c is minimum two
+27:21
+are you Okay. Now consider the second example. So scroll down. Yeah. 10² sorry
+27:27
+10 n² + 4n + 2 is less than equal to 11 n². Let's say
+27:36
+now why are we coming up with 11? Anybody? Why?
+27:43
+And for what value of n? For every n larger than five this will
+27:49
+hold true. Imagine it is five. What will five be? 10 into uh 25 + 20 + 2. Now why
+27:59
+are we saying five? Because 4n + 2 will be true only when it is more than four.
+28:06
+Are you are you guys getting there? 4 n + 2 will only be true when n is larger
+28:12
+than four. If it is four, 4 n + 2 will be 4 + 2 uh 4 into 4 uh 16 which is not
+28:19
+true. Huh? Are you are you there? But when n is equal to 5, what happens? When n is
+28:26
+equal to 5, what happens? 11 n². How do you how do you read that? 11 n².
+28:36
+Are you seeing that?
+28:41
+For n is equal to 5, what do you get when you do that?
+28:47
+11 into 25 and what do you get on the left hand
+28:53
+side? 10 into 25 +
+28:59
+4 into 5 + 2 would that be true? I mean can we calculate
+29:05
+can we calculate? I'm just saying 1 minute uh sir when it is five it would
+29:10
+be uh 10 into 25 plus this 250 + 22 272
+29:18
+and this would be 11 into 25 275 so less than equal to okay but now you consider
+29:25
+four when you consider four 10 into 16 plus uh uh 4 into 4 16 + 2 uh 160
+29:35
++ 18 178 and this guy will be 11 into 16
+29:40
+it is 176. Obviously it is not true. So so we
+29:45
+are saying for every n larger than or equal to five this quadratic equation
+29:53
+will always hold true. So when we look at it we have to say at the right hand
+29:59
+side it is O of N². What was the left hand side? N². So
+30:04
+obviously you cannot solve it in O of N. So the time complexity to solve such a
+30:10
+thing is N². For every N which is increasing on the left hand side, there has to be a corresponding n² which is
+30:17
+increasing on the right hand side. So everything is represented through math here.
+30:24
+So this is what we say the worst case. Can I consider for this example or for this earlier example O of N²
+30:34
+Can I do that for every n larger than 2? Instead of saying 4n, can I say 4 n²?
+30:41
+Would that still be true? F of n less than equal to o of sorry c of gn it will
+30:49
+be. But do you need that? What is the immediate upper bound? O of n. Whether I
+30:55
+go for n² or n cube or n ^ 4, it is still going to be true. But I don't need
+31:01
+them. Likewise in the second example I can also go for O of N cq which will also
+31:09
+hold true but I'm looking at the immediate upper bound and that immediate upper bound is n² in the second case and
+31:16
+n in the first case and that is what we mean by the worse
+31:21
+time complexity which you would uh have for a particular algorithm which you are
+31:28
+trying to implement. So whenever we talk about time complexity we are always
+31:33
+talking about the bigo notation which is the worst case and not the best case.
+31:40
+And in the worst case this is the true the graph show the graph again that uh f
+31:46
+of n is less than equal to for c of g of n for every large value of n
+31:55
+except when n is less than n0. So we know what that boundary is.
+32:03
+Now what do you think the best case would be now looking at the diagram now?
+32:08
+Yeah. Anybody? It'll be swapped. F of Show the erase everything sir. Yeah.
+32:15
+Although n cube is an upper bound for 10 n² + 4 n +2 it is not a tight upper
+32:20
+bound. We can find a smaller one and that is what is our bigo relationship is
+32:26
+in the ear also have a n square but the smaller up tighter upper bound is n² for
+32:31
+this n square and not n cube. Okay. And for some other problem it may be n cube and not n ^ 4 or n ^ k where k is larger
+32:39
+than 3. Okay continue. Omega notation describes a lower bound on the asytotic
+32:45
+growth rate of the function. Everything is same. Can we look at the diagram now? Now look at this diagram. What are we
+32:51
+saying? F of n is greater than equal to c into g of n. Which means we now have
+32:58
+to found find what is a lower bound. What is the best case to solve this problem? Okay. Now the definition states
+33:06
+that for every function fn it is at least c * the function gn except when n
+33:13
+is smaller than n0. Again in this situation uh f of n is lower than g of n
+33:20
+when it is lower lesser than n0. Are you there?
+33:26
+In the earlier case was larger here it is lesser. Now take this example. Same example but the thing is earlier it was
+33:34
+lesser. It was lesser than equal to and now it is greater than equal to. Are you guys seeing this is greater than no
+33:41
+thickness? Reduce it. Yeah. Now consider that same mathematical equation. Now
+33:48
+when you consider the same mathematical equation for what yes you can stop there. For what value
+33:56
+of n is this true? Now earlier it was like 3 n + 2 less than equal to 4n. Now
+34:03
+we are saying 3 n + 2 greater than equal to 3 n. When is it true? For every n
+34:09
+greater than one. When n is equal to zero it will obviously uh also be true.
+34:16
+Yeah. But anyway we are talking about the 3n. Are you are you guys there? For every n. So what do we translate to?
+34:25
+Omega of n not n square. Now for the second case what do you see? 10 n² + 4 n
+34:32
++ 2 larger than equal to n² for every n larger than 1. Earlier it was for every
+34:38
+n larger than 5. Now it is for every n larger. So we are saying the lower bound
+34:44
+is theta omega and this is n². But again whenever
+34:50
+we talk about time complexity we will never look at the best case. We will always look at the worst worst case.
+34:58
+Remember the example I gave you in a binary search. What is the best case? Of
+35:04
+one. When is it O of one? The first time you get the mid element. The mid element
+35:10
+value is equal to the target you're searching for. That is the best case. But you can never make an assumption
+35:16
+that when I'm writing a uh piece of code, you're going to give me a target which is always a middle element. So we
+35:22
+always look at the worst case and that is nothing but log of n. Are you are you getting it? So we look
+35:28
+at that. But this is important because in j&u they will ask you to draw these
+35:34
+graph and explain the uh uh what is bigo, what is big theta, what is big
+35:40
+omega. So you need to know in one case f of n is larger than uh c of gn in the
+35:47
+other case it is smaller and what do you think average cases now what do you think average case will be
+35:55
+you have seen both the diagrams can you show both the diagrams again sir
+36:02
+this is go up sir yeah this is the bigo okay scroll
+36:09
+swap. This is the omega notation which is the lower bound. Now what do you think average case would
+36:16
+be?
+36:21
+F of one in one case was larger in the other case was smaller. When you talk about average it will be in between. It
+36:30
+will be in between C C1 GN and C2 GN where C1 and C2 are two constants. So
+36:38
+that is the average case. Show the average case sir. Yeah. Theta. Now look at this please
+36:44
+diagram. Again same condition applies for every
+36:50
+value of n except n uh except n0.
+36:56
+Okay. So can you go up slow? Yeah. The theta notation describes a tide bound on
+37:02
+the asytoic growth rate of the function. Uh read this as
+37:08
+f of n is theta of g of n if and only if there exists a positive constant c1 and
+37:16
+c2 like cgn c1 gn c2 g2 uh c2 gn such
+37:22
+that uh and n o such that c1 gn is less
+37:28
+than f of n is less than this. What is this guy? Lower bound. What is this guy?
+37:36
+Upper bound. Are you seeing this? What is the some combination of this
+37:42
+average average time complexity? Are you able to relate now? Is the
+37:49
+diagram clear? And is that mathematical equation clear? C1 GN is less than equal
+37:55
+to F of N which is less than equal to C2 GN. The left half was the lower bound,
+38:01
+the right half was the upper bound and the uh combination of this is what we
+38:07
+call the average time complexity. Now let's go through a mathematical equation
+38:12
+sir. Yeah. Now look at this please.
+38:19
+f of n is 3 n + 2. Now we are saying 3 n
+38:27
+less than which is your lower bound 3 n + 2
+38:33
+less than equal to 4n which is your upper bound. Now when you write
+38:40
+when you write this for what value of n is this true
+38:48
+for every n greater than equal to two? Obviously for n is equal to uh
+38:56
+1 this will not be true. Five uh less than equal to 4 is not true. Although uh
+39:02
+3 is less than equal to 5 is true. But for every n2 and above this is
+39:09
+fulfilling that condition which is lower bound upper bound which is what we call
+39:14
+the average time complexity. Okay. So remember those three diagrams.
+39:22
+In one case you have f of n lower than equal to c of gn which is the bigo. In
+39:28
+the other it is at lower bound uh which is the minimum time complexity. And f of
+39:35
+n is in between c1 gn and c2 gn and then you have a mathematical equation. You
+39:42
+write the left half you write the right half and then figure out what is that constant and what is that n factor. If
+39:48
+the expression contains n² the n factor has to be n². If the expression contains
+39:54
+n cube, it has to be n cube without which you cannot solve. And that is translating into if I were to write two
+40:00
+for loops, I know what the time complexity is. If I were to write one single for loop, I know what the time complexity is. And likewise, so we look
+40:08
+at time complexity by the amount of code we write, which is a nested loops we plug in in our code. And you have seen a
+40:15
+very good example of how we solve that problem with N square and later we move to O of N.
+40:22
+Any questions please before we move on to the next very important topic today which is recussion. Any questions on the
+40:30
+first part uh end of the day today we will give you all this material. Uh the
+40:35
+you know the interesting cases we went through last class. uh given age of 1 billion people uh given employee ids
+40:43
+given a pen all of that is there in the document uh we also have got all that matrix where we say for every n how does
+40:50
+the uh number of itinerations increase based on the time complexity so all that
+40:55
+will be handed over so you can read over the weekend uh after we are done with recussion we'll give you the recussion
+41:01
+material okay fair enough yeah any questions please
+41:07
+what do you think Recussion is anyone? Yeah. What do you think recussion is?
+41:14
+Come on. You have done recussion in C++. You have done recussion in Java 21 Java
+41:21
+22 C++ doesn't matter. Recussion is recussion language independent. Yeah.
+41:32
+Calling function inside function. Calling function inside function. Uh, is
+41:37
+that a question itself? The function itself will call the function itself inside the function.
+41:42
+I can't hear you, sir. Closer. Yeah. Calling the function itself inside the
+41:48
+function. Okay. Calling the same function. Okay. Let's be clear. Because if A calls B and
+41:54
+B calls C, that is not recursion, right? Great. Where do we go for recursion? And how do recuss how
+42:00
+does the recursive function work? Next, what does a recursion use uh when
+42:08
+you solve a recursive problem? Uh it uses a base case. It it has to have a base condition.
+42:14
+Okay. Uh and and uh a return.
+42:22
+Yeah. Recursive call. Recursive call. Okay. It has to have that base condition
+42:27
+and the actual code. Okay. Uh what happens if we don't have a base condition?
+42:32
+uh the function will call itself repeatedly and go into an infinite loop. So we will get a stack overflow. So
+42:38
+internally you're saying recussion uses stack. When you call that same function
+42:43
+there is an address space required which is that function and all the variables which are there. Okay. Uh
+42:52
+how many of you have difficulty uh understanding a recursive function?
+43:00
+No. Good. The reason being many of our problems
+43:05
+can be very easily solved using recursion because you're able to break
+43:11
+that big problem into a smaller problem and when you get the solution to the
+43:16
+smaller problem you use that solution to come up with the solution to the larger
+43:21
+and that is used to come up to the solution for the actual problem. like you know if you talk about finding the
+43:29
+factorial of a number I don't need recussion I can use a simple while or a
+43:35
+for loop and solve that in O of N time complexity I just continue multiplying
+43:42
+that number and decrement it and keep multiplying. So if I have to find the factorial of five, I multiply five, then
+43:48
+with four, then with three, then with two, and then with one. I keep decrementing n every time I do that in a
+43:54
+for loop. Or I can increment and start with one and then go up to n minus one.
+43:59
+Uh go up to n. Clear? But why do we use recussion? It may not be a feasible. It
+44:05
+may not be a solution for solving factorial. But when you talk about you know binary trees you have done binary
+44:12
+trees in order pre-order post-order traversal
+44:18
+whenever you talk about such problems recursion is what comes to your mind in
+44:24
+recursive solution what we basically have are two things one a base condition
+44:30
+which will help terminate that function call and the other is that code which
+44:36
+will help you compute what you're looking hat. Can anyone tell me what are the different types of recussions
+44:42
+available? Tail. Okay.
+44:49
+Head. Okay. Three. Okay.
+44:57
+Nested. Okay. Indirect. Okay. Great. What is the
+45:02
+difference between tail and head recussion? Answering difference between head and tail. Yes. Go ahead tell us the
+45:08
+difference between head and tail. If the recursive call it is the starting point then it is called uh head
+45:15
+recussion. Uh if it is the last call after the process is done it is tail recussion.
+45:21
+Tail recussion. And what is nested recussion? Uh nested recussion is function
+45:26
+parameter is also a recursive function. Function parameter.
+45:31
+Uh come again. Huh? Function parameter. Okay. That means within one recursive call the argument is the other function
+45:39
+call and that guy may have another call. So you can have any number of nesting. So great we we'll quickly look at
+45:46
+recussion. I think all of you know anyway I'm just quickly going to is a powerful algorithmic technique in which
+45:53
+a function calls itself either directly or indirectly. A can call B and B can
+45:59
+call A. Okay. uh on a smaller problem of the same type in order to simplify the
+46:04
+problem to a solvable state. Okay. Now let's briefly talk about another
+46:10
+practical application before we even look at recussion.
+46:15
+If you have to solve a problem, how do you approach a problem?
+46:23
+If you have to solve any problem, let's say you have to build a website like Amazon.
+46:30
+How would you solve that problem? All of you use Amazon or Flipkart or one
+46:37
+of those. Uh you know pretty much what are things available.
+46:42
+So if I were to ask you to explain to me
+46:48
+the design involved in sol
+46:53
+uh shall if I were to ask you to explain to me
+46:59
+the design involved in building a website like Amazon, how would you approach?
+47:04
+What would you need to know to you know start on your design?
+47:11
+Anybody? Anybody? Okay. What are the things you see on that website?
+47:18
+You have product cataloges. You select a catalog, you get the products. You have lot of filters based on that. You can
+47:25
+you have different categories of things you can do. You can uh add the item to
+47:31
+the cart. You can then, you know, check out, pay for it, item gets delivered, all of
+47:38
+that. So if I were to ask you broadly what are the big components
+47:47
+or what is the big functionality which you have to build to achieve the bigger
+47:53
+problem which is Amazon website. What are the things you need to know
+47:59
+about payment gateway? You need to know how to get data
+48:04
+uh from the cataloges and display. You need to give them an option to select your payment and other things.
+48:14
+Now if you break it down into smaller things, you will realize yeah I already have done in another product payment
+48:20
+integration. So that is taken care. I know how to communicate with the database are a JSON object. Say that is
+48:27
+how the data is stored. I know that part of it. I have built some website. So I know how to take care of you know
+48:34
+displaying the products, navigating through the cataloges, applying filters, making those choices. So you are now
+48:42
+saying, "Oh, it is not a very difficult task if I have already broken down into
+48:48
+lot of those subtasks and if I know how to solve those subtasks, I have
+48:54
+identified 10 subtasks. Of that eight, I know I only have to now worry about
+48:59
+remaining two. If you had not done this breakdown of the problem into subcomponents,
+49:06
+it would look like a very difficult task and you would always get lost in that
+49:12
+thought. So what we are also trying to say is when you are given a problem to
+49:17
+solve if you can find a recurrence relationship on how to solve it how to
+49:24
+solve the smaller problem how that can be used to solve the bigger problem then
+49:29
+we use what is called recursion to make such things possible. Okay. So let's
+49:35
+continue sir. Yeah. Now go up sir. Go up. the base condition, the base case is
+49:41
+a small problem that we have to know how to solve. Otherwise, the recursive uh
+49:46
+solution would never terminate which is always what we say the termination statement. Whether you write that at the
+49:52
+beginning or write that at the end is all based on what type of recursion you write but it has to be there somewhere in your recursive function call. The
+50:00
+recursive case is a more general case of problem we are trying to solve. Okay.
+50:05
+Yeah. Now if you look at that factorial uh of a problem given a number factorial
+50:11
+of it the base case is when n is one when n is zero or yeah n is one when n
+50:18
+is zero or one so if I have to find the factorial of two I will always say 2
+50:23
+into factorial of one and when I know what is the factorial of one I return and imagine I didn't have a base
+50:29
+condition it will always go into 1 0 minus one and that will never terminate and you end up with a stack overflow
+50:36
+problem. Okay, continue. Yeah, recursive techniques can often lead to simple and
+50:42
+elegant solution to problems. As we go, we will look we will use a lot of it.
+50:48
+They're not always the most efficient. It obviously uses a great deal of memory and stack space. So many of times it may
+50:54
+be simple just to write a simple for loop then going for a recursive one. The stack is a memory set aside because
+51:01
+every time you call, you're adding it to the stack. When the function call is over, it stack unwinds. The values are
+51:08
+returned back to the caller. I'll show you all of that through some examples. Yeah, scroll down. Sometime the problem
+51:15
+is too difficult or complex to be solved. So, we break it down into smaller versions of itself, solve the
+51:21
+smaller version, and then use that smaller version to build the bigger version. Okay. Uh the idea behind
+51:27
+recussion is break the problem into smaller pieces which you already know the answer to and then use that to build
+51:33
+the bigger one. Now take an example of Fibonacci series.
+51:40
+What are the base conditions there? Yeah. What are the base conditions for
+51:45
+the Fibonacci series? Blank screen. Yeah. What are the initial values?
+51:54
+0 and 1 0 1 1 right. So we know the base
+51:59
+conditions are 0 1 or you can also say one which is
+52:06
+like saying if n is equal to 0 if n is = 1
+52:14
+n is equal to 2. Now what about the next element? The
+52:20
+next element is the sum of the previous two. Sum of the previous two, sum of the
+52:27
+previous two, sum of the previous two and so on. So what is a smaller problem
+52:32
+we are looking at? The smaller problem are those base conditions which we are aware about which is 0 and one and the
+52:39
+next element is the sum of the previous two. So I know what the initial two values are and since I know the initial
+52:45
+two values I can extend that for the third fourth nth without any problem. If
+52:51
+I had not had the initial two values can I ever solve this problem because then I
+52:57
+would not know what is my base condition. Are you guys getting it? So we are looking at the smaller problem
+53:03
+which is the Fibonacci series of two numbers. Use that to generate the Fibonacci of three. Use that to generate
+53:08
+the Fibonacci of n. The base condition is important. The smaller problem
+53:14
+solution is what we know. We use that to compute the larger one. Okay. Yeah.
+53:20
+Continue sir. Continue. Now just see this simple
+53:26
+example. All of you know this but I will take you through the stack here. Uh what
+53:31
+type of recursive uh function is this? Is it head or tail?
+53:37
+Madam is it head or tail? What type of recursive function is this?
+53:46
+Head tail. Tail.
+53:51
+No. No. Look at the return. Is a recursive call at the beginning or
+53:57
+is the recursive call at the end? We'll go into all of that detail. Okay. Now, if I were to look at it closely, what
+54:03
+happens? I am saying uh factorial of four from main.
+54:10
+Okay. From from main I'm calling factorial of four. Now somewhere we have
+54:15
+written a factorial function int. They're saying
+54:21
+if n = 0 or n = 1 return 1 else
+54:32
+uh n into factorial of n minus one.
+54:39
+Now when I called it from main what did I call f with
+54:44
+f of 4 cos 4 into f of3 that guy cos 3
+54:51
+into f of2 this guy cos 2 into f of 1
+54:56
+when it is one what happens we return one so what is returned back one so I I
+55:03
+get two f of two will return two f of3 will Turn six. Are you guys getting it?
+55:11
+Unwinding of the stack. A calls B. B calls C. When C is over, where does the control go to? B. When B is over, where
+55:19
+does it go to? A. When A is over, it goes back to main. Now, unfortunately or fortunately in this case, A, B, C, D are
+55:26
+all fs. Are you getting it? because it is a recursive function. the same function
+55:33
+calls itself with different values for that parameter from main when I call it
+55:38
+I'm calling with four later I'm calling with three later I'm calling with two later I'm calling with one when is
+55:44
+called the base condition is fulfilled control returns back to the caller of f
+55:49
+of one that is true when f of two is over it turns back to the caller of that
+55:54
+which is f of3 caller you know unwinding so I'm going back now so this is how the
+56:00
+stack cross. Now unwinding of the stack is taking you here. This guy will take
+56:05
+you back. This guy will take you back. This guy will take you back to main. Are you all clear?
+56:12
+Now if I were to put this on the stack, what would it be initially? F of four, F
+56:18
+of three, F of two, and F of one. F of one is over. Top of the stack is
+56:25
+removed. Then F of two is removed. Stop. then f of three and then f of4 you know
+56:32
+till the stack is empty. So every time you call a recursive function you're
+56:37
+having a stack built internally the function addresses are stored on the stack which is why every recursive
+56:45
+function takes more memory because it has to also store the address of the function along with the parameters which
+56:52
+are passed to that function. So obviously there is an extra space which is the address of the function.
+56:59
+Are you there? Yeah. Yeah. Can you go back sir to the code uh to that
+57:04
+document? Yeah. Scroll down. Down. Now here is a
+57:10
+scenario where there is no base condition. So when there is no base condition what is happening? F of one is
+57:16
+calling f of0. F of0 is calling minus1 and that will continue till there is a
+57:21
+sack overflow. So this is ideally not a good scenario. A good scenario is above
+57:27
+one go up sir n is equal to zero r when n is equal to
+57:32
+1 return one. So that is what we call the base condition and the rest of the
+57:37
+code is the actual recursive function implementation. The base condition is very critical for every recursive
+57:45
+function call. If you don't get the base condition, you cannot write a recursive function because you will not be able to
+57:52
+terminate that at all. Are we clear everybody?
+57:59
+Yes. Okay. Great. Now that you know what a factorial is,
+58:09
+now that you understand factorial. Okay. Now can you tell me in how many
+58:15
+different ways can the letters in the word kmit or ngit be arranged?
+58:23
+I repeat that means with this word kmit what are all the combinations of words you can get. And likewise for ngit
+58:32
+it is basically four factorial. How many distinct words you have? Four.
+58:40
+Are you guys getting it? is like four factorial. Four factorial is either NGIT or KMIT.
+58:48
+Now, if I have a word, yes, I want to scribble there.
+58:56
+If I have a word KMIT, NGIT together, one word KMIT, NGIT,
+59:03
+in how many different ways can you form
+59:12
+Yes sir. Can't hear. Can you be loud? You guys had lunch.
+59:19
+Huh? Kit Ngit is one word now. Yeah. Uh use
+59:27
+the mic sir. You're clear. If I had kit four factorial because all words were unique.
+59:35
+Now here do you see all words unique? What is I repeated?
+59:40
+Twice. And what is T repeated? Twice. So if I have a word K MIT, NGIT. Yes sir.
+59:46
+Can you explain? Yeah. 8 factorial by 2 factorial into 2 factorial sir. So here the result would be 8 factorial
+59:52
+which is the total number of words divided by the number of words which repeat. Which word is repeating? I. How
+1:00:00
+many times? Twice. Two factorial. If it repeats three times, three factorial. If
+1:00:06
+it repeats four times, four factorial. So we have I repeating twice, T repeating twice. So it is 8 factorial
+1:00:13
+divided by 2 factorial into 2 factorial whatever that is.
+1:00:19
+So you could be given a very simple you know MCQ question like this where you have multiple such answers and if you
+1:00:26
+know that yeah this is a factorial problem trying to get a combination of every word at every position to generate
+1:00:33
+all the possible words is basically factorial but if it's repeating then we divide uh for this problem we take the
+1:00:40
+number of letters and find the factorial since there are all unique it is four factorial now kit ng is basically very
+1:00:48
+rightly said by you. 8 factorial divided by I repeating twice T repeating twice 2
+1:00:54
+factorial into 2 factorial which is whatever clear anybody has any questions can we
+1:01:01
+move on great now let's look at what are the different types of recursive functions
+1:01:08
+head tail tree just to give you an idea so that when you write piece of code you
+1:01:14
+know should I have the base condition first and then the recurs recursive call
+1:01:20
+should I have a recursive call and then the base condition you know we'll look at all of that so sir take us through
+1:01:25
+different types of recursions head recussion first yeah
+1:01:31
+again for completeness in a head recussion the recursive call
+1:01:38
+is the first statement in the function then it is head you know top tail at the
+1:01:43
+bottom okay there is no statement no operation before the function call
+1:01:50
+the function does not have to process or perform any operation at the time of the calling and all the operations are done
+1:01:57
+at return time. Now given this piece of code tell me what would the output of this program be sir
+1:02:05
+show the mean. Yeah. In the mean I'm calling that function with four. Okay.
+1:02:12
+So go up. Yeah.
+1:02:17
+What would the output of this be?
+1:02:24
+I am calling that with four. What will the output be? It is a head recussion.
+1:02:30
+Output will be different depending on head or tail. Now with head, what is the output?
+1:02:38
+Yes, please. 4 3 2 1.
+1:02:45
+just okay let's write down now whenever you write recursive code please take a paper pen trace through the flow when
+1:02:53
+I'm calling this with four uh this is f of four
+1:02:59
+is n greater than zero yes what is it calling with f of three f of3 is calling
+1:03:06
+f of two f of2 and f of2 is calling f of
+1:03:12
+one and f of1 is calling f of0.
+1:03:17
+Are you seeing the trace? Now when f of0 is called, what happens to this condition?
+1:03:25
+What happens? Is it true? No. Then where does the control go to?
+1:03:31
+The caller of it. Who was the caller of it? One. So what will the output printed
+1:03:37
+be? One. Then what will the output be? Two. Then three. And then
+1:03:45
+see the flow we are printing only after all are done.
+1:03:51
+When all are done, who was the last guy who called f of zero? f of one. So when
+1:03:56
+f of one is over in that line 22, then the control goes to line 24. And what
+1:04:01
+does it print? n. n is one. Are you able to trace?
+1:04:08
+Yes. Can you run that sir for completeness? So that they understand that this is a head recussion where the
+1:04:16
+call is the recursive call and then the other statements which is SOP or whatever we have but the condition is
+1:04:23
+important if n greater than zero termination statement
+1:04:28
+no test are you all clear or shall I run through
+1:04:34
+again for you clear now show the tail recussion sir same code see the order of writing the tail
+1:04:43
+continue. Yeah. Now look at the tail. In the tail recussion, the recursive function is the last. Now what is very
+1:04:50
+obvious here? What is getting printed first? Four, then three, then two and
+1:04:57
+one. This is easier to because first the SOP and then the recursive call. SOP
+1:05:02
+recursive. In that case it was all recursive cause and then we were unwinding from the bottom till the top
+1:05:08
+and then it was printing 1 2 up to n. Is that clear everybody? But still the
+1:05:16
+stack space will still be the same. Four calls 3 3 2 1. When one unwinds print
+1:05:21
+happens here print happens first and then the recursive call happens. This is called tail recussion. Is everybody
+1:05:28
+clear on the difference between head and tail recussion? Yes. Yes sir.
+1:05:35
+Uh okay. Uh I would call that uh still the head recussion.
+1:05:42
+Uh sorry it was n what what is the condition? If n is equal to
+1:05:47
+huh there we didn't have any SOP right it's just a base condition. Imagine I put an
+1:05:53
+SOP before recursive call it would have become a tail. If I put an SOP after that it would have become a head. What
+1:06:00
+comes first? We didn't have any statements there. Actually, we didn't have any statements.
+1:06:05
+If I had an SOP before, it would have been a tail. Like here, what is the difference? Where is that line 22
+1:06:11
+coming? SOP before. Show the head, sir.
+1:06:17
+After the function call is first, recursive call is before other statements.
+1:06:23
+Is that clear? Yeah. Now, show the third one.
+1:06:32
+Yeah, continue. Now look at this please.
+1:06:38
+Uh okay. Uh don't go to Fibonacci. We'll come to this later. No, stop Fibonacci. Stop Fibonacci. Show the other one.
+1:06:44
+Direct recussion. Yeah, this is direct.
+1:06:52
+What is indirect? A calling B, B calling A. That is
+1:06:57
+indirect. Here is direct because the same guy calls itself. Okay. Pretty much most of our recursive calls will be
+1:07:03
+direct but there could be indirect. Show the indirect one sir. Yeah. Okay guys tell me the output of this code. Can you
+1:07:09
+remove all the blank lines? Blank line 12.
+1:07:15
+Yeah. Show the entire code please.
+1:07:20
+Yeah. Uh in main we are calling with function a with 10. Okay. Now please
+1:07:27
+observe that and tell me the output of this program.
+1:07:33
+Sir, can you show the entire code? Function A, function B. Yeah, great. Guys, look at this code. Tell me the
+1:07:38
+output of the program. In main, we call function A with 10. Now A calls B. And
+1:07:45
+what does V call? A. Indirect.
+1:07:50
+Yeah. Anybody output? I didn't hear.
+1:07:55
+Come again. Okay. Uh is that condition eight true? Yes. If it is true, what are we
+1:08:01
+printing? N. What is n value initially? 10. What are we calling B with
+1:08:09
+nine. Then what are we printing? N. What are we halfing? 9 / 2.
+1:08:17
+What are we printing? Four. Then we are sub subtracting by one. Three. What do
+1:08:22
+we divide three by two? What do we get? We print one. And then when we call with
+1:08:29
+zero, the condition is not true. So the answer
+1:08:34
+would be something like 10 9 4 3 1.
+1:08:41
+That's it. Because condition is greater than and not greater than equal to zero.
+1:08:46
+Are you there? A cos b. this continues and both of them have that
+1:08:52
+termination statement. Imagine if one of them didn't have this will never terminate. Okay sir
+1:09:10
+10 94 31. Now why are we looking at it? Tomorrow you might have a quiz here
+1:09:16
+where we'll give you a problem and output you go and select you know
+1:09:21
+there'll be some MCQs. Okay. And if you're not clear about it you could just mix head with the tail and tail with the
+1:09:27
+head because answers will be very very similar. Okay sir go back show the code
+1:09:33
+again. Yeah. Can we move on? Any questions? What do you think a tree recuss nested recussion? Nested
+1:09:39
+recussion. No nested. We have a nested right.
+1:09:47
+Uh okay. Show the tree. Show the tree.
+1:09:54
+Yeah. Continue. Show the tree. Go to the beginning, sir. Go to the beginning. Go to the beginning. If if a
+1:10:01
+recursive function calls itself for one time, it is called a linear recussion. If it is calling more than once, it is
+1:10:07
+called a tree recussion. Now, uh looking at this code, can you scroll down, sir? mean mean
+1:10:14
+x is two and we are calling a function. Tell me what is the output of this code?
+1:10:20
+Yeah, I repeat x input was initially two and
+1:10:25
+we are calling this function more than once which is like a tree recussion two or n number of times n greater than two
+1:10:32
+two greater than equal to two. Yes. What would the output be?
+1:10:39
+Again, this is a tail recussion.
+1:10:52
+Yeah. Output. You're calling first time with two.
+1:10:58
+Okay. There are two outputs I want. Scroll down. Show the main. You also need to tell me how many times is count
+1:11:04
+called. Count is static. How does static work in Java?
+1:11:10
+What does static in Java mean to you? Okay, forget about Java. What does static in C++ mean to you? Same meaning
+1:11:18
+is there in Java. Static variable, static data member in
+1:11:24
+C++. You told me last week, I mean last class C++ we are very good sir. In
+1:11:29
+three, in 22 we had C++. 21 we had Java. We forgot that. What about C++?
+1:11:38
+What does static data member mean? Huh?
+1:11:44
+What does it mean? What else does it mean?
+1:11:50
+Okay. Static data member belongs to the class. It is created when the class is loaded. What more?
+1:11:58
+Very nice. The value of that variable will be same for all the instances.
+1:12:04
+Now if you look at this so go up sir is this a static data member line 10.
+1:12:11
+Yes. So when when you are calling this tell me after all the recursive
+1:12:16
+functions are over what will the value of count be and what will the value of n
+1:12:22
+be in line 16. So show us that complete code. Yeah
+1:12:27
+take a paper pen and do it. You will miss out.
+1:12:33
+We are calling function from main with a value two.
+1:12:40
+Come on anybody. Count value.
+1:12:50
+Count value. Static variable is one copy maintained
+1:12:57
+with all instances of the class.
+1:13:03
+And that copy is getting incremented in that line 13.
+1:13:11
+What is the value of count? Four. No, four is not correct.
+1:13:18
+Seven. Five. Okay. 4 7 5. You know, for such a
+1:13:25
+simple problem, we are getting so much of variation in the answer. Huh?
+1:13:32
+Okay, why don't you write down all the steps? You'll get the answer. f of two
+1:13:38
+f of two is calling what? f of one and f of one. Do you agree? What is f of one
+1:13:45
+calling? f of0 and f of zero. What is this guy again calling?
+1:13:52
+How many times is this function called? Hello guys.
+1:13:58
+Four times. Five times or seven times? Seven times. Right? How did we get four?
+1:14:04
+Who said four? Is that clear? Seven times. So count
+1:14:11
+will be seven. But what will the n value be? Initially
+1:14:17
+two will get printed. After that how many times? Two times. After that
+1:14:23
+nothing. So the answer will be two and then single once. Twice.
+1:14:30
+No, no. 2 1 1 zero will never get printed. No sir, the
+1:14:36
+condition is n greater than zero. So if it is greater than zero, why will it print zero? So it'll print 211 1. And
+1:14:41
+what is the count value? Seven. Sir, run.
+1:14:47
+I think we should have a quiz soon for them.
+1:15:03
+211 count is seven. Is that clear? Now go to the code sir update it and uh uh
+1:15:14
+change the logic from after line 15 just say n -
+1:15:21
+sorry just say function n minus minus no no remove 16 in 17 you say function n
+1:15:28
+minus minus tell me what will the output be what will the count value be
+1:15:35
+huh I don't know. Check. Huh? N - is
+1:15:41
+different from N n -1 n minus one. Guys remember there's a difference in the code.
+1:15:49
+It is not same as n minus one. n - is different. Anybody.
+1:16:03
+Okay. Uh five. And what will the n values be printed?
+1:16:10
+21 only two values okay so one answer I got I'm not saying what is right and
+1:16:16
+wrong I got one answer 21 count is five okay great anybody else
+1:16:25
+has a different answer infinity okay that's another answer so
+1:16:32
+will it print anything what will it
+1:16:39
+Come on. Same number always. Sir there is n minus minus and n minus
+1:16:45
+minus.
+1:16:50
+Okay. We have an interesting answer. Infinity. Yes. Can you can we write down what you
+1:16:57
+are saying? F of2. F of2 calls what? Okay. We are calling f
+1:17:04
+of two from main. What does f of2 call internally? It keeps calling f of two over and over again.
+1:17:09
+It will call again f of two and then f of two
+1:17:16
+sir n minus minus the value updates only within that scope of the fun calling function.
+1:17:24
+Come again. The value is only updating in the parent function not not when it's passed. I can't hear you.
+1:17:33
+Okay fine. Can you run this? You will not get a program which
+1:17:39
+terminates here. It looks like yeah what is the big deal? N minus one is same as n minus minus. It is post increment.
+1:17:46
+Sorry post decrement not pre. If it was minus min - n it will be in a different
+1:17:52
+sir. Can you run? Boom.
+1:17:58
+F of two. F of two. Never. Now change it to pre. Now pre will be are you are you there
+1:18:05
+guys? Did you see f of two calls f of two then again that f of2
+1:18:10
+and again each of them call f of2 and this is the stack overflow example.
+1:18:16
+Okay sir minus - n.
+1:18:21
+Now what would it be sir? What would it be now?
+1:18:28
+pre. So f of two is now calling f of one and f of one is now calling.
+1:18:36
+It is. Yeah. Run.
+1:18:43
+Is it clear? Different but it terminates. N keeps
+1:18:49
+decrementing here. Okay. Are we good? Great. We are going
+1:18:54
+to look at one very interesting problem. the Fibonacci series.
+1:19:02
+How do you write the recursive function call for it? Sir, show the document.
+1:19:09
+Yeah. Yeah. I think guys,
+1:19:15
+I think all of you know this very elementary, very basic. So, you may get
+1:19:21
+distracted, but hello. Silence please.
+1:19:27
+Yeah, it is a series of numbers in which the next number is the sum of the previous
+1:19:32
+two. We have discussed what the base values are which are 0 and one. And the
+1:19:38
+next element is also one. So we can say for n=0 it is 0. For n less than 2 it is
+1:19:46
+1. n= 2 it is 1. 011. So we can write that
+1:19:51
+condition. Okay. So now if I were to generate the Fibonacci series for seven
+1:19:59
+blank screen, isn't it like f of fib of n is equal to
+1:20:10
+fib of n minus one plus fib of n minus 2. Are you guys clear? With the 0 and 1
+1:20:17
+being the base condition. So when n is equal to 2, it will be 1 + 0.
+1:20:24
+When n is equal to 3, 1 + 2 and five. So if I were to draw the graph
+1:20:32
+at a tree for this, what will this look like?
+1:20:43
+Yeah. Are you there? What will this be?
+1:20:52
+Fib of two. This guy will be
+1:20:59
+what will this game guy be?
+1:21:06
+And this guy will be
+1:21:12
+and similarly
+1:21:23
+But when is one we anyway terminate. So we don't have to go here. Okay. What do
+1:21:28
+you see interesting in this tree? It is a recursive call. Great. What else
+1:21:34
+do you see interesting? What is your observation by looking at it?
+1:21:42
+Observation.
+1:21:47
+Come again. We are recalculating. Very nice observation. What is recalculating here?
+1:21:54
+What are we recalculating? F of fib 3 is recalculated.
+1:22:00
+Fib of two is recalculated. Fib of one one.
+1:22:09
+Are you seeing re recalculation? So isn't this a very uh uh bad way of
+1:22:16
+writing a recursive function? I already have the result of fib 3 but then again
+1:22:21
+I'm recomputing it in fib of 4 three. I already have the result of two I'm recomputing and imagine you have such a
+1:22:28
+large value n number of intermediate Fibonacci values are getting regenerated
+1:22:36
+even though we had the values earlier. We will discuss this solution later. But
+1:22:42
+can anyone tell me how do you think we can solve this recursive function by not
+1:22:49
+recomputing the already generated values once again?
+1:22:56
+Yes, anybody that's the topic in this section in this uh D course
+1:23:02
+storing them. Great. How do you store them?
+1:23:07
+What is that concept called uh in our Huh? No.
+1:23:15
+Dynamic programming. You said that, right? I heard somebody say DP there.
+1:23:21
+Did he say DP? No. Dynamic programming. When we come to dynamic programming, we
+1:23:26
+look at this problem again. Is like if I already have it, I will
+1:23:32
+store it. Next time when you are trying to compute, I will check. Oh, is it calculated? I will return it back to
+1:23:38
+you. If it is not calculated, calculate once and save it. So that is an
+1:23:43
+optimized way of finding out the solution to a small problem and using it
+1:23:49
+subsequently without recomputing it. So for for you to understand today, yes, it
+1:23:54
+is a very simple recursive call but there are lot of overheads and the overhead is same uh value is getting
+1:24:02
+regenerated multiple times. Is that clear? Is that clear to everybody? Yeah. Scroll
+1:24:08
+down sir. Word document.
+1:24:13
+Yeah, that is exactly what I was referring to with the diagram. So all those four, threes, twos are getting
+1:24:21
+recomputed multiple times. For now it is okay because we have not looked at
+1:24:27
+dynamic programming. But we will eventually improve on it, make it better, reduce the time complexity from
+1:24:34
+exponential to a lower value. Are you there?
+1:24:40
+Are you all there? Great. With this uh they know how to solve it. So they'll do
+1:24:45
+scroll down. Yeah. So that's the code guys. Simple code. If n is equal to 0,
+1:24:51
+return zero. If n is one or n is equal to 2, return one. You know the first three numbers are 0 1 1. So that's my
+1:24:58
+base condition. If it is two, I return one. If it is one, I return one anyway.
+1:25:03
+So once I have the uh solution to the smaller problem, I'm using that to solve the bigger one which is n 4 5 6 and so
+1:25:11
+on. Are you all clear?
+1:25:17
+Clear. So now if I were to go back to the diagram, go back to the diagram. So we started with fifth five. We went to
+1:25:24
+one and zero. Sir, give me access. What is 0?
+1:25:31
+Zero. What is 1? 1. What is the result of these two? 0 + 1. 1. What was one?
+1:25:37
+One. What is the result of these two? Two. What is one? One. What is 0? Zero.
+1:25:43
+Result of this is one. What is fib of four? Fib of three + 2.
+1:25:50
+What is this? Is 1. 0. 1. Uh 1. Fib of
+1:25:55
+three is two. So fib of five is 3 + 2 5. Are you seeing we are unwinding from the
+1:26:00
+bottom. We have the solution to the smaller ones which are the base condition. Use them to generate the
+1:26:07
+larger three. Use that to generate four. Use that to generate five. Use that to generate n where n could be 100. Go
+1:26:14
+unwind. Go up the tree. Now the smaller values of the leaf node are calculated.
+1:26:19
+Then we go up branch wise till we go to the root. The root is the answer.
+1:26:27
+Is it clear? Shall we move on? So you'll solve this problem in the class. Next one, sir. Interesting.
+1:26:36
+Yeah. Stop. Yeah. Uh again, I'm sure. Have you done this problem before?
+1:26:41
+Climbing stairs. No. Okay, good.
+1:26:48
+You're given a staircase of n steps and you need to climb either one or two
+1:26:54
+steps at a given time. Your task is to return the total number
+1:27:02
+of distinct ways in which you can go from the base to the top.
+1:27:09
+Okay. Now a very simple example is given. N is equal to three. Number of steps are three. How many can you climb
+1:27:15
+at a time? either one or two. So what are the possible combinations? Sir, can you show them the diagram?
+1:27:22
+Yeah, just look at the diagram. The diagram is self-explanatory.
+1:27:28
+You climb one step at a time. Here you're climbing
+1:27:36
+one step at a time. So one one or you climb one step uh two
+1:27:42
+steps and then one 2 one or you climb one one and then two
+1:27:49
+are you clear now I'll say n is equal to
+1:27:56
+10 [snorts] now spend time n is equal to 10 number
+1:28:02
+of steps are 10 what are the number of distinct ways in which you can solve
+1:28:10
+H.
+1:28:21
+Okay. N is equal to four. Let's make it easy for you. Four, then five, then
+1:28:26
+seven, then when is four?
+1:28:33
+Five. Okay. When it is six,
+1:28:41
+eight. Good. When is seven? Good. When it is eight.
+1:28:50
+21. Good. So, when is 10? Tell me.
+1:29:04
+How much is it sir?
+1:29:10
+Okay. When it is three, what are the distinct ways?
+1:29:17
+When it is three, what are the distinct ways? Three. No.
+1:29:24
+Write down the Fibonacci series for you. Write down the Fibonacci series.
+1:29:29
+0 1 1 2 3 5
+1:29:37
+0 1 1 2 3 5 8 13 21
+1:29:44
+34 55 89 and whatever that big number is
+1:30:01
+You can claim either one step or two step. What was the Fibonacci thing? Fib
+1:30:06
+of n is n min fib of n minus one plus fib of n minus2. So n minus one is like
+1:30:13
+saying oh I'm able to climb one step. n minus 2 is like saying I'm climbing two steps at a time.
+1:30:22
+This is a problem similar to generating the Fibonacci series where the next
+1:30:27
+number is sum of the previous two. Calculate that. Take a diagram four steps and see what you get with four
+1:30:35
+steps. What are the possible ways? Four steps.
+1:30:40
+One option is all ones.
+1:30:46
+Another option is three ones and two one one two. Another option is 1 one one 2
+1:30:54
+1. What are the other options? 2 1. What are the other option?
+1:31:03
+Calculate
+1:31:09
+1 2 1 1. What else?
+1:31:18
+Anything else?
+1:31:24
+212. What else?
+1:31:31
+2 triple 1. What else?
+1:31:37
+Come on, tell me anything is missing here.
+1:31:44
+1 2 1 1 22. So, how many are these? Eight.
+1:31:56
+That's your number eight. Calculate. Now, all possible combinations. If I were to write down I got eight such
+1:32:02
+combinations and that is nothing but the next number which is 5 + 3 8.
+1:32:11
+So solving this problem is same as solving Fibonacci series. Number of ways
+1:32:17
+in which you can go is number of ways into n minus one plus number of ways into n minus2 because you are allowed to
+1:32:25
+take only one step and two steps. If you're allowed to take n number of steps, the problem will change. The the
+1:32:32
+uh recursive equation will change. But we'll look at that later. If it is only one or two, it is like Fibonacci. Are
+1:32:39
+you seeing all the possible values we wrote down? All five ones and triple 1 2
+1:32:45
+1 2 1 2 1 all of those combinations are there for five steps.
+1:32:53
+is like if it's zero step zero ways one step one way two steps uh two ways either one one or two and
+1:33:01
+that's what we are doing. So that's the see the series 1 one two one step one
+1:33:07
+two two steps two three steps is three ways one one two or two one
+1:33:15
+four steps is five ways and five steps is eight ways we wrote down eight
+1:33:23
+are you guys clear with this background uh what we will do is we will we will restart yes last
+1:33:31
+class programs And today's programs on recussion please solve them only using
+1:33:37
+recussion. I know you can solve them without using recussion but solve them using recussion. Head tail doesn't
+1:33:44
+matter but all the problems on recussion have to be solved using recursive
+1:33:49
+solutions only. Okay. Any questions on the theory part? Now we'll go to the
+1:33:55
+programs.
