@@ -1,0 +1,583 @@
+YouTube transcript
+Video ID: 2iWeUG-C3yo
+Language: en
+Captions: auto-generated
+
+[0:00] Let's continue with uh uh DFS BFS. In the last class, we looked
+[0:06] at DFS. Uh understand how we can implement uh using either recussion or
+[0:11] using a stack. We saw a program in the last class which is the maze problem. Uh
+[0:19] there's a rat which sits at the uh beginning of the matrix which is cell 0.
+[0:40] Okay. Uh this is how the matrix looks like 3x3
+[0:45] and uh the rat has to go from the beginning till the last cell.
+[0:51] If it can, you've got the answer. If it cannot you basically return false.
+[1:00] What we are not printing is the number of ways to traverse or can I go from the
+[1:06] beginning to the last cell where there is the cheese. Okay, can I eat that?
+[1:11] Now we have seen zeros means that path is blocked and one means the path is
+[1:17] available and the rat can travel only in horizontal and
+[1:26] vertically down. So it can travel right and down. Now we have seen how it can be
+[1:31] done. Uh I briefly talked about the code but let's look at it.
+[1:37] The first condition you would look at is does cell
+[1:42] 0 0 n -1 n -1 has a value one.
+[1:52] I repeat check if the first cell which is the start point and is the last cell
+[1:58] which is the end point n minus one n minus one does it have a value one?
+[2:05] If any of them does not have a value one, if it is zero, it's like block. You
+[2:08] can't go, you can't start. So you basically return false.
+[2:15] Now if it is traversal in the right and down, uh what
+[2:21] do we normally do in all these problems? We find out the neighbors.
+[2:27] Do they have a value one? If they have a value one, I can go to it and continue
+[2:34] doing that. Okay. Now in this example since we are talking about traversal in
+[2:41] the DFS manner which is depth first and if I choose down as first can I go from
+[2:50] 0 0 to 1 0 can I? I'm asking you can I no I cannot.
+[2:57] Then what is the other option left for me? Can I go from 0 0 to 01?
+[3:02] Yes. So I would move from this location to this. First I want it to go in this
+[3:10] direction. This is step one not allowed because this is zero block. Then I go to
+[3:16] step two. I chose down first. Right. You can
+[3:22] choose right first and down. It doesn't matter. We have to go. But if I choose
+[3:27] down, I'm going to continue going down unless I don't find a path.
+[3:34] Are you guys there? Because we are talking about DFS. In a DFS depth first,
+[3:41] if you move in one direction, continue traversal in that direction till you do
+[3:46] not have an option to go. So I went down, I didn't get the answer. I went
+[3:52] right. What do I do after that? From cell 01, where do I go to now? Again
+[3:58] down. What is that? Cell 01 down. What is that? Cell 01 down value 1 one.
+[4:06] Does 1 one have a value one? Yes. Then what would I look for again?
+[4:13] No. 21. But 21 is block. So I stop there and go to the right. And what is the
+[4:21] right of that? 1 2 and again I go down which is 22. Is
+[4:29] that the last cell? Yes. Does it have a value one? Yes. We return true
+[4:36] because it was depth first. I will travel in that direction unless I cannot
+[4:43] travel in which case I will look for the other one. I could start right then go
+[4:48] down. I could start down go right. So in this case we started down we didn't get
+[4:54] it we went right. Now how would this scenario look like if everything was
+[4:59] one?
+[5:07] We take the down approach. So where do I go from 0 0
+[5:11] 1 0. Where do I go from 1 0 2 0. Can I go 3 0? No. Out of bounds. Then can I go
+[5:19] down any further? What is the next option? Right. What is the right going
+[5:23] to be? 2 1. Can I go 31? No. Then again I go for right. I have not traversed
+[5:31] through the remaining neighbors. I repeat these are ignored
+[5:36] because I found a path in this direction.
+[5:40] So in a depth first we do not look at all the neighbors. We pick one traverse
+[5:45] in that direction till we cannot in which case we look at the next one.
+[5:51] Are you guys clear? So we will look at a very simple implementation which is
+[5:55] without using recursion and then we will look at how it can be implemented using
+[6:00] recursion. Pretty much all problems using DFS would be solved using
+[6:06] recursion because what we are anyway going to get as a default mechanism is a
+[6:13] stack which keeps getting built as we go. So let's take this example and build
+[6:19] the stack ourselves now. Okay. Uh sir uh let's take that first example. Erase
+[6:25] everything. No no not the code. Code is the least of the worries. Erase
+[6:30] everything. Yeah. So we'll take an example
+[6:34] again slightly more involved. Four. Uh I go
+[6:41] down and then I go right. The values are.
+[7:00] So how would the stack look like? I repeat, we are first going to go down
+[7:06] and then right. So we we added to the stack a value
+[7:13] 0 0 which is the first cell. Does it contain one? Yes.
+[7:18] Are you all there? Great. Then what is the next element I'm
+[7:23] going to add to the stack? What is it we want to process first?
+[7:31] Down and then later. Right. Which means what is going to be the top of the
+[7:36] stack?
+[7:39] How will it be right? If I want to process down first should down not be
+[7:44] the top is not a queue guys. First in first out last in first out. So just
+[7:49] understand what is that I want to process first. I'm not saying what is
+[7:53] that I want to add to the stack. I want to go in the downward direction which
+[7:57] means I add right and then I add down. Is the right element of 00 valid?
+[8:05] Yes. So what is the stack going to contain?
+[8:09] I extract this from the stack. What is the right element? 0 1. And what is the
+[8:16] down element? 1 0. Are you all getting this? What is
+[8:23] the top of the stack? I got 0 0. Then 1 zero. This is removed.
+[8:30] And when I remove this, what am I going to add again?
+[8:35] Right. and down is right valid. So we don't add is down valid. So what am I
+[8:42] going to add? Two zero.
+[8:46] Hello sir, can you Yeah, I'm going to get two 0 now.
+[8:53] Is the right valid? Yes. So what I'm what am I going to add?
+[8:58] 21. Is it down valid? So this is now the top of the stack. Are you guys getting
+[9:03] this? Like how we add it to the queue? We are adding it to the stack. As simple
+[9:07] as that. Then what is that I'm getting from the stack
+[9:12] 21 I get this. Is it right valid?
+[9:20] 22. Is it down valid? No. So I get this from the stack.
+[9:26] Is the right valid? No. Is it down valid?
+[9:32] 32. Great. I get this from the stack.
+[9:38] Is the right valid? Yes. 32 33 down is invalid because it is
+[9:46] going out of bounds. What is that I now look for?
+[9:51] Oh, what is the top of the stack? 33. Is that the last cell? Yes. So, I've
+[9:56] reached I don't even now look at 01. Are you seeing that?
+[10:01] Is everybody getting that? I have not even taken that path. I don't need to
+[10:05] take that path. When would I need to take that path? If I did not find one
+[10:10] zero as a valid one, then I would go to 01 or one of those. So they I we keep
+[10:16] adding to the stack but in some scenarios we don't consider them at all.
+[10:24] Is the stack clear? Now we will add another test case where all the cells
+[10:28] are one and see how the stack looks like and maybe uh what you can do for me is
+[10:36] all the cells. Are you clear with this? Okay. Now all the cells are one
+[10:44] 3x3.
+[10:47] We again go down first and then right all once.
+[10:54] Yeah, why don't all of you build the stack for me? For this input data where
+[11:00] all the cells are one, how does the stack look like? Which elements are
+[11:04] processed and which elements remain unprocessed?
+[11:08] When I say unprocessed, I don't need to pop them because I've got the
+[11:12] destination.
+[11:16] If you finish, show it to me or show it to my team, whoever is near you. uh 0 0
+[11:23] you extract 1 minute then you add the right and then you add 1 zero uh and
+[11:28] then we'll look at the code uh how does the stack here look like
+[11:35] what is the first element you're going to add we'll just go through the whole
+[11:39] process here I want this to be handled first which
+[11:43] means that would have to be on the top right so I'm saying stack is 0 0 we get
+[11:50] at what is the right of it?
+[11:55] 0 1 and left down is 1 0. So we are going in the downward direction. I get 1
+[12:01] 0. What is the right of it?
+[12:06] 1 1 and 2 0. I get 2 0.
+[12:14] What is the right of it? 21. Can I add down out of bounds?
+[12:21] 21. What is the right of it? 22. Can I go down? No, I get 22. Is that
+[12:30] the last cell? Yes. So, what happened? There was 1 one. There was 01 which
+[12:35] never got processed because we found a path using
+[12:40] the depth first. I didn't have to consider its other neighbor like what we
+[12:45] would have done if it was a uh BFS. Look at 0 1 1 0. Look at its neighbors. They
+[12:52] both come in one after the other. Right? Are you seeing the difference? Yeah. So
+[12:56] with this background is everybody seeing that when would we go to uh one one?
+[13:04] When would I go to 1 one? When I did not have that that 2 0 was zero then we
+[13:11] would go to 1 one. Look at that. Otherwise you don't need to. Okay. Yeah.
+[13:17] Uh can we show the code please? Uh, can you just run that sir with the same 3x3
+[13:22] all once?
+[13:42] All one sir.
+[13:49] By the way, what is your code like? Are you going right first or down first?
+[13:53] That is important.
+[14:03] You're going, huh? Good. So, top of the stack is what
+[14:10] we wanted right now. Run the Yeah.
+[14:17] Yeah. Run sir. See that we start with 0 0. Then the
+[14:22] next process is down 1 0. The next process is 2 0. We cannot go to 3 0. So
+[14:28] we go to 2 1. And then we go to 22. But the stack still contains 0 1. The stack
+[14:34] contains 1 one. Are you there? So go through the code
+[14:38] please. Just the stack code. Yeah. Go up.
+[14:44] No, not the mean.
+[14:48] There is no recussion. Plain simple. Yeah. So, first check is if the first
+[14:54] cell is zero or if the last cell is zero, we return false. No point doing
+[15:00] anything. Otherwise, we create a stack. Then we add to the stack the first cell
+[15:08] and then we continue. While not empty, while the stack is not
+[15:13] empty, we pop an element. What we get is a pair of data. And after we get that,
+[15:18] we figure out what is the row and column. I'm printing. Then we check is a
+[15:23] row equal to size minus one and column equal to size minus one. Which means
+[15:28] what? It is the last cell.
+[15:32] Are you there? If the row value column value is the last cell, I return true
+[15:37] because before that I already checked it has one.
+[15:42] Are we guys clear? Scroll down. Then what are we adding to the stack first?
+[15:48] Right. And what are we then adding down? Because I want to process down first. So
+[15:53] that has to be the top. If you wanted to process right first, make right the top,
+[15:58] which means add down first and then right. It doesn't matter which way do I
+[16:03] start is what makes a difference. And if I start in horizontal direction, we
+[16:08] process that. If you don't get it, look at vertical. If you process vertically
+[16:13] down, we don't bother about right. If you have found a path downwards, is this
+[16:18] clear? That is the solution.
+[16:26] Are we good? Again
+[16:30] go back while loop go up while so again we check so two elements got added the
+[16:37] top is process again it adds two more elements one of them will be process or
+[16:42] maybe it doesn't add both the elements because one of them is zero so we add
+[16:47] only if it is non zero
+[16:53] guys are we clear some of you did solve this problem using recussion
+[16:59] Fine. Whether you use recussion or you don't use recussion, it's still going to
+[17:03] be internally using a stack. Either you use it or let that recursive call use
+[17:09] it. So shall we look at the recursive implementation?
+[17:13] Yeah. Uh show them also is uh uh safe is safe is there no somewhere
+[17:19] is safe method sir.
+[17:27] uh that is basically checking is it less than size and is that less
+[17:32] than size and does that value have a one does that cell value exist as
+[17:39] one or zero if it is zero it is not safe it is blocked so we check oh is it
+[17:44] within the bounds both x and y and is that neighbor one then we can go there
+[17:49] otherwise skip that is what would happen if you go to
+[17:53] the last column that is what would happen if you go to the last row.
+[17:57] Anything below last row is not safe. Anything to the right of last column is
+[18:00] not safe because of that condition.
+[18:05] Are we good? Yeah. Okay. Let's move on and look at the
+[18:12] recursive implementation of the same problem. Sir, can you just run that sir
+[18:17] with the same test data 3x3 all once?
+[18:37] Now looking at this can you tell me what is it that we are handling first here?
+[18:44] Which is the path we are taking first? Right. Here is right not down. So when I
+[18:50] took right, what is the next cell of 0 0? No, no, that's okay. It is. What is
+[18:57] the next cell of 0 0? 01. Is that valid? What is the next cell
+[19:02] of 01? 02. Is that valid? Yes. Is 03 valid? No. So it is not safe. So where
+[19:10] do I go now? I've gone all the way to the right. This is the boundary. This is
+[19:15] not valid. So I go down.
+[19:19] Are you there? One, two. Can I go to the right of one, two?
+[19:24] No. 1 13 is not valid. No. So where do I go
+[19:28] to? 22. Is that clear?
+[19:34] In the previous approach, we went down. Right. In this approach, we are going
+[19:39] right and down. Are you all clear with the debug
+[19:44] messages? It's just a simple recursive function
+[19:48] call and every time we call the recursive function we are calling with
+[19:52] row comma column + one or row + one comma column. Try going the column way.
+[20:00] Don't find it then go the row way. Okay. We added to the stack row comma
+[20:06] column + one or row + 1 comma column. Same thing is exactly what is done in
+[20:11] that recursive call. Just show that recursive call sir. You don't have to
+[20:15] take them through the main and all.
+[20:22] Yeah. Uh uh go up.
+[20:27] Now there is a call now. Solve maze. And what are we calling in the solve maze?
+[20:32] M.
+[20:36] What are we calling in that call maze? 6 DFS depth first search with the array
+[20:45] which is that matrix and what is the starting cell 0 comma 0. So the DFS is
+[20:51] called with 0 0. Let's look at the DFS code.
+[20:56] Yeah. uh
+[20:59] again the first check if row is equal to size minus one and column is equal to
+[21:04] size minus one last cell and if it has a value one that means I've gone to the
+[21:09] end return but where are we initially what is row zero and what is column zero
+[21:15] so that is not matching scroll down then we again say is safe code and look at
+[21:20] the DFS call
+[21:24] what is the DFS called with row comma column + one. So I'm
+[21:30] processing right first and then I'm processing left. If I find a way through
+[21:36] right, return. Otherwise try the left. If that still doesn't give me anything,
+[21:39] then basically return back with a false.
+[21:46] Are you there? So can we trace down the entire path for 3x3
+[21:52] from the DFS00 call? Where does the path take you to? Stack was pretty simple
+[21:59] because there was no recussion. But this also will basically boil down to the
+[22:02] same thing. So a blank screen guys remember the code row comma column + 1
+[22:08] and row + 1 comma column. Blank screen blank screen. Yeah. So we start with
+[22:16] DFS of 0. What is DFS of zero zero calling internally?
+[22:24] DFS of 0 column + 1 and then DFS of 1 0. Do you get this? So this is what is the
+[22:35] start. What will this guy no call? DFS of 02
+[22:42] and DFS of 11 one.
+[22:47] Okay. What will this call? Okay. We'll come to that when we need to. So erase
+[22:52] it.
+[22:58] Yeah. What will DFS of 02 call?
+[23:03] DFS of 03 and DFS of 12.
+[23:10] Is DFS of 03 valid? No. So what will DFS of one two call?
+[23:22] 1 3 and DFS of 22. Are you guys there? Is 13 valid? No. What is 22? Is that the
+[23:32] last cell? Does it have a value one? Which means these guys are not handled
+[23:39] like what what we saw in the stack. Remember the stack I showed you? They're
+[23:44] not handled. If I had not found a path in DFS03, if I had not found a path in
+[23:50] DFS12, then the control will return back and process DFS of 111.
+[23:56] But in our case, it found it. So we never so same thing like a stack guys.
+[24:00] Some things which are on the stack never get popped because I don't need to. I've
+[24:06] got my path through one way. If I didn't, I will try options which is
+[24:10] those two. Then we will again write down what is DFS of one. DFS of 11 one will
+[24:16] be 1 2 and 21. See that gives you a pay.
+[24:22] Are you all there? Is everybody clear? So either way is fine with me how you
+[24:28] implement it. Many a times it is so much easier not to use recussion. You just
+[24:34] write your own stack and get it working. So I'm showing you both the approaches.
+[24:38] You figure out what works for you. But it has to be using stacks only.
+[24:46] Okay. Yeah. Great. Stop sir. Yeah. Are you all
+[24:53] clear? If you want just take that uh 3x3 and this is how the traversal was
+[24:59] because I started with column first. I'm saying DFS of 01. If I wanted row first,
+[25:04] I will say DFS of 1 0 and then maybe then I don't need to process some other
+[25:09] cells. Are you all clear?
+[25:13] Yeah, good.
+[25:18] Uh, Saturday's unit test is very interesting problems.
+[25:22] You want to share the topics? One is on recussion,
+[25:28] one is on DFS, BFS and one is on
+[25:36] unit test. We don't have one is on trees, right?
+[25:39] >> Greedy and other is
+[25:49] Okay. Yeah, the unit 3 is not part of unit test. It is part of your mid exam.
+[25:53] So, make sure mid exam has all that. Yeah. So, we have recussion, we have
+[25:58] binary search and greedy three problems and obviously some more MCQs.
+[26:06] Maybe you can include something like this. Given a oh, maze is again not
+[26:09] there. Sorry. Okay. uh ideally you know we should have had
+[26:14] the unit test long time earlier include which includes unit one but for some
+[26:19] reason it didn't get conducted so we are having backto back unit test and mid
+[26:25] exam which is also good you need just prepare once right
+[26:30] okay shall we look at the last problem of this syllabus
+[26:34] is everybody clear can you check with the people at the
+[26:42] Dishita. Okay, there's another very interesting
+[26:47] problem we will now look at which is how do you find out the boundary of a tree?
+[26:55] What is the boundary of KMIT? Which gates?
+[27:01] Wine gate and the other is back gate. So what would the boundary be?
+[27:08] the area from that to this back side this guy's side excluding those
+[27:13] apartments and then that first year block then you have those finishing
+[27:18] school and that FS batches the ground is included right so likewise think about a
+[27:26] tree which we are creating and that tree has got lot of children
+[27:32] and what would the boundary of that look like sir can we draw a tree. Yeah. So,
+[27:39] I'm going to show you a tree. It is not a binary search tree, just a
+[27:44] binary tree.
+[28:43] Yeah. Given this binary tree, what do you think will be the boundary if we
+[28:48] start in this direction? That is important.
+[28:54] Yeah. Just guess. Yes.
+[29:02] Give it a try. Huh?
+[29:08] Okay. Pass it to your neighbor.
+[29:13] >> Boundaries, guys. Come on.
+[29:23] Yes. Go ahead. One of you quick. >> 20 30 40.
+[29:28] >> One minute. 1 minute. So five you're not including
+[29:32] >> uh five also. >> Okay. Five
+[29:34] >> 20 >> 5 20
+[29:41] >> You move. Come here and do. No. Go there. Sit there.
+[29:47] 5 >> 20
+[29:49] >> 5 20 >> 30
+[29:51] >> Yes. 40 60 >> 5 20 30 40
+[29:58] 60 Okay, good job. >> After that, what?
+[30:06] >> 71 >> 71
+[30:09] >> 16 >> 16 Okay.
+[30:13] >> 12 >> 12 Where did 12 come?
+[30:17] >> Okay. >> 16 12 Where will you go up again?
+[30:20] boundary not inside. >> So when I talk about the boundary of it,
+[30:25] will you include auditorium? Will you include the ground? Will you include
+[30:29] anything? We'll only look at the periphery, right?
+[30:33] >> Yeah. >> 11. Sir
+[30:35] >> 11. Huh? >> 81
+[30:37] >> 81 >> 80
+[30:39] >> 80 >> 70
+[30:42] >> 70 >> 15
+[30:44] >> 15 Okay, this is one answer. Great. Yeah.
+[30:48] Others anybody has a different answer other than this?
+[30:54] Anybody has a different answer? Did something get missed or did something
+[30:58] get included which should not have been a part of your boundary?
+[31:12] >> Okay, great. You came up with this answer. How what do you think could be
+[31:16] the algorithm?
+[31:21] What do you think could be the algorithm?
+[31:27] >> Yes. Anything to be added?
+[31:31] No. No. Anything to be added? Okay, we'll come. If she can't, I'll take I
+[31:35] give the mic to you. You came up with the answer. Very good.
+[31:40] But something must have gone in your mind. Why am I choosing this?
+[31:48] Left side. Okay. Very good. >> Use the mic. Now, left side travels all
+[31:55] the way left starting from the root >> and leaf node
+[32:00] >> and leaf nodes and
+[32:05] >> traverse. If you look at the first part, 5 20 30 40 60 all left. What about 71,
+[32:12] 16, 15, 11, 81? All are
+[32:18] >> all are >> leaf nodes. Then what about
+[32:23] 80 uh 80 70 15 >> right of the right
+[32:31] >> right side of the tree but in the reverse order
+[32:36] >> not in the order where we say 15 70 80. So we start from the left, keep
+[32:41] traversing, go to the right and go all the way to the root in without including
+[32:47] the root. Once again, we want to make sure that uh phi doesn't get included.
+[32:52] So root is excluded. So if I were to show you, it would be as simple as this
+[32:58] guy.
+[33:27] Are you all there? Is everybody clear?
+[33:32] So shall we now look at what that problem is and then look at how it can
+[33:38] be solved. Okay, today only we'll solve it because
+[33:42] we don't have one more day to discuss that solution. So we'll solve it. Is
+[33:46] everybody clear? Traverse the left. If I wanted the boundary to be in a different
+[33:51] direction, then I will traverse right. Then I will go through the leaf and then
+[33:55] I will go left in the reverse order. So is your call on how the problem is
+[33:59] given. Given a binary tree, return the values of its boundaries in
+[34:07] anticlockwise direction. If it was clockwise, I would
+[34:11] have gone right first. Starting from the root. Now the boundary
+[34:17] includes the left boundary. The boundary includes the leaves and the right
+[34:23] boundary in order without duplicate nodes and the
+[34:29] obvious duplicate nodes would be leaves can be same. So we don't want if you are
+[34:35] considering that as part of the left boundary don't include again as a leaf.
+[34:38] Likewise, root is already considered as left. Don't include as part of right
+[34:42] without duplicates. Important. Okay. Now, left boundary is defined as a path
+[34:48] from the root to the leftmost node. Right boundary is defined as a path from
+[34:53] the root to the rightmost node. And if a if it doesn't have left and right, then
+[34:59] the root itself is left and right boundary. Imagine the only element is a
+[35:03] no root node. No left children and no right children. So left will give you
+[35:08] nothing except the root. Right will give you nothing and obviously leaves will be
+[35:12] nothing. Okay. Show diagram.
+[35:17] Yeah.
+[35:21] Imagine 22 had a left child that would get in uh excluded. 22 has the left.
+[35:29] So we are including the left the leaves and then the right.
+[35:38] Are we good? Anybody has any questions?
+[35:45] Anybody has any questions?
+[35:53] Okay. Shall we look at the code or you guys want to try? Are you getting it?
+[35:58] First start from the left. So what will be given to you? The root. What is also
+[36:04] given to you? The tree uh have you given them the code for tree creation sir?
+[36:10] Great. Tree creation is given. You have to implement a method and that method is
+[36:14] passed as input the root of the tree. Now you have to implement left tree. You
+[36:19] have to implement the right tree and obviously a part of the tree where all
+[36:24] the leaves are calculated left to right. So how would you do this?
+[36:32] What would you need to do? Take that example. Tell me what would
+[36:37] you do? First add the root to the result.
+[36:43] Does the root have a left? Yes. What would you then do?
+[36:53] Maybe if it's recursive implementation, make a call with the left. Does that
+[37:00] again have a left? Keep calling it. And if uh if you if you go to that uh
+[37:06] node four, what would you treat four as? Now
+[37:13] four could be treated as left of eight or four is also treated like a leaf.
+[37:20] Are you there? So if you're going to add that as left of four, eight, make sure
+[37:26] it is not added as a leaf then. So ideally what I would do is when you
+[37:33] look at the left boundary do not add four because four is a leaf which gets
+[37:38] added when you count the leaf nodes. So four would be a leaf. Likewise 10 would
+[37:44] also be a leaf because it doesn't have a left and right child. Uh 14 would also
+[37:49] be a leaf. But what about 25? 25 is also a leaf. So you have to look
+[37:56] at what you want to process. If a leaf is also getting added as part of left,
+[38:01] don't add it subsequently. So you decide. So one method would be get all
+[38:06] the left nodes, get all the leaf nodes and then go with the right. Okay. So
+[38:12] what we will do is next maybe uh half an hour I will let you try this piece of
+[38:18] code and after that we will discuss the solution. Good guys. Let's look at uh
+[38:24] the test case first. Run sir. run the tree with some sample data.
+[38:34] Yeah.
+[38:37] Yeah. Great. Let's draw the tree here. Let's draw the tree. So you'll
+[38:43] understand by the debug messages what are all the things which happen.
+[38:50] Five four level order insertion. Then what
+[38:55] goes to the left of four minus one 7 and then three and
+[39:03] six. Now consider this structure. What are
+[39:08] all the leaf nodes?
+[39:13] These are all the leaf nodes. This guy is left. This guy is root. And this guy
+[39:18] is right.
+[39:24] Now I will add another data here 8 and then 8 has a
+[39:32] nine. So create this test data. Yeah, you can
+[39:37] run anywhere that.
+[39:42] So we got an output five is a root, four is the left. The leaf nodes are 7 3 6
+[39:50] and the right node is one now I'm modifying this test data to
+[39:56] give me access now let me draw the tree then you get the test data okay
+[40:03] 5 4 9 15 20 21 30 uh 8 11
+[40:15] um this is -1 this is -1 this is uh -1 1 - one
+[40:25] 50 - 1. Now you give the data sir. 5 4 9
+[40:33] Yeah. Give the data. Level order. Just see the level order and insert data
+[40:48] and don't execute. Yeah. Great. What are all the leaf nodes going to be?
+[40:55] Leaf nodes.
+[40:59] Eight. Which don't have any children. So looking at the diagram, you can say 8 is
+[41:04] a leaf node. 11 is a leaf node.
+[41:11] Sir, what about 21?
+[41:15] Does 21 have any children? So would that not be a leaf? Then what else?
+[41:22] 50. So there are only four nodes which happen to be leaf. Eight no children.
+[41:28] 11 no children. 21 no children. Minus one minus one.
+[41:33] Null. Null. And 50. What about the left nodes?
+[41:38] 4 and 15. What about the right nodes?
+[41:44] 30 and 9. So we are printing left. We are printing all the leaf nodes and then
+[41:50] we are printing from the right in the reverse direction. So it's actually a
+[41:56] very simple implementation where you say oh how do I find out if is a leaf or
+[42:01] does it have a left? No. Does it have a right? No. What is the check for left
+[42:06] null or minus one? Because we are inserting minus one also as null. And
+[42:10] does it have a right? No. Then that is like part of the leaf. If it has either
+[42:14] left or right it doesn't become a leaf. So I will keep traversing left if the
+[42:19] left is there or I will traverse right if the left is missing and right is
+[42:24] there. Okay. Can you run this sir? See this left data 415. Right is 8 as we
+[42:32] discussed 11 21 and sorry the leaves are 11 uh 8 11 21
+[42:39] 50 and the right is 30 and 9. Since we do not want duplicates we are not
+[42:45] including the root once again. So we traverse excluding the root.
+[42:51] Shall we look at it? So when we when you have gone through the insert code, you
+[42:56] pretty much know that wherever you have a minus one, we are inserting at that
+[43:00] level and continuing all of them. But when we process we are ignoring
+[43:05] everything which is a minus one because we have no way of saying in the
+[43:10] if the data is uh numeric have a null there unless I go for a data which is a
+[43:16] wrapper class you know I go for wrapper class integer then it can be null it can
+[43:22] be not null which is a numeric value but we have not gone for it so we are
+[43:26] representing null using minus one are you clear that's one of the limitations
+[43:32] of our tillator so we minus one there for the input. Now, can we see the code?
+[43:44] Yeah. So, we we split that input with a space, get all the data and look at the
+[43:49] first line of code 189 there. The root is always the first element. Okay?
+[43:58] And after the first element which is a root we are basically going through the
+[44:03] tree creation by calling insert into the tree level order for all of the other
+[44:09] elements. So that code is given you can see that now shows that boundary of
+[44:14] binary tree.
+[44:22] Okay. So what did we pass to the boundary of binary tree
+[44:27] sir? Input data.
+[44:31] So five was my root. What is the next element we are passing to the boundary?
+[44:38] No, I'm not writing. I just need access. Five was
+[44:44] I don't think I have. Oh, five was the root. That's done. Then we go through
+[44:48] every element and call insert. The insert was done. The tree was built as I
+[44:53] showed you and now we are saying boundary of binary tree with the root as
+[44:58] the parameter. Are you clear? Show the boundary.
+[45:03] Is it clear guys? Can we start? Is a root null?
+[45:08] Was the root null? No. Root had value. What are we then calling?
+[45:14] Add to the nodes. Can you show us what is nodes above? notes is a list where
+[45:21] every element of the list is an integer is basically an array list. Scroll down.
+[45:26] What did we add? The root. So that is taken care. What
+[45:31] are we then calling? Left boundary left of the root. What are
+[45:36] we then calling leaves with the root? What are we also calling? Right boundary
+[45:42] with the right of the root. So given five which had some left. So I'm calling
+[45:47] left boundary with that node. Then I'm calling leaves with the root. Initially
+[45:53] it is not there but it will eventually be found as you keep recursively
+[45:57] traversing it. And then we are calling the right. Is that clear? Tomorrow if
+[46:02] the problem Hello guys.
+[46:08] Tomorrow if the problem is print everything in a clockwise direction, you
+[46:12] just swap left with right. So process right leaf and then the left.
+[46:20] Okay. Yeah. Can we look at the left boundary?
+[46:24] Yeah. Just look at the left boundary. Sir blank screen. Give me access here.
+[46:32] Yeah. So if this is my data
+[46:41] six, what am I calling? Is the root null? What is root here? Left of five,
+[46:47] left boundary. Is this null? No. Is this minus one? No.
+[46:53] Are you there? Then is the left of it null?
+[46:57] No. If it And is the right of it is null?
+[47:02] No. Why are we doing this?
+[47:07] Because if the left is null and the right is null, it is not part of the
+[47:11] left boundary. It will then be part of your leaf.
+[47:14] So we don't want to include it and include there. So we are saying if both
+[47:18] the children are null, don't include as part of the left. Let's add that as part
+[47:24] of the leaf. So that is why we are returning. Are you all clear?
+[47:28] Are you all clear? Otherwise, what do we do? We add the left node.
+[47:35] And what are we then checking? If the left is null, then add the right.
+[47:43] Sorry, if the left is null and if the left dot data is minus one, add the
+[47:47] right. Otherwise, add the left. See, before that, we checked for both
+[47:53] null. If both are not null, only one of them
+[47:57] could be null. Are you there? Are both of them can be there? So what
+[48:03] is the check? Is that code clear? If the left is null then add the right if the
+[48:08] left is not null at the left. So keep traversing left. Imagine 1 2 3 has a
+[48:13] right. Isn't the right still part of a left boundary? Then is like this.
+[48:26] Traverse left not null. Traverse left not null. But what what what the left of
+[48:30] it? Null. So which way will I traverse now? Right. Right can again have right
+[48:37] and left. So just because you don't find left
+[48:41] boundary do not skip the right because right can still be part of that fence
+[48:46] the boundary which we are talking about that is that piece of code which you see
+[48:50] there. So read that code 115 closely. Before that we are saying if it is a
+[48:55] leaf return but if it is not a leaf either left is null or right is null or
+[49:03] both could be not null. If left is there traverse left. If left is null which
+[49:08] means right is not null. So traverse right.
+[49:13] Are you there? Do not think about left as always left. It is boundary. Right
+[49:18] can be part of the boundary if left is missing.
+[49:22] Are we clear? Now how will the right boundary look like? Now without even
+[49:28] going to that code, how will the right boundary look like?
+[49:33] First part of the code will still be the same.
+[49:37] Then what
+[49:43] what are you going to add as the right of the root immediately or you want
+[49:46] reverse direction? There's a slight change now. You can't
+[49:51] add right of the root then right of that fellow till you get a leaf. It has to be
+[49:55] in the reverse direction. So we'll see that in a moment. Show the leaf code.
+[50:01] Okay. Any questions on this leaves?
+[50:07] Leaf code.
+[50:11] So we start again with the root. Scroll down. If the root is null or the root
+[50:16] data is minus one, return. Otherwise uh what are we saying? If the left is
+[50:22] null and the left is minus one and the right is null and the right is minus one
+[50:27] that means it is a leaf node. Then go ahead and add it.
+[50:33] If if it is not I will keep continuing left of it.
+[50:38] We are starting from the root every time. So I might if not I have gone to
+[50:43] the leaf. I'm starting from the root. Root left not null. continue left. Keep
+[50:49] going through the left and right. At some point you'll find that both the
+[50:53] children are missing. So that gets added.
+[50:58] So if you go back to the diagram four left. So if I were to look for a leaf,
+[51:04] is this going to be added? No, because left is not null. Is this going to be
+[51:08] added? No, because left is not null. Is this going to be added? When you are
+[51:13] calling leaves with this, what about the left and right?
+[51:17] null. So where does the control go to? Left is null. Right left data is minus
+[51:22] one. Right is null. Right data is minus one. That is added and that will return.
+[51:27] Got one leaf I found. Likewise I will find multiple leaves. If there are
+[51:35] you got it
+[51:40] is everybody clear now? Right. right boundary
+[51:48] search. Yeah, I'll show the right part of the diagram. Now,
+[51:53] this is my data. 4 1 6 8 and these two are null.
+[52:02] So, this was part of the leaf. So, over now we need to print six and one
+[52:08] and not one and six. So, what do I start from?
+[52:12] Is the root null? No. Right data. If the right is null and if the right data is
+[52:18] minus one, then left of the root. Otherwise, where do we go to? Right. I
+[52:26] come to one. Is this null? What did you see differently between
+[52:33] this and this? You know, but there was a very interesting topic we discussed when
+[52:37] we talked about recussion. Head recussion, tail recussion.
+[52:41] What type of recussion is this
+[52:46] tail?
+[52:49] What is the difference between left boundary and right boundary?
+[52:54] In the left boundary, we were adding and then calling the recursive function.
+[52:57] Here we are going all the way to the bottom and then adding which means in
+[53:01] the reverse order.
+[53:05] Guys remember the topic we discussed earlier head recussion, tail recussion,
+[53:09] tree recussion, indirect recussion. See, did you notice the difference
+[53:14] between left and right? Show the left again.
+[53:17] Yeah, we added and then we call the recursive function. Here we are going
+[53:21] all the way to the bottom and then adding one. So when you keep adding it
+[53:26] is the bottommost unwinding of the stack one element above unwinding of the stack
+[53:30] and element above ignoring the root that's it
+[53:37] some of you might say let me add in one order which is like this and then I will
+[53:41] reverse it you don't need to recussion is doing that work for you
+[53:47] not clear yes or no
+[53:52] clear okay can you do that Now but I think some of you missed out minus1 when
+[53:58] we added the tree every node I mean at every level there's a value either
+[54:03] minus1 or not minus1 if it is minus1 as part of the traversal we ignore and
+[54:10] continue that's the thing we need to check don't just check for null check
+[54:14] for minus one because that is tree creation
+[54:18] okay are we good shall we move on great yeah you can stop this sir
+[54:25] Give only one element root. Just give one element root, sir.
+[54:33] Yeah, that's it. That's it. Now, why is it printing that like a
+[54:39] leaf?
+[54:46] Go back to the actual code which is called from the main
+[54:54] Not the code sir. Boundary of binary tree shinas.
+[55:04] See if the root is null are the root data is minus one. Is the root null?
+[55:10] No. Why are you adding it as part of leaves?
+[55:14] Okay,
+[55:20] root is not null. So we are adding nodes to the root data. Uh left boundary
+[55:25] anyway will fail.
+[55:34] You're going to the leaves and leaf is also checking for left is null and right
+[55:38] is null. So it's adding there. But then you should get twice. No, you're adding
+[55:43] nodes.root. Okay.
+[55:50] Uh, left boundary. Go to the leaves. Uh, go to the debug message.
+[55:56] Debug message output, sir. Ah, you're getting 10 and 10. There's a
+[56:02] bug there. He's adding as part of root and then
+[56:07] again he's adding as part of leaf. It's wrong. So there's a bug in the code
+[56:11] which has to be fixed. So this is wrong test data. You can't have duplicates.
+[56:18] He added as part of root and then he's again adding as part of leaf because
+[56:22] root left is null, right is null. So what do you think you can do to fix
+[56:27] this problem?
+[56:31] Huh?
+[56:37] And return. You'll have to modify that code. Can you
+[56:40] go to the code sir? Yeah. There you just put a condition. If before that if root
+[56:46] left is null, root left is minus1, root right is null or root right is minus1,
+[56:53] then just add that and return. Don't go further. Got it? So, so
+[56:59] obviously our code is buggy, but anyway, he'll fix it. Yeah.

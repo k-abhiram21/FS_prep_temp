@@ -1,9 +1,18 @@
 # DAA preparation — FS first
 
-Follow [the FS study workflow](Study_Workflow.md): coding is limited to recursion, arrays/strings and greedy; all other lecture topics receive detailed notes and scenario MCQs. Start with Day 1 and Day 2, then [Day 3 notes](Day_03_Notes.md), [Day 3 coding practice](Day_03_Practice.md) and [Day 3 MCQs](Day_03_MCQ.md). Use [the five-day strategy](FS_5_Day_Strategy.md) to protect the other subjects, and [the assignment map](Assignment_Map.md) to avoid duplicate tasks.
+Start with [the lecture-based package](FS_START_HERE.md), then follow [the FS study workflow](Study_Workflow.md): coding is limited to recursion, arrays/strings and greedy; all other lecture topics receive detailed notes and scenario MCQs. Start with Day 1 and Day 2, then [Day 3 notes](Day_03_Notes.md), [Day 3 coding practice](Day_03_Practice.md) and [Day 3 MCQs](Day_03_MCQ.md). Use [the five-day strategy](FS_5_Day_Strategy.md) to protect the other subjects, and [the assignment map](Assignment_Map.md) to avoid duplicate tasks.
 
 | Material | Purpose |
 |---|---|
+| [FS_START_HERE.md](FS_START_HERE.md) | Current priorities, first queue and how to use the complete package |
+| [FS_Coding_Gap_Practice.md](FS_Coding_Gap_Practice.md) | 13 local/method coding drills with contracts and reference code |
+| [FS_LeetCode_Practice.md](FS_LeetCode_Practice.md) | Expanded exact 71-problem pool: 42 in your paste, 29 new |
+| [FS_DAA_MCQ_Bank.md](FS_DAA_MCQ_Bank.md) | 250 original scenarios with hidden answers and a 30-question diagnostic |
+| [FS_Concept_Notes.md](FS_Concept_Notes.md) | Consolidated lecture concepts, traces, complexity and corrections |
+| [FS_Lecture_Coverage.md](FS_Lecture_Coverage.md) | Evidence and timestamps for Days 1–27; unresolved variants |
+| [FS_Validation.md](FS_Validation.md) | Checks performed and limits |
+| [code/fs_gap_reference.hpp](code/fs_gap_reference.hpp) | Selected new recursion, array/string and greedy references |
+| [LeetCode_FS_Full_Topic_Map.md](LeetCode_FS_Full_Topic_Map.md) | Complete classification of all 144 problems, with scope boundaries and where to re-solve |
 | [LeetCode_FS_Revision.md](LeetCode_FS_Revision.md) | Focused revision from your solved problems: diagnostics, eight candidate attempts, transfer checks and gap repair |
 | [LeetCode_Solved_Inventory.md](LeetCode_Solved_Inventory.md) | Clean inventory of all 144 reported solved problems |
 | [Day_01_Notes.md](Day_01_Notes.md) | Worked explanations, corrected lecture claims and quick recall |
@@ -29,36 +38,12 @@ The notice pasted on 5 October confirms the exam date (9 October), two-hour dura
 
 ## Lecture progress
 
-“Notes ready” is separate from your learning progress. Days 1–3 have been analysed; the scenario-MCQ workflow starts with Day 3. No practice completion is assumed.
+“Notes ready” is separate from your learning progress. No practice completion is assumed. The new package consolidates Days 4–27 rather than creating 24 separate daily packages.
 
-| Lecture | Transcript | Notes | Your practice / recall |
-|---:|---|---|---|
-| 1 | Received | Ready | Pending your attempt |
-| 2 | Received | Ready | Pending your attempt |
-| 3 | Received | Notes + MCQs ready | Pending your attempt |
-| 4 | Pending | Pending | Pending |
-| 5 | Pending | Pending | Pending |
-| 6 | Pending | Pending | Pending |
-| 7 | Pending | Pending | Pending |
-| 8 | Pending | Pending | Pending |
-| 9 | Pending | Pending | Pending |
-| 10 | Pending | Pending | Pending |
-| 11 | Pending | Pending | Pending |
-| 12 | Pending | Pending | Pending |
-| 13 | Pending | Pending | Pending |
-| 14 | Pending | Pending | Pending |
-| 15 | Pending | Pending | Pending |
-| 16 | Pending | Pending | Pending |
-| 17 | Pending | Pending | Pending |
-| 18 | Pending | Pending | Pending |
-| 19 | Pending | Pending | Pending |
-| 20 | Pending | Pending | Pending |
-| 21 | Pending | Pending | Pending |
-| 22 | Pending | Pending | Pending |
-| 23 | Pending | Pending | Pending |
-| 24 | Pending | Pending | Pending |
-| 25 | Pending | Pending | Pending |
-| 26 | Pending | Pending | Pending |
-| 27 | Pending | Pending | Pending |
+| Lectures | Source status | Material status | Your practice / recall |
+|---|---|---|---|
+| 1–3 | Supplied transcripts | Individual notes/practice; integrated MCQ coverage | Pending your attempt |
+| 4–10 | User summary preserved; original video transcripts not supplied | Consolidated notes, coding-method drills and scenario MCQs | Pending your attempt |
+| 11–27 | All 17 auto-caption exports retrieved and retained | Source map, consolidated notes, coding selection and scenario MCQs | Pending your attempt |
 
-For subsequent lectures, retain concept → worked example → complexity → traps → scope-filtered coding + scenario MCQs. Cover every substantive lecture topic in notes; code only the three announced coding areas before FS.
+Use [FS_Lecture_Coverage.md](FS_Lecture_Coverage.md) for each lecture's sources and topics. Caption access does not establish exact screen-code coverage. All standalone graph/tree implementation work remains later practice unless the announced coding scope changes.

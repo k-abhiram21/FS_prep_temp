@@ -1,0 +1,980 @@
+YouTube transcript
+Video ID: I7YgbBgH6lQ
+Language: en
+Captions: auto-generated
+
+[0:00] Let's get started. Uh uh continue with uh what we looked at last time. The
+[0:06] algorithm the problems which were given to you. Uh we look at the solution to
+[0:11] them. Uh one which is a lonely nodes. The other which is given a uh island and
+[0:19] find out the max area and once we understand that max area we look at two
+[0:24] additional problems which we talked about in the last class. one number of
+[0:29] islands and number of distinct islands. In fact, all these three problems are
+[0:34] identical except what is that you're trying to get in all of them. The common
+[0:41] thread is there's a grid containing zeros and ones. Zeros is uh water and
+[0:48] one is land. And you need to figure out what is the maximum area. If you have
+[0:53] multiple islands, figure out the one which is the largest. Uh find out how
+[0:58] many islands are there, which is number of islands. And find out how many
+[1:02] islands are there, which is if they if they are identical, don't count them
+[1:08] multiple times, you know, that is what we say distinct. All three are
+[1:12] identical. So we look at all three of them today with their code. That would
+[1:17] be done through BFS. In fact, all these three problems which I'm talking about
+[1:23] can be done using DFS also depth first. In fact, some of you uh last class when
+[1:31] we had given that lonely nodes, you did solve using DFS because that was the
+[1:36] solution given in geeks for geeks. So you blindly copied that solution using
+[1:41] recursion without realizing that what you have not implemented is BFS but what
+[1:47] it was was DFS. So it is important even if you look at some code which is online
+[1:52] code understand does it use the algorithm which is expected out out of
+[1:56] you if it is BFS it has to be done in a particular way if it is DFS it has to be
+[2:01] done in a different way because the answer to both of them will be different
+[2:05] uh in the way you approach we have seen that you know BFS uses a Q and DFS uses
+[2:11] a stack so let's again look at lonely nodes and you don't need to show that
+[2:17] give me a blank screen.
+[2:20] >> Yeah. So what we had primarily is you're given a tree
+[2:26] uh you're given the root of the tree and you have a bunch of nodes.
+[2:46] Okay. So a lonely node is a node uh which has which is a single pair single
+[2:52] child of his parent. It does not have any siblings. So given this particular
+[2:57] tree what do you think are the lonely nodes?
+[3:02] Yeah what do you think are the lonely nodes and the output was basically in a
+[3:05] sorted order because I can traverse the right I will get one output. I can
+[3:10] traverse left first I'll get a different output. So to make it uh convenient to
+[3:15] all of us, we said once you get the lonely nodes, we go through one more
+[3:19] extra step which is sorting and printing it. So in this example, what do you
+[3:23] think are all the lonely nodes? Yes. Who are who were there last time?
+[3:28] You were there last time. No. Uh you were there last time.
+[3:32] Uh 15 and 20 and
+[3:38] yeah and 11. If you look at root, root has got two children. So these two guys
+[3:45] have a sibling. Two has a five sibling. Five has a two sibling. Uh these two
+[3:51] guys have a sibling. But if you look at 15, 15 is the only child of nine. And if
+[3:59] you look at 11, 11 is a child of five and uh 20 is a child of 11. So the
+[4:06] output would be 11, 15 and 20 because we are sorting them in ascending order. So
+[4:14] this is what we discussed last class and many of you did implement it. That's
+[4:18] great. But what we will look at is the solution to it. Yeah. So are you all
+[4:23] clear? A lonely node is a node which is a single child of its parent. So root
+[4:30] has got two children. So they are not lonely. You know they have company for
+[4:33] each other. That's why it's called lonely. Only alone. Yeah. Uh two again
+[4:38] has two children seven and nine. So they are not lonely. But nine if you look at
+[4:43] has only one child 15. It does not have any sibling. So 15 is a lonely node. Now
+[4:49] if you look at the right of the tree, five has a child 11. 11 doesn't have any
+[4:54] sibling. So 11 is lonely. And 11 has a child 20. 20 does not have any sibling.
+[5:00] So 20 is also lonely. So the way we looked at this is uh we said yeah we do
+[5:07] not consider root as lonely because root did not have any parent. So root is
+[5:11] never lonely. Now what do we do? We check the left of the root.
+[5:16] We check the right. Oh does a root have left and right? Yes. So they are not
+[5:21] lonely. For it to be lonely it has to have only one child. It is either left
+[5:27] is null and right is not null. in which case right is lonely. Our right is null
+[5:34] and left is not null in which case left is lonely. So when we say is lonely
+[5:40] there's only one child which means one of them is lone uh null either left or
+[5:45] right. Now if both are not null what do we do? We just continue till we process
+[5:53] the entire tree. So the way we looked at this we used a data structure. This is
+[5:59] for the benefit of everybody. We used a data structure called a Q because in a
+[6:03] BFS we use a Q. So what did we add to the queue? We added to the que the root.
+[6:10] So this is my Q. This is my lonely. We add to the Q. Sorry, we start with
+[6:16] the root. Root is never lonely. So we check, oh is the left null?
+[6:22] No. Is the right null? No. So can I add to the lonely node? No. So what do I do?
+[6:28] I add to the Q 2 and I add to the Q five. BFS is level order. So we check
+[6:37] the left and the right since both are not lonely. So since both are existing,
+[6:43] they are not lonely. So that doesn't get added to the result. But we add to the
+[6:47] Q. We extract from the Q two.
+[6:52] What about the child of Q? A two left. Does it have a right? Yes. So we add
+[6:58] seven and 9 to the cube. So it doesn't get added to the result. Then we get
+[7:05] five. Does the five have a left?
+[7:11] No. Does the five have a right? Yes. Since left is not there, only right is
+[7:17] there. Where does that right get added to
+[7:21] the result? And what do we also do? add this to the que. Why? Because we need to
+[7:27] continue processing till we encounter a leaf. A leaf is when it doesn't have any
+[7:32] children. So I've got five. Then I get seven from the que. Does the seven have
+[7:38] a left child? Does seven have a right? No. So nothing gets added here. Nothing
+[7:43] gets added to the que. We get nine. Does the left does nine have left? Yes. Does
+[7:50] it have a right? No. So, what do we add to the result?
+[7:56] 15. And what do we add to the queue? 15. Are you guys there?
+[8:02] Everybody? Yeah. Then we get 11. Does the 11 have a
+[8:08] left? Does it have a right? Yes. So, 20 gets added to the result, which is
+[8:14] lonely. And where do we what do we add to the queue? 20. We extract 15. Does it
+[8:21] have left and right? No, we extract 20. Does it have left and right? No. So this
+[8:26] is my result. So what we do in basically in a BFS is
+[8:32] we store in the queue and we process till the queue is empty. So the basic
+[8:37] thing in this algorithm is check at every node does the left and right
+[8:42] exist. If both the left and the right exist, we do not add them to the result.
+[8:48] We instead add that to the queue so that we continue processing its children, its
+[8:54] grandchildren, its great grandchildren till there is null.
+[9:01] Are you clear diagrammatically? Are you clear? What did the Q contain at every
+[9:07] level when we were processing the uh tree starting from the root? Anybody
+[9:15] has any questions, please ask because the code is very very simple code.
+[9:20] Again, the code uses what I just explained a Q data structure a list
+[9:25] which is a lonely array list and then we keep adding to the uh lonely and to the
+[9:31] Q if it is a lonely node. We add to the que if both the children are existing
+[9:37] without adding it to the lonely uh array list.
+[9:43] Shall we look at the code? Yeah. Are we good? Show them the code. Uh show them
+[9:48] the main fill the tree. The tree is created. Uh uh we are calling the
+[9:53] constructor. Uh then we are taking some data. Uh and then we are saying insert
+[9:59] level order. So can you show me some data sir?
+[10:03] Sample data. Yeah. So let's say 2 3 4 -1 5 minus one means null. Okay. So what do
+[10:12] we do in a level order traversal? Two becomes a root. Three and four get sorry
+[10:18] two is a root. Three and four get added. And then what about the left of it?
+[10:24] Minus one which is null. That means no left. And what about the right of it?
+[10:30] Five. So what is the lonely node? This guy. The root has two children. So they
+[10:38] are not lonely. So what do we what did we add to the queue? Three and four we
+[10:44] get three out of the Q. Does it contain left? No. Does it contain right? Yes. So
+[10:50] five gets added to the result and five gets added to the Q. I get four. Does it
+[10:57] have left and right? No. I get five. Does it have left and right? No. So this
+[11:01] is my result which is five.
+[11:09] And now for this input data you can draw the tree and see how you're getting this
+[11:14] as an answer. So erase this all of you for this input data draw the tree. Build
+[11:20] the tree level order. That means the first element is the root. Next two
+[11:25] element are it children. The next four will be the level two. Then eight level
+[11:30] three and so on. Wherever you see minus one it means null. That means that
+[11:35] branch of the tree does not exist. So while you do this, I will also draw
+[11:41] the tree for you so that uh we are all together on the same plane.
+[11:47] Uh there is 11, there is 99
+[11:53] 88. Are you guys clear with the first three?
+[11:56] Then what about the next four? 77
+[12:01] -1 left is min -1 66 Are you clear on the next four
+[12:10] level order then what about 55 would be here -1 then
+[12:18] -1 -1 that means this is anywhere empty then again -1 -1 -1 44 before.
+[12:30] Now again you you go through the Q process. 9988 gets added. Now 99 has one
+[12:36] single child. So 71 is part of the result.
+[12:41] 77 gets added to the queue. It has got one
+[12:45] single child 55. Are you seeing that? And then on the right you will see 66
+[12:50] and 44. And because we have data which is sorted we have 44 55 66 and 77. These
+[12:58] are all the lonely nodes
+[13:03] single child of the parent.
+[13:11] Are we good sir? Can you take us through the code?
+[13:15] Yes sir. Can I clarify something? Okay. Thank you.
+[13:20] Can you take us to the code, sir? Erase all that.
+[13:24] Uh, you already gave them that code. Now, level order insertion. So, they see
+[13:28] that code. Yeah. Great. Now, that's fine, sir. Take us to the method. Not
+[13:33] that. That's okay. They'll figure out. Do you have any questions on insert
+[13:37] level order? Those who have gone through the program, do you have any questions
+[13:41] on how to insert into the tree? How many have seen this code? This code
+[13:48] was given to you. Okay. Take us to that code, sir.
+[13:55] Yeah. So, what we are basically doing is uh we are inserting level order. What
+[14:01] are the two parameters there? Can you show me what are the two parameters?
+[14:06] No, no, not there in the main. Oh, you're calling the zero. Okay. The zero
+[14:10] is the root. Yeah. Go back.
+[14:15] Yeah. So let's understand this for completeness. Every tree code will have
+[14:19] this if it is BFS. So we have data let's say uh 2 3 4 5 7
+[14:28] 9 10. Okay. So the tree would look like 2 3 4 5
+[14:36] 7 9 and 10. Are you clear? Now how did we get added? Is I greater than equal to
+[14:43] zero? No. I was zero initially. Is I equal to minus1? No. What are we saying?
+[14:49] We are creating a binary tree node with the first element being the root. So
+[14:55] that is a root. So what is the root contained? Two which is index i. What
+[14:59] was i initially? Zero. So the first element is the root. Then we are saying
+[15:04] root. We are calling recursively the array.
+[15:09] And what is i value now? 1 2 into 0 + 1 one which is this guy
+[15:17] and then we are saying insert on the right. What is the I value here? Can
+[15:21] anyone tell me when I is equal to zero?
+[15:28] Two. So the first two elements become the two children of that.
+[15:34] So when we call with one, we are again calling recursively. What will this I
+[15:39] value be when I is equal to 1? Huh?
+[15:45] Three. And when I is equal to 1, what is this value? Four. So it's like saying
+[15:50] the first element next two are it children. The next two are his children,
+[15:55] which is four and five index. Uh sorry, three and four index. Five and
+[16:00] seven. Are you getting that? And what about the right 2 into I + 2 when I is
+[16:06] equal to 1? this will be four and when I is equal to uh sorry when I is equal to
+[16:12] 1 this will be called with what four. So when you call with four uh what
+[16:21] happens? 1 minute. Uh I was initially zero. So this is called with uh one and
+[16:29] two. So we called insert level order with one. Insert level order with two.
+[16:37] So which is three and four. Now insert level order with one we'll call what? I
+[16:42] is one. So this will be uh three and four.
+[16:48] which is five and six. Are you there? And when you call with
+[16:54] two, it will be uh 2 into two uh index five and index six. Index five and six
+[17:01] are uh 9 and 10.
+[17:06] Index 0 1 2 3 4 5 6. So this is basically inserting the tree in the
+[17:14] level order. That is why we had to give minus one. So that it is indicating it
+[17:19] is a null.
+[17:22] Not every node will have two children. If some of them don't have any children,
+[17:28] we say minus one minus one. If one if they have one child, we'll say minus
+[17:31] one, whatever value. So minus1 is like null. But here we don't use a null
+[17:35] because the data is integer and null is a reference type. So we replace that
+[17:39] null with minus one. Is it clear?
+[17:44] This code is given to you. In case you're not clear, you can go through
+[17:47] again ask whenever you need to. Sir, stop. Erase all that. Now take us to the
+[17:52] actual code which is lonely nodes.
+[17:59] Yeah guys, please go through the code. Uh we create an empty list uh line 58
+[18:05] link list. And are you seeing uh that is a Q and what did we add to the Q?
+[18:13] the root the first element and what is a typical code in a BFS
+[18:18] every BFS code
+[18:24] what
+[18:29] go wash your face and come go yeah every BFS code has the same logic while Q not
+[18:36] empty so is the Q empty no what did the Q contain the root So what is the next
+[18:43] thing we do in the line 62? Whatever is the first element of the Q, we get that
+[18:49] using Q.pole. So I got the root. Guys understand this code was discussed
+[18:54] last class. BFS. Scroll down. Now look at this is the real code. If the left is
+[19:00] not equal to null and if the right is equal to null, what is the lonely node?
+[19:05] Now left. Left is not null. Right is null.
+[19:10] Only one child. So lonely is left. Are you seeing that list dot add? We are
+[19:16] adding the left. And what are we also adding to the queue? The left because we
+[19:20] have to check does that guy again have one more left or does it have both left
+[19:24] and right. Is that code clear? So whenever you find
+[19:28] a lonely node, you add to the result and the Q. Whenever you don't find a lonely
+[19:33] node, you just add to the que.
+[19:38] Have you understood? So look at the other code. If the left
+[19:43] is null and the right is not null, then add the right to the result and add the
+[19:48] right to the que. Is that clear? Now what does the else
+[19:53] mean? Both are not null. If both are not null, what do we add to the queue? Left
+[19:59] and right. We don't add that to the result because there are two siblings
+[20:03] and they cannot be lonely.
+[20:11] How many are not clear with the code? So when do we call it lonely? Only one
+[20:16] child. Which child? Left or right? So if there's a left and not right, add the
+[20:21] left to the result. If there's a right and not left, add the right to the
+[20:24] result. If both are there, it is not lonely. So continue
+[20:28] its children. Keep branching till no more
+[20:34] elements are there. So we don't add that to to the result but we add that to the
+[20:39] queue.
+[20:44] Are we good everybody? So how many of you finished this last
+[20:51] class using BFS? Is it similar logic or
+[20:56] different? Similar. Yeah, that's the best logic you can think about. Easiest
+[21:00] logic. Three lines of code. Three conditions. Either one exists or none
+[21:06] exist or both exist. If both exist, add to the queue. If none of them exist, do
+[21:12] nothing. If only one exists, that guy is the lonely node. So that gets added to
+[21:17] the que and to the result which is that link list. Now you'll say why are we
+[21:23] adding to the que? The reason why we need to add to the que is I need to go
+[21:26] branch down. Imagine A had B, B had C, C had D. A's child is B. So B is lonely.
+[21:33] B's child is D. C. C is lonely. C's child is D. D is lonely. D doesn't have
+[21:38] anybody. So we stop. So every time we add to the queue again
+[21:43] you check is the Q empty? No. Get whatever is element from the que and
+[21:47] keep branching. So because it is BFS we are doing level order traversal.
+[21:55] Yes sir you seem to have a question. Are you all clear? Shall we move on?
+[22:04] Lonely nodes just for those who didn't come last class.
+[22:09] Yeah. Yeah. In a binary tree, a lonely node is a node that is the only child of
+[22:14] its parent. The root of a tree is not lonely because it does not have a
+[22:19] parent. So we start with the root which is never lonely and keep branching left
+[22:24] and right. If both are null, keep branching down adding to the queue. If
+[22:29] one of them is null and the other is not null, add that to the result and add
+[22:33] that to the cube. Yeah, continue sir. Continue. Now in this example, uh six
+[22:40] and two are lonely. Uh 1 and four are not lonely because one has a sibling
+[22:46] four. Five and three are not lonely because five has a sibling three. But if
+[22:52] you look at two and six, they happen to be the only children of node one and
+[22:57] node three. So they are both lonely. And because you can get answer as six and
+[23:05] two or two and six, we are going through an extra step which is sort to print the
+[23:10] array. That is why if you go back to the code, sir,
+[23:15] uh yeah, after everything is done, we are doing collections dots sort the
+[23:19] array list. If you didn't do this, it will be a headache for Shinas and my
+[23:24] team to come up with all possible combinations which is a pain. Isn't it
+[23:28] easier just to say sort and display in ascending or descending order?
+[23:35] You are you are you seeing why I'm I can start with the right at the right node.
+[23:39] You can start with the left at the left node. So there can be different answers.
+[23:45] Shall [snorts] we go to the next problem and the next three problem? In fact,
+[23:49] there is one problem not in the syllabus, but I'm covering it for
+[23:53] completeness. You know, number of islands. Uh what we have in the syllabus
+[23:57] is number of distinct islands, which is an extension of number of islands. So,
+[24:04] uh let's uh go through that max area, sir.
+[24:07] Yeah, show us that. No, no, uh the text and then the diagram.
+[24:14] Uh so, what you're So, I'm going to discuss three problems and three
+[24:17] solutions. >> [snorts]
+[24:19] >> simultaneously because 90% of the code is the same in
+[24:24] all the three. There's one little tweak which you have to do for the different
+[24:29] problem, different solution. Okay, so what is the problem? Let's uh get me a
+[24:33] blank screen.
+[24:36] You're given a grid or a matrix of m into n.
+[24:43] Okay, which contains
+[24:48] zeros and
+[24:57] okay, zeros and ones. Zero indicates water, one indicates
+[25:05] land.
+[25:09] Okay. So, let's say
+[25:28] this is how my data is. Okay. Now, what you need to find out the rest are all
+[25:42] zeros. So this is my matrix of zeros and ones.
+[25:47] So there are three problems I'm going to talk about with this sample data. The
+[25:52] first problem is maximum area of the island.
+[25:59] Second problem is number of islands. And the third problem is number of
+[26:07] distinct islands. Okay. So just to make it little more
+[26:12] interesting uh sir uh the top guy make it one. Erase
+[26:18] this.
+[26:23] Yeah. I'll I'll scribble one.
+[26:29] And this guy make it zero.
+[26:39] Okay. So, three problems we'll discuss. Max area,
+[26:45] two number of islands and three
+[26:52] number of
+[26:56] distinct islands.
+[26:59] We discussed last class. Some of you did solve it. How many of you finished this
+[27:04] problem? Last class. Max area last one.
+[27:11] Only one. Okay. Uh max area, number of islands and number of distinct islands.
+[27:17] So what do you think are the number of islands? Now first talk about number of
+[27:23] islands. We'll talk about number of islands. What is the answer?
+[27:30] Count of how many such islands are there. A piece of land surrounded by
+[27:34] water on all his sides is an island. So figure out such islands and tell me
+[27:43] I didn't hear. Did I hear four? Okay. So one is this guy.
+[27:51] The other is this guy. Third is
+[27:57] I am assuming you can traverse both horizontally and vertically.
+[28:09] This is third and the fourth is
+[28:20] this. So number of islands is four. Number of distinct islands.
+[28:28] When I say distinct just to explain uh I'll take another small example.
+[28:47] What is the number of islands here?
+[28:51] Three. Number of islands are three. But how many distinct islands are there?
+[28:58] >> One because all three have the same pattern.
+[29:02] One above the below. One below the other. If one was on the right of it,
+[29:08] that would be different. Are you clear? distinct is they are not only having the
+[29:14] same area but their pattern the way they look without any rotation is exactly a
+[29:21] replica. It's just that they're you know displayed somewhere.
+[29:26] Okay. So number of islands in that case would be three. Number of distinct
+[29:30] islands would be one. And what is the max area in that example?
+[29:36] Two. Because there are two units with one. So each is one area. Assume that
+[29:43] one is one unit. And there are how many such ones? Two. So 2 into one.
+[29:50] So considering the first example now what is the maximum area? Calculate and
+[29:54] tell me what are all the areas you have got so
+[29:58] far. There's an area of one. So there's an area of one which is uh
+[30:06] this guy and this guy. So there is one with area one. Okay. What is the other
+[30:10] area? Uh which one? So which is 11? The 1 2 3
+[30:16] 4 5 6 7. So this is 7 and this is 4 + 3 + 2 + 1 11. So the maximum area is 11.
+[30:26] Are you getting the problem statement? You're given a matrix of zeros and ones.
+[30:34] You have to calculate the number of islands. So we have got number of
+[30:39] islands as four in the first example. Then you have to calculate the maximum
+[30:44] area. One area was one. One more area was seven. There's one more area you
+[30:48] which you end up with 11. And that is why seven is replaced with 11. And seven
+[30:54] replace one. So the max area is 11. Are you there?
+[31:00] 10. He said 11. No. Okay. 4 + 3 + 2 + 1. Uh 10. My My bad. 10. Yeah.
+[31:09] Did you change it to 10? Yeah. Okay. Good. Change it to 10. 10 is anyway the
+[31:13] largest. Now, what about in the first example? What are the number of distinct
+[31:18] islands?
+[31:22] Three. One is of area one,
+[31:27] other is of seven and 10. But there's one more of area one. So when you
+[31:33] consider this, what data structure would you use to solve number of distinct
+[31:39] islands? Yeah.
+[31:45] Yes, please. What can we use to solve that?
+[31:50] Which collection would help you solve such a problem? Number of distinct
+[31:56] islands
+[32:00] set. Yes. So you add to the set. And what are you going to add to the set?
+[32:05] Area or something more? I'm just think asking you to think now.
+[32:10] Area. So would a rectangle of 2x4 be same as
+[32:15] 4x2?
+[32:19] Now I'm asking you two rows, four columns is the same as four rows and two
+[32:24] columns. Are they distinct or unique? They are
+[32:31] they are distinct are unique. What both mean the same, right? So when
+[32:38] you say 2x4 and 4x2 are the same?
+[32:44] No. But what is the area? Same. So when you say number of distinct islands are
+[32:51] you going to consider area or something else
+[32:57] I can't hear shape how does it look like the pattern
+[33:05] now if you look at the example at the right all of them look the same
+[33:10] pattern-wise one below the other imagine I had one
+[33:16] more like this.
+[33:20] Okay. Uh sir, erase this one.
+[33:27] Yeah. Imagine I had one more like this.
+[33:35] This and this area wise are still the same two units. But the pattern here is
+[33:42] horizontal. The pattern is vertical. So that would count as two islands and not
+[33:48] one. Whereas this guy and this guy and this
+[33:52] guy would be considered as one because they have the same area and the same
+[33:57] pattern. The way they appear without any rotation
+[34:01] is what we are looking at. Are you clear? So there's something more
+[34:06] we have to do in this in addition to what we do in two. So in this example
+[34:13] the number of distinct islands are three. The number of islands are four
+[34:17] and the max area is 10 considering the area 1 7 and 10. The maximum being 10.
+[34:26] If you have any questions please ask me now because we are going to look at all
+[34:31] the three simultaneously to solve. Like I said 90% of the code is same.
+[34:38] Are we clear on the problems? max area, number of islands and number of distinct
+[34:44] islands. If anybody is not clear, please let us
+[34:47] know. We'll take another example and go through.
+[34:58] Are we good to go? So, how do we solve this problems? So, let's look at how do
+[35:03] we solve it? Anyone would like to share your inputs on how we can solve
+[35:09] the first one max area. What do we need to do to solve this?
+[35:20] Who are present last class? You there last class now sir.
+[35:30] >> Out on this one sir. Give it a try. Anybody
+[35:39] can give it a try. If you want to just pass the mic to you just give it
+[35:44] [clears throat] a try. In this in this grid,
+[35:50] >> where do we start our search from? Let's put questions and get answers
+[35:57] >> from the first one, sir. >> From the first one which is cell 0.
+[36:02] >> Really? In this in this case it's cell 00 sir
+[36:05] >> cell 0 0 >> in the right bottom.
+[36:07] >> No no I'm talking about the first the bigger guy
+[36:14] >> it is it is a matrix she wants to answer pass the mic to her. Yeah
+[36:20] >> sir where we get one in the cell. >> So which cell will we start from?
+[36:27] >> First row and third column. >> Very nice. We basically start from 0 0.
+[36:33] It's like a typical matrix problem. For i is equal to0 i less than number of
+[36:38] rows i ++. For j is equal to0 j less than number of columns j++ and check.
+[36:44] Oh, what is the grid? If the grid is zero, you can skip. There's no point
+[36:51] starting from 0 0 cell because 0 0 is never an island. It is not one, right?
+[36:56] So if it is not one, you don't start. So we start with 0 0 cell. Oh, does it
+[37:01] contain one? No. Then we go to 01 cell. Same row, next column. Does that contain
+[37:06] one? No. Then we go to 02. Does that contain one? Yes. Now the other
+[37:12] important thing which I forgot to answer or I didn't discuss which I thought one
+[37:18] of you would ask is when we consider a max area problem or number of islands or
+[37:24] number of distinct islands what is a valid
+[37:30] island for us neighbors also containing one. Now when
+[37:36] we say neighbor is it left, right, up, down or diagonally also.
+[37:45] Okay. So in every problem which is a problem which is in this particular
+[37:51] manner the problem statement would contain oh can you traverse in two
+[37:56] directions only up down and left right. Can I traverse in four directions left
+[38:01] right up and down? Can I traverse in eight directions which is four uh left
+[38:08] right? So if you're given a matrix like this 3x3
+[38:20] if I consider let's say this cell for me all these are valid if I look at
+[38:28] a directions okay
+[38:32] if I look at the same example
+[38:40] Then if it is horizontal with respect to this cell, this and this are valid.
+[38:47] Diagonal is never considered with respect to this. When I come to
+[38:52] this cell, [laughter] this is valid. So in every problem which is a problem
+[38:57] which is specific to this grid, they'll say, "Oh, you can traverse in four
+[39:01] directions. You can traverse in eight directions or you can traverse in two
+[39:06] direction left right or up and down. So this is [clears throat] two
+[39:13] directions could be up down or two directions could be left
+[39:18] right. Four directions are
+[39:23] eight directions are
+[39:31] are you there? That is important. That means given any particular cell, what
+[39:35] are the four directions of it? If this guy is 0 0, if this guy is 0 0, what is
+[39:42] the next one? 0 1. What is the next row? 1 0. What is the left one? Min - one 0.
+[39:51] Uh sorry 0 min - one. Okay. Uh easier to explain those
+[39:57] directions. Yeah. If this is my cell 0 0 the four directions are up down
+[40:06] right left. Who are his four neighbors? - one 0
+[40:13] 0 1 1 0 row is increasing column is same and
+[40:19] what about this guy row is same column is incre decreasing
+[40:25] is it making sense guys and if I talk about eight directions of
+[40:30] this there are two more here and two more here what will this value
+[40:36] be can you tell me it is minus - one
+[40:42] - one one about this guy
+[40:48] 1 1 next row next column what about this guy
+[40:56] row is increasing but what about column so one minus one and what about this guy
+[41:02] row is decreasing column is decreasing minus one minus one so considering this
+[41:08] as the start Eight directions are these. Four directions are min - 1 0 1 0 0 1 1
+[41:16] uh 0 - 1 and 8 would be this. If if you're clear, it helps us solve the
+[41:23] problem better.
+[41:26] Is are you clear? So every time a problem like is this is
+[41:31] given the max area is considered based on what is a valid traversal. Is it four
+[41:39] directions, two directions, eight directions or six directions? Whatever
+[41:43] the problem will tell you what is a valid I mean who are my neighbors which
+[41:48] are valid to me.
+[41:52] Okay. So the way we approach this problem is we start with the first cell
+[41:57] in the grid which has a value one and after that we look at all its neighbors
+[42:04] given the number of directions you can traverse.
+[42:08] and then check do those neighbors have a one or a zero just because I'm at that
+[42:14] particular cell the neighbor to the right may be zero so it is not
+[42:18] considered the guy below me is also zero so I'm not considering I will consider
+[42:24] only if it is one for me it is valid island it is part of number of distinct
+[42:29] islands it is part of number of islands only if it is an island which is one is
+[42:34] a piece of land which is one. Okay. So, we start with the first cell
+[42:40] which has a value one and then we go to the neighbor. So, let's take a very
+[42:45] simple example and now that you're clear on this, let's take a very simple
+[42:49] example and calculate what is the max area. Are we clear? Shall I erase this?
+[42:55] Yeah, erase this. Yeah. So, let's take a 4x4 matrix. [snorts]
+[43:06] Uh we'll start with this guy one.
+[43:18] Where is this? Okay. So the directions allowed are
+[43:23] four.
+[43:27] Okay. So what do we start our traversal with?
+[43:31] Cell 0 1 because that is cell containing a
+[43:36] value one. What about the right? Is it one? What
+[43:41] about the left? What about the bottom?
+[43:45] Top is it valid? No. So we ignore. So what is the area we have found? One. So
+[43:52] far our max area is one. Are you guys there? By default max area
+[43:58] will be zero because for all you know there is no island. Everything is zeros
+[44:01] only water.
+[44:05] Okay. Then we go to the next cell. Oh, does it contain one? No. No, none of
+[44:08] them. So again, this becomes our second starting cell.
+[44:13] What about the neighbor?
+[44:18] Valid. So what did we add to the Q? What did we
+[44:23] add to the Q? 0 1 2 3 0 1 2 3. So what did we add to the Q?
+[44:31] 2 comma 0. So this is what the Q contained when we found the next cell
+[44:35] with the value 1. We get this out from the Q.
+[44:40] Who are all the neighbors of 2 0? Now two 0 neighbors are
+[44:47] 2 1 3 0
+[44:52] 1 0 above and 2 - one
+[44:59] right is this valid negative is outside the bounds
+[45:04] skip is this valid no because that is zero skip is this
+[45:10] valid
+[45:13] Yes. So what gets added to the queue now?
+[45:17] 21. Please understand the logic. 21 code is very simple. 21. Then is this valid?
+[45:23] 3 0. No. So the only thing which got added to the que when we started with 2
+[45:31] 0 is 21 because the other three directions either are out of bounds or
+[45:38] that is water. Now when we get this from the Q who is
+[45:42] valid who are the valid elements of 21
+[45:48] 2 3 1
+[45:54] 1 and 2 0 of these four which are valid
+[46:02] 3 1 2 and and
+[46:10] two zero. Now is a very interesting thing.
+[46:14] From A I went to B. B is taking me back to A again. From here I'll go to B. B
+[46:20] will take me. So the Q will never terminate.
+[46:23] And are you not adding the same guys multiple times? Forget about adding
+[46:28] multiple times. It will be in a loop which will never terminate.
+[46:33] If that island was already considered, we should
+[46:37] not be considering once again. So how do you do this? We discussed this last
+[46:43] class.
+[46:46] The way we do that is from one from two 0 20 is already processed. So whenever a
+[46:53] particular grid is processed, we are changing that value from 1 to zero.
+[47:00] We're changing it to zero because it is already considered. So the neighbor
+[47:04] should not reconsider. It's like the concept of visited which we talked about
+[47:07] earlier in that graph traverse. Remember shortest distance?
+[47:13] Are you all getting it? If you have to explain to someone, you
+[47:17] need to understand why we are doing it. From 20, my neighbor was 21. But two
+[47:23] one's neighbor is also two 0. Since I am already
+[47:27] uh considered I will not want it to be considered again. So one way of solving
+[47:33] this is we can set that to zero. Okay are you there? Then we discussed in
+[47:40] the last class are you not disturbing the original map?
+[47:47] What if the client says after you have calculated the area get me the original
+[47:52] piece of land and tell me how that island look like
+[47:57] where was water where was land have you not lost that information because all
+[48:03] ones have now become zero so you don't know what were ones before
+[48:07] so how do we solve that problem create a copy now I'm saying no copy is
+[48:14] required no don't create a copy
+[48:21] instead of zero you make it minus one. So you know all minus1's are ones. So
+[48:28] you multiply with minus1 and when you want the original one back you just say
+[48:32] again into minus1 will become one. Are you getting what I'm trying to explain
+[48:36] to you? So that in case you asked this question in the interview. Oh please do
+[48:40] not create extra storage. Don't have a visited array. Then you just multiply
+[48:45] each of them with minus one. So that if you want the original one, you again
+[48:50] multiply everything with minus one. Zeros anyway will be zeros and minus one
+[48:54] will become one. So you've got the original layout once again
+[48:59] guys why are we doing it no extra storage and we want to retain the
+[49:03] original. Here we don't care about it. So we are making it zero. Are you clear?
+[49:08] So once I have gone to zero, my immediate neighbor was 21. So 21 got
+[49:15] added to the que. I've extracted. 21's neighbors are 22. So now 22 gets added
+[49:20] to the que. 3 1 gets added to the que. And is there any way 1 one? No. What
+[49:27] about 2 0? That is also zero. So we ignore. So
+[49:33] when I considered this, this guy and this guy got added to the queue. 22 2
+[49:38] and 3 1. Now extract 22. Who are the neighbors? 32
+[49:44] 2 3 1 2 and
+[49:50] 2 1 that is anyway zero. So the neighbor which gets added here is
+[49:57] 32. Are you there? Okay. Now I get 3 1.
+[50:05] 31 again becomes zero. 22 became zero. Now when I get 3 1 uh who are the
+[50:10] neighbors? 32. 32 is already added. So that is zero.
+[50:16] Now I get 32. Who is the neighbor? 3 3.
+[50:23] Are you there? And what happens to 33? Zero. So these are the area 1 2 3 4 5 6.
+[50:30] So the six is the area. all the elements in the queue when you keep extracting we
+[50:35] increment the counter by one and that is the max area which is six.
+[50:41] So the way we do that is every time we find a particular cell which has a value
+[50:45] one we update it to zero get all these neighbors given the number of directions
+[50:51] you can traverse and add all of them to the queue and get one at a time.
+[50:59] And whenever you add to the queue, make sure that particular cell is set to
+[51:05] zero. So it is not reconsidered when you have to go to the next cell.
+[51:14] Is it clear? Shall we look at the code if the algorithm is clear? How many are
+[51:18] not clear? How many are not clear? Again,
+[51:24] everything boils down to adding to the queue. So let's see the code, sir.
+[51:30] Show the mean. Show the mean. Yeah. Uh can you go to
+[51:34] the problem statement first?
+[51:40] Yeah. The forest man of India started planting seeds in a m into n grid. Each
+[51:45] cell in the grid land is planted with a seed. One means it grows into a sapling
+[51:51] and zero means that seed dies. It doesn't you know general germinate. One
+[51:57] or more saplings are connected horizontally, vertically or diagonally.
+[52:01] So how many directions are we talking about here? Eight. If I remove
+[52:04] diagonally, four. If I remove vertically, only two. So read that clear
+[52:08] carefully because one guys neighbors could be eight or four or two. Okay.
+[52:15] Your task is to help find the number of saplings which is the maximum area.
+[52:22] Yeah. Scroll down. So we take mn we take the data in the grid and then we call a
+[52:27] method solve. Are we clear so far? Show the solve.
+[52:33] Great. Now see the first part of the code. This is same for every other
+[52:37] problem we are going to discuss. So I'm not going to again get into every code
+[52:41] once again. Can we look at it? If the grid is null or if the length of that is
+[52:47] zero, return zero. There's no area
+[52:52] empty right otherwise what are we doing for i is equal to0 less than number of
+[52:59] rows for j is equal to0 less than number of columns
+[53:04] matrix rows into columns then look at the first line of code 249
+[53:09] first cell in that row column which has a one that becomes your Start
+[53:19] clear. And if it is start, what are we resetting that cell to? Line 252.
+[53:25] Zero. So whatever is our one, it is processed and that becomes zero. So that
+[53:31] its neighbor doesn't reconsider that guy again.
+[53:36] Hello. Yes.
+[53:41] And then what are we calling BFS? What is passed to the BFS method? The array I
+[53:49] and J the cell which is the start cell for us. Please go through that code. Let
+[53:55] me know if you have any questions on this. This is common for every code. Now
+[53:59] all problems like grid and what are we then doing? Whatever was
+[54:04] the earlier value you got, you get a new value, we get the maximum that is the
+[54:09] max area. So that is the result. [clears throat]
+[54:15] Yes sir. Clear. Are you all clear? Shall we move
+[54:20] on?
+[54:24] Shall we move on? So the first part of the code is common for all. Now what is
+[54:29] a BFS doing? Let's see. BFS method. BFS is bre first search. Bre first
+[54:34] traversal. Yeah. Great. Now while he shows you that code I'm going to
+[54:40] explain. Uh the first thing we do is we create a que and what is the first
+[54:45] element we added to the queue. The first cell which was called with I and J which
+[54:51] had a value one. Remember BFS I J. So we we have added that to the que line 264
+[54:58] is an array of two elements I and J. And then what is the result?
+[55:04] Zero. Scroll down sir. Show the code. While the Q is not empty, we are getting
+[55:10] the value from the Q. Okay, we have got that value I and J.
+[55:15] Okay, we are printing it. And what did we increment that result to one? We
+[55:20] found one cell. So incremented. Now this code is the real crux of the
+[55:26] code in every BFS problem. So show that complete code. Yeah,
+[55:32] since we are talking about eight, we have a array containing eight pairs.
+[55:38] What does min - 1 0 mean? Row column. What does minus 1 0 mean here?
+[55:46] Which direction is it? Okay, if I talk about give me axis. If I
+[55:52] talk about eight directions up, down,
+[55:58] left, right,
+[56:02] up, right, down, right,
+[56:07] left, down, left, up. What does min - 1 0 indicate?
+[56:15] The first is row, second is column. So - 1 0 indicates what?
+[56:21] minus one zero sir row minus one is row
+[56:28] if I'm in row zero what does minus one mean up then why are you saying left
+[56:33] somebody said left no first is row second is column so if I'm at already 0
+[56:38] 0 minus one will be up then what about 1 0
+[56:45] down what about 0 minus one row is same column
+[56:51] minus left. What about 01 right? So it is like up down left and
+[56:59] right. Four horizontal. Now look at the other minus one one
+[57:05] upright. Yes. Minus one is up + one is right. So that is upright that quadrant.
+[57:12] And what about min -11
+[57:17] -11? Huh? No, minus one. Is it down?
+[57:26] Sorry. Minus one. One is upright. Minus one is up
+[57:33] and uh one is right. Upright. Then what is 1 one?
+[57:39] Down right. And what is minus one minus one?
+[57:43] left up both negative and what is 1 minus one
+[57:49] row increases column decreases left down so that is what the four directions are
+[57:55] eight eight directions only two I'll consider up and down or right and left
+[58:03] have you got it is everybody clear so we are basically
+[58:08] creating or initializing an array Okay, with a pair X and Y which is like saying
+[58:15] given any cell get me all eight directions of it considering that plus
+[58:19] minus are row increment column increment row decrement column decrement are a
+[58:25] combination clear. So that is initialized. Now look
+[58:30] at that code 277 for each neighbor of that row and
+[58:35] column. What is current zero and current one?
+[58:41] What is current zero current one? When I call BF with with row and column,
+[58:47] that is row and column. So for that row and column, find out what is the new row
+[58:51] and what is the new column. So I'm basically adding neighbor 0, neighbor
+[58:55] one. So what does that line 277 mean? For each of the neighbors, so first time
+[59:02] it will get you - 1 0. So whatever is the current imagine the current is 2 2
+[59:10] this will become 2 + - 1 and 2 + 0 which is 1 2
+[59:19] for loop. So for each element of this array I'm going to get one pair of data.
+[59:25] For each pair of data I'm going to add to the current I'll get new i and new j.
+[59:33] So if this is my start here, I'll get one of these guys.
+[59:39] Okay. And then look at this code. Is this I greater than zero?
+[59:45] Is it within the grid? It should be in the bounds.
+[59:50] Is J greater than zero? Is it within the number of columns?
+[59:55] And is the neighbor containing value one?
+[59:59] If it is please consider otherwise don't.
+[1:00:04] So in this example if I have this this this and this this
+[1:00:12] will be considered not this guy not this guy not this guy not this guy because
+[1:00:18] they're going out of bounds. Why will this not be considered? Because it is
+[1:00:23] zero. So out of eight directions even this
+[1:00:27] will not be considered. Out of eight directions only two are considered
+[1:00:31] because five are out of bounds and one has a value zero. So look at this logic.
+[1:00:37] It should be greater than zero and less than the number of rows. This should be
+[1:00:42] greater than zero and less than the number of column. It should be within
+[1:00:45] this. It should be within this. And it should be greater than equal to zero
+[1:00:49] here not above. And the neighbor should also contain a value one then it is a
+[1:00:56] valid area to be considered. And if it is a valid area to be
+[1:01:03] considered what are we then doing? Setting that neighbor also as
+[1:01:08] zero setting that I and J as zero and adding it to the que.
+[1:01:15] So the first guy adds the second guy. Second guy may add the third guy. Third
+[1:01:18] guy may add the fourth guy horizontally, vertically depending on how that is
+[1:01:23] written. Again there is no preference. Should I
+[1:01:26] first consider up down or left right? Doesn't matter. All eight have to be
+[1:01:30] considered. If they have to be considered is okay. It's just area.
+[1:01:38] Is that code clear? And if it is considered we go back. So go up sir. go
+[1:01:43] up in the code again we say while Q not empty get that new neighbor increment
+[1:01:49] the result. So as the Q contains all those elements the result will get
+[1:01:53] updated.
+[1:02:03] Are we good?
+[1:02:09] And then after this where does it go back to again the main the BF is above
+[1:02:14] above sir. Yeah. Solve
+[1:02:20] again we go back to the grid. Now in this example in this example give me
+[1:02:26] access. In this example I have one more cell like this.
+[1:02:31] I have four like this and one here. After they get processed these will not
+[1:02:36] be processed because they are zeros. Again this will get processed because it
+[1:02:40] is one. The first area is four. The second area
+[1:02:45] is one. So max area will remain four. So can you run this with the same
+[1:02:51] test data sir? Create a new test data 3x3
+[1:02:55] and 1 1 0 1 0 0 1 0 1
+[1:03:10] 3 3x 3 1 1 0 1 0 0
+[1:03:20] 1 0 1 Yeah,
+[1:03:24] see we solved we called solution with 0 0.
+[1:03:30] We call solution with 0 0 because this is a cell which had a value one. Are you
+[1:03:35] seeing solve with 0 0 then who is this neighbor? We got from the Q 0. Then we
+[1:03:41] got 1 0. Then we got 0 1 1 0 0 1. All other neighbors we skipped because they
+[1:03:49] considered they're outside the bounds. And this is zero. Are you seeing why
+[1:03:52] only these three got added to the queue? And also two 0 by the way. Yeah.
+[1:04:00] Are you there? And then after this again we went and
+[1:04:05] called solve with 2x two because this also has a cell value one.
+[1:04:10] It is not part of the previous guy. Are you seeing in the solve it is only 0 0.
+[1:04:16] We never called with one one. Sorry we never called with 01. We never called
+[1:04:20] with 1 zero. We never called with two 0 because these three got called
+[1:04:25] internally in the BFS because they happened to be your neighbors.
+[1:04:30] And when they got called, what was all of them set to zeros?
+[1:04:35] All of them set to zero. So when we went to the main solve method again, we
+[1:04:41] checked next row next column and we only found this cell which had a value one
+[1:04:45] which is 2x2.
+[1:04:50] Are you clear sir? Every problem is solved in the same way. Every valid data
+[1:04:57] you find add to the queue. Keep extracting. Keep adding its neighbors.
+[1:05:03] Make sure the previous guy didn't get added because we reset that to zero.
+[1:05:07] Whatever we have processed is like visited. How do we mark it visited? We
+[1:05:11] make it zero. So it is not a valid neighbor anymore.
+[1:05:15] All zeros are not valid. which is visited.
+[1:05:23] Are we clear? Now make it more interesting. One more
+[1:05:27] test case. 1 0 1 3x3
+[1:05:34] 3x3
+[1:05:37] 1 0 1 0 0 Don't run. Uh 1 0 1 stop. How many times will the solve method be
+[1:05:47] called? And every time it is called, how many
+[1:05:51] elements does it add to the queue?
+[1:05:56] Four times it will call solve. Once with 0 0, next time with 02, next time with 2
+[1:06:04] 0 and then 22. Every time it calls, how many elements is it adding to the
+[1:06:10] queue?
+[1:06:13] Does it add anymore when it is called? No. Because all his neighbors are zeros.
+[1:06:19] Horizontally, diagonally, everybody is zero. No. So the area is only one now.
+[1:06:25] And number of islands are four. Number of distinct islands are one and area is
+[1:06:30] one. The interesting case. Max area is one because everybody is one. Sir, run.
+[1:06:40] See, we call solve with 0. that got added to the queue. Okay,
+[1:06:46] give me access. So 1 0 1 0 0 0 1 0 1. So we called with this. No neighbors got
+[1:06:53] added. So nothing is there in the queue except 0 0. Then we call solve with 02.
+[1:06:59] This guy no neighbors.
+[1:07:03] We called with two 0. No neighbors. Then we call with 22. No neighbors. So what
+[1:07:09] is the area? only one.
+[1:07:15] Is that making sense? Is that making sense? So next time when
+[1:07:20] I ask you explain, explain with any test case how it works, how the queue looks
+[1:07:25] like when you call that from that uh solution method. How does the BFS look
+[1:07:32] like? What gets added to the queue in the BFS and so on. Are we all clear? Now
+[1:07:37] do one more thing sir. Get me a test data with all ones 3x3.
+[1:07:43] All elements one with 3x3. How many times will the solve method be called
+[1:07:47] now? All once. Huh? Wake up, sir.
+[1:07:51] Huh? Guys, did you have we lunch at your
+[1:07:55] sister's place? Then come. You're sleeping. Where did that guy go? Was
+[1:08:00] sleeping. You're there. Where are you disappearing? You're there now. You came
+[1:08:03] back out. Go wash your face, sir. Go, go, please.
+[1:08:08] All of you who are feeling a little sleepy, I can understand today being a
+[1:08:12] special day. Feast somewhere. Maybe you may be sleepy. So, wash your face and
+[1:08:17] come. Are you okay? How many times will solve be called? Once. How many elements
+[1:08:23] will get added to the queue from that in the BFS code?
+[1:08:28] Huh? one from that 0 0 and that guy will add
+[1:08:36] its neighbors. Its neighbors will add its neighbors.
+[1:08:40] So I'll tell you who are the valid neighbors of 0 0.
+[1:08:46] Who are the valid neighbors of for this guy? These are valid neighbors
+[1:08:53] for this guy. This is a valid neighbor. But this is already added. This is valid
+[1:08:59] for this guy. This is a valid neighbor. Diagonal is valid. And for this guy,
+[1:09:04] this will be a valid or for this guy. This will be down valid.
+[1:09:08] So solve will be called only once. But Q will contain 1 + 8 9 elements.
+[1:09:17] See 0 0
+[1:09:22] 1 0 0 1 then 1 one diagonal then 1 0 adds 2 0 2 1
+[1:09:32] are you there? Then 0 1 add 02.
+[1:09:37] Each guy will own neighbor. So the area is nine which makes sense
+[1:09:45] right? Number of islands are one number of distinct islands is one and max area
+[1:09:50] is nine. Are we good? Shall we move on?
+[1:09:57] Okay. Now the the twist to the number of islands code is the same code with a
+[1:10:04] small change. Sir uh show them the code. Uh run number of islands. No just run
+[1:10:09] number of islands.
+[1:10:20] What is the name of the method? Not max area sir. Number of islands.
+[1:10:25] Yeah.
+[1:10:30] Yeah. Every problem can be solved using dfs
+[1:10:34] also. Yeah. uh 3x3
+[1:10:39] 1 0 1 0 0 0
+[1:10:45] 1 1 0 1. So number of valence would be four.
+[1:10:52] Yeah. See this we are calling solve with 0 0
+[1:10:57] solve with 1 2 solve with 2 0 solve with 22 and every time we call the so it's
+[1:11:03] like saying how many times did you call solve? Those are the number of islands.
+[1:11:07] Okay. Now run number of distinct islands with the same test data.
+[1:11:14] Same test data.
+[1:11:18] Yeah. Copy paste.
+[1:11:22] Yep. One.
+[1:11:30] Get that debug message. No. Get that. Show them now. It's okay.
+[1:11:36] Let them see the code.
+[1:11:40] Number of distinct islands.
+[1:11:56] Just see the debug message. You'll know why it is one and not four.
+[1:12:10] Okay, you'll see that all four blanks, right? I'll give you another test case.
+[1:12:15] Four by 3x3, sir. Another test case set one. 3x3 all
+[1:12:21] first rows all on one, second row all zeros, third row all ones.
+[1:12:31] Yeah. Yeah. Now just see this. What do you
+[1:12:36] see? Interesting.
+[1:12:41] One one for this guy. What is this direction? Right. For this guy, what is
+[1:12:48] the direction? Right? Are you seeing? And uh when you
+[1:12:53] start with uh 2 0 what is the next guy? 21. Right.
+[1:12:59] Right. So are you seeing the same pattern?
+[1:13:06] Are you seeing the same pattern is there everywhere?
+[1:13:14] Is it making sense? That is why the number of distinct are one. Now I'll
+[1:13:18] change the pattern. 1 1 1 0 0 0
+[1:13:24] 1 1
+[1:13:29] Okay. Uh, undo this.
+[1:13:34] Erase. Erase. Yeah. So, I'll give you a test case. Uh, please make a note. 1 0 0
+[1:13:40] 1 0 1
+[1:13:44] uh one.
+[1:13:49] Yeah, this one uh and this is one. Here the directions are only horizontal
+[1:13:56] and vertical. No diagonal. Yeah. 3x3
+[1:14:04] 1 0 0 1 1 0 1
+[1:14:08] 0 1 1. Yeah.
+[1:14:13] See uh see the pattern. Erase that.
+[1:14:20] Yeah. See the pattern. Can you guess what what is the DLN mean
+[1:14:25] with respect to this guy? What is the next cell? Down.
+[1:14:30] With respect to this guy, what is the next cell? Down. And with respect to
+[1:14:35] this guy, what is the next cell? Next cell. Left. Are you seeing left?
+[1:14:42] So, we are not only maintaining the
+[1:14:47] cells, but we're also maintaining in what order are what is the pattern.
+[1:14:54] So if the patterns are distinct set will add them. If the pattern
+[1:15:01] patterns are same set will eliminate one of them. So distinct is to get unique
+[1:15:07] number of islands. And to get the unique number of islands we use a data
+[1:15:11] structure called a set. So the extra thing which is done between number of
+[1:15:15] islands and this guy is we are not only getting the islands but we're also
+[1:15:20] getting the shape of the island and we are adding that into a string and we are
+[1:15:26] adding all the strings into a set. If they contain same they get eliminated.
+[1:15:30] So uniqueness comes okay very important. So that is your
+[1:15:34] syllabus program distinct islands. So let's look at number of islands. It's
+[1:15:38] now code
+[1:15:42] number violence code. Yeah. Yeah. Same again. Solve. Solve is similar. So I'll
+[1:15:48] not spend too much time on it.
+[1:15:52] So if grid is null, grid length is zero for I J. Are you there? If the cell is
+[1:15:58] one, start with it BFS. But before that you set it to zero. Now what is
+[1:16:04] different between this and the previous program? Max area. There you said you
+[1:16:08] know area is equal to max of current minus result. Now here every time you
+[1:16:14] call solve you're incrementing the counter. Each is the island by itself.
+[1:16:18] If it was part of the previous one that guy would have been considered but
+[1:16:21] because there's a water in between we again restart with the next cell.
+[1:16:28] Exactly. That is the number of islands. There is also the number of distinct but
+[1:16:32] after distinct we just get the set size. Okay. Now can you scroll down sir? BFS
+[1:16:40] that is why I'm saying similarity in code. Continue.
+[1:16:43] Continue. We have a Q. We add to the Q and what are the number of islands is
+[1:16:48] eight. Eight directions. Okay. Scroll down. Get all the neighbors.
+[1:16:54] Get the new value and check is it within the grid and if it is what
+[1:17:00] are we resetting it to? Zero. And what are we adding it to?
+[1:17:05] Q is there any difference between this and the previous code?
+[1:17:10] There is what was the previous code? Every time the Q was processed, we
+[1:17:14] incremented the result because we wanted area.
+[1:17:17] Here we don't care about the area. Everything is still part of one. So the
+[1:17:22] result is missing. But every time you go back to the solve
+[1:17:26] there, we are saying count gets incremented. Are you seeing the
+[1:17:29] difference? But are you seeing the 99% of the code
+[1:17:34] is same? This one line here is missing result
+[1:17:40] plus+ and in that case every time we found a element added to the queue the
+[1:17:45] result got incremented which is the area got incremented the island size became
+[1:17:50] larger.
+[1:17:56] Are you there sir? Now show us number of distinct islands
+[1:18:01] again mean
+[1:18:10] distinct islands show us that code. Yep.
+[1:18:17] Okay. Same standard code. Now there's a difference. What is the difference? Look
+[1:18:22] at line 190. Set. We created a set. What did we
+[1:18:28] add to the set? The string. Island is a set of strings. What did we
+[1:18:33] add to it? The string. The pattern. Remember D, hyphen, R, right, left, up,
+[1:18:40] down, whatever that pattern. And then what are we returning finally
+[1:18:44] in line 203? The size of the set. If two patterns are same, set will eliminate
+[1:18:50] one of them. Size will reduce by one. Are you seeing the difference? In one
+[1:18:55] case we found out max area. In the other case we incremented the counter. In the
+[1:18:59] third case we are dumping into a set. After the entire grid is processed we
+[1:19:04] are printing what the set size is. So what this the string contains is the
+[1:19:09] pattern and the pattern is what we have to understand which is new.
+[1:19:15] Shall we look at it? Are we good to go? Yeah sir.
+[1:19:19] BFS. Now scroll down. Now here in this
+[1:19:23] example we are only allowing four directions. Okay.
+[1:19:28] So when you look at it it is like this.
+[1:19:34] Okay. Down, right, up and left. Let's consider 1 0 down. If
+[1:19:42] this is 0 0 this is 1 0. Next row down 0 1 right
+[1:19:52] - one 0 up and 0 -1 left. Are you seeing for each of them I have a character
+[1:20:00] defined that is going to be part of my pattern
+[1:20:04] which I'm going to generate. Is it clear?
+[1:20:11] Are we clear? Okay. Scroll down.
+[1:20:16] Uh then we again have while Q not empty get the value uh count is zero get for
+[1:20:24] each direction the new row and new column. Are you seeing that nothing has
+[1:20:29] changed? Scroll down. If inbound show them that inbound code
+[1:20:36] inbound is just same as before. Easy. If the row is greater than zero and column
+[1:20:40] is greater than zero and row is less than number of rows and column less than
+[1:20:44] number of column that means it is within the boundaries
+[1:20:47] then return true. Go up sir. If it is inbound and the new cell is one
+[1:20:54] then consider. Are you seeing similarity? But what is
+[1:20:59] different here? Which can you tell me which line is new
+[1:21:04] now? Line 235. What is line 235 doing? Adding
+[1:21:10] to the string builder a pattern. What is this? If count is zero. So
+[1:21:19] scroll up. What is count zero? If count is zero, what pattern am I adding?
+[1:21:26] What pattern am I adding?
+[1:21:31] Say go up sir. What pattern am I adding if count is zero?
+[1:21:34] D if count is one what am I adding or if count is two U and if count is three L
+[1:21:41] only when it if it is valid if it is not valid we are putting a hyphen there if
+[1:21:47] my neighbor is valid it is one of those characters depending on which neighbor I
+[1:21:52] considered if the neighbor is not valid it goes with a hyphen scroll down see so
+[1:21:57] if this is in bounds I'm adding that count value if it is not in bounds what
+[1:22:02] am I adding hyphen
+[1:22:06] which means the neighbor is not valid for whatever reason. It could be it is
+[1:22:11] outside the bounds or it has a value zero. So there is no direction. It is
+[1:22:15] not part of the island. So if it is not part of the island, why store a
+[1:22:19] character d ur a hyphen
+[1:22:25] except that everything else is same as number of islands. Here we are storing
+[1:22:30] not only the count of islands but we're also showing do different islands have
+[1:22:35] the same pattern and the pattern information is stored in the string
+[1:22:39] builder
+[1:22:46] right is different from down two horizontal is different from two
+[1:22:50] vertical patterns. Got it? So just to make it interesting
+[1:22:57] just run one test case with 3x3 all ones and you'll see how the pattern looks
+[1:23:02] like 3x3 with all ones.
+[1:23:12] Yep.
+[1:23:18] We getting dr with that cell down and right. Okay.
+[1:23:24] Okay, I'll just explain why it is DR and then why again DR and one one right?
+[1:23:27] Okay, so one one one
+[1:23:32] how many directions are we allowed? Four. So we start with this guy.
+[1:23:39] With this guy, which are the two valid ones? Down and right. Are you seeing
+[1:23:43] down and right? The other two are invalid. Hyphen hyphen
+[1:23:48] up and left. Are you there? So when I got down and
+[1:23:54] right which are the ones I'm now talking about
+[1:23:59] which are the ones I'm now again talking about with this guy who is a neighbor
+[1:24:03] this guy. So what did the Q contain? 0 down 1 0
+[1:24:11] right 0 1 are you seeing for this guy these three are in the que
+[1:24:16] got processed these two got added. Now for this 1 zero who are the neighbors
+[1:24:20] again 2 0 and 1 one. So down and right for this guy only right for this guy
+[1:24:31] only right for this guy only right. Are you seeing down right down right right
+[1:24:36] right
+[1:24:39] that's the way my grid was written in that way. So I
+[1:24:44] have down right. I'm first processing down and then right and then up and then
+[1:24:49] left. If you change the order, your characters also have to change.
+[1:24:55] What was my first grid? One zero. And what was the other one? 0 1. So down and
+[1:25:01] right. So that is why the characters are indicating what direction am I first
+[1:25:05] going? D then right. I could go first right and then down then it'll become RD
+[1:25:09] instead of DR. Doesn't matter. It is going to be uniform across and set will
+[1:25:13] anyway eliminate all such patterns which are matching.
+[1:25:18] You are you there? Yeah.
+[1:25:22] Which one? There's only one. No, all are ones. No.
+[1:25:30] No. Why did we get one answer or which ones? There multiple ones there. R1 C 0.
+[1:25:39] Why did we get one as an answer? Because if you look at it, we called solve with
+[1:25:44] 0 0. Solve called BF BFS. BFS was called with 0 0. Zero has 1 0 0 1. Neighbors 1
+[1:25:55] Z had two. Solve was called only once. Number of
+[1:26:00] islands are one. If solve is called multiple times, number of islands can
+[1:26:04] still be one. Let me show you that, sir. Run with 3x3.
+[1:26:10] Clear screen. Run with 3x3.
+[1:26:14] 3x3. 1 0 1 1 1 0 0 0 11 1. Now solve will be called twice. But what is the
+[1:26:21] pattern of 1 one and the other one one? Same. No. And when you get same what are
+[1:26:26] we adding to the set both of them and set will eliminate one because they are
+[1:26:31] same. So run. See the pattern is hyphen R. Why hyphen? First one immediate
+[1:26:37] neighbor is R. Right? That guy's neighbor is again R. So 111 is only
+[1:26:42] right. No down. And again 111 means right. Right. So the both those patterns
+[1:26:47] are exactly same. So set eliminates one and the answer is still one.
+[1:26:55] Exactly. Go back to the code sir. Go back to the code. mean that solve solve
+[1:27:05] go up sir
+[1:27:13] there are go up no air why you're wasting time huh go up
+[1:27:19] that is not solved number of violence yeah so look at this after I called bfs
+[1:27:24] I got some string that string got added to the set and because both the strings
+[1:27:32] give me access because both the strings were same in this pattern the number of
+[1:27:39] distinct is one. Is that making sense to you sir? Now
+[1:27:44] here we are returning islands size set dot size set dot size will give you only
+[1:27:49] one. Now to make it interesting go to our test case and let's then our test
+[1:27:55] case. I know that is still one. No. Yeah. Uh
+[1:28:00] take this example. Uh yeah guys tell me the pattern you'll get
+[1:28:06] here now. So it is like
+[1:28:11] tell me the pattern. I'm looking at the pattern. The directions are I'll show
+[1:28:15] you the directions. 1 1 0 1 1 0 0 1
+[1:28:22] uh all zeros 1 0 0 0 1 1 0 1 1
+[1:28:31] now this this this how many distinct islands will you get
+[1:28:39] okay go to the code show me the direction is important first D because
+[1:28:43] they will need to know that to come up with a pattern Uh
+[1:28:47] D R U L. Yeah. So D R U L. So we start with this cell. Then we start with this
+[1:28:55] cell. Then we start with this cell and then we start with this cell. First row,
+[1:29:00] row column. So with this row column, what will the pattern first pattern look
+[1:29:04] like? D R because first down then right. With
+[1:29:10] this what will you get
+[1:29:14] with this RD? What about with this?
+[1:29:22] Huh? Tell me.
+[1:29:27] Dr. down and with respect to this guy, right? Sure. Okay. We'll see. And what
+[1:29:35] about this guy?
+[1:29:42] What about this guy? This guy down and this guy when you add will be right.
+[1:29:49] It is not this guys down and right. Please understand
+[1:29:54] this guy is adding both of them. Do you agree? The Q 0 0 will add 1 0
+[1:30:01] and 0 1.
+[1:30:06] Please understand this guy is adding both. Does this guy add both?
+[1:30:13] This guy will add only right. The right guy will add down because it is not
+[1:30:17] diagonal. So 03 will add only 04.
+[1:30:26] 04 will add 14. Please understand. 03 will add 04.
+[1:30:31] 04 will add 1 14 because there is no diagonal. Likewise, this guy will add
+[1:30:37] down. This guy will add right. So, you will not get the same. You'll not get
+[1:30:42] drd. That's what I'm trying to tell you. Run, sir.
+[1:30:47] Because no diagonal is allowed. Yeah. See, DR R and then hyphen hyphen
+[1:30:55] down down right and down and then multiple left. So, all four patterns are
+[1:31:02] different. And because all four patterns are different, there are four distinct
+[1:31:04] islands.
+[1:31:08] You understood?
+[1:31:12] Is everybody clear? So what happened? We added D, right? The
+[1:31:18] other three were blank. So hyphen hyphen hyphen. That guy adds one again blank.
+[1:31:23] Are you seeing that? In the first case, it added both D and
+[1:31:27] R. And each of them again blanks.
+[1:31:32] You have to understand that neighbor of one is not the other guy. The neighbor
+[1:31:38] of 03 was 04. Neighbor of 04 was 1 14. So with respect to 03 there's only one
+[1:31:44] neighbor which is 04. With 04 there is a 0 1 14. With 14 there may be again uh
+[1:31:51] some other guy which is 2 4 down.
+[1:31:57] Are you getting it? So all three problems are identical with a small
+[1:32:03] change in the uh main logic and a very small change in the BFS logic. In the
+[1:32:09] BFS logic for the area one we were incrementing the result every time we
+[1:32:15] got the element from the queue for the number of islands we didn't care
+[1:32:20] about it that got incremented in the main method solve. And for the number of
+[1:32:25] distinct islands we did not increment it but we created a pattern and that
+[1:32:30] pattern was added in the main which was to a set and when multiple elements are
+[1:32:35] same set eliminates everything and gives one. Are you clear similarity and the
+[1:32:42] differences in the implementation and obviously in the problem statement.
+[1:32:48] Anybody has any questions on any of them because if we don't have any questions
+[1:32:53] we will start the program any questions because what we will start on Monday is
+[1:32:59] DFS depth first search depth first traversal
+[1:33:06] we'll continue on Wednesday and uh with that we will finish DFS and
+[1:33:12] BFS and some of these problems you will solve using DFS also max area can can be
+[1:33:17] done using DFS. Number can be done using DFS. Every problem which can be done
+[1:33:22] using BFS can also be done using DFS. There we have a stack and here we had a
+[1:33:28] Q.
+[1:33:31] Okay, any questions?

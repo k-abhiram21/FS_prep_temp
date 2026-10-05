@@ -1,0 +1,1117 @@
+YouTube transcript
+Video ID: U3sUFcaJ5Ow
+Language: en
+Captions: auto-generated
+
+[0:00] Yeah, uh good afternoon. Uh we will look at the last class two programs, uh the
+[0:06] solutions to them before we look at one more program today.
+[0:10] Uh last class we talked about two interesting problems.
+[0:14] Uh the two new problems, and I think uh we did spend time discussing uh many of
+[0:19] you uh also did that. Uh one was the longest common prefix, and the other was
+[0:25] Coco Eating Bananas. How many finished both of them
+[0:29] using binary search?
+[0:33] Nobody? I thought uh some of you did that Coco
+[0:38] Eating Bananas low high. You did that, right? Okay, how many of
+[0:42] you finished Coco Eating Bananas? Okay, how many of you finished longest
+[0:48] common prefix using any approach? Okay. So, we look at uh
+[0:55] three different approaches of longest common prefix, but I'll explain what the
+[1:00] problem is for those who did not come.
+[1:05] Uh you're given a bunch of strings, and what you need to return
+[1:10] is the prefix uh which is common amongst all of them.
+[1:15] And if there are multiple such prefixes, you need to return the longest prefix.
+[1:21] So, if you're given uh data,
+[1:30] uh the output would basically be h e l because that is common in all
+[1:37] three. If I had input like
+[1:47] then the output would also be the same because the data is the same.
+[1:53] The first five characters are the same, and that is the only data we have here
+[1:56] anyway. So, are you clear on the problem
+[1:58] statement? If you're given input like uh
+[2:14] then obviously the output would be empty string because there is no prefix
+[2:21] which is common amongst all the three strings.
+[2:25] We have to solve using all the three approaches.
+[2:29] Uh we will first look at the hash set, then talk about using hash map,
+[2:35] and then look at how we can do this using binary search using the built-in
+[2:40] strings API. Uh what we discussed when we talked
+[2:44] about hash set is or hash map is
+[2:48] when you're given this problem, the first thing you would need to find
+[2:52] out is what is the length
+[2:55] of the smallest string. Because the longest common prefix cannot
+[3:00] be larger than the smallest string. So, there is no point processing all the
+[3:06] characters of every string because what you might end up getting
+[3:10] into is array index out of bounds if you're not very careful about it. So,
+[3:16] what do you do? We first find out what is the length of the smallest string and
+[3:20] only process those many characters of every input data.
+[3:26] So, when you look at the first example, hello, helpful, and hell,
+[3:31] uh we would get uh four as the characters I need to
+[3:36] process. Because if the length is four, obviously
+[3:39] the answer can't be anything more than four. It's got to be either four or
+[3:43] lesser, but not more. So, why process more than four characters?
+[3:47] What is of interest to us are the first four characters of every input data.
+[3:51] Nothing else matters except the first four. So, let's see how we can do this.
+[3:56] So, what did we do? We We wrote an algorithm or a simple method given a
+[4:00] bunch of strings, which is an array, two-dimensional array,
+[4:05] where the first dimension is the number of words and the second is the word
+[4:09] data. Okay?
+[4:11] So, what we have is the data, we find out the smallest
+[4:16] string length, which is four, and then we process every string
+[4:21] character at a time. So, we get the first character.
+[4:24] I'm talking about hash set. What do we do? We have a hash set
+[4:29] created.
+[4:32] We add H to it.
+[4:37] H gets added. I add one more H. What does set guarantee?
+[4:43] No duplicates. So, the second H does not get added. The
+[4:46] third H does not get added. What do we do?
+[4:50] We check, "Oh, is the size of the set one?"
+[4:54] If the size of the set is one, you know this character has occurred n number of
+[4:59] times.
+[5:02] Are you there? Because if if they are different
+[5:05] characters like K M I T N G I T K M E C, then K gets added, N would get added,
+[5:11] and when the third third data K is getting added, it will
+[5:15] not get added. So, you'll end up getting K and M.
+[5:19] So, K and What would the size be?
+[5:22] Two. So, obviously you know it is not common.
+[5:25] They're different. Are you Are you there?
+[5:29] So, if that gets added and if the size is one, I store somewhere. Then I go
+[5:34] with the next character E, again I store somewhere. Then I go with the third
+[5:37] character L, I store somewhere. But when I go for the fourth character, it would
+[5:41] be L, P, and L. So, what would the set contain? Two
+[5:46] elements, one L and one P. Size is not one, so you you know it
+[5:51] is not common in all, so you can skip because we are looking at the longest
+[5:56] prefix and if there's a mismatch at any point, no point looking at the rest of
+[6:01] the suffixes. Are you all there?
+[6:06] So, every time you're given a problem, don't jump into writing code.
+[6:12] Think about how to solve it using different data structures or maybe
+[6:17] different algorithms. And then try analyzing which one do you think is
+[6:22] better, not just from a time efficiency point of view, but also from an
+[6:27] implementation point of view and also from a readability point of view and
+[6:30] also from a maintenance point of view. Because finally code has to be
+[6:34] maintained and if a code is easy to maintain, then it has a much longer
+[6:38] shelf life than a code which is gobbled up. People write crazy things. Yeah, it
+[6:43] works, but then you will be very very skeptical about changing anything
+[6:47] because you don't know how it's going to break other things. So, you need to
+[6:50] write clean, neat, maintenance-free code. So, let's look at
+[6:55] Are you all clear on the hash set solution?
+[6:59] Yes, everybody? Let's quickly look at that code.
+[7:06] Yeah. Can you take us to the main? Yeah, we take input which is the number of
+[7:11] strings. We split them using a space and we get an array and we call a method
+[7:16] longest common prefix. Yes, sir. Yeah.
+[7:21] The first thing we do here is get the smallest string. Can you take us to that
+[7:24] method?
+[7:28] Great. Guys, go through this code. I'm saying the smallest is string zero.
+[7:33] I get the length of it and then I compare that length with every other
+[7:37] string and if any other string has a length smaller than this, I store that
+[7:41] somewhere in my
+[7:44] variable and return that. If you have questions, let me know, but
+[7:49] simple self-explanatory. So, what did this return? The string
+[7:53] which is the smallest. I could have also got the length which
+[7:56] is smallest, but here I've got the string. In the next
+[7:59] implementation, I'll show you how we get only the length.
+[8:02] If I want to get the length, I'll just return that x.length, okay? Fine.
+[8:06] Continue, sir. Great. Now that I've got the smallest
+[8:10] string, then I'm iterating only for those many number of characters. Are you
+[8:15] seeing? small.length, which is which in our case would be four. Hell.
+[8:20] The smallest string is hell and the length is four, okay? Scroll down.
+[8:25] Yeah. What do we do? We go through every element of that
+[8:30] array. a.length. What is a? Array. Length is
+[8:34] number of elements. I take each string and I get
+[8:40] the corresponding character at that index. Index ranging from
+[8:45] zero to a.length.
+[8:48] Are you there? And then what are we What are we doing?
+[8:53] We're adding it to set. What is a? An array. What does that
+[8:58] array contain? Hello, helpful, and hell. I get the first one, hello. What is the
+[9:05] first character of it? H. Add it to the set. What is the second string?
+[9:10] What do I do after that? What do I do after that, guys? Tell me.
+[9:16] I get the second string and I add the first character of the
+[9:20] second string. Again, H. I get the third string,
+[9:25] hell, add the first character. Are you clear? The outer loop is number of
+[9:29] characters you want to process. The inner loop is one character at a time of
+[9:33] all the three strings. And I take that character and dump it
+[9:38] into my asset. Is that clear?
+[9:43] And after that, what are we doing? If the size is one,
+[9:46] it means it is repeating in all. And if it is repeating in all, where are
+[9:51] we appending it to? String buffer.
+[9:54] A string builder, whatever that SB is. What is SB, sir?
+[9:59] Builder. Yeah, good. Are you there?
+[10:01] Otherwise, we break. What is Where does the break take you out of?
+[10:06] Out of which loop? Line 23.
+[10:10] Which means, yeah, there is nothing.
+[10:13] Or I've got the first character which is matching. I've got the second character
+[10:16] which is matching. Third one doesn't match. So, I break out. And after I
+[10:19] break out, what are we doing, sir? We're returning sb.toString. If the
+[10:24] first characters don't match, it will be empty. If the first few characters
+[10:27] match, it will it will be whatever the data is.
+[10:32] Are you clear?
+[10:36] Are you all clear? Everybody?
+[10:40] Sir, can you run this with the the same three test cases? Hello, hell.
+[11:00] Hello, helpful, hell. Yeah.
+[11:05] Yeah. And now you try KMIT, NGIT, and Genesis. You'll get nothing.
+[11:11] It'll just stop after the first character because the size would be
+[11:14] three.
+[11:17] You know, there's nothing getting appended to the string builder. So, what
+[11:21] we return back is an empty string. Is everybody clear?
+[11:26] Now, imagine I give one more. Uh
+[11:31] some garbage 10 characters. Yeah, and then you give after that
+[11:36] apple. Stop. Yeah. What do you think we're
+[11:41] going to now get? Only A because we process five
+[11:45] characters. First character A and A match. After that, the second character
+[11:50] S and P don't match, so we terminate returning A back to the
+[11:54] users.
+[11:57] Are you all there? Everybody? So, every time you're given a problem,
+[12:01] think about how you can solve. Find out why your one approach is better
+[12:06] than the other approach. Write code. Ask chat GPT, "Yeah, take my
+[12:11] code. Tell me how I can improve it." Uh what do you think could have been
+[12:17] done better? You know, just get the feedback. It then
+[12:21] again understand whether what the LLM is saying is correct or not. Maybe they'll
+[12:26] sometimes tell you something which may not be right. You have to again relook
+[12:29] at, "Oh, yeah, is it really giving you the right explanation about why that is
+[12:33] better code or why your code is better?" Okay, please do that. Yeah. Now, how
+[12:38] will the hash map look like? Now, uh sir, erase. Yeah.
+[12:44] Now, hash set was simple. Uh hash map is also going to be pretty
+[12:48] simple.
+[12:53] Now, I have two characters I need to process process.
+[12:57] What are we doing? We are adding to the
+[13:01] hash map. Can you go back to your code?
+[13:06] Go back to your code. Good. Now, no, not the hash map. Go
+[13:12] back. Yeah. Uh can we improve on this code? Is
+[13:16] my question.
+[13:18] We have done something on purpose. Now, you tell me, can this code be improved?
+[13:25] Yeah.
+[13:30] Anybody?
+[13:32] I'll give you a hint. Look at line 25.
+[13:40] Come on, improvement on this code. You are all LLNM's for me. I'm giving
+[13:44] you this code. Uh tell me what you think you can do
+[13:48] better to make this code more meaningful.
+[13:59] Yeah.
+[14:07] Okay. Before we get into it, all of you know in Java you allocate memory, you
+[14:12] don't deallocate memory. Unlike in C++, you say new to allocate
+[14:18] and delete to free.
+[14:22] In C you would say malloc and free. Remember new in C++? Yeah, you're all
+[14:27] C++ gurus here. Now in Java we don't ever free memory.
+[14:33] >> [snorts] >> How do you think Java does
+[14:37] clean up of objects?
+[14:42] I know it is garbage collection. Very nice. But when I ask you this question,
+[14:46] tell me how does the garbage collector work?
+[14:53] How does the garbage collector work? Interviewer is not happy with just
+[14:56] saying garbage collection. Yeah, [snorts] okay. Tell me explain to me
+[14:59] with code. Tell me what happens.
+[15:04] Yes, anybody? Garbage collection.
+[15:12] Okay, let me explain that. Pay attention to line 25. Is it required
+[15:17] that in that for loop, imagine I have 100 characters which are common?
+[15:22] My smallest string is 100 characters. Am I not creating the hash set 100 times?
+[15:30] Wouldn't it have been better if I had created it outside the loop once?
+[15:35] Do you agree or no? Yeah.
+[15:38] Okay. So, shall we do that? Sir, shift that line 25. Put that above
+[15:43] 23.
+[15:49] Great. Now, can you clear all the blank lines? Yeah,
+[15:52] I'll give you now a test case. Tell me whether
+[15:57] uh what happens now. Okay, I'll give you a test case.
+[16:01] Right, that's okay.
+[16:06] Yeah, I can I can write there.
+[16:10] Did you understand what I did? Okay, sir, can you run this? Just run this
+[16:14] with the same test data. Hello.
+[16:18] H E
+[16:22] Hello. H E
+[16:25] Okay. Take care. Yeah, he got H. But, what should he have
+[16:29] got? H E. What do you think went wrong now?
+[16:35] What? Correct. So, what happened now? He added
+[16:40] Now, let's see the previous version of code and this version. Give me access
+[16:43] here, sir. Here. Here.
+[16:47] You give me access? Great. In the previous version, in that
+[16:50] for loop, for each character, he was creating new hash map.
+[16:55] So, what did the old hash map contain? H
+[16:59] So, that got cleared. And then, what did the new hash map contain? E. That got
+[17:03] cleared. What did the new hash map contain?
+[17:06] L I mean, we didn't have to process only
+[17:10] two characters. Now, in this, what is happening?
+[17:13] First, it contains H. You get the output. Then, you are adding E to it and
+[17:18] then you're saying, "Oh, size is not one."
+[17:22] Are you Are you there? You see why that worked? Because every
+[17:27] time you're creating a new object, whatever the old guy had is anyway not
+[17:31] considered. But here, the old guy had H. Then the
+[17:34] the next time you add the second character, it is E. Size is obviously
+[17:38] not one. So, what do you need to do to fix it now?
+[17:43] Yes, sir. Can you go back to the code? Yeah, what do you now need to do to fix
+[17:47] it? Don't tell me please undo code and get the old one.
+[17:50] I don't want to do that. I want this code to remain as this. What
+[17:54] do I need to do to fix it? Did you all understand the problem?
+[17:58] Yes, good. What do I need to do to fix it?
+[18:02] Yes, sir. >> Size equal to I plus one.
+[18:06] >> Size is I plus one. Holy cow. Why will it be I plus one?
+[18:11] >> Because >> Okay. Now give Sir, I'll give you
+[18:12] another test case. Run. >> Like I did
+[18:15] >> Hang on. Hang on. [clears throat] Sir, another test case. Don't clear.
+[18:19] Yeah. Why do you want to compile? Huh? H H H, first word. Second word, H H H.
+[18:27] Third word, triple H.
+[18:31] Yeah. You get now. Why is it working?
+[18:35] Hash set contain H. So, size is one. Again, when you add the
+[18:40] second digit, it doesn't add. For all the three guys, size is one. Third guy,
+[18:43] again it doesn't add. So, now if I say size is equal to I plus one, this logic
+[18:48] will not work, no, sir. No, no, guys. Come on. Start thinking
+[18:52] now. Huh?
+[18:54] What?
+[18:57] Come on, guys. Very, very simple solution.
+[19:00] Okay.
+[19:03] After appending >> After appending to the set, clear the
+[19:06] set. >> Clear it. Empty it. Very nice. That is
+[19:09] what creating a new hash set was doing. Old guy was discarded, new one was
+[19:14] there. So, I would also like to do the same thing and what we would do is
+[19:17] clear. Sir, go back to the code. After you append after you append.
+[19:30] Is it set? What is the name of the set? Yeah, set. clear. Run.
+[19:34] Now, we'll give all the test cases. Uh hell
+[19:38] hello hell he Sir, you have to compile. Yeah, good.
+[19:46] Are you clear? First, it added H, cleared it, then empty. You add E,
+[19:51] clears it. Then you continue. Now, you give triple H. Again, first H will get
+[19:55] cleared, second H will get added. That will get cleared, third guy will Why
+[19:59] couldn't you answer this, sir? Clear? Huh?
+[20:04] Are you all there? So, this is a much better code than the
+[20:08] previous. The previous code was written just to tell you that creating an object
+[20:12] every time is a meaningless thing. You don't want so many such objects on the
+[20:17] heap lying there. Now, let's look at how garbage collector works with this
+[20:22] example. Sir, blank screen. Look at the previous code.
+[20:28] Guys, are you there? I'm now teaching you Java garbage collection.
+[20:32] So, we had uh hell uh hello
+[20:38] hello world How many common characters? Four.
+[20:42] So, what did we do in that first for loop? For I is equal to zero, uh
+[20:47] I less than four, which is small.length, I plus plus, we said set is equal to new
+[20:55] hash set, whatever. You're there with that?
+[20:59] So, what happened? Can you tell me what does this line mean to you in Java?
+[21:06] Set is equal to new hash set. Explain to me from the context of
+[21:14] stack and heap.
+[21:19] And if I just say set left hand side, what
+[21:23] is set? A reference to
+[21:26] hash set. Is it pointing to anything? No.
+[21:31] Unless you look at the right hand side. If you just go back to the code, sir.
+[21:38] If you just look at uh sir,
+[21:41] put semicolon here.
+[21:47] Enter is no error.
+[21:50] Created in the next line. What does this line 21 mean? Set is a
+[21:56] reference. Reference to what? Hash set. What is it referencing by default in
+[22:00] Java?
+[22:02] What do these references by default refer to?
+[22:07] Object. Is it object any any case?
+[22:11] Did you say new anywhere? Now you have to unlearn C++.
+[22:15] In C++ you can create an object on the stack.
+[22:19] If you have a pointer, you say new. But if you don't have a pointer, it is
+[22:22] stack. Java does not allow any objects to be created on the stack.
+[22:28] It is just a reference. So, what does the reference mean in Java when you do
+[22:33] not allocate memory? Come on, guys. What is it pointing to?
+[22:41] Have you ever got a null pointer exception?
+[22:45] So, what is it pointing to? It is always by default a null
+[22:49] reference. So, the first thing we do in our Java
+[22:53] code is we'll make it point to something meaningful, and that something
+[22:57] meaningful is that line 22. So, there are two things. Go back to the
+[23:03] code. I mean, whatever I scribbled.
+[23:08] There are two things here. This is a reference
+[23:15] on the stack.
+[23:19] This is a new object on the heap. By having this equal to
+[23:25] we are saying this reference is now pointing to the object on the heap.
+[23:31] Can we be doing Java things like this? New employee.
+[23:36] Without any left-hand side. Can we do this?
+[23:39] Yes. What do we call this? What do we call this?
+[23:45] No, there's a name. Anonymous object. An object which does not have a name.
+[23:50] Because there is no identifier on the left-hand side
+[23:53] pointing to it. So, when I did this, set is equal to new
+[23:57] hash set. What happened? I'll explain now. Uh,
+[24:01] again, uh, this is get me the blank screen now.
+[24:05] So, I had set pointing to an object on the heap.
+[24:11] Then again, when I went into the for loop, this now was pointing to another
+[24:15] object on the heap. But, what happened to this reference?
+[24:20] Gone. This guy was pointing to another object in the heap. This is gone.
+[24:25] One more for loop, it'll point to somewhere on the heap. This is gone.
+[24:30] Now, what is gone? The reference pointing to the heap is
+[24:33] gone. But, what about the object in the heap now?
+[24:38] That is still there. So, every time you create an object, and
+[24:44] if you have a reference pointing to it, what it does internal internally is
+[24:48] increments the reference count by one. When you dereference it, the reference
+[24:53] count becomes zero. When the object on the heap has a
+[24:58] reference count of zero, it primarily means that this object is eligible for
+[25:04] garbage collection. It does not mean that the object is
+[25:08] garbage collected. So, one thing you need to understand is
+[25:13] in Java, you cannot say with surety that this object is removed.
+[25:21] We can only say this object is eligible for garbage collection.
+[25:26] Did you understand the difference? In C++, every time you say delete, it's
+[25:30] gone. In C, every time you say free, that
+[25:33] pointer is gone. Here, the only thing I know for sure is
+[25:38] this these objects, which are on the heap, have a reference count of zero.
+[25:43] Which means the garbage collector, whenever it needs memory, can delete
+[25:49] such objects which have no references. tion.
+[25:54] So, we cannot say in Java that objects are garbage collected at this line. No.
+[25:58] The only thing I can say is it is eligible for garbage collection. Now,
+[26:02] what happens when I modified the code? There's only one object created on the
+[26:06] heap, and that is what set points to.
+[26:09] There is some data. Data is cleared. Another data gets
+[26:12] added, it's cleared. No new objects are created.
+[26:15] Are you seeing the difference in the code?
+[26:18] Are you seeing the difference? Now, when will that object become eligible for
+[26:21] garbage collection? Can you go to the code now?
+[26:26] When will this object set, which is created on line 22, become eligible for
+[26:31] garbage collection?
+[26:36] Yes.
+[26:39] Termination of the program. Very nice. Because this object is still on the
+[26:42] stack. The scope of it is there till the
+[26:45] program end. So, when the scope of that function is
+[26:49] over, all the local variables which are created on the stack are
+[26:54] gone. So, when that set is gone, that link to
+[26:58] that object on the heap is also not there.
+[27:00] It's like, you know, when you declare a variable in a block of code, is that
+[27:04] variable available outside that block? No, it is only in that block.
+[27:09] You can say, "Oh, this block is over, it is not available, it is destroyed." It's
+[27:13] like it gets added to the stack and is removed from the stack when the scope is
+[27:18] over. So, the set here will only get destroyed
+[27:22] when the entire program is over. It is there till the life of the program.
+[27:28] Whereas in the previous code, it was there in the life of that for loop.
+[27:31] Every time you call the for loop again, set was getting initialized to a new
+[27:36] object on the heap. Is that difference clear? So, every time
+[27:40] you write code, please do not just focus on the time complexity. See how many
+[27:46] such unnecessary objects are you creating.
+[27:50] Do I really need to create? If you need to, please, more more than welcome.
+[27:55] But most of the times we create when we don't need them and that was a very good
+[28:00] example we went through. Is it clear to everybody? Shall we move
+[28:05] on and look at the hash map?
+[28:09] Hash map is also similar. The only change is here we are saying
+[28:13] set size is equal to one. What we do in the hash map is
+[28:19] It is So, if I have uh hell,
+[28:24] we take the first character key
+[28:28] value. The key is H, value is one.
+[28:32] When you find the next character H, you increment this by one more.
+[28:36] When you get the third character, you increment it to three.
+[28:40] Then you are saying, "Is the value of this key equal to the number of
+[28:43] strings?" Yes, then it is common.
+[28:49] You saw the logic? If the value of this is equal to the
+[28:52] number of strings, then it is common. If the value is anything less than three,
+[28:57] then you know it is not repeating in all.
+[29:01] So, it cannot be a common prefix in all. In set, we check for one. Here, we have
+[29:07] to check for equal to number of strings.
+[29:12] And again, what we do after we get the first character? We go and clear the
+[29:16] map. Imagine H E H is there.
+[29:19] If you don't clear, that H will become six then, and not three. So, you need to
+[29:23] clear. Here, we we have to clear. There also we
+[29:27] had to clear. Are you
+[29:30] If you don't clear, you keep allocating new memory, which is not advisable. So,
+[29:34] clearing the set is important.
+[29:38] Shall we move on? Sir,
+[29:43] show the hash map code. Yeah, get the smallest string. I've got
+[29:48] that. That's okay. Yeah, continue.
+[29:53] We've got the smallest string. That's fine. We don't go through the code now.
+[29:56] Map is equal to character key value.
+[30:00] Uh then again, the same string builder. Again, the same for loop. Scroll down.
+[30:05] Now, focus on line 30. >> [snorts]
+[30:08] >> We go through every string. Get the character at that index, and add
+[30:14] to the hash map. Are you seeing hash map.put?
+[30:17] That character, and then the value is m.getOrDefault.
+[30:22] If the value is existing, get that in increment by one. If the value doesn't
+[30:27] exist, then assign one to it. That's a very standard code. I'm sure all of you
+[30:31] have been using, right? Yeah, is that clear?
+[30:34] Then, what are we doing at the end of it?
+[30:36] If the character is equal to m.get. m.get will give you the value of that
+[30:41] character, which is the frequency, key value.
+[30:44] If the value is equal to the number of strings, then we add to the
+[30:49] string builder, and then we clear it.
+[30:54] Please go through this code. So, what have we done? We have taken the
+[30:58] first character, added to the map. We have taken the second word, first
+[31:03] character, and checking if it is already there, increment the value. If it is not
+[31:07] there, assign one to it.
+[31:11] The So, the fundamental difference you need to understand is in a set, we were
+[31:15] checking for one, which means they are all repeated. Here, we are checking for
+[31:21] number of strings, which means it occurs those
+[31:25] many times. So, that's the fundamental change in the
+[31:28] logic. Other than that,
+[31:30] pretty much the code is same. One was a set, other was a
+[31:35] map.
+[31:38] How many of you did using maps? Map, one.
+[31:43] How many of you solved this using a set? One, two.
+[31:48] Three. Okay, couple of them. Uh something similar or different?
+[32:01] Okay.
+[32:12] Okay, slightly different approach. Okay. Shall we move on and look at the binary
+[32:16] search? Okay. Sir, binary search approach.
+[32:22] Yeah, great. Uh stop.
+[32:26] Yeah. No, get me blank screen.
+[32:34] Yeah.
+[32:39] Okay.
+[32:50] >> We have these characters. Uh sorry, we have seven as the smallest
+[32:54] character. Which is also seven here, and this is
+[32:57] eight. So, our smallest is seven. Now, here we know the output will be
+[33:03] first four. Are you there?
+[33:06] So, rather than checking one character at a time,
+[33:10] we first get the smallest string length, partition it into two halves,
+[33:16] check whether the first half is existing in all the three.
+[33:22] If it is existing, then you know the longest common is the first half. There
+[33:27] is a possibility of the second half also being part of it.
+[33:30] So, we shift our low to mid plus one. We store this and shift that.
+[33:36] If the first half is not common, then we say, "Yeah, it is not common.
+[33:41] Can we break this into two halves?" Which if the first half is not common,
+[33:45] is it any point searching in the second half?
+[33:49] No. So, what do we change high to? Mid minus one.
+[33:53] Or mid, okay? And then we again say, "This first half,
+[33:58] break it into two and check whether the first half is matching. If it is, the
+[34:01] second half of the first half." So, every time we do this, we are
+[34:05] partitioning that big string into halves. If the first half doesn't
+[34:11] match, skip the rest of it. If the first half matches, then worry about the right
+[34:17] side. So, in all binary search problems, we either shift low to mid plus one, or
+[34:23] we shift high to mid or mid minus one. So, we know which one to skip, which one
+[34:28] to retain. So, with that background, can we look at that code, please?
+[34:33] Can you just run this with those three words?
+[34:41] Yeah.
+[34:59] Generate. Yeah.
+[35:03] We've got this. Okay. Let's look at the code. Take us to the main.
+[35:11] Yeah, same input. Continue. Yeah, we are taking input. We are
+[35:15] calling longest common prefix. We are passing the array and the
+[35:19] length of the array. Yeah.
+[35:22] Great. If the length of the array is zero, return an empty string.
+[35:28] Otherwise, we are calling the method min find minimum length.
+[35:33] Find minimum length. Go to that. Same code.
+[35:38] Here, we are not getting the array string data, which is minimum. We're
+[35:43] returning the length of it.
+[35:49] Guys, are we good?
+[35:52] Okay. Okay, why do you think go back to that
+[35:56] code?
+[35:59] Go back to that code. Minimum length, sir.
+[36:04] Why do you think this code is better than the previous code? Show the
+[36:07] previous code.
+[36:11] Yeah, the previous code was string x is equal to a0.
+[36:15] And look at this code.
+[36:20] Look at our binary string code, sir. Which one do you prefer? String x is
+[36:25] equal to a of zero or this one. Which one? Which approach you prefer?
+[36:33] Yeah, which approach do you prefer? You have the mic, right? Would you like to
+[36:36] answer?
+[36:38] Show the previous code.
+[36:42] There I said X is equal to A of zero
+[36:46] in the previous approaches. Now, in this code
+[36:50] we are saying minimum is equal to maximum value, and then we iterate
+[36:54] through each and find out what the new minimum is. Which one do you prefer and
+[36:58] why?
+[37:01] >> I prefer this >> I can't hear you.
+[37:04] Yeah. >> I prefer this one.
+[37:07] >> You prefer this one. Why do you prefer this one?
+[37:11] >> It assigns the maximum value to
+[37:15] >> Get it closer. Yeah.
+[37:19] >> It assigns the maximum value to the integer mean.
+[37:22] >> No. No.
+[37:24] Is that why Is that the reason why you prefer?
+[37:28] No. Anybody else? Anybody else?
+[37:33] Anybody else? Tarun, what happened? Today you are not answering anything.
+[37:37] Already exhausted? Hang on.
+[37:43] What What do you prefer? >> Uh sir, I would prefer this one.
+[37:46] >> Why? >> Sir, because
+[37:50] >> Why did it work How is it working there? Yeah.
+[37:54] >> Like here we don't like we don't make
+[38:02] Like we don't take any extra space, sir. Like we are
+[38:05] just calling and in within the same thing.
+[38:07] >> No. No. No. No. Come on, guys. Come on. Sir,
+[38:11] why do you prefer this? I I Sorry.
+[38:14] I don't know your preference. You tell me what you prefer and why.
+[38:22] Mic Uh where is other mic?
+[38:29] Vaishali name, huh? Yes, what do you prefer?
+[38:33] Come on, guys. You should be able to answer this now.
+[38:38] I know those tools have made you stop thinking. Give score and write it, use
+[38:42] it.
+[38:45] Your name?
+[38:51] >> Hello. Lakshmi Dattu.
+[39:07] >> Okay, pass the mic. Yeah, sir, you can scream. Come on.
+[39:11] Your name? Lakshmi.
+[39:17] Lakshmi. Dattu.
+[39:19] Okay, come on. Tell me. Come on, guys. Look at the code and tell
+[39:24] me what is the preference. I would never write code like the
+[39:28] previous code. Here is good. But no production code will ever go back
+[39:33] to the previous code. Srinivas, think with me.
+[39:36] I'll never write code like line seven. Dangerous code. Very dangerous.
+[39:42] More than, you know, dangerous driving on the roads.
+[39:47] Can anyone tell me?
+[39:50] What if my array has no data?
+[39:54] What will A of zero give you? What are you assuming that there is at
+[39:59] least one element in the array? Will you not get array index out of
+[40:03] bounds? Will you get or not get?
+[40:10] Unless you put a check if the args.length
+[40:14] But we are not doing that, no? We are not checking if the length is greater
+[40:17] than zero, then do this. We are just blindly saying A of zero.
+[40:21] Whereas, if you look at the other code,
+[40:25] yeah? Now, we are saying find minimum length.
+[40:30] And if the array is zero, what will that guy return?
+[40:34] Integer dot max. So, this is also dangerous in that
+[40:38] regard. That means you're going to go through so many such integers. And then
+[40:42] in the code, you'll get an array index out out of bounds.
+[40:45] So, you'll have to optimize this also further.
+[40:48] So, here we are not making any assumption. We are just iterating
+[40:51] through all. The first data we get, we are comparing with max, and that is
+[40:55] obviously going to be smaller, so I make that as my min.
+[40:59] Okay? I'm just giving you some thoughts on when you write code, please do not
+[41:04] make assumptions that data is always there. There's a possibility you'll get
+[41:08] runtime exception, like the previous one, null pointer exception, here
+[41:12] something else. Okay? After that, so we got the data, continue.
+[41:17] We got the minimum, yes, continue. Now, what is my low?
+[41:21] Zero. What is my high? The smallest length.
+[41:24] So, in our example, my low is zero.
+[41:29] High is equal to seven. Are you there?
+[41:33] Yeah. So, what is my mid?
+[41:38] Seven divided by two. Three.
+[41:41] Are you all there? Now, what are we doing? Look at this.
+[41:44] I'm saying is common, given this array,
+[41:49] are the first four elements common in that?
+[41:52] Mid is three, no? Zero to three. Are you seeing that? Is common?
+[41:58] If it is common, then what am I increasing my low to?
+[42:02] Mid plus one. If it is not common, what am I reducing my high high from?
+[42:08] Mid minus one. Are you there? I mean, is it clear?
+[42:16] Is everybody clear? What is this common? We'll see. But see what have we done? If
+[42:20] the data is 100 characters, I take the first 50. Or if the first 50 are common,
+[42:25] now let's focus on the remaining 50. If the first 50 are not common, I'm going
+[42:29] to half that and check first 25. If they are common, then 25 26 to 50.
+[42:35] If the first 25 are not common, again I'll make it 0 to 12.
+[42:39] And then 13 to 25. That is what we are doing in every binary search problem.
+[42:44] Either we update low or we update high. What is the
+[42:50] side of the array we are interested in? If we are interested in the right side,
+[42:54] we will update low to mid. If we are interested in the left side, we will
+[42:58] update high to mid minus one. Skip the right or maybe skip the left. Is this
+[43:03] clear? Is everybody clear?
+[43:07] Now, can we look at is common? Sir, go to is common, sir.
+[43:16] Yeah, go through that. See this. What are we doing? We are getting an array.
+[43:21] We are getting a substring of the first string.
+[43:24] Is that line of code clear to line everybody?
+[43:28] Substring. After we get that, we are saying,
+[43:31] are the remaining strings starting with that prefix?
+[43:37] Did I close my car windows? Anyway, are the remaining strings having
+[43:43] that prefix? Yes. If not,
+[43:46] return false.
+[43:52] Are you all there?
+[43:58] So, we are not taking character at a time.
+[44:01] We are taking a bunch of characters at a time using a built-in method starts
+[44:06] with. If it starts with it, return true. If
+[44:10] any one of them doesn't start with it, return false. If it returns false, I
+[44:15] look in the left half. If it returns true, look in the right half.
+[44:21] Are we clear? Everybody? Anybody did binary search implementation
+[44:26] of LCP? Okay. Similar approach?
+[44:31] Okay. Anybody else?
+[44:37] Nobody?
+[44:41] Are you good? You know you have multiple ways of solving such problems.
+[44:46] You can now pick what you like. If they do not give you a specific
+[44:51] algorithm to implement in, then implement it in a choice of yours.
+[44:56] But if they specifically say implement using binary search or implement using
+[45:00] greedy or implement using BFS, DFS, you have to follow that protocol.
+[45:11] Does it ever leak? Oh, it does?
+[45:15] At least I never experienced in my 10 years in KMIT.
+[45:19] Maybe more than 10 years. Did you ever experience?
+[45:24] Uh.
+[45:26] Huh? It doesn't leak.
+[45:31] It doesn't leak, the roof may fall.
+[45:35] Wow, what a weather, man. Lovely weather.
+[45:39] Okay, shall we move on?
+[45:42] Shall we move on? Come on, guys. I think you're all
+[45:45] fascinated with the rain, huh? So, you got like I know it's beautiful
+[45:50] feeling, you know, teaching in the rain. Oh, we should go out and get wet.
+[45:56] So much more fun.
+[46:00] Yeah, shall we move on look at Coco eating bananas?
+[46:05] Yeah. Uh
+[46:08] Search problem.
+[46:11] Coco eating banana.
+[46:16] Huh? Uh
+[46:19] no. Yeah, word document you can explain.
+[46:25] Yeah, uh How many of you did not come last class?
+[46:33] Okay. Uh open the word document, yeah.
+[46:47] Yeah. Let's look at that problem closely.
+[46:54] In the problem Coco eating bananas, you're given an array of size n,
+[47:01] where n is the number of piles, and what you're given is the number of
+[47:07] bananas in each pile. Okay?
+[47:12] And you're also given the number of hours
+[47:16] you can take to eat all the bananas,
+[47:21] with the condition being if you finish eating the bananas in one
+[47:27] pile and you have sufficient time, you just have to sit, digest the bananas,
+[47:33] and not go to the next pile. You just have to do whatever you want. But you
+[47:37] cannot say, "Yeah, I'm done. Now let me start eating this. Let me start eating
+[47:40] this." No. So, the rule is you can eat as many bananas as you want,
+[47:47] but if there is time left, you have to wait
+[47:51] till the next hour to go to the next pile. Is that point clear?
+[47:55] If the pile contains less than K bananas, in that case Coco finishes all
+[48:00] and then she cannot start with the next pile till the next hour.
+[48:05] What do you need to return is the minimum number of bananas you need to
+[48:10] eat in H hours. That's sample data.
+[48:16] Yeah.
+[48:23] Yeah.
+[48:37] Okay. So, what you are given are 6 hours.
+[48:42] So, what do you What you have are the number of bananas in each pile. You're
+[48:47] also given H, which is the number of hours you can take to finish.
+[48:51] >> [snorts] >> And you have got the answer 23. I'll
+[48:53] I'll do backward explanation. Why 23 and how does it fulfill that constraint of 6
+[48:59] hours? If it is 23 hours, how many hours do you
+[49:02] need to complete 30 bananas?
+[49:06] 2 hours, because there will be time left, but you can't do much about it.
+[49:10] How many hours you need to complete 11? 1 hour. 23 1 hour, 4 1 hour, 21 hour.
+[49:16] So, total is 2 + 1 + 1 + 1 + 1 6. Anything less than 23?
+[49:24] No. Anything more than 23? Yeah.
+[49:28] But we are looking at minimum. Not maximum.
+[49:34] Are you there?
+[49:38] Are we clear? So, how do we do it using brute force?
+[49:42] Let's look at it using brute force. What is the minimum number of bananas
+[49:47] Coco can eat? At At one.
+[49:51] What is the maximum you can eat?
+[49:55] Whatever is the max of it.
+[49:58] If I take 30 as my answer, how many hours do I need?
+[50:04] Five. Which means
+[50:07] Coco has one more hour to spend. He's eating faster,
+[50:12] which means he have to reduce the number of bananas he can eat.
+[50:17] So, 30 can become 29. Now, if it is 29,
+[50:22] how many hours how many hours total you need?
+[50:25] Six. Can there be lesser than 29?
+[50:29] Yes. Can there be further lesser? Yes. So, that is one way of looking at
+[50:33] it. Another way of looking at it is can Coco start eating one banana at a
+[50:37] time? With one banana, how many hours will
+[50:41] Coco need to finish the first pile?
+[50:45] 30. What is the time given? Six. So, he's like saying, "Oh, he's
+[50:50] eating very slow. He's taking lot more time. He needs to increase speed of
+[50:55] eating." So, one becomes two, two becomes three,
+[50:59] three becomes four. So, with in in in a brute force, what do you do? Take every
+[51:05] value and see is the time taken exceeding the time given.
+[51:11] Guys, are you understanding? No.
+[51:16] I repeat, if I take if I eat one banana in an hour,
+[51:22] the first pile will take me 30 hours. Obviously, it's not correct. I need to
+[51:25] increase the speed. I increase it to two. Two will also take more time.
+[51:29] Increase it to three. Increase it to four. Increase it to
+[51:32] five. Till I increase it to 23, I will not get the answer.
+[51:36] That is brute force. Okay?
+[51:40] Are you there? So, I will I'll give you a small
+[51:43] example. Tell me using brute force how many hours you will need? Blank screen?
+[51:56] Yeah.
+[52:07] H is equal to 7. And this is the input data. Use brute
+[52:11] force and tell me what is the answer. With one, how much time does it take?
+[52:15] With two, how much time does it take? With three, and keep calculating. All of
+[52:20] you.
+[52:28] With one, how much time did you take to eat all?
+[52:38] Sum of all? With two?
+[52:42] With two, how much How many hours you took?
+[52:45] 11 hours, correct. With three?
+[52:50] With one, you take 30 hours. With two, you take 11 hours.
+[52:56] One banana, you take 30 hours. Two bananas, you take 11 hours. This guy
+[53:01] will take two hours. This guy will take two. This guy will
+[53:04] take one. This guy will take three. This guy will take three.
+[53:08] Now, with three, how many hours? With three?
+[53:12] One, two, one, two, two. Eight, sir.
+[53:19] With three, eight. What is my target? Seven. With four?
+[53:26] Uh one, one, one, two,
+[53:30] two, seven. So, the answer is four. I use brute force.
+[53:35] Start with one, calculate the time. If the time exceeds
+[53:39] the hours given, increase it.
+[53:44] Are you there? Imagine the number of hours given with
+[53:47] 30. Then one banana per hour is enough.
+[53:52] Are you there? If the number of hours is 15, then maybe
+[53:55] one is not enough. Two is enough from our calculation.
+[54:00] So, shall we look at the brute force algorithm?
+[54:06] Yeah? Yeah, can you run that, sir?
+[54:10] No, no. Yeah, run that with the data I gave you.
+[54:13] 3 2 whatever. Brute force. Yeah.
+[54:31] 3 4 2 6 5 and 7 hours.
+[54:44] You got it? Is it clear?
+[54:47] Shall we look at the code now? If you understand brute force, then
+[54:52] binary search is very, very simple. You get the mean, you get the max, and
+[54:56] then half of it. So, rather than going n number of times,
+[55:01] we can reduce it to log of n, sir.
+[55:11] Yeah. Start with speed one. While true, can you scroll down?
+[55:17] You see that code. See that code. Line 56 to 61.
+[55:35] I go through each pile. I know how many bananas are there.
+[55:39] I divide by the speed, I get the hours. If the hours spent are larger than
+[55:45] hours given, we exit from that loop. Okay.
+[55:51] Go up. When we exit, we are still in that while
+[55:55] loop. We have exited from the for, we are in
+[55:57] the while. Scroll down.
+[56:01] But if the hours spent is less, what are we returning? Speed. If the
+[56:06] else, increase by one.
+[56:12] Can you go up, sir? Uh do me a favor. After line 57,
+[56:19] put an SOP. Hours spent.
+[56:28] Yeah.
+[56:31] And also uh print the speed. Plus speed.
+[56:38] Yeah.
+[56:40] With speed one, what is the hours spent? With speed two, what is the hours spent?
+[56:44] And so on.
+[56:49] Any questions? Yeah, run.
+[56:52] Same input data.
+[57:00] 34265. Okay, doesn't matter.
+[57:05] Yeah. Go up.
+[57:08] Uh hours spent is five with speed one for the first pile.
+[57:13] But when you add the second pile to it, what does it become?
+[57:17] 5 + 4 = 9. So, if that is exceeding, no point looking at the rest of them,
+[57:20] right? So, we break out. Is that clear?
+[57:24] Then, what do we increase the speed to? Two. To eat the first
+[57:29] banana pile of five, I need 3 hours. To eat the second one, I need 1 hour,
+[57:35] which is four. To eat the third one, I need And finally, I'm spending 9 hours.
+[57:40] So, that is also exceeding your seven. Then what do we increase the speed to?
+[57:44] Three. With speed three, how many hours is it? Nine.
+[57:49] Are you guys there? And finally, with speed four,
+[57:54] sir, with speed four, how many is it? Eight. No, that doesn't help.
+[57:58] Then slow down. Speed five, it is 6 hours. Less than
+[58:04] So, you calculate the time taken to eat one pile. If it is lesser than hours
+[58:07] spent, go to the next one. But if the first one is only large, don't go to the
+[58:11] next, break out of it. Increase the speed by one, two, three. Continue till
+[58:15] you get some answer.
+[58:20] Are we good?
+[58:24] Shall we move on?
+[58:27] Now, this is obviously not efficient, but you know in a very simple manner how
+[58:31] it works. It's like uh brute force approach.
+[58:36] Check every possibility till you get the smallest value. And
+[58:40] since you're looking at the smallest value, we start with the smallest value,
+[58:43] one, and not come from the reverse.
+[58:49] Shall we move on now? Now, how do we do using
+[58:53] binary search?
+[58:57] Now, last class we discussed this. And some of you said, "Yeah, we'll go
+[59:01] for min and max." Min equal to the minimum number of
+[59:06] bananas in the pile, max equal to the maximum number, then min will become
+[59:11] low, max will become high. And I remember telling you that will not work.
+[59:16] The minimum is always one to start with. And the max will be the maximum in a
+[59:21] pile. So, let's take that example. I'll give you another test case now.
+[59:26] Um we'll take larger data.
+[59:31] I'll fix H is equal to 10. And data in the bananas are 20
+[59:36] 30 12
+[59:39] 40
+[59:42] 15 5
+[59:46] So six are the number of piles. Looking at this
+[59:52] tell me what will the answer be? Apply brute force, no problem. Tell me the
+[59:57] answer. We'll look at the binary search approach for this.
+[1:00:00] All of you. Sir, you run the binary search with this
+[1:00:03] data after some time. Yeah.
+[1:00:08] Come on, calculate with one. How many hours did it take to finish the first
+[1:00:12] pile? 20 larger than 10. So increase the time to
+[1:00:17] two. 10 hours are gone for the first pile.
+[1:00:21] Second pile, we'll increase it. Then increase it to three.
+[1:00:24] What is the answer?
+[1:00:30] What is the answer?
+[1:00:35] 15? Okay. What about others?
+[1:00:41] Is 15 minimum or can there be anything lesser than that? But I have not done
+[1:00:44] calculation, just some numbers I gave you
+[1:00:47] off my mind. Huh?
+[1:00:59] 15 is one answer. Did anybody get anything else?
+[1:01:02] 15 Okay. Let's start with 10.
+[1:01:07] If I take 10, what is the time taken?
+[1:01:12] If I take 10, time taken would be 2 hours, 3 hours, 2 hours, 4
+[1:01:18] 2 1 and that is exceeding your 10. So this is not allowed.
+[1:01:23] 11 uh 2 3 2
+[1:01:29] 4 2 1 again not allowed.
+[1:01:34] 12 2
+[1:01:37] 3 1 3 2 1
+[1:01:41] exceeding 10. Now, 13
+[1:01:47] 13 will also be same.
+[1:01:51] 14 will also be same because the next highest is 15.
+[1:01:54] Now, with 15 what do you get? 2 2
+[1:01:58] 1 3 1
+[1:02:02] 1 and that gives you
+[1:02:05] 10. So, the answer is 15.
+[1:02:09] I'm just doing brute force with 1 2 all the way up to 15, I found that is the
+[1:02:14] answer. From the previous logic.
+[1:02:17] Now, if it is binary search what we do is
+[1:02:22] Now, somebody had asked this question, "Data is unsorted, what do we do?"
+[1:02:28] "We will sort it." I said, "No." We don't need to sort. We need to get
+[1:02:33] the range. Uh somebody said, "Why don't we sort
+[1:02:37] it?" We don't need to sort it.
+[1:02:40] Uh we just need to get the largest See, for binary search what do you need? Low
+[1:02:45] and high.
+[1:02:47] Low is minimum how many can you eat? One. So,
+[1:02:51] low is fixed. What is high? The maximum you can eat,
+[1:02:55] which is 40.
+[1:02:58] So, in our example, so my low is one and high is equal to
+[1:03:04] 40 and mid will be 20.
+[1:03:08] So, we now start with Oh, yeah. What if Coco starts eating 20 bananas in
+[1:03:14] an hour? What is the time taken?
+[1:03:18] What is the time taken if you eat 20?
+[1:03:23] Yeah, guys, tell me.
+[1:03:26] Eight. Is it uh >> [clears throat]
+[1:03:29] >> larger than the time allowed? No, smaller. If it is smaller, it means
+[1:03:34] Coco is eating faster. He's taking less time.
+[1:03:38] Which means I need to reduce the time. Sorry, I need to increase the time Coco
+[1:03:42] takes, which means reduce the number of bananas Coco can eat.
+[1:03:46] I will not reduce by one like what we would have done in a
+[1:03:50] brute-force approach. So, just observe, guys, observe.
+[1:03:55] My mid is 20. Time taken is
+[1:03:59] eight. Time allowed is
+[1:04:04] 10. Time taken is lesser than the time
+[1:04:07] allowed, which means I'm eating faster. I need to reduce it.
+[1:04:12] If I have to reduce it, what do I change my
+[1:04:16] mid? I change my height to mid minus one.
+[1:04:21] If the time taken was more, then I need to increase the
+[1:04:25] um increase the number of bananas I can eat, which means I need to go to the
+[1:04:29] right side. Are you
+[1:04:32] getting it? Everywhere is a mid mid issue, but you have to apply that logic
+[1:04:36] according to the problem statement. Am I taking more time? Yes, increase the
+[1:04:41] speed. When do I increase it? When I go to the right of the
+[1:04:45] uh right of the mid.
+[1:04:48] If I take less time, I need to uh
+[1:04:53] Yeah, increase the speed if I'm taking less time. If I'm taking more time, I
+[1:04:56] need to reduce the speed. Now, what is it with eight with a 20, what did we
+[1:05:01] get? With 20, what did we get?
+[1:05:05] Eight, which means I'm eating much very I'm I'm eating faster.
+[1:05:10] I've taken less time means I'm eating more in an hour. I need to reduce it.
+[1:05:14] How do I reduce it? Left side. So, what do I do now in this
+[1:05:18] case? What will my low become?
+[1:05:23] What will my low become?
+[1:05:26] One. What will my high become?
+[1:05:31] Mid minus 1 19. So, my low is one, high is 19. My new mid is
+[1:05:38] 10. With 10, how much time am I taking? 2 + 3 + 2 + 4
+[1:05:46] How much is it, sir? Uh 2 3 2 4 2 1
+[1:05:51] 5 10
+[1:05:54] Uh 14. Okay, great. With 10, I am taking 14
+[1:06:00] hours. Allowed time is 10. That means I'm eating slowly.
+[1:06:06] I I mean I should finish faster, but I'm taking more time.
+[1:06:09] So, I need to increase. How do I increase? What will my low now become?
+[1:06:15] Now, what will my low become? Low will become
+[1:06:20] 11. High is 19. What is the mid value now?
+[1:06:26] 15 Now, with 15, remember we got 10 hours?
+[1:06:33] So, a simple rule to follow is do not iterate through every element of
+[1:06:39] that range from zero to max. You just start with the mid value and
+[1:06:45] check. With this mid value, am I taking more time or am I taking
+[1:06:49] less time? If I'm taking more time, then I need to basically increase the
+[1:06:55] speed. If I'm taking less time, that means I'm eating more, I need to reduce
+[1:07:00] it, so I need to shift to the left.
+[1:07:04] It's like imagine you're given a thousand page
+[1:07:07] uh
+[1:07:10] uh directory. And if you have to search for a name
+[1:07:14] which is uh beginning with M, Mahesh.
+[1:07:17] Where do we look for? Will you start in the beginning or will
+[1:07:21] you start at the end or will you look at somewhere in between?
+[1:07:25] Is assuming all the data is alphabetically sorted.
+[1:07:31] M, where will you search for? You can say, "Yeah, you know what? I am
+[1:07:37] I have nothing else to do in my life. So, let me start from page one and then
+[1:07:41] I'll go to somewhere up to page 450 and then I'll find all M's
+[1:07:45] from 450 to 493 and then I want somebody called Mukesh.
+[1:07:50] Then again I will uh good.
+[1:07:54] You know, you're keeping yourself busy. But what would a smart guy say? Oh yeah,
+[1:07:58] M, right? Obviously it can't be at the beginning, it can't be at the end. Let
+[1:08:02] me randomly go to the center. Maybe when I go to the center I don't find M, I
+[1:08:06] find P. Then I'll go few pages back. I find K,
+[1:08:10] I'll go few pages forward. That is exactly what we are talking about in
+[1:08:14] every binary search problem.
+[1:08:18] Are you there?
+[1:08:22] Uh I don't know how your easier semester marks displayed on the notice board or
+[1:08:26] is online you get your marks. Just imagine your semester marks on the
+[1:08:30] notice board. Where do we look for your marks? At the
+[1:08:33] top or at the bottom or somewhere in between?
+[1:08:37] No, no. I know they're sorted. No, are they sorted by the roll number? Are
+[1:08:40] sorted by the rank?
+[1:08:44] They're always sorted by the roll number. They know you know where to
+[1:08:47] search. But if sorted by the rank, you will probably say, "Ah, yeah, why don't
+[1:08:51] I look at my top?"
+[1:08:53] And then you'll realize it is sorted in uh
+[1:08:56] uh ascending order.
+[1:08:59] You're in the top and then you'll find, "No, no, I wow I'm happy seeing the top
+[1:09:04] but then the results are in the descending order. Oh my god, holy cow.
+[1:09:07] You know, what I'm basically trying to tell you is since the data is not sorted
+[1:09:11] here, we still don't have to sort it. We can do using a simple low always one and
+[1:09:18] high always maximum. Get the mid.
+[1:09:22] Find out the time taken using the same logic. If the time taken is larger than
+[1:09:27] the time given, then you're eating slowly. Increase the
+[1:09:31] speed search in the larger half right. If the time taken is
+[1:09:37] uh very small and the time allowed is more, then
+[1:09:42] you're eating too fast. Which means reduce it so that you take
+[1:09:45] more time. Because you want the minimum number.
+[1:09:50] Are you clear? Shall we look at the code?
+[1:09:55] Can you run this sir with the data I gave you?
+[1:09:57] Exact same data. Let's see we get 15 or not.
+[1:10:00] >> Yeah, 20.
+[1:10:15] >> See, what was left? One, right 40, middle is 20.
+[1:10:19] With that I got some time.
+[1:10:23] So what did I shift the right to? Mid.
+[1:10:28] Are you there? And then again we got some middle 10.
+[1:10:32] But then I took more time so I shifted that to 15.
+[1:10:36] Uh with 15 you got uh Okay, we got something and then we
+[1:10:40] thought okay we still have lesser value. We tried with 13 and 14, didn't get it
+[1:10:45] and finally we said the answer is 15. Because between 10 and 15 there are
+[1:10:50] still smaller values, no? What are those? 11, 12 and 13. So we
+[1:10:54] started with 12 mid. No, that was not good. Then we try to
+[1:10:58] increase it, 13. Not good. 15 is the only answer. Are you seeing that? We
+[1:11:02] don't stop when we get, we are looking for smaller, so we search in the left of
+[1:11:06] 15. Left of 15 was 10, not possible. 15 is possible. The only options are 11,
+[1:11:12] 12, 13, 14. That small compartment.
+[1:11:18] Is it clear? Sir, now change the number of hours to
+[1:11:22] uh 15 hours. Same data, 15 hours.
+[1:11:27] Uh don't run.
+[1:11:34] Now with 15 hours see what will the debug messages be and
+[1:11:39] what will the answer be with 15 hours. Allowed is 15 hours, rest of the data is
+[1:11:44] same. Now with 15, tell me what debug messages
+[1:11:47] will you get? Left is one, right is 40, that doesn't
+[1:11:51] change. Mid is 20. With 20, how many hours did you get?
+[1:11:57] How many hours did you get with 20 as minimum?
+[1:12:03] Calculate, no?
+[1:12:06] Eight. Then what did you
+[1:12:08] do?
+[1:12:13] Huh?
+[1:12:16] No, with 20 you got eight or more?
+[1:12:21] With 20, what did you get? Eight hours. That means you're eating
+[1:12:25] too fast.
+[1:12:28] You're taking less time. So what did you then change it to?
+[1:12:34] Yeah, tell me with 15 hours available, what will the answer be?
+[1:12:38] All of you.
+[1:12:43] So 20 is giving you eight hours, that means you're eating too fast.
+[1:12:47] So you need to reduce the speed of eating, so you shift your focus to left.
+[1:12:53] So that will still became that will still be the same. Left is one and right
+[1:12:58] is 20. Mid is 10. With 10, what did you get? How many hours?
+[1:13:04] Then how many hours you get? 2 + 3 + 2 + 4 + 2 + 1.
+[1:13:09] 7 11 14. So, that is still
+[1:13:15] lesser than 15. So, again you have to shift to the
+[1:13:18] left of it. What will the left of 10 now be?
+[1:13:25] What will low be? Zero. Oh, sorry. Low is one. What is
+[1:13:30] high? Mid.
+[1:13:33] So, it is going to be lesser than 10. Earlier when we were given 10 hours, we
+[1:13:38] had to shift between 10 to 15. 10 to 20. Now, we will go on the left of
+[1:13:43] 10. Yeah, what is the answer?
+[1:13:48] Nine? Sure? Nothing less than nine? Okay, when you got
+[1:13:54] zero to 10, one to 10, you got an answer of
+[1:13:58] five. With five, you get more hours. So, you
+[1:14:01] shift now between five and 10.
+[1:14:04] Yeah, sir. Yeah, look at that. 20, 10, five. Then
+[1:14:09] five is giving more, so we go to the right of it. So, between five and 10,
+[1:14:13] you have mid eight. Then you find that is not good and
+[1:14:17] you got 10, not nine.
+[1:14:20] 15 hours, sir. Answer is 10.
+[1:14:24] Calculate with 10, how many hours you get now. Sir, stop.
+[1:14:30] No, no. With 10, how many hours do you get?
+[1:14:36] 20, 30, 12, 40, 15, five. 2 + 3 + 2 + 4 + 2 + 1. How many is it?
+[1:14:47] Five. 14.
+[1:14:51] That's it. There's nothing better. Uh if you take nine, okay, let's take
+[1:14:57] nine.
+[1:14:59] Uh nine is uh
+[1:15:04] Nine is three hours, sir. This guy will give you
+[1:15:08] four.
+[1:15:11] This guy is two. This guy is five.
+[1:15:16] Uh this guy is two. This guy is one. How much is it? Seven. 10. 17. So, nine is
+[1:15:23] not the right answer. So, the only answer is 10.
+[1:15:27] Nine is giving you 17 hours, no? I mean, nine is taking 17 hours.
+[1:15:32] Larger than allowed. So, you have to reduce it.
+[1:15:35] Sorry, it's nine is taking how many hours?
+[1:15:38] 17.
+[1:15:41] More. Yeah. That's not the answer.
+[1:15:48] So, you have to increase it because it's taking more time.
+[1:15:51] So, 10 is the answer. Are you all there?
+[1:15:56] Shall we look at the code? Is the logic clear? Is the explanation
+[1:16:01] clear? Are the debug messages clear? Great. Sir, can you show them the code
+[1:16:05] now?
+[1:16:18] Show the method, no, yeah. Yeah, min eating speed. Uh
+[1:16:22] left is one, right is one, and then in that for loop, you're finding out what
+[1:16:25] is the right value, maximum. Okay, so I'm not going to spend too much time.
+[1:16:29] Scroll down. While left less than right, we get the
+[1:16:32] middle. And with the middle, we calculate how many hours spent.
+[1:16:37] So, show them calculate how many hours spent.
+[1:16:39] The same logic, sir. Go through each pile, calculate, sum it
+[1:16:44] up, and and return that value. Okay?
+[1:16:49] Go to the code. Continue.
+[1:16:52] Scroll down. If the number of hours spent is less than the hours allow,
+[1:16:57] then I need to increase the speed. Sorry, if the number of
+[1:17:02] hours is larger than the hours spent.
+[1:17:06] What does it mean?
+[1:17:09] If the number of hours spent is lesser, that means I'm eating too fast.
+[1:17:16] Right? So, what do we have to reduce? The speed of eating so that I increase
+[1:17:22] the time taken. So, if I have to reduce the speed of
+[1:17:25] eating, I skip the right and go to the left. And that is what we are doing.
+[1:17:28] Right is equal to middle. Otherwise, left is equal to middle plus
+[1:17:32] one.
+[1:17:37] Are we clear? So, when the logic of calculating hours
+[1:17:42] spent doesn't change whether you have brute force or binary search, you have
+[1:17:45] to write that. The only difference is instead of incrementing in steps of one,
+[1:17:50] we are deciding to increment in steps of half of the remaining which are left.
+[1:17:55] Either the left half or right half. So, we are partitioning that
+[1:17:59] like the divide and conquer into halves. Imagine we had a large value like
+[1:18:07] 1,000 in one pile and the other piles had 10 and 20.
+[1:18:12] Okay, so I'll give the test data. Last element of the array, you make it
+[1:18:17] 1,000.
+[1:18:22] Same data. Last game, make it 1,000.
+[1:18:27] So, we'll get something like 500 as my mid.
+[1:18:30] And then 15, yeah.
+[1:18:34] Continue. See that? 500, 250, 125, 63.
+[1:18:39] Then we go to the right of it, 94, right of it, 120 110, then left of it.
+[1:18:45] Are you seeing that how we are halving it?
+[1:18:49] And finally we get 100. I mean, I think 100 is right if you go back and see.
+[1:18:54] The The last guy will take 10 hours, all other guys will take 1 1 hour. So, 100
+[1:18:58] is the answer.
+[1:19:02] Are you good? So, what we will look at is one more
+[1:19:05] interesting problem. Uh I will not discuss the solution. That
+[1:19:09] will be next class. But, let me share with you what the problem statement is.
+[1:19:13] Sir, blank screen. Any questions on all the five problems
+[1:19:18] we discussed? I mean, five solutions to the two problems we discussed.
+[1:19:24] Okay. Again, when you have your mid exam
+[1:19:27] for this batch, we're going to change the pattern like what we did last time.
+[1:19:31] We'll give you Coco eating bananas problem, let's say, and then we'll say
+[1:19:35] uh using binary search after the third iteration, what will the
+[1:19:40] low and high and values be? You know?
+[1:19:45] Or what will the speed computed be after two iterations? So, you need to know how
+[1:19:51] to do things manually. You should understand the whole logic of
+[1:19:55] running through that manually and understanding at every step what is
+[1:19:59] happening. Okay.
+[1:20:02] Uh the interesting problem.
+[1:20:07] I don't know how many of you have done this, but uh
+[1:20:10] give me a brute force solution. Worst space and time complexity to start
+[1:20:15] with. Okay.
+[1:20:18] You're given two sorted arrays.
+[1:20:27] You're given two sorted arrays.
+[1:20:36] >> You're given array one, array two, both are sorted. That is a
+[1:20:40] basic assumption. You need to find
+[1:20:44] the median of merged array. After you merge array one and array two,
+[1:20:52] which is again going to be sorted, you need to return what is the median.
+[1:20:59] So, how would you do this using brute force?
+[1:21:05] Worst time complexity, worst space. I'm giving you freedom. Take as much space
+[1:21:10] you as you want. And time.
+[1:21:15] All of you tell me how you would do it. Let's hear from the back rows now.
+[1:21:20] Yeah. Just introduce yourself, sir. Your name?
+[1:21:23] >> Yeah, my name is Ryan, sir. >> Ryan, yeah.
+[1:21:27] Tell me how would you do this?
+[1:21:31] Worst case.
+[1:21:34] Brute force, yeah. I'll repeat the problem. You're given
+[1:21:38] two sorted arrays. You return You need to return the median
+[1:21:43] of the merged sorted array. [snorts] >> Uh worst case,
+[1:21:47] probably >> Yeah, go ahead, sir.
+[1:21:50] >> Um worst case would be to check each and every
+[1:21:54] >> Tell me how to do it. Yeah, tell me. >> Sir, to
+[1:21:57] directly check the length of the merged sorted array.
+[1:22:01] >> Uh length of the first array is five. Uh the second guy is six, yeah.
+[1:22:08] Five and six, yeah. Tell me. >> Sir, so
+[1:22:14] Sir, do we have to merge and then sort? >> How do you merge? What do you need to do
+[1:22:18] to merge? Tell me the steps, no?
+[1:22:21] >> Yes, sir. Sir, we'll create a new array which has having a length of both sum of
+[1:22:27] both >> Okay, so I'll create a new array whose
+[1:22:30] size will be sum of length of array one plus length
+[1:22:35] of array two, which is 5 plus 6 11. So, I'll create a new array of
+[1:22:39] >> 11 >> M plus N. Yeah.
+[1:22:42] >> Then uh >> Hello, sir.
+[1:22:47] Yeah. >> We'll iterate through both the arrays
+[1:22:49] and uh >> We? Okay. We dump both the arrays.
+[1:22:53] >> Yes, sir. And after dumping uh we'll use quick sort to sort the array.
+[1:22:57] >> Okay, we will use built-in method arrays.sort, okay?
+[1:23:02] Collections.sort, okay? Good. After that?
+[1:23:06] >> Uh >> [snorts]
+[1:23:09] >> Then uh we directly because it's sorted then we check a
+[1:23:14] median using if it's uh
+[1:23:18] using mid plus low. >> Good. Good job, Ryan. What did you say?
+[1:23:23] We'll find out what is the size of array one, array two. We will dump array one
+[1:23:27] data, array two data, then we will go and sort it
+[1:23:33] using some built-in API or write your own algorithm. Doesn't matter. And what
+[1:23:38] will the sorted array look like? One.
+[1:23:53] Now, the number of elements are uh odd.
+[1:23:58] >> Yes, sir. >> Yeah, so what will you get as the
+[1:24:00] answer? >> Uh
+[1:24:03] we'll get uh >> 11 divided by two is five.
+[1:24:08] Correct? >> Yes.
+[1:24:10] >> If the number of elements were even, then you'll have to get the average of
+[1:24:14] two of them. >> Yes.
+[1:24:17] >> Is it clear? Simple brute force algorithm. What is the time complexity
+[1:24:23] of this, Ryan? >> Sir,
+[1:24:28] it would be O of n, sir.
+[1:24:31] >> O of n? Sir, sorting is happening.
+[1:24:35] >> Okay, including sorting, >> What is the time complexity?
+[1:24:40] Come on, anybody. Time complexity. So, combining is what? O of n only. What is
+[1:24:43] the space complexity?
+[1:24:47] >> O of 1. >> O of?
+[1:24:49] >> Uh length of two both the arrays.
+[1:24:52] >> O of? m plus n.
+[1:24:54] >> Yes, sir. >> Because m is the size of array one, n is
+[1:24:57] the size of array two. This is a simple brute force algorithm
+[1:25:02] to find out the median of two sorted arrays.
+[1:25:07] So, one way of doing is have a new array, dump both the arrays into it,
+[1:25:13] sort them, and then apply that logic of odd number,
+[1:25:16] even number, and get the median. We are not interested in what the sorted
+[1:25:21] array looks like. You understand?
+[1:25:25] But what is happening in this solution? A new array, which is sorted, is also
+[1:25:32] there. In the actual problem statement, we are
+[1:25:36] not looking at what is the sorted array like. We are only interested in the
+[1:25:41] median.
+[1:25:46] Obviously, it will result in TLE because it is increasing the time taken.
+[1:25:53] We need to do something better. And that something better on Wednesday.
+[1:25:59] But I'll start that problem also today. Do we have a brute force
+[1:26:03] implementation of that? Yeah, uh create one brute force
+[1:26:08] implementation of this problem. Not the efficient one.
+[1:26:12] Okay? So, guys, start on the programs. Uh previous days' programs and today's
+[1:26:18] program which is the sorted arrays return the median. Only
+[1:26:22] return the median, do not return a new sorted array. If it is returning new
+[1:26:26] sorted array, then you have to go through your own merge sort, take take
+[1:26:30] all of them and do it. But we are not interested, only the median.
+[1:26:33] Sir, start.

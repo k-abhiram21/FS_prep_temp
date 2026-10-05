@@ -1,0 +1,1021 @@
+YouTube transcript
+Video ID: 9ccPI2iTcQE
+Language: en
+Captions: auto-generated
+
+[0:00] Uh, good afternoon. Uh, we will continue with the greedy
+[0:04] algorithm and discuss some interesting problems
+[0:08] today and the next week. Uh, in the last class, uh,
+[0:13] uh, we talked about what uh, greedy algorithm is all about and we looked at
+[0:18] a very interesting problem, uh, which is the fractional
+[0:22] knapsack. Are you there, guys?
+[0:26] Yeah. Uh, we also discussed why we cannot solve the uh, 0 1 knapsack using
+[0:31] greedy and we would need to use a different approach, uh, which is dynamic
+[0:36] programming. So, what do we do in a greedy algorithm?
+[0:40] Uh, given a bunch of constraints, we figure out uh, what is the local
+[0:45] solution to address that and we continue doing that till we get a
+[0:50] solution. And that solution may not be the most
+[0:54] optimal, so a locally optimized solution may not
+[0:58] result in a globally optimized solution. Remember the uh, coins change problem we
+[1:03] discussed? Uh, you're given coins of denomination 1
+[1:07] 3 4 and 5 and you basically uh, need to return uh, 7 rupees back.
+[1:14] So, using that greedy algorithm, what did we do? We started with the highest
+[1:18] denomination, five. Then we need to return seven back, so
+[1:23] what are we left with? 7 minus 5 2. Can I return a 4 rupee coin when I need
+[1:29] to return two? Not possible. Can I return a 3 rupee coin? Not possible.
+[1:34] What I would instead do is give two 1 rupee coins. So, how many coins did we
+[1:39] have to return? One 5 rupee coin and two 1 rupee coins,
+[1:44] which is total of three. But a more optimized solution to this is
+[1:50] two coins, one consisting of three and the other consisting of four. That is
+[1:56] what would be ideal, but in a greedy approach, we always look at
+[2:01] a locally optimized solution, which is take the largest denomination value and
+[2:06] do that. In the fractional knapsack, we also did
+[2:11] the same thing. We calculated the ratio and sorted the data in the decreasing
+[2:16] order of the ratio and picked the one which is the highest to get the maximum
+[2:21] profit. So, that is what we would typically do in every greedy approach.
+[2:28] Yeah, now let's look at the shortest path. So, you're given a graph. Uh we
+[2:33] looked at in the last class how we can represent a graph using the adjacency
+[2:38] matrix, uh how we can represent using an
+[2:41] adjacent list. And we gave you couple of programs for you to go through. Do any
+[2:46] of you have any questions on those programs?
+[2:49] Adjacency list or adjacency matrix? No. Okay. So, what we will look at is
+[2:54] the shortest uh single source shortest path.
+[2:59] So, what you're given is a graph with n number of vertices and obviously n
+[3:05] number of edges. Or it could be m edges, okay?
+[3:09] So, what we have is a source, which is the start point.
+[3:14] Given any vertex, find out from that particular vertex, if I have
+[3:20] to reach every other vertex, what would be the shortest path?
+[3:25] It's like I have a vertex as a city. Let's say Hyderabad is the base. And the
+[3:31] next vertex is Warangal, the third is Kurnool, the fourth is Vijayawada, the
+[3:35] fifth is Vizag, and the sixth is, let's say, Chennai.
+[3:39] And they're all interconnected. Maybe I'm not connected to Kurnool, but I am
+[3:43] connected to Kurnool via maybe, you know, Vijayawada, you know, which is
+[3:47] obviously not true, but let's say. So, what we are talking about is if I
+[3:51] have to go from Hyderabad and visit every other city which is given in that
+[3:55] graph, what would be the shortest path which I
+[3:58] would have to take? Maybe the direct path may be longer than an indirect
+[4:03] path. So, we have seen what this is all about. So, what are we given? A graph
+[4:09] which consists of vertices and edges and we are given a source vertex. It could
+[4:14] be any vertex. Hyderabad could be a city or from Vijayawada I want to visit every
+[4:18] other city or from Warangal I want to visit every other city. So, we can
+[4:22] define the source and calculate what is the shortest path to reach every other
+[4:28] destination from that particular source. So, we have an algorithm which is very
+[4:33] interesting, but before we look at that algorithm, let's look at some graph.
+[4:37] So, I'm going to take the sample data. So, what we are given is
+[4:41] a matrix. All of you, please make a note of this
+[4:45] graph which we are going to draw for you. This
+[4:49] is the data. Now, let's represent the graph from this
+[4:53] data. What do we understand? This is a matrix
+[4:57] of five vertices which is five and my source vertex is two
+[5:03] and the vertices are from zero to four. While I draw the graph, you can also
+[5:09] draw the graph and this is a directed weighted graph.
+[5:13] When I say directed weighted graph, I'm saying there is a
+[5:17] path from city A to city B, but there may not be a path from B to A.
+[5:23] If it was an undirected weighted graph, A to B and B to A would also be there.
+[5:30] And the values which you see here are significant.
+[5:34] The zero means there is no path between two vertices
+[5:38] and a non-zero value indicates that there is a weight and that is the edge
+[5:44] weight. The weight could represent anything.
+[5:48] It could be the distance you need to travel from A to B.
+[5:51] The time taken to travel from A to B. Imagine A and B are two nodes in a
+[5:57] computer network. That weight could be the number of bytes which you are
+[6:02] transferring per minute. So, there is a very important factor
+[6:06] here called a weight and this is a directed weighted graph.
+[6:11] The Dijkstra's algorithm will not work when you have negative weights.
+[6:16] It is only applicable when the weights are positive. And if you have negative
+[6:20] weights, there is another algorithm called Bellman-Ford.
+[6:24] So, we'll not worry about it for now, but let's understand what this is all
+[6:28] about. So, let's draw the graph. What do you see? There is a path from
+[6:33] vertex zero to vertex one. So, I'll number here 0 1 2 3 4 and this is 0 1 2
+[6:42] 3 4 for all of you uh who are not very familiar with representing a graph using
+[6:47] a matrix. So, there is a path from zero to
+[6:52] one. arrow
+[6:55] And what is the weight? six
+[6:58] There is a path from zero to two.
+[7:04] This is two. This is zero. Uh this is one and the weight is five.
+[7:10] There is no path from zero to three. But there is a path from zero to
+[7:15] four. So, let's say this is my four.
+[7:19] And the weight given is 13.
+[7:23] Are you all clear? Likewise, I look at vertex one.
+[7:29] Is there a path from vertex one to zero? Sorry. Uh vertex one to zero? Yes.
+[7:35] What is the distance? Same. So, when you talk about a directed
+[7:40] graph, a a weight from A to B can be five units. A weight from B to A can be
+[7:48] eight units. Okay, it doesn't have to be same. Here
+[7:51] it is same, but it doesn't have to be. Are you all clear?
+[7:55] But here it is same. Uh what about
+[7:58] one to two? There is a path from one to two.
+[8:04] And what is the weight? 12. There's a path from one to
+[8:10] three and the weight is
+[8:16] nine. There's a path from one to four and the
+[8:19] weight is
+[8:23] five. Are you all clear on the second row?
+[8:27] Likewise, there's a path from two to zero and that is five units. There's a
+[8:32] path from two to one and that is 12 units.
+[8:35] There's a path from two to three, no. There's a path from two to four, no.
+[8:39] None of them are existing. The path from zero to zero, if you look
+[8:43] at all the diagonals, they're zero. It is like the path from that vertex to
+[8:48] itself will always be zero. Likewise, if you look at three, three to
+[8:53] zero, no path. Three to one, nine.
+[8:59] Three to two, no path. Three to three, no path. Three to four,
+[9:03] two units.
+[9:06] And likewise, you see four to one uh four to zero is 13, four to one is five,
+[9:12] four to three is two. So, this is the graph for this matrix data. All of you
+[9:19] take a screenshot of that if you need to because there'll be some things you'll
+[9:22] have to do after some time. Sir, you can also
+[9:26] uh just copy that and we'll paste it again.
+[9:29] Just the image, sir. Keep that copied, yeah. Any questions on
+[9:34] the graph for that input data? Any
+[9:37] anybody has? Are you all clear? Shall we move on?
+[9:41] Great. Now, what is my start vertex? Zero.
+[9:46] One. Uh two.
+[9:50] Four.
+[9:54] All are bidirectional. Uh one to two is also there.
+[9:59] Mhm.
+[10:02] And this guy is also there, right? Much needed second time boredom. So, I'm just
+[10:06] scribbling whatever. Uh I'm sure you also experienced this. Zero to two is
+[10:10] five. This guy is six. This guy is 13. Uh no. One to
+[10:19] one to two, one to four is 13.
+[10:23] Uh Uh one to four is what?
+[10:29] Five. This guy is two. This guy is nine. Yes. Wow.
+[10:33] So fast this time. Correct? Did I miss anything?
+[10:38] No. You take a screenshot, okay? Great. What is my start vertex now?
+[10:43] Two. So, what we have to figure out is given any vertex as a start. Here, two
+[10:48] is given as an example. It can be zero. It can be four. It can be three.
+[10:53] So, given a source vertex, find out what is the shortest path from that source to
+[11:00] every other vertex given there. So, when I say two is my start vertex,
+[11:06] what is that I need to calculate? The distance between two and zero, two and
+[11:11] one, two and two, two and three, two and four. Imagine each of them is a city.
+[11:16] Two is Hyderabad. One is Vijayawada. Two is Warangal. Three is Mahbubnagar. And
+[11:22] four is Kurnool. You need to figure out. Some cities are connected. Some are not
+[11:26] connected. But there's another way I can go through. So, let's say that is what
+[11:30] the problem statement is. Now, you can erase that other diagram, sir.
+[11:34] Only that part, yeah. I need space now. Yeah. So, what we will now look at is
+[11:40] what is that we want, and then we look at how to achieve that using the single
+[11:46] source shortest path. Yeah, you can't erase it?
+[11:52] Get a new keyboard. Yeah.
+[11:57] What is that? What is happening? Hm?
+[12:04] Okay. Uh
+[12:11] Okay, that's fine. Give me access here.
+[12:15] Yeah, you're giving me access?
+[12:22] Hey, don't do anything, sir.
+[12:26] Don't erase my diagram now. Uh because again you will start with
+[12:31] input data, and you know, 1 and 1/2 hours of
+[12:34] recording is this. Uh
+[12:37] Can I do? Great. So, what we are looking at is 2 to 0, 2 to 1, 2 to 2, 2 to 3, 2
+[12:45] to 4. What is the output going to be is what we have to calculate. Is the
+[12:49] problem statement clear? Because two was my source start, it is two. If it is
+[12:54] four, 4 0, 4 1, 4 2 up to 4 4. Now, given this input data, can you tell
+[13:00] me what will be the data for 2 to 2?
+[13:07] Zero. The shortest path between city Hyderabad to Hyderabad is zero. I'm
+[13:13] there. So, I don't need to travel anywhere to go to that place again. So,
+[13:17] I'm saying it is zero. So, let's fill that first, which is zero.
+[13:22] Okay?
+[13:24] Now, the way this algorithm works is >> [snorts]
+[13:27] >> we initialize every distance as infinity, which is integer.max.
+[13:36] Because any other distance which is given, which is the weight, is going to
+[13:39] be smaller than that. So, we consider the distance
+[13:43] by default as the largest. Because we are solving a problem which is the
+[13:49] shortest path. So, any distance which is given here,
+[13:52] which are those weights, 5 2 9 12 13, is smaller than that. So, we create what is
+[13:59] called a distance array. That is called the distance array, which
+[14:05] is again five elements. 0 1 2 3 4, and all of them are maximum values,
+[14:13] infinity. integer.max
+[14:16] We create one more interesting array called
+[14:21] visited.
+[14:25] And that is again 0 1 2 3 and 4. What about the values
+[14:33] initially?
+[14:36] Come again? No.
+[14:39] Visited arrays are always boolean. True or
+[14:43] false. Oh, did you visit or not visit? If you have visited
+[14:48] then I've got that shortest path, I don't need to revisit again.
+[14:52] I I I've already calculated, so I don't need to consider that anymore.
+[14:57] So, what we do is we start with the vertex which is given
+[15:03] and set the distance of that vertex as 0 and every other distance as maximum.
+[15:10] Then the first thing we do is given all these vertices find out the vertex which
+[15:16] has got the minimum distance. Now, given these five vertices, which
+[15:20] vertex will have the minimum distance?
+[15:25] Always, by default, the source. I repeat, whatever be the source, that
+[15:31] will be the start for us. Two is the source, so two distance was
+[15:35] set to zero, and that is minimum compared to every other, which is the
+[15:39] maximum. So, we have got the minimum distance vertex as zero, and that is
+[15:45] vertex two. So, vertex two is what I start with,
+[15:50] which is also what we call the source, always.
+[15:54] If four was my source, the minimum distance of four would be zero. If zero
+[15:58] was my source, zero would be the start. Now, once I get
+[16:03] two as my start, I find out who his neighbors are.
+[16:08] How do I find out who his neighbors are? I look at Oh, is there an edge between
+[16:13] two zero? Yes, because the weight is
+[16:18] non-zero. Is there an edge between two one?
+[16:22] Yes. Is there an edge between two two? Zero, anyway. Is there an edge between
+[16:27] two three? Is there an edge between two four? Given these, I would say there is
+[16:32] an edge here, there is an edge here, because those values are
+[16:35] given. And there is no edge between two and
+[16:38] three, because the value is zero, as we have seen in the input data.
+[16:44] So, what we look at is we start with the first vertex, find out all other
+[16:49] vertices it is connected to. What is the vertex zero two connected
+[16:54] to? Zero. What is the distance between two
+[16:58] and zero? What is the distance? From that graph
+[17:02] you've seen, what is the distance? Five. So, I I update this to
+[17:08] five. What is the distance between two and one?
+[17:16] No, 1 minute. What is the distance between two and one?
+[17:22] Indirectly, how do you go to indirectly, sir? When you are given two, do you have
+[17:26] access to zero? You are only having access to its
+[17:30] neighbor, zero and one.
+[17:34] Are you there? So, what will the initial distance be?
+[17:38] Two is only connected to one. When we go to zero, we will say, "Oh, I can
+[17:43] also go to one via zero." But, as of now, there is only zero and one which
+[17:48] I'm connected to. So, are you seeing that? When two is
+[17:53] chosen as the start vertex, the distance array looks like that.
+[17:59] Uh again, um I'm sorry. Can you erase this, sir? Erase this. We
+[18:05] need to write in the distance array.
+[18:10] Yeah. Yeah.
+[18:13] So, I need to write here. This is zero. Uh two and one is what?
+[18:19] 12. And two and zero is
+[18:23] five. And what about these two?
+[18:27] Max and max. And what about two?
+[18:31] Visited is set to true.
+[18:36] Two is the base, two is visited, and comparing its neighbors, I've calculated
+[18:41] the distance between two and zero as uh five, and two and one as 12. I've got
+[18:47] those. What is the next thing we would do?
+[18:50] Again, we will call given this distance array, find out the minimum
+[18:56] distance which is not yet visited.
+[19:01] Now, tell me what will you get? Which vertex will you will it choose?
+[19:06] I'm showing you the distance array. Tell me the distance the vertex which is the
+[19:12] minimum distance and not yet visited. Which vertex will you get?
+[19:20] Vertex one, very good. Vertex one. Because what is the value of vertex one?
+[19:25] I'm sorry, vertex zero. Not one, vertex zero.
+[19:30] What is the value of vertex zero? Five. What is the value of vertex one?
+[19:33] 12. And what is vertex two already visited?
+[19:38] Which are the vertices not visited? Zero, one, three, and four. Are you
+[19:42] seeing the visited array? So, after two, I've gone to vertex one.
+[19:48] Now, who are the neighbors of vertex one?
+[19:53] Neighbors of vertex one? Zero to two, zero to one, and zero to
+[19:58] four. But what is my start vertex?
+[20:02] Two. So, vertex one, zero is connected to
+[20:06] one. Now, a very interesting thing happens.
+[20:10] The distance between two zero plus zero one is lesser than two one.
+[20:20] So, if I want to go to one via zero, I can because there is a connectivity from
+[20:26] zero to one, whose value is six, and the minimum distance between two and zero is
+[20:31] five. So, the net result of this is 11, which is lesser than 12. So, what
+[20:36] happens is this guy will get updated to 11 instead of 12.
+[20:43] When we started with vertex two, the distance between two and
+[20:47] one was 12, but when zero becomes the vertex, I already know the distance
+[20:53] between zero and two. I now have zero and one. So, I'm checking, "Oh, is the
+[20:57] distance between two and one lesser
+[21:01] than via zero, or is it greater?" If it is greater, update it. If it is lesser,
+[21:07] retain it. Between that means given two routes
+[21:11] to one directly and 201, the smaller is 201, so that is what I'm going to retain
+[21:18] now.
+[21:21] Have you got it? Have you understood?
+[21:27] Can I go directly to one? Yes. What is the distance?
+[21:31] 12. Can I go indirectly to one? Yes, via zero. What is the distance? 5 + 6. So,
+[21:37] I'm saying the shortest distance given two as a source and one as a target is
+[21:44] like city one to city B two is not direct connectivity, indirect
+[21:49] connectivity via city three. So, I update that to 11 now.
+[21:54] You'll see the algorithm very soon, but that's I want you to understand.
+[21:58] So, what is frozen now? Distance between zero and two is fixed, which is five.
+[22:04] Distance between zero and one is still six.
+[22:07] And distance between two and one is no longer 12, it is now
+[22:11] 11. Now, when you are given this, what happens to the visited flag? Which one
+[22:16] will I set to visited now in this in the remaining four?
+[22:21] Vertex zero is already visited, so that is now set to true. Are you clear? From
+[22:26] two, I got the shortest vertex distance as zero.
+[22:30] And the distances are 5 11 zero max and max. No, sorry. Uh zero is already
+[22:37] connected to four. What is the value, sir?
+[22:40] 13. Is zero connected to three? No.
+[22:43] So, this is what it looks like. Again, we go through
+[22:48] find out the minimum distance of all those vertices which are not
+[22:52] visited. Now, which vertex will it pick after this?
+[22:58] There is a five. Five is already visited, vertex zero. There is 11.
+[23:02] There is a 13. Now between 11 and 13, obviously the
+[23:06] shortest distance is 11. So which vertex will now be picked?
+[23:11] Vertex one. So the next time vertex one will be picked. Now when vertex one is
+[23:16] picked, what do we set that vertex one visited to?
+[23:19] True. And what is the distance between What is
+[23:22] one connected to zero? What is the shortest distance between
+[23:26] two and zero? Five. And what is the shortest distance
+[23:30] between one and zero? Six. Okay. Now from one, where can I go
+[23:35] to?
+[23:38] From one, where can I go to? Three. So if I look at what is the
+[23:42] shortest distance from two to three, what is the path available? Two to one
+[23:48] and one to three. We already got the shortest distance distance between two
+[23:52] and one. What was it? What was it?
+[23:56] 11. And when you go to three, what is 11 plus
+[24:02] nine?
+[24:04] What is 11 plus nine? 20. So what will I change this?
+[24:11] Earlier we said there was no way I could go from two to three, but when I found
+[24:15] the shortest distance between two and one as 11,
+[24:18] there is already there is also a path from one to three, which means I can go
+[24:22] to three from two via one. Two one shortest distance is 11. And one
+[24:27] nine one three short one three distance is
+[24:30] nine. So the possibility is 11 plus nine 20.
+[24:36] Is not yet the answer. Hang on. Then what is the neighbor of one?
+[24:43] What is the neighbor of one?
+[24:46] Four. Now what was the shortest distance to go
+[24:51] from two to
+[24:54] four?
+[24:57] Oh sorry. This is not correct. Uh 2 to 4 is 18, sir.
+[25:03] 2 to 4 is 18 because 2 to 0 and 1 to 0 to 4. 0 to 4 is 13, right?
+[25:10] So, 5 + 13 18. Now, can you tell me what happens now
+[25:14] when 0 is uh done? We got 18. When we find one, what will the shortest dis-
+[25:21] distance between 2 and 4 become? Yes, sir.
+[25:25] Use the mic.
+[25:29] Again, that's a challenge, huh? Mic, [snorts] where is the mic?
+[25:40] Did you understand how I got 18? The The way I can go to 4 is via 0. The
+[25:45] distance between 2 and 0 was 5, and the distance between 0 and
+[25:52] 4 is 13, 18. Yeah.
+[25:56] >> Sir, why don't we go from 2 to 1 and 1 to 4? That's
+[26:00] >> That now we will do when we have found one, no, sir. Before that, what was the
+[26:04] vertex we chose? 0. When we chose 0, what is the only way to go to 4? 2 0 4.
+[26:10] 5 + 13 18. Now, when I found one, I'll say 2 1 4. I'll calculate is 2 1 4
+[26:16] lesser than 18? If it is, I'll update. If it is larger, I'll say no, 2 0 4 is a
+[26:21] better way. Are you there? In every time we find a
+[26:24] vertex we find, is there a way to go from that to the destination? If there
+[26:29] is, is that path smaller than the earlier calculated one?
+[26:34] Are you there? I had no connectivity from
+[26:37] 2 to 4, but there is a connectivity 2 0 4. There is a connectivity 2 1 4. Now, I
+[26:44] know the shortest is when 0 was chosen, the only connecti-
+[26:48] connectivity was 2 0 4, so 5 + 13 18. Now, when one is chosen, I have one more
+[26:54] connectivity. Now I'm checking is this connected path smaller than 18? If it is
+[27:00] updated. What do you get when you say 214?
+[27:04] What is the connectivity between two and one? What is the shortest path between
+[27:07] two and one? 11. What is the path between one and
+[27:12] four?
+[27:17] 5 16. What is the previous shortest path between two and four?
+[27:22] 18. So, what do we now do? Update that 18 with
+[27:28] 16. How 17 sir? 11 plus 5 16.
+[27:36] Two and one shortest is 5 plus 6. And one and four is five. So,
+[27:42] 16. Have you understood? Yeah?
+[27:47] Great. Are we done? Not yet. Who is other neighbor of
+[27:52] one? Three. So, what is the
+[27:55] what is the way to go to three from two? 213.
+[28:00] What is the distance between two and one?
+[28:03] 11. This is nine to 20. So, that is what we get 20.
+[28:07] Now, you are given these distances and which
+[28:14] So, these are all true and the remaining two are false.
+[28:17] Now, given this distance 5 11 20 uh sorry,
+[28:22] this is 20 and 16. Which one is the minimum and which is
+[28:27] not yet visited?
+[28:31] Which one? 16. Which vertex?
+[28:35] Four. So, I have now chosen four. Now, four becomes the base. Now, who are
+[28:42] the neighbors of four? Who are the neighbors of four?
+[28:47] One and three. So it's like saying
+[28:51] if I have to go to one, I can go via four. And if I have to go to three, I
+[28:57] can go via four. What is the shortest distance between
+[29:01] two and four? What was it? 16. So if I have to go to
+[29:06] one, what is 16 + 5? 21. Isn't that larger than direct 11?
+[29:13] So I'll skip that. Now if I have to go to four, what are
+[29:17] the option available? 2 1 Sorry, if I have to go to three, what
+[29:21] are the option available? 2 1 3. Is there another option 2 4 3?
+[29:29] Is there another option 2 4 3? What are the shortest for 2 4?
+[29:35] 16. What about four and three? Two. What is it?
+[29:39] What are the earlier 2 1 3? 20. What do we know updated to?
+[29:45] 18.
+[29:48] Are you guys getting it? So every time you pick a vertex, you
+[29:52] check is there a shorter path available considering this vertex? If it is,
+[29:57] update it. If it is not, retain the previous one. So there were multiple
+[30:01] ways of going to three. 2 1 3, 2 4 3 and 2 4 3 is better and that is whatever
+[30:10] four plus two, which is 18.
+[30:17] Is it clear? Now you calculate and see if you get
+[30:21] anything other than 5 11 uh whatever huh?
+[30:26] Oh sorry, 20 becomes 18. My bad. Undo this.
+[30:31] Yeah, so this is anyway 16. So the answer would be 2 2 0 is 5
+[30:38] uh 2 2 1 is 11, 2 2 2 is 0, 2 to 3 is uh 18, that is 16
+[30:46] plus two. So, 2 to 4 is 16 and this is the shorter path. 2 to 1 was uh
+[30:51] uh 11 and 11 plus 9 was 20. Or even if you go 2 1 and 1 5 gave you
+[30:59] 16. 16 plus 2 18. So, it's like saying uh the way I'm
+[31:04] going to three is 2 1 4 3.
+[31:10] Which is 11. 2 to 1 is 11, 2 to 4 is 16, and 4 to 3
+[31:15] is plus 2 18.
+[31:19] Have you understood, all of you?
+[31:22] Yes? So, now what we will do is we'll quickly
+[31:25] run through this program and see what the debug messages are, similar to what
+[31:30] I've done. Code is very simple. I mean, like few
+[31:34] lines of code. The algorithm is important that every time you calculate
+[31:38] a new path, check whether that new path is smaller than the current value which
+[31:43] was earlier computed. If there was an earlier shortest path,
+[31:47] if the new value is shorter than it, update it. Otherwise, retain it.
+[31:53] Imagine for a moment, instead of 0 to 1 being uh five, it is uh sorry, 0 to 1
+[31:59] being six, it is like 16. Then what is the shortest path from 2 to
+[32:03] 1? Direct 1 12. I will never go via
+[32:07] zero. When I calculate, I'll get 5 plus 16 21,
+[32:12] that is larger than 12, so retain 12. That is the simple logic. If the new
+[32:17] path is larger, retain the old one. If the new path is smaller, update it.
+[32:25] Are you guys there? Now, I'll just give you a very simple
+[32:28] example. That this gate is closed. So, if I have to go to Narayanaguda, I
+[32:32] obviously have to take a much longer route now. You know, go from the back
+[32:36] gate, go to that YMCA and then take a turn.
+[32:39] But when this road becomes operational, I just have a much shorter path. Till
+[32:43] that time, I'll say, "Yeah, now I have to, you know, detour."
+[32:47] That is exactly what we are talking about.
+[32:51] Single source shortest path. Are you all clear?
+[32:56] Shall we look [snorts] at the debug messages?
+[33:01] Okay, sir. Run with the same test data.
+[33:16] Yes. Yes, sir. Great. Can you go to the
+[33:19] beginning? Great. Now, let's go through what is the initial distance we have
+[33:23] given? Except two to two, which is zero, all
+[33:27] others are maximum. And what about the visited? All of them
+[33:31] are set to false. Now, given that a distance array, we
+[33:37] find out which vertex is the minimum distance, and we got vertex two.
+[33:43] Give me access, please. Are you clear?
+[33:49] Vertex two has zero, so we got two.
+[33:52] And what did we set the
+[33:56] Can you scroll down? Slightly.
+[33:59] Yeah. So, any questions till this point? Any questions till this point?
+[34:05] Now, two becomes a base. I calculate the distance between two and one.
+[34:09] Two zero. Visited zero is false. What is the
+[34:13] distance of you? Two to two is zero, and what is the
+[34:19] weight? Five. And what is the
+[34:22] previous distance? Max. Is five lesser than max? Yes. So,
+[34:27] what are we updating that max to five. Are you seeing that? It was
+[34:32] earlier max, it got updated to five.
+[34:36] Now, what about two to one?
+[34:40] 12. One was not visited, 12. What about the
+[34:45] rest of them? So, is this clear when two is chosen as
+[34:48] a vertex, what is the
+[34:52] final thing we get? Five, 12, zero, two, max. Why are these two maximum still?
+[34:57] Because there is no connectivity from two to three, and there is no
+[35:00] connectivity from two to four. The weights are zero, so there is
+[35:04] no connectivity. Okay?
+[35:07] Now, given those three, five, 12, zero, which is the smallest vertex?
+[35:13] Distance five. What is the vertex number?
+[35:16] Zero. So, the next minimum vertex distance is zero.
+[35:21] Is this clear, guys? Now, zero becomes the base. So, it's
+[35:25] like saying two, zero, whatever. Two, zero, one, two, zero, four, two, zero,
+[35:30] three. Two, zero, three is not there. Two, zero, one is there. So, can I
+[35:33] calculate distance between two, zero, one versus two, one directly? Now,
+[35:39] scroll down, scroll down.
+[35:43] Yeah, now, hang on. Uh
+[35:48] Yeah. Now, U is zero, so if I go from two to one
+[35:52] via zero, intermediate vertex, what was the previous distance two to zero?
+[35:59] Five. What is the weight between zero and one?
+[36:02] Six. What was the previous distance of one?
+[36:08] What is the distance of one? 12. Now, five plus six is lesser than
+[36:13] 12, so what we have updated 12 to is 11. Are you all there?
+[36:19] So, it's like saying if if I have found an intermediate location which will
+[36:24] allow me to go to a city which I already went to directly
+[36:28] check whether this distance is larger retain the old value. If smaller, update
+[36:33] it. That is exactly what this whole logic is.
+[36:37] If the previous distance plus new weight is lesser than the previous value,
+[36:41] update it. 5 + 6 is lesser than 12, so we update it to 11.
+[36:46] Clear? What else did you see after that? I was able to go to four via zero. 2 0
+[36:55] 4. What is the distance of 2 0?
+[36:58] Five. What is the distance of 0 4? 13. So, what is that I've updated to?
+[37:05] 18. Earlier it was maximum, which is like saying, "Oh, there was no
+[37:08] connectivity." Now I'm saying, "Yeah, there is a connectivity to four via
+[37:12] zero." I know the distance, which is five, plus that direct distance, 13 18.
+[37:18] So, I can go to four by spending 80 units of distance.
+[37:25] Can I go to three? Can I go to three from zero? No.
+[37:30] To go to three, I have to go to one. Which means one should be chosen as a
+[37:34] vertex. If that city is chosen, then I can go to
+[37:37] any other city which it is connected to, but I have not gone to one.
+[37:41] So, sir, scroll down. Yeah, stop.
+[37:44] Now, the next vertex we get is vertex one. Because what are the two vertices
+[37:50] which we are considering? 11, zero, maximum and 18. Between 11 and
+[37:56] 18, which is smaller? 11. So, I go to vertex one. Some from
+[38:00] vertex one, where can I go to? Three. From vertex one, I can go to
+[38:04] four. I will not go to zero because zero is
+[38:07] already visited. I will not go to two because two is already visited. So, that
+[38:11] is all done. Now, we only have to go forward, three and four.
+[38:15] What is the distance between one and three?
+[38:17] Nine. What is the distance between two and one?
+[38:22] Two and one, 11. 11 + 9 20. Are you seeing that? So, I can go to
+[38:27] three via one, 20 units. I can go to four via one,
+[38:33] 11 + 5 16. Are you there? Before it was 18, now it is 16. When I
+[38:40] went to four via zero, it was 18, but when I go to four via one, it is 16.
+[38:48] How many are not clear?
+[38:52] Okay, good. Continue. Uh then, what are the other vertices
+[38:56] available? Sir, can you
+[39:00] scroll down? Yeah. So, after that, the distances are
+[39:05] 18 and 16. Now, 16 is chosen, which is vertex four.
+[39:09] Now, when vertex four is there, where can I go to from vertex four?
+[39:13] Vertex three. One already visited, zero already visited, two already visited,
+[39:18] three. So, that means from four, I can go to three. So, I'll calculate the
+[39:23] distance 243. Is that smaller than 213? Is that smaller than the previous
+[39:30] calculated distance to reach three? If you find that is smaller, update it. And
+[39:34] we find that is smaller. What was that? 16 + 2 18.
+[39:39] Oh, we already calculated that, right? Are you seeing that?
+[39:44] So, finally, what we print, uh by then, we got vertex three. After that, the
+[39:49] only small vertex is three. From three, I cannot go anywhere because everything
+[39:53] is visited. So, there is no need to recompute any additional distance.
+[39:59] Okay, scroll down, sir. So, that is what we get. 5 11 18 and
+[40:04] 16.
+[40:11] Are you clear? Shall [snorts] we now update this to
+[40:15] What if my vertex 4 is a start vertex?
+[40:21] Let's say vertex 4 is a start. So, what will the output look like? 4 0
+[40:26] 4 1 4 2 4 3 4 4. Right? So, can you go back to the
+[40:30] diagram, sir? Uh erase everything except the diagram.
+[40:36] Yeah. Now, considering vertex 4 as the start, can you manually calculate and
+[40:42] tell me what is the shortest distance from 4 to every other vertex? All of
+[40:47] you, please do that while we get that things ready here.
+[41:01] So, what we want is again, I'll just write down for you.
+[41:04] 4 0 4 1 4 2 4 3 4 4. This is what is the output I
+[41:12] want, and this will be zero. Okay?
+[41:17] Now, what is the distance array? And what is the visited array?
+[41:25] Uh 0 1 2 3 4
+[41:29] Uh 0 1 2 3 4. This is true, all others are
+[41:36] false, and all distances are max max max max.
+[41:45] Yeah. In the first iteration
+[41:48] the vertex which I find with minimum distance is 4.
+[41:51] Now, when you find 4, tell me what will the rest of the values look like?
+[41:58] We'll only look at one step at a time, not the final answer. When I find 4 as
+[42:02] my start vertex, what will that distance array look like?
+[42:10] Yes, please. From 4, where can I go to?
+[42:16] And? And?
+[42:19] Zero. Great. So, what is 4 3?
+[42:24] What will be 4 3?
+[42:28] Two. Okay, can you erase this, sir? Whenever I Yeah, erase erase that. I'll
+[42:33] put 4 3 is two. Do you agree? Now, this has become my base vertex, so
+[42:43] Yeah, erase the others also. I'll scribble.
+[42:47] I Okay, 4 3 is two. What about four? Can I
+[42:52] go to two from four? No, so that will still be maximum. Can I go to one from
+[42:56] four? Yes, sir. Update.
+[43:00] Can I go to zero from four? Yes. Yeah, so 4 1 is five and 4 0 is
+[43:08] 13. Is it clear, guys? If four is chosen as the source, in the first iteration,
+[43:13] this is what I will get.
+[43:18] Have you Are you clear? I cannot go to two from four. I can go
+[43:22] to two from four if I either go to zero or
+[43:26] one. But, if I've not gone to them, there is no connectivity to two via
+[43:30] four. It's like I'm not going to that city. How can I It's like That's like a
+[43:33] bridge for me.
+[43:37] Guys, are you getting it? Now, given these distances, which vertex
+[43:42] will be chosen as the next start vertex?
+[43:47] Three. Very nice. Because the distances are two,
+[43:51] five, 13. The shortest is two.
+[43:55] So, the next vertex chosen will be two Uh sorry, three.
+[43:59] And this will be set to true.
+[44:04] Now, from three, where can I go to? One.
+[44:08] Now, what was the distance between four and
+[44:11] one?
+[44:14] What was it? 13. Oh, sorry. Sorry, five.
+[44:18] And what is the distance if I go to one via three?
+[44:22] 11. Is 11 smaller than five? No. So, I will keep five as is.
+[44:28] Are you there? Any other vertex can I go from three?
+[44:35] Can I Can I reach two via three?
+[44:39] I I'm asking you. Can I reach two via three?
+[44:45] Hello. Can I reach two via three? People are nodding.
+[44:48] How can I reach here? To reach two, I have to go to one first.
+[44:53] And one is not chosen. The only two vertices are four, after that three.
+[44:58] And after three is chosen, three is set to true. Now, what is the minimum of the
+[45:02] remaining? Which one will be chosen?
+[45:07] Five and 13. Which is the vertex with that value five?
+[45:11] One. So, one will be chosen. This is This is done. This is done. One
+[45:17] will be chosen. Now, from one, can I go to two?
+[45:22] Yes. From one, can I go to zero?
+[45:26] Yes. But from four, could I go to zero?
+[45:31] Four, could I go to zero earlier? Yes. What was the value?
+[45:35] 13. Now, if I go to uh zero from one, what will the value
+[45:41] be? Four one zero. 11. Isn't 11 smaller than 13?
+[45:46] So, what will this 13 get updated with? 11. Can I go to two via one?
+[45:53] Yes. So, what is the shortest path from four to one?
+[45:57] Five. What is the path weight from one to two?
+[46:01] 12. So, what will update this guy to? 17
+[46:07] And what will I set one to? True.
+[46:12] Have you Are you seeing that now? Once you change that vertex, all the values
+[46:15] will change. There'll not be the same output. What
+[46:19] was shortest from two to zero is different from four to zero. Are you
+[46:24] guys getting it? It's like imagine Vijayawada and Vizag
+[46:29] and Hyderabad. So, if Vizag is chosen as a base, isn't
+[46:33] Vijayawada shorter? If Vijayawada is chosen as a base, isn't
+[46:36] Vizag shorter than Hyderabad Vizag? Are you Are you getting what I'm trying
+[46:41] to tell you? That is what I'm saying. Depending on
+[46:44] which vertex is your source, your answers will all change to go from that
+[46:50] to every other city. Yeah, guys, not done. Tell me now which other vertex
+[46:54] will be chosen. Which are the two vertices which are
+[46:57] still not visited? Zero and
+[47:01] two. Now, what is the value of zero? What is the value of two?
+[47:06] Zero will be chosen now. When zero is chosen, uh this will be set to
+[47:13] true. Now, oh, can I go to two via zero? Okay. What was the shortest distance
+[47:20] from four to zero? Four to zero was what, sir?
+[47:25] 11. Now, what is zero to two?
+[47:30] Five. 11 plus five is 16. What is directly from four to two earlier?
+[47:36] 17. So, will we replace this 17 with 16 now?
+[47:42] Are you seeing that? I can go to two via one. I can go to two
+[47:47] via zero. So, when I went to two via one, I got an answer of 17.
+[47:53] Five plus 12. But, when I go to zero, I found the
+[47:57] shortest between zero and four is 11. 11 + 5 16. So going to four via zero is
+[48:04] shorter than going to four via one. So I update the 17 to
+[48:09] 16. And then what is the only vertex left
+[48:13] now after that? All others are visited. The only which
+[48:17] is unvisited is two. Uh
+[48:20] can I go to anywhere else from two? No. Imagine there were seven, eight, then
+[48:24] yes. I can't. Because every other vertex is visited.
+[48:28] So this is the output we should get. Just remember 11 5
+[48:32] 16 2 0. Can you run with start vertex modified? Same data, start vertex
+[48:37] modified.
+[48:51] Four. Yeah. 11 5 16 2 and 0. Are you all
+[48:56] clear? So what I am more interested these days
+[49:00] is not just going through the code, giving you a problem, help you manually
+[49:05] go through and understand how it is done. Once you understand that, writing
+[49:09] code is a piece of cake, whatever be the language.
+[49:12] So you are basically doing two things. Okay?
+[49:16] Okay. Few more minutes.
+[49:18] Take zero as your start and come up with the answer. I just I'm going to look at
+[49:21] the answer for you now. I'm not going to go through that anymore.
+[49:25] Take zero as your start vertex. For the same input data, what would the answer
+[49:29] be?
+[49:32] Uh sir, uh erase the left part. Except the graph.
+[49:36] Uh I'll erase everything. Everything. We are not going to do anything for them.
+[49:41] If they have understood, they should get it right. Go through all the steps.
+[49:44] After first step, zero will be the start vertex.
+[49:48] After that,
+[49:51] what is zero connected to? Two, one, and four. What is
+[49:56] zero one? Six. What is zero two? Five. What is zero four?
+[50:01] 13. So, which is shorter of the three? Two. So, the next vertex will be two.
+[50:05] So, from that, calculate. Calculate and tell me what you get as
+[50:10] answer. I will write down for you here. Zero was base, right?
+[50:16] Zero. Okay. Zero zero zero one zero two zero
+[50:20] three zero four. Answers are zero, and then tell me the rest of them.
+[50:27] Yeah, whenever you are done, please let me know.
+[50:32] Done? Okay, tell me your answers. I'll write
+[50:36] down. I'm not saying right or wrong. We'll write down.
+[50:40] >> Six, five. >> One minute. Zero one is
+[50:44] >> six. >> Okay.
+[50:46] >> Five. >> Okay.
+[50:48] >> 13, 11. >> 13 and
+[50:50] >> 11. One 11, sir. One one.
+[50:54] >> Yeah, I am just calculating myself. And
+[51:00] Yep. That looks good. That's actually a lot lot easier here.
+[51:06] Did anybody get this? Yes.
+[51:11] Zero two four was 13, but if you go away one, it is
+[51:16] 11. Zero two three was nine plus
+[51:21] 15, but if you go via four, it is 13.
+[51:26] So, if one is chosen, you get 15. Then after that, you choose four, you get
+[51:33] smaller value. How many of you got this finally?
+[51:39] One. Two, three, four, eight.
+[51:45] Okay. Good.
+[51:47] Are you guys clear how before that you would have got different answers, but as
+[51:51] a result of another vertex chosen is like saying if there is no intermediate
+[51:56] path, then there's only one way to go from A to B and whatever is the distance
+[52:01] I have to consider. But if I have options, I might consider different.
+[52:07] I'll just give you my example. You know, from next week I'll be going to NJIT
+[52:11] campus 2 days uh Tuesday and Thursday.
+[52:15] I have two options to go to NJIT. I stay near other part of the city. I take ORR,
+[52:21] it takes me 75 km. But guaranteed distance is 75, time is
+[52:27] 65 minutes ORR. Via city, the distance is about 37 38.
+[52:34] Time, no guarantee. 1 hour, 1 and 1/2 hours, 2 hours, I
+[52:38] don't know. I don't care about distance.
+[52:42] Very comfortable drive. Guaranteed I can reach in 65 minutes, 70
+[52:47] max. So I have two ways of going. Again in
+[52:51] when I take city, I might have n number of other ways of going.
+[52:55] You know, there'll be so many other junctions, signals, some breakdown
+[52:59] somewhere, some detour somewhere. Are you guys getting it?
+[53:04] So the problem is given a graph and a single source, find out the shortest
+[53:09] path from that to every other path. Every other vertex.
+[53:14] Shall we look at this code at a high level?
+[53:19] Guys, are we ready? Can we look at it? Great. Uh sir,
+[53:23] show the code, the main.
+[53:30] Yeah, scroll down. Yeah, we are taking input for number of
+[53:34] vertices. We have created a two-dimensional array. Then we take that
+[53:38] matrix data, dump into that graph. Uh then we call a method which is
+[53:44] uh Dijkstra's algorithm and we pass to it
+[53:47] two parameters, the graph and the start vertex. Start vertex
+[53:52] is dynamic. Okay?
+[53:55] Are we clear? Great. So, can you take us to that?
+[53:58] Yeah. Now, again, we have chosen two two
+[54:01] arrays. One, obviously, there is extra space here, which is space of V, number
+[54:06] of vertices. One is a distance array and the other is
+[54:09] visited array. And what is the distance array initially set to?
+[54:13] Maximum value. And what is the visited array initially set to?
+[54:16] False. None of them are visited. Okay? Simple. Scroll down.
+[54:21] Whatever is your source, that distance will always be zero.
+[54:26] Okay? Continue. Now, look at it. Find the shortest path
+[54:30] for all vertices. For count is equal to zero, count less
+[54:34] than number of vertices, we are calling a method called minimum distance, to
+[54:38] which we are passing two parameters, one the distance and the visited.
+[54:42] Because we would like to only calculate if it is not visited. If it is already
+[54:45] visited, the distance is computed. Why again go back? We are not talking about
+[54:49] backtracking here. Okay? Yeah. Can we look at that, please?
+[54:54] Yeah. So, what are we doing? If it is not visited and if that
+[54:59] distance is less than minimum. Now, minimum is set to maximum value.
+[55:04] Are you there? So, given that initial distance, which
+[55:08] was the distance which was always zero? Always zero?
+[55:13] To start with? Source.
+[55:16] So, the first time the vertex which will be computed will always be the source
+[55:20] vertex. Every other distance is maximum. Okay? So, go back, sir.
+[55:27] Okay. Just see that. Is it Is that logic clear? Minimum distance?
+[55:31] We go through each vertex and then check if it is not visited. What was the
+[55:34] previous calculated distance? If the new distance is smaller, then
+[55:39] calculate them. Given those n number of distance array, one of them will be the
+[55:42] shortest. And first time source.
+[55:47] Like we found 5 16, we picked five. 12 13, we picked 12 if 12 and 13 were
+[55:53] not visited. How many are not clear on that 84 to 88?
+[56:00] If the vertex is not visited and if the value there is smaller than max, pick
+[56:05] that. If there's another one which is still smaller, pick that. And finally,
+[56:09] you'll get only one vertex which is smaller.
+[56:15] Okay, go to the code now. Yeah, scroll down.
+[56:19] Whatever is that vertex which is returned, that we set to visited. Are
+[56:23] you clear 132? So that we don't consider that again.
+[56:27] From two, I went to zero. From two, I went to one.
+[56:31] So I got the distance, but two is already visited. So I mark that to true.
+[56:36] Scroll down. Now
+[56:38] Now this is where the This is That's okay.
+[56:41] Go through every vertex. Scroll down. Get the weight. What is the weight?
+[56:47] Two was my source. I found one. I found zero. So what is the value? Two zero.
+[56:52] Some weight. Two one, some weight. I got the weight. Now we are saying if
+[56:57] it is not visited and the weight is not equal to zero, which means there is a
+[57:01] connectivity.
+[57:04] Two was not connected to three because the value was zero. Two was not
+[57:07] connected to four because the value was zero. Two was only connected to one and
+[57:11] zero, which is five and six. Is that logic clear?
+[57:15] And if the distance is not equal to max and look at that, distance of that U
+[57:21] plus the new weight, is it less than the previously calculated?
+[57:28] So what is U? Two. What is V? Zero. So what was the distance of U and V?
+[57:36] Are you seeing that distance UV? Edge here.
+[57:41] Are you seeing the weight is nothing but UV?
+[57:44] If two is there, two zero, two one. If one is there, one two, one zero, one
+[57:49] four. That weight is there.
+[57:51] But if I already have the distance of two and zero, that is what we are
+[57:55] saying. If the distance of U plus the new weight is lesser than the previously
+[58:00] calculated, then go and update it.
+[58:04] That's the whole code. That's the only thing which we have to focus on.
+[58:09] First is calculate the minimum distance vertex, use that as a base and figure
+[58:13] out is there a way to go to any other vertex via this? And if we can go, is
+[58:18] that new value smaller? If it is smaller, update it. Otherwise, retain
+[58:22] the old one.
+[58:26] And we continue doing this for all the vertices only if they're not visited. If
+[58:30] they're visited, do nothing. So, when we started with two, we went to
+[58:33] zero and one. Uh then distance of one was 12, the distance of zero was I think
+[58:40] five. So, the smaller weight was five. Uh the So, vertex one was picked. From
+[58:46] one I could go to four. Uh
+[58:49] Sorry, from zero I could go to four, from zero I could go to one, from zero I
+[58:52] could go to two. But two is already visited, so we skip. Then we updated it.
+[58:56] Again, we find out given the remaining vertices, which is the smallest
+[58:59] distance, pick that as a base.
+[59:05] Are you good? Can you try this?
+[59:09] Okay. Is the algorithm clear to everybody?
+[59:12] Wonderful. Now, I'll change the values for you.
+[59:18] Let's make this uh uh 15.
+[59:22] Uh this is still 12. Uh this is
+[59:27] uh, 20 50
+[59:31] and this is 12. I have modified 5 to 15
+[59:37] 5 to 50 and 2 to 12. If my start vertex is two, can you tell
+[59:43] me what will the values be?
+[59:50] This is zero. Rest of it, can you fill for me?
+[59:55] Now that you've gone through the algorithm
+[59:58] what is the minimum distance vertex we found if two is my source?
+[1:00:02] Two. Which are the vertices I can go to?
+[1:00:07] One and zero. Because they have a weight, the
+[1:00:11] remaining are zeros. So, between one and zero, what is
+[1:00:15] the value of two zero? What is the value of two zero?
+[1:00:22] 15. What is the value of two one? 12. What are these two?
+[1:00:27] Max and max.
+[1:00:30] Which is the next vertex it will find now?
+[1:00:35] One. Because two one is a shorter distance.
+[1:00:39] I'll find one. So, one will be marked to visited true. Zero two is marked to
+[1:00:44] visited. Now from one, where can I go to?
+[1:00:48] Three. From one, where can I go to? Four. So, what will the distance between
+[1:00:54] two and three now be?
+[1:00:57] Come on, guys. Tell me. Distance two three.
+[1:01:02] 21. Okay. Distance two four.
+[1:01:11] Can't hear you, sir. Loud. 62. Very good. Why 62? Earlier was 12.
+[1:01:18] Two one is 12 plus this is 62. Is that the correct answer? No.
+[1:01:24] Which are the two vertices Which are the vertices which have to be which will be
+[1:01:27] considered now? 15 21 62, which is the minimum distance?
+[1:01:37] 15 21 62, which is the minimum distance? 15, which vertex?
+[1:01:42] Zero, so this will be set to true. Now, can I go to four via zero?
+[1:01:49] Can I go to four via zero? Yes. So, what is that we are talking about? What is
+[1:01:53] the distance two zero? 15 plus what is this weight?
+[1:01:57] 13. Is this lesser than two four? 62.
+[1:02:03] Are you there? What is this, sir?
+[1:02:07] 28 lesser than this, so I update this 62 to 28.
+[1:02:13] Can I go to uh Yeah, can I go to
+[1:02:17] uh any other vertex? No.
+[1:02:21] Uh Okay. Uh what about two three now?
+[1:02:28] Two three was already computed and I'm sorry, two three's 21.
+[1:02:33] Okay. This is marked.
+[1:02:37] Yeah. What else can I do now? Tell me.
+[1:02:42] Now, these are the two vertices. Which is the new vertex which will be found
+[1:02:45] after this? Vertex three because the distance is 21,
+[1:02:48] so that will be marked to true. Uh can I go to four via three?
+[1:02:54] Yes. What was the distance of two three? 21. What is the distance of three four?
+[1:03:02] 12. What is the new value? 21 plus 12. Is that lesser than 28?
+[1:03:08] No. So, I will say going to four via zero is better than going to four via
+[1:03:13] three. So, this is what you will get answers.
+[1:03:17] 15 12 21 28. Can you please I mean update it?
+[1:03:22] Update only three values, sir. Five becomes 15. Go back to the input data.
+[1:03:28] Test case.
+[1:03:33] Uh no, five becomes 15.
+[1:03:38] Yeah.
+[1:03:41] And then one more No, I go to the graph. I change
+[1:03:45] something else, right? Uh 1 4 5 becomes 50.
+[1:03:52] 1 4 5 becomes 50. And we change one more.
+[1:04:00] Uh 4 3 and 3 4 is 12 instead of two.
+[1:04:06] Two becomes 12. And other two also becomes 12.
+[1:04:11] Bidirectional, sir.
+[1:04:18] And that other five uh
+[1:04:22] 2 4 Sir, 4 2 also should become 50. 4 2 uh 4 1.
+[1:04:32] 4 1
+[1:04:36] 4 1 50
+[1:04:39] Uh then we change one more, right? But we have to change the bidirection. What
+[1:04:43] was the other one? Uh 0 2 15 2 0 15
+[1:04:50] 2 0 15
+[1:04:52] Yeah. Run this with two as a start, you'll get a different answer.
+[1:05:06] 15 12 21 28. Go back. What did we get? 15 12 21 28. Before that, we got 62,
+[1:05:13] then we updated it. Is everybody clear? So it's a good idea just to not even
+[1:05:17] worry about code, see if you can explain to someone the algorithm taking some
+[1:05:22] sample data. And ask them to change the start vertex
+[1:05:26] and see if they are able to get it, then they have understood. Once you
+[1:05:29] understand how you write code is a piece of cake.
+[1:05:33] Is that clear to everybody who just copying code?
+[1:05:37] Just understand, explain. And there are lots of practical
+[1:05:41] applications. One is in a computer network, you want to send data from
+[1:05:46] node one to node two. Is it
+[1:05:49] having enough bandwidth? No. So can I go to two via three?
+[1:05:54] Yeah, I can. So that's what we would do. It's like one network is having too much
+[1:05:58] of traffic, we'll pick another network which is available to send data.
+[1:06:07] Can we move on with the next problem for today?
+[1:06:10] A very, very simple problem. Okay?
+[1:06:14] Uh
+[1:06:16] How many of you do stock market trading?
+[1:06:21] Or invest in mutual funds? Or invest in SIPs?
+[1:06:26] Oh, nobody? How will you make money if you don't
+[1:06:29] invest in SIP?
+[1:06:37] What? No pocket money? Are you blow all the pocket money.
+[1:06:41] Yeah. Anyway, that's a different story. Now the problem is
+[1:06:46] can we Sir, what is happening to you? Kya ho
+[1:06:50] raha hai? Huh?
+[1:06:53] It's not charging. Maybe try some other power supply. It's
+[1:06:57] okay, anyway we don't need to do anything till we start programs. Yeah,
+[1:07:00] guys, the problem statement is very, very simple.
+[1:07:03] You're given a bunch of days
+[1:07:07] on which the price of a particular stock is
+[1:07:10] given. You need to say
+[1:07:13] what is the maximum profit I will make by buying and selling.
+[1:07:19] Remember greedy algorithms are minimization and
+[1:07:24] maximization. The previous problem was shortest path minimization.
+[1:07:30] Maximum profit maximization. In the knapsack
+[1:07:35] you know, maximum value
+[1:07:38] is all minimization and maximization. Can you take us to the problem
+[1:07:42] statement, please? Yeah. Uh, you're given an array prices of
+[1:07:48] length n representing the price of the stocks on different days.
+[1:07:53] The task is to find the maximum profit for buying and selling on different
+[1:07:59] days. Where only one transaction is allowed.
+[1:08:04] So, given this input data, we got an output.
+[1:08:08] 7 5 Sorry, 7 1 5 3 6 4.
+[1:08:14] So, the first day is the day of buying. Is there
+[1:08:19] the next day value larger or smaller? If it's larger, I can sell and make some
+[1:08:25] money. If it is smaller, I'll say, "You know
+[1:08:28] what? Let's buy today."
+[1:08:31] So, I bought on 7 day one at price 7. Next day was one, so I bought at price
+[1:08:38] one. What is the third day?
+[1:08:42] Five. I'm selling that day. So, what is the profit I've made?
+[1:08:46] Four. Okay. What is the next day after that?
+[1:08:50] Six. But, what is my buy price still? One. If I don't sell on
+[1:08:57] that day, which is five, I sell on the next day, how much profit will I make?
+[1:09:02] 6 minus 1 5
+[1:09:05] Are you there? So just see this. The lowest price of
+[1:09:09] the stock is on the second day which is one.
+[1:09:12] Starting from second day the highest price is witnessed on the fifth day
+[1:09:16] which is six. And the difference between the buy price
+[1:09:21] and the sell price is five. So the maximum profit would be if
+[1:09:25] you buy on day two and sell on day five.
+[1:09:30] Yeah, day five.
+[1:09:34] How would you do this? Okay, I'll show you one more test data.
+[1:09:45] Uh, what is the profit I will make if this is the price on n number of days
+[1:09:51] given?
+[1:09:54] I will make no profit because I'll buy on nine the day one. Next day I find
+[1:10:00] cheaper I'll buy on that day. Third day I find cheaper I buy on that day. Fourth
+[1:10:03] day I find cheaper I buy. There's no other data for me to sell.
+[1:10:08] So there is no profit because every value is
+[1:10:11] descending. Okay, that's one. Now next example I'll
+[1:10:14] give you.
+[1:10:17] Yeah. Uh
+[1:10:26] Yeah.
+[1:10:29] Uh, tell me what is the maximum profit I would make.
+[1:10:34] 14. But what did I have to do? I bought
+[1:10:39] sold on day two. So the profit I made was
+[1:10:43] five. That is a local maximized.
+[1:10:46] Greedy approach is what? Locally maximize five.
+[1:10:51] Then I buy again on day two and sell on day Sorry, buy on day three and sell on
+[1:10:55] day four. What is the profit I would have
+[1:10:57] made? 10
+[1:11:00] But then if I buy on day five and sell on day
+[1:11:08] What is the profit I would have made?
+[1:11:11] 14 So the maximum
+[1:11:17] I and sell on day six. But we cannot go to that. So what we are
+[1:11:22] doing in a greedy approach is locally maximize. Initially it was
+[1:11:28] five, then it became 10 and then it became
+[1:11:32] 14. So how would you solve this problem?
+[1:11:38] Yeah, how would you solve this problem?
+[1:11:54] Thinking. Okay. If anybody has an answer, thank you.
+[1:11:57] If anybody has an answer, please let us know. How would you solve this problem?
+[1:12:02] Sir, can you run some test cases? Uh one of them could be I'll just tell
+[1:12:07] you some sample data. Uh how are you taking input, sir? First
+[1:12:11] figure out how are you taking input? main
+[1:12:17] Not here, sir. Buy and sell stock. Yeah.
+[1:12:22] Uh integer. Okay, good. We're taking N and then input data. Fine. Uh run, sir.
+[1:12:36] Uh five Uh
+[1:12:40] all descending.
+[1:12:45] Yeah. Just see the debug messages. That should
+[1:12:49] give you an idea.
+[1:12:54] No profit because you're never selling what you bought because every day the
+[1:12:59] price is lesser. Okay. Next.
+[1:13:04] Uh 1 2 3 4 five values.
+[1:13:08] 1 2 3 4 5. Stop. Don't run.
+[1:13:11] Now just look at the above debug messages and tell me what you will get.
+[1:13:17] Min price is one. Max profit zero. Uh next day what will you see as output?
+[1:13:28] Next day what will you see as output? Second row.
+[1:13:35] You're seeing the debug messages. Now tell me for this input data, what will
+[1:13:38] the debug message look like?
+[1:13:48] Min price will always remain one because every other day you're making profit. So
+[1:13:54] it will be like min price one, max profit zero, min price one, max profit
+[1:13:58] one, min price one, max profit two, min price is like saying buy on day one and
+[1:14:03] every other day you sell you're able to make profit. What is the maximum profit?
+[1:14:08] Is four, which means buy on day one and sell on day five. Run, sir.
+[1:14:15] Is that clear? Now that should give you algorithm now.
+[1:14:18] Now next test data. Uh six.
+[1:14:24] Uh 2 8. Uh 1 11.
+[1:14:31] 3 30. Don't run. 3 30. 3 0.
+[1:14:38] Great. Tell me what will the debug message look like, sir.
+[1:14:43] Uh mics mic Where where is the mic? Yeah.
+[1:14:48] I forget your name.
+[1:14:51] Abhinav, yes Abhinav. Tell me just the debug messages.
+[1:14:56] You're not listening. What are you doing?
+[1:15:01] You're thinking about your own solution. Okay, think about your solution and tell
+[1:15:04] me what will you get. Okay, what about you, sir?
+[1:15:09] You're not thinking. Are you all You guys not listening?
+[1:15:13] You'd like to answer? Pass the mic.
+[1:15:16] You won't answer? No. What are you guys thinking, huh?
+[1:15:24] Yes, sir. Debug messages. Sir, can you show all
+[1:15:28] the debug messages above? Yeah.
+[1:15:33] Yeah. >> Min price two, max profit zero first.
+[1:15:37] >> Min price two, max profit zero. Very good.
+[1:15:39] >> Min price two, max profit six. >> Very nice.
+[1:15:43] >> Then min price one, max profit same realize on six, sir.
+[1:15:47] >> Uh we good. So, it will be initially I'll just write down values, sir.
+[1:15:53] Uh 1 0 Sorry. 2 0
+[1:15:58] 2 6 >> 1 6
+[1:16:00] >> 1 6 1
+[1:16:03] >> 1 10 >> 1 10 very good.
+[1:16:05] >> 1 2 Sorry. 1 10
+[1:16:08] >> 1 10 >> 1 29
+[1:16:10] >> 1 29 very nice. Now just observe this. Once he found
+[1:16:15] this minimum price, he's not going to update the min price because every value
+[1:16:19] is larger than min price. So, min price doesn't change.
+[1:16:23] But every time he gets a value larger than min price, they're saying, "Oh,
+[1:16:26] I've got a profit. Is this profit larger than the previous one? Update it." If
+[1:16:30] this profit is not larger, retain the previous one. Which is like the max
+[1:16:35] profit 2 8 is 6. But again, 2 1 is not there. So, I'm
+[1:16:40] saying that if I buy on day one and sell on day two. So, imagine you're given
+[1:16:45] only three days. So, buy
+[1:16:48] sell profit.
+[1:16:50] We don't care about this. But, here again is like a buy. Is there a day to
+[1:16:53] sell? No. Okay. Run, sir.
+[1:16:59] Run. Yeah. Max profit, sorry, min price to
+[1:17:04] max profit zero, min price two six, one six, one 10, one 10, one 29.
+[1:17:11] So, does that give you an idea about how to solve now?
+[1:17:14] You might have your own ways of solving. Fine. But, this will give you some
+[1:17:18] inputs on what to do. So, the first price is the buying price.
+[1:17:24] If you find any other price lesser than it, update the buying price. If you find
+[1:17:29] any other price larger, keep calculating the profit which you've got. So, the
+[1:17:34] locally maximized profit is maybe the globally maximized profit if
+[1:17:39] there is no other profit you can get. Okay. So, run again with one more test
+[1:17:44] data. Don't clear that. Run that. Uh
+[1:17:50] 230 No, six elements, sir.
+[1:17:55] 230 230
+[1:18:00] Uh 315
+[1:18:05] 230, I said. 30 Uh 315
+[1:18:12] Uh one 10
+[1:18:16] 10. Hang on. Now, what will you see? What is the
+[1:18:19] minimum price initially? Two. Max profit?
+[1:18:25] Zero. First element, no? Day two. Min price is two. Hello, sir.
+[1:18:34] 202
+[1:18:37] 28 Then two, three. What happens?
+[1:18:41] Two is a buying price. Selling price is three. Profit is one. But what was the
+[1:18:45] previous profit? 28. So we retain that. No point selling
+[1:18:49] on day three, right? So then what about after that?
+[1:18:52] 15. Again, profit is less. But what about after that one?
+[1:18:58] One. Then what about profit?
+[1:19:03] Huh? 28.
+[1:19:07] If you sell on day 10, you'll get nine. But what was the previous profit?
+[1:19:12] 28. So we'll continue. Maximum profit will only be
+[1:19:15] 28. Because there is no other day I can buy at a lower and sell at a higher
+[1:19:20] which is larger than locally generated profit. Run, sir.
+[1:19:26] See. See.
+[1:19:28] Buying price has changed only when you find one. But when you find one and
+[1:19:33] you're selling 10, you get nine. So the profit is still not what we are looking
+[1:19:37] at. The earlier profit is better, 28.
+[1:19:41] So there are multiple ways of buying and selling, but the only thing which will
+[1:19:45] give me the maximum profit is buy at two and sell at 20 or 30.
+[1:19:51] Okay? I will not show you the code. Very, very simple problem. You should be
+[1:19:55] able to generate the code for this given all the test data.
+[1:20:00] Okay? So it's like saying, if you find any price lesser than the previous
+[1:20:05] buying price, update the buying price. But if you have already generated the
+[1:20:09] profit, and if you sell at a new selling price with the new buying price, if that
+[1:20:14] profit is larger, update max profit. Otherwise, max profit will remain what
+[1:20:18] it was before. Okay? Is that clear?
+[1:20:23] Everybody, are you guys clear?
+[1:20:26] It's like saying, I I have a list of prices and I need to calculate the
+[1:20:31] maximum profit. Profit is when I sell at a price larger than buying price. So,
+[1:20:36] what do we do? The first day, whatever is buying price. If I have next day
+[1:20:41] larger, I can assume it's like virtual. I'm selling it this much profit I'm
+[1:20:45] making. Third day is still larger, I make more profit. So, we keep updating
+[1:20:49] max profit if it is larger than the previous. We keep updating min
+[1:20:54] buying price if it is smaller than the previous.
+[1:20:57] That is why you see buying price is reduced, but profit is
+[1:21:01] still 28, which is 2 and 30. If it was 1 and 50, then I buy at 1,
+[1:21:07] sell at 50, so new profit is 49. After that, we don't know. In this range of
+[1:21:12] data, maximum profit is 49. If it is 50, as of now, it is 28.
+[1:21:20] Yes. Okay, great.
+[1:21:23] We will start these programs.

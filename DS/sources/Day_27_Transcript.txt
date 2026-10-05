@@ -1,0 +1,899 @@
+YouTube transcript
+Video ID: nN3TfbDIaO4
+Language: en
+Captions: auto-generated
+
+[0:00] The first problem is generating a gray code. Then talk about generating
+[0:05] abbreviations and then one more which is campus bikes. These are syllabus
+[0:10] programs. In addition to that get couple of programs. Additionally because they
+[0:14] have lot of holidays now before Monday. Okay sir can we start with the first
+[0:18] one. Uh we will also share this unit 3 material with you uh tomorrow morning.
+[0:23] Okay. A n bit gray code sequence is a sequence of 2 ^ n integers. So if n is
+[0:30] equal to 3 you generate eight numbers ranging from 0 to 7 with all numbers
+[0:36] being there without any repetition. Every integer is in the range 0 to 2 ^ n
+[0:43] minus one. So if n is equal to 4 will generate numbers from 0 to 15 and
+[0:48] likewise 0 to 31 or 0 to 7 or 0 to 3 depending on what n is. The first
+[0:55] integer is always going to be zero. An integer appears no more than once. That
+[1:01] means all of them are going to be unique numbers. And a very important charact
+[1:06] characteristic is what you see. The binary representation of every pair of
+[1:10] integers is having a difference of only one bit. Very important. And the binary
+[1:17] representation of the first and the last integer differs by exactly one bit. So
+[1:23] if you look at the table here closely, you have decimal 0 to 7, which means n
+[1:29] is equal to 3. When n is equal to 3, we have eight numbers and that is a 0 to 7.
+[1:35] But obviously the gray code is not going to be the same. Why? Because every
+[1:40] number should differ from the other number with one bit difference only. Now
+[1:46] if I were to look at the binary representation of it uh look at the
+[1:51] binary representation of one 0 to 7. Yeah.
+[1:57] Look at five and six closely. How many bits do they differ by?
+[2:02] Five and six. Two. Now look at uh one and two.
+[2:10] How many bits they differ by? Two. So obviously that is not correct.
+[2:14] So what we are saying is given this uh decimal numbers which has a binary
+[2:19] equivalent. Now generate a gray code gray code scale which has the numbers
+[2:25] which have that criteria. Every number should differ from the other only by one
+[2:31] bit and the difference between the first and the last bit should also be one. Now
+[2:36] if you look at the uh decimal the first and the last bit differ by three.
+[2:41] Now look at the corresponding gray code which is generated in the last column.
+[2:47] Look at that please closely and look at the third column where we
+[2:52] have the gray code. So can you give me a access? No there please.
+[2:59] Every bit here differs by one and the difference of the first bit and the last
+[3:04] bit is also one and that is what is the criteria which
+[3:09] is to generate the gray code. Now look at it very closely again. What do you
+[3:16] see? Undo sir.
+[3:21] Now look at the first bit,
+[3:28] least significant bit.
+[3:34] They are mirror images. And look at the second bit. 0 0 1 1 1
+[3:42] 0 0. And how do you think you can generate
+[3:49] from the first the second from the second the third and from the third the
+[3:53] fourth so that they all differ by one bit. So here is the skill where you need
+[3:58] to understand bit operations. Which bit operations do you think you
+[4:03] would need to use to generate the gray code from the decimal numbers which are
+[4:09] given there.
+[4:13] And the first bit is always going to be zero. We're not going to change that.
+[4:17] Now given that how do we generate the second bit
+[4:23] and given second bit how do you generate the third bit?
+[4:32] Given one, how do you generate three?
+[4:42] Left shift what? Left shift what? So I'll take zero as
+[4:47] the first number. Left shift what? Okay, I take zero. This is the first number
+[4:51] zero. To generate one, what did you do? Zero.
+[4:56] Left shift what? We add the number at the end like left
+[5:02] by by left shift I mean is by like we assume that there is one previous number
+[5:07] is zero okay so I'm doing zero left shift what how much
+[5:11] >> by one place >> by one place okay so when I do a left
+[5:15] shift by one place what does it become >> one
+[5:19] >> 0 one now when I one so when I do one left shoot by one what will it become
+[5:24] two yes >> but then the next number is three
+[5:29] and if I make one two then what is the difference in the number of bits
+[5:37] >> two >> two but we want difference of
+[5:39] >> one >> one that's important criteria
+[5:42] okay yeah good you're thinking yeah you have to use some shift operators for
+[5:47] sure
+[5:53] okay go further in the word document Yeah, look at this closely. When that n
+[5:59] is equal to 1, we have two numbers 0 and 1. When n is equal to 2, we have 2 ^ 2
+[6:09] which is 4 0 to 3. Now what is the values? We have got
+[6:14] 0 0 1 1 and 1 0.
+[6:21] And when n is equal to 3, look at what we have got. And look at that closely.
+[6:28] How are we mapping three with two? What are we adding in the first half of
+[6:34] three on the most significant bit? What are we adding in the most significant
+[6:39] bit? In the first half,
+[6:45] what did we add in the most significant bit in the first half? From 2 to three,
+[6:49] zero. And what are we adding in the next half? One. And what else do you see? How
+[6:56] did we generate eight numbers? If you look at it, isn't that a mirror
+[7:01] image? These four replicate mirror image. And then the
+[7:07] first four have zeros and the last four have ones. And that is how you come up
+[7:13] with this number. Now what are those in? 0 1 3 2
+[7:20] What is the next one? Six. 7
+[7:26] 5 and four. None of them repeat. And the difference between each is one bit. And
+[7:33] the difference between the first and the last is also one bit.
+[7:39] So you have to use shift operator. Now just try to get one from zero and
+[7:46] from one you get three. See how do you get three from one and
+[7:51] how do you get one from zero and that will help you get the rest of it. Can
+[7:55] you all think can you try that paper pen? I've got zero as the first number.
+[8:01] I have to generate one and then from one I have to generate three. What operators
+[8:05] would I have to use to do that? And if you can do that that will probably help
+[8:10] you do the rest of it.
+[8:44] Anybody?
+[8:58] Anybody? How do you get one from zero and how do you get three from one?
+[9:06] Which operators will you use?
+[9:25] come again.
+[9:31] Can we use not get like zero becomes one? So you're talking about what
+[9:35] operator exclusive or
+[9:40] >> not and not not again >> not. Okay. So zero becomes one and then
+[9:44] one becomes
+[9:48] come on. When it has to have a difference of one,
+[9:53] what operator will be typically use? Can you use an or?
+[10:02] Or can you use an exclusive or? Or would you use an and?
+[10:11] How do you generate three from one?
+[10:21] What is three from one? There is a two extra added.
+[10:30] Okay, I'm going to run something for you and see if that gives you some clue.
+[10:40] Come on guys, how do you generate three from one?
+[10:47] What happens when you say one left shift by one?
+[10:53] One left shift by one. What will it give you?
+[10:58] Left shift by one will give you what?
+[11:08] One left shift by one will give you what?
+[11:13] One left shift by two will give you what?
+[11:16] One left shift by two will give you what?
+[11:19] Four. 1 0 0. One left shift by one will give you 1 zero. One left shift by three
+[11:26] will give you 1 0 0 08. Right? And right shift will divide and left shift will
+[11:31] multiply. Guys, do you remember? So if I just look at a simple example, sir, uh
+[11:37] show me a blank screen. If you have data,
+[11:42] if you have data two, what does two right shift one give you? What is two? 1
+[11:50] zero. When you right shift by one, what will you get?
+[11:56] Divide by two. So you'll get one. Likewise, if I say two, left shift by
+[12:02] one, it is multiply. So 2 is 1 0. It becomes 1 0 0.
+[12:08] Do you understand? Great. Now you have zero. From that you have to generate
+[12:12] one. From that you have to generate three.
+[12:17] And if you can do this, then the rest will automatically follow.
+[12:22] So how do you generate one from zero and three from one so that we get a proper
+[12:29] grade scale without any problem without any duplicates and
+[12:35] following all the constraints. Okay. Can you show the output sir? Yeah.
+[12:40] So I gave input three and when I is equal to zero
+[12:46] num is zero. So the output is zero. When I is equal to 1 and num is equal to 1,
+[12:53] what did we get? Output one. And when I = 2, num is equal
+[13:01] to 3, we got 1 1. So we are basically going from where 0 to 7. When you say n
+[13:08] is equal to 3, what is the range of values? We can expect 0 to 7. Remember
+[13:13] decimal. Now for that decimal, what is the gray score? gray code just see the
+[13:19] decimal is 0 to 7 that is not changing now from that you're generating
+[13:24] something so look at the second column num
+[13:29] and then look at 2 three and tell me how did you get 1 look at 32 and tell me how
+[13:34] did you get 1 0 look at 4 6 and tell me how did you get 1 0
+[13:40] the original numbers are not changing 0 to 7 for each of them I'm generating a
+[13:45] gray code that gray code becomes input for the next one because the next number
+[13:49] should be one difference from the previous.
+[13:53] So when the first number is zero, the next is one. When the next is one, the
+[13:57] third is two or three and so on. Can anyone tell me how to generate one one
+[14:03] from
+[14:07] how to generate one one from one and two? How did we generate one? So it's
+[14:13] like 0 0 is giving me 1. 0 1 0 1 is giving me
+[14:21] 0 0 is giving me 0 0 1 is giving me 1. 1 2 is giving me 3 uh 3 2
+[14:31] is giving me 1 minute. 1 2 is giving me three. 32 is
+[14:38] giving me two. and 2 4 4
+[14:46] 2 is giving me six. So this numbers are increasing order. Sorry
+[14:55] 1 2
+[14:59] I I missed it. 0 0 is that uh 0 1 is 1. Uh uh 2
+[15:07] 0 1 is 1. 1 uh 1 1 is
+[15:15] 0 0 0 1
+[15:21] 0 0 1 2 3 4 5 6 7 This is not changing. So 1 is giving me one uh one and two is
+[15:31] giving me three. Uh
+[15:36] 1 and 1 is giving me one. Okay. Uh 2 and 1 is giving me
+[15:44] three. Yeah. Uh 3 and 3 is giving me 2
+[15:51] uh 4 and 2 is giving me 6. 5 and 6 is giving me 7. and 6 and 7 is giving me
+[16:02] five and 7 and five is giving me four. So the the previous output is input to
+[16:09] the next one. Look at this closely. Now tell me what operator have I used to
+[16:15] get this. How do you generate from 11 one?
+[16:25] Which operator will you use to generate from one one one? Can I use an and one
+[16:30] and one and one? Okay. Can I use an or? Can I use an exclusive or? No. But then
+[16:40] will will the same logic work? Two and one when you add, will you get three?
+[16:48] Two and one when you add, you will get zero. Yeah. 1 zero and one and is both
+[16:54] have to be true. Huh? So will and work now? No. Ruled out.
+[17:00] Then what are the other things you have? Or start thinking now. Or will all work?
+[17:07] Will all work? Obviously no. Because three and three will it give you two
+[17:10] ever?
+[17:14] No. Three and three will give you three. No. Or. So obviously is also not there
+[17:18] and is also not there. You have the sample data. No.
+[17:24] Input was binary code, output is gray code. You are also knowing what the gray
+[17:29] code is. Now, how do you generate the gray code from the original input data?
+[17:37] Yes, please. And will not work or will not work. What
+[17:43] is left now? XR. Okay, try XR. Now
+[17:51] what does 1 x or 1 mean zero? Obviously x by itself will not
+[17:59] work. Can you apply some shift operators to it?
+[18:03] Pray.
+[18:29] How do you get from one one without using and and or?
+[18:36] How do you get from one and one output one without using or and and or we know
+[18:42] it is not going to work for rest and also doesn't work for the rest.
+[18:47] What do you do?
+[18:55] There's such a clue I'm giving you guys. [gasps]
+[18:58] How do you get one from one and one using XR?
+[19:03] Guys, get this simple question. How do you get one from one and one using XR?
+[19:11] If you can get that, you have got you got the answer.
+[19:18] Yeah. >> + one or left shift.
+[19:23] >> Okay, let's try. Uh, we have one one x or one is what I'm looking at.
+[19:31] Yeah, go ahead. Tell me.
+[19:36] >> 1 x or 1 is zero. >> 1 x or 1 is zero. Very good.
+[19:40] >> And if we left shift, we will get one. >> Uh, so you're saying 1 x or 1
+[19:47] left shift one. Okay. So, what do you get?
+[19:54] One >> zero left shifts one will give you what?
+[20:00] >> Left. >> And will that apply for the remaining?
+[20:04] No. Right. 2 and 1. What is 2 1 XR? 2 1 XR is three.
+[20:12] Are you guys there? Now 21 XR is 3. Now when you left shift
+[20:18] by one, what will you get? 3 is 1 1. So will it not become 1 1 0?
+[20:27] Are you guys getting it? Left shift by one will give you 1 1 0. 1
+[20:33] will become 1 1 0. You shift those many bits by one to the left. So it's like
+[20:37] multiplying. So is that going to work for the others?
+[20:42] No. Okay. Come on guys.
+[20:49] You have those two tables. You have to generate the third one.
+[20:58] Yes sir.
+[21:02] Yes sir. Anybody? Okay.
+[21:08] What if you try something like this?
+[21:15] Erase.
+[21:18] I have the original data zero, I need to generate one.
+[21:24] So when I is equal to 1, I need the output one. When I is equal to two, I
+[21:30] need the output three. But it has to be based on the previous
+[21:37] in the sense the difference in the bits has to be only one. And you see that 0 0
+[21:44] 1 1 the difference is only one bit. Okay. So the way we do that is for each
+[21:51] I value ranging from 0 to 7 we can say I right shift
+[21:59] something.
+[22:03] Try that. Give me access
+[22:08] guys. I have written part of the code.
+[22:13] I have written part of the code. Now consider this example and tell me what
+[22:17] will come here
+[22:25] from one and one if I have to get one what do you do?
+[22:31] >> Yes sir. >> Uh we take a number and it's XR
+[22:35] operation with the right shift of the given number.
+[22:37] >> Sir one minute the numbers are 0 to 7. Okay sir. So which number you want to
+[22:42] take? >> Any random number? Not any random
+[22:44] number. Give me an example. Huh? >> Let's take two, sir.
+[22:46] >> Take two. Okay. So, I is equal to two. Okay. I take I is equal to two.
+[22:52] >> Okay. >> Uh, so I exclusive or
+[22:56] >> I I X or
+[23:01] >> uh right shift of the given number.
+[23:06] >> I exclusive or >> right shift of I by one. I greater than
+[23:09] greater than one >> by
+[23:11] >> one. >> One. So you are filling up this as I
+[23:14] exclusive or >> yes.
+[23:17] >> Okay. Can you guys try this and tell me for each I what do you get?
+[23:24] Try that. For each I what do you get?
+[23:33] When when I is equal to one and the other guy is one. When you do a right
+[23:37] shift by one, what does the other guy become? Zero.
+[23:41] So one exclusive or zero is what? I is one. One exclusive or right shift
+[23:48] of one by one is zero. So what does one exclusive or zero become?
+[23:56] Come on guys. You do you forgot bit manipulation
+[24:00] bit bit operations unit one exclusive or any one has to be uh zero.
+[24:08] The result is zero. Any one is one result is one. If both are one, the
+[24:13] result is zero. Exclusive or. And if both are one, the
+[24:18] result is one. Or anyone is one. I mean, I hope you remember that. If you have
+[24:24] forgotten, then all this is a Greek and Latin.
+[24:30] Unit one gray code is what we are using bit operations.
+[24:36] Okay. So, let's take a simple example. Explain to them or operations and
+[24:41] operations and XR X is equal to 2, Y is = 5. What is 2 and
+[24:52] sorry what is X and Y? What is X or Y?
+[24:59] What is X exclusive or Y? 2 is 1 0. Five is 1 0 1.
+[25:06] Now when you do an and of this what will you get?
+[25:11] What will and give you?
+[25:16] 2 and five and
+[25:23] come on guys simple question.
+[25:36] No. And sir and and will give you zero. Are the both
+[25:43] bits one?
+[25:49] You forgot huh? Bit operations unit one.
+[25:54] What will and give you? Zero. What will or give you? Or means any bit should be
+[25:59] one. or will give you 1 one which is seven. So and will give you
+[26:05] zero or will give you seven. What about exclusive or
+[26:10] X or Y? X or
+[26:18] because any one bit is one. Any one bit is one. Any one bit is one. True or any
+[26:23] one even if both are on it will give you true in exclusive or it should be
+[26:29] exclusive. either of them if both are one you'll get zero if both are zero
+[26:33] you'll get zero if any one is one you'll get one now using this basic logic if go
+[26:39] back to the other screen using I scribbled somewhere no
+[26:46] not this this over yeah go back and see how you can apply this on this data
+[26:54] apply go that if if it is zero how do you get zero if it is one how are you
+[26:59] getting One. If it is two, how are you getting three? If it is two, what
+[27:04] happens? I is two. Two exclusive or I two right shift one. What is two? 1 0.
+[27:14] When you rice shift by one, what do you get? One. What is two? 1 0 1 0 exclusive
+[27:21] or one is 1 one which is three. And try that guys. Try that.
+[27:29] Try that for every example. Now for
+[27:34] n= 15, what do you get? Tell me. n is equal to 15, what will you get?
+[27:45] Please do not forget what you have learned. You never know what will come
+[27:49] in handy. Bit operations.
+[27:56] Are you clear?
+[28:17] For 15, what do you get? N is equal to 15.
+[28:21] 8. Okay, let's try. N is equal to 15. 15 you represent as 8 + 7.
+[28:30] 15 is 1 1 1 0 1 8 +
+[28:40] 1 8 + 4 + 2 + 1 15. Now this is 1 1 1 0 1 uh or 1 1 0 1 right shift 1. So that
+[28:52] becomes 1 0 1 1 uh sorry
+[29:05] all both are ones or will give you zero so you'll get eight.
+[29:11] Are you there? Now can you can you try for n is equal to 4? Sir run the
+[29:17] program.
+[29:24] Yes. For 15 we got sir down sir. For 15 we got eight.
+[29:30] And likewise you can try any other number.
+[29:38] Likewise you can try any other number.
+[29:44] No not pure fluke. is operations you're eliminating. You can't have you you
+[29:49] couldn't have used and you couldn't have used or. So exclusive or is handy.
+[29:55] Another way of looking at it is can I use the previous number generated and
+[30:00] generate the next one using what is called left shift operator. Now
+[30:06] we did a right shift. Using a left shift operator, can I generate a new number?
+[30:16] Sir, can you run the other code? By the way, I'll show you this code is
+[30:21] oneline code. Can you show us that code, please? No,
+[30:25] no, that's okay. Show us this code, please.
+[30:31] Yeah. The first line of code is line 64. If n is= 4, we generate numbers from 0
+[30:38] to 2 ^ n minus 1. So we know what is the length of our sequence which is 16. n= 3
+[30:44] 8. So we have got that. Scroll down. For i is equal to 0. I less than that i ++.
+[30:51] Remember I wrote down 0 to 7. The new number generated is I exclusive or I
+[30:58] right shift 1. You can also do this using a left shift operator and the
+[31:05] previous number which you got. So when one I is equal to one I get one. So I'm
+[31:10] going to use that to generate three. I'm going to use three to generate
+[31:13] something. So the previous number will be used to generate the next. So that
+[31:17] the difference between the two bits is always only one. Okay. I will not show
+[31:23] you that code. I would like you to try that. Sir, can you just run that sir?
+[31:37] Give I is equal to N is equal to 2.
+[31:43] Just see this. The first number is always zero. From zero we got one. From
+[31:49] one we got three. And from three we got two. Can you tell me how you would do
+[31:55] this now? There are two different approaches. In
+[32:00] the first approach, we were just using the plain decible numbers to generate
+[32:04] the gray code using bit operations. In this, we are doing slightly something
+[32:10] different. We generate the next number and that next number is used to generate
+[32:13] the third number. Third number is used to generate the fourth number.
+[32:18] So look at this closely. What do you see interesting in that
+[32:26] when I is equal to 0 we got zero
+[32:32] and when i is equal to zero the next number generated is one when the next
+[32:38] number is one we got 0 and three but zero is already there so we don't add it
+[32:44] remember the rule is same number cannot be added more than once zero is not
+[32:49] added Then we generated three from three we
+[32:53] generated two and we got the output. Can anyone think how to generate from one
+[33:00] zero and how to generate from one three? I'm giving you a hint. Right shift
+[33:06] operator sorry left shift operators. Now we did right shift. Now we'll do a left
+[33:10] shift. Think from one how did we get zero? And from
+[33:16] one
+[33:20] how did we get I mean we got zero one no problem again from one we got zero zero
+[33:25] is already in the list so we don't add it and then we generate three three is
+[33:29] not there we add it from three we generate two we add it so that is the
+[33:32] sequence which we got 0 1 32 here we do a left shift and again exclusive or
+[33:41] think
+[33:50] This is a little more involved code, not that straightforward.
+[33:59] Anyone exclusive or and left shift operators?
+[34:04] Left shift.
+[34:59] anyone in this logic we are using the
+[35:03] previously generated number to generate the next one. So previous number is
+[35:07] important. So 0 1 1 gives you three, three is used as input to generate two.
+[35:13] And if it gives you some other number which is already there in the output, we
+[35:17] don't add it. So it's like a set which contains unique data. No duplicates are
+[35:21] allowed. Again the operations are still left
+[35:26] shift operator and exclusive or nobody.
+[35:33] Okay. Now let's take an example. So when I is equal to zero the gray code is
+[35:41] zero. When zero is the input we are generating
+[35:45] one. When one is the input we generated
+[35:49] 0 and 3. This is invalid. When three is the input we generated two. So we got 0
+[35:57] 1 3 2 as output. So to generate three we were using one. And to generate two we
+[36:04] were using three. That means the context is whatever is the previous number
+[36:09] generated that becomes the input for the next number which we are going to
+[36:13] generate with the basic condition that the difference between the two numbers
+[36:17] is only one bit difference. So if if one is my number I say one
+[36:25] exclusive or then we have I right
+[36:32] Left shift
+[36:38] one, left shift by one. I if I is zero,
+[36:44] what will this output be? If the number is one and if I is zero,
+[36:51] what will this output be? If the if the previous number is one, if
+[36:56] I is equal to what is the new number?
+[37:03] Come again.
+[37:10] Calculate guys. Simple calculation. The number is one. One exclusive or one left
+[37:17] shift I. I is zero. I is 1. I is 2. I is up to 7. I ranges from 0 to 7. For each
+[37:24] number from 0 to 7, generate the new number based on the previous. If that
+[37:29] new number is already existing, don't add it. If the new number is not
+[37:32] existing, add it. So what do you get when you look at this? I is equal to
+[37:37] zero and the previous number is one. And if you use that
+[37:45] bit operations here
+[37:56] I is one. So one exclusive or one left shift zero. What will one exclusive or
+[38:02] one give you? What will it give you madam? Zero. So we
+[38:08] got zero. Are we adding it to the list? No. Then we say I exclusive or I output
+[38:17] left should by one. So what does one and one zero return you?
+[38:25] What does 1 and 1 0 return you? Three is three in the list. No. So what what does
+[38:32] three become now? Three is input. Again you apply 3 0 1 2 3 7. I ranges from 0
+[38:39] to 7. So keep for each number generated. All the possible calculations if they
+[38:45] exist ignore it. If they don't exist add it because we want a unique number. This
+[38:50] will guarantee that the difference between the two bits will always be one
+[38:53] because we are looking at the previous number to generate the next number. Now
+[38:58] if three is input now try 3 0 3 1 32 33 3.
+[39:05] So 3 is I is equal to 1 minute. I is = 0 1 2 3 up to 7 and the the current number
+[39:15] is 3 for three and all these values and applying this logic which is current
+[39:23] number exclusive or one left shift I I ranges from 0 to 7. Come on calculate
+[39:31] for 3 0 3 1 32 what do you get?
+[39:38] Calculate
+[39:43] for 30. What do you get when you apply that formula
+[39:48] or equation?
+[39:53] What do you get for three zeros? Sir, apply that three exclusive or
+[39:59] one left shift zero. What does one left shift zero return you?
+[40:09] 1. What is three exclusive or one
+[40:14] 3 is 1 zero. This is one. So is what? What? Madam guys, please go back to your
+[40:23] unit one and come here. I should have told you.
+[40:27] What does three exclusive or one return you?
+[40:38] two. So this is like three exclusive or one left shift 0. So three exclusive or
+[40:47] one 1 0 1 will return you 1 0 which is nothing but two. Isn't the next number
+[40:53] generated two? No. Now if you have two, what is the next
+[40:57] number generated? B when n is equal to 0 to 7. Calculate after two, what do you
+[41:03] get? Calculate 2 0 2 1 22 and see what do you get which is not there in the
+[41:08] existing list
+[41:15] 2. What do you get when two 0?
+[41:22] 2 0 will give you three. 3 is already there. We don't include it. Now
+[41:27] calculate
+[41:31] 21. What do you get? 22. What do you get?
+[41:37] 21. What do you get
+[41:47] when when the number is two and I is equal to 1? What do you get?
+[41:52] 0. Okay. 1 0 1 0 will become zero. When I is equal when the number is 2 and I is
+[42:00] equal to 2, what do you get?
+[42:09] Six. Very good. Two exclusive or one left shift two.
+[42:18] So that will be basically become two exclusive or one left shift two. This is
+[42:24] I guys. This is I ranging from 0 to 7. For each number which you have
+[42:29] generated, calculate the new number by iterating from 0 to 2 ^ n minus one.
+[42:37] You'll get a new number. And if that new number is already existing, don't add
+[42:42] it. If it is not existing, add it. And you continue doing this for every
+[42:48] new number you get again iterate from 0 to 7. For new number I iterate and you
+[42:53] get the answer. So that way can you show that code please?
+[43:04] Can you go to the beginning? Yeah. Main we are calling some Greek
+[43:08] code. Yeah. And then we are creating a list of zero
+[43:14] initially and then we are calling a helper uh where we are passing the array
+[43:18] list and the initial start number zero. Scroll down. Now look at that first line
+[43:24] of code. This is a recursive function. So in every recursive function we have a
+[43:28] termination statement. And what is the termination statement? If the array list
+[43:32] size is equal to the number which you expect 2 ^ n then we return. Are you
+[43:39] there? Otherwise we continue. Are you there? Now scroll down. For
+[43:46] every number from i0 to n. So if n is equal to to uh uh sorry if n is equal to
+[43:54] 3, we go from 0 to 3. If n is equal to 5, we go from 0 to 5. Are you there?
+[44:00] Look at the next number we are generating. Next number is equal to
+[44:02] current number. What is the current number initially? What is the first
+[44:06] number? Zero. So zero exclusive or one left
+[44:13] shift I what is 0 exclusive or one one. So what is the difference between 0
+[44:20] and one? One bit. So the next number is one. So look at the logic. If that
+[44:26] number is not there in the result we add it and then we are calling the recursive
+[44:31] function once again. No. But when I call the recursive function once again am I
+[44:35] calling with zero or the new number? I'm calling with a new number. So new
+[44:41] number is one. So what happens now? We now apply that new number exclusive or
+[44:47] one left shift I. Again I ranging from 0 to n.
+[44:52] Add a new number. If that exists don't add it. If it doesn't exist add it. So
+[44:58] when I is equal to 1 we got some number zero. We ignored it. Then we got three.
+[45:04] We added it. when the current number is three when I is equal to zero we got two
+[45:10] so we added it so can you just run this sir
+[45:16] with uh three now
+[45:22] just observe for zero we got one for uh one we got three for zero we got one and
+[45:31] then for one we got zero and three so zero is ignored
+[45:35] Then for three we got two we added and for two we are getting 3 0 6 3 is
+[45:41] ignored 0 is ignored six gets added. So we end up generating many more obviously
+[45:47] the time complexity is much higher here than what it is for the previous one.
+[45:52] Are you guys there? For each number when you iterate from I0 to N we are
+[45:59] basically generating lot of numbers some of which are repeating which are ignored
+[46:03] which don't repeat we add so whatever we add is the previous number which is used
+[46:08] for generating the next number. So in the recursive call two parameters the
+[46:12] result and the number to be considered which is the previous valid number.
+[46:19] Is that making sense? So there are multiple ways of solving one where we
+[46:23] are using a left shift and the other where we used a right shift. That was a
+[46:28] simple iterative solution. This is a more time consuming recursive solution.
+[46:37] Now try for four. N is equal to 4.
+[46:42] You'll get all those 0 1 3 2 6 7 5 up to 15. None of them repeat. And if you take
+[46:50] their B binary gray code, you'll find the difference between the previous and
+[46:54] the next is always one.
+[47:00] And look at the difference between the first and the last. What is the last
+[47:03] digit? 8. 8 is 1 0 0. What is the first digit? 0 0 0. Difference is one. Take uh
+[47:12] n is equal to uh what is the number you give now?
+[47:15] Five. You give. Now you give five.
+[47:21] Now compare 0 and 16. 16 is 1. Four zeros. 0 is all five
+[47:27] zeros. Again the difference is only one bit. And the difference between every
+[47:32] consecutive number is also one. Are we clear?
+[47:40] Are we all clear? Recursive and the iterative.
+[47:46] No, I don't get a response. Shall we move on?
+[47:54] Shall we move on? Okay sir. Now take us to the third problem. Campus bikes.
+[48:04] Let's say a bunch of you have a how many of you come by bike to college?
+[48:12] Only three. Four. Okay. Many of you is I'm not going to take your bike. So
+[48:17] which is why many are not raising hands. Uh
+[48:21] you have a bunch of bikes in the college and uh there are a bunch of departments
+[48:29] and you need to solve a problem which is find the sum total of minimum distance
+[48:36] to be traveled from a bike to a department.
+[48:44] didn't understand. Sir, get me a blank screen. Let me show them visually.
+[48:51] You have a bunch you have a graph paper 0. Let's say uh 20 20 15
+[49:03] 10 5 10 15.
+[49:08] There is department one
+[49:14] at 15:15.
+[49:17] There is department two at 55.
+[49:24] There is a bike place here. Bike one at uh
+[49:31] 5:15 and the bike 2 at uh
+[49:40] 1510.
+[49:43] Now what you need to do is you need to go from a bike to a department and you
+[49:50] have to come up with an answer which is the shortest distance you'll have to
+[49:55] travel for every bike to go to every department assuming that there are equal
+[50:00] number of departments and equal number of bikes.
+[50:04] And the way you calculate the distance is the absolute difference between the x
+[50:09] and the y of the bike and the department.
+[50:13] So what do you think would the answer be for this example? There's a bike one
+[50:20] I'll just write down bigger values for you. Bike one at 5:15,
+[50:26] department one at 15:15, bike 2 at
+[50:33] 1510, and department 2 at 55.
+[50:39] Now this is again a backtracking problem.
+[50:44] If bike 0 department 0 gives you a larger value than bike zero and
+[50:49] department one, use that Are you getting it? It's like the n
+[50:55] queen's problem. If I couldn't solve it, I had to shift it. If so, what do you
+[50:59] think you'll get if you use B 0 I mean uh B1 D1 and B2 D2? What is the distance
+[51:04] you are getting with B1 D1? B1 D1. What is the absolute difference?
+[51:12] X difference is X difference is 10. What about the Y?
+[51:18] Zero. So, what is the absolute difference? 10. Okay. If you consider B
+[51:22] 0, B1 and D1, if I consider B1, D1, I get 10. If I
+[51:29] consider B2, D2, what do I get? 10
+[51:35] 15. So, what is the sum total? 25.
+[51:40] Now you are saying, oh, what about if I consider B1 D2 and B2 D1? What if I do
+[51:47] this? What is the difference you get when you
+[51:51] do this?
+[51:56] B1 D2 and B2 D1. B2 D1 is five. What is B1 D2?
+[52:04] 5 0 10. What is the sum total? 15. So what is a better combination? A
+[52:12] guy with bike one should go to department two and a bike with
+[52:18] two should go to department one because a bike is parked closer to the
+[52:22] department. It's like saying each bike is parked closer to the department. So
+[52:25] it makes sense for that guy to go to their closest department then to go
+[52:29] somewhere farther. You understood? So what are we doing in
+[52:33] this problem? We're trying to find all possible combinations and then coming up
+[52:40] with one combination distance, the next combination distance and check if that
+[52:46] next combination distance is lesser, use it. Maybe a third one gives you a better
+[52:51] one. Imagine there are 10 bikes and 10 departments. There are so many such
+[52:55] permutations. Okay.
+[53:00] Now the question is how does backtracking come into picture here?
+[53:06] So given this input data the obvious answer is 15. How do you how does
+[53:11] backtracking come into picture? How does backtracking? Did you
+[53:16] understand what we are trying to solve? Try all combinations. Yes sir.
+[53:24] >> Sir initially bike one will be reserved for uh department one.
+[53:28] >> Huh? >> Then check for bike two to department
+[53:30] two. >> Correct. that combination exists and
+[53:32] return back and uh empty D2 and empty B1 D1 and
+[53:38] >> you see empty means >> I mean unreserved
+[53:41] >> okay so a bike which was uh uh considered you now don't consider okay
+[53:49] >> then yes >> then map the then again
+[53:52] >> so if I have taken B1 and D1 and then I've taken B2
+[53:57] and D2 I get some answer then I say you know What bike two is now free?
+[54:04] Let it go to department one and see. So it's like what we did you know
+[54:11] visited not visited marked used or unused something similar is what we are
+[54:18] going to look at. So let's look at the formal problem. I just cooked up this
+[54:22] problem of bike and department seeing you guys. The actual problem is slightly
+[54:26] different which is police officer and vehicles. Let's look at the problem.
+[54:36] Oh, by the way, can one of you tell me a practical use case of Hamiltonian cycle?
+[54:43] What we discovered did last week? Hamiltonian cycle
+[54:52] where you start from a vertex visit every other vertex only once and have an
+[55:00] edge from the last vortex to the first vortex so that the entire cycle is
+[55:05] created. Give me a practical use case. Yes, please pass the mic to her.
+[55:12] Somebody answer there. I heard am I am I hearing things?
+[55:17] Yeah. Come on guys. Practical use case of Hamiltonian cycle.
+[55:25] Okay. I'll ask you why did you learn that when you didn't know where to
+[55:29] apply? Simple. No. Why are you learning something when you don't know where to
+[55:33] apply? Because if you don't know where to apply, your learning is a waste. Do
+[55:38] you agree? I mean if I don't know where this problem fits where the solution
+[55:42] fits in how will I know tomorrow when that problem is there that this guy is a
+[55:46] good solution. Yes sir. >> So for planning traffic
+[55:50] >> tell me more. >> Um let us say there are installs
+[55:54] arranged in a circular track. >> Huh?
+[55:57] >> So there is only one entry point and exit point.
+[56:01] >> Uh if the if we make them as >> No. If there's only one entry point and
+[56:06] exit point, then do we have a choice? >> Yes. Same entry, exit.
+[56:11] >> No, no. Do we have a choice? If there's only one entry and one exit, you're
+[56:13] saying you enter from here, exit from here. And in between, you're saying
+[56:17] there may be multiple paths. >> Okay.
+[56:25] Okay. When was the last time you got a blue dot career? Anybody?
+[56:30] When did you when did you get a parcel last time? Blue Dart, Amazon, Flipkart,
+[56:37] anybody here? Nobody gets orders anything online. Holy
+[56:43] cow. Nobody.
+[56:49] Okay. You don't order. Can you visualize how Amazon may be doing the de
+[56:56] deliveries of parcels?
+[57:02] Why does it send you a message saying your parcel will be delivered any time
+[57:06] from morning 9 till midnight night to 9:00 p.m.? Why can't they give you a
+[57:10] specific time saying your pass will be delivered at 4:30 or 5? What do you
+[57:15] think they're doing? Blue Dart, Amazon, Flipkart
+[57:21] are those Bombay Daalas who give you food. You know the famous example
+[57:31] anybody they use Hamiltonian cycle algorithm
+[57:39] they have a bunch of locations they have to travel from their warehouse they have
+[57:44] to take let's say 50 parcels and come back to the warehouse by
+[57:52] delivering after delivering all now obviously
+[57:56] The guy who is going to deliver if you have talked to any of the agent they
+[58:01] don't get paid for petrol. You know how they get paid? Did you ever talk to
+[58:06] those guys? They get paid for every parcel they deliver. Something like 10
+[58:12] rupees or more. So obviously he has to have a very efficient algorithm. He
+[58:17] can't say I will go from Narendura to hightech city and then I'll come back to
+[58:23] YMCA to deliver and then go to Kundapur. You understand what's going to happen?
+[58:29] One time is not enough. Second, he'll go broke. So what does he do? He'll
+[58:34] calculate this is my start, this is my end. These are all the delivery
+[58:39] locations. I now need to find a proper cycle which I'm going to follow so that
+[58:46] it is going to be the shortest and I have to come back to the end
+[58:51] point. Are you there? All those logistics
+[58:56] people use Hamiltonian cycle to address the deliveries. I just gave an example
+[59:03] of a blue dart guy because he also delivers parcels. Amazon guy delivers
+[59:08] parcels. The Swiggy and the Zumato guys obviously don't do because that is a
+[59:12] pointto-point you know one delivery immediately but all the other guys have
+[59:16] a process which they follow and they use Hamiltonian cycle you know the best way
+[59:21] is just go to Google and check for use cases on every algorithm we looked at
+[59:27] you'll get enough and then you'll be able to justify when a problem is given
+[59:31] what algorithm will apply okay yeah coming back to our problem are you
+[59:38] Yeah. No, not this word document. Yeah. Uh on a campus represented as a 2D
+[59:46] grid, there are n workers and M bikes. I have changed the workers to departments.
+[59:53] Each worker and a bike is a 2D grid like what we saw.
+[59:59] We assign one bike to each worker so that the sum of the Manhattan distance
+[1:00:04] between the worker and the bike is minimized. And a Manhattan distance is
+[1:00:09] nothing but absolute of x1 - x2 plus y1 - y2 absolute. So it's always going to
+[1:00:17] be either zero or positive. Never going to be negative. Okay. return the minimum
+[1:00:25] possible sum of Manhattan distance between each worker and their bike. So
+[1:00:30] if you go back to our diagram, we had this as two bikes and two workers
+[1:00:37] and then we calculated using bike 0 worker 0 bike 1 worker one a absolute
+[1:00:43] value of 25. Then we said yeah is there another possibility? Yes, we said bike
+[1:00:48] zero to worker one and if worker one has a bike zero, obviously uh worker two has
+[1:00:54] to take bike one because the same worker cannot I mean two workers cannot take
+[1:00:58] the same bike. Are you there? And we ended up with 15.
+[1:01:05] So how do you think you can do this?
+[1:01:10] I mean I just told you how we calculated. How would you do this
+[1:01:14] actually?
+[1:01:18] Did you get that test case ready, sir? The one we have on the screen. Okay,
+[1:01:22] great. Uh, can you run that test case?
+[1:01:29] Great. Uh, you got initially 15. I want the
+[1:01:34] initially 25 and then 15. Swap the order as we calculated. Sir, our calculations
+[1:01:42] you go
+[1:01:46] B1 D1 515 155 15 what is the data you give?
+[1:01:56] Uh then 515 1510. What did you give for bikes? Can I see the data? 5 515. So
+[1:02:04] give that data in the same order.
+[1:02:09] Two bikes 515.
+[1:02:14] Okay. Second bike. What is the data for the second bike
+[1:02:18] 1510? 1510 is second bike. So we giving data
+[1:02:22] for two bikes and two departments. Yeah. Next department 1 15 55.
+[1:02:31] Two departments. 15 15 55. Yeah. Great. Uh how are you getting
+[1:02:38] that? 15 0 0 5 uh 10 + 5 15 uh you're getting 25. Are you getting that?
+[1:02:47] Minimum distance is uh 1 minute 0.
+[1:02:55] Uh I I think you're giving wrong input. Go to the mean.
+[1:03:01] No, what is the mean? Let's
+[1:03:07] scroll down down we taking we taking data for the worker and then
+[1:03:15] the bikes then you swap it no and scroll down sir down then you okay
+[1:03:22] first we are taking the worker data and the bikes data so you also give in the
+[1:03:26] same order
+[1:03:30] first give department 1515 55i those are two and two first two
+[1:03:37] bikes and two departments and two bikes 1515 55i
+[1:03:43] and then 515 1510
+[1:03:49] Yeah. Now if you consider this
+[1:03:54] uh worker zero and bike zero
+[1:04:03] give me access. No no there.
+[1:04:14] Yeah. This is department one, department two, bike one and bike two which is
+[1:04:21] nothing but worker one, worker two. So we are saying worker 0 with bike 0. So
+[1:04:28] 15. So you get a difference of 15 - 5 15 - 15 10. Then worker one bike 15. So you
+[1:04:36] get a distance of 25. Are you are you seeing this?
+[1:04:40] We got a difference of 25 when I assign worker 0 to bike 0 and worker one to
+[1:04:45] bike one. Later we said yeah why don't I undo what I did and backtrack and say no
+[1:04:53] worker two will be assigned bike one and then we end up getting five
+[1:04:59] and 10 and we get 15. So what are we basically doing? We are calculating all
+[1:05:05] possible permutations with every bike and every worker. But the interesting
+[1:05:11] thing in this program is if the next calculation is resulting in a value
+[1:05:16] larger than the previous minimum, we don't completely imagine there are 10
+[1:05:21] workers and 10 by first two workers give you a value larger than the minimum.
+[1:05:25] Then we don't even have to worry about the remaining. So there is some level of
+[1:05:29] optimization being done. But obviously it is still all possible permutations
+[1:05:34] and combinations. Have you got it? How would we solve this
+[1:05:39] problem? You've seen the demo. You have seen the concept which I explained. How
+[1:05:44] would you programmatically do it?
+[1:05:49] Yeah.
+[1:05:53] Two bikes, two workers. Yeah.
+[1:06:03] Yes, please.
+[1:06:10] If a bike one is given to a worker, can the same bike be given to another
+[1:06:14] worker? So somewhere we'll maintain a boolean, you know, used or visited,
+[1:06:20] whatever you want to call it. Okay. So initial combination will always
+[1:06:25] be 1 one 0 0 1 1 2 2 n minus one n minus one
+[1:06:31] after that we get one answer and we are not happy with I mean I won't say we are
+[1:06:36] not happy we're just trying to see if there's something which is better
+[1:06:41] then what do we do one of the bikes which was assigned will
+[1:06:46] be unassigned so that it can be used by another worker
+[1:06:50] to see if that can result in a shorter distance and if it can result in a
+[1:06:56] shorter distance we will continuously I mean we'll compute for the remaining
+[1:07:00] maybe worker one with bike zero and then worker zero with bike one is that giving
+[1:07:07] me a better answer yes retain it and imagine there are five workers and five
+[1:07:13] bikes we'll have to do all those possible combinations and permutations
+[1:07:18] okay sir now just look at the debug messages Officer zero with bike zero.
+[1:07:24] What is the distance we got? 10. So if bike is bike zero is already used, what
+[1:07:30] is the only bike left now? One. Who gets to use it? One of the other officers. In
+[1:07:36] this case, there's only one more guy. Officer two. We get 15 + 10 25. Then
+[1:07:43] what do we do after that? We said, "Yeah, okay. bike one which was used by
+[1:07:49] officer one now that guy has let go and let's see if some other officer can use
+[1:07:54] it. So we are using a combination of worker zero with bike one and work
+[1:07:59] worker one with bike zero and that's giving you a different so we use all
+[1:08:03] such combinations
+[1:08:07] are you there would you like to try solving it or shall I give you a brief
+[1:08:12] glance to the code tell me try stop we will not show them
+[1:08:19] the code you understood again this is a backtracking problem so if a bike is
+[1:08:24] occupied. You have to set it to false so that it is available. It is not
+[1:08:30] available available. Not available when the bike was used to calculate the
+[1:08:35] distance. Available when you backtrack and say, "Yeah, let somebody is like car
+[1:08:41] poolool. I take a car for rent. I'm done with it. I give it back. Somebody else
+[1:08:46] can use it." That is exactly what we are trying to do in this problem using
+[1:08:51] backtracking. Okay. minimizer. Now the third problem is another very
+[1:08:58] interesting problem which is called generate all the abbreviations of a
+[1:09:04] given word.
+[1:09:10] How many have done this problem before? Anybody?
+[1:09:16] Generate all the abbreviations of a given word. Show the problem statement
+[1:09:21] sir.
+[1:09:34] Can you close the left? Yeah. You need to write a function to generate
+[1:09:40] abbreviations of a word. The output has to be in a sorted order. Otherwise, our
+[1:09:46] guys will have a problem generating all test cases. Right? Sorted order. Now
+[1:09:51] take a word. The word is word. And what is the
+[1:09:56] output? You see this
+[1:10:06] and that is all sorted.
+[1:10:12] How would you do this? You're given the input. You're given the output.
+[1:10:16] How will you do this?
+[1:10:24] You can do it in a non-recursive manner. You can do it in a recursive manner. You
+[1:10:30] can if you do it in a recursive manner, it is again backtracking.
+[1:10:35] Apply backtracking.
+[1:10:40] Okay. Okay. I'll give you a word ant. A n. What are all the abbreviations of
+[1:10:46] ant? Blank screen.
+[1:10:54] What would the output of this look like if it has to be sorted in an
+[1:10:58] alphabetical order?
+[1:11:04] First generate all the abbreviations for a given word. How many abbreviations
+[1:11:08] will you get? Come again.
+[1:11:15] two to the power of length of the word right instead of number of digits length
+[1:11:20] of the word. So if the length of the word is three how many abbreviations
+[1:11:24] will you get? Eight. And likewise for four 16 and so on. So you know there are
+[1:11:28] going to be eight eight outputs in this. Can you tell me what are the eight
+[1:11:32] outputs going to be? Calculate. Come on all of you.
+[1:11:42] It's a pretty simple problem actually.
+[1:11:48] It's like a choice you make. Do I abbreviate it or do I not abbreviate it?
+[1:11:53] [snorts] If I don't abbreviate ant, will it not remain as ant? So one word
+[1:11:59] guaranteed is and nothing is abbreviated. Then I can say why don't I
+[1:12:04] just abbreviate the last character. So if I abbreviate the last character, what
+[1:12:09] would it be? A N1
+[1:12:15] I replace that with the number. So if I don't abbreviate the last character,
+[1:12:20] what is it? You know it's like a N. What about T?
+[1:12:27] Do I abbreviate? It becomes one. I don't abbreviate it becomes T. So this gives
+[1:12:32] you a N1 A N T. Do you get this?
+[1:12:38] Do you get that? It's like every character of the word
+[1:12:43] you make a choice to abbreviate or not to abbreviate. Likewise, you can choose
+[1:12:49] to abbreviate all the three characters. And if you choose to abbreviate all the
+[1:12:53] three characters, what will you get as output
+[1:12:58] 1 + 2 + 3 1 1 become three. It's like a becomes one, n becomes one, and t
+[1:13:05] becomes one. So when you have consecutive ones you sum them up and
+[1:13:09] you'll get three if all are abbreviated. If any two are abbreviated are they
+[1:13:15] sequential incremented not sequential let it remain
+[1:13:20] where they are. So tell me what are the possible answers
+[1:13:24] for a and t guys.
+[1:13:28] I'm not listening. I'm not able to listen.
+[1:13:31] Pass the mic now whoever wants to answer.
+[1:13:35] Okay. Did you get this? A N1 A N T. I don't abbreviate T, I get T. I
+[1:13:41] abbreviate T, I get one. Yes. Likewise.
+[1:13:49] A A1 T. Huh?
+[1:13:57] Okay. 1 N T which means I abbreviate A and not the remaining two. Okay. What
+[1:14:02] else? A2 I abbreviate the last two.
+[1:14:08] 2 A 2 T I abbreviate the first two. Three. How many did we get? Seven. We
+[1:14:15] need eight. What is the next missing one?
+[1:14:18] >> One and one. >> One.
+[1:14:20] >> N one. One N1.
+[1:14:24] >> One N1. Which means I don't abbreviate the second guy. Abbreviate the first and
+[1:14:31] 1 N1. Now just look at it closely. With every character you choose, you
+[1:14:38] have a choice to make. Do I remain sorry, do I retain that character as is
+[1:14:44] or do I replace it with the abbreviated which is one?
+[1:14:50] Are you there? And this is what can you get anything
+[1:14:53] else than this? And whenever you see two adjacent
+[1:14:58] characters abbreviated 1 one you replace them with sum of one and one which is
+[1:15:02] two. So you end up getting a2 or 2t or a is abbreviated n is abbreviated t is
+[1:15:10] abbreviated which is 1 one sum of all those is basically three. So that is why
+[1:15:15] you say everything is abbreviated which is length of word or nothing is
+[1:15:20] abbreviated which is the original word. Few characters in between are
+[1:15:24] abbreviated. Do do they appear adjacent? Sum it up. If they don't appear
+[1:15:29] adjacent, retain as is 1 and one.
+[1:15:34] You got it. So how would you do this?
+[1:15:41] How would you do anybody? We can do it using recussion which is
+[1:15:47] like a stack or you can do it using Q. Okay. Maybe uh take any approach and
+[1:15:56] explain to me recussion or stack or Q.
+[1:16:04] Yes. Anybody would like to give it a try?
+[1:16:11] Anybody? Sir, just run the iterative solution
+[1:16:16] with A and T as input. Maybe that will give them a hint on how to solve the
+[1:16:20] problem. And then we will run the recursive
+[1:16:25] implementation with the same ant. And and that will give them a clue again.
+[1:16:31] Yeah.
+[1:16:36] A and D. Yeah. Just look at this closely.
+[1:16:42] This is using Q. Observe the first two A and one. A N and
+[1:16:49] one. What does a n1 mean to you?
+[1:16:55] And at index zero, I could either abbreviate it or not abbreviate. If I
+[1:17:02] don't abbreviate, I'm storing a. If I abbreviate, I'm storing one in the q. So
+[1:17:07] it's like saying what is the decision you're making for the first character?
+[1:17:11] It is either a or one. So what is there in the queue now?
+[1:17:17] A N and one right then we say okay first character we have considered now what
+[1:17:23] about second character what can the second character be either n or
+[1:17:30] one now if you take the combination of a and one yes sir why are you raising your
+[1:17:35] handh if you take the combination of a1 and the second character as n and one is
+[1:17:40] the permutations a n a1 are 1 n and 1 + 1 2
+[1:17:51] see you're now you're taking a decision for every character so so when I have a
+[1:17:57] n t what is the decision of the first guy either abbreviate or don't
+[1:18:03] abbreviate tree representation so my q contains
+[1:18:09] a and one or one and a doesn't matter what I decide first then I say second
+[1:18:14] character is either n are one. So what will the q
+[1:18:20] contain? I take every element of this and concatenate with the second
+[1:18:26] character to get a n r 1 n. If I abbreviate the second character,
+[1:18:34] what is the output? One a1 1 + 1 2. Now we are left with the third guy. What
+[1:18:45] is the third g again? T R 1. So take every character and append. So you get a
+[1:18:52] n t a n1 n t 1 n1 a1 t a11 is nothing but a2. Whenever you get
+[1:19:03] two adjacent digits, sum it up and then you get what?
+[1:19:10] uh a I mean a n t a n1 1 n t 1 n1 a1 t a2
+[1:19:19] 2t and 2 + 1 3.
+[1:19:25] So are you there? A very simple iterative solution where you take the
+[1:19:31] length of the word start with the first word and take a decision of abbreviating
+[1:19:36] and not abbreviating store in the queue. While Q not empty get those two elements
+[1:19:42] and look at the second index. If the second index is a character append it if
+[1:19:48] the secondary index is abbreviated number. But when you find two
+[1:19:52] consecutive numbers like one and one you don't put one one there. You update it
+[1:19:56] with two. That is additional logic. And continue this till how long? Till all
+[1:20:02] the characters of the input word are processed.
+[1:20:09] Are you are you there? Now take an example kmit.
+[1:20:16] Now don't run sir don't run. Now using this as a model can you tell me how does
+[1:20:23] the Q look like for kit?
+[1:20:29] What will the first two characters in the Q be? K or one? K and one. Great.
+[1:20:38] Then m what will then remaining four be after that
+[1:20:44] k m 1 m
+[1:20:51] 1 k and 1 + 1 2 then those 4 into 2 will be 8 8 into 2 will be 16 which is
+[1:20:58] perfectly fine because if the word is four letters then the number of
+[1:21:03] combinations is 2 ^ 4 16. Are you guys getting it? We keep getting values from
+[1:21:09] the Q and check the next character and then perform the combination of it and
+[1:21:15] add to the queue till we get the final answer which is the result and that
+[1:21:20] result we basically do sorting so that we get that in the sorted order.
+[1:21:27] Sir can you go back to the code? I mean can you run that with KIT?
+[1:21:33] Yeah guys, have you got it? Anybody has done all 16?
+[1:21:40] You very easy. Add to the queue k1 then m 4 4 into 2 8 8 8 into 16. That way
+[1:21:47] you'll never miss anything.
+[1:21:52] No, not clear.
+[1:21:58] Not clear. Okay. Yes or no, sir?
+[1:22:03] Okay, then come explain to the class. Huh?
+[1:22:08] Not clear. That's easy. No, I always say not clear. No headache.
+[1:22:15] Anybody would like to write down all the 16 for KMIT
+[1:22:19] starting with two KN1 and then those two become multiplied
+[1:22:25] with M 4 into I 8 I into that 8 into T 16. T will be again 1 and T
+[1:22:36] sir run. Go up sir. See look at the go up sir.
+[1:22:42] See K and one. Then next charact is M R1. So you get K M K1 1 M2 1 + 1 2
+[1:22:50] remember the next four there only sir.
+[1:22:55] Yeah.
+[1:22:59] Yeah. So if you look at it K M I T first is these two. These two combinations are
+[1:23:08] these four.
+[1:23:12] K with M K M one with M 1 M. Then K with M can be again M and 1. So K with M K M
+[1:23:23] K with one K1. Then one with M. K is K R1. So one with M, one with one, two.
+[1:23:31] Are you clear? Now these four with I. So you get eight of them
+[1:23:39] and these four with T you'll get 8 into 2. T is either T R or 1.
+[1:23:46] And I was I is I R1. Are you seeing this? Simple.
+[1:23:54] So we start with index one then index 2 index 3 index n minus one whatever is
+[1:24:01] there in the queue we take that data and then for every character we either have
+[1:24:05] a combination of abbreviation abbreviating which is one and
+[1:24:09] non-abbreviating which is that and if the previous character and this are
+[1:24:13] numeric sum it up so you'll not add 1 one you say 1 + 1 2 that is why you get
+[1:24:18] an output scroll down sir you get an down sir you get an output
+[1:24:24] four somewhere. Are you seeing four 3T
+[1:24:29] 2 it T or it can be K3. Are you seeing all of
+[1:24:34] those combinations? You'll never say K111 K3.
+[1:24:41] So that is a rec non-recursive implementation. How do you think
+[1:24:45] recursive will look like? Now
+[1:24:50] what do you do in a recursive call? It is a stack.
+[1:24:56] In a recursive it is track. In a iterative it is a Q. First come first.
+[1:25:03] So if I were to apply the same logic for A and T, what do you think will first be
+[1:25:09] generated in a recursive call? Huh?
+[1:25:14] All ones which means three. Ant is three. This guy is four.
+[1:25:20] We'll start with first abbreviation. Second abbrevation, third abbreviation,
+[1:25:24] nth abbreviation. Nth abbreviation will give sum of all. Nth is not abbreviated.
+[1:25:29] Then go to the previous. The last two are not abbreviated. Previous. So we are
+[1:25:33] unwinding of the stack. So we start with everything ab abbreviated to something
+[1:25:38] not abbreviated. Okay. So can you just run that piece of code only the code
+[1:25:44] with recursion and backtracking? Backtracking is saying I'm not
+[1:25:50] abbreviating it.
+[1:25:54] Uh and
+[1:26:01] yes look at that please like what you very rightly said we start
+[1:26:05] with index zero is it abbreviated no no don't do
+[1:26:11] anything is is it abbreviated no index one abbreviated index two abbreviated
+[1:26:15] index three so when the number of abbreviations are equal to the word
+[1:26:19] length what are we first storing three then we say no third is not
+[1:26:23] abbreviated the first two are 2T
+[1:26:29] okay I can draw the tree for you in a moment but what I want you to understand
+[1:26:33] is in a recursive we abbreviate everything and start undoing to get the
+[1:26:38] other words in a non-recursive we were starting with every character and then
+[1:26:43] taking a call it's like stack in a recussion this is like a Q it's like
+[1:26:48] saying the First is abbreviated, second is abbreviated, third. So top of the
+[1:26:52] stack and then second and then
+[1:26:57] are you seeing two different approaches but finally the output is still going to
+[1:27:00] be the same because everything is sorted.
+[1:27:05] Can you draw the tree for the recursive thing now? Yeah. Now take ant and show
+[1:27:12] me the tree representation for ant using recursion.
+[1:27:22] Now for a for a there are two choices abbreviated
+[1:27:29] not abbreviated. Now likewise do for everything.
+[1:27:39] Draw the tree. Now for that one and a what are the what are the combinations
+[1:27:44] you again have? N is [clears throat] abbreviated or not abbreviated. So under
+[1:27:50] one what will again come one and N. Are you guys get getting that? Under one
+[1:27:57] you'll get one and n and under a what will you again get?
+[1:28:03] Under a what will you again get? Second character what are you taking decision?
+[1:28:09] One. So continue doing that. So under one you will get one which means second
+[1:28:15] character is abbreviated and second character is not abbreviated
+[1:28:20] and under a you'll get again one and n and what will you get here
+[1:28:29] 1 and t and what will you get here 1 and t and
+[1:28:35] what do you get here a1
+[1:28:41] 1 and t and this guy is one and t. Now go and fill that tree from bottom up.
+[1:28:51] What is 111 giving you? Three. What is one t giving you?
+[1:28:57] 2t. And what is the other guy giving you? 1 n1
+[1:29:01] nt a11 which is a2. A1 t a n1 and a nt. This is undoing of the stack
+[1:29:15] in the queue. It was straightforward. We start with the first guy and start
+[1:29:20] building it. Here we go all the way and then backtrack and say, "Oh, I don't
+[1:29:25] want to abbreviate that. What do I get? I don't want to abbreviate the second,
+[1:29:28] but third, what do I get?" All combinations are used. And this is what
+[1:29:32] we end up getting for a three character word, a four character word. Obviously
+[1:29:37] the tree will be much more complex because there will be 16 nodes at the
+[1:29:41] leaf and uh when you have encountered the leaf that means you cannot go and
+[1:29:47] get any more permutations and combinations. All the characters are
+[1:29:52] considered. Is this helping you both approaches? Are you guys clear?
+[1:29:58] Okay, give it a try and in case you are not able to do we'll discuss next week.
+[1:30:05] We will anyway give you the solutions tomorrow. Please go through now that you
+[1:30:08] understood the algorithm. Code is very simple to follow. [snorts] Okay. Both
+[1:30:14] approaches are given for a Greek code recussion and simple iterative and for
+[1:30:22] abbreviation iterative and recursive and campus bike is anyway recursive with
+[1:30:29] backtracking. Here backtracking is not abbreviating it.
+[1:30:34] Yeah. Start all the programs.

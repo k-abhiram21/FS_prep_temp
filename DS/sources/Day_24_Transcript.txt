@@ -1,0 +1,1034 @@
+YouTube transcript
+Video ID: z-2KQCLU378
+Language: en
+Captions: auto-generated
+
+[0:00] Good afternoon.
+[0:03] Any questions?
+[0:08] How many of you finished all the three problems?
+[0:11] Is symmetric, is balanced and average at uh each level? How many finished is
+[0:20] symmetric? Raise your hands, please. Okay. Uh is
+[0:26] balanced. Okay. average at each level
+[0:32] but nobody finished all three. Okay. So what we will uh do now is uh uh
+[0:39] discuss the solution to those three problems and u then look at two
+[0:45] additional problems which are similar. One of them being uh what uh we
+[0:50] discussed already uh instead of finding the average at every level, let's find
+[0:55] the maximum at every level or maybe find the minimum or maybe find the sum. So
+[1:03] they're all similar categories of problems. Uh the basic approach to each
+[1:08] of them does not change. So let's look at the solution to isymmetric
+[1:14] uh problem. Uh this was the first problem we discussed on whatever
+[1:19] Wednesday. Yeah, Wednesday was the last class. A binary tree is considered
+[1:24] symmetric if it is a mirror image of itself. It is symmetric around the root
+[1:30] and obviously symmetric around each of the sub trees which is formed from the
+[1:36] root. Now for it to be symmetric we understood two things. one there has to
+[1:41] be a left and right child or both of them should be missing. So let's now
+[1:47] look at this. The left sub tree is a mirror and the right sub tree is a
+[1:51] mirror. Now we we saw in the last class uh the basic algorithm
+[1:57] one if it is a root there's nothing much you need to do. Search the left of the
+[2:02] root and the right of the root. If they both exist and if they both have
+[2:07] the same value then proceed further. Then a very interesting thing happens in
+[2:13] this scenario which is this guy and this guys.
+[2:23] What did we discuss? The left left and the right right should be equal
+[2:30] and the left right and the right left should be equal. So if I call this as my
+[2:35] left tree,
+[2:40] if I call this as my left sub tree with respect to the root and if I call this
+[2:46] the right sub tree, then we are saying the left left should be equal to right
+[2:50] right. Left left left should be equal to right right and the left right should be
+[2:55] equal to right left. So this is left right and this is right left. Are you
+[3:00] seeing these two values? That means both of them should exist and
+[3:05] if they do exist their content should be the same. And this is what we will keep
+[3:09] doing recursively till either the tree has nothing which is a leaf or at some
+[3:16] point of time they either do not have equal number of nodes or the node values
+[3:21] are not matching. In that scenario we would say it is not a symmetric tree.
+[3:28] Are you guys there? So with this background let's look at the underlying
+[3:32] code. We have discussed this. Many of you have done this. Uh so now this is
+[3:37] basically what we are calling in line 117 is symmetric. Yeah. So look at the
+[3:42] first thing we do there. If the root is null or is symmetric helper whatever it
+[3:48] returns. We don't know what it returns. So let's
+[3:51] see what it returns. Okay. Yeah. Look at the first part. What are
+[3:56] we passing to the symmetric helper function? We are passing the left and
+[4:01] the right. Can you go up sir? Look at that. We are passing to the symmetric
+[4:05] function the left of the root and the right of the root. If the root is null,
+[4:10] there is nothing to do. But if it is not null, invoke it with the left and right.
+[4:16] Make sure both of them are not null. and make sure both of them have the same
+[4:20] content before you can call symmetrically which is left left
+[4:25] matching right right and left right matching right left. So you call this
+[4:30] function twice one the left left of the tree compared with the right right and
+[4:35] the left right compared with the right left. So that is what we will see. Look
+[4:38] at that block of code that is the solution sir.
+[4:42] What are we saying? If left is null or right is null just check
+[4:48] return left is equal to right. If both are null obviously do nothing return
+[4:54] true otherwise return false. Are you getting that scenario? And what are we
+[4:59] doing after that? If the data is not matching then return false. Yeah both
+[5:05] the children exist. Root has a value five the left has a value 10 the right
+[5:09] has a value 20. 10 and 20 don't match. So obviously they're not symmetric.
+[5:14] They're not symmetric data wise, but they're symmetric structurally. So I
+[5:20] wouldn't care about structurally. It has to be both structurally and content
+[5:24] wise. Are you there all of you? Yeah. So is that part of code clear? And if it is
+[5:31] clear, what are we then calling? We are calling the helper function twice. Once
+[5:38] to check with left left is equal to right right. That is the outer guys. And
+[5:44] then the other to check for left right equal to right left. Are you there?
+[5:51] Both have to be true for it to return true. If any one of them fails, it is
+[5:56] basically not symmetric.
+[6:01] Are you clear? So compare this with the uh diagram. Go
+[6:06] to the diagram now. So we start with one. Then we call symmetric helper with
+[6:14] node two which is a left and node two which is a right. They both are not
+[6:20] null. They both have the same value. Then we call symmetric helper with the
+[6:24] left of two which is node three. And then we call the symmetric helper with
+[6:29] the right of two which is again three. Are you seeing that I'm calling with the
+[6:33] node three and node three. Then what am I calling again? symmetric helper with a
+[6:39] left right which is node which has a value four and the symmetric helper with
+[6:43] the right left which has a node value four. Then what do we do after that? We
+[6:48] again call with the left and right. What are both of them?
+[6:52] What is the left left of four? What is the left left of three? Null.
+[6:58] All are null. So if both are null great is anyway symmetric structurally it is
+[7:03] same is null nothing to compare with the value
+[7:07] are you there everybody's clear so that's a very
+[7:13] important point which you have to understand that for it to be symmetric
+[7:17] it has to have the same structure and obviously the same content in that node
+[7:23] which we are considering and that is what a symmetric tree is is a mirror
+[7:29] image of itself. Any questions?
+[7:34] So, how many of you have done using this kind of a logic? This is what we
+[7:38] discussed last class. How many have implemented in a similar manner?
+[7:44] Nobody. One. Nobody else implemented in similar or did you do something
+[7:49] differently? Did you use a recursive function or a
+[7:53] non-recursive? Yes or no guys? Recursive.
+[7:58] non-recursive. So when you said non-recursive, what did
+[8:01] you do? Can you explain sir?
+[8:06] >> Using a Q, sir. >> You're using a Q. Okay, great. Let's
+[8:09] hear from you. So what are you storing in the queue?
+[8:12] >> So first I'm storing the uh left of root and right of root, sir.
+[8:17] >> Okay. So the Q becomes uh two basically using BFS then. Yes sir.
+[8:23] >> Okay. So the Q contains two and two. Okay. Then what do you get? Pop this guy
+[8:31] off. >> Yes.
+[8:32] >> And then to the variable left and to the variable right.
+[8:37] >> Okay. >> No, you pop this guy off.
+[8:39] >> Yes sir. >> And then you add these two.
+[8:42] >> No sir, >> you're not adding. Okay.
+[8:44] >> We are checking whether uh those values are null or we have any value in there.
+[8:50] If the values are null, then we'll continue the loop.
+[8:52] >> Correct. So we have got two elements of the Q which is two and two. They are not
+[8:56] null. They match. Great. After that what are you doing?
+[8:58] >> Uh if a value is null then we'll return false.
+[9:02] >> No I'm not here. They are not null. So what do you do when you get two?
+[9:05] >> So we'll compare the values first. >> Yeah.
+[9:07] >> If they are okay like uh we'll uh we'll add the
+[9:14] right left to left first and right to right first.
+[9:17] >> Okay. So then you are going to add three and three.
+[9:20] >> Yes sir. And then you will get add four and
+[9:24] >> four. >> Four. Okay. So then you're expecting the
+[9:26] Q size to be either two or >> four. If it is three, it is obviously
+[9:32] not >> symmetric. You're doing all those
+[9:34] checks. >> Yes sir.
+[9:35] >> Good. Because he's going to add three and three. So after two and two are
+[9:39] extracted, three and three will get added. Then four and four will get
+[9:42] added. Then next time he will check the Q size. The Q size is either odd, sorry,
+[9:47] the Q size is even. No problem. We will further process it. If the Q size is
+[9:52] odd, do nothing, please. Return not symmetric.
+[9:56] Something is missing. We don't care what it is. Are you there? So what would he
+[10:01] have done? He got two and then two. He compared their values. They match.
+[10:05] Great. Then he added the left left which is three. Then he added the right right
+[10:11] which is three. Then he added the left right four and right left four. Check
+[10:18] the Q size. SQ size is four. Great. Get the first two values. Do they match?
+[10:23] Yes. If they match, then again go further into it. If they don't match,
+[10:28] return false. So this is a very simple BFS approach. What we have seen is a
+[10:34] recursive DFS solution. So most of the tree problems can be solved using both
+[10:40] DFS and BFS. What we saw was a DFS approach. Simple
+[10:47] recursive function calls. What you have here is a BFS approach where you keep
+[10:52] adding to the cube. But when you add to the cube, please make sure you add left
+[10:55] left first and then right right. If you add both left guys left right and the
+[11:00] right guys left right, then it's going to be messy.
+[11:05] Are you all clear? So this is a BFS solution. Wonderful. Good job. Can we
+[11:10] look at the next one? What are the next problem?
+[11:14] Is a tree balanced? Now let's uh look at a diagram.
+[11:19] Again, this is for a quick recap. A tree set to be balanced if the difference if
+[11:28] the absolute difference in their heights of the main and the subsequent sub trees
+[11:35] which you consider has to be not more than one. If it is at any level more
+[11:41] than one, we basically return back with a boolean false. So here you see the
+[11:49] tree is balanced because if you look at the uh height of this node, this is my
+[11:56] uh what what about this left and null minus one minus one. So what is the
+[12:02] height of this node? Zero. I would call this zero. Then what
+[12:07] is the left height here? one. What is the right height here?
+[12:14] It is zero. So what is this height? What is the level here? What is the
+[12:20] level difference? One. What is the level difference? Two. What is the level
+[12:23] difference? Three. Is like three levels. What is the level here? One. What is the
+[12:28] level here? Two. So what is the difference between the
+[12:33] two levels? Maximum of one. Here there are two
+[12:39] levels. Here there are three levels. Now what about this guy?
+[12:44] Level one, level zero, level one, level two,
+[12:49] level three. And what is this level? One.
+[12:53] So if you compare the root, the root has left three levels and the root has right
+[13:01] one level. So obviously it is not a balanced tree.
+[13:08] Are you there?
+[13:24] Okay, great. Yeah, one of you four. Is this tree balanced or unbalanced?
+[13:32] Root, left, right. unbalanced. Tell me in what context is
+[13:38] it unbalanced?
+[13:42] >> The left sub tree is unbalanced. >> Left sub tree is unbalanced. Okay. Let
+[13:46] me write some data numbers for you. 1 2 3 4 5 6 7 9. Tell me where is it
+[13:55] unbalanced?
+[14:00] >> The left sub tree. The the left sub subcept tree is two height longer
+[14:06] >> with respect to two. What is the number of levels here?
+[14:10] >> There are four levels. >> No, with respect to two.
+[14:13] >> Three levels. >> Three levels on the left
+[14:16] >> one. >> And what is the level on the right?
+[14:18] >> Just one. >> One. So obviously this sub tree is
+[14:23] unbalanced. Whereas if you did not have this guy
+[14:28] then it is pretty balanced. Right is three levels, the left is four
+[14:33] levels, no problem. But because we had the right here, then this sub tree is
+[14:40] unbalanced, which means the entire tree would be unbalanced. So when you
+[14:43] consider a tree is balanced or not, we don't just look at with respect to the
+[14:48] root, we look at with respect to every node in that tree because every node
+[14:52] will create a sub tree. Are you all that? This is again where the confusion
+[14:56] was last time. Clear? So now show that interesting
+[15:02] diagram. Yeah. Look at this please. Now if you look at this diagram, this will
+[15:07] help you understand the algorithm which we are going to be applying. Now look at
+[15:11] this data. Look at that node which has a value zero. With respect to zero, what
+[15:17] is the left height and right height? Zero. Because there are no children. Now
+[15:22] with respect to node two, what is the left height? One. Because there is no
+[15:26] right. Now with respect to node 7 what is the left height? Two because there
+[15:31] are two levels below and right height is one. So that sub tree is balanced.
+[15:37] Consider that sub tree of 7201 is balanced because left and right
+[15:41] difference is 2 - 1 1. Now take the right part of the node root the 8 1 3 5
+[15:53] left height and right height are zero. Three is one and zero. One is two and
+[15:58] zero. So obviously what happens now? And if you look at the right part, what
+[16:05] is the left height and right height of right height of that guy?
+[16:09] Zero. Are you there?
+[16:13] So this sub tree 1 3 5 is unbalanced. There are two nodes on the left. There
+[16:19] is nothing on the right. So it's like a root having two children on the left.
+[16:23] Nothing on the right. So the levels on the left are two, the level on the right
+[16:26] is zero. So unbalanced. So the sub tree itself is unbalanced.
+[16:31] But with respect to the root, it is balanced.
+[16:35] So do not just look at the root. You have to look at every node. Does it have
+[16:39] children? If it has children, how many levels of children does it have on the
+[16:43] left? How many does it have on the right? At every node, it has to be done.
+[16:50] Are you guys clear? Why it is unbalanced? Because of that 1,
+[16:55] three and five. Again, it is unbalanced because of eight. Eight has three
+[16:59] children on the left, one on the right. Again, that is unbalanced. Similarly, uh
+[17:04] yeah, that is about it. With root, no problem because left are three, right?
+[17:09] Are 1 2 3 4. No problem. One difference.
+[17:17] Are you all clear? Everybody's clear. Yeah.
+[17:22] Okay sir. Now with this background can we look at the code?
+[17:28] Again a simple DFS implementation
+[17:33] recursive implementation. Show the code please. So again the tree creation is
+[17:38] all done. We are given the root. We are calling a method is balanced with the
+[17:43] root which returns a boolean true if everything is good otherwise false.
+[17:47] Yeah. Yeah. Continue.
+[17:51] Now the first thing we check is if the root
+[17:55] is null our root data is minus1 minus1 is what we are accommodating you know
+[18:00] every time we want to represent null we are giving minus one so if that is the
+[18:05] case then I return true yeah there's nothing no need nothing nothing to
+[18:09] complain about okay otherwise what are we calling a helper function and then uh
+[18:16] let's see what the helper does we'll look at that not equal to minus one
+[18:20] Okay, look at the helper closely. Now, let's take an example and go
+[18:26] through the helper. Sir, a simple example. Uh, no, I want to scribble
+[18:32] there. Can you show more of the helper?
+[18:37] Scroll down, sir. Show them. Show me the code. Now, look at the helper. Helper
+[18:43] uh we are calling with the right and helper we are calling with the left. So,
+[18:46] go up, sir. helper with the left and helper with the right. So we are
+[18:50] basically going depth first left left and then we would go right. So with this
+[18:56] background can we have a simple example five 3
+[19:02] 2 uh 5 3 has four and four has one. This
+[19:08] is the representation. So what are we calling first with helper
+[19:14] with three root left and then we call helper with two. Are you guys there?
+[19:19] Helper with three and helper with two root left and root right. Is everybody
+[19:24] clear? Is everybody clear? Now what is a helper
+[19:28] of three calling? Helper of four and helper of
+[19:36] minus one because the the right is null. What is the helper of four calling?
+[19:42] Helper of one and helper of minus one. What is the helper of one calling with?
+[19:49] Helper of minus one. Are you there? So when helper of minus1 is called, what
+[19:54] are we returning? Zero. So what is returned back to helper
+[19:58] of one? Zero. Are you all there? Recursive
+[20:02] calls. I'm just writing down. Can you close the door, please?
+[20:06] Yeah. Are you all there?
+[20:10] Then when helper of one gets what is the value it what is the level you see there
+[20:15] zero because if you look at one there is no children. No but when you go back to
+[20:20] four what will you see? Just scroll down. Scroll down sir.
+[20:30] Scroll down. We are returning math dot max left,
+[20:38] right + one. So with respect to one, what was the left level? Zero. What was
+[20:44] the right level? Zero. So I returned zero back.
+[20:49] I returned zero back. But then finally 0 + one. When the control went back to the
+[20:55] parent, what was the value it got? Are you seeing that? + one.
+[21:01] When we called it with one, we were return when it was minus one, I was
+[21:05] returning zero. So when the control was zero, what were we returning back to the
+[21:09] parent? What did we return back to the parent?
+[21:14] Max of left, right + one. Are you there?
+[21:22] Did it have any right? Did uh four have one have any right?
+[21:30] Does four have any right?
+[21:34] >> So do you understand when it is one what are we getting back? Zero. Left is zero.
+[21:39] What about the right now? Right of what will the right of one be?
+[21:48] Minus one is zero. Okay. Go back to the rest of the code now.
+[21:54] Okay. Scroll down. If left is minus one, I'm returning some error. Okay, if right
+[21:59] is minus1, I'm returning error. Otherwise, scroll down.
+[22:03] If left is equal to minus1 and right is equal to minus1 and the absolute
+[22:07] difference is greater than one, then we return minus one. It doesn't go to any
+[22:11] of them right now. Then what what are we returning back in our case?
+[22:17] What is zero? What is that node one returning back to the parent?
+[22:28] Sir, who called four? Uh, who called uh helper of one?
+[22:34] >> Helper of four. So when the control returns back to four, what is the value
+[22:38] you're giving back? >> One because left was zero, right was
+[22:42] zero. So what do we finally return? Max of left comm, right + one. So with
+[22:48] respect to four I am saying the height is one which is the level. Okay. Now
+[22:58] which level is it? Right level or left level?
+[23:02] >> When you get one here, what is this referring to? Left height or right
+[23:06] height? Why left height? Because we are calling it with left
+[23:14] here. Okay. Five of three. Five of three. Five of three is calling three of
+[23:20] four. Three of four is calling one. This is all left. We have not gone to the
+[23:23] right yet. So this is the left height with respect to four is 1. Left height
+[23:29] is equal to one.
+[23:35] Are you there? >> With respect to four, the left height is
+[23:39] one. What about the right height? Now
+[23:44] what about the right height?
+[23:48] And then
+[23:52] so what will it be? How will it be two sir?
+[23:58] >> How will it be two? Tell me. >> No, with respect to four. What is the
+[24:04] right height?
+[24:08] >> I'm not talking about zero sir. With respect to four. Where is zero here? We
+[24:12] don't have node zero here. Five.
+[24:16] No, no. 5 3 4 1 I'm talking about node values here. Do you understand? With
+[24:22] respect to four, the left height is one. No. Are you clear or not clear? Okay.
+[24:28] What about the right height now?
+[24:32] >> After the left height, what is that? We are calling right. So, what is the right
+[24:37] value going to be? >> Null. If it is null, what are you
+[24:41] returning? So, go to the code.
+[24:47] If it is null or minus one, what am I returning?
+[24:51] Zero. Okay, scroll down. Okay,
+[24:58] then uh what what hap what do we return back in this case?
+[25:07] What do we return back in this case?
+[25:15] Huh? >> Y zero
+[25:21] >> is a null value. But look at the code now.
+[25:27] >> Five 4 3
+[25:32] 2 and then here is one and this we know is totally unbalanced.
+[25:39] Can you run this with this data only? Now to create this tree we have to give
+[25:44] lot of data
+[26:00] 5 4 and one and then go down. Show the tree. Show
+[26:05] the tree. Yeah. So this would be uh -1 -1
+[26:14] -1 uh -1 and then minus one right. So give
+[26:19] the data.
+[26:33] Show that pre again.
+[26:39] Huh? >> Two.
+[26:44] >> Yeah. Two again. Minus one. Minus one. >> That's okay. Just give two.
+[26:51] >> Yeah, you have to give those lines.
+[27:03] No, no, you can't give minus one there, sir. That is at above level before two.
+[27:10] Correct. Correct.
+[27:16] No need to give. No, no need to give after two.
+[27:27] >> Yeah.
+[27:31] >> Data five, data 4, data 3, data 2. What is the left of two? Zero.
+[27:38] And what is the right of two? Zero. Because that is a leaf. But when we go
+[27:44] back to the parent, what is the left? >> One. And what is the right?
+[27:49] >> Zero. And uh if you go to four, what is the left?
+[27:55] >> Two. What is the right? Look at the tree.
+[28:01] With respect to this, this was one. This is two. The left is two. The right is
+[28:07] equal to zero. So it is saying unbalanced at this point. I don't even
+[28:10] need to look at the right of the root. Are you guys getting it? Go to the
+[28:15] output sir. See this. At two the left and right are
+[28:20] zero. At three the left is one, right is zero. At four the left is two and the
+[28:25] right is zero. So it is basically unbalanced.
+[28:31] There's no point looking at right branch of the tree. If one of the sub trees of
+[28:36] the left itself is unbalanced because the way the DFS works
+[28:41] is I'm traversing the left and then I'm looking into the right and if the left
+[28:47] is unbalanced no point even going into the right of five whatever that right of
+[28:52] five is. Okay. So go back to the code again. Now
+[28:56] let's look at and explain to them. Go up sir.
+[29:01] So we called it with the root. If the root is null, we error out with a true.
+[29:06] If the root is not null, we are saying uh whatever. Okay, we are calling the
+[29:12] left of the help. Uh we are calling the helper with the left of the root. So
+[29:17] diagram
+[29:21] the root was five. So I'm calling the helper with four. And then I'm calling
+[29:25] the helper with one. Helper of four is calling helper of three and helper of
+[29:33] null because the right is null. Helper of three is calling helper of two and
+[29:39] helper of two will call this. So it is like this
+[29:44] helper five calls helper four helper one.
+[29:50] Okay. Helper. Helper four calls helper three. Helper
+[29:56] with null. Helper three calls helper two. Helper of null. And helper two
+[30:03] calls helper of null. Helper of null. Both are null. When both are null, what
+[30:09] are what are we returning? What are we returning? Zero.
+[30:16] Are you there? And then when you call the helper with null, what does that guy
+[30:20] also return? Helper of null. Helper of null both
+[30:25] return zero. If both return zero, sir, can you go back to the code?
+[30:31] See if the root is null or root dot data is minus one. I'm returning zero.
+[30:35] Returning zero to whom? Returning back to the previous caller.
+[30:42] Debug message. Wherever I scribbling. Yeah. So when this guy is called, what
+[30:49] does this helper of null get back? Zero. What will the helper of two get?
+[30:58] Max of 0 + >> one.
+[31:04] And what will the helper of three get? >> Max of 1 + 1. So we are basically going
+[31:14] in the reverse direction. and computing how many levels we are
+[31:21] how many levels there are which is what the value 2 three is. So it's giving you
+[31:26] left value and the right value and the absolute difference. Go back
+[31:33] code scroll down.
+[31:37] If left is minus one which is true when there's a child which is leaf right is
+[31:43] minus one and if the difference between left and right is greater than one we
+[31:47] are saying unbalanced and printing the data. So at that node diagram
+[31:53] our diagram sir can you close some windows. At this node it is unbalanced
+[31:58] because the difference of the left and right height is more than one.
+[32:06] Are you there? The difference of the left height and
+[32:10] right height is more than one at that node four. Till that point it is okay.
+[32:15] Below that was zero or one but above that is two on the left and one on
+[32:20] nothing on the right. So the difference is more than one. That is what that
+[32:24] condition is. Diagram I'm sorry code. Very interesting piece of code. Line 99.
+[32:31] If the absolute difference of the left with respect to any node which we are
+[32:35] processing is more than one left and right we return unbalanced.
+[32:48] Another way of doing it at every node calculate what the depth is
+[32:53] left depth and right depth and then find the difference between both the depths
+[32:59] which is what this guy is also doing. It is unwinding of the stack and returning
+[33:03] a value one more to its parent because we are one parent above now. So when I
+[33:10] go to the root the depth would be one more because root called five called
+[33:14] four four called three three called two. So with respect to two height is zero.
+[33:18] With respect to three height is one. With respect to four height is two. With
+[33:22] respect to five height is three. Reverse.
+[33:29] Are you there? So we say it is unbalanced when at any
+[33:34] node. Please do not just look at the root at every node of the tree. It's
+[33:39] left and right children. If their heights are not matching, return false
+[33:43] immediately. No point going further into the diagram.
+[33:52] Okay. Now give a simple binary tree. 1 2 3 4 5 6 7. Seven values.
+[33:59] Yes. Totally balanced. 1 2 3 4 5 6 7. So at level 0 will be 1. Level one will be
+[34:05] 2 and 3. At level two will be 3 4 5 6. Now sir run.
+[34:12] So if I were to draw, can I draw here? So the tree is
+[34:17] the tree is uh 1 2 3
+[34:24] 4 5 6 and 7. So helper of one is calling helper of two and helper of three.
+[34:34] Helper of two is calling helper of four and helper of
+[34:39] >> five. Helper of four is calling helper of null. helper of null. So look at that
+[34:45] left and right are zero. With respect to five, left and right are
+[34:50] zero. But with respect to two, when the left is zero and the right is zero, what
+[34:56] is the max? 0 + one. So it is one. Okay. Then with respect to three. So we are
+[35:04] done with the helper of two. The left is all done. Now we look at the helper of
+[35:08] three. Helper of three is calling helper of six and helper of seven. Helper of
+[35:14] six is calling with null and null. So the helper of six is zero. High level
+[35:20] helper of seven is zero. But with respect to three, it is one and one.
+[35:23] Left is one, right is one. Now with respect to one, what is the left two?
+[35:28] Right two? Are you getting that? When this is one, what does it return back?
+[35:33] What does it return back? Yes.
+[35:36] >> Max of left comma right + one. So with respect to one, what is the left height
+[35:43] and right height? >> Two.
+[35:48] And is that unbalanced? No. Because the difference is anyway less than one are
+[35:53] equal to one. In our case, it is zero. Are you seeing how the recursive calls
+[35:58] are made? First branch to the left, its left and
+[36:03] then the right. then roots right only after the entire roots left is over. So
+[36:08] the entire left side of the tree is processed first and then only we go to
+[36:11] the right side. Again when I say left side I'm not just looking at the left
+[36:15] node at every node. First the left then the right the parent left right parent
+[36:19] left right parent all the way up to the root before we go to the right. It is
+[36:24] all the left part which is done. DFS is what that is. If it was BFS I would look
+[36:30] at the left right put that in the queue. Then it's left right left right which is
+[36:34] what we have seen earlier.
+[36:39] Are you there? Great. Now the third problem.
+[36:44] Uh third problem was
+[36:49] average of levels. I'm going to mix third problem and fourth problem because
+[36:54] the solutions are 99% same. In one case we are finding the average. In the other
+[37:00] case we are finding the maximum. In third case you might find the minimum.
+[37:05] In the fourth case you might find the summation. Okay. So show the fourth
+[37:09] problem before we discuss third and fourth together.
+[37:13] Now that is third problem. Yeah this is the third problem. Given a tree, you
+[37:19] need to print the average at every level. And the output of this would
+[37:23] basically be uh three uh 14 and a half and uh 20 11 22 11 average at every
+[37:34] level. Guys, are you there? 3 14 and 11. Scroll down. Now the average of this
+[37:41] would be 3 uh 14. Oh, same thing. Huh? again you're showing the same diagram or
+[37:47] different way. Okay, fine.
+[37:54] No, that is fine. Show the problem above.
+[37:59] No. Find the largest value in each tree. Are you seeing the difference, guys? One
+[38:04] was the average, one is the largest. Now, what do you see in this largest?
+[38:09] Level one is three. uh one uh level uh 2 32 is three and in the third level it is
+[38:17] 9. So the answer is 1 3 and 9.
+[38:23] Both the problems are same. One more problem I can give find the minimum. If
+[38:27] it is minimum the output would be 1 2 and three. If I say find the sum at
+[38:32] every level the output would be 1 5 and 17. Absolutely no difference in the way
+[38:40] we solve whether it is a DFS or a BFS. What we do after the data is retrieved
+[38:46] is what is difference. Do I sum them up? Do I just get the smallest? Do I get the
+[38:52] average or do I get the maximum? Can we look at all the problems as one now?
+[38:59] Yes. Okay sir. uh we will look at the BFS solution and then they will tell me
+[39:05] how to do the DFS for this. Let's take the average.
+[39:29] Now a simple uh BFS solution is what uh we have seen other day and what some of
+[39:35] you told me today. We take the root add to the Q
+[39:40] and then we get the values from the Q till the Q is empty. So we take five add
+[39:45] to the Q
+[39:50] while Q not empty extract but before that get the size. Size is one. So
+[39:57] extract one element. So that is the average in level zero.
+[40:02] Does it have both left and right children? Yes. So add seven and nine.
+[40:09] Get the size of the cube.
+[40:13] Extract two elements and find that average which is
+[40:19] eight. Does the seven have left and right? No. Seven has only left.
+[40:26] I've got seven. I'm adding one to it. I've got nine. I'm adding three to it.
+[40:34] What is the size of the Q now? Two. So get two elements. Find out what the sum
+[40:40] is. Divide by two to get the average two.
+[40:44] So we get the size of the Q to know how many elements are there at that level.
+[40:50] So that we extract only those many for doing the computation. The computation
+[40:54] could be for maximum, for minimum, for average or for summation because if I
+[41:00] don't know the size, there is more data being added by the children. So I don't
+[41:05] want that to be processed. I want only the prior level data to be processed
+[41:09] which is what the size is so critical here.
+[41:14] Have you got it?
+[41:19] Have you got this? Why is size important? If size is not known then
+[41:23] I'll add five. I've added seven and nine. Then seven is one I will add. N's
+[41:27] three I will add. Then how many are you going to get? Should I get two? Should I
+[41:32] get four? Should I get eight? Depending on what level I am. So the size will
+[41:36] tell me at this level there are three elements or four elements or n elements.
+[41:40] So get those for average computation, max computation, min computation,
+[41:45] summation.
+[41:48] Are you there guys?
+[41:53] Is everybody clear why size is important and why only those many elements have to
+[41:59] be used for average at that level? Okay, if you're clear, let's see the code.
+[42:05] This is a BFS solution. The result which is of type double
+[42:11] because average is a floatingoint number.
+[42:14] uh then I'm adding to the Q the root while it is not empty I get the size of
+[42:20] it when I add the root the size is one are you saying sum is equal to zero and
+[42:26] look at that for loop in the for loop I get those many
+[42:31] elements which are based on the size are you getting that line 78
+[42:36] and then I check I get the summation and then I check oh is the left null
+[42:44] And is the right left data minus one? No, none of them. Then what am I adding
+[42:49] to the Q? The left of the root. If the right is not null, I add the
+[42:55] right to the look at that logic. While Q not empty,
+[43:01] if I did not check for the size, I will keep processing all the elements and I
+[43:06] would have no clue which is what which is at what level.
+[43:11] That is why that inner for loop is critical 76 to 84.
+[43:17] So the for loop tells me how many elements are there at that level. Get
+[43:21] their value, sum it up and divide by n. 85 is the average.
+[43:29] Clear or no? Are you all clear?
+[43:33] Now how will you get the maximum? If I solve this problem for maximum, what
+[43:38] would change in this code?
+[43:44] max min if I were to do the summation what will you remove line 85 you'll just
+[43:51] say add sum right now min and max how would you do it take max
+[43:57] >> uh basically in max we'll take max as the minimum number inte
+[44:02] >> integer dot min value >> yeah and when uh when there is a value
+[44:05] occurring we'll check if the value is greater than maximum
+[44:09] >> okay >> if it's greater than maximum then we'll
+[44:11] update it. This will happen inside the for loop and after exe exiting the for
+[44:15] loop we'll just add it into our list. >> So you'll just say result dot add max
+[44:20] value >> max value
+[44:20] >> that's it and min value will be you'll declare a
+[44:24] variable integer dom max value as min and then compute is that value smaller
+[44:29] than the previous min. Yes. So update the min is there anything smaller than
+[44:34] that update it otherwise min will remain what it is. So all the programs which
+[44:39] I'm talking about for are identical in code except after the data is extracted
+[44:45] from the queue the get the size of the queue that is same same iterate through
+[44:50] all the elements based on the size that will also remain same after the values
+[44:54] are extracted is it min max average sum which is what is going to make a
+[44:58] difference in the logic but the way we write to the queue and
+[45:03] the way we extract and the way we figure out the number of elements based on the
+[45:07] Q size is not going to change. Is everybody clear? Now this is a simple
+[45:14] BFS solution. Now how would you solve this using DFS? This is the queue. Now
+[45:20] how would we do it using a stack? Okay. Can you run some sample data?
+[45:25] Let's say 1 2 3 4 5 6 7 run for both average and
+[45:32] max.
+[45:48] level is 2 and three. Average is two and a half. The level below that is 4 5 6 7.
+[45:54] >> Now run this maximum problem with the same sir. See num elements one num
+[45:59] elements two and what is the maximum? 1 three and
+[46:02] >> seven. If I were to run the modify this program
+[46:06] to min there'll be one or two lines of code change instead of max function min
+[46:10] function. Rest of the code doesn't change.
+[46:14] Okay. Now can one of you tell me how to solve this using DFS.
+[46:20] All such problems are very easy to solve using BFS because the problem statement
+[46:25] itself tells you level order. So whenever you read something like level
+[46:29] order average, level order min, level order max, the first clue should should
+[46:34] be go for BFS because everything is given to you in a platter. All the level
+[46:39] level data is there. Now DFS becomes more complex. I want you to tell me how
+[46:44] to solve this using DFS.
+[46:49] So it's your turn sir because I gave a DFS solution. You gave a BFS. Now I'm
+[46:54] giving you a BFS solution. Can you give me a DFS? Okay. Is like butter system.
+[46:59] Huh? Yeah. Do you understand the complexity
+[47:03] involved now? BFS is simple because the problem itself
+[47:09] at level order. So the first instinct is BFS.
+[47:14] What is the challenge if it is a DFS?
+[47:30] What was very easy when it was BFS level zero,
+[47:35] level one, level two, the queue contained level
+[47:39] zero data, level one data, level two data. Absolutely no problem in the right
+[47:44] order. I could process without any concern.
+[47:50] Now once you change it to DFS what does it mean? Left and then right or maybe
+[47:57] right and left depending on your choice. Okay. So you go from one to two from two
+[48:03] to four from two to five and then you would
+[48:09] go again back to three >> and from three to six and three to
+[48:14] >> seven. So are you not going jumping levels? You go to level zero, then level
+[48:19] one, then go to two, then go back to uh one, then go to two for five, then go to
+[48:26] zero, then go to one for three, from three again, you go to two level, from
+[48:31] two level, you go to one level, from one, you go to the two level, right? Are
+[48:34] you not doing all of that?
+[48:38] >> Yeah. What do you think you need to do additionally?
+[48:43] >> Huh?
+[48:48] depth you have to mention. Very nice. It is not enough just to know what the
+[48:53] value is. You have to say the value is at what level. So there is additional
+[49:00] information which you need to supply. It is like saying 1 0 2 1 3 1 42 52 6272.
+[49:12] So when I keep adding to the stack, which is what a DFS is, I am not just
+[49:17] adding the value two. I'm saying it is a level one. I'm not just adding four, I'm
+[49:22] saying it is a level two. Are you guys getting this? So can we
+[49:27] look at how the stack here looks like? We saw the Q. The Q was one. The next
+[49:32] two elements were two and three. Then the last four elements were 4, 5, 6, 7.
+[49:35] Are you all clear on the que? How will the stack look like?
+[49:40] Yeah, sir. Erase the Q part. Keep the diagram there. Erase the Q. How will the
+[49:45] stack look like?
+[49:53] How will the stack look like? What am I going to add to the stack? In a typical
+[49:57] DFS, we use a stack. Like we said, Q root value. What will the stack now
+[50:03] contain?
+[50:07] Just the root value or the level also? I will store in the stack the root value
+[50:13] and the level. What is the root value?
+[50:19] The root value is one and the level is zero.
+[50:24] We pop this element from the stack. This is my result array.
+[50:32] Okay, this is my result array. What am I what am I having in the stack when I
+[50:37] remove the value and level? What is the level? Zero. What is
+[50:43] the value one? Does the result contain anything at zero?
+[50:49] No. So, what am I going to add to it?
+[50:54] Are you seeing that? I'm going to add the value one to it. After that, what
+[50:58] will I add to the stack? >> What do I want to process first? Left or
+[51:03] right? Left. Which means I will add right first and then left on the top of
+[51:08] it. You know stack is last in first out. So what will I add to the stack now?
+[51:12] Come on tell me guys. I will add three
+[51:18] 3 1 and 2 1 because I want left to be processed first. I will add two top and
+[51:28] the right bottom. What is that I'm getting from the stack now?
+[51:33] What is it that I'm getting from this stack?
+[51:37] Two and one. Does the result have any value at index
+[51:43] one? Index zero. Index one. Index two. Does
+[51:48] it have any value at index one? What will I add to it? Now two.
+[51:57] Now the big challenge is if you add two next time how will you add three
+[52:04] and even if you add three how does it know that five is not sum of two plus
+[52:08] three and five is a single value one I mean five is a single one value
+[52:13] how will you calculate the average if we didn't know how many elements are
+[52:20] >> so what do you guys think you need to do now additionally are you seeing the
+[52:23] challenge >> what do you need to now store
+[52:26] additionally
+[52:32] Yes sir. Count. What type of variable will that
+[52:36] be? >> It will be a static variable.
+[52:42] So that at when you added two the count is one. When you add three, the count
+[52:47] becomes two. And what is that you're adding in that result? 2 + 3 5. So count
+[52:55] is two. So you divide by two. You know there should be a static variable. See
+[52:58] I'm trying to tell you not the solution first. Trying to take you through the
+[53:02] problem with what is missing and how to add that to it.
+[53:06] So there will have to be one more static variable. Okay. Now the interviewer says
+[53:11] no I don't want a static variable. Can we do it in any other way?
+[53:20] To what? So you're going to send that as a
+[53:25] parameter in addition to the value the level you will also say what uh how many
+[53:30] at that level appeared but how will you know how many at that level appeared
+[53:35] unless you keep a count of it somewhere.
+[53:39] Now I will say no static variables. How can we solve this now?
+[53:46] >> How do we solve this without a static variable?
+[53:53] uh when we find the second element we can do the average when we are finding
+[53:57] the third but how do you know second and third that's what I'm saying it's track
+[54:02] I'm just getting the value and level value and level
+[54:05] >> value when we are finding the new one and if it is already present we are
+[54:09] doing average >> okay third time how will you do
+[54:12] >> third time since it is already average >> how do you know is average or single
+[54:18] >> you get what I'm saying first time it is zero You know it is second time you know
+[54:22] there was I can but third time there is a value is it value because of two
+[54:26] elements average is it value because of 10 elements average or is it a value
+[54:30] because of the first element >> sir we can use a array or a map to
+[54:35] >> tell me more tell me more >> we are basically we are going to
+[54:39] increase uh number in that array of an index
+[54:44] >> so this is my result >> array list
+[54:46] >> we have to put another array list basically denotes uh levels how many
+[54:51] levels there are. >> So what you can do is instead of storing
+[54:54] the value here you will now make each of them point to another array list.
+[54:59] >> Ah yes >> which will contain the value this will
+[55:02] contain 2 three this will contain 4 5 6 7
+[55:06] >> yes >> very good. So what you will do is you'll
+[55:09] create an array list and each index of that will again be a array list. So
+[55:15] whenever you get an element at that level one, go to index one, add to that.
+[55:21] Whenever you find an element at index two, go to that index two.
+[55:25] >> That array list dot add. So dump all of the elements in the array list. After
+[55:29] that, just find out what is the size of the array list. Get all their values and
+[55:33] divide by the size. Are you guys there?
+[55:40] DFS is much more complex in this scenario.
+[55:44] The reason being it is level order processing not like a traversal of a
+[55:49] tree where it doesn't matter left right center you know I don't care here it is
+[55:54] level so somewhere we have to maintain with every value the level information
+[56:01] in a queue everything was adjacent to each other we could get it not in a uh
+[56:06] stack because unless you finish complete two you'll not even go to three after
+[56:12] after that you'll add five and four process five process four and then
+[56:16] you'll go to three which is the right side three is at level one but before
+[56:19] that you went to four and five which is at level two you're again going back to
+[56:22] level one guys are you getting the concept are you
+[56:28] all clear
+[56:32] or not clear please clear shall we look at that code on how it is done using
+[56:37] stacks okay I will show you the maximum because
+[56:44] in a maximum there's only one value. So every time I get a value at the level
+[56:47] I'll compare with ar list and replace it you know I'm taking the easy approach if
+[56:53] is average then you'll have to store into an array list. Okay sir, can you
+[56:58] show us the maximum code using stacks DFS?
+[57:03] The reason why we are covering both is in the interview they can ask you to
+[57:08] implement in either of the approaches. You can't just say I'll do only using a
+[57:13] Q or I will do only using a stack. You should be able to figure out how to do
+[57:17] both using both BFS and DFS. Every tree problem can be solved using both BFS and
+[57:24] DFS is in some problems DFS is better in some other problems BFS is better and
+[57:30] obviously in this levels max min BFS is the way to go but I'm introducing you
+[57:36] the DFS approach so that you know there is so much more work which you have to
+[57:40] do as a developer can you take us to that code please
+[57:45] okay we are calling the largest value show that code largest value.
+[57:51] Is it using stack sir?
+[57:57] Guys, guys look at the uh line 39. Please all of you focus on line
+[58:04] 39. We have created our own class called a stack node. Can we see what is there
+[58:11] in the stack node please? Sir, the class sir. Yeah. Look at the
+[58:16] stack node class. It contains
+[58:21] node which is the tree node and then we are also having
+[58:27] level. Are you there? Is that clear to everybody?
+[58:34] Are you clear on this? Please I want you to understand this stack node.
+[58:38] How many are not clear with the stack node? The stack node contains not just
+[58:42] the value which is a node but also tells you what is that level we are looking at
+[58:48] because all nodes at that level their summation should be done their max
+[58:54] should be found their min. So the level is important. Okay. Now what is the
+[59:00] first thing we have added to the root stack?
+[59:04] Look at that line 40 42. What is the first thing we added
+[59:08] to the stack? A stack node with which value?
+[59:13] >> Which value? The root at what level? >> Zero. Is that code clear?
+[59:19] >> Now while not empty same like Q. While stack is not empty, I'm getting the top
+[59:25] of the stack which is temp and I'm getting from that the node and I'm also
+[59:31] getting the level. Is that code clear?
+[59:38] Code clear. Great. What is done after that? If the level is equal to result
+[59:42] dot size, what is the result? Result array. What is the size of it? Initially
+[59:46] empty. So what is what will the size be? Zero. What is the root level? Zero. That
+[59:52] means nothing got added. So I'm adding to it.
+[59:57] Are you guys there? If not, scroll down. If not, what are we doing? If there's
+[1:00:05] already an element at level one, what I'm doing is I'm checking does the
+[1:00:10] previous value exist? Yes. Is a new value larger? Yes. Update that with a
+[1:00:17] larger value.
+[1:00:21] Is that code clear? If it is already existing, does this happen for the root?
+[1:00:26] No. So root got added. After that, what is done? If the right of the root is not
+[1:00:32] null and if the right is not equal to minus one add the right to the stack you
+[1:00:37] know with respect to the one with the respect to root what is the left two
+[1:00:42] what is the right three so three got added if so we are adding right first
+[1:00:45] and then left because we want left to be processed stop if you want right to be
+[1:00:49] processed first then add left and right doesn't matter okay in yeah
+[1:00:54] >> so why you have to use stack so we can >> I'm just explaining to you DFS approach
+[1:00:58] sir >> sir I mean we You can use a map too sir
+[1:01:01] for >> can you can but because I am talking
+[1:01:05] about the DFS which is simply recussion I'm using a stack because recussion
+[1:01:09] anyway use a stack >> and even if you use a map map is what
+[1:01:14] what how are you approaching map recursively which is DFS or BFS what is
+[1:01:20] your approach >> DFS approach
+[1:01:22] >> DFS approach DFS approach means what either recursive function call or a
+[1:01:26] stack so I'm showing you a simple stack to help you understand
+[1:01:29] >> I mean In stack we will create more number of stack nodes. No sir.
+[1:01:33] >> Okay. >> But in if we use a map for each level
+[1:01:36] for each level >> if you use a map for each level it's
+[1:01:39] like the uh average problem where you know the level and the values
+[1:01:45] >> which is exactly what we did know list index is like the map key and the values
+[1:01:50] is an array list. >> Yes.
+[1:01:52] >> Same thing. No >> that will be useful for average. But
+[1:01:56] here I don't need I'm going to store only one value which is the maximum
+[1:01:59] value. So I don't need additional storage just the uh array list is
+[1:02:06] enough. No are you getting there? How many are not clear with this code?
+[1:02:15] Are you all clear? So after the root is processed what got added to the stack?
+[1:02:20] The right. Scroll down. And then I'm adding the left.
+[1:02:24] Okay. Then when I add the right and left uh sir diagram.
+[1:02:32] So this is how we added the right and left. Then we get from the stack 21.
+[1:02:39] Again we say while not empty I got the value 21 level is one. The node is two.
+[1:02:44] What is the result size? How many elements are there in the result size?
+[1:02:51] How many elements are there in the result array?
+[1:02:57] Focus here. How many one element the root value? What is the level we are at?
+[1:03:04] >> One, sir. 21. No. And if it is one, what does it mean? Add that index. There is
+[1:03:11] no value. So I'm adding it. So I'm adding two to it. Next time when
+[1:03:16] you get 31, what are you doing? Scroll down.
+[1:03:20] We are updating that index with three because three is larger than two.
+[1:03:26] Maybe at level next level four 5 6 7 I will add four then I'll get five. Update
+[1:03:33] four with five. I'll get six update six with five and update uh six with seven.
+[1:03:38] So finally seven will be there.
+[1:03:44] Are you there? I know this is a more crazy approach because you're having to
+[1:03:51] do a lot of additional things because you're going depth first. So the reason
+[1:03:55] why you need to know is if there is a requirement that no BFS is not the way
+[1:04:00] please solve using DFS. You should know how to solve problems. But in hacker
+[1:04:06] rank and all better approaches BFS simple Q is faster.
+[1:04:15] How many are not clear?
+[1:04:19] So this is using stacks, not a recursive call. Recursive call is anyway
+[1:04:24] internally going to use a stack. But here I'm just showing you how the stack
+[1:04:27] gets added, how elements get added, how elements get removed, how the result set
+[1:04:32] is built, and how the result set is getting updated after a new element is
+[1:04:36] found which is maximum. Can we continue?
+[1:04:41] Any questions? Any questions?
+[1:04:48] Go through the code. If you have any questions, let me know. Just show the
+[1:04:50] code again from the beginning. We add the root to the stack which is line 39.
+[1:04:55] Stop. So don't keep changing line numbers. Line 39. While not empty, we
+[1:05:00] get the value. We check if there's an element in the result set. No. Uh in the
+[1:05:05] result, no. Then add that level zero to it.
+[1:05:09] And then scroll down. Then push the right onto the stack if the right node
+[1:05:14] exists down. Push the left onto the stack if the left node exists. So that
+[1:05:20] right is added first left after. So we start processing from the left of the
+[1:05:25] root. So left of the root is processed.
+[1:05:30] Do you have any debug messages in this? Yeah.
+[1:05:36] Why don't you just run that?
+[1:05:43] Because I'm going to show you another problem which is the fifth problem and
+[1:05:46] you'll have to solve using both DFS and BFS
+[1:05:52] both Q's and stacks.
+[1:05:58] Say what is at level zero? No. Which one is it sir? Max value in each level.
+[1:06:04] Okay. So level one result is 12. Level two result is 124.
+[1:06:09] And level two result is 125. How did why did you get that 124? One is the root.
+[1:06:16] Two is a child. And then after that the two gets replaced with three. When you
+[1:06:21] get the right guy, >> four initially got added. Then you got
+[1:06:25] five. Five. Four. Four was replaced by five. Five got replaced by six. Six got
+[1:06:32] replaced by seven. So the the three elements are 1, three and seven. Which
+[1:06:36] is the answer? Every time you get the value from the
+[1:06:40] stack, check the level. Is there an element at that level? Yes. Is that
+[1:06:44] element larger? Keep it smaller. Update with a new one.
+[1:06:55] Are you all clear? So run the test case with 132
+[1:07:00] 132 74
+[1:07:04] 74 85 32 7485
+[1:07:10] Stop. What will it look like? Now
+[1:07:18] look at the stop messages and tell me what will those messages look like?
+[1:07:22] >> Level zero will be >> one. What about level one?
+[1:07:27] >> One, three. After that, next one. >> One, three. Because two is lesser than
+[1:07:33] three. Great. So, 1 three. Then after that,
+[1:07:38] >> 1 3 7. Then four. Is it lesser than seven?
+[1:07:42] >> Yes. >> Yes. So, nothing gets changed. So, 1 3
+[1:07:45] 7. Then what happens after that? >> Eight will replace seven because 8 is
+[1:07:50] larger than seven at that index. So 138 again it's comparing 8 with
+[1:07:56] five no change run sir 137 137 137 and then finally 138 and
+[1:08:06] 138. So every time you find a new value at that index which is the level we go
+[1:08:10] and update it because it is maximum problem.
+[1:08:16] Okay. Shall we move on and look at one more very interesting problem on binary
+[1:08:22] trees? Okay. Yeah. When you solve here, you can
+[1:08:27] solve using BFS or DFS, whatever you feel comfortable now that you know how
+[1:08:32] to solve using both the approaches. Okay. Sir, the last problem uh you're
+[1:08:38] given a tree and you're standing on the right side.
+[1:08:43] You need to print how the tree looks like from the right.
+[1:08:48] which means you are checking all the right nodes. If the right node doesn't
+[1:08:54] exist, what is visible to you is a left node.
+[1:08:58] So this is the answer down. One more example.
+[1:09:03] Yeah.
+[1:09:10] Uh what would the answer for this be? Now we'll use BFS. What does the Q look
+[1:09:17] like? This is how the Q looks like. One, we get it. Then there is a two and
+[1:09:25] three. Then there is 6 7
+[1:09:30] 5 4 and there is 9 and 8. Are you seeing this is how the queue is
+[1:09:36] level wise. Now if I have to print the right side
+[1:09:40] view, what do you think we should do?
+[1:09:45] I need to print the last element at every
+[1:09:49] level. Now, how do you get the last element at every level?
+[1:09:56] >> You know the size, right? >> You know the size. So, ignore all the
+[1:10:00] elements except the last guy.
+[1:10:05] >> Are you getting it? Same logic as before. Get the size of the queue. There
+[1:10:09] we were processing all to get the min, max, average, sum. Here we don't do any
+[1:10:13] of it. We say if the size is four, first three we would ignore. If the index is
+[1:10:18] equal to n minus one, which is size minus one, process it. That is why
+[1:10:23] showing how it looks like in the queue is important.
+[1:10:30] Have you got it? Are you all clear?
+[1:10:37] So this is level zero nodes. The rightmost node is what we print. 1 2 3 6
+[1:10:42] 7 5 4 9 and 8. So you will apply the same logic as previous problems.
+[1:10:50] You will get elements from the queue. You will ignore all of them except the
+[1:10:55] last in that size that is the rightmost.
+[1:11:03] Are you all clear?
+[1:11:08] Are you guys clear? Okay. Now,
+[1:11:13] uh let me show them another diagram.
+[1:11:18] What would the output be for this tree?
+[1:11:48] What will the output for this tree be? When you look from the right side,
+[1:11:55] what is at level zero cube? One. One. Level one. Nine.
+[1:12:03] Seven and nine. So nine. We get level two
+[1:12:09] 12 and 10. We get 10. What about level three? Only one element. What about
+[1:12:14] level four? >> One more element. Size is one. Get that
+[1:12:18] value. How would you do using DFS? Now
+[1:12:23] >> wait. This is about BFS. How will you do using
+[1:12:28] DFS? Tell me how would I solve DFS?
+[1:12:33] Are you all clear about Q solution? Clear. Okay, great.
+[1:12:41] >> I'm not. >> Give it a try. We went through a DFS
+[1:12:43] solution before where we looked at stack node with node
+[1:12:49] and value which is the level
+[1:12:54] here. I need to look at it from the right. I'm giving
+[1:13:01] you a clue again. I need to look at it from the right. Ramach Krishna, did I
+[1:13:06] get your name correct? Yes. So, you have to get this right
+[1:13:11] right side view.
+[1:13:18] Sir, for every level I mean for every level in the stack, we have to check the
+[1:13:22] last element. uh
+[1:13:25] instead of telling that uh can we check the top element and add the right at the
+[1:13:32] top? >> I didn't understand. Can you repeat?
+[1:13:36] >> You're saying I'll check the last element.
+[1:13:38] >> I'm saying check the top element. Add left first and then add right. Add left
+[1:13:42] and right. Left and right. >> Yes. So, how will
+[1:13:46] >> I mean?
+[1:13:49] I mean last top element.
+[1:13:54] Okay, you're plagued with the words here, huh? So, what will the stack here
+[1:13:58] look like? >> One level zero,
+[1:14:01] >> right? >> Yes, sir.
+[1:14:02] >> I get this. So, what am I adding to my result?
+[1:14:05] >> One. >> One. Because at index zero, there was no
+[1:14:07] value. >> Yes.
+[1:14:09] >> Great. After that, what will I add to the stack?
+[1:14:12] >> Seven. >> 7, one.
+[1:14:15] >> 71. And then >> 91.
+[1:14:18] >> 91. Great. I'll get the top. >> Yes.
+[1:14:22] Is there any any value at level one? >> No sir. So add nine.
+[1:14:30] >> Then >> then what is the left of nine?
+[1:14:32] >> 10 comma 1. 10 comma 2. >> 10 comma 2. Is there any right?
+[1:14:36] >> No. >> No. So what will you get from the stack
+[1:14:38] now? >> 10 comma 2.
+[1:14:39] >> 10. >> Two. Is there any value at two?
+[1:14:42] >> No. >> Add 10.
+[1:14:44] >> Okay. This guy doesn't have any left right. So ignore. What is the top of the
+[1:14:48] stack now? >> 7a 1. 7, 1. Is there a value at one
+[1:14:52] already? >> Yes.
+[1:14:54] >> Yes. So, do we add seven? >> No.
+[1:14:55] >> Ignore. Great. What about the seven children?
+[1:14:58] >> 12. We'll add but no value. >> Does seven have a left child?
+[1:15:04] >> Yes, sir. >> Yes. So, we'll add 12.
+[1:15:08] Does it have a right child? >> No.
+[1:15:10] >> No. So, what is the top of the stack now?
+[1:15:13] >> 12. I think >> 122. Is two already having a value?
+[1:15:16] >> Yes, sir. >> Ignore. What about the left of this guy?
+[1:15:19] Nothing. >> What about the right?
+[1:15:21] >> 15. 15. Three. >> Three.
+[1:15:26] >> Get this value. Top. We're always getting the top.
+[1:15:28] >> Yes, sir. >> Does three have a value?
+[1:15:30] >> No. >> So, we add 15. What about the left of
+[1:15:33] this guy? >> Nothing.
+[1:15:35] >> What about the right? >> 20 gamma four.
+[1:15:38] >> Does four have a value? >> No.
+[1:15:40] >> No. It's as simple as that. Just keep dumping onto the stack. Get the top of
+[1:15:47] the stack. Check if the value is already there with that index.
+[1:15:52] That means the right guy got added. Do nothing. If it's not there, then add it
+[1:15:56] once and just keep adding to the stack. Left
+[1:16:01] and right. First left, then right. That's important because we want that
+[1:16:04] right view. If you wanted the left view, then I would say right, left, you know.
+[1:16:09] Are you all there? It's same like the previous stack node. Two properties, the
+[1:16:14] node and level. Node and level.
+[1:16:19] Are you guys there?
+[1:16:23] Everything we ignore except the right view that is always the top of the
+[1:16:28] stack. If it is existing, ignore. If it is not, add once to that
+[1:16:33] array list. So, arist level will be same as arist index. Levels are 0 to n minus
+[1:16:38] one. Index is also 0 to n minus one. So this is how the DFS solution looks like
+[1:16:44] using a stack. Mike mic mic.
+[1:16:51] >> So in every case we we visit every node. >> We we visit every node. Yeah. There is
+[1:16:56] >> okay. >> Even there in a queue we had to visit we
+[1:16:59] ignored the first few and we processed only the last guy because Q was
+[1:17:03] >> first and first out. So first was left left right most. So ignore all the left
+[1:17:07] and get the right. We have to know. >> Okay. Whether is a QRS stack we still
+[1:17:12] have to process all
+[1:17:20] you you now you will say if I already process nine why should I process seven
+[1:17:25] sir because if you didn't process seven how
+[1:17:28] will you get all the subchildren not everybody is guaranteed to be on the
+[1:17:34] right of uh uh on the right side so we have to process all I ignore seven
+[1:17:39] because I found nine I don't ignore 15 because there was
+[1:17:44] nothing. I mean imagine 15 was on the left. I will not ignore that. I will
+[1:17:48] ignore uh there's nothing on the right. So 15 will be considered.
+[1:17:54] Are you all getting it guys? You need to understand that one is a stack which is
+[1:17:58] recursive DFS. The other is a plain simple level order which is a Q. So
+[1:18:04] every problem I repeat I repeat every problem can be solved using both DFS and
+[1:18:10] BFS. That is why we say there are tree traversal techniques. But read the
+[1:18:15] problem carefully. If anything is to be done with level order go for BFS very
+[1:18:23] very simple need faster. If it is any other thing like how many levels maximum
+[1:18:29] levels then DFS is a better way. Okay, are we clear? So we'll start the
+[1:18:35] programs and then we'll come back to this.
+[1:18:42] Okay, so these are all the tree related problems which are part of the syllabus.
+[1:18:47] Uh and uh I would recommend you solve using both the techniques so that you
+[1:18:53] master more about DFS approach in some scenarios.
+[1:18:59] Okay, any questions? Are you all clear sir? Go back to the diagram.
+[1:19:04] Are you all clear on this approach? Again the same stack node with two
+[1:19:10] properties node and value. Value is a level.
+[1:19:13] This is easy because if there's already a value at that level, there is no Yeah.
+[1:19:17] Uh we have seen what the right side view problem is.
+[1:19:21] Hello guys, can we have your attention? Uh we will look at uh the code. We have
+[1:19:26] discussed the approach to that using BFS and DFS. Uh when we look at the BFS
+[1:19:33] solution, we add everything to the queue, get the size and process only the
+[1:19:38] last element and ignore the rest of them. Okay. So can we look at the BFS
+[1:19:43] code?
+[1:19:48] Yeah.
+[1:19:57] uh we have a method called right side view where we pass the root
+[1:20:01] again 90% of the code is same so I won't spend too much time yeah uh we create a
+[1:20:06] Q add the root to the que while Q not empty we get the Q size are you all
+[1:20:11] there scroll down then we go through every element
+[1:20:16] get the value from it and then if the left is not null and the left data is
+[1:20:21] not minus one add to the Q. The same thing we do for the right side. Are you
+[1:20:25] clear? Now scroll down. Look at that line 120 which is what is critical.
+[1:20:31] If the index is equal to the last size value, then we add to the result.
+[1:20:40] Have you got that? So at level one we had one. At level two we had two and
+[1:20:44] three. At level two we had four, five, six, seven. So the Q contained one.
+[1:20:50] processed it. Then 2 and 3 we skipped two got the three. 4 5 6 7 we skipped
+[1:20:56] four 5 6 7 was the last element index. So we process that.
+[1:21:03] Are you guys there? That is a simple BFS solution. Similar to the earlier
+[1:21:07] problems in the earlier max we updated with the new value if it was larger.
+[1:21:14] Here we skip all and get the right side view.
+[1:21:18] Now the question is could we have added from right and process the first one and
+[1:21:24] skip the rest of them.
+[1:21:28] Could we have done that? When we add to the queue, we will add right first and
+[1:21:33] then left. If this is my tree,
+[1:21:44] we added 1, then 2, 3, then 4, 5, 6, 7. We skipped this, we got this. We skipped
+[1:21:51] these three, we got this, and we got so 1 3 7.
+[1:21:55] My question is when we add to the queue, can we add right first, left later and
+[1:22:03] process the first one as a right side view? And
+[1:22:07] can we do that?
+[1:22:12] Could we have done something like this? add to the Q 3 2 then 3 6 7
+[1:22:21] uh right first 7 six [snorts] and then twos right first 54
+[1:22:28] the size of the Q is two get the first element the size of the Q is four get
+[1:22:33] the first element and skip the rest if if the if the index is zero process
+[1:22:42] skip the Can we do that?
+[1:22:46] I'm asking you, can we do that? Isn't that more logical that first element is
+[1:22:51] the right side view? The first element from the next level is the right side
+[1:22:54] view. Sure, you can. It just how you write
+[1:22:59] will define how you process. If I store left and right, process the last
+[1:23:03] element. If I store right and left, process the first element. There is
+[1:23:09] Yeah. process.
+[1:23:13] >> No, no, you process all when I say process is what is of interest to us.
+[1:23:17] What is that we add? Are you guys getting it? So, logically I
+[1:23:22] would prefer adding to the queue right to left and the first element is the
+[1:23:28] rightmost. Everything else can be skipped but we still extract from the
+[1:23:32] que. Logically that is makes more sense.
+[1:23:36] But since we are used to the left and right, we are writing that way. And
+[1:23:40] because we wanted the rightmost, we are skipping all except the last. Either
+[1:23:44] way, I'm good. Guys, but more logical for me to think is first element of the
+[1:23:49] queue is the rightmost. If you add from right to left,
+[1:23:54] are you all clear? How many of you finished the right side
+[1:23:59] view? Test cases passed. Oh, fortunately.
+[1:24:03] Good. stack or Q.
+[1:24:07] You did both. Both DFS and BFS. Very good. Very good.
+[1:24:12] Are we clear? Shall we look at the DFS solution?
+[1:24:17] How many are not clear? Come on, guys. Shall we continue? Great. How do you
+[1:24:21] think the DFS would look like?
+[1:24:26] What do you think we'll do in DFS? Sir, remove the right side. Keep the tree.
+[1:24:38] What do you think we'll do in the DFS approach? We will again go through the
+[1:24:43] same approach. Add to the stack the value and the level.
+[1:24:51] This is my result array. Index zero, index one, index two. I'll
+[1:24:59] get the value from the stack. Is there a value in the result array at
+[1:25:04] index zero? No. So what am I going to add to it?
+[1:25:09] One. Are you there?
+[1:25:13] And then what would we do after that? Because I want the right side view. I
+[1:25:18] will first add the left and then add the right.
+[1:25:22] So the top of the stack will be the right as we discussed earlier.
+[1:25:27] So when I get the value, what will the value there be? 3 comma 1 and before
+[1:25:33] that I would have added 2 comma 1 and then top is 3 comma 1. I get 3 1. Is
+[1:25:38] there a value at index 3? Uh is there a value at index one in the array list?
+[1:25:43] No. So I dump three. I ignore 21 now because there's already three.
+[1:25:48] Okay. So that is what is the solution to the right side view using recursion or d
+[1:25:56] uh depth first are using plain simple stack approach. Can we see that code
+[1:26:01] please? Yeah guys look at the right side view. Can you see the show the uh
+[1:26:07] structure node level?
+[1:26:11] Same like what we discussed earlier there's a stack node or what we call
+[1:26:14] node level where we are storing the tree node and the level information. Okay,
+[1:26:20] continue. Yeah. So we add to the stack the root
+[1:26:26] with a value zero. So the top of the stack is
+[1:26:32] the root node with the value zero. While stack is not empty, we get the top. Is
+[1:26:40] there a value in the result array at index zero? We don't have check that if
+[1:26:45] the current depth is equal to result dot size. What is the result dot size? Zero.
+[1:26:50] What is the current depth or what is the current level? Zero. If both of them
+[1:26:55] match, what are we adding the root to the result? So when you add that to the
+[1:27:00] result, what will the result size be next time? One.
+[1:27:04] Next time when there's a level one, you'll check is it equal to one? Yes.
+[1:27:08] That means we now add at index one. Are you there? And what are we adding more
+[1:27:15] important? Look at what are we adding now?
+[1:27:19] What is pushed to the stack now? First left and then right. So next time
+[1:27:26] when you go you'll get the top of the stack which is 3, 1. The size is one,
+[1:27:32] the level is one. So we add three
+[1:27:37] 2 comma 1 is anyway ignored because one already has a value three rightmost. So
+[1:27:43] because it is a right side view the way you add to the stack is important. First
+[1:27:48] the left and then the right. So the top of the stack will always be the
+[1:27:52] rightmost at that level.
+[1:27:57] Are you there?
+[1:28:01] How many are not clear with this logic? So when I added 1 zero I extracted then
+[1:28:08] I added 2 1 3 1 top is 3 1 when I get 3 1 what is the size of the result array
+[1:28:14] one what is the level one so I'm going to add is matching so let me add this
+[1:28:19] element that is second element first element was
+[1:28:23] level zero second element is level one
+[1:28:30] got it then what do you add after that when you at level one. So diagram
+[1:28:38] diagram when you got three what did you add to
+[1:28:41] the stack now? So it was two 0 2 1 3 1 I extracted this. What am I adding
+[1:28:49] to the stack now? Can you guess first left of three six 62 and 72?
+[1:28:59] What am I getting from the top? 72. Is there an value at index two? No. So I'm
+[1:29:05] going to add seven to it. What did I add at one? Three. What did I add at zero?
+[1:29:09] One. Then after that the stack is 67. Oh,
+[1:29:15] sorry. 62. I get that there's a value at two. So we do nothing. Then I get 21.
+[1:29:21] There's a value at one. So I do nothing. But after I get 2 1, I'm adding 4 to 52.
+[1:29:29] 52. I extract value at two is there. So do nothing. 42 we get do nothing because
+[1:29:35] at two there's a value seven. So all the other elements at that 11 are ignored
+[1:29:39] except the rightmost like what we did in the queue.
+[1:29:44] If there were multiple elements in the queue, if I added the right first and
+[1:29:48] then the left, I got the first one and ignored the rest. If I added left first
+[1:29:52] and right, I ignored the first few and process the last. Whether it is a stack
+[1:29:57] or Q all the elements have to be processed because we are not sure where
+[1:30:03] the rightmost element may be.
+[1:30:08] Are you guys clear? Every problem in DFS uses something like
+[1:30:14] this where we store not only the node but also the level so that we can
+[1:30:20] perform operations like rightmost view level order average level order min
+[1:30:26] level order max. If you use a queue it becomes so much more easier because
+[1:30:32] everything is ordered there in a stack things are not ordered. You keep going
+[1:30:37] to the bottom and then keep going back to a different level as we unwind. Okay,
+[1:30:43] great. If you don't have any questions, I'm going to stop at this point and uh
+[1:30:47] let you uh continue with the other problems. Uh hopefully our test cases
+[1:30:52] are fixed by now.

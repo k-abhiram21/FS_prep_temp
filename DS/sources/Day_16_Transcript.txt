@@ -1,0 +1,733 @@
+YouTube transcript
+Video ID: GOXKLftdrag
+Language: en
+Captions: auto-generated
+
+[0:00] Good afternoon. Uh let's continue with uh the greedy
+[0:05] algorithm and look at three things today. One, quickly go through the
+[0:10] solution of buying and selling stocks. The two versions of it. One where you
+[0:16] can have only one transaction. You can buy once and sell once and the other you
+[0:22] can have infinite number of transactions.
+[0:25] So once we do that we look at another interesting problem. Before we talk
+[0:30] about spanning trees, uh understand what is a spanning tree and then look at uh
+[0:36] how we can use the greedy approach to find out the minimum cost spanning tree
+[0:42] or minimum weight spanning tree. Sir, can we uh for the benefit of everybody
+[0:48] who did not come uh what we have is go to the problem statement?
+[0:54] Yeah. uh you are given an integer n uh representing the number of days and what
+[1:00] each day represents is a price of that stock.
+[1:06] Okay. So you have price of the stock for n number of days. Uh since it is a
+[1:12] greedy algorithm uh what you need to do is maximize the profit by selling on a
+[1:19] particular day. And before you sell on a particular day, you have to ensure that
+[1:24] you bought it at a lower price prior to it. So the only way we can get a maximum
+[1:29] profit is buy at the lowest price and sell at the highest price. Now there are
+[1:35] two versions of this problem. One where only one transaction can be done.
+[1:40] Another where you can have multiple transactions. So first let's look at
+[1:44] only one transaction scenario and then look at multiple. Sir, can we scroll
+[1:49] down test case? Yeah. Uh, so if you have this simple
+[1:55] example where you have the price of stock on day 1, three, price on day 2,
+[2:01] 7, then obviously we know we buy on day one and sell on day two and the profit
+[2:06] is 7. Now you had the if you had the data differently 73 you buy on day one
+[2:13] 7. Obviously, you cannot sell on day two because we are talking about maximum
+[2:18] profit. So, there is obviously uh zero because you're not selling it anyway. I
+[2:23] won't even say zero. You're not selling it. Continue.
+[2:26] Continue. Yeah. Show the show the main. Uh main is pretty simple. Uh how many of
+[2:32] you have done this? I think most of you did. Can you raise your hand, please?
+[2:37] Yeah, most of you did. Yeah. So you have input n then we take data for it which
+[2:42] is stored in an array and we call a method max profit and since it is a max
+[2:47] min problem it is a greedy algorithm sir show us max profit
+[2:54] before you take to the max profit let's take a sample data go there sir
+[3:01] no I want to you to show me max profit I will scribble there only.
+[3:09] Yeah. Give me access here. Yeah. So, we will take uh 3 uh 9 uh 1 7 2.
+[3:22] This is my input data which is data for 6 days. Stock price of a particular
+[3:28] share across 6 days is this. So according to you, what do you think
+[3:34] would the max profit be?
+[3:39] What do you think max profit will be? Nikun,
+[3:42] did I get your name correct? Yeah,
+[3:47] you're not there. But we discuss the I gave you the background for the problem
+[3:52] for all those who are missing classes. But my
+[3:57] what is the max profit? Come on. How much is the max profit?
+[4:03] >> 1 9. Okay. Yeah. Max profit is 19. Uh the reason is now [snorts] the way we
+[4:11] look at it is day one is a buying price which is
+[4:17] three. Then if I were to sell on day two, I would I would have got a profit
+[4:22] of six. So max profit considering only day one and day two is six. But what is
+[4:28] the buying price? three. Are you there, guys? But there's
+[4:33] an other day which is day three. What is the buying price of that?
+[4:38] One. Are you getting it? I'm not selling it. I'm saying if there were only two
+[4:43] days considered, buying price would be three. Selling price would be nine. So,
+[4:48] max profit generated is six. So, that is one thing. But then I find on day three
+[4:54] there is a price which is lesser than the buying buying price. So what do I
+[4:58] update the buying price to? One. Then I look at day four. I find there is a
+[5:05] selling price of seven. Max profit is still 6. 7 - 1. Same as the previous
+[5:11] one. So I don't update it. But what is the buying price yet?
+[5:17] What is the buying price? One. Then I go to day two. Is uh sorry
+[5:24] day five. Is the buying price of day five lesser than one? No. So buying
+[5:29] price still remains one. What is day six?
+[5:33] 20. What is the difference between 20 and 1? 19. Is this larger than the
+[5:39] previous max profit? Yes. So I basically say the max profit generated is 19. If I
+[5:47] were excuse me, can you help her and just open all the doors, please? Yeah.
+[5:51] Uh the max profit generated is 19. If I were to buy at a price one and sell at a
+[5:57] price 20. So there's only one transaction I'm making which is 19.
+[6:03] Are you all clear? So look at that code generated. Please go through that code.
+[6:08] That code is basically explaining the algorithm. Uh initially we say uh buying
+[6:15] price is maximum value, max profit is zero. Then we iterate through each of
+[6:20] them. If the price of any day is lesser than the previous buying price then I
+[6:26] would basically update the min price line 52.
+[6:30] So initially the buying price was three then later it became one. Is there any
+[6:33] price lesser than one? No. So the price would remain one for the rest of the
+[6:38] days. Then if the prices minus min price is greater than max profit then update
+[6:44] it. Otherwise max profit will remain
+[6:48] whatever it was before. So considering day 1 and 2, what is the
+[6:52] buying price on day one? Three, what is the max profit? You would get
+[6:58] 9 - 3 6 is that larger than zero? Yes. Then if you consider day three, if you
+[7:04] just consider 3 91, max profit is six. But then what is the buying price after
+[7:09] that? One because one is lesser than three. If there was a day four which had
+[7:14] a larger value, then I would try to sell. But considering day 1 2 3 the max
+[7:20] profit is six and the final buying price is one.
+[7:26] Are you there guys? Everybody
+[7:30] simple very very simple. So what we are basically doing is since we want to have
+[7:35] maximum profit whatever was the previous profit would be updated only if we have
+[7:41] a profit more than it like in the earlier one single source shortest path
+[7:49] if there was a new path smaller than the path which is maintained with that
+[7:53] particular vertex then we would update it otherwise we would retain it.
+[7:58] Likewise, if there is a data sir, can you run the test case?
+[8:16] Come on. Yeah, you need to do something better.
+[8:20] Change the mouse, change the keyboard, do whatever you need to. Yeah.
+[8:26] Or get used to doing without a mouse.
+[8:30] Yeah. 6 days. 371 37 1
+[8:38] Okay. 3 917 220.
+[8:43] Yeah. Continue sir. Initially the min buying
+[8:49] price was three. Profit is zero. Then buying price is still three. Profit is
+[8:53] six. Then buying price is one. Profit is still six. the previous guy buying price
+[8:59] is one profit is six buying price is one profit is still six but finally when we
+[9:03] go to the last day we find there is a larger profit if I sell at 20 [snorts]
+[9:09] is that helping you debug messages everybody's clear so those who have not
+[9:14] done uh those who did not come last class for whatever reason please ensure
+[9:19] you finish this today and there's another version of it the other version
+[9:23] is consider the same data sorry get Give me access to that. Consider the same
+[9:28] data. Yeah. Give me access further up. Can you
+[9:32] scroll up? No. No. Yeah. Consider the same data. Now, if I say there are
+[9:38] multiple transactions possible, you can buy and sell. Buy and sell. What would
+[9:43] the maximum profit be across six days given this input data?
+[9:50] All of you?
+[10:01] Yes, please
+[10:05] come. 30. Okay. Anybody else?
+[10:14] Anybody else?
+[10:23] 31. Okay. 30 is one answer. 31 is another answer. Anybody more than 31?
+[10:29] Because we talking about maximization problem. Greedy.
+[10:34] Anybody wants to be more greedier?
+[10:38] Huh? Okay. You got 31. Explain how you got
+[10:43] 31.
+[10:47] 30. Okay. Uh how many agree for 30? 30. Okay. That means rest you don't
+[10:58] agree for 30. Do you have something more than 30 or less than 30? You agree for
+[11:03] 30 sir? Yes. You agree? You agree? Everybody now
+[11:09] agrees. When I ask you to raise hand only few hands raise. What about you
+[11:13] sir? 30. Okay, Shinas, run the other problem
+[11:19] with the same test data.
+[11:32] Yeah,
+[11:36] same test data.
+[11:40] Guys, can you please close the door? Some work is going on. KMIT perpetual
+[11:45] work happens.
+[11:51] Yeah. 3 9172. Yeah.
+[11:59] Buy on day 1 at 3. Buy. Sell on day two at 9. Profit is six. Buy on day three at
+[12:04] 1. Sell on day four 7. Profit is 6. 6 + 6 12. Buy again on day five at 2. sell
+[12:13] on day six at 20. Okay. Now run one more test case.
+[12:19] Clear screen. Okay. Are you all clear? 30.
+[12:23] Okay. Uh give five elements.
+[12:27] All 5 4 3 2 1. Sorry. 1 2 3 4 5 1 2 3 4 5 4 3 2 1 will give you nothing.
+[12:35] Yeah. Hang on. Stop. Are anyway. You got the answer. Five four.
+[12:42] Now how is it four? Can anyone tell me how is it four?
+[12:48] Five minus one. Okay. Now if you if you go to the previous test data, show the
+[12:53] previous test data. Oh, you cleared it. Run that again. Previous test data.
+[13:05] So is it last minus the first one sir? No.
+[13:13] If you buy at
+[13:18] >> you sell the moment it starts descending. Okay, good. So what happened
+[13:22] in this case because there is a descent here you are selling it or what you're
+[13:28] basically doing is you're selling in every pattern
+[13:32] and calculating the profit. So even if you look at 1 2 3 4 5 buy at day 1 sell
+[13:37] in day two. If I buy at day two and sell at day three, I still make a profit of
+[13:41] one. But since everything is ascending, it is like the lowest price is the
+[13:45] buying price and the last price would be the selling price which is what we are
+[13:51] looking at. Okay, run.
+[13:59] Now this is according to the previous logic where because there is a new price
+[14:03] which is lower than the selling price I am selling it and I'm calculating what
+[14:08] the new buying price is. Okay. Now do one more thing. Uh give six elements
+[14:16] uh three 9
+[14:22] 4 8
+[14:25] 5 7.
+[14:28] Yeah. What would the output here be? Again, you've seen up, down, up, down.
+[14:35] What would it be?
+[14:41] What would it be, sir? 12. Why 12? First is six, then is four,
+[14:48] and then is two. Run. Same like before. Now, if you give run,
+[14:55] sir. 6
+[15:00] 3 10 20 30 50 100 3 10 Hang on 3 10 30 50 100 So according to us it should be
+[15:10] 97 100 minus 3 which is obviously same as the previous problem I buy at three
+[15:17] sell at 10 profit is 7 if I sell at 20 profit is 17 if I sell something else
+[15:23] profit is so every time I go to the next day a new profit is generated which is
+[15:28] larger than the previous one. So the profit is getting updated but the buying
+[15:32] price never changes because the first day is the lowest price. Okay, run you
+[15:37] get 97. Now you look at it this way. If I calculate
+[15:43] 10 - 3 I get 7. 20 - 10 I get 10. 30 - 10 I get 10. 50 - 20 I get 20 + 50. This
+[15:57] is also 97.
+[16:02] If I use a previous approach also I get 97 which is 100 minus 3. If I use the
+[16:07] other approach which is what I will show you, you will get 97 because everything
+[16:11] is ascending. Okay. How many of you have done this?
+[16:18] How many of you have done Can you raise your hand more? One, two, more. Come on,
+[16:25] sir. 1 4 5 7 What about this side? One
+[16:31] one only one two. Okay, let's look at this solution. I'm
+[16:38] showing you the algorithm indirectly by comparing day two. So it's like saying
+[16:44] if the next day price is lower than the previous day, generate the profit
+[16:50] and update for the next thing the current as the buying price. Can you
+[16:55] show that code please?
+[17:00] Yeah. Uh that's okay. Uh we go to main. Where is
+[17:05] our prof? Okay. P of profit. Continue. Now guys, look at this code. We iterate
+[17:13] from day one up to n minus one. Okay. And then we say if the
+[17:21] uh previous day price is lesser than the next day then we are calculating the
+[17:28] profit which is difference of next minus previous. Look at that logic line 72.
+[17:33] So according to 1 2 3 4 5 what was it? Day 1 was 1. Day two was two profit is
+[17:40] one. Day two is two day three is three profit is one. So 1 + 1 + 1 + 1 is 4
+[17:46] which is same as last day is five, day 1 is zero. So buying price is 1, selling
+[17:51] price is five, max profit is generated.
+[17:57] Using the previous logic we would say day 1 and two max profit is one. Day one
+[18:01] and three max profit is two. Day 1 and four max profit is three. And finally
+[18:07] day one and last day four. Five minus one. buying price never changed
+[18:12] primarily because there was no other day which was lower than day one price.
+[18:20] Are you all clear? Is everybody clear? So here we are having multiple
+[18:26] transactions. So obviously greedy approach will give you more profit. When
+[18:30] you are single transactions we found the largest profit which is the difference
+[18:34] between the smallest buying price and the largest selling price. In between
+[18:39] there could be other things which we which did give us some profit. So it's
+[18:44] like saying the local profit is considering few days. The global profit
+[18:47] is considering all the days.
+[18:52] Anybody has any questions before we move on to the next problem which is planned
+[18:56] for today. Are we all clear? Okay sir. The problem statement of today
+[19:02] go to the word document. Not this
+[19:07] max product. Sorry, minimum product.
+[19:13] Yeah.
+[19:16] Continue, sir. Yeah. Let's look at this. Uh minimum product
+[19:24] of an array. Minimum product subset of an array. What you are given is an array
+[19:32] which contains both negative, zero and positive numbers mix of all no
+[19:38] particular order any order. What you need to find out is the minimum product
+[19:44] possible with the subset of elements pres present in the array. The minimum
+[19:50] product can be a single element also. I'll take you through a bunch of test
+[19:56] cases.
+[20:00] This is test case one.
+[20:10] Test case two.
+[20:17] Test case three.
+[20:32] test case five six right tell me output for each of
+[20:40] them first and then we'll look at based on your output based on your
+[20:45] understanding what could be the way we solve this problem
+[20:51] yes all of you think about Right. First test case, what will be the minimum
+[20:57] product subset of this array?
+[21:03] First test case, what will the answer be?
+[21:07] You're given an array A. We have to find we have to find the minimum product
+[21:14] possible with the subset of elements present in the array. The elements can
+[21:19] be zeros, negative, positive. And the minimum product can also be a single
+[21:24] element. Now consider that test case minus1 minus1 minus2 4 and 3. The
+[21:31] minimum product is -4. How did I get -4? I multiplied all of
+[21:38] them. Are you there? Now if you look at 0 0 the minimum is zero. If you look at
+[21:47] minus1 and 0 the minimum is minus1. A minimum can be a single element. Okay.
+[21:54] Now considering this, are you clear with this? Yeah. Considering this our test
+[21:58] cases, sir. Yeah. First one.
+[22:04] First one is very very simple. The minimum is the minimum positive number
+[22:08] which is one. Okay. Good. That is good job. Second one. Pass it to the next
+[22:14] person. Who answered one? Okay, next person.
+[22:19] - 90 >> 90 uh - 90 okay I'll just write down and
+[22:27] then we'll discuss okay >> do you all agreeus 90 anybody disagrees
+[22:34] >> okay >> no
+[22:36] >> uh what about the third guy
+[22:43] >> wait a minute I I disagreeus 90
+[22:59] anything no product any order does order is not important you can skip elements
+[23:05] in between okay do you agree is -90 okay how did you get -90 who answered -90 yes
+[23:12] sir >> sir -2 into -5 into - 9
+[23:16] >> okay So then you are skipping minus one. So you're not multiplying all of them.
+[23:23] If I had multiplied all of them, what would I get?
+[23:25] >> 90. >> 90.
+[23:27] >> Plus 90. So I'm skipping one. Okay. How do you think you can implement it this
+[23:32] way? Okay. I'll ask you this question after
+[23:35] some time. Okay. Great. Uh third one.
+[23:41] You can answer. Yeah. Give it to somebody here. Anybody here close by or
+[23:44] pass it behind? Throw it. Sir, what is the answer? Third one.
+[23:48] >> - 350. >> Uh, whatever. 7 into 535 into 10 - 350.
+[23:54] Three positive three negative numbers. Multiply all of them. Multiply all of
+[23:58] them. - 350. How about the fourth one?
+[24:04] >> Sir, minus 8. >> Minus 8.
+[24:07] >> Minus 8. >> Okay.
+[24:11] Okay. And what about the fifth one? Zeros
+[24:17] >> zero. >> Okay, great. Does anyone have a
+[24:22] different answer than what is listed there?
+[24:27] Okay, great. Now that you have given me answers, can you share what may be the
+[24:33] algorithm to do this? I've got test cases where there is zero, test cases
+[24:38] where there are negatives, test cases where there are even number of
+[24:42] negatives, odd number of negatives and test cases where there are only
+[24:46] positives. Sir after sorting like I could take.
+[24:51] >> You want to sort? No. Uh that will add up to the time complexity which is n
+[24:57] login. No no n login just o of n.
+[25:06] No sorting please. It has to be done in O of N.
+[25:14] You came up with the answer. So what did what thoughts went in your mind to come
+[25:19] up with answer >> sir? I did sorting on like I
+[25:22] >> you did sorting. Okay. Okay. So that was your thought process. Yeah. Anybody
+[25:26] without sorting? Anybody this side you want to answer here? Yeah. Answer.
+[25:31] >> No. Go ahead sir. >> Sir we can sort uh
+[25:35] >> no sorting. >> I mean we can uh go through number of
+[25:40] negative numbers. >> Huh.
+[25:42] >> Okay. Basically keep a count of negative.
+[25:44] >> Okay. If it is even >> count
+[25:48] of negatives. Okay. >> Uh if count of negative is even
+[25:55] >> if even Yeah.
+[25:58] >> Uh then we will eliminate the maximum of negative numbers.
+[26:02] >> Okay. Eliminate >> maximum of negative numbers.
+[26:07] >> Elimin. Sorry, can you erase both? Yeah. Eliminate
+[26:12] maximum of negative. Okay. So according to you what is the count of uh even in
+[26:18] line two >> uh
+[26:20] >> test case two >> four
+[26:21] >> four it is even so if it's even what is the maximum negative
+[26:25] >> minus one >> minus one so eliminate that and find the
+[26:28] product of the rest okay if it is not even
+[26:33] then >> then product of all
+[26:35] >> multiply all very nice are you there however
+[26:41] yeah what yeah if you get zero in that Then what?
+[26:45] >> Uh, ignore zero. Another case. >> Huh? So that is another case. We'll come
+[26:48] to that another case which is that test case four. So first your name sir.
+[26:54] >> Arno. >> Arnov. Arnov goes for me. Okay. First
+[26:58] test case is all negatives are there. Get the count of negatives. If it is
+[27:04] even eliminate the largest and find the
+[27:10] product of all. Now if you have to eliminate the latches what do you do?
+[27:14] How do you do it? Now >> uh we can store uh max element and uh we
+[27:21] will also store index each iteration when we find the maximum negative.
+[27:26] >> No no take that example sir line test case 2 and explain. Now he he has given
+[27:32] a very nice algorithm for even what to do for odd what to do. My question
+[27:37] counter question to him is how do you eliminate negative which is maximum
+[27:43] >> since we are looping through everything when we reach minus one we will store it
+[27:48] into maximum and it won't change and when we are at that point we can store
+[27:54] the index two >> okay
+[27:56] >> and storing that index we can eliminate it later
+[27:59] >> okay isn't there an easier way >> storing iterating to get the minimum
+[28:05] then update ating that into a variable min
+[28:09] negative then min negative index then iterate through the array find the
+[28:14] product of all except this guy isn't there an easier way what you said is
+[28:18] correct I agree I'll give you credit >> we can change it to one
+[28:23] >> change it to what one >> one
+[28:24] >> change what to one >> max
+[28:27] >> okay that minus one you make it one >> yes
+[28:32] >> now the interviewer says you cannot modify the original array Okay.
+[28:37] Okay. I'm just getting you into this now. He'll say no. You cannot modify the
+[28:41] original array. Yeah. Anybody anybody can help Arnav?
+[28:49] >> Anybody? Yes, sir. >> Sir, after getting the product of all
+[28:52] the numbers to iterating when we have the max negative element, we can just
+[28:56] divide it with. >> Very nice. Excellent. Your name?
+[28:59] >> Shah Ruk, sir. Shah Ruk. >> Wow. We have Arnab Shah Ruk. Very nice,
+[29:03] huh? So great get the product of all irrespective of anything. And then if
+[29:10] all numbers are negative and even and no zero
+[29:16] then you basically divide by the largest negative. So when I got the product of
+[29:21] all I would have got minus 90. Dividing by the largest negative will still give
+[29:25] me minus 90. Imagine that was not minus 1. It was uh minus uh 10. I would get
+[29:36] the product of all and divide by minus2 because product of all will give
+[29:42] me positive number. Dividing by minus2 will give me negative number. Are you
+[29:47] there? So that is an easier way than going through that you know what what we
+[29:52] say so much of bookkeeping which value which index and then when I find the
+[29:58] product remember not to consider this which means another one more if
+[30:02] condition is so much headache with respect to maintenance. But if you ever
+[30:06] write search code, give it to chat GPT and say oh can you optimize it and what
+[30:12] you will get is an optimized solution something like get the product of all
+[30:16] and divide by the largest negative. So that takes care of test case two. Now
+[30:22] test case one. Yes sir. Yeah you can answer one of you whoever wants to. Are
+[30:29] you all clear? If there are all negative and no zeros, get the count of negatives
+[30:35] which is odd or even. If it is odd, the product is the answer. If it is even
+[30:41] count of negatives, the product divided by largest negative will be the answer.
+[30:48] You are clear. You'll have to translate into code later. That's a different
+[30:51] story. Simple thing to do. Yes. Now, how about the first test case?
+[30:56] Sir, if there are no negatives, we'll just uh take the minimum number, minimum
+[31:02] positive number. >> If there are no negatives and no zeros,
+[31:05] >> no zeros. Yeah. >> Then we will basically say the minimum
+[31:08] positive number is a result.
+[31:14] Come again. You can still do it with zero. But the reason why we count zeros
+[31:19] is for other cases also. Yeah. Okay. Then what about uh test case
+[31:25] five? >> I will try to find if
+[31:30] >> there are no negatives or not. >> If there is no negatives, you can just
+[31:34] take zero. >> Or
+[31:37] if there are no negatives, take zero. No, you can't. What if there is no zero?
+[31:43] >> The minimum number is zero then it's >> so fine. So you'll basically get the
+[31:47] minimum number. It could be zero. It could be one in the first case. Then
+[31:52] what about any other test case? Uh test case four. There's a negative, there's a
+[31:56] zero and there is a positive and negatives could be order even here
+[32:02] again. Yeah. >> If there are negatives in that array,
+[32:06] you will just skip zero because it might give a lower number.
+[32:10] >> Okay. >> Than zero.
+[32:12] >> Okay. >> You will not include zero in the
+[32:14] multiplication. >> But what if there are multiple
+[32:16] negatives? I change the test case to minus2. Then
+[32:20] I'll add one more to this guy. Okay, let's have another test case. Six,
+[32:26] -2, -3, -4, 0, and four. >> The same thing. We'll just uh not
+[32:34] include zero. And uh >> so basically what will you do? Count of
+[32:38] all negatives. >> All negatives.
+[32:40] >> But there is a zero. So you can't directly multiply.
+[32:43] >> Yeah, we'll not you will not include zero while multiplying.
+[32:47] Just we'll keep a track of it. will not will not include zero while multiplying.
+[32:52] >> Okay. >> And that's it.
+[32:54] >> But you'll include positive numbers. >> You'll include positive numbers.
+[32:56] >> So this will give you -2 into 3 is - + 6 into 4 is -4 into 4 is - 96. Are you are
+[33:07] you clear guys? So basically you have to get a count of zeros maybe count of
+[33:11] negatives. count of a positive minimum because if all the values are positive
+[33:18] then the result is just a positive minimum. If there's a combination of
+[33:22] positives and negatives and sorry positives and zero then answer is zero.
+[33:27] If there's a combination of positive and negative, keep a count of negative count
+[33:33] and then multiply with the positive. And if there only uh if the negative count
+[33:38] is even, then divide by the largest negative.
+[33:43] Are you clear? Okay. Can you think of any test case where what we discuss may
+[33:49] not work? Any test case? Can you think
+[33:59] any test case? Can you think about where this may not work?
+[34:12] Okay. Go to the word document.
+[34:17] A quick expression. Scroll down. Yeah. If there are even number of negative
+[34:23] numbers and no zeros, the result is a product of all except the largest valued
+[34:30] negative. So what do you do? Find the product of all and divide by the largest
+[34:35] negative. So somewhere you have to keep track of what is the largest negative
+[34:38] when you process. What is the smallest positive when you process? How many
+[34:42] zeros are there? How many negatives are there? So yeah if there are odd number
+[34:48] of negative numbers and no zeros the result is simply the product of all
+[34:53] minus2 into -3 into minus4 odd number. So that is the thing if there are zeros
+[34:59] and positives and no negative the result is zero because 0 is the minimum single
+[35:06] value. The exceptional case is when there is no
+[35:09] negative number and all elements are positive. It does not have a zero. Then
+[35:14] you go for the minimum positive. First test case.
+[35:19] First test case 3 4 1 97. So we go for the minimum
+[35:26] positive. In the fourth test case it is zero. So it is zero. Even if I multiply
+[35:31] all, I'll get zero anyway. In the first second test case there are uh even
+[35:37] number so multiply all divide by the largest negative so plus 90 divided by
+[35:42] minus1 is - 90. In the third test case all negative odd
+[35:47] number just the product. A fourth test case is a combination
+[35:52] negative 0 and positive. So get the negative value. Okay. Uh and multiply
+[35:59] with all the positive just skip the zero. But here the negatives are odd
+[36:03] number again that's important odd negative even negative would have been
+[36:06] again the same logic divide by the largest negative. So what you apply in
+[36:11] line two will also sorry test case two will also apply in test case four if
+[36:14] there are multiple negatives. You have to keep a track of how many such
+[36:18] negatives are odd or even and apply the same logic which you applied there. Are
+[36:23] we good? Will you be able to do that? Great. Try it out. uh anyway solution
+[36:29] will be given next class for today you can try but before we give you this
+[36:34] problem for solving we will talk about a very interesting concept now
+[36:41] what is a spanning tree do any of you know what is a spanning
+[36:45] tree spanning tree
+[36:50] any of you no idea yeah what is a spanning tree anyone
+[36:57] Okay, ask chat GPT and explain to me what spanning tree is. Come on all of
+[37:02] you, you have phones.
+[37:12] Ask chat GPT tell me what is the spanning tree I need to explain to
+[37:16] Taparia. Put that prompt. He'll say Taparia I don't know. I don't
+[37:22] understand. That's I don't know what he'll say. Come
+[37:27] on. Who can answer? >> Uh sir like if there are nodes in the
+[37:32] tree it must have >> get me a blank screen. So shall I draw a
+[37:36] tree for you? A graph. >> A graph is a version of tree. Yeah. So
+[37:40] let's say these are my tree with A B C D. How many vertices?
+[37:49] >> Four. Yeah. So the number of edges must be n minus one which is three in this
+[37:54] case. >> Okay. Okay. What else do you know about
+[37:56] a spanning tree? >> Uh else there no cycles are poss there
+[38:00] should be no cycles. >> There should be a no loop. There should
+[38:03] no there should not be any cycle. What else?
+[38:06] >> And like if there are like if there are four vertices all of them must have a
+[38:11] connection with one vertice. >> Okay. So when we talk about a spanning
+[38:14] tree all vertices must be connected to each other. So given any vertex I should
+[38:18] be able to go to every other vertex in the tree via some intermediate vertex.
+[38:21] Okay. What else? >> Okay. Only this n minus one edges.
+[38:26] >> Okay. >> Or so if if this is my spanning tree. So
+[38:30] if this is my graph, what are the possible spanning trees here?
+[38:38] A B D C or A B C D or
+[38:52] A D C B. Now look at the properties of it. The
+[38:58] number of edges is equal to number of vertices minus one.
+[39:05] Okay, there is no loop. Are you getting it? There is no loop
+[39:13] and the number of spanning trees is equal to what? Now if you look at
+[39:19] this is not a full graph. If I make this a full graph, what would you see?
+[39:24] Additionally, what is a full graph? Every vertex is
+[39:30] connected to every other vertex. Is this a full graph? Is A is A connected to C?
+[39:37] is B connected to D. Now if I have those two extra edges and I connect them what
+[39:43] I will get is a full graph.
+[39:50] Now once I include this what additional spanning trees will you get now?
+[39:57] Will you get something like this?
+[40:02] A B D C Yes. Will you get something like
+[40:13] a D bc you'll get many more? Are you getting what I'm saying?
+[40:19] Is are you clear? So now the problem is [snorts] minimum
+[40:26] cost spanning tree. Now if I were to change this problem to what is a
+[40:32] spanning true spanning tree to minimum cost spanning tree we are again talking
+[40:36] about a greedy algorithm because it is a minimization problem. Now the previous
+[40:40] guy was a maximization problem which is max profit. Now this is a minimization
+[40:45] problem. Now for a moment sir erase those two edges which I drew A to C and
+[40:51] B to D. A to C and B to D. Now consider A B C D
+[40:58] and only those four edges arrays. Yeah, consider only those four.
+[41:06] Okay, I'll tell you more about it as we go. But just want you to understand that
+[41:11] if I were to go from city A to city B, then what would the minimum cost involve
+[41:18] be? Where the edge is the distance between
+[41:23] cities. So this is let's say 10. This is 8. This is 7 and this is 12. Now what
+[41:29] are the spanning trees we got?
+[41:34] All these three are valid. Now what would the weight of this guy
+[41:39] be? 10 8 7 8 7 12 10 12 7. So what we are saying is
+[41:51] given any graph there are multiple spanning trees possible for it every
+[41:57] edge has a weight. So it is basically a directed
+[42:02] sorry undirected weighted graph. Every edge has a weight. Now because
+[42:09] every edge has a weight and we have to find out the minimum cost spanning tree
+[42:13] given all these multiple spanning trees. We now to now have to say which is the
+[42:18] answer. Can you calculate the sum of all three and tell me which one is a minimum
+[42:22] cost in this? Which one? Oh, I didn't give any numbers, right? So, if I were
+[42:28] to say this is one, this guy is two and this guy is three, uh, this is 25,
+[42:37] uh, this guy is more than that, which is 29. And what about this guy? 15, 27. So,
+[42:44] this would be my answer.
+[42:50] Is that clear now? So does it mean hello. Does it mean that given any graph
+[42:57] I'll first generate all permutations and combinations and then I'll say yeah
+[43:02] given this graph one graph 2 graph three graph n do the
+[43:08] uh edges weight summation and find out all such possible sum and the one which
+[43:16] is the smallest is what I will print. Will I do that?
+[43:20] No. Obviously that would be suicidal. Imagine this is four vertices. There are
+[43:26] 20 vertices. Imagine the number of combinations. One, compute power,
+[43:31] memory, and frustration. There has to be a better way. So, we'll discuss that.
+[43:36] But are you clear on what we are trying to address?
+[43:40] If there are four cities connected to each other, I need to travel from city
+[43:44] one to all of them. What would the minimum cost involved be? Now obviously
+[43:50] I will not go for approach two one or three because one gives me 27 and other
+[43:56] gives me 29 when I can go from that. So I am avoiding that edge B to C. Distance
+[44:04] between B and C is much more. Are you there? Okay. Now can you go to
+[44:12] the word document sir? Now now with the background let's look at the word
+[44:16] document. A spanning tree is a subset of a graph
+[44:21] such that all the vertices are connected using minimum possible number of edges.
+[44:28] Okay, minimum number of edges. Still vertices should be there. All vertices
+[44:34] should be there but minimum number of edges. Like in that full graph there
+[44:38] were six edges but [snorts] when I created a spanning tree how many edges
+[44:42] did we get? Three. A to B, B to D, D to C are A, B,
+[44:47] C, whatever, you know, all of that. So we got three minimum number of edges.
+[44:52] Okay. Hence, a spanning tree does not have a cycle and a graph may have
+[44:56] multiple spanning trees, more than one. If G is this connected undirected graph,
+[45:03] then in this example, can you calculate and tell me how many span increase will
+[45:08] you get? Can you do that? Give me I'll give you
+[45:12] two minutes. For this graph which has four vertices
+[45:17] and three edges sorry six edges what would the count of spanning trees be?
+[45:25] Count of spanning trees.
+[45:31] And what will the final number of edges be? Number of edges is equal to v minus
+[45:38] one. So finally there should be only three edges.
+[45:42] Are you there? It could be that Z shape. It could be that C shape. Anything.
+[45:50] What would the count of spanning trees be for this particular graph? I'm just
+[45:56] asking you count. And it could be a simple MCQ in your exam. Now
+[46:02] come again. 16. Okay. And if I ask you to show them,
+[46:10] can you? Yeah. Why not? Maybe
+[46:17] yes please we got one answer which is 16
+[46:26] okay let's scroll down down sir properties
+[46:32] again I've not drawn all only few continue
+[46:36] yeah the spanning tree with the minimum edge cost is minimum cost spanning tree
+[46:41] and that is what we are going to solve today. Since the identification of a
+[46:46] minimum cost spanning tree involves the selection of a subset of the edge. So a
+[46:51] spanning tree does not exist for a disconnected graph which means two
+[46:55] graphs are independent of each other. It's like uh this guy uh
+[47:02] there is one no not here diagram sir. Yeah. So there is one graph like this
+[47:08] another graph like this. This is graph one and this is graph two.
+[47:14] There is no spanning true tree possible because they are not connected unless
+[47:19] there was an edge connected here. Okay, go back to the Yeah, for a connected
+[47:25] graph having n vertices the number of edges is equal to n minus one. So for a
+[47:32] full graph which had six edges, four vertices, the resultant spanning tree
+[47:38] will not have more than three edges. Is that point taken? Okay. A spanning
+[47:45] tree does not have any cycle. We can construct a spanning tree for a complete
+[47:51] graph by removing e minus n +1 edges. Complete graph. Go to the diagram.
+[47:58] A erase all. Yeah. A complete graph is this.
+[48:06] Number of edges is six. Number of vertices four. So we are
+[48:13] saying
+[48:20] how many edges do we remove?
+[48:24] You can remove these two and one of them.
+[48:28] Go back to the very important this property so that you don't need to do
+[48:32] any manual calculations. You know some I repeat we can construct a spanning tree
+[48:37] for a complete graph. Complete graph is graph where every edge is connected
+[48:41] every vertex is connected to every other vertex
+[48:45] by removing e minus n + one edges where e is the number of edges and n is the
+[48:50] number of vertices. Now
+[48:53] it's K's formula states that the number of spanning trees in a complete graph
+[49:00] with n vertices is n ^ n minus 2. Go to the code diagramraph
+[49:07] n ^ n minus 2 for a complete graph. Now this is my complete graph. How many
+[49:14] spanning trees will I have? N is nothing but number of vertices. V ^ V - 2 4 ^ 2
+[49:22] 16. Is it clear? Now take a graph like this
+[49:27] which is complete. A B C. How many spanning trees can you have for this?
+[49:35] Number of vertices are what? Three. So 3 ^ 3 - 2 3 ^ 1 which is 3. What are
+[49:43] those?
+[49:49] Are you getting this? A B C A C B
+[49:57] C A I mean this should have been cross. I have I removed the connection A to B A
+[50:04] to C and oh this is done. One more would be A B C. So this is gone. Yeah.
+[50:11] B A C. Erase this. Are you guys there? Is that
+[50:16] clear? So next time when you're given a very complex graph with six edges uh six
+[50:22] vertices all connected which is a complete graph, you don't need to do any
+[50:28] manual work. They'll give you a lot of rough work to do. Apply this formula and
+[50:32] you'll get the answer. Yes sir. We're just asking you number of spanning
+[50:36] trees. What you might also get is you might get a picture saying [laughter] is
+[50:40] this a valid spanning tree or not? Look for is there a cycle? Are all edges
+[50:46] sorry are all vertices in place? Is the number of edges equal to number of
+[50:52] vertices minus one? Apply those three and if all that is fulfilled yeah it is
+[50:57] valid. Any one is not fulfilled treat that as invalid. Are you guys getting
+[51:02] it? uh the reason why I'm sharing is uh in the quiz which you have very soon we
+[51:07] will have lot of such questions where you need to understand concepts and not
+[51:12] just by heart code and sprite we're looking at do you understand concepts
+[51:17] can you apply why yeah we got the go ahead for that
+[51:22] right good yeah that's that type of quiz is only for the da batch in the
+[51:28] auditorium for other batches I don't know what they will do but For our
+[51:32] batch, I want the pattern to change and not go through the regular, you know,
+[51:36] some programs, write some nodes on it. I want it more MCQ type where concepts are
+[51:42] tested. Okay, are we clear? Shall we move on?
+[51:46] Yeah. Yeah. Now, we'll just stop at that and discuss the algorithm first. Uh
+[51:52] there are two ways of solving it. One using the prim's algorithm and the other
+[51:58] is crystals. I will not talk about crystals because before even we talk
+[52:02] about crystals algorithm we'll have to understand another interesting concept
+[52:06] which is disjoint sets are find union have you done that disjoint sets is done
+[52:13] for you guys yes I know she's nodding saying yes okay how many of you know
+[52:19] what is disjoint set find union algorithm
+[52:23] nobody okay so first we will cover that before we cover algorithm that is there
+[52:28] in unit five but since it is required here we'll cover that to help you
+[52:34] understand so let's look at a diagram diagram no blank screen I'll give you a
+[52:41] graph okay
+[53:31] Now this is the graph where we have how many vertices? [snorts] Six vertices.
+[53:37] So the spanning tree you know will consist of five edges only v minus one.
+[53:43] So given this particular graph, can you manually come up with what the minimum
+[53:49] cost of the spanning tree would be and what would the vertices connected be for
+[53:55] that? Which vertices are connected to which other? What are all the edges
+[53:59] pair?
+[54:03] Yeah, all of you please do that manually. I I'm not even talking about
+[54:07] the algorithm
+[54:12] and assume you're starting with vertex zero. It doesn't matter which vertex you
+[54:16] start but for simplicity vertex zero.
+[54:27] Yeah. All of you I'll give you some time.
+[54:38] 32. Okay. Can I see your
+[54:43] edges which you have considered?
+[54:58] Good. Good job. Very nice. Now that he got 32, we'll ask him to
+[55:02] explain how he got 32.
+[55:06] And that should be the algorithm. Yes. Anybody lesser than 32? Now we are
+[55:11] saying lesser minimum.
+[55:23] 32. Okay. 32. 32.
+[55:30] I don't know. 32 everybody. 32 32 31 30 32
+[55:42] uh Okay, great. 32 is the right answer. Can you tell me what are the vertices
+[55:46] sir which I'm considering?
+[55:51] What are the edges basically? Mike mic
+[55:56] I'll keep this. This I will not disturb. >> 2 to 0.
+[56:01] >> 2 to 0. Okay. 0 to 2. 0 to 2. >> 0 to 1.
+[56:07] >> 0 to 1. >> 1 2 3.
+[56:10] >> 1 2 3. Very good. >> 3 to 5.
+[56:14] >> 1 minute. Let me put a circle around it. So we know these are vertices and these
+[56:17] are the 3 to >> five.
+[56:22] Weight is weight is 10. Yeah. Uh this guy is three.
+[56:27] and five to >> four.
+[56:30] >> Five to four. Okay, great. Let's first look at does it fulfill all the
+[56:34] properties. First property, no loop, no connectivity, no loop. Great. Second
+[56:39] property. >> It is a complete
+[56:43] it's not a complete graph but number of edges should be equal to v minus one.
+[56:49] What are the number of vertices? Six. So edges should be five. How many edges do
+[56:54] we have? 1 2 3 4 5. Are we clear guys? Properties are fulfilled. Now we sum up
+[57:01] all these weights and get 32. And any other combination you take will give you
+[57:07] more than 32. Other combination could be why can it five to
+[57:12] why go 0 to two? Maybe I'll just go 0 1 3 2.
+[57:19] That's another combination. Now I can get 0 1 3 2 5 4
+[57:28] but then this weight will be much more. That's a valid spanning tree but it's
+[57:32] not minimum cost. Are you there? There could be other combinations
+[57:37] uh 0 2 3 5 4 0 2 3 but one is not there. So I'll
+[57:46] connect 0 1 another spanning tree no graph or no cycle number of edges are
+[57:54] there all vertices are considered another spanning tree but that weight
+[57:58] will also be more this is the only one which gives you the correct answer which
+[58:02] is 32 are you all there so if you're not sure what you can do just try generating
+[58:08] manually spanning trees considering all these properties you would want to wash
+[58:13] your face madam something went in your eyes want to wash your face No, all
+[58:16] good. Yeah. So, you can consider all possibilities and then manually but for
+[58:21] a graph like this manually will be a pain. Now, can you tell me how you came
+[58:25] up with this? I'll give all of you a hint. We solved Dickstra's algorithm few
+[58:31] days back which is single source shortest path. Given a
+[58:38] source which is like our case any source find out the shortest path. Yeah. using
+[58:45] that algorithm. Can you tell me how you came up with
+[58:48] this? What did you do? Your name sir.
+[58:54] >> Such tell me how you came up with this.
+[59:00] Yes sir. >> Sir I was randomly I have randomly
+[59:05] selected two vertices. >> A randomly. Okay. Anybody? Now consider
+[59:10] our dictas algorithm and see if we can solve the problem because the prim's
+[59:15] algorithm is similar to that. There it was path from A to B. Now here we are
+[59:23] not saying A to B. We are saying sum total of all edges weight is the answer.
+[59:28] There we had said oh what is the path from 0 to 1, 0 to 2, 0 to three the
+[59:33] shortest and that was a different way of looking at things. Okay. Yeah. In this
+[59:38] example, uh what we would do? Are we clear guys?
+[59:43] Hang on. Can I continue? Erase everything except the right answer. The
+[59:48] main diagram and the 32 erase the other spanning trees.
+[59:56] Okay, I'll explain this algorithm very very similar to single source shortest
+[1:00:01] path. Our source here is zero.
+[1:00:07] Okay. Now what we do is we maintain what is
+[1:00:12] called an array which is like the visited array
+[1:00:20] because if I do not consider this there's a possibility that I consider 0
+[1:00:23] 1 2 3 and then from three I go back to one which will be a cycle. So if it is
+[1:00:29] already visited don't visit. Okay. So this is what we call the visited array.
+[1:00:34] And then we also have what is called a distance array.
+[1:00:41] So what would the distance of zero to itself be?
+[1:00:57] What would the distance of zero to itself be? In distress what did we do?
+[1:01:03] Zero and what were the remaining integer domax remember maximum value.
+[1:01:12] So you start with vertex zero and then find out its neighbors. Who are his
+[1:01:19] neighbors? If zero is the minimum distance I found
+[1:01:24] first time I will say zero is marked as visited. Who are his neighbors?
+[1:01:31] 1 and two. So what will the distance of 0 to two be?
+[1:01:37] So this guy is visited. Now what will the distance of 0 to2 be? What was it in
+[1:01:41] earlier? Maximum. What is it now? Five. So we update it to
+[1:01:49] five. Guys please understand the algorithm. And what about distance of 0
+[1:01:53] to 1? Earlier was maximum. Now it is 10. What about the remaining three?
+[1:02:01] They will still remain maximum because I cannot reach from 0 to
+[1:02:06] three without going to one. I will be able to go to three if I've gone to one
+[1:02:12] because one's neighbor is three. Guys remember same algorithm.
+[1:02:17] Okay. Then given this now distance array which is the minimum distance
+[1:02:23] five. Which vortex? Which vertex? Vertex two. So I now go
+[1:02:29] from 0 to two. I'm going from 0 to two. Now consider two. Who are his neighbors?
+[1:02:38] 3 5 4. What were their values earlier? What were their values earlier? Maximum.
+[1:02:46] What will their values now be? So two is now visited to true. What will their
+[1:02:51] values be? 12 15
+[1:02:57] and 20. Correct. No. No. Yeah. 12. No. 20.
+[1:03:05] No. 2 to 3. 3 is 12. Now 2 to 4 is Oh, sorry. Uh, erase them now.
+[1:03:14] Uh, 20 and 15. Other way. Yeah.
+[1:03:24] 20 and 15. Are you guys clear? Which are the two vertices considered which are
+[1:03:28] part of the minimum spanning tree now? 0 and two. So this is like the boolean now
+[1:03:34] array. True, false, true, false, false, false.
+[1:03:40] This is visited. This is visited. Now from two, I have updated this. Two is
+[1:03:46] already visited. So we'll remove. Now consider 10 12 20 15 which is the
+[1:03:51] shortest distance. Now
+[1:03:57] 10 which is vertex vertex
+[1:04:02] one. Right? So I now say vertex one. What is
+[1:04:07] vertex one? Visited true. Now who are the neighbors of one?
+[1:04:14] Three. Who are the neighbors of one? zero zero
+[1:04:19] is already visited so we don't visit can I visit three from one yes because three
+[1:04:24] is still not visited three is not visited what do you do now
+[1:04:29] come can anyone tell me
+[1:04:35] what was the previous distance at node three
+[1:04:41] what is the previous value at node 3 12 is the edge weight 1 to
+[1:04:49] What is the edge weight 1 to 3? 8. So what do we now do?
+[1:04:54] We go and update 12 to 8 because this value is lesser than what was stored in
+[1:05:02] that minimum spanning tree array. The in the minimum spanning tree distance array
+[1:05:08] there was 12. Now we update it to eight. Yes sir.
+[1:05:14] Where five? No, we don't add 5 + 3 because the net result will be five.
+[1:05:19] When when we do the summation 32, we'll be adding all of them.
+[1:05:25] That problem was slight variation. Yeah, you're saying given a particular node,
+[1:05:29] how do I go to three via one? So 0 to 1 1 2 3. So we added both of them. Here we
+[1:05:35] are saying given that spanning tree, tell me what is the minimum cost? That
+[1:05:39] will be the sum of all. So what am I updating? 12 to 8.
+[1:05:47] Okay. Now what will the new array here look like? Distance array. 0 10 5 8 20
+[1:05:56] 15. This is visited. So we skip. This is visited. We skip. [laughter] This is
+[1:06:00] visited. Now given these three which is the shortest path.
+[1:06:03] >> Eight. So vertex three is considered. Now with respect to three what are the
+[1:06:08] options? Five. What are the value of five? Earlier
+[1:06:12] 15. What will be updated to? What will be updated to? Three. Can I go
+[1:06:19] to two? No, because already visited. Can I go anywhere else from three? One
+[1:06:23] visited. So the only path is five. What will three now become again? Visited set
+[1:06:31] to true. Are you there? Now consider 20 and three. Which is the shortest
+[1:06:38] distance? Three. Which vortex? Five. So five is now
+[1:06:43] visited. From five where can I go to? Four. From five I can go to two. No
+[1:06:50] already visited. So I go to four. What is the distance of five to four?
+[1:06:55] >> Six. What is the distance of four earlier?
+[1:06:58] 20. What do we update it to? >> Six.
+[1:07:02] So when I go to this all my vertices are visited.
+[1:07:07] Now sum sum up this 10 + 5 + 8 + 6 + 3. What do you get? Calculate guys.
+[1:07:16] 15
+[1:07:19] + 12 + 3. Now is it 0 to 10? Then 8 5 3 6.
+[1:07:34] Yeah. Is that uh how much does it add up to 15 + 14 14 sorry this is 14 8 + 6 is
+[1:07:42] 14 32
+[1:07:46] have you got it is like the distra single source shortest path there we
+[1:07:52] were updating the path from the previous plus the new edge here we just say from
+[1:07:58] that point to this point if I need to go what is that weight and sum total of all
+[1:08:02] the wedges sorry all the edges is the minimum cost spanning tree.
+[1:08:08] Are you there how similar both algorithms are? The the way they work is
+[1:08:13] create an array which is called the visited array all set to false. Now
+[1:08:18] create another array which is a distance array. Whatever is the initial source
+[1:08:22] that distance will be zero. Every other will be maximum. Write a logic like
+[1:08:26] minimum distance algorithm you'll get that vertex. find out all his neighbors,
+[1:08:31] update the distance and if you update the distance and if you find a new
+[1:08:35] distance which is smaller, update it to that like how we did that. Okay. Now
+[1:08:40] what I will give you is the same graph. Same graph. Now the start vertex is
+[1:08:47] four. This is my start vertex. Consider four as the start vertex.
+[1:08:53] Calculate the distance array and tell me what will the minimum cost spanning tree
+[1:08:59] answer

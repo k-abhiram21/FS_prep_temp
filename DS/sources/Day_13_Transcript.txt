@@ -1,0 +1,774 @@
+YouTube transcript
+Video ID: pROsHw7UAqo
+Language: en
+Captions: auto-generated
+
+[0:00] Yeah, good afternoon. Uh we'll continue with that same problem
+[0:07] uh which is finding the median of two sorted arrays using a binary search. We
+[0:13] have seen different techniques earlier. Uh one of the last techniques which we
+[0:17] talked about is the partitioning one. Okay. So let's look at uh what that
+[0:24] problem statement is and understand how binary search would help us. Okay, I'll
+[0:30] take couple of test cases. One is a simple one to start with. Uh we have one
+[0:38] 4 9 15 uh 2 5 7 20. Now if I uh present this data in a
+[0:48] sorted manner it would be 1 2 4 5 7 9 15 20 and the median is
+[0:59] sorry undo the median is 6 5 + 7 divided by 2
+[1:06] because there are even number of elements. If there were odd number of
+[1:11] elements the mid element would be the median. This is what we should get. Uh
+[1:16] we have seen in the last class how we can do this using partitioning where we
+[1:21] have two pointers. M1 which is pointing to the first element of the first array
+[1:26] and M2 which is pointing to the first element of the second array. So M1 would
+[1:31] point to one, M2 would point to two and then we were comparing which of them is
+[1:35] smaller and then we were incrementing uh that index. So if I is pointing to index
+[1:41] zero which is value one, one is smaller than two. So we increment I by one and
+[1:46] that is what we did and we got the answer. We are going to use something
+[1:50] very similar, not exactly the same but the same concept of partitioning. And
+[1:56] since it is binary search and since the data is already sorted, the partitioning
+[2:00] will always be with the mid element to start with. Not like what we did start
+[2:06] from the left, go write the array one if that element is smaller or go right
+[2:13] array to J index if that element is smaller than the i value. Guys remember
+[2:18] array A, array B. Now let's take that same concept. Uh again uh erase this
+[2:24] bottom. Now I'm going to take the same data 14
+[2:31] uh 915 uh 2520. Since it is binary search, what do we
+[2:38] normally do in a binary search problem? Get the mid element and divide that into
+[2:43] two halves, the left and right. So let's say this array is A
+[2:52] and this array is B. Uh what is the mid element?
+[2:58] Two because number of elements are four. Uh sorry the mid element would be uh low
+[3:07] plus high divided by two which is uh 0 + 3 / 2 which is 1.
+[3:13] Are there four elements? So what would the mid element here be?
+[3:21] Are you guys there? Now we are dividing this array into
+[3:26] three parts. The partition, the left of the partition
+[3:31] and the right of the partition. So a partition value is
+[3:37] four. The left of it is array element one and the right of it is element 9 and
+[3:44] 15. And likewise for B we again divide that into two halves. But the element
+[3:51] which is the mid element is what we call the partition.
+[3:55] Now what do we do after that? We have a left.
+[4:03] I'll call this a left A right. Sorry, B left. I'll call this B
+[4:11] right, A right. Terminology. Let's understand
+[4:17] the terminology and then I'll call it A partition or A middle. And I'll call
+[4:24] this B partition. Now just look at the cross values.
+[4:33] Just look at it. I'll just explain all of that little later. Just observe what
+[4:37] you're seeing there. Can you say that the leftmost element of
+[4:42] the partition is the largest in the left?
+[4:47] I repeat, can you say the leftmost element of the partition it is is the
+[4:54] largest in the left array because it is sorted. Can we use that?
+[5:01] Can we say the rightmost element of the right is the smallest in the right
+[5:06] array? Compare 9 and 15. Which is smaller?
+[5:12] Nine. So what is nine? Immediate of the partition.
+[5:17] What is one immediate of the partition? But which immediate? Left. What is nine?
+[5:24] Right. So the element left of the partition is the largest on the left
+[5:29] side. the element on the right of the
+[5:32] partition is the uh smallest on the right side. Is that clear?
+[5:38] Okay, I want you guys to be clear on this because everything else is based on
+[5:41] that concept. Okay, just to help you understand that better, let's take a
+[5:47] larger array. So, you'll see multiple elements on the left and multiple
+[5:50] elements on the right. Uh, I'll say 1 3 5 7 9 12 15 and then 2 4 6 uh 10 11 20
+[6:05] 30. So we have seven elements here. Seven elements here. My partition is
+[6:11] this guy. All these are a left. All these are a right and a midg.
+[6:19] And these are all B left, B right and B mid. Now when I said the element on the
+[6:30] left of seven are 1 3 5 but the immediate element to the left of the
+[6:36] partition is the largest on the left maximum value. The immediate element to
+[6:44] the right of the A partition is the smallest of the right. So if you
+[6:48] consider the left as one array and the right as one array, you can say with
+[6:53] confidence that the last element on the left is the largest and the first
+[6:58] element on the right is a smallest. So we give a terminology like max and min.
+[7:07] Are you there? So let's call this element as
+[7:15] a left max and this element as a right min. It is on the right side smallest.
+[7:27] Are you there? And what about this guy? B left max and B right min. Please
+[7:37] understand because once you understand this things become very very easy. So I
+[7:43] would give you some time all of you think about it and let me know if this
+[7:47] terminology is not clear. This is my terminology. You can use whatever you
+[7:52] want. A is just an array name. It can be x array y array. But what is important?
+[7:57] Left of the partition and right and y called max because that is the last
+[8:01] element in the left largest and y called min because that is the first element on
+[8:05] the right. So minimum because it is sorted and why a max because a is array
+[8:12] max and y left because left max right min. Shall we move on? Now if you look
+[8:20] at those closely pay attention to 7 11 sorry 7 and 10 those are partition
+[8:28] elements and this what do you see interesting now?
+[8:34] What do you see interesting? Is five lesser than
+[8:39] 11?
+[8:48] Is five lesser than 11? Yes. Is six lesser than 9?
+[8:52] Yes. What about six and seven? Five and 10. What do you see there?
+[8:58] Interesting.
+[9:02] Can you say what would the median here be?
+[9:09] What would the median here be?
+[9:16] What would the median here be? What is the answer if I were to just print it?
+[9:23] The sorted data is 1 2 3 4 5 6 7 and 10.
+[9:30] No, no, there's no eight. No, I'm just reading out the sorted data. What is the
+[9:35] sorted data? 1 2 3 4 5 6 7 10 and the rest of the data. But before 10, is
+[9:44] there a 9? Yes. So, it is 1 2 3 4 5 6 7 9 10. So, what is the median?
+[9:53] 7 + 9 / 2, which is 8. Now the question is how did we come with seven or how did
+[10:00] we come with nine is what we will look at. Okay with this background take me to
+[10:06] the word document and then this diagram will become so much more clearer and
+[10:12] then we'll look at some very interesting relationship and that relationship word
+[10:16] document please that relationship should help us. So just see this there's an
+[10:23] array A there's an array B and then we are doing the union and then finding
+[10:27] that that is the brute force which we did day one next
+[10:32] continue
+[10:35] great now stop uh if that is my array 47 and B is
+[10:41] another array the union of that is 1 2 3 4 5 6 7 and we got the median as four
+[10:48] fine that's a simple brute force inefficient approach to solving the
+[10:53] problem. Continue. Now just observe what is done.
+[11:00] 1 2 3 Where are they coming from? Are they coming from the first area or is it
+[11:06] a combination of both? Combination. What about 5 6 7 9
+[11:11] combination. So whenever we talk about the median problem like in our
+[11:16] partitioning thing we were only concerned about going the first half. We
+[11:21] never bothered about the right. We didn't want it once we found the medium.
+[11:26] We didn't care what was on the right. Likewise if you look at the resultant
+[11:31] median here which is four. Most of the values there are coming from the left of
+[11:36] the array. What is the left of B? Two and three. What is the left of a 1 and
+[11:44] four? So the left half of the array is of importance and not the right half at
+[11:48] all because we are not interested in printing the array in the sorted manner.
+[11:54] We are only interested in uh knowing what the median is. We are not giving
+[11:59] the resultant array. If it is a resultant array, then I have to worry
+[12:02] about everything. But I'm not interested in that. I'm only interested. Just pay
+[12:06] attention. It is only the left part which is of focus to us.
+[12:13] Are you there? Okay. Continue. Continue.
+[12:18] Now look at what we just did. Uh now continue.
+[12:23] Continue. Yeah. I want this to be shown again. A left. That I is that uh median
+[12:31] and there's an A right. And then you have B left and B right. Okay. So I'm
+[12:38] now going to Are you seeing I and J? Are you seeing that? Now what will this
+[12:43] stop? What will this value be? Give me access.
+[12:49] What is this value? I - one. What is this value? J minus one. What is this
+[12:56] value? I + 1. What is this value? J + 1. Is that terminology again clear? I is
+[13:04] the median. So left of it is minus one and right of it is + one. And likewise J
+[13:09] is the median J minus one J + one. So what is I minus one? The largest on the
+[13:14] left and J minus one is the largest in the left B. I - 1 is for A the largest
+[13:21] value. And J minus one is the largest on the left. And what is I + 1? The
+[13:28] smallest on the right. and J + one is the smallest on the
+[13:33] right of B. Is it clear? So I is the index which is the median. Left is I
+[13:38] minus one. J is this. Now look at the very interesting condition. Can you say
+[13:43] with confidence that A of IUS1 is less than equal to A of I?
+[13:51] Yes, because it is sorted. Likewise, B of I - 1 is less than B of I.
+[13:59] And you can say A of I + 1 is greater than equal to A of I.
+[14:06] B of I + 1, sorry, B of J + 1 is greater than B of J. Left is smaller. Right is
+[14:12] larger. Smaller or equal. So that is what you see. Can you zoom more?
+[14:19] Zoom. Please zoom more.
+[14:25] Yeah, a of i minus 1 is less than a of i. We know for sure I would say less
+[14:30] than equal to and b of j minus one is less than equal
+[14:34] to b of j. It should be less than equal to because data can be same. Are you
+[14:40] there? So now we are saying a of i - 1 is less than b of j and if b of j minus
+[14:47] 1 is less than a of i then we have the answer.
+[14:53] Just see that condition. A of i -1 is less than equal to b of j
+[15:02] and b of j minus one is less than equal to i.
+[15:07] Now what is a of ius one in our example?
+[15:12] This guy I need access
+[15:18] this guy. This guy is lesser than this and B of J minus one is lesser than A of
+[15:28] I. If that is met then we have the answer.
+[15:36] Now I'll explain how and why and what we need to do after that.
+[15:43] Given two arrays if the leftmost larger is smaller than the right smaller
+[15:50] then we need to do something. But if the left is smaller and the right is larger
+[15:54] that means it is proper. Are you are you there? See you look at
+[16:00] it. Partition element left is the largest value. If the largest value is
+[16:06] smaller than the smallest value which is the right then it is in the right order.
+[16:12] If the largest value is larger than the smaller then we need to do something
+[16:17] which is where we again talk about low high where do we go?
+[16:24] Are you there? I repeat, if the larger element on the
+[16:29] left is smaller than the smaller element on the right, it means it is proper
+[16:35] for both of them. By the way, A of J minus A of I -1 and B of I minus one
+[16:42] which is left guy should be smaller than A of I or B of J. It should be smaller
+[16:49] is equal to it cannot be larger. If it is larger, no problem. We'll have to
+[16:54] shift the partition till we get that condition where a of i minus one is
+[16:58] lesser than b of j and a b b of j minus one is lesser than a of i cross. That is
+[17:05] why it's important to understand the cross.
+[17:10] Now take an example. I'll scribble here.
+[17:15] 2 4 6 8 10 12 1 3 5 7 9 11 30
+[17:30] What is a of I - 1 6? Is that lesser than seven? Yes. What is B of J minus 1
+[17:38] 5? Is that lesser than eight? Yes, we have the answer. Now the answer is what
+[17:43] you have. You have six, five, 8 and seven. Which ones will you choose for
+[17:49] the median now? Which ones will you choose?
+[17:54] Huh? No. 8 and seven. But why eight and
+[17:58] seven? No.
+[18:02] So what you now need to do is when you find five and six, eight and seven is
+[18:06] not the right answer. By the way, when you find five and six, you now need to
+[18:11] pick the max of the largest. Which is a max of the five and six? Six.
+[18:20] And when you get the right side, what do you pick?
+[18:26] Min. If it is sorted, how will it look like?
+[18:30] Five, six, 7, 8. So between five and six, what do you pick? The largest. And
+[18:36] between seven and eight, what do you pick? Smallest. So when you say the
+[18:41] right side is a uh minimum value, you pick the smaller of the two. When you
+[18:46] say the left side is a maximum value, you pick the larger of the two. So that
+[18:50] everything is sorted. So what is the largest of the two?
+[18:56] Six. What is the smallest of the two? Seven.
+[19:01] Are you are you getting what I'm trying to say? We'll go through some examples
+[19:04] then you'll understand what if the entire first you know just imagine a
+[19:08] scenario where the first error is 1 2 3 4 5 the second is 10 11 12 13 it is
+[19:14] never going to be half of them then that is a extreme cases we'll worry about
+[19:22] are you there
+[19:29] are you are you clear on the terminology it's not done there's a lot of stuff I
+[19:32] we need to cover. Now the basic idea is get the middle element, get the element
+[19:36] to the left of it, get the element to the right of it and then compare whether
+[19:41] A of leftmost maximum is lesser than mid and then the B of leftmost maximum is
+[19:50] greater lesser than max of A cross. If it is then largest leftmost is largest
+[19:58] get the maximum rightmost is smallest get the minimum. So that everything is
+[20:03] in a sorted order. Then imagine you have taken 6 and five six
+[20:08] that is correct. But if you take five then is it like saying oh array is 1 2 3
+[20:12] 4 6 and five which is wrong. It has to be five and six. So we need the larger
+[20:18] and why smaller because it is on the right the minimum. The immediate
+[20:22] smallest is the the the immediate largest and the immediate smallest is
+[20:27] what is combined together to give you the median.
+[20:35] No. Are you guys there?
+[20:42] Can you uh explain? Okay. So, what I'm trying to
+[20:47] explain here is if we have uh get me a blank screen,
+[20:52] we'll get a new data. Yeah. So let's say 1 10 20
+[21:01] uh 40 50 uh 2 5 15 35 70.
+[21:10] So what do we start with? This is I. This is J. This is I -1
+[21:18] J - 1 I + 1 J + 1. So we are saying A of this is A. This is B. A of I -1 is less
+[21:30] than equal to B of J and
+[21:37] B of J minus one is less than equal to A of I. So what did we get? 10. Is it
+[21:45] lesser than 15? Yes. Then what about five? Is it lesser than 20? Yes. So we
+[21:51] have got the answer. But of these four, which one do we pick? We pick from the i
+[21:58] -1 and j minus one the maximum because if you were to look at the
+[22:04] sorted array wouldn't it look like 1 2 5 10.
+[22:09] So I need to pick from these two the largest because they are the maximum and
+[22:14] from these two I need to pick the smallest because on the right side is
+[22:19] minimum. So it's like saying get me the minimum of the minimum and get me the
+[22:24] maximum of the maximum. The left is maximum values, the right is minimum. So
+[22:29] get me the smallest. So what do you get in the maximum here?
+[22:35] 10. And what do you get in the minimum? What do you get in the minimum? 15.
+[22:42] So something like that. We'll see that. But what happens to a boundary case 1 2
+[22:47] 3 4 5 and 7 8 9 10. What happens then? We'll come back to that in a moment. But
+[22:56] are you guys getting the terminology?
+[23:02] And if it is not true, then what do you do?
+[23:06] Imagine this was not five. Uh this was 15 and this was 25.
+[23:13] Is 15 lesser than 20?
+[23:19] No. So I should have done the other way around.
+[23:24] 25 30 is 25 lesser than 20.
+[23:31] No. What do you then do now? Which direction will you shift?
+[23:38] Right of what?
+[23:41] Right of
+[23:45] which right of what? See there are two ways of looking at it. 25 is lesser than
+[23:51] 20. So I now need to sorry 25 is larger than 20. I now need 25 to be smaller
+[23:58] than A. So where do I have to go? Right of A. because right of a will be
+[24:06] larger value than what you are currently seeing at I
+[24:10] guys are you getting it? So you'll have to shift your median to I + 1 that is 20
+[24:16] now 20 becomes 40 are you there?
+[24:22] Is everybody getting it? If 25 is given and 25 is compared with 20 you know it
+[24:28] is larger. I need a larger value in the array A. So I now shift my right.
+[24:36] If it was other way around, I would have to shift to the left. Now imagine the
+[24:42] array was um
+[24:47] uh this guy um this scenario. Are you clear? I'll change the scenario to this
+[24:51] is five and this is 8. Is 10 lesser than eight?
+[24:57] No. But I want a lesser value than 10. Where do I go to? Left.
+[25:05] Okay. So, we'll look at that in a moment. Is it clear so far?
+[25:11] So, you're basically partitioning finding out the leftmost maximum and the
+[25:16] rightmost minimum. If you have got a proper median, if you have not got a
+[25:21] proper median, you either have to shift to the right or shift to the left
+[25:26] depending on which condition fails. Okay. Uh, can you do me a favor? Um, go
+[25:34] back to the word document. Yeah. Scroll down.
+[25:41] Down, please. Yeah. Um, so the important condition is this. A of i -1 is lesser
+[25:49] than equal to b of j which is the right value and b of i minus one which is left
+[25:55] is lesser than the median. I is
+[25:59] A index and J is B's index. So you're comparing the previous value cross A of
+[26:06] I minus 1 with B of J or B of J minus one should be lesser than equal to A of
+[26:12] I. If it is not and if one of them fails then we move to the right or we move to
+[26:16] the left. So I'll take you through some uh no code. Can you just run this with
+[26:22] the data I'm going to give you? We will look at three cases. uh blank
+[26:28] screen
+[26:32] erase. I'll take simple test cases to start with. 1 5 10 20 30
+[26:40] uh and uh 4 8 uh 15 35 40. This is 30. Just remember five five and five.
+[26:55] Yes. Run please.
+[27:06] Yeah. Are you taking input for number of
+[27:09] elements or huh?
+[27:14] Both the arrays only the array you taking five and five. What is the mean
+[27:18] like? Show the mean. M mean
+[27:24] uh okay you're taking m andn. So five and five and then give the data.
+[27:32] Yes, please. Yeah. Yeah. What is the data? Uh guys, anybody
+[27:39] remembers? Open board 15 10 2030. 15 10 2030. Let's
+[27:47] work on the second one later.
+[27:54] Yeah.
+[27:58] 48 48 15 30 and 40 that doesn't matter what
+[28:03] you give after that. Yeah. Yes. Please. Yeah. Guys, please look at
+[28:08] the debug messages and you'll understand exactly what we went through. Then we'll
+[28:14] look at the worst boundary cases. Uh give me access.
+[28:20] So the number of elements are five. So the median is two. So what is the median
+[28:25] value? What is the median value? Median of A?
+[28:31] Two. What is the median of B? Three. Now how did you get three? Can anyone
+[28:37] tell me?
+[28:42] Can anyone tell me why is the median of B3?
+[28:47] I'll give you a simple example. First element is four. First array is four
+[28:51] elements. Second array is 20 elements. What will the mid be?
+[28:59] 4 + 20 is 24 divided by 12. So what will the median of the first guy be? 4 / two.
+[29:07] What will the median of the other be?
+[29:12] What is it? 20 divided by two.
+[29:20] Is 20 divided by two or tell me.
+[29:32] Okay, look at that. Tell me five elements in the first, five elements in
+[29:35] the second. What is the median of A? Two. Should the median of B also not be
+[29:41] two? 0 + 5 divided by two. But why is it three is my question?
+[29:48] Mike, Mike, Mike, I want you to understand. And I'll give you another
+[29:52] example. Give me access. First element is five. Four. Second
+[29:58] element is 20. So what is the median?
+[30:06] What is the median? 12.
+[30:11] What will the median of this guy be? Two.
+[30:16] Yes, you're saying something. Use the mic and answer.
+[30:22] The median of the B will be three because in the la last array which will
+[30:28] be sorted com combination of A and B should have at least five elements
+[30:33] because >> 10
+[30:34] >> huh sir >> 5 + 5
+[30:36] >> 5 + 5 is 5 + 5 is 10. So for the median we need five elements. So 5 - 2 is
+[30:42] three. >> Yeah the the sum total of elements of
+[30:46] both the arrays is 5 + 5 10. What is the median of that?
+[30:52] Five. So if the median of the first is two, the median of the second is the
+[30:58] resultant median minus the median of the first guy.
+[31:02] That is why it is three. You got it? It is not taking individual
+[31:08] arrays and getting the median. It is the median of the smaller plus the median of
+[31:15] the sum total. So the median of the other will be the median of the sum
+[31:20] total minus the median of the smaller. So in this case it was two 0 + 5 divided
+[31:26] by 2 is 2 but 5 + 5 is 10. So median is 5. 5 - 2 is 3.
+[31:34] Which means now look at it closely. What is the median of the first guy? Give me
+[31:40] access.
+[31:43] You'll know when I when I go through the code all this will become can I you gave
+[31:47] me access okay 1 5 10 20 30 so this is my I
+[31:55] 4 8 15 30 40 what is my J can you tell me what is the J value now
+[32:05] come on guys tell me no what is midB
+[32:12] What is mid B three?
+[32:18] This is J. This is I. This is A minus I. B minus J.
+[32:26] A + I. B + J. Now apply that condition. Is A
+[32:32] minus I less than equal to B of J? Is 10 lesser than 30?
+[32:41] Is 10 lesser than 30? Yes. What about B minus J lesser than A of I?
+[32:49] No. What do you do then? What do you do?
+[32:56] Come on, guys. What should I do now?
+[33:05] Is it fulfilling that requirement? Okay, look at that. Mid of A is two. Mid
+[33:11] of B is three. What is minimum max left A?
+[33:16] What is max left A? Just beside 10, what is the value? Five. Are you seeing that
+[33:21] max left A is five? What is min right A? A of I. And uh what is max left B?
+[33:32] What is max left B? This is B 15.
+[33:38] What is min right be? This guy.
+[33:47] What is I guys? I is two index two. What is J? Index three. So this is left of
+[33:54] it. Max left A. Max left B. Five and 15. Max left A. Max left B. Five and 15. Min
+[34:03] right A is that index value. Min right B is that index value.
+[34:08] Now I'm comparing five with 30 and 15 with 10.
+[34:14] Is five lesser than 30? Yes. Is 15 lesser than 10?
+[34:21] No. What do you do then? >> Yeah.
+[34:28] >> Why did we even go to 30? So 15 is already like five is already less than
+[34:32] 15. >> Five is already less than sir. We
+[34:35] compare a of i minus one with b of j index partition value.
+[34:42] We always compare the previous with the partition. The a previous with the
+[34:47] partition b's previous with the partition. So we are comparing a minus a
+[34:53] i minus one with b of j and b j minus one with a of i. So what are we
+[34:59] comparing? 15 with 30 sorry five with 30. This is correct. But what about 15
+[35:06] with 10? What about 15 bit with 10? No. Then what
+[35:13] did we do? What did we do?
+[35:18] Huh? No. Are you clear so far? I am comparing
+[35:24] a i minus one with b of j and bj minus one with a of i. The first part is
+[35:32] proper. Five is less than 30 but second part 15 is not lesser than 10 which
+[35:39] means I've not got the median yet. I now need to do more work. What is that more
+[35:44] work? Tell me now what do you do? Look at the other debug messages and
+[35:49] tell me guys look at this. Low is three, high is five.
+[35:56] What did we do when I say low is three, high is five.
+[36:00] I'm comparing 15 with 10. Is 15 lesser than 10? No. So if I want a larger value
+[36:08] than 10, where do I go to? Right or left? Right.
+[36:14] I need to shift my right. When I shift my right, what are we doing in a typical
+[36:18] binary search? Low is equal to mid + one and high will
+[36:24] be whatever. Have you understood this?
+[36:29] No. No. I want everybody to understand code is like few lines here is all done.
+[36:33] I'm not interested in the code. I'm interested in you understanding the
+[36:36] logic behind the code. Okay, first point are you clear that we
+[36:42] partition we get I and J and then we get the uh largest value of a left and the
+[36:49] largest value of B left which is max left A max left B. Then I compare a of i
+[36:57] minus one lesser than b of j cross and then b of j minus one lesser than a
+[37:05] of i is like saying is the largest left value smaller than the partition values.
+[37:12] As simple as that. Okay. In our case a of a of i minus 1 is
+[37:18] lesser than b of j which is five is lesser than 30 but 15 is le lesser than
+[37:23] 10. What do you do then? I want a larger
+[37:27] value than 15. How do I get a larger value of 15? Unless I go to the right of
+[37:32] A. Are you are you getting it? So I cannot
+[37:36] find anything to the left of A because I want a larger value than 15. So what
+[37:41] where do I shift my partition to? I say now my my earlier
+[37:46] low was zero. My low will be mid + one. So low will be now three. And what is my
+[37:53] high? Five. What is my mid value now? Four.
+[38:00] Are you there? See this? Low is three, high is four, mid is uh uh four of a. So
+[38:07] what will the mid of B be? Remember five minus four. Is it is it clear why this
+[38:14] is one? Now is it clear? So it's like saying if I'm
+[38:19] going right I need to shift left because the mid elements will still be only the
+[38:23] first five.
+[38:27] How many are not clear with this message? Are you clear why low is three?
+[38:31] Why high is five? I wanted a value larger than 15 and that
+[38:38] is only possible if I go to the right of it. I'm not saying the immediate guy
+[38:41] will be my answer. No, I have to shift to the right. There the probability of
+[38:45] finding only when I shift to the right. So when I shift it to the right, I'm
+[38:48] going too many elements on A, which means I need to reduce the number of
+[38:51] elements on B because the mid element is the mid of the resultant which is 10
+[38:56] elements. If I shift right and if I don't shift my
+[39:01] B to the left, then I've got five, four and then more here which is wrong. It
+[39:07] has to be balanced. Huh?
+[39:12] Not clear.
+[39:16] How many are not clear on how we got uh mid of A and mid of B?
+[39:22] Is mid of A. Clear? Low plus high divided by two. 3 + 5. Why did we get
+[39:28] three? Because we shifted low to the right of A.
+[39:33] Binary search guys. If you're looking for a target, if the target is not
+[39:37] found, if the target is larger, you shift to the right. What is my target?
+[39:41] Target is 15. What am I comparing with? 10. 15 is larger. So, I go to the right
+[39:46] of A. Right of A is mid + one. Typical binary search code. Mid + one. So, low
+[39:53] is three, high is five, mid is four. But what will the mid b be? The resultant
+[39:58] mid 10 elements mid is five. 5 - 4 is 1. So what happened after we did this?
+[40:08] Uh now I will say this is my J and this is my I. Are you clear now?
+[40:17] Mid of A is four. Oh sorry. Uh uh give me access.
+[40:24] Uh can you just maybe I'll scribble here.
+[40:28] Or can you just scroll up this part? No, you can't. Uh okay. Can I erase all this
+[40:35] and focus on this part now guys? Yeah. Erase the rest of it please. Top part
+[40:41] you erase.
+[40:51] Yeah. Stop. Stop. Yeah. So my data is 1 5 10 20 30. This is my I. I is made of A
+[41:02] is four. So this is my I. What is my J? 4 8 15 30 40. This is my J. Okay. Erase
+[41:10] this. So far are we clear? Now we again apply
+[41:15] the same logic. What is a minus I?
+[41:21] 20. What is J? B J minus 1 4 is
+[41:30] so A of I is 30 B of J is 8 A of I -1 is 20 b of J -1 is
+[41:42] 4. So we are now we are again saying is a of i -1
+[41:49] lesser than equal to b of j and b of j minus one is lesser than equal to
+[41:58] a of i. Now what is a of i - 1? 20. Is 20 lesser than b of j?
+[42:04] 8. No. No it is not. Is b of j minus one 8? Is
+[42:10] 8 lesser than a of i? Yes. This is correct but this is not correct.
+[42:18] Uh is it correct? No. B of J minus one is lesser than A of I. Four is lesser
+[42:23] than uh 30 and we are comparing 20 should be lesser than this. It is not.
+[42:31] Then what do you do? What do you do?
+[42:39] Are you guys getting it? Yes sir.
+[42:43] Sir in the first statement itself you're telling low is equal to zero. But how is
+[42:46] high five? Sir, >> where am I using low? Where is low zero?
+[42:49] >> In the starting sir, >> number of elements are five, right?
+[42:55] >> No, we are using high. >> So we are not dealing with the index.
+[42:59] We're just dealing with the >> number of elements.
+[43:01] >> Okay. >> Yeah. That is why in the resultant also
+[43:05] we just dealt with 5 + 5 10 not 0 to 9. Yeah.
+[43:12] What do you do now? Is it fulfilling our requirement?
+[43:16] We are now comparing 8 bit with 20. 8 is not lesser than 20. What do we do then?
+[43:25] Come again? Which left? B left or A left? A left. Where will A left go to
+[43:32] now? No.
+[43:36] No. When you say move to the left, what do you do? Just see the debug messages
+[43:41] after that. Just see the debug messages guys. See this
+[43:45] 20 is compared with 30. No sorry uh 3 if I this is and 20 is compared with 30
+[43:54] left of that is compared with uh 20 is compared with uh minimum with B
+[44:02] of J 8. Okay. Uh it is not matching. Then what do you do?
+[44:08] What do you do now? Just see this. Low is three, high
+[44:13] is three. How did we get low three, high three?
+[44:19] One minute.
+[44:23] What do you need to do, guys?
+[44:28] Can anyone guess how we got low three, high three?
+[44:33] I'm comparing 8 bit with 8 with 20 and I'm I'm sorry I'm comparing four b of j
+[44:42] minus one is lesser than equal to a of i that is perfect but then I'm comparing a
+[44:48] of i minus one should be lesser than equal to b of j it is not then to get a
+[44:54] lesser value what do I do to get a lesser value where do I go
+[45:07] So go to the left. Which left?
+[45:13] Which left? A is left. When I say go to the ace
+[45:18] left, what will my low still remain? Wherever it was. What will my high
+[45:22] become? Mid minus one. What was mid? Answer four. What will mid minus one
+[45:28] become? What was low? Three. So low is three, high is three. Guys, I wanted a
+[45:36] smaller value than 8. So I can get a smaller value than 8 only if I go to the
+[45:42] left of it. So what happens to my high? High is equal to mid minus one. And low
+[45:49] will be wherever it was. So low was three, high will now be three. So low is
+[45:53] three, high is three. So what will the mid be? Three. Then what will the mid of
+[45:58] B become? Two.
+[46:02] Earlier we started with mid of A as two, mid of B as three. Then we shifted. That
+[46:06] didn't work. Then again we are going back and now we are saying mid of A is
+[46:11] three. What is mid of A3? Uh can you get me that guys? Can I
+[46:17] continue? Are you clear on this?
+[46:25] Are you clear? Now when you got the mid of AS3, mid of
+[46:31] B as 2, can you erase this please?
+[46:37] Erase everything except the data.
+[46:44] I'll just show you and then I'll run through the whole algorithm with the
+[46:47] same data. 1 5 10 20 30 4 8 15 30 40 What is mid of A? 3 this guy. What is
+[46:58] mid of B? 2. What is A of I - 1? And this is B of J minus one. Is 10
+[47:07] lesser than 15? Is 10 lesser than 15? Yes. Is 8 lesser
+[47:13] than 20? See now you see this
+[47:18] 10 is lesser than 15. A of i - 1 is lesser than b of j and b of j minus 1 is
+[47:24] lesser than a of i. Great. We have got the median but we have to do something
+[47:29] more. What is that something more?
+[47:35] What is that something more? You take a of i minus 1 b of i minus 1. The largest
+[47:39] of the two. You take a of i and b of j the smallest of the two.
+[47:45] You got it? Now what is the largest of A of IUS 1 and B of J minus one?
+[47:52] A of I -1 comma B of J minus one max is
+[48:00] 10. Then you say min of A of I comma B of J.
+[48:10] What is uh A of I?
+[48:15] uh 20 and B of J is 15. So minimum is 15. What is the average of these two?
+[48:23] 12.5. Now just go and write this data in a
+[48:27] sorted order. Uh 1 4 5 8 10 15 20 rest we don't care. Now we have got the
+[48:38] average of these two guys.
+[48:44] You got it. Is like saying if my values in one direction are not proper either I
+[48:51] go to the right of A or I go to the left of B. And I keep doing it till that
+[48:56] condition has to be fulfilled. The simple condition is the leftmost of the
+[49:00] partition should be larger than the next partition. And likewise the left most of
+[49:06] the other partition should be larger than the previous partition which is a
+[49:09] of I lesser than B of J. and B of J minus sorry A of I minus one lesser than
+[49:15] B of J and B of J minus one lesser than is like saying the largest on the left
+[49:20] should be smaller than the next partition and the largest on the other
+[49:26] left should be smaller than the previous partition cross
+[49:30] and when you find that get the largest of the left and the smallest of the
+[49:34] partition.
+[49:38] Are you are you there? So shall we take the same example and run through first
+[49:42] time, second time and third time? Shall we do that? And then I will show
+[49:49] you the code and then explain to you boundary conditions.
+[49:55] Uh uh just remember the data 1 5 10 2030 blank screen.
+[50:03] Yeah. Oh great. is there. Uh we start with
+[50:11] low is zero, high is five, mid is equal to two. Mid of A is two. Mid of B is
+[50:19] equal to T total mid minus mid of A. What is the total mid? 10 elements
+[50:28] divided by 2 is five. 5 - 2 is three. So mid of A is 2. Mid of B is equal to
+[50:36] three. Are you clear? This is my mid.
+[50:45] Clear? So this is I. This is J. Guys remember. Now let's go through the
+[50:50] logic. What is A? I minus one. Five. Is five lesser than B of J? Yes.
+[50:59] Five is lesser than 35. What is BJ minus one? 15. Is that lesser than 10?
+[51:08] Is that lesser? No. You want so far? Are we clear everybody?
+[51:14] The first part is correct. A of I minus one is lesser than B of J. However, B of
+[51:20] J minus one is not lesser than A of I. I need now a lesser B of J minus 1 should
+[51:29] be lesser than A of I. Which means a of i should be larger. How do I get an a of
+[51:34] i larger? Unless I go to the right, I will not get it. So what are we saying?
+[51:39] My low will be mid + one and my high will be whatever.
+[51:43] Can I continue? Can I continue guys? Yeah. So my low
+[51:50] will become mid + one. So what will my low be now?
+[51:54] My low will be three and my high is five. So what is my
+[52:00] mid of a four and what is my mid of b? 5 - 4 1.
+[52:09] Okay. Uh now can you just erase this part please? Let the rest of the just
+[52:13] that erase 10 and I I will rewrite it. Yeah. And similarly J and 35. Yeah. So
+[52:19] this is this is 10 and this is 35. So what is my
+[52:25] mood of A? This. So this is my I and what is my mute of B? J.
+[52:31] Clear? I'm now comparing 20 with 8. Is that matching lesser? No. I'm
+[52:40] comparing four with 30. Is that matching? Yes. Now 20 is not lesser than
+[52:45] 8, which means I want a value lesser than 8. How do I get a value lesser than
+[52:50] eight? Unless I go to the left.
+[52:54] the the possibility of a lesser value is only in the left side now never in the
+[52:58] right. So what do I change my low to whatever what do I change my height to
+[53:04] mid minus one. Are are you there?
+[53:09] Yeah. Great. Now my low becomes
+[53:15] low is equal to sorry whatever the low was whatever what
+[53:20] was the low earlier three and my high is equal to mid minus one so high will
+[53:25] become three so what will my mid now become three mid
+[53:31] of a is three mid of b is equal to two uh erase these
+[53:42] uh eight right and this gave us 30 uh so
+[53:49] mid of a is three the i is this mid of b is two
+[53:55] uh two right yeah j now what is a of i - 1 10 is 10 lesser than 15 yes is bj - 1
+[54:06] 8 lesser than 20. Yes, we have got it. Now, what did we get? We got
+[54:12] 15 20 and 8 10. 8 and 10 are on the left. So, we
+[54:18] need the larger value. 15 and 20 are on the partition. So, we need the smaller.
+[54:25] Smaller of 15 20 and larger of left side. What is the larger of left?
+[54:31] 10. What is the smaller of right? 15. partition is half of them.
+[54:39] Are you clear everybody?
+[54:43] Now if you're clear I'm not going to show you the code. We'll look at that
+[54:47] later. I'll give you one more test case. You run through first time what is mid
+[54:51] of a mid of B. See if that condition is true. If it is not true, how do you go
+[54:57] and which direction do you go? What are the new mid values and all of that
+[55:01] manually please try on your own. uh sample data blank screen.
+[55:09] Yeah. I'll give you a test case which is can I Yeah. Uh 2 7 11 20 40
+[55:21] uh
+[55:26] 15 30 50 70 90.
+[55:33] So now low is equal to 0, high is equal to 5. I'm going to make it life easy for
+[55:38] you. Mid of A is equal to 2 and mid of B is equal to 3. Sum total is 10. 10 / 5 -
+[55:46] 2. Now with this background all of you calculate what will the next mid be if
+[55:53] there is no solution in the first time. All of you anybody got it? Great. Can
+[55:59] you explain? Pass the mic. Yeah. Explain. Uh midday is two. So I'm going
+[56:06] to show you what is midday value. This is my I and this is my J. Do you agree?
+[56:13] Yeah. What is a i minus one?
+[56:21] >> 7 is >> Yeah. a i - 1 is 7. a of i is 11. B jus
+[56:29] 1 is >> 50.
+[56:31] >> 50. And b of j is >> 70. What is the condition?
+[56:37] >> A of i -1 should be less than b of j. >> Okay. A of i - 1 lesser than b of j. No.
+[56:44] And >> it Yes. And B of J minus one should be
+[56:50] less than A of I. >> No, both are not. Great.
+[56:54] >> A of I - 1 is less than B of J. >> Oh, sorry, my bad. Yeah, 7 is less than
+[56:59] 70. Yeah. What do you do then? >> Then we low
+[57:05] low is equals to mid + one. >> So basically a of I minus 1 is lesser
+[57:11] than B of J. So that is fine. But what about B of J minus one? Is it less than
+[57:16] A of I? No. 50 is not less than 11. So you want a value larger than 50?
+[57:24] >> Which means it has to be to the right of 11. Is that point taken?
+[57:29] Is that point taken? Hello guys, everybody focus on the algorithm.
+[57:34] Is it clear? Great. What do you do then? Do
+[57:37] >> low is equals to three and high is >> low is equal to mid + one.
+[57:40] >> Mid plus one. So low. Okay. So 7 should be lesser than 70
+[57:47] which is correct. 50 should be lesser than five which is
+[57:51] not. Is that helping you? Then I need to get a value larger than 50. So I need to
+[58:00] go to the right. So because I have to go to the right,
+[58:04] low will be mid + one and high will be whatever that high was five. So what was
+[58:10] mid of A? Two. So this will become three. So what will the new mid A of A
+[58:15] be? >> Four.
+[58:16] >> Mid of A will be four. So this is Can you erase this part? Now are you guys
+[58:22] clear everybody? So mid of A will be four. So I will now point to 40 and J
+[58:29] will point to >> 15.
+[58:33] >> 4 - 5 - 4 1. >> Yeah. Great. So I is now
+[58:42] I is this. >> J is this. Erase this. No, erase the uh
+[58:48] values only. What is a I minus one? Now >> 20.
+[58:54] >> Okay. Left of I is 20. >> And what is A of I? 40. What is B of J?
+[59:03] >> 30. >> 30. And J minus one.
+[59:06] >> 15. >> 15. Now look at the condition. A of I -1
+[59:11] lesser than B of J. 20 is lesser than 30. Sorry. Uh erase
+[59:19] this arrow.
+[59:24] 20
+[59:27] 20 is lesser than this. Correct. What about A of I minus one?
+[59:33] >> Lesser than B of J. Correct. And B of J minus one lesser than
+[59:38] lesser than >> a of i.
+[59:40] >> 15 is also lesser than this. Correct. Great. So what are the four values you
+[59:46] got now? A of i b of j. What is a of i and b of j?
+[59:54] What is a of i and b of j? >> 40 and 30.
+[59:58] >> 40 and 30. Minimum or maximum? >> Minimum.
+[1:00:03] >> Minimum. Very good. And what about max of
+[1:00:07] >> 15 and 20? >> A of I minus one
+[1:00:12] >> 20 and B of J minus one. >> 15. What is the max of those?
+[1:00:18] >> 20. What is the min of those? >> 30.
+[1:00:20] >> 30. What is the average of those? >> 25.
+[1:00:23] >> 25. Calculate. Sort it out and see if you get 25. Your name.
+[1:00:28] >> Vaynavi. >> Vaynavi. Good job. Vishnavi. Excellent.
+[1:00:31] Are you all clear? Very nice.
+[1:00:38] Are we all clear everybody? Now I'll give one more test case.
+[1:00:44] Okay, which is completely skewed. 1 2 3 4 5 7 8 9 10.
+[1:00:51] Uh don't uh Okay, before I erase this, anybody has any questions? Anybody has
+[1:00:57] any questions? Shall we? You are you clear, sir?
+[1:01:03] Good. Uh, get me a new
+[1:01:09] 1 3 5 7 9 uh 10 15 20 30 40. Now this is very interesting. Totally skewed.
+[1:01:20] Tell me what will what will mid A initially be?
+[1:01:24] Two. And what will midb be? Three. So this is where it is I and J. Now with
+[1:01:32] this background you guys calculate the next and tell me
+[1:01:38] all of you calculate
+[1:01:49] anybody what happened when you did this uh is three lesser than 30
+[1:01:57] a of i -1 is lesser than b of j 3 is less than 30. Now what about is 20
+[1:02:04] lesser than five? No. Where do you go to?
+[1:02:10] You go to right. Okay. We go to the right. So what will my low be?
+[1:02:18] Mid plus one. Take the mic. No madam. Take the mic.
+[1:02:22] Guys, are you all clear? 3 is lesser than 30 but 15 is not lesser
+[1:02:29] than five. So I go to the right. So what will my low be?
+[1:02:34] 2 + 1 mid + one. And my high is equal to five. So 3 + 5 is 4. So again this is
+[1:02:47] 5 30. So my i is here. My j is here. Now is seven lesser than 15.
+[1:02:57] Answer with the mic. Huh? >> Yes sir.
+[1:03:01] >> Yes. 7 is lesser than 15. Now what about 10? Is it lesser than nine?
+[1:03:09] >> No. >> No. What do you do? Do now.
+[1:03:15] Can you go any more? Right. >> No sir.
+[1:03:18] >> No. Then
+[1:03:25] now are you seeing a very interesting case now?
+[1:03:29] 7 is lesser than 15 but 10 is not lesser than 9. Can you go any more to the
+[1:03:35] right? No. Then what do you do?
+[1:03:42] What do you do?
+[1:03:46] Can I go any more to the right because that is the last?
+[1:03:51] >> No. So can I go to the left to get a smaller value?
+[1:04:01] Mike
+[1:04:05] see the scenario I'm already at the right most I cannot go to the right of
+[1:04:10] the array. Yes sir. >> So by this we can conclude that the
+[1:04:14] first array is >> no you will not conclude anything. This
+[1:04:18] is visual conclusion. You still have to go through the process
+[1:04:22] of saying I want a smaller value so I'll go to the left.
+[1:04:26] So but if you go to the left we go out of array out of
+[1:04:29] >> no sir left of second array. >> So but if we move for that we have to
+[1:04:36] move I also the right right paralle we do that right. So then goes when I go to
+[1:04:40] the left what will my I will be >> five that's a zero and five
+[1:04:48] >> are you getting the scenario so what we do in such scenario such cases is
+[1:04:54] anytime you go to the right of this fellow all those values are what we say
+[1:05:00] integer domax
+[1:05:03] and these values are In
+[1:05:09] if you are at the boundary the next element will be max value. So a of i
+[1:05:15] will be max and b of j will be min.
+[1:05:22] We'll see that we have to know. So finally what will the median here be?
+[1:05:29] What will the median here be? >> Huh? No, if you look at it, isn't it
+[1:05:36] average of 9 and 10?
+[1:05:45] After one more iteration, it will point to this guy.
+[1:05:51] What will the minimum of 9 and 10 be?
+[1:05:58] Is there a boundary condition? We'll look at it.
+[1:06:02] You cannot just solve by going there. You have to have some additional values.
+[1:06:07] Right is maximum, leftmost is minimum. I'm going to compare that minimum with
+[1:06:11] that index. And I'm going to compare the maximum with the other guy.
+[1:06:25] I'm going to compare the minimum. So if B of J minimum is lesser than A of I
+[1:06:32] likewise the leftmost is compared A of I minus one with B of J.
+[1:06:43] Okay. Shall we can you run this test case madam? 1 2 3 4 5 and then 6 7 8 9
+[1:06:49] 10. Just the debug messages.
+[1:06:56] You go to the right, you don't find it and you go to the left. Then you have
+[1:07:00] gone through the extreme boundaries and then you get some answer.
+[1:07:05] 55.
+[1:07:12] Yeah. 1 2 3 4 5 6 7 8 9 10.
+[1:07:20] Yeah. Great. Now according to what we discussed we got proper mid A midb
+[1:07:28] left of A is so this is give me access 1 2 3 4 5 6 7 8 9 10 this is I this is J
+[1:07:40] left is 2 right is uh min are of a three left is 7 and 8 two
+[1:07:48] lesser than eight but seven is not lesser than three So where do we go?
+[1:07:52] Right. So mid of A is four. Uh sorry this is I and this is
+[1:08:02] J. Again uh
+[1:08:07] seven right? Seven uh six is not lesser than five
+[1:08:12] but four is lesser than seven. So what do we do?
+[1:08:18] What did we do? Just see this after that.
+[1:08:22] Low and high are increasing. So mid of a is five. But do we have five
+[1:08:28] here? Sir, this should answer your question.
+[1:08:31] Do we have five? We don't have. So look at this. Are you seeing maximum and
+[1:08:36] minimum? Everything to the right of it is
+[1:08:40] considered as maximum value. Everything everything to the left of this is
+[1:08:44] minimum. So you're going to compare this minimum with this index. And you might
+[1:08:48] compare this element with that maximum
+[1:08:55] and because of that you end up getting the median which is five and six.
+[1:09:00] See that left of a is five. What is the right of
+[1:09:05] a maximum value and what is left of b minimum value and the right of b is
+[1:09:11] whatever that six.
+[1:09:15] If you're going beyond the range, we call it maximum. If you're going before
+[1:09:19] the range, we call it minimum because it's sorted array. Now, minimum
+[1:09:24] integer is larger, sorry, smaller than any element after that. And maximum
+[1:09:29] integer is larger than the elements prior to it. So, every new element on
+[1:09:34] the right is max. Every new element on the left is min. So, that min is
+[1:09:37] compared with that index. And that is why five is compared with six lesser.
+[1:09:44] And uh left of B is compared with right of A. Minimum is compared with maximum.
+[1:09:51] Again that is matching.
+[1:09:57] Have you got it? And then what do we do? The left maximum
+[1:10:03] and the right minimum. The maximum of left is minimum value plus whatever. And
+[1:10:09] the minimum of the right is maximum value plus something. So maximum is
+[1:10:14] ignored there and minimum is ignored here.
+[1:10:20] Very interesting. If you have very large arrays, binary search reduces
+[1:10:26] drastically the performance. Okay. Shall we look at the code now?
+[1:10:33] Yeah. So
+[1:10:37] V sorry Vali code please.
+[1:10:42] Yeah guys, please pay attention now that you understand the whole algorithm how
+[1:10:46] it works. Code is a piece of cake. Okay. Uh we have uh m and n integer arrays all
+[1:10:54] of that data. Yeah. Go to that method please.
+[1:11:02] Yeah. Now just see the first condition. If array A has more elements than array
+[1:11:08] B, then we call the median reversing them.
+[1:11:12] Imagine A array has 20 elements, B has 10. Then I'm swapping it by saying
+[1:11:17] median with A, B is now become B comm, A.
+[1:11:24] Okay, are you clear? Okay, scroll down. What is low? Zero.
+[1:11:31] What is high? The largest sorry the smallest element count.
+[1:11:40] Are you there? Then what is the why low less than equal to high? What is median
+[1:11:45] of A? Low plus high divided by two. And what is median of B? Total array divided
+[1:11:51] by two minus median of A. That is why we got 2 and three maybe two
+[1:11:57] and 20 depending on how big and small they are. Scroll down.
+[1:12:03] Now just this is very interesting guys. If mid of a is equal to zero then
+[1:12:10] what are we assigning the value to mid of a
+[1:12:15] if mid of a is zero means what? Where are we?
+[1:12:19] Where are we left most? If it is zero index what are we
+[1:12:24] assigning left of a as? If you are at the left most what will
+[1:12:30] the left of that be? Smaller than it smaller than it smaller than that is
+[1:12:35] nothing but minimum value. Is that clear? And similarly if mid of B is
+[1:12:41] equal to rightmost then what is the uh value we are assigning?
+[1:12:47] Max. Is that condition clear?
+[1:12:53] Is that condition clear? That is very useful in our test case. 1 2 3 4 5 6 7 8
+[1:12:58] 9 10. The leftmost guy becomes minimum of the second array and the rightmost
+[1:13:02] guy of the first guy becomes maximum. Scroll down. Otherwise, what are we
+[1:13:08] doing? Just see that I've got left of a and
+[1:13:13] right of a. If if it is not zero and length of a, what is that left of a mid
+[1:13:19] of a minus one? You remember ar I minus one.
+[1:13:27] Are you there? Mid A is nothing but I. And what is right of A?
+[1:13:33] Mid of A.
+[1:13:40] Is that clear? Then what about the other guy?
+[1:13:45] Left of B. Again, max left of B and min right of B.
+[1:13:56] Clear sir. And once you have got those four then the condition is if left of a
+[1:14:02] is less than equal to right of b which is that
+[1:14:07] uh a of i minus one less than equal to b of j and b of j minus one less than
+[1:14:13] equal to a of i. So min right a is nothing but j and that
+[1:14:19] are you getting that if it is we have got the answer. How how did you get the
+[1:14:23] answer? Scroll down down
+[1:14:28] max of left plus min of right. If is even number half of it. If is odd number
+[1:14:36] just the leftmost.
+[1:14:43] Is that clear? Then else if that means you have not got
+[1:14:48] it. If the left of A is greater than right of B
+[1:14:56] that means I need to shift to the left. How am I shifting to the left? High is
+[1:15:01] equal to mid minus one. is it is uh right of a is lesser than
+[1:15:10] left of b then I need to shift to the right
+[1:15:16] keep putting that in a loop now
+[1:15:24] now you need to implement on your own but you got the code with you you
+[1:15:28] understand the logic write the code so can you go up again
+[1:15:33] go
+[1:15:35] Go up please. Few lines. Yeah. Focus on 94 to 98 first.
+[1:15:47] Left of B. Max left of B is what? Second array. Largest on the left.
+[1:15:54] Right of B is the index value. Left of A is the largest on the left of
+[1:15:59] the index. And right of A is the index. So the cross match should happen.
+[1:16:07] Left of A should be lesser than right of B and left of B should be lesser than
+[1:16:11] equal to right of A. Cross. If that happens, you get the largest of the
+[1:16:15] left, smallest of the right, average. If there are two,
+[1:16:24] you should be able to explain to anyone. Now given a piece of paper, some input
+[1:16:30] data, how does the whole uh algorithm work?
+[1:16:35] Are you clear? Yes,
+[1:16:38] everybody's clear. So once you find a match, you get the
+[1:16:44] largest of the left, smallest of the right because the largest of the left
+[1:16:48] will be more towards the median and the smallest of the right will also be more
+[1:16:53] towards the middle. That's the whole idea. Given five and 10, you know 10
+[1:16:58] should be considered. And when you are given 15 and 20, consider 15. So it's
+[1:17:02] average of 10 and 15. When you even when you sort it five and 10, 10 will come to
+[1:17:07] the right. Which is why we are saying largest of the left and 15 and 20 15
+[1:17:12] will come first, which means smallest of both. That's the logic.
+[1:17:20] Are we good? Shall we start the program?
+[1:17:24] Yeah, we started the program.

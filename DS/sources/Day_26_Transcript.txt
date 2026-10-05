@@ -1,0 +1,825 @@
+YouTube transcript
+Video ID: BlFcexwrkaM
+Language: en
+Captions: auto-generated
+
+[0:00] Good afternoon. Any questions
+[0:04] on backtracking?
+[0:08] Any questions on the problems we solved the other day?
+[0:12] How many of you finished both of them?
+[0:17] Can you raise your hand please? Only you.
+[0:23] Okay. Uh we look at the third very interesting problem today. uh which is
+[0:28] uh the Hamiltonian cycle. Do any of you know what is a Hamiltonian cycle?
+[0:35] Anyone?
+[0:39] Okay. So let's uh look at that very interesting graph. Uh we have n number
+[0:45] of vertices and there are uh lots of edges around a b c d all of that. Okay.
+[0:53] A Hamiltonian cycle is the cycle in the graph. Please understand the points so
+[1:00] that you know is the cycle in the graph which visits all the vertices only once
+[1:08] and terminates at the starting point. That means from the last vortex to the
+[1:15] start vortex there has to be an edge. The Hamiltonian cycle is a problem of
+[1:21] finding the Hamiltonian cycle in a graph if there exists any such cycle. And if
+[1:27] you look at this graph, there could be more than one Hamiltonian
+[1:33] cycle. And a cycle does not exist if the graphs are disconnected. Obviously, if
+[1:40] they're disconnected, there is no edge. You need [snorts] to visit every vertex.
+[1:44] So if a graph is disconnected, there is no way for you to visit a vertex from
+[1:49] one graph to a vertex of the other graph because they are disconnected. So that
+[1:54] is not applicable for that. Now what do you think could be the possible
+[1:58] Hamiltonian cycles for this? You can start from any vertex but let's start
+[2:04] with vertex vertex A. So if I start with vertex A, I can go to
+[2:11] B, I can go to C, I can go to D, E, F, G, H, and there is an edge between H and
+[2:19] A. What happened? I visited every vertex only once.
+[2:26] Is there more than one Hamiltonian cycle for this? One cycle is
+[2:31] A B C D E F G H. Do you think there is more than
+[2:38] one cycle? Uh by the way team uh for every problem
+[2:43] today there could be more than one. So get all the possible answers. Yeah. Any
+[2:48] other cycle can you think about?
+[2:53] I can go A H G I can go the reverse order. So one cycle
+[3:00] is A B C D E F G H other cycle is A H G F E D CB and A. This is another cycle.
+[3:12] Uh can there be any other cycle you think about
+[3:17] starting from starting from B. So you're saying B C D E F G H A.
+[3:28] No, just by changing the order, it doesn't become a different cycle. It
+[3:35] becomes a different cycle when the edges which you connect are different. So you
+[3:40] can't just shift A to the end and say, "Oh, there is another cycle." Shift. Are
+[3:46] you seeing A B C D E F G H? What did you do? You shifted A to the end. You
+[3:49] started with B. Then you start with C, another cycle. You start with D, another
+[3:53] cycle. No, they are not. They basically appear the same. The only difference
+[3:58] which is there between all of them is what is your start vortex. For it to be
+[4:04] a different cycle, the edges connectivity should also be different
+[4:08] like what we saw AB versus AH. Are you guys there? So there are two possible
+[4:15] cycles in this particular graph. Now how do we do? We will see all of that later.
+[4:20] Are you clear on what is a Hamiltonian cycle? Every vertex has to be visited
+[4:25] only once and there has to be a connectivity from the last to the first.
+[4:31] Why? Which is why we say it is a complete cycle. It is a complete loop
+[4:38] which is why it is a Hamiltonian cycle. So given this example, do you have any
+[4:44] questions on why those two are proper Hamiltonian cycles? Any questions?
+[4:51] Well, if you don't have, let me show you some other interesting graphs. Sir, what
+[4:54] I scribbled, tell me what are the possible
+[4:58] Hamiltonian cycles in test case one. Test case one, there are multiple.
+[5:08] Come on. For the test case one, tell me what could be the possible cycles. This
+[5:13] is one. Uh, this is two. And this guy is three.
+[5:18] >> 1 2 4 3 >> 1 minute. 1 2 4 3
+[5:22] >> 1 3 4 2 >> No. 1 minute, sir. 1 2 4 3 1. There's an
+[5:29] edge here. So, this is a cycle. Okay. Great. Any other? 1 3 4 2
+[5:34] >> 1 3 >> 4 2
+[5:36] >> 4 2 1 Any other Come on. Any other
+[5:44] any other cycle, sir? Two. We got
+[5:50] >> Hello. >> Yeah.
+[5:51] >> 1 2 3 4 1 >> 1 2
+[5:54] >> 3 4 1 >> Very nice. 1 2 3 4 1 2 3 4 1 Very good.
+[5:59] 1 4 3 2 1 >> 1 1 minute sir. 1 4
+[6:03] >> 3 2 1 >> 3 2 1 Okay, great. Any other?
+[6:09] 1 4 3 2 1 Uh 1 2 4 3 1 3 uh 4 2 1 1 3 2 4 1 Any other?
+[6:21] Oh, I I said no. 1 3 1 3 2 4 1 3 2 4 1
+[6:28] >> 1 2 3 4 uh >> 1 2
+[6:30] >> 1 2 >> Huh.
+[6:33] >> Uh completed. >> Yes, I'm listening.
+[6:37] Oh, you said 3 4 1 >> 1 2 uh
+[6:43] you are stuck at two. Do you agree all these are valid cycles?
+[6:50] Why are they valid? because you're visiting each vortex only once and there
+[6:55] is a connectivity from 2 to 1 which is why it is a cycle. So if you look at 1 4
+[7:01] 1 4 3 2 1 4 2 3 1
+[7:10] 4 2 3 1 I didn't have that. >> Okay. Then 1 3
+[7:18] >> 2 4 1 >> 2 4 1 1 3
+[7:22] 4 2 1 uh 1 2 3 4 1
+[7:28] uh 1 2 4 3 1 Yeah. Any other? So for a simple graph
+[7:35] like this there are six cycles. Now what about the second test case?
+[7:42] Okay, are you clear? They are all different.
+[7:46] It is just not the start vertex which is changing. The start vertex happens to be
+[7:51] the same in all. It is what edge is first chosen is different in all of
+[7:56] them. In the first case it is 1 2 and then four. In the second case in the
+[8:00] third case it is 1 2 3. In the other cases it is 1 142 and 143. So there are
+[8:07] obviously different paths which we are taking to create a Hamiltonian cycle.
+[8:11] Are you all clear? Now going to the second test case. Can you tell me what
+[8:15] could be the possible uh answers for it? Yes, Tang, would you like to try if
+[8:21] you're not too busy on your laptop?
+[8:27] Anybody guys? Come on, tell me. Second test case.
+[8:33] Think what is so difficult? Yes. Second test case. What could be a
+[8:40] easy himultaneous cycle? Yes sir. 1 2 3 4 5 6. Very good. That's a easy
+[8:47] one. 1 2 2 to 3. All great. 1 2 3 4 5 6. What else?
+[8:55] One minute. Uh 1 2 3 4 5 6 1 6 5 4 3 2 1 Okay. Any other
+[9:06] think think
+[9:12] I'm just telling you to think. I'm not saying that. What?
+[9:15] >> 4 5 61 32 >> 4 5 6
+[9:19] >> 1 32 >> 1 32 Very nice. 4
+[9:24] >> 5 6 1 3 2 4 5 6 1 3 2 But is there an edge from 2 to 4?
+[9:33] Huh? Who answered that? >> Good try. But what is a very important
+[9:39] point? The last vortex and the start vortex should be connected. So since
+[9:45] they are not connected, that is obviously not a
+[9:49] valid Hamilton cycle. Do you agree? I repeat four 4 5 6 1 3 2
+[9:59] then how do you go from 2 to 4? Is there a niche from 2 to 4?
+[10:05] So this is not a valid cycle. Good is good people are trying is important
+[10:10] please. Yeah. Anybody else?
+[10:15] Anybody has a different answer?
+[10:23] Huh? >> 5 4 3 2 1 6
+[10:27] >> 1 minute. 5 4 >> 3 2 1 6
+[10:30] >> 5 4 3 2 What is that different there?
+[10:37] >> The order is only different. No, instead of starting with uh uh one or
+[10:44] instead of starting with 1 six, you're starting with 5 4 3 2 1 6. The same
+[10:48] loop. Now So that is not a different one. Then
+[10:52] you'll get multiple. Instead of starting with 1 2 you'll say 2 3 5 4 6 1 3 4 5 6
+[10:59] 1 2 though the cycle is still the same. It's just the position of start vertx
+[11:04] which is changing. So that is not a valid. It is still called like a
+[11:07] duplicate. Yeah. Anybody?
+[11:13] Okay. Give it a try. 1 3 4 5 6
+[11:18] >> 1 3 >> 4 5 6
+[11:20] >> Then what about two? Every vertex has to be visited. So by doing this you're
+[11:25] getting the points. Now when you say 1 3 4 5 6 1 have you visited two? No. So one
+[11:32] of the basic criteria of a Hamiltonian cycle is every vertex has to be visited
+[11:37] exactly once and there has to be an edge from the last vertex to the start vortex
+[11:42] to create a cycle. Are you there? So that is why it is not
+[11:47] a cycle because two is not part of it. Now imagine I remove this edge.
+[11:54] Huh? 2 3 4 5 6 1. How will it be a cycle?
+[12:00] Sir, isn't it same as 1 2 3 4 5 6? Just don't shift the edge. That's what I'm
+[12:05] trying to tell you. Then you'll get so many more. No, it's it to be a cycle.
+[12:11] Just by changing the start vertex doesn't make it different. It is
+[12:15] different when you say 1 2 or 1 six because the edges are different. 1 2 is
+[12:23] another edge which is 1 and two vertex. 1 six is another edge which is 1 and six
+[12:26] vortex. So they're obviously different. But 1 2 3 4 5 6 2 3 4 uh 2 3 4 5 6 1 3 4
+[12:34] 5 6 All of that is still the same cycle which you are creating. Yeah. Great. How
+[12:40] about the third test case? Uh, give me Hamiltonian cycle. Where is the mic?
+[12:45] Here. Mic is where? There. Wherever. Please answer. Third
+[12:51] test case. How many Hamiltonian cycles can we get there?
+[12:59] >> How many?
+[13:02] >> Zero. Good. So when you answer zero, you get 100.
+[13:08] Why is it? Why is it zero sir? Tell me. Explain.
+[13:12] Mike is not here. Huh? Okay. Tell me what happens if you
+[13:20] start doing it.
+[13:27] Yeah. So hello. So for any traveling when you
+[13:32] continue like like if I travel from 1 2 3 I encounter two points and both of
+[13:38] them are not connected. So it's a not it's technically not a graph like a
+[13:41] complete graph >> like not all the vertices are connected.
+[13:44] >> No. Is it that or something else? >> No closed loops basically to complete
+[13:50] the whole thing. >> No if I wait to go I can go 1 2 3 five.
+[13:55] >> But >> but then how do I go to six?
+[13:57] >> There is no way. >> No I have to come back to
+[13:59] >> three. three so you can't come back. Yes sir.
+[14:01] >> So three is called an articulation point because when that vertex is removed the
+[14:05] graph is disconnected. >> Three is called an articulation point.
+[14:09] We'll discuss that in next semester. When that vertex is removed what
+[14:14] happens? There are two graphs one 2 4 and the other graph will be five and six
+[14:21] which are just two vertices without the edge there. Are you there?
+[14:26] So six I mean in this example which is test case three there is no Hamiltonian
+[14:32] cycle let's say I had this connectivity tang I had this you're saying this is
+[14:38] not connected I'm connecting it now tell me what are the Hamiltonian cycles
+[14:45] >> so still zero because >> still zero is not because of that edge
+[14:48] missing it is because I have to come back to three to go to six or if I go 1
+[14:55] 2 3 5 6 I have to come to four via three which means I'm revisiting three more
+[15:01] than once and you can't visit more than once. Either way you have a problem. So
+[15:06] I can go 1 4 3 6 5 I can't go to two. I go 1 2 3 4 then I can't go to five and
+[15:14] six unless I revisit three again. So three is becoming the articulation point
+[15:19] here. So it just breaks that graph into multiple graphs. one the left half and
+[15:25] the other the right part. So in such a graph uh you find that
+[15:31] there is no uh Hamiltonian cycle which can be created. So there is no solution
+[15:37] or you just say uh there is no cycle and return false or if there is a cycle give
+[15:42] me the path. More than one path is possible. So we are going to give you
+[15:45] all the possible paths which are there. But for more than one path just don't
+[15:49] change the start vortex please. like 1 2 3 4 5 6 is same as 2 3 4 5 61
+[15:57] again 1 to2 connectivity. Are you all clear? Shall we now look at how to go
+[16:03] about doing this? Now we have discussed couple of points. One, every vertex has
+[16:08] to be visited which means your path should contain all the vertices. Second,
+[16:14] the same vertex cannot be visited more than once. So what it means is if the
+[16:21] same vertex cannot be visited more than once you have a list of vertices which
+[16:25] you have visited. So every time you visit a vertex check if it is already in
+[16:29] that list. If that vertex is already in that list obviously this cannot be part
+[16:35] of it. And if it cannot be part of it you have to ignore. And if you ignore
+[16:41] then you need to pick another vertex which may be part of it and still not
+[16:46] giving you that problem of missing vertices. Vertices cannot be missing and
+[16:51] vertices cannot be visited more than once. And one more important point is
+[16:56] the last vertex and the first vertex should have a edge connected. If that is
+[17:02] missing again it cannot be a cycle. Are are you all there with me? Now I
+[17:08] will modify that graph three and have one more edge connecting from. Are you
+[17:13] clear why there is no cycle in this? Can I move on? Yeah. Now I will have an
+[17:19] edge 2 to five. Oh sorry undo sir horrible edge
+[17:26] two to five. I have drawn two to five. Now tell me what could be the possible
+[17:30] cycles be? There are cycles. Now that's why I'm asking you what are the possible
+[17:36] cycles.
+[17:40] Come on.
+[17:44] >> Mic. Mic. Mic. Give the mic there. >> 02 5 6 1 minute. No, that vortex is one.
+[17:51] >> Who answered? >> Great. Yes, sir.
+[17:56] >> It's one. >> Yeah, that is one. Yeah, this is vortex
+[17:58] one, sir. No. Erase. Erase. I'll scribble, sir. Huh? One. This is one.
+[18:04] >> One. Two. Yeah, it is this. Yeah. 1 2
+[18:10] >> 2 >> 5 6
+[18:12] >> 5 >> 6 3 4 1
+[18:15] >> 3 4 1 This is one. Next one. >> 1 4 3
+[18:19] >> 1 4 3 >> 6 52
+[18:22] >> 2 1 >> 1
+[18:25] >> giving one is important because that sh there's an edge to the start. What else?
+[18:31] Anything else?
+[18:41] Anything? Anything? >> That's it.
+[18:44] >> Anybody? Any other word? Any other cycle possible?
+[18:53] Yes. Any other cycle? Can you think? Okay. One. So when I start with one,
+[19:00] what are the two possible vertices I can visit?
+[19:05] Either two or four. Now when I look at four, who are the neighbors of four? One
+[19:12] and three. But one is already visited. So you can't visit. So from where where
+[19:17] can you branch to? Three. Now from three, who are again the neighbors?
+[19:23] 2 5 6. So if I traverse 1 4 3 then I can traverse to two. I can traverse to five.
+[19:31] I can traverse to six. But obviously not all of them are going to give me an
+[19:36] answer. Some of them will result in a dead end and I need to backtrack.
+[19:42] Are you there? So if I were to draw a tree representation of it
+[19:48] or you can do let's go the first diagram. We'll come to this later. I
+[19:52] need space. Now when I start with one, what are the adjacent nodes of one
+[20:01] 2 3 and four? I could take any one of the
+[20:07] three paths to start with. When I go one, two, who are the neighbors of two
+[20:13] again? 1 4 and 3. So if I look at 1, four and
+[20:21] three, what is resulting in a dead end for me?
+[20:26] Which one is resulting in a dead end? Which
+[20:30] one? Because one is already considered. So this is not a valid path. So I
+[20:36] backtrack. After I backtrack, what is the other
+[20:40] path? I can take 2 to four or two to three. If I take two to four, what is
+[20:46] the other option available? Who is the neighbor of four?
+[20:50] Two. So let's write down four. 1 2 and three. Can I take path one? Already
+[20:58] visited. I go back. Can I take path two? Already visited. Go back. Can I take
+[21:04] path three? Yes. So I go this way. Who are the
+[21:08] neighbors of three? 1 2 and four. Two is already visited. Four is already
+[21:15] visited. But then there is an edge from 3 to 1. Which is why I would now call
+[21:22] this as one cycle. 1 2 4 3 1. Are you seeing how the backtracking is
+[21:28] happening? Why is the backtracking? Why is it
+[21:31] invalid? Because that vertex one which I'm visiting from two is already
+[21:36] visited. So you can't visit more than one. So obviously that path is invalid.
+[21:40] So I backtrack to two and then take another approach which is four or three.
+[21:46] I've taken four again. Four can lead to 1 2 3. One is visited backtrack. Two is
+[21:53] visited backtrack. Three is not visited. So take that path and check whether
+[21:58] there is an edge from vertex 3 to vertex one. Yes, there is an edge. So this is a
+[22:03] valid cycle which we are creating which is 1 2 4 3 1. Are you all getting this?
+[22:13] Yes. Conceptually get this code is again piece of cake once you understand the
+[22:18] concept. Now what is the other path I can take? 1 2 4 3 1. Now let's say 1 2
+[22:25] 3. Oh there's another possibility 1 2 3. Now when I go to 1 2 3 who are the
+[22:30] neighbors of three 4 1 and two. One is visited two is
+[22:36] visited. So if I were to write again the uh children of three, it is one 2 and
+[22:45] four. One is ruled out. I backtrack. I go to two. Backtrack. Go to four. Now
+[22:51] after four, who are again the neighbors? 1 2 3 4. 1 2 and 3. But is there an edge
+[22:59] to the start vortex? Yes. So this is another path. 1 2 3 4 1. We got 1 2 4 3
+[23:06] 1 1 2 3 4 1 Are you guys there? So with this
+[23:15] vertex which I selected, I had two possible answers. Now if I go for 1
+[23:19] three I will get again a bunch of answers by drawing the state space and
+[23:26] backtracking every time you find that a vertex which you're visiting is already
+[23:30] in the list of paths which you have selected. If it is backtrack to the
+[23:35] previous again you may backtrack to one level above if needed.
+[23:40] Now can you draw the state diagram for 1 three now all of you? 1 three how will
+[23:46] the uh tree look like with one two? Okay with one two are you
+[23:52] guys clear? If you have any questions with one two as the start edge,
+[23:59] I would like to clarify before you go to 13 or 1 14. Is one two clear? Why we are
+[24:04] backtracking?
+[24:11] Are you clear sir? You you are the only one there. Huh?
+[24:16] Are you clear? Okay. Can you draw the state diagram for 13 and later for 14?
+[24:23] 1 3.
+[24:28] So let's look at 1 three here sir. Easier
+[24:32] to draw again. 1 3.
+[24:37] From three where can I go to? Would somebody help me? Sir, you have the mic.
+[24:42] Can you help me? From three, where do I go to? Possible answers.
+[24:47] >> 1 2 4 sir. >> No no sir. 1 three sir. From three I can
+[24:52] go to 1 2 and four. One is already visited. So what are the possible
+[24:56] answers? One I backtrack. Two and >> four.
+[25:01] >> Four. Great. From two, where do I go to? >> One and three. One and three are already
+[25:06] visited. >> Four.
+[25:08] >> So one and three are already visited. So that's a dead end which is taking me
+[25:12] back to two. And from there I go to >> four.
+[25:14] >> Four. And then when I go to four I realize yeah four is a good path because
+[25:19] there is a edge from four to >> one
+[25:22] >> one. So this is one other answer 1 3 2 >> 4 1
+[25:26] >> 4 1 Now from three I can also branch to four instead of two.
+[25:33] So from four where do I go to now? >> Two
+[25:37] >> one >> two and three. One is already visited.
+[25:42] Three is already visited. So we backtrack to where we came from
+[25:46] >> and from four we go to two and then we get one. So one other answer is 1 3 4
+[25:52] >> 21 >> 2 1
+[25:55] remember and likewise you'll get two other answers for 14.
+[26:03] So there are totally six cycles in this graph of five vertices.
+[26:11] H sorry four vertices and six edges is a complete graph
+[26:18] where every vertex is connected to every other vertex.
+[26:24] Are you guys clear? So what are we basically doing? We are keeping track of
+[26:29] the path we have visited. Then if that new vertex is already in
+[26:36] that path which we visited then we don't we backtrack and do a lot of things like
+[26:42] what we are doing in this diagram.
+[26:48] Okay.
+[26:52] Are we good? Shall we look at one more example and look at how the state tree
+[26:57] would look like for the one where we cannot have a Hamiltonian cycle?
+[27:08] Blank screen. Blank screens are complete thing.
+[27:14] Yeah. Uh that
+[27:19] Yeah.
+[27:25] 1 2 3 4 5 6 Now let's draw the state diagram from one. Come on, one of you
+[27:35] help me now. One, what are the possible answers? Pass I can take.
+[27:40] Come on, let's write down quickly. >> Two, four.
+[27:42] >> Two and four. Okay, great. From four, where can I go to valid? from two three
+[27:49] one >> one is already visited. So one is a dead
+[27:52] end. Three so this is a backtrack three from three where can I go to?
+[27:58] >> 4 5 6 >> 4 5 and six. From four where do I go to?
+[28:08] >> One. >> One. How many vertices do I have here?
+[28:14] >> Four. >> No. How many vertices I have? Four. And
+[28:18] how many vertices are actually there? >> Six.
+[28:20] >> Six. Is the number of vertices visited equal to the number of vertices in the
+[28:25] graph? No. So obviously it is not an answer. I need six vertices in my path
+[28:33] and the last vertex should be connected to the first vortex. So I'll only
+[28:36] consider six with that assuming that edge is there.
+[28:40] So this is not what do I do after that? Continue.
+[28:45] Okay. From three I go to four. From three, can I go to five?
+[28:48] >> Yes. >> Yeah. From five, can I go to six?
+[28:51] >> Six. >> From five, I can go to six. And from
+[28:55] six, I can go to >> five.
+[28:57] >> Five. Now, what happens when you do this? Now, how many vertices did you
+[29:02] visit? >> 1 2 3 4 five.
+[29:06] >> Five. How many were there? >> Six.
+[29:08] >> Six. What was missing? >> Four.
+[29:12] >> Is there a way to reach four from any of them? Five or six?
+[29:15] >> No. No, unless there were the connectivity.
+[29:19] Are you guys there? So, obviously this again is not a cycle. So by just looking
+[29:25] at the diagram, you can start building all the possible
+[29:30] uh straight trees with every uh vertex selected and then check whether the last
+[29:38] vertex and the first vertex have a connectivity and the number of vertices
+[29:42] visited is equal to the number of vertices available and none of the
+[29:46] vertices repeat because if they repeat we are anyway backtracking and choosing
+[29:51] a different path. Are you guys getting it? We are anyway
+[29:56] backtracking and choosing a different path. Like I went to one two from two I
+[30:01] could go to one and three but one is already visited is already in my path.
+[30:05] So I'm backtracking to two and saying oh I can't go back there. I have to find a
+[30:09] alternate and that is three. From three I can go to four 5 6 but then if I go to
+[30:14] four my five and six are not visited. If I go to five I can go to six but four is
+[30:19] not visited. If I go to six I can go to five. Again four is not visited. So
+[30:23] obviously it doesn't work. So one of the the base conditions for a recursive
+[30:29] function here is the number of vertices visited is equal to the number of
+[30:33] vertices provided. And the last vertex which you visit has
+[30:38] a connectivity to the first. There has to be an edge. [snorts] If that is the
+[30:43] case, you return true. And if that is not the case, even though you visit all
+[30:48] of them, you will still return false.
+[30:53] Are we good? Is that clear? So if I give you any graph, I think you should be
+[30:57] able to draw a simple state tree and understand from that oh am I getting a
+[31:04] complete path where all the vertices are included and the last guy has a
+[31:08] connectivity to the first guy. If that is it one of the answers you've got and
+[31:12] likewise you can look at all the possible answers in the straight tree
+[31:16] and print them.
+[31:19] Are we good? Shall we look at it? Sir, can you take the same example? 0 1 2 3
+[31:27] whatever that uh the earlier one four vertices and six edges. Yeah, this guy.
+[31:32] Uh great. This is the input. Can you please draw the graph?
+[31:37] Can you just draw the graph for that input matrix?
+[31:41] Yeah, for this input matrix, please draw the graph and tell me what are all the
+[31:47] possible answers for this graph. Okay. Yeah. Tell me what would the uh
+[31:54] answers for this be? Yeah. 0 to 1 there is a H. 0 to 3
+[32:02] there's an H. Uh 1 to 0 there's an H. So I'll call
+[32:07] this zero. Uh 1 2 there's an H.
+[32:13] 1 2 3 there's an H. And 1 2 4 there's an H.
+[32:21] correct so far. Uh then uh 2 0 no connectivity 2 1 yes
+[32:28] uh 2 4 H uh 3 1 H 3 4 H
+[32:39] and then uh 4 1 4 2 4 3 uh tell me what would the possible answers for this be?
+[32:50] One very obvious is
+[32:54] >> 0 >> 0 1 2 4 3 0.
+[32:58] >> Okay. Any other answer? >> 03 42 1 0.
+[33:04] >> Okay. Uh any other
+[33:14] any other? These are the two obvious ones. I go from 0 to 1 or 0 to three.
+[33:20] Remember if I draw this? Yeah. What happened?
+[33:23] Huh? Huh? Oh, 3 0 is missing. Uh, make this one for the time being. There's one
+[33:30] here. 3 0 is there. I drew that. So, I'm adding one there.
+[33:38] And I'll show you what happens if it is not there.
+[33:43] Yes, please. Any other?
+[33:48] Any other are only two you think are maximum?
+[33:54] Can you think of any other? No, there are only two. Either I go 0 1 or 0 four.
+[34:01] After that I don't have too much of a choice.
+[34:05] Yeah. So if I were to again draw the state tree for you, it would be 0 1 03
+[34:13] 0 1 03. From one we go to two and three and from two I can go to four
+[34:27] uh 1 to four and from four two I can go to 1 14 but one is already visited. So
+[34:32] we backtrack. So this is a dead end. not valid. Uh then I go from four I can go
+[34:39] to three and one and two. This is a dead end. This is a dead end. Three has a
+[34:47] one. So 0 1 2 4 3 1 is one answer. Okay. Then 0 to three. Now three can take you
+[34:55] to 1 2 4. Okay.
+[35:03] No. 0 to 3 1. Oh, sorry. Uh, 1 and four. Where is that? 1 and four.
+[35:14] Okay.
+[35:18] Yeah, there is a zero anyway. So, that is a dead end. From one, I can go to
+[35:25] two and four. Two and four are not in the path. So, that is still valid. Uh,
+[35:29] from two, I can go to four. uh from four I can go to
+[35:38] three and one both are dead end and is this a valid path 0 3 1 2 4 no why
+[35:46] because there is no edge from 4 to 0 there's no edge from 4 to 0 if there was
+[35:51] an edge this would have been one more valid path
+[35:55] are you getting it 0 3 1 2 4 I I can't go to zero again
+[36:04] guys are you getting it?
+[36:09] Yeah. Great. So this is not valid path. What about uh 0 3 4 0 3 4. From four I
+[36:17] can go to 2 and 1 and 3 is dead end. 2 will take me to one and one takes you
+[36:26] to zero. So 03 4 2 1 0 3 4 2 1 uh 03 4 1
+[36:37] 3 0 This is invalid because two is not visited and three is again repeated. So
+[36:43] the two possible answers are these two. I remove this edge. Now
+[36:51] that edge is removed. Tell me what are the possible answers?
+[37:03] I removed that simple edge. 0 to 3 has now gone.
+[37:12] What are the cycles you can find? Now
+[37:23] come on, calculate. Would there be any cycle?
+[37:29] No. Because the only option available is 0 to one. And then if I have to go back
+[37:35] to zero, I have to again go via one which means I am revisiting it. So there
+[37:40] is no cycle at all. So can you run that with the other test case sir? Where
+[37:46] there are cycles three. Yeah, make that one.
+[37:51] Again I'm showing you only one valid output. There could be multiple uh and
+[37:56] that's your choice. Yeah.
+[38:09] Yes sir. Now uh look at the diagram again.
+[38:18] Uh that is a cycle. So there is an edge here.
+[38:23] Okay. This is the diagram remember. Okay. Which vertex did we start with?
+[38:28] Zero. Okay. Go to the output now. Yeah. Now initially
+[38:35] the vertex 0 has position zero. We start vertex. Then we navigate through every
+[38:42] other vertex and check whether the next vertex being considered
+[38:48] has an edge to us. Obviously it has from the adjacency uh matrix. So we have said
+[38:55] the position is one. Then the for vertex two the position is two. For vertex
+[39:02] three what is the position? What is the position for vertex 3? Yeah.
+[39:09] Show me the output now. Yeah guys please look at the diagram and
+[39:14] the output. Yeah. Now see what is being done. We
+[39:21] start with vertex 0. The position vertex 0 has I mean the index 0 has vertex
+[39:27] zero. Huh? No, I don't want to write anything.
+[39:30] Then you have one. What does minus one mean? It is like a vertex which is not
+[39:36] visited. So we have said that as a vertex which is unvisited minus one.
+[39:42] Anything which is non minus one is actual vertex information. So we start
+[39:46] with zero. We go to [snorts] vertex one. We go to two. And then we visit
+[39:52] four. We we don't go back to one because one is already in the path. Are you
+[39:57] seeing 01? One is already in the path. Who is a neighbor of two? Four and one.
+[40:01] So the next vortex I visit is vertex 4. And from vertex 4, who is a neighbor?
+[40:07] Two. One and three. One and two are already visited. So we ignore. So we add
+[40:12] three to it. Are you guys there? And then why do we
+[40:17] say it is a complete cycle? Because three and zero have an edge. If this
+[40:22] edge is visit, if this edge is not there, then this is not a cycle.
+[40:30] Are you guys there? If I had not taken path one, then I would have got a
+[40:35] different output 0 3 4 2 1 0. But because we started with one of the
+[40:41] neighbors before the other, the answer is this. If I started with neighbor
+[40:45] three then the answer would have been different. You know it's like a how you
+[40:49] process it. So when we are talking about an adjacy matrix we will always pick the
+[40:55] first one which is there in that matrix. You know when you look at that row is
+[40:58] equal to zero row less than number of column. The first one which appears and
+[41:03] not the last one.
+[41:07] Are you all there? Now remove that edge sir 3 to 0 in that input data and run.
+[41:16] Now see how backtracking comes into picture.
+[41:27] Yep. Scroll down. Solution exists. Okay. Good. We got an answer. Sir, there
+[41:34] is no hir to three. Did you update the test case?
+[41:42] Ah okay. Now remove that also the 26 it is a undirected graph. So both have
+[41:50] to be removed. Yeah remove that otherwise there is an edge from one way
+[41:52] but not the other way. So remove that. Yeah.
+[42:01] Solution does not exist. What happened? Let's see now. Go to the diagram again.
+[42:06] Show us the diagram without that edge sir. Uh give me
+[42:12] access. Uh
+[42:15] this is not there. Okay. Show the output now.
+[42:20] Yeah. Great. Yeah. What did we start with? Just see. We started with zero 1 2
+[42:26] 4 3. Then what happened? Is there a edge from
+[42:32] 3 to 0? No, we backtracked. And when you
+[42:38] backtrack, what did we reset this vertex position? Are you seeing this?
+[42:45] What did backtrack result in? Oh, there was vertex 3. Now I'm going to remove
+[42:49] it. So, I'm resetting it back to the original, which is minus one. Okay. Then
+[42:53] we go back to this again. We backtrack minus one. Then we say instead of going
+[43:00] 0 1 2 4 I'm going 0 1 3 I tried 0 1 2 4 3 didn't work then I tried 0 1 2 4
+[43:10] didn't work I go back and then say can I try 013
+[43:14] are you there I am trying 013 are you seeing the path 013 after three where do
+[43:19] you go to four after that you go to two and then again find there is no edge
+[43:24] from are you guys there? Hello.
+[43:30] See, writing code is not a big deal. You will copy and you'll get it working. But
+[43:35] what is important is you understand what you're copying.
+[43:40] Huh? Are you clear why this is again a
+[43:43] problem? I went 0 1 3 4 2. Great. No problem. But then no edge. So I need to
+[43:50] backtrack. Scroll down sir. I backtrack from I remove two. I go
+[43:56] here. I backtrack three. I backtrack. Uh I tried 012. Didn't work. I tried
+[44:04] 013. It didn't work. Now I'm trying 014. All possible options. From four I go to
+[44:10] two. It didn't work. From four I go to three. Scroll down.
+[44:16] From four to two it didn't work. Four to three also it doesn't work. Then I go
+[44:21] back to this and say guys I give up. All possible options from one are tried. I
+[44:26] repeat all possible options from one are tried and there is no solution. I think
+[44:30] this is very important. One which doesn't work is more interesting because
+[44:34] that is where you see how backtracking is happening.
+[44:39] Sir show the code. Show the uh entire uh debug message from the top. All of you
+[44:46] look at the diagram and look at the backtracking process and if you are not
+[44:51] very clear please draw a state diagram from zero where do I go to one and three
+[44:57] I tried one didn't work then I tried three I'm sorry I can't try three
+[45:02] because there is no connectivity so the only option from zero is one but from
+[45:07] one I can go to two I can go to three I can go to four and every time I do that
+[45:12] I find there is no path because two doesn't have a connectivity to zero
+[45:16] Four doesn't have a connectivity to zero and nor does three have. So we keep
+[45:20] backtracking. See the backtrack messages which you see there.
+[45:25] From four I went to three. 0 1 2 4 3. No solution I go back to four. No solution
+[45:31] I go back to two. No solution I go back to one. Then from there I I say this
+[45:36] path is ruled out. And then I go 0 1 3. Okay. So after uh these steps
+[45:44] I repeat after these steps what do you understand
+[45:48] this is explored and no solution now I'm going to explore
+[45:55] 0 1 3 4 2 no solution then I'll explore the next neighbor of one 0 1 4
+[46:04] 2 no solution 014 3 no solution can I go anywhere else from So it's like I start
+[46:12] with zero sorry uh undo zero has only one path so
+[46:18] I'll put zero here one from one I can branch to two three
+[46:25] four from two I go to four from four I go to three there is no
+[46:32] connectivity so I backtrack to four from four where do I go to
+[46:38] where can I go to four I can't go to one because one is visited. So I go back to
+[46:43] two from two. Is there any other path? Four and one. One is already visited.
+[46:49] Four we tried. So I go back to one. From one I go to now three. From three I go
+[46:57] to four and not one because one is already
+[47:01] visited. From four I go to two. And from two obviously there is no solution
+[47:07] because there is no connectivity from two to zero. So I backtrack to four. I
+[47:11] backtrack to three. Is there any other option from three?
+[47:16] Four is explored. One is tried. So I backtrack to one. And then I go this
+[47:22] path. I go to four. Four takes me to two. R
+[47:26] three. Three takes you to nothing.
+[47:32] Dead end. So I go back track backtrack. All all explode. And then I say yeah no
+[47:38] solution possible. is that straight tree. So always draw a
+[47:42] straight tree. It tells you where is a dead end and how do you go back to avoid
+[47:48] the dead end to find an alternate path which might result in a cycle. But let's
+[47:53] try all the options before we say we can't find a solution. That is exactly
+[47:57] what we did in this. The the one with the cycle was very easy. 0 1 2 3 4 and I
+[48:03] mean 0 1 2 4 3 cycle. Boom. No, no backtracking here. Lots of things happen
+[48:13] guys. Are you understanding? If you have understood this code is very very
+[48:18] simple. Uh it just what you see in the output messages. You have an array of
+[48:22] paths and initially all the path variables are set to uh minus one and
+[48:28] then we start with the first vortex which is always vortex zero. Find out
+[48:33] its neighbors and start traversing one path at a time. Check if it is already
+[48:38] found which is is it already processed? Ignore. If it is not add it. So we added
+[48:45] the first one we found which is 01. And then from one we again add the next
+[48:50] immediate two. Two didn't give a solution then add the next guy three.
+[48:54] Three didn't give a solution. Add the next guy four. All explode. And then we
+[48:59] say there is no solution possible. Sir, can you take us to that code at a
+[49:04] high level? Some important segment of code we will discuss.
+[49:12] Yeah. Scroll down. So we take number of vertices. We take input for that matrix.
+[49:18] Uh then we call a method which is Hamiltonian cycle. Uh pass to it graph
+[49:23] as input which is a matrix. Yes. Run.
+[49:29] So look at the first part of the code. We create a output array called a path.
+[49:35] And what did we set that to? Minus one. So initially no path. Scroll
+[49:42] down. Yeah. Let us put the vertex zero as the first vertex. So we typically
+[49:47] start with vertex 0. You can start with any other vertex. Doesn't matter whether
+[49:51] you start with 01. The cycle is still the same. The order of vertices are
+[49:57] different. So because the order of vertices are different let's always
+[50:00] start with zero. Is that clear what is done in line 128
+[50:06] then we are calling a utilities function. We keep exploring recursively
+[50:10] all the possible options and if we still don't get anything and get a false we
+[50:16] return a message no solution. If if we get true then the path array is properly
+[50:23] set and then we print the solution which is what that next call is. So our
+[50:27] important piece of code to understand is the utilities function.
+[50:32] Any questions so far? It is a recursive call which uses backtracking
+[50:38] sir.
+[50:41] Great. Now look at the base condition. If the what was the position you passed
+[50:46] initially sir? Go back to that call. You called it with sir search for that
+[50:52] function.
+[51:02] We initially called it with one. Why one? Because zero is already processed.
+[51:07] So we have to start with position one. Zero is already the vert.x zero. No, no
+[51:11] need to worry about it. So continue. Now if pause is equal to v, what does it
+[51:17] mean? If the number of positions is equal to the number of vertices that
+[51:23] means we have traversed through all of them and very important condition is
+[51:27] this last s line number 83. If graph path position and path zero if the last
+[51:36] vertex and the first vortex have an edge then we return true. You may traverse 0
+[51:45] 1 2 3 4 but four and zero don't have an edge so there is no cycle so you return
+[51:50] false is that clear what is the base condition for this recursive first the
+[51:56] number of vertices visited are equal I mean the you visited all the vertices
+[52:02] and the last vertex and the first vortex have an edge
+[52:07] is that clear to everybody when when I broke that edge 0 1. What
+[52:13] happened? I visited 0 1 2 4 3 but 3 and 0 didn't have an edge. So, it was
+[52:19] returning false. If that was an edge, I would have got it
+[52:24] true. Are you all there, guys?
+[52:29] Hello. Are you all there?
+[52:34] Okay, great. Continue, sir. Now, what do we do?
+[52:42] We start searching every vertex now. V is equal to 1 up to number of vertices.
+[52:50] Zero is already processed. We look at one. So scroll down. Stop.
+[52:56] What do you think is safe method here does? Is safe.
+[53:02] Instead of calling it is safe, we can say is valid. You know what do you think
+[53:06] here the safety net is?
+[53:12] So you want to try?
+[53:20] >> It might it might check uh whether the particular position is visited or not.
+[53:27] >> Whether the vert whether the particular >> vertex.
+[53:30] >> Very nice. Is safe will check whether the particular vertex is visited or not.
+[53:37] What else?
+[53:41] Because if it is already in the path array, we don't want to go back.
+[53:45] Remember we saw 1 uh 0 1 3 I can't go back to one. And if I go to four, valid.
+[53:53] But from four again, I can't go back to one. Why? Because it is already visited.
+[53:57] That is one criteria. What else sir? Good job. Anybody else would like to
+[54:02] try? We when we went through the space tree,
+[54:06] we said is already considered. It is already in the path. So, ignore. Ignore.
+[54:14] >> Failed path sir. >> Yes.
+[54:17] Who said something? >> Back.
+[54:20] >> Oh, you said something. What did you say?
+[54:21] >> Failed. Already failed.
+[54:25] >> No. Is safe will only return true if it is valid. So, we can consider otherwise
+[54:30] we'll ignore. And one of the criteria what he said is it is already included
+[54:36] in the path. So we cannot include it. Including it is not allowed because we
+[54:40] can visit a vertex only once, not more than once. Okay. So can we look at is
+[54:45] safe? Yeah. Yeah. Check if this vertex is
+[54:51] adjacent to the previous vertex and check if the vertex has already been
+[54:58] included. How do we check for i is equal to0? the position which you give if this
+[55:05] position is already uh containing that vertex we return false. If the path
+[55:11] contains the vertex which we are trying to process then we return false. Are you
+[55:15] are you getting this? Path is that path array. It was initially minus one. Then
+[55:21] when you add one to it one will get included because one was not there. If
+[55:24] one is already there and if you try to include one again you'll say yeah I I I
+[55:29] failed to take this because one is already there and the other is if this
+[55:34] vertex is adjacent of the previous. So look at that please.
+[55:39] Previous is what? P minus one. And if that has no h then we return
+[55:47] false. If that has an h then it is adjacent.
+[55:54] Are you there? So that is is safe. So if if it can be
+[55:59] included, we will. What do we do after we include? Scroll down, sir.
+[56:06] After we include, we are adding that in the position array. Are you seeing? We
+[56:11] are adding that line 696. That new vertex gets added in our path. And after
+[56:16] it gets added, we are again calling it with pause + one.
+[56:23] Now the position is different. The position was initially one. Now the
+[56:27] position will be two. I filled position one. Now go fill position two and so on.
+[56:32] If it cannot be done, look at the backtracking logic. Scroll down sir.
+[56:38] Look at line 105. If I backtrack because that recursive
+[56:43] function terminates then I'm resetting that position back to minus1.
+[56:51] I repeat that's a very important point. If you do not reset to minus1 there's a
+[56:56] likelihood that next time when you check for is safety that guy is already there.
+[57:00] So if it is not being considered please reset it to minus1 so that it doesn't
+[57:05] throw an error when I try to include it next time. Are you guys clear on the
+[57:09] backtrack logic 105 sir? Show that output.
+[57:17] Yeah. Now see this output we started with uh vertex zero got
+[57:24] added. Vertex one gets added because zero and one uh one's neighbor was zero
+[57:30] and one was not in the path. No problem. From after one we added two. No problem.
+[57:36] After two we added four. No problem. After four, we added three.
+[57:41] No problem. But then what happened? Number of vertices visited is equal to
+[57:47] v. But is there an edge between three and zero? So we return false. When we
+[57:51] return false, what are we resetting that? Look at that. Minus one, I go back
+[57:56] minus one. Backtracking. I go back minus one. And then from one, I go to three.
+[58:04] From three, I go to four. And from there, I go to two. Again there is no
+[58:08] edge from 2 to 0. So I again backtrack. 2 becomes minus one. So while I keep
+[58:14] talking can you show that minus one please? 2 - 1. Then 4 - 1 3 - 1 and then
+[58:20] we go from 1 to 4. Four will take you to 2 and then again minus one and then uh
+[58:30] three again minus one. So scroll down. And then from 0 1 4 is also not valid.
+[58:36] So 0 1 - 1 - 1 -1. Good. No solution.
+[58:45] Are you guys there? Backtracking is minus one. Can you just
+[58:50] comment that piece of code? Comment that piece of code sir and run the same test
+[58:56] case and show the debug messages.
+[59:05] Same test case without that edge. Yeah, you'll get lot fewer debug messages. Now
+[59:15] see nowhere are you getting minus one. Now what is go up? This is uh sir can
+[59:20] you see? Can you show me? This is terrible because the basic criteria of a
+[59:25] Hamiltonian cycle is you cannot have the same path. You cannot visit the same
+[59:30] vertex more than once. What happened? 0 1 2 4 3 we didn't reset. Then we went to
+[59:36] 013. 3 is three. I mean that's wrong. Are you there? The the first rule of a
+[59:43] Hamiltonian cycle is the same vertex cannot be visited more than once. Every
+[59:48] vertex has to be visited and the last vertex and the first vertex which you
+[59:53] are looking at should have an edge only then a cycle is formed.
+[59:59] Okay, are you clear? So I would like you to start I mean try this after we
+[1:00:03] discuss one more interesting problem. Okay, any questions on this concept and
+[1:00:10] the approach to solving it?
+[1:00:16] Any questions?
+[1:00:23] >> Can we move on? Now, this problem you must have done earlier in one of your
+[1:00:28] finishing school exams. Yeah. Let's look at this problem.
+[1:00:34] Uh you're given a string with curly braces or square braces or
+[1:00:40] ordinary braces and the braces are wellformed. For every beginning brace
+[1:00:45] there is a end brace and there could be nested braces. Okay.
+[1:00:51] Uh so if you look at every single letter is a singleton. So if you say r of a is
+[1:00:58] a then the result. Now when you see comma
+[1:01:03] see this we take a comma delimited set of two or more expressions
+[1:01:09] a comma b comma b comma c. So comma is just adding them together.
+[1:01:16] So what do you get? ABC and it cannot repeat.
+[1:01:21] When you see a comma b in curly bracket ca d it means you need to do the
+[1:01:27] product. Are you seeing that? A c a d bc bd.
+[1:01:37] Now what about this guy? There is no comma here. So you need to do the
+[1:01:42] product. There is no comma. Again a product. So
+[1:01:46] look at the result. A B D F G A C D FG. Can you copy this for me in the diagram?
+[1:01:56] I mean blank screen. I'll show them how it is.
+[1:02:00] Yeah. A
+[1:02:14] >> where is this? Now what do you think should the output be
+[1:02:23] guys? Tell me the output of this now. And finally we are going to show you
+[1:02:27] output which is sorted because you can get different answers. Yeah.
+[1:02:35] If there's a comma we just include as is. If there's no comma it is a product.
+[1:02:39] So what is the product of these two? AB comma
+[1:02:46] ac. What will the product of this be?
+[1:02:54] A B D A B E.
+[1:03:04] Then what do we multiply each of them with?
+[1:03:08] F. So A A B D F A B E F A C DF
+[1:03:16] A C E F and then we get two sets of expressions. one appended with G and the
+[1:03:24] other appended with H. So you end up getting 10 words
+[1:03:30] A B D sorry A B D F G A B E F G and then there would be AB D F
+[1:03:40] H A B E H F and the remaining 3 + 3 6. So you'll get 10 words in this.
+[1:03:47] So how do you think you can do this?
+[1:03:52] How would you do this? I'll give you a very simple example and let's look at
+[1:03:56] that example and then we look at more complex ones. Are you clear on this
+[1:04:00] scenario? Can we look at the grammar rules? Three rules of grammar.
+[1:04:06] For every for every lowerase letter X, we have RX is equal to X.
+[1:04:13] When we have an expression with E1, E2, EN, then it is a union.
+[1:04:20] with this comma it is a union a comma b comma b comma c a union a b c but then
+[1:04:30] when you do not have a comma it is a cross productd a comma b in bracket ca d
+[1:04:37] so a b are two arguments cd are two arguments take one of each multiply with
+[1:04:43] the other and come up with a set of four and cd
+[1:04:48] AC A D BCBD. Okay. Now, uh I will give them a another
+[1:04:55] test case. Let's see what they have to say. All of you please focus and you
+[1:05:01] need to answer AB.
+[1:05:12] Okay. What would the output of this be? How many words do we get? And give me
+[1:05:19] few words of your computation.
+[1:05:27] There's no comma. Comma would be a union without a comma. Outside braces is a
+[1:05:31] product.
+[1:05:41] Yes, madam. What did you get?
+[1:05:45] What are you doing, sir? On your laptop.
+[1:05:51] >> Come on. Anybody
+[1:05:56] want to give it a try? Come on. Yes, sir.
+[1:06:03] Yeah. A B C.
+[1:06:06] >> One minute. 1 minute. Uh, just give me a second. I'll write down what you tell
+[1:06:10] me. AB >> A B C
+[1:06:14] >> Yeah, that's it. >> Then AB D.
+[1:06:18] >> Sir, I want complete expression result.
+[1:06:24] What you told me is only this part A B C A B D. I want complete AB
+[1:06:31] G.
+[1:06:35] >> Yes, you're close, sir. What you got is correct. ABC and ABD. After that what?
+[1:06:41] >> EGFG. >> Huh?
+[1:06:42] >> EGFG.
+[1:06:46] >> A B C A B D. Sir, >> I can't hear you, sir.
+[1:06:51] >> ABC and AB D. Complete expression output.
+[1:06:56] >> You're only telling me this part. >> ABC AB D. Okay, great. These are the two
+[1:07:03] things in this bracket. Then what about this?
+[1:07:05] >> Then EG and FG. EG and FG. Yeah. And when I ask you
+[1:07:09] complete, tell me complete. No. >> Okay. EG and
+[1:07:14] >> FG. >> FG. And now what about these two guys?
+[1:07:18] >> Product sir. >> Huh? Tell me
+[1:07:20] >> product. >> A B C E G ABC FG sir.
+[1:07:23] >> Uhhuh. >> Then ABD EG and AB D FG.
+[1:07:26] >> Ah, that is what what I wanted first time. Good. You anyway took me through
+[1:07:30] all the steps. Good job. Are you guys clear? You'll get ABC EG abd
+[1:07:36] and ABD FG. How would we do this? What data structure do you think will help
+[1:07:43] you solve this problem? >> No idea, sir.
+[1:07:48] >> No idea. Okay. But anyway, you got the right answer without any idea. That's
+[1:07:53] good. Anybody else? Anybody would like to give it a try?
+[1:08:01] You would have solved many problems like this. No.
+[1:08:08] >> Anybody who would like to give it a try? How about you guys here? First row.
+[1:08:14] Anybody here?
+[1:08:18] Second row. Third row.
+[1:08:23] Come on, guys. Okay, I'm giving a hint. Stack.
+[1:08:31] You want to answer? >> No. Anybody stack?
+[1:08:38] >> He gave the answer. Now break it down into the steps. He said the first part
+[1:08:44] is AB C A B D. So we got two arguments. A B C A B D. Then we have another part
+[1:08:53] of the expression F E F G. There are two arguments there E
+[1:08:59] and F and then you product it with what is outside it. So can you think now that
+[1:09:07] he has given you stepwise answers how you would do it?
+[1:09:14] >> Yeah tell me sir >> A and B will be entered into start sir
+[1:09:20] >> A and B the first part but how did you get A and B? What do you what do you
+[1:09:24] have to do to get A? point at the start by index.
+[1:09:30] >> Hang on, sir. How do you get A and B in the first place?
+[1:09:37] >> R of A. R of A
+[1:09:42] >> how did you get AB? I'm asking you on what basis
+[1:09:51] >> given given conditions R of X= X >> I know but Anybody?
+[1:10:01] What do you look for to solve such problems?
+[1:10:05] >> Where does the beginning brace begin and where does the end brace begin?
+[1:10:10] Matching braces. No. So when you get this beginning brace
+[1:10:18] when you get this when you get this beginning brace you get the ending brace
+[1:10:23] and then you know everything within that are arguments which have to be
+[1:10:27] crossroduct with something. What is before the brace?
+[1:10:32] A B. What are the arguments? C and D. Are you there? What is after
+[1:10:39] the brace?
+[1:10:46] Are you are you getting it? So there is a before component, there's
+[1:10:52] a arguments and there is a >> after.
+[1:10:57] Now you take every argument and multiply with before and after. Take every
+[1:11:04] argument multiply with before and after. What is the before?
+[1:11:10] >> AB. What is the argument? C. What do you multiply with?
+[1:11:18] So when you I'll call this before arguments after multiply A B C each
+[1:11:27] argument. And what is after? Efg.
+[1:11:32] Add that to the stack? A B C E FG.
+[1:11:39] What is the next one you would add to the stack? ABD
+[1:11:44] EF. You added this to the stack. Got this. Now you'll get this from the
+[1:11:49] stack. What do you do after that, sir?
+[1:11:59] >> Argument will be here. >> No, no. We added that to the stack. We
+[1:12:03] got it. We looked for the first open brace. We looked for the ending brace.
+[1:12:09] And then everything within that is arguments. Everything prior to it is
+[1:12:12] before. Everything after is after. There may be no before, there may be no after.
+[1:12:16] There may only be before, no after. Whatever it doesn't, doesn't matter.
+[1:12:20] Okay. Now you added this. What do you get from the stack? ABD.
+[1:12:26] >> G. What is before curly brace? >> What is after curly brace?
+[1:12:31] >> G. >> G. Great. So now take this data.
+[1:12:37] Take this data. Before is ABD. After is
+[1:12:44] G. And what are the arguments? E and F. Apply the same logic. Before
+[1:12:50] every argument append after add to the stack.
+[1:12:57] So what is before?
+[1:13:01] AB D. What is the argument? E. And what is after?
+[1:13:10] G. So don't you get A B D E G add to the stack. Then what do you get
+[1:13:16] after that? >> AB
+[1:13:18] >> A D FG >> AD FG. Add to the stack. So two elements
+[1:13:22] got added. Pop them. Does it have a curly brack bracket?
+[1:13:27] Nothing. No arguments. No after. So everything is string. One string. You
+[1:13:32] got ABD.
+[1:13:36] EG another string AB D FG no braces so no further processing and the same thing
+[1:13:41] you do with the next element on the stack you'll get A B C E G add A B C
+[1:13:48] FG add pop them if as long as there are braces keep continuing getting the
+[1:13:55] product if there are no braces then add that to some result do the sorting
+[1:14:01] because finally we have to return everything in sorted order
+[1:14:07] sir take a test case I'll tell you a very simple test case with just ABC as
+[1:14:12] input ABC as input
+[1:14:17] then we'll extend it with braces multiple braces
+[1:14:24] ABC as input yeah that's it
+[1:14:33] that got added to the stack We extracted. We tried matching the thing.
+[1:14:38] Print. Now just say in curly braces a comma b comma c
+[1:14:44] square braces, right? You're expecting square or curly.
+[1:14:49] Square bracket. We are expecting a comma b comma c. Stop.
+[1:14:54] Yeah. What do you think is added to the stack?
+[1:14:57] Square bracket. ABC. What is before ABC? What is before?
+[1:15:04] Nothing. What is after? What are the arguments?
+[1:15:09] >> Get each argument. No before, no after. So what are you adding to the stack?
+[1:15:14] >> A. Then you add B, then you add C. What are you getting back? C B A. What are
+[1:15:19] you then doing? Sorting. You're sorting again. No. Run. Sir, just
+[1:15:25] see the debug messages, guys. Before is nothing, after is nothing.
+[1:15:30] Arguments are ABC. So we get each argument add to the stack pop add B pop
+[1:15:35] add A and pop. Okay. Now do another interesting thing. Um ABC
+[1:15:43] no square bracket ABC
+[1:15:48] uh square bracket ending comma square bracket D E F.
+[1:15:57] Yes. Stop. I mean square bracket. Okay. What is before now? Nothing. What is
+[1:16:04] What is the argument section? What is after? No. After.
+[1:16:12] What is after from that input data? Comma square bracket df. Comma is also
+[1:16:18] there after the square bracket. Run sir. See go up.
+[1:16:24] Before is nothing. After is comma square bracket df. Arguments are ABC. So what
+[1:16:30] do you get? You'll get a add to the stack a comma df
+[1:16:36] b comma df c comma df. So what is the top of the stack? c comma df. Again you
+[1:16:43] find out what is before square bracket and what is after square bracket. Before
+[1:16:46] square bracket is c comma and after is df. Are there any arguments?
+[1:16:53] Nothing. Are you guys there?
+[1:16:59] So every time you pop an element from the stack, search for beginning square
+[1:17:04] bracket, search for ending square bracket and there are three components
+[1:17:08] which you're going to get before the data which is there in the square
+[1:17:12] bracket which is the arguments and there is after append all dump onto the stack.
+[1:17:18] So whatever you find in the square bracket arguments get one argument at a
+[1:17:22] time and product of that with the before product of that with the after and keep
+[1:17:27] adding to the stack. Continue doing it till there are no braces found in the
+[1:17:33] data which you are extracting from the stack.
+[1:17:37] Is that clear? Are you clear on the things? And finally we get lot of such
+[1:17:43] answers because there is C comma comma is there now.
+[1:17:48] Okay. Now do AB in curly bracket CD just two square brackets
+[1:17:55] a comma B square bracket C comma D. No no square bracket C comma
+[1:18:02] D. So what is after C comma D. What is before? Nothing. What is arguments? So
+[1:18:09] you get a cd square bracket b square bracket cd again you get yeah run
+[1:18:19] ac bd okay so we'll start both these programs
+[1:18:24] uh try for the next 1 Huh?

@@ -1,0 +1,1044 @@
+YouTube transcript
+Video ID: eE0s-WOUOTs
+Language: en
+Captions: auto-generated
+
+[0:00] Good afternoon. Uh, any questions?
+[0:04] I believe you got the dates for your first mid exam. 31st
+[0:10] onwards. >> [snorts]
+[0:12] >> So, uh, we have two and a half units for da.
+[0:17] And what we have covered is one and a half. We have uh, enough time. Uh, no
+[0:22] worries. Uh, what we will look at is the second
+[0:26] module of unit two, uh, which is the greedy algorithm.
+[0:32] Uh, does anyone know what is a greedy algorithm?
+[0:37] Have you seen that movie Three Idiots? How they barge into that wedding
+[0:42] reception and fill their plate with all the food which probably they don't want
+[0:47] to eat also? Have you seen a lot of people do that in wedding receptions or
+[0:51] you know, those typical parties? You know, they're pretty greedy about
+[0:56] eating and they obviously cannot eat and most of it they waste. Waste.
+[1:00] Right? But that's not kind of greedy which we are talking about, but
+[1:04] something very similar. Does anyone know what is a greedy algorithm?
+[1:10] The very name greedy.
+[1:14] Well, the greedy algorithm is primarily used to solve
+[1:19] optimization problems, which is maximum
+[1:23] or minimum.
+[1:27] Is I look at that. I'm talking about optimization problem.
+[1:31] Maximum or minimum. People who are in a stock market would
+[1:35] like to get maximum profit by selling at a higher price
+[1:40] which they have bought at a lower price. So, today if they're able to sell at
+[1:44] let's say price X and they make a profit of 100,
+[1:48] they'll say, "Yeah, why don't I wait for it to become 2X, so I'll make more
+[1:52] profit." But in the process of doing that, what
+[1:55] they end up getting into is a loss because you cannot predict how the
+[1:58] market would be in future. So, that is what we're talking about.
+[2:02] How do I address a problem
+[2:06] which results in a minimization solution or a maximization solution?
+[2:13] And both of them come under the category which is a greedy algorithm. It's like
+[2:18] you're given a graph where you have multiple vertices.
+[2:23] They are connected and the weight, which is the edge, will give you, let's say,
+[2:27] the distance. I want to go from point A to point C.
+[2:33] So, what is the shortest path which I should take to go from point A
+[2:38] to point C? You know, whenever you use Google Map,
+[2:41] it shows you multiple ways to go from source to
+[2:44] destination. Now, when it shows you multiple ways, it typically will show
+[2:48] you the one which is the shortest or you can say, "Show me the one which
+[2:52] will take the least amount of time." So, when I am talking about least,
+[2:58] minimization. Shortest distance, minimization.
+[3:02] You never say, "Yeah, why don't you take me from point A to point B which would
+[3:07] involve maximum amount of time?" Even though we ask for the shortest
+[3:12] amount of time, thanks to the Hyderabad traffic, it is never going to be what we
+[3:17] predict. And what sometimes it does, it will reroute and say, "Oh, there is a
+[3:21] lot of traffic here. Would I can I take an alternate path?" Because
+[3:25] that is a longer distance, but lesser time.
+[3:29] So, we are talking about minimization here with respect to time, minimization
+[3:34] with respect to the distance, and all these are done using the greedy
+[3:40] algorithm. So, let's understand what it is
+[3:42] and understand more about what is a local solution and what is a global
+[3:46] solution, which is an optimal solution, and understand why greedy cannot be used
+[3:53] in all scenarios to give you a result. And for some of those problems, there
+[3:59] would be a better solution, which we will discuss later when we talk about
+[4:02] dynamic programming. We need to understand why greedy cannot be applied
+[4:07] in all types of problems. So, what doc?
+[4:14] Yeah, optimization problem is a problem which requires minimum or maximum
+[4:20] results. Okay? Greedy method is used for solving such
+[4:25] optimization problem. It could be shortest path in a network, shortest
+[4:29] path shortest distance to go from point A to point B, minimum time taken to go
+[4:36] from point A to point B. You must have seen Indigo Airlines or any of those.
+[4:41] If you want to go from point A to point B,
+[4:44] you would have non-stop flights, you would have single stop, you would have
+[4:49] multi-stop. Sometimes, the single stop flights are cheaper, but they obviously
+[4:54] take longer time compared to non-stop. So, if
+[4:58] somebody doesn't care about time, they'll go for the price.
+[5:02] And most of us are concerned about time, so we'll say, "It doesn't matter. I need
+[5:06] to reach in the shortest time possible." So, again, we're talking about
+[5:11] minimization problem. Greedy method says our problem should be
+[5:16] solved in stages. What do we do? In each stage, we consider one input for
+[5:22] a given problem. If that input is feasible, then that
+[5:26] gets included. Then we continue this till we solve the entire problem.
+[5:32] But greedy's approach or the greedy algorithm gives you a local optimal
+[5:38] solution, which may not be a global optimal solution.
+[5:42] Let me explain that with a problem, and then you'll understand why greedy is not
+[5:48] always giving you a global optimal solution. So blank screen.
+[5:54] Uh this is a problem which we will solve today.
+[5:57] The problem is you're given coins of different
+[6:02] denominations. You know, you're given a one rupee coin,
+[6:05] you're given a uh four rupee coin, you're given let's say a five rupee No,
+[6:10] we don't have a four rupee, right? Do we? We have one, two,
+[6:14] five, 10. Yeah, one, two, five, 10. Let's say you're given coins of one,
+[6:21] two, five, 10. I'm talking about
+[6:24] Indian currency, but other countries could be different.
+[6:28] And uh what you're also given is uh you need to return back, let's say,
+[6:36] 25 rupees using least number of coins.
+[6:43] Okay? What do you think would the answer be?
+[6:48] But I repeat, you're given coins of one, two, five, and 10. You need to return
+[6:53] back 25 rupees to a customer. What would be the minimum number of coins which you
+[6:58] have to use to return 25? The answer is three. All of us
+[7:03] understand 10, 10, and five. Okay? How did we solve this
+[7:07] problem? We basically start with the highest
+[7:12] denomination. Divide 25 by that. You'll get two. So
+[7:17] it's like saying two 10 rupee coins. What is the balance
+[7:22] left? Five. Can I use a 10 rupee coin for
+[7:25] that? No. But what is the next coin I have?
+[7:28] Five. Can I use that? Yes. So what I have got is three coins.
+[7:32] Do you agree? Great. Now that is one scenario. I'll
+[7:36] use another scenario where we have one, two, five, 10,
+[7:40] and we need to return
+[7:46] 20
+[7:51] eight.
+[7:54] What would it be?
+[7:58] Yes, what would it be?
+[8:02] 10 into two
+[8:05] plus five
+[8:07] plus two plus
+[8:10] one. Do you agree? Now, that is not a problem. Can you get
+[8:14] anything lesser than this?
+[8:18] No. Now, let's say I have a scenario where
+[8:21] the denominations are 1 3 4
+[8:27] 5. I need to return
+[8:35] 7 rupees.
+[8:38] So, if I use the greedy algorithm what would it give you?
+[8:44] What is the greedy algorithm? Start with the highest coin.
+[8:48] Five. How many fives? One. Can I use a four?
+[8:52] No. Can I use a three? No. Can I use one?
+[8:56] How many ones? So, how many did we get? 5 + 1 + 1.
+[9:02] Are you clear? According to the greedy, we start with
+[9:05] the highest denomination and figure out how many such coins have
+[9:10] to be given. Then calculate the balance and then go to the next denomination and
+[9:16] continue till we have given all.
+[9:20] So, according to the greedy, how many coins would it be?
+[9:23] Three. But, if you look at it, isn't there a
+[9:26] more optimized solution where don't use five? Rather, use one 4-rupee coin and
+[9:34] one 3-rupee coin. So, the minimum number is still two, but
+[9:39] according to the greedy, we get three. So, what I'm trying to share with you is
+[9:43] greedy algorithm will not give you a globally optimized result.
+[9:50] I repeat, greedy algorithm does not give you a globally optimized result if you
+[9:55] use that algorithm consistently. So, you may not end up getting the right
+[9:59] result. So, when we talk about dynamic
+[10:03] programming, maybe in the next module or in the next unit, I don't know when
+[10:07] it is, we will look at how we can solve the coins problem by using a combination
+[10:12] of all possible results to come up with the minimum.
+[10:17] So, what do we do in a typical greedy algorithm like this?
+[10:20] If the If the coins are not given in sorted order, sort them.
+[10:24] Start with the highest denomination. Find out how many such would you
+[10:29] require? And then subtract the result
+[10:34] from the original balance and continue doing that with the next highest.
+[10:39] And so, we start with five, then we go to four, then we go to three, then we go
+[10:43] to one. Five gives you a possible solution. Four doesn't give you, three
+[10:47] doesn't give you, and one gives you. So, 5 + 1 + 1, which is seven.
+[10:53] And that is three coins, but a more optimized is 3 + 4, two coins.
+[10:58] Are you getting the problem which I'm trying to share?
+[11:00] Greedy algorithm gives you a locally optimized solution, which is not the
+[11:05] globally optimized solution. And this is a very simple example to illustrate that
+[11:11] this is not the right result, but greedy will always give you
+[11:15] three in this test data. Because that's the way the algorithm is
+[11:18] built.
+[11:21] Are we clear? Shall we move on? Yes?
+[11:25] Okay. So, and there are better ways of doing we will discuss that later, sir.
+[11:30] So, what we are going to discuss is all problems which are related to greedy
+[11:36] algorithms. First problem is the knapsack problem.
+[11:41] There are two types of knapsack problems we are going to look at.
+[11:45] One called 01
+[11:51] knapsack and other called
+[11:56] fractional. 01 knapsack is not solved using greedy.
+[12:02] That would be solved using dynamic programming. We'll discuss that later.
+[12:08] But, what we will talk talk about is a fractional
+[12:12] knapsack. Now, what is a knapsack here is like a bag.
+[12:16] What you are given are a bunch of items each having a weight and a value.
+[12:23] I repeat, you're given a bunch of items each having a weight and
+[12:27] value. You need to
+[12:31] You need to figure out and there is a capacity for the bag. The
+[12:35] bag, let's say, can accommodate 10 kg. And you're given different items of
+[12:41] different values and different weights. So, let's take some example.
+[12:45] So, I'm talking about a fractional knapsack.
+[12:48] Now, let's understand what is the difference and then we'll look at what
+[12:52] we are discussing. In a 01 knapsack,
+[12:55] you can either take the entire item or you can skip. You cannot break it
+[13:01] down. It's like you have a refrigerator, you
+[13:03] have a TV, you have a microwave, you have, let's say, a washing machine.
+[13:09] Either you take it or you don't take it if your budget doesn't support.
+[13:13] In a fractional knapsack, it means it can be part of it.
+[13:17] It's like you have 1 kg rice, you cannot pay 50 rupees for that 1 kg
+[13:23] rice. You have 40 rupees, you'll say, "Yeah, why don't you give me 800 grams?"
+[13:29] Is that clear what is fractional knapsack? You can break that
+[13:33] item into a part to
+[13:37] address your capacity or your budget. Are you getting that difference first?
+[13:44] What we are solving using greedy is a fractional knapsack, which gives you a
+[13:49] very optimized solution because you are able to break it down into
+[13:55] uh less than one item unit. You can break it down into fraction
+[13:59] according to what is the available weight. So, with this background, let's
+[14:03] see a test data
+[14:06] and understand fractional knapsack. You have a bag capacity, let's say,
+[14:13] of 10 kg. You have different items, so I'll write
+[14:17] down the value and weight. Uh the value is, let's say, 15, weight is three,
+[14:24] uh 20, weight is seven, uh 10, weight is five, and five, weight
+[14:30] is uh
+[14:32] two. Okay?
+[14:34] You're given four items. Value and weight.
+[14:39] What you need to do is add to the bag
+[14:44] which has a capacity of 10 so that the the value is a maximum.
+[14:51] Are you getting it? I repeat the problem. You have a bag of
+[14:55] some capacity, for example, 10 kg. You're given n number of items, each
+[15:01] having a value and a weight. You need to maximize the value by adding
+[15:06] those items to the bag such that the bag capacity is not exceeded. You can add a
+[15:14] maximum up to 10 kg. So, what do you think would the answer
+[15:18] be? All of you, just think about it and
+[15:22] try solving it.
+[15:29] Yeah. All of you.
+[15:36] Anyone?
+[15:41] And what I will do is a five and one. Make it one.
+[15:46] The two make it one.
+[15:54] Yeah, good. Five and one. Now, with this change in the test data,
+[15:59] tell me what would the maximum value be to add items
+[16:06] such that it does not exceed the weight of 10 kg?
+[16:14] Come on.
+[16:22] I didn't hear you, sir. 1 5
+[16:26] 5 0 50? Okay, let's uh
+[16:30] by your story, one answer is 50. Okay, I'll come to 50 way later from
+[16:36] you. Anybody else?
+[16:42] 50 is not the right answer. 50 is not the right answer.
+[16:51] I know you have only
+[16:54] sir, I know how you got 50. You multiplied five into 10.
+[16:59] Right? No?
+[17:03] Okay, pass the mic to him. Pass the mic. 50 is not the right
+[17:07] answer, by the way.
+[17:10] If you did not do that, 50 is not the right
+[17:20] >> That's what I'm saying you cannot take. You cannot take one item multiple times.
+[17:24] You took an item with weight one 10 times. So, 10
+[17:28] into five value is 50 if I'm thinking like you are thinking. Correct? You
+[17:33] cannot take one item multiple times. You have only four items.
+[17:36] You now need to pick from those four, add into your bag such that the capacity
+[17:40] is address. The constraint is not more than
+[17:44] 10 kg.
+[17:48] Yeah. 30?
+[17:51] 35. Okay. Anybody else has another answer?
+[17:55] Okay. 35. Can Can we hear from you how 35?
+[17:59] I don't know whether it's right or wrong. I'm just writing down. This is
+[18:01] wrong for sure. Yeah. Yeah.
+[18:05] Mike.
+[18:13] Anybody got more than 35? Because we are looking at maximum value, maximization
+[18:17] problem.
+[18:20] Yes, please. Who said 35? You said 35. You said 35. Yeah, go
+[18:25] ahead. >> Sir, we should take the maximum value
+[18:29] one. Like
+[18:31] >> Maximum value 20. Okay. >> Then we can 7 kg rest of 3 kg so 15.
+[18:37] >> 15. Okay. But what if I tell you you get more than
+[18:40] 15?
+[18:44] Yeah.
+[18:46] Is more than 35. So, it is not a maximization yet.
+[18:53] Did [laughter] anybody say anything? Yes.
+[18:55] It is fractional knapsack. You can break it down.
+[19:01] Yes. Okay. To solve this problem,
+[19:06] what we would do is we will create a ratio of value by weight.
+[19:11] What is value by weight ratio?
+[19:16] So, I'll call this ratio as what?
+[19:20] five and this is uh
+[19:24] uh How much is it?
+[19:27] 2. Whatever. 2. How much is it?
+[19:32] Uh eight something.
+[19:35] 2.8 something, okay? This is two and this is five.
+[19:41] Are you there? Now,
+[19:44] which items have a maximum ratio? Which items?
+[19:49] Item one.
+[19:54] Okay. So, the first thing you do is calculate the ratio of value by weight
+[20:00] and sort them in descending order. So, when I sort these items in
+[20:06] descending order, what would it look like? It would look like 15 three.
+[20:12] Did you understand the first thing? Calculate the ratio of value by weight
+[20:17] so that the highest ratio items should be added first because we are looking at
+[20:23] maximum value to be generated or maximum profit.
+[20:27] So, the ratios are five, 2.8, two, and five. So, we basically will sort them in
+[20:34] the descending order. So, you will get 15 three,
+[20:40] five one, 27,
+[20:44] 10 five. Are you clear?
+[20:49] Are you clear? Then, what do you do?
+[20:53] Then, it's a simple question of take the highest item first.
+[20:57] What is the weight of that? Three. Is it lesser than 10?
+[21:01] Yes. So, add the entire thing. What is the value you've got?
+[21:06] 15. What is the remaining weight which the bag knapsack can accommodate?
+[21:12] 10 minus this item which is added is three. So,
+[21:17] 10 minus three is seven. So, you've got a capacity of seven
+[21:21] remaining. After this guy is added and the profit
+[21:25] is 15. What is the weight of this? One. What is the capacity?
+[21:32] What is the remaining capacity? Seven. Guys, are you there?
+[21:35] Can I accommodate this? Yes. So, what is the profit I get?
+[21:39] Plus five. What is the weight after these two are added?
+[21:45] What is the remaining weight after the first two are
+[21:48] added? Six. What is the weight of this guy?
+[21:52] Seven. But, because it is a fractional knapsack, you can add
+[21:58] a portion of it, fraction of it. So, what is the profit you're going to get
+[22:01] when you add the fraction of it? 20 into six divided by
+[22:06] seven. Right? 20 into six divided by seven.
+[22:11] What do you get? Sir, what do you get?
+[22:16] 20 into six divided by seven. Can you calculate and add it for me?
+[22:21] That is the answer.
+[22:24] You don't even need to go to the last item because our capacity is already
+[22:27] full.
+[22:33] Come on, use the calculator. Yeah.
+[22:37] Have you got this approach to solving it?
+[22:41] Everybody? What are we doing? We are saying
+[22:45] calculate the ratios, sort in the descending order, and then iterate
+[22:50] through each item. >> [snorts]
+[22:52] >> Check the uh weight. Check the allowed weight. If
+[22:56] this weight is smaller, add the whole item. If this weight is not smaller, is
+[23:02] larger, add a fraction of it. So, I could add the item with three, no
+[23:06] problem. I could add the item with one, no problem. But when I'm trying to add
+[23:10] an item with seven, I have a problem because the allowed capacity is only
+[23:13] six. This item weight is seven, so I take a fraction of it, which is
+[23:17] fractional knapsack. What did you get, sir?
+[23:22] Huh? 17.14, great. So, plus 17.14,
+[23:28] so the answer is 37.14 and not 35.
+[23:35] Are you all clear? Is the fractional knapsack clear? So,
+[23:38] fractional knapsack will always give you a globally optimized
+[23:43] optimized result.
+[23:47] I repeat, a fractional knapsack will always give you a globally optimized
+[23:51] result if you use greedy because what we are starting with is the highest value
+[23:56] to weight ratio and keep adding. And if we cannot add the entire item, we add
+[24:02] portion of it and that is done using what is called fraction of it.
+[24:09] Are we clear? Shall I give one more test case and you tell me the answer?
+[24:14] Yes, are we good to go? Is anybody not clear on the algorithm?
+[24:20] Anybody not clear on the algorithm?
+[24:26] Okay. Input data.
+[24:29] Tell us what would the answer be. Uh there are five items and the back
+[24:32] capacity is 10. The number of items are five, the back capacity is 10, the item
+[24:38] values No, wait a minute. Something 100?
+[24:42] Five? No, yeah. What is the capacity?
+[24:47] 10, huh? 10. Yeah, number of items are the the back
+[24:50] capacity is 10. Interesting, huh?
+[24:54] And all item weights are larger than 10. So, tell me what would the answer be for
+[24:59] this interesting test case?
+[25:06] Come on. Calculate the ratios, sort them in the descending order, and then write
+[25:11] your logic to compute.
+[25:44] Come on.
+[25:51] How much is it?
+[25:56] 83. No, 83. Not 83. Okay, fine. Anybody?
+[26:05] Can't hear you, sir. 833.
+[26:09] Something. Just 833.
+[26:12] 833.33. Okay. Anybody else got a different
+[26:16] answer? Larger than 833.33?
+[26:24] Well, let's look at it. What are the ratios?
+[26:28] Uh What is the ratio of this guy? Sir, give
+[26:31] me access, sir.
+[26:36] >> [snorts]
+[26:40] >> Yeah. What is the ratio of this?
+[26:55] >> Yeah. What is the ratio of this guy? Uh how much is it? Yeah, such big
+[27:00] numbers you take, huh? 75. Okay, what about this guy?
+[27:04] 50.
+[27:08] 66. Point?
+[27:12] 67. Uh this guy?
+[27:16] 80.
+[27:19] 83. Something.
+[27:23] What is the capacity we have? 10. Now, if you were to start in the
+[27:27] descending order, it would be
+[27:45] Huh?
+[27:49] 40s. 3,000. Correct, no, sir?
+[27:54] 2,000. Correct, no? What's the problem?
+[27:58] Descending order of ratio, sir. The ratio is 83.33.
+[28:04] 780. 75.
+[28:08] And then 66. I don't even care about this. What
+[28:12] is the back capacity? 10. Can I add this entire item to it?
+[28:17] No. But, can I add a part of it? Yes. So, how do I do that? 5,000 into 10
+[28:22] divided by 60.
+[28:25] 60 would give you 80 833.33. Are you all clear? Because it is a
+[28:31] fractional knapsack, we will always get a globally optimized solution
+[28:37] when we add locally one item at a time. Because it is fractional knapsack. If it
+[28:43] was not fractional, you may not get an optimized solution using greedy.
+[28:49] For that, there are better ways of doing. We'll discuss later.
+[28:53] Everybody's clear? I will quickly take you through the
+[28:56] algorithm. Sir, word document.
+[29:02] My question to all of you is, how will you do
+[29:06] sorting of these items?
+[29:09] That's an important part. Uh have you all worked on comparable
+[29:14] interface in Java collections? Comparable
+[29:18] interface comparator. Yeah, so I'll just show you that part of
+[29:22] code. Rest I'd like you to figure out. Sir, yeah, algorithm.
+[29:27] Yeah. So, what are the input input profits and
+[29:30] weight of n items? Calculate the ratio of profit by weight,
+[29:36] which is value by weight. Sort all the items in the descending
+[29:41] order of the weights. Then iterate through each of them.
+[29:45] Check if the first item can be added completely.
+[29:50] If that weight is smaller than the allowed weight, add it.
+[29:54] Continue doing that for all the items. If the allowed weight is smaller than
+[29:59] the item weight, then add a fraction of it.
+[30:03] Look at that logic.
+[30:06] Do the following for every item. Sir, scroll down.
+[30:09] If the weight of the current item is less than the remaining capacity, add
+[30:13] the entire item. Otherwise, add only a part of it by breaking it fraction.
+[30:21] So, the only thing which would need some attention, which I will explain now, is
+[30:26] what is called comparable interface. What is comparable interface and why do
+[30:30] we need it? It's because every item has got two properties,
+[30:34] value and weight. Uh
+[30:38] Did you ever understand how Java does sorting for you when you say
+[30:42] collections.sort? Can anyone tell me when you say
+[30:45] collections. .sort or arrays.sort and you pass an integer array, how does it
+[30:52] do sorting? Anyone? What do you think it does internally?
+[30:57] When you give strings, it does sorting. When you give dates, it will do sorting.
+[31:01] When you give decimal data, it will do sorting.
+[31:04] How does it do internally sorting of data?
+[31:07] If you had to do the sorting yourself, what would you you also need to do?
+[31:13] You would basically take two items and compare them.
+[31:16] If let's say one number is 10 and the other is five, if you want to sort in
+[31:20] the ascending order, you would say five would come before 10.
+[31:24] If you were to sort in the descending order, you would say 10 would come
+[31:27] before five. And likewise, you would rearrange all of them.
+[31:31] Because you can compare two numbers using less than operator.
+[31:36] You can compare two strings. You can compare two dates.
+[31:40] But if I talk about students, let's say student data.
+[31:44] What does the student data include? Student ID, student name, student marks,
+[31:49] student phone number, and lot of other data.
+[31:54] Can I say that student one is lesser than student two?
+[32:00] Can I compare two students and say student one is lesser than student two?
+[32:05] Can I Can I not?
+[32:08] If you look at your marks which are displayed in the notice board, how are
+[32:12] they displayed? Can anyone tell me how is the tabular data displayed?
+[32:17] On what criteria do they display?
+[32:22] They display by the roll number. Okay? Tomorrow the
+[32:26] college decides, "No, we will not display by roll number. Let's
+[32:30] Give me a blank screen. We will not display by roll number. This
+[32:34] is the student data.
+[32:38] Student ID, student name, student marks.
+[32:45] Okay. So, currently you're displaying by ID. 1 2 3 4
+[32:50] A B C D 10 20 3 14. Okay?
+[32:55] Somebody will say, "No, I don't want to be displaying by ID. Sorry, ID. I want
+[33:00] it to be displayed in the descending order of the marks."
+[33:04] So, should the report look like this? 14 20 10 3
+[33:10] D 4 B 2
+[33:16] A 1 3 C. You know, this is the report I'm
+[33:20] going to get now.
+[33:23] Are you there? Now, which is better, seeing by ID or
+[33:26] marks?
+[33:30] What is better? You know, your ID is easiest.
+[33:34] Alphabetically sorted. Numerically sorted. Alpha numeric, right? Sorted.
+[33:38] But, why not display highest first? Rank wise. Rank one, rank two, rank
+[33:43] thousand.
+[33:47] Data is the same. I repeat, data is the same. Data is not changing.
+[33:52] What I'm doing internally is I am changing the logic on which
+[33:57] attribute I need to sort on. In the first case, I was sorting on the
+[34:03] ID attribute. In the second case, I'm sorting on the
+[34:06] marks. In the third case, I might sort on marks
+[34:10] and then the name. Two students with the same marks
+[34:14] will appear alphabetically. If one is Ravi and the other is
+[34:20] Raghav, it will be Raghav and Ravi.
+[34:24] If one is Ashok and the other is Harsha, it will be Harsha and Ravi if the marks
+[34:28] are same. So, what we are telling is
+[34:32] Java knows how to compare primitive types.
+[34:37] There's a very interesting interface in Java called comparable.
+[34:41] But when you have to compare any user-defined type, what you need to tell
+[34:46] Java is compare the way I tell you to compare.
+[34:51] Java doesn't know how students should be compared. Java doesn't know how airline
+[34:56] tickets should be displayed. Java doesn't know how customers orders should
+[35:01] be displayed. We tell Java how we should do the
+[35:05] sorting based on the logic which we write when we write the comparable
+[35:10] interface. So, I can write in one way which is sort
+[35:14] on name, another sort on ID, third sort on marks, fourth sort on year, fifth
+[35:20] sort on your phone number, sixth sort on your address. Choice is mine.
+[35:24] I can choose how I want to sort data. Okay? So, there's a very interesting
+[35:29] interface, and can you quickly take me through that?
+[35:33] Uh our code, please. I'll only show you the comparable
+[35:36] interface. Rest of it, you figure out. Sir,
+[35:41] main, main. And can you reduce the Not this, sir. Our knapsack problem.
+[36:10] There's a very interesting class we have called item value. Can we see the item
+[36:14] value class, please?
+[36:18] Yeah. This is the part of code I'm showing you
+[36:22] so that you have to write this logic to sort in the
+[36:25] descending order of the ratio. Okay?
+[36:28] Item value is a user-defined class. What is it implementing?
+[36:33] Comparable. All [snorts] of you, I think, know angular bracket.
+[36:36] That is generic. It takes an item of that type. Okay? Now, what are the two
+[36:40] attributes in this? Value and
+[36:44] weight, like we saw in the test case. So, what we are doing is we have a
+[36:49] constructor. We have a get value.
+[36:52] We have a set value. Or Sorry, if you don't have a set, if
+[36:56] you wanted, we could have. We have a get value and get weight. And
+[37:00] if you wanted the data to change, we would have a set value and set weight,
+[37:04] which is what we say getter and setter. But, since we don't want to change the
+[37:08] value or the weight, there are no setters.
+[37:12] Okay? Any questions so far? Scroll down.
+[37:17] Comparable interface document, please read on that more
+[37:21] later. Guys, can you maintain silence?
+[37:24] Shall I say it?
+[37:28] Comparable interface has a very interesting method called compare to.
+[37:32] Internally, whenever you say arrays.sort or collections.sort,
+[37:37] it will call the compare to method of your class which you have written.
+[37:43] And what the compare to method returns is an integer value.
+[37:48] The integer value is like your string compare in C.
+[37:52] Zero, both are same. Minus, first item is lesser than the
+[37:58] second. And plus, first item is larger. So, it returns negative when the first
+[38:03] item is smaller. It returns zero when both items are
+[38:07] same. Returns positive when the first item is
+[38:10] larger. So, what we are basically saying is I am
+[38:14] telling you how you should compare so that you can use this to do the sorting
+[38:20] of all the items which I'm giving you. What does every item of mine contain?
+[38:24] Every item of mine contains two attributes, value and weight. I'm going
+[38:29] to give you a logic of how you can sort an array of items by their ratio.
+[38:35] So, look at the logic. What are we first calculating? The
+[38:40] ratio. What is the ratio? Value by weight.
+[38:43] And what is the other one? Ratio two. Can anyone tell me what is ratio one and
+[38:47] ratio two?
+[38:51] I can't hear you, sir. Mic, mic. We need more mics, madam. Where is it?
+[38:58] Yeah, here you go. Just check.
+[39:03] Yeah. Can anyone There's something
+[39:06] interesting. >> Ratio is the current value and the ratio
+[39:09] two is the next value. >> No, ratio two is
+[39:13] >> the the ratio of the next value.
+[39:17] >> What is ratio then? >> Ratio is the current value which is the
+[39:21] >> is current here?
+[39:24] Yes, anyone? In Java, you know about this, right?
+[39:28] This current object. So, when you say arrays.sort, internally it will take
+[39:33] item value one compared to item value two.
+[39:39] So, this object which is calling this method is this.
+[39:45] And the argument which is passed to it is the item value two. So, whenever you
+[39:49] say compare, you say compare A with B, A is calling it, so B is the argument.
+[39:54] This in Java, whenever you call a method,
+[39:58] there is that implied object which calls that method, and that is this. That is
+[40:03] there in Java, that is there in C#, it is there in C++, this is a magic
+[40:09] reference which is an object which calls it.
+[40:13] Static methods, we don't have with this because there is a class which calls it.
+[40:17] Any method which is non-static would require an object to call and that is
+[40:21] implied object which is this. So, when I'm saying this.value, it is an object
+[40:26] which is calling it. And the other one is what is passed to it.
+[40:30] So, we have got ratio and ratio I would call it ratio one and
+[40:34] ratio two. And then I'm saying compare ratio two
+[40:38] with ratio one because I wanted descending order. If I wanted ascending
+[40:42] order, I would say compare ratio {comma} ratio two. Now, how do you think that
+[40:46] works internally? How do you think that works internally?
+[40:55] No, yeah. Give me access there, right? How do you think this is working, line
+[40:59] 96? Anyone? If you have learned comparable, you should answer.
+[41:11] I told you that Java knows how to compare numbers.
+[41:14] What is double? A wrapper class, which is double primitive. So, it knows how to
+[41:20] compare 2.3 with 4.5. It knows how to compare one with two integers. It knows
+[41:25] how to compare Amit with Ravi, alphabetical.
+[41:29] Because they're all built in. But, it does not know how to compare an item
+[41:32] value because item value is our class. So, whenever we have a class whose
+[41:37] objects have to be compared, we have to write the comparable interface or we
+[41:41] have to write another interface called comparator. There are two interfaces,
+[41:45] one called comparable and the other called comparator.
+[41:49] Comparable returns the natural ordering. Comparator, you can use that for any
+[41:56] custom order. Okay, the natural order in which item
+[42:01] values are sorted is ratio of value by weight in descending order. That is what
+[42:07] it is. Please read up more on comparable and
+[42:10] comparator because without knowing how comparable works here, you cannot do the
+[42:15] sorting. Because there are two items, not one. If
+[42:18] it is integer, I would just say sort, no problem. But it is a combination of two
+[42:22] attributes, value and weight. Are you guys there?
+[42:28] Yeah, anyway, please read up on comparable, read up on comparator, ask
+[42:32] ChatGPT to give you a sample code, go through that and play with it. And
+[42:37] that is what we are doing. So, we have written a logic for this.
+[42:41] Show the rest of the code. All right, does anyone know what is that
+[42:45] line 98 at override?
+[42:49] What is at in Java? What is at in Python?
+[42:54] All languages have at.
+[42:57] Huh? Annotation.
+[43:01] Anyway, when we discuss finishing school, we'll talk more about it, but it
+[43:04] is annotation. Override is like saying a method which
+[43:08] I'm writing here is a method coming from the ancestor object class to string.
+[43:14] And two string returns the string value of your class. So, continue.
+[43:18] Now, look at the code. So,
+[43:21] first thing we do is uh sorry, show the main.
+[43:26] Show the main, sir.
+[43:33] Yeah.
+[43:36] We take input for uh n number of items, we take input for
+[43:40] the capacity. Then we have a
+[43:43] for loop where we take input for the value and weight. Are you seeing that?
+[43:46] And then after all that is done, we are calling a we are creating an object
+[43:50] which is our item value constructor. And after that, are you seeing that get
+[43:56] max value? What is get max value taking? An array
+[44:00] of items and the capacity which is allowed, the knapsack capacity.
+[44:07] Is this clear? Show that code.
+[44:10] High level, you don't have to go into the entire thing. First thing we do is
+[44:13] sorting. When I do sorting, it will call whatever
+[44:17] is that logic which you have written for compare to. What is the logic? Sort on
+[44:21] the ratio in the descending order. So, items are now displayed in different
+[44:26] order. After that,
+[44:29] we go through each item, check if the capacity minus item weight
+[44:33] is larger, add to the value and reduce the
+[44:37] capacity. If it is not larger, what are we doing?
+[44:40] We are getting a fraction of it.
+[44:45] The logic is very simple. The real code is sorting.
+[44:51] Are you guys clear?
+[44:55] Anybody have any questions on this? So, I would like you to try this program
+[45:00] later. Before that, can you run a test case, sir?
+[45:05] Uh >> [snorts]
+[45:07] >> so that they understand uh
+[45:11] I'll give you five items. Uh
+[45:15] 20 capacity. Item weight value weight, right? Uh 10
+[45:22] five
+[45:25] 20 eight
+[45:30] five one
+[45:33] uh 30
+[45:37] 12
+[45:40] 40 and
+[45:44] 40 Great, stop. Tell me the answer now.
+[45:50] Calculate the ratio, sort them, and then calculate manually.
+[45:55] All of you.
+[46:06] >> Come on.
+[46:12] All of you. All of you.
+[46:30] Ratio ratios. No paper pen?
+[46:35] Huh?
+[46:53] Come on. Calculate.
+[46:56] Third guy is five. The ratio of the fourth guy is
+[47:01] 2.5 and the fifth guy is one. So, if you write down, sir, give me
+[47:06] access.
+[47:09] It is 2 2.5
+[47:14] 5 2.5 1. So, what is the sorted output? 5
+[47:19] 1 28
+[47:22] 30 12 10 5
+[47:27] 40 40. Now, this is the sorted output. After that, the logic is very
+[47:31] straightforward. Take the first item. What is the
+[47:33] capacity? 20. What is the item weight? One. Great.
+[47:38] I add it. Remaining capacity is 19.
+[47:41] Then, what is the next thing? Eight. Can I add eight? Yeah.
+[47:46] Remaining capacity is 11. Can I add 12?
+[47:52] So, I cannot add 12, but I need to add a fraction of it. So, the total value is 5
+[47:57] + 20 + 30 into 11 divided by 12. Whatever you get.
+[48:07] No.
+[48:09] No. Okay, that value. That plus 25. 5 + 20, yeah.
+[48:15] Run, sir.
+[48:20] So, we are printing the data before sorting and we are printing the data
+[48:23] after sorting. So, we got 5 1 28 30 12 10 5 40 40. Are
+[48:29] you there? After that is a plain simple for loop,
+[48:31] yeah. The real work is writing that logic of
+[48:35] comparing, which is what I showed you.
+[48:41] Because it is a fractional knapsack, the locally optimized solution will give you
+[48:46] a globally optimized solution because at every stage we are finding the largest
+[48:51] ratio and adding that first. So, even if you reduce the capacity from
+[48:55] 20 to 10, I know I'm going to get an optimized solution because I added the
+[48:59] largest ratio first.
+[49:03] So, is that clear? 0 1 knapsack? Yeah.
+[49:08] Oh, sorry. Fractional knapsack. I get I got myself, yeah. Great. Uh sir, uh
+[49:13] can you go to the Word document?
+[49:19] Yeah, continue. Continue.
+[49:23] Yeah, go up. The time complexity is n log n because
+[49:27] we are doing sorting. And whenever you do sorting, it is n log
+[49:31] n. After that is simple for loop, which is O of n. So, the worst is n log n. And
+[49:36] what about additional space? O of n because we are storing all the
+[49:40] items and sorting also requires internally space.
+[49:44] Okay. Uh continue. No, not there. Continue.
+[49:48] Not the code, yeah. Yeah.
+[49:51] Now, this is 0 1 knapsack. I I'm going to
+[49:54] quickly talk about it and we'll discuss this solution later.
+[49:59] The 01 knapsack cannot be solved using greedy.
+[50:04] You will not get an optimized solution. Okay?
+[50:08] Scroll down. Yeah.
+[50:12] Now, look at this, please. You have a knap- knapsack of eight
+[50:16] eight. You have profit and weight. Now, tell me
+[50:21] what would the answer be if you talk about
+[50:25] 01 knapsack, not fractional. In a 01, there is a possibility that the
+[50:32] the total number of items added may be lesser than the capacity. There may be
+[50:37] remaining capacity and you cannot add one more item because that new item has
+[50:41] a weight larger than that. In fractional, you could say, "Yeah, there
+[50:44] is little space. Let me add this part." Are you there? So, what do you think
+[50:48] will the output here be? The capacity is eight and the item weights are
+[50:55] 1 3 5 7 and the profit is 2 4 7 10. Yeah, what do you think it will be?
+[51:04] Come again. I didn't get you.
+[51:07] 12? Okay.
+[51:10] What are you adding? Seven and
+[51:13] one. Imagine the capacity was
+[51:19] nine. Imagine the capacity is nine instead of
+[51:24] eight. What would the result be?
+[51:31] Capacity is nine instead of eight. What would you get?
+[51:42] I am modifying the capacity to nine, sir. Give me access.
+[51:46] This is eight. I made it nine now. Same data.
+[51:50] What would you get as answer?
+[51:58] Not greedy, we cannot use greedy here. Okay, if I use greedy
+[52:04] you can't add a fraction. Okay, yeah, full item or no. Yeah, what
+[52:08] would it be?
+[52:12] It would be 14. How would it be 14? Tell me.
+[52:22] Oh, you can't add twice now. Then we would have got different answers
+[52:26] all the time.
+[52:29] 13. You can add seven and
+[52:35] Name which which item? Tell me.
+[52:39] Item with what weight? Five and
+[52:43] three and one. So, if you use greedy, what would it be?
+[52:47] Largest ratio first. Here we don't use greedy. We look at all combinations and
+[52:52] try to come up with an answer which is globally optimized.
+[52:56] Are you there? Greedy would have given you what?
+[53:00] Okay, take the ratio. What is the ratio of greedy?
+[53:04] This ratio is two. This ratio is 1.
+[53:09] 33. This guy is uh 1.4 and this guy is what?
+[53:16] 1. Uh 1.3. 1.4 something.
+[53:23] Right? Now, what is the largest ratio? Two.
+[53:26] So, I add this. What is the remaining capacity? Eight.
+[53:30] Uh then what is the next largest ratio? 1.4. I add this.
+[53:35] Then I can add part of this. So, I'll get a different answer if I use
+[53:40] greedy than non-greedy. Are you there? So, greedy algorithm is
+[53:46] applicable only to fractional knapsack, where the way we approach the problem is
+[53:52] get the largest ratio and continue adding items in the
+[53:57] decreasing order of the ratio till no more items can be added.
+[54:01] If you can't add it fully, add part of it. That is why it's called fractional
+[54:06] knapsack.
+[54:09] Are you guys clear? Everybody?
+[54:12] And this we will solve when we solve dynamic programming.
+[54:16] Okay?
+[54:19] Are you clear or no? Okay, great. Now, uh scroll down.
+[54:26] Down, sir. Just quick quick come Yeah, the 0/1
+[54:31] knapsack is solved using dynamic programming, fractional is solved using
+[54:35] greedy. In the 0/1,
+[54:38] uh has not an optimal uh
+[54:41] structure. Fractional has an optimal using greedy.
+[54:45] In the 0/1, we are not allowed to break items. In fractional, you can.
+[54:50] Uh can you close the doors, please? Yeah.
+[54:53] In the 0/1, we can take objects in an integer value, here it can be a
+[54:56] fraction. Continue. I think that's Yeah, that's about it. Yeah. Are you clear on
+[55:01] the differences for today? And how we solve 0/1, we will discuss
+[55:05] when we talk about DP. But for now, understand it is only
+[55:09] greedy algorithm, fractional approach gives you a great result.
+[55:16] Okay, shall we go back to the coins problem now?
+[55:20] Sir, blank screen.
+[55:25] Yeah. What were you given?
+[55:29] 1 3
+[55:32] 4 5
+[55:34] and you had 7 rupees to be distributed.
+[55:39] According to the greedy, it was 5 + 1 + 1 because
+[55:45] once you use 5, you are left with balance 2 rupees to be distributed. You
+[55:50] can't use a 4 rupee coin to do that. You can't use a 3 rupee coin to do that.
+[55:55] And you can use 1 rupee, too. Are you clear?
+[55:59] There's no limit on the number of such denominations you have.
+[56:04] The number of denominations are only 1 3 4. The number of such is any number.
+[56:09] So, 5 + 1 + 1. Now, if I were to use I'm just giving
+[56:13] you an idea. We'll discuss later. Hello guys at the back.
+[56:19] Whoever is not interested, you can leave the class. Come back at 4:45 for
+[56:23] attendance. If you're waiting here for attendance,
+[56:27] please come back at 4:45. We'll give you every day.
+[56:31] But if you're here, please maintain silence.
+[56:37] Okay? Yeah. How would we solve otherwise?
+[56:44] Brute force. Tell me brute force approach.
+[56:53] Now, let's create a decision tree.
+[56:57] What are the coins you can distribute?
+[57:01] You can either distribute 1 rupee coin,
+[57:05] 3 rupee coin, 4 rupee coin, or 5 rupee coin.
+[57:09] If you give 1 rupee coin, what is the balance still left?
+[57:13] 6. If you give 3 rupee coin, 4.
+[57:18] What is the balance left if you give 4? 3.
+[57:24] Are you there? Now, if you give 1 rupee coin, again,
+[57:28] what are the four options available? You can give 1,
+[57:32] three four five and likewise one three four five
+[57:40] likewise one
+[57:43] three four five Now consider this scenario where you
+[57:48] have balance of two. Can I use a three rupee coin?
+[57:52] Because that will give you a balance of one which is not allowed.
+[57:56] This will give you a balance of two not allowed. Balance of three not allowed.
+[57:59] So these are ruled out. You can only give one.
+[58:05] Are you there? If you give one, what is the other option available? One
+[58:09] three four five. Again, these are ruled out. So one. So how many such coins you
+[58:14] have to give? Five one and one.
+[58:19] Now if you go with this approach, let's say three four are balance remaining.
+[58:25] Can I give a one rupee coin? Yes, balance is three. Can I give a
+[58:30] three rupee coin? Yes, balance is one. Can I give a four
+[58:34] rupee coin? Yes, balance is zero. Can I give a five rupee coin? No,
+[58:38] because balance would be one. So how many such coins did you have to
+[58:44] distribute? Three and four or four and three?
+[58:50] Isn't that lesser than five one one?
+[58:55] So when we talk about dynamic programming or when we talk about brute
+[58:59] force thing, consider every coin given and then find out what are
+[59:05] the remaining coins or what is the remaining amount to be given and see how
+[59:09] we can equally distribute in all of them.
+[59:12] So when you use that solution, you'll get an optimized answer which in this
+[59:17] case is two coins and not using the greedy where we got five plus one plus
+[59:21] one three. I'm just giving an idea about it so that
+[59:25] you understand that greedy algorithm is not going to give you a an optimized
+[59:31] solution in all such cases. There has to be a better, but for most of the
+[59:36] problems, especially the knapsack and when we talk about the shortest path, it
+[59:40] will work well.
+[59:44] Okay, so any questions on greedy algorithm or for that matter
+[59:49] uh the 01 knapsack rough idea and more importantly the fractional knapsack the
+[59:55] algorithm of it. Any questions anybody has?
+[1:00:00] Any questions? No.
+[1:00:04] Okay, if you don't have any questions, we'll look at the next interesting
+[1:00:07] problem which which is
+[1:00:10] you're given a graph. How many of you know graphs
+[1:00:14] and representation of a graph?
+[1:00:19] Yes, please. How do you represent a graph?
+[1:00:23] Okay, what is a graph? Tell me Tell me what is a graph.
+[1:00:27] And some applications of graphs. Have you done graphs before?
+[1:00:31] Yes or no? Yes. Tell whatever you know.
+[1:00:35] You have the mic, no?
+[1:00:39] Come on, I want you guys to start telling me.
+[1:00:43] It will improve your confidence.
+[1:00:48] >> Connection between nodes. >> Okay, connection between nodes and so
+[1:00:53] graph is a collection of vertices and edges, great. Give me a real-time usage
+[1:00:59] of a graph.
+[1:01:04] Give the Yeah.
+[1:01:07] >> Google Maps. >> Yeah, what about it? Tell me. Uh blank
+[1:01:10] screen. >> Cities connected between interconnected.
+[1:01:16] >> Cities are interconnected, okay. So there is a
+[1:01:19] city one, there's a city two.
+[1:01:23] There's a city three. And city four. They're all connected.
+[1:01:29] I'm sorry.
+[1:01:32] Okay, great. And what does that edge represent?
+[1:01:36] >> The connection.
+[1:01:39] >> What will the edge between the two cities represent?
+[1:01:42] >> The route from city one to >> No, what does the edge represent?
+[1:01:50] Maybe distance, yeah. Why not? Distance. If I have to go from city one to city
+[1:01:55] two, I have to travel a distance of D1. Likewise, city two to city three, D2.
+[1:02:00] Which is isn't that what you say? I want to go from Hyderabad to Vijayawada. Give
+[1:02:04] me the distance between Hyderabad to Vijayawada. You'll say by road is like
+[1:02:07] 290 km. Something You know something like that. So, we have a graph.
+[1:02:12] Now, if you were to represent a graph, what are the ways in which you will
+[1:02:15] represent?
+[1:02:19] Yeah, guys, come on. Sir, use the mic. Where's the mic here?
+[1:02:23] Mic is here. Answer. What are the ways in which you
+[1:02:26] can represent a graph?
+[1:02:32] Forgot, huh?
+[1:02:39] I didn't hear. That's why I'm saying. Yes, what are the ways in which you'll
+[1:02:43] represent a graph?
+[1:02:47] Adjacency matrix or adjacency list. Heard about it once upon a time,
+[1:02:53] huh? Somewhere? Yeah, yeah, I remember. Okay, great. What is an adjacency
+[1:02:57] matrix? How do you represent this graph? I'll show you a graph. Tell me, how will
+[1:03:01] the adjacency list look like and adjacency matrix?
+[1:03:04] Because unless you understand the basic fundamentals of it, we will not be able
+[1:03:08] to solve the shortest path between different
+[1:03:13] cities using greedy approach. You need to know how to represent it,
+[1:03:18] sir. Blank screen.
+[1:03:20] So, I'll show you a graph. Vertex zero connected to vertex one with
+[1:03:25] a weight of five. Vertex zero connected to two with a
+[1:03:29] weight of three. One is connected to two with a weight of
+[1:03:32] seven. And one is connected to three with a
+[1:03:35] weight of 10. And three is connected to four with a weight of 15. This is my
+[1:03:40] graph. There are five vertices. Zero, one, two, three, four. And there are
+[1:03:46] five edges. And the edge contains the distance from
+[1:03:50] vertex zero to one.
+[1:03:53] So, how will the adjacency matrix look like for this?
+[1:03:57] Because we will give you input data which is a matrix and you will build a
+[1:04:00] graph. Or you'll be given a graph like
+[1:04:04] start vertex, end vertex and you have to build adjacency matrix and things like
+[1:04:08] that. Yeah. How will the matrix here look like?
+[1:04:12] Come on.
+[1:04:15] Come on, guys. You have to be very proactive and interactive in my classes.
+[1:04:22] You I'm getting you ready soon. Six months, you'll get a job.
+[1:04:27] Not if you just sit like this, not answering. Come on.
+[1:04:34] Pass the mic to someone in the back. They feel left out always. The back
+[1:04:37] benches.
+[1:04:41] Sir, what are you doing on the laptop? Huh?
+[1:04:45] There's nothing to do on the laptop when there's time for you to do. Did you
+[1:04:48] switch off the programs? Srinivas. All programs are off, right? Good.
+[1:04:55] Pass the mic to him.
+[1:04:58] Sir, take the mic. Adjacency matrix for this.
+[1:05:07] Anybody can answer. Just he has the mic, but if somebody else wants to answer,
+[1:05:10] you're more than welcome.
+[1:05:14] No, no idea? Tell now. Give the you use the mic and
+[1:05:18] answer. Mic.
+[1:05:30] Yes. >> The adjacency list, no, sir.
+[1:05:33] >> Uh okay, you want to show the list first?
+[1:05:36] Uh First talk about adjacency list, okay?
+[1:05:38] How will the adjacency list look like?
+[1:05:43] >> The node zero will have adjacency to node one and two.
+[1:05:48] >> One and two? >> The node one will have it from zero,
+[1:05:52] two, and three. >> Okay, and two will have?
+[1:05:56] >> Zero and one. >> Zero and one?
+[1:05:59] >> And the node three has with four. >> One and four?
+[1:06:03] >> One and four, yeah. >> Four has?
+[1:06:04] >> With three. >> Three. Are you clear?
+[1:06:07] This is called an adjacency list. Why do we need adjacency list?
+[1:06:13] An adjacency matrix is given any particular node, which is like given a
+[1:06:18] particular city, tell me to which other cities am I directly connected?
+[1:06:23] So, city zero is connected to one and two directly.
+[1:06:29] But, from two, can I go to any other city?
+[1:06:34] No. But, from one, can I go to any other city? Three. From three, can I go to any
+[1:06:39] other city? Yes. >> So, it's like saying, if I want to go
+[1:06:41] from zero to four, there is no direct flight.
+[1:06:44] >> There are two hops. Zero to one, one to two, two to three. So, there are two
+[1:06:49] stops I need to take to go from zero to four.
+[1:06:54] Next time you travel in Indigo, look at the 6E manual, end of it, they'll show
+[1:06:58] you the Indigo uh routes.
+[1:07:02] It's so much like what we are talking about.
+[1:07:05] Point A to point B, how do I go? Is there a direct flight? No, but there's
+[1:07:09] an indirect flight available. So, that is what we are talking about,
+[1:07:12] adjacency list. So, given any vertex, if I want to know
+[1:07:17] who are my neighbors, and I will use that vertex number, find out
+[1:07:23] the list of values, and that that will tell me the neighbors. When I traverse
+[1:07:27] through each neighbor, I will then figure out who are its neighbors, so I'm
+[1:07:31] able to indirectly travel to three via one, and indirectly able to four via
+[1:07:36] three via one. So, zero can go to four via three, which is via one, but I
+[1:07:41] couldn't go directly. If there was a direct connectivity zero to four, yes.
+[1:07:45] So, zero's four would be a direct connectivity rather than 0 1 3.
+[1:07:50] Are you able to understand the practical use case?
+[1:07:54] Now, how will the matrix look like? Yes, sir.
+[1:07:58] I forget your name again. >> Nikhil, sir.
+[1:08:01] >> Yeah, Nikhil. Yes. Matrix of this look like.
+[1:08:07] >> [snorts]
+[1:08:12] >> I'll just write down for you.
+[1:08:18] So, you're given a 5 by 5 5 by 5 matrix. Tell me the values in the first row.
+[1:08:24] >> In the first row, the values will be 0 1 >> 1 minute. No, no. 0
+[1:08:30] >> 0 1 >> Uh okay.
+[1:08:33] >> 1 >> No.
+[1:08:36] No, how is it one?
+[1:08:42] >> Okay. Uh
+[1:08:49] >> What you are saying is correct if it is a unweighted graph.
+[1:08:54] Here I have a weight, right? >> Yeah, for a weighted graph, we'll put
+[1:08:57] the weight, so >> So, zero
+[1:08:59] Will be one or five? >> Five.
+[1:09:01] >> Five, very good. This guy?
+[1:09:04] >> Three. >> Three.
+[1:09:06] >> Zero. Zero.
+[1:09:08] >> Great. What about the second row? >> Five.
+[1:09:11] >> Mhm. >> Zero.
+[1:09:13] >> Zero. >> Seven.
+[1:09:16] >> Huh? >> 10.
+[1:09:19] >> Huh? >> Zero.
+[1:09:21] >> Zero. And likewise, two connected to zero.
+[1:09:25] >> Three. >> Three. Two connected to one, seven. Two
+[1:09:28] connected to two, zero. Two connected to three, zero. Two connected to four,
+[1:09:32] zero. Three? >> Three with one, that is zero, that is
+[1:09:36] 10. Zero, zero.
+[1:09:41] And 15. >> And four with three is 15. And
+[1:09:46] everything else is >> Zero.
+[1:09:48] >> Zero. So, if I give you input data like this, it would represent a graph like
+[1:09:52] this. Are you guys getting it? In the program, we will give you a matrix. You
+[1:09:56] build a graph. We'll give you V1, V2 connected, you build a graph. So, every
+[1:10:01] graph is represented using an adjacency list or an adjacency matrix.
+[1:10:08] The values which you see there could be one, which means there is a
+[1:10:12] connectivity, zero, no connectivity. If the If it is a weighted graph, you
+[1:10:17] will not put one, you will put the weight like what we have done. Edge.
+[1:10:22] That could be the distance, that could be some other unit, whichever you think
+[1:10:26] is important. So, when we talk about a graph, is it a
+[1:10:29] directed or undirected graph? Is this a directed or undirected graph?
+[1:10:35] Undirected graph. If I had said zero is connected to two,
+[1:10:41] then zero two would be three, but two zero would be zero.
+[1:10:45] Because there is no edge connecting this way.
+[1:10:49] So, because it was an undirected graph, the basic assumption is I can go from
+[1:10:55] point one to point two, and I can also go from two to one.
+[1:11:00] If it is a directed graph, it is like saying I can go from point one to point
+[1:11:04] two, but not other ways. Like you know, one-way street.
+[1:11:07] So, in a in a in a one-way street, you can say I can go from A to B, but I
+[1:11:11] can't obviously go from B to A. But, since most of our streets are two-way
+[1:11:15] streets, we are saying it is an undirected, unweighted graph. If it is
+[1:11:20] undirected, unweighted, you will see zeros and ones in the matrix. If it is a
+[1:11:25] undirected and weighted graph, you will not see one, you will see the actual
+[1:11:29] edge value, which is given in the diagram.
+[1:11:35] Are you there? So, there are two ways of representing a graph. One, using
+[1:11:40] weights, and other using arrow. So, in this case,
+[1:11:44] it is a undirected, weighted graph. If I had not given you 5 7 3, then I would
+[1:11:50] just say it is an undirected, unweighted graph. But here, since we are finding
+[1:11:54] out the shortest distance to go from A to B, I need to have the weight, which
+[1:12:00] is whatever the edge represents. Edge could represent weight, which is
+[1:12:04] distance. Edge could represent the time taken. Edge could represent whatever.
+[1:12:09] So, if you want the shortest distance, minimization problem. Shortest time,
+[1:12:13] minimization problem. All these are minimization problems, and
+[1:12:17] we will solve using greedy algorithm. Okay. Now, let's take a problem.
+[1:12:23] Uh sir, same graph. Uh you remove those arrows.
+[1:12:28] Yeah. So, it is like undirected graph, you can go in both the ways.
+[1:12:38] Okay.
+[1:12:40] So, I will put
+[1:12:55] >> If I'm given
+[1:13:03] Okay. If I'm given
+[1:13:06] two as the source
+[1:13:11] If I'm given two as the source can you tell me what is the shortest
+[1:13:17] distance from two to every other vertex? Calculate and tell me.
+[1:13:22] If two is my source vertex what is the shortest distance from two
+[1:13:27] to zero, two to one, two to two, two to three, two to four?
+[1:13:32] And that is the problem we'll solve in the next class. Given a graph, find out
+[1:13:35] the shortest distance from a source to every other vertex. Two can be start
+[1:13:41] three can be start, zero can be my start vertex. Where do you want to begin from?
+[1:13:48] Yes, please. What would the shortest be?
+[1:13:52] Two to ze- two to zero, two to one, two to two, two to three two to four. I'll
+[1:13:58] help you, this is zero. Rest of it you tell me.
+[1:14:06] Two to one What is the shortest path?
+[1:14:10] Seven. Okay? Okay, great. Two to zero?
+[1:14:16] Three. So, no problem, that is very simple.
+[1:14:20] Three. Seven. What about two to three?
+[1:14:29] 17. Very nice. What is the shortest distance two to
+[1:14:34] one? Seven. What is the shortest What is the
+[1:14:37] distance from one to three? 10. So, what is 7 + 10?
+[1:14:42] But what is the direct distance from two to three?
+[1:14:46] So, if the shortest distance via another vertex is smaller than the direct
+[1:14:51] distance, then recompute it and update that 30 with
+[1:14:55] 17. I could say to reach three from two, I could 30.
+[1:15:00] But, there is a node one. If I go via one, it is shorter. So, I'm updating it.
+[1:15:07] So, what this problem, which we will discuss next class, is given a
+[1:15:11] particular graph and their weights, which is the distance,
+[1:15:16] which is the edge, given any vertex as the start vertex,
+[1:15:21] find out the shortest distance from the start vertex to every other vertex.
+[1:15:28] And that is done using the greedy algorithm.
+[1:15:31] So, you'll search for the direct path. You'll search indirect path, compute
+[1:15:37] which of them is a smaller value, and update it. Now, why do we need to do
+[1:15:40] this? Now, let's look at it that way. I got the shortest from
+[1:15:46] two to three as what? 17.
+[1:15:51] Now, what do I use this for? To go from two to four,
+[1:15:56] I can go two to three, and then to three to four. Since I already have this
+[1:16:01] distance as 17, I would say this is 17 plus whatever is the direct distance,
+[1:16:07] 15, which is 32. So, at any vertex, if you find the
+[1:16:13] shortest you've found, you use that as a base to go forward. You don't need to
+[1:16:17] recompute again. Since I already got the shortest for
+[1:16:20] three, I'm using that to compute four, maybe to compute five, maybe to compute
+[1:16:24] six, maybe to compute something else from that vertex.
+[1:16:29] That becomes the base henceforth. Are you there? So, I'm going to show you
+[1:16:34] a very simple diagram. Now, you calculate and tell me what would the
+[1:16:38] shortest in that be. Sir, what that
+[1:17:01] Look at this diagram and calculate
+[1:17:05] One is my start vertex. Now all the
+[1:17:10] see here it is a directed weighted graph.
+[1:17:14] There's a path from zero to three, sorry one to three but there is no path from
+[1:17:18] three to one. Please understand that. Direct path is
+[1:17:21] not there. So considering this graph calculate what is the shortest So give
+[1:17:28] me access now.
+[1:17:31] No there please. Yeah. [snorts] What is the shortest from one to two?
+[1:17:36] One to three, one to four, one to five. One to six.
+[1:17:42] Yeah. One is my source.
+[1:17:45] All of you please calculate and update us here.
+[1:17:53] Get used to solving problems manually, code is easy.
+[1:18:08] Yeah, one to two what is the shortest anybody?
+[1:18:13] 35, 50. No no somebody said 50 no I'm I'm just
+[1:18:18] reading out. I got one answer 35, one answer is 50.
+[1:18:23] Anybody shorter than 35?
+[1:18:29] Okay, what is the direct distance one to three one to two?
+[1:18:35] One to two is 50 direct but if you go via four five, what do you get?
+[1:18:41] One four four five five two is sum of 10 15 10, which is 35. So if I were to
+[1:18:52] write down the shortest from one to two is 35,
+[1:18:57] will that help me to calculate the shortest from one to three?
+[1:19:01] One to three is 45. One to two is 35. But one two two to three is what?
+[1:19:09] 15. So 35 plus 15 is what? 50. But what is the direct distance?
+[1:19:15] 45. So I'll retain that. Are you getting it? If there's a direct
+[1:19:19] distance better than indirect, retain it. If there's an indirect path better,
+[1:19:25] update it. Okay. Likewise, calculate all and tell me, please. One to two is 35.
+[1:19:32] One to three?
+[1:19:35] Yeah? 45. One to four?
+[1:19:44] Easy. Yeah? One to five?
+[1:19:50] Uh what are the ways of reaching five?
+[1:19:56] One way is one to four four to five. Other way is one to three three to six
+[1:20:03] six to five. That is anyway larger. So we get
+[1:20:07] one to four four to five 25. And what about one to six?
+[1:20:16] One to six?
+[1:20:24] Is that the best answer? Okay. What is the shortest for going to
+[1:20:28] three? 45. From there I can go to 6 + 10
+[1:20:34] 55. Is there another way to go one 4 5 3? What is this distance? 10 15
+[1:20:44] uh 25 much more.
+[1:20:48] This was 35 + 15 and this is 25 + 30 larger. So, obviously we'll go for the
+[1:20:54] direct which is 45. We've got three distances. One which is
+[1:20:58] 1 4 2 3, 1 4 5 3 uh 1 4 5 2 3. Considering all of them, we've got 45 as
+[1:21:09] the best which means the only way to go to 6 is 1 3 6 which is 55.
+[1:21:15] And that is what we will discuss in the next class
+[1:21:18] using the greedy approach find out the shortest distance given a
+[1:21:23] graph where two vertices represent the distance between two cities. Are the two
+[1:21:29] vertices could represent the amount of data transfer in two
+[1:21:34] uh nodes of a network. Whatever. Okay? Or it could be the number of
+[1:21:40] packets you can send in a mail transportation system between two
+[1:21:46] uh points. Okay? Are we clear?
+[1:21:51] So, there are lots of applications of why we want to go for the shortest
+[1:21:55] distance. It is used in communication, is used in
+[1:21:59] transport, used in whatever you talk about.
+[1:22:07] Shall we move on? Great. What we will also give you are
+[1:22:12] a program on adjacency list, a program on adjacency matrix. I will give you
+[1:22:18] some code on comparable and comparator interface. So, we'll copy them to the
+[1:22:23] tessellator. Please download the code, understand what that code is all about.
+[1:22:28] Okay? Because if you understand how to create an adjacency list and adjacency
+[1:22:32] matrix, that will be useful for every other problem which we talk about using
+[1:22:36] graph theory. Okay? Yeah.

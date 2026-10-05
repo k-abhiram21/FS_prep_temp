@@ -1,0 +1,702 @@
+YouTube transcript
+Video ID: sLWMwAIYiZw
+Language: en
+Captions: auto-generated
+
+[0:00] start with the second module of unit 3 uh which is uh binary trees and uh look
+[0:07] at some very interesting problems. Yeah, pretty much I think all of you
+[0:11] know what trees are but for completeness I'll go go through some theory so that
+[0:17] uh some of the problems which you solve uh this would help you understand what
+[0:22] we are uh referring to. So
+[0:26] yeah, basically uh we say tree is a nonlinear data structure. I'm sure all
+[0:32] of you know what linear data structures are which is your array list or for that
+[0:38] matter uh anything which can be accessed by an index where the order of insertion
+[0:44] is guaranteed index based. Okay. So here we talk about a nonlinear data structure
+[0:50] and some of the terminology here is pretty obvious to you. Uh we have the
+[0:56] root node uh which is the beginning. Uh then we have the left child, the right
+[1:02] child and then we keep traversing down the tree till we find no children
+[1:08] which is what we call a leaf node. So look at this uh diagram and let me know
+[1:14] if you don't understand something. If I scroll up, there's a leaf there. Yeah,
+[1:18] those are called the leaf nodes. Guys, go through this diagram. Uh because some
+[1:23] of the problems we will solve would involve finding the height of a tree. Uh
+[1:28] some of the problems may involve uh finding the total level wise. Some of
+[1:36] the problems may involve whether the tree is balanced or unbalanced, which is
+[1:41] the left and the right. is the absolute difference more than one then it is
+[1:46] unbalanced. So please go through this terminology and let me know if you have
+[1:51] any questions on any of them. What is the height of a tree? What does the
+[1:55] level mean? What are the siblings? What is an edge? What is the root? What are
+[2:00] the leaf nodes? Any questions on any of them?
+[2:05] No questions. Okay sir. Uh scroll up. But just remember we always look at the
+[2:10] root as level zero and we keep branching down till we have all the leaf nodes.
+[2:17] Okay. So here the level is four because K L M N OP do not have any children. If
+[2:25] any of them had a child then that would not be a leaf and that would increase
+[2:29] the level by one more. Yeah. So that is all the terminology we'll skip.
+[2:35] Continue. Yeah. Now give me some examples where we
+[2:41] use trees from what you guys have learned so far.
+[2:46] Give me some example where trees come into picture.
+[2:52] Yes sir. Anytime you want to represent a
+[2:56] hierarchal data structure, it's like your family tree if you look at it. You
+[3:01] know, whoever your roots were then they would have I mean I won't call it a
+[3:05] binary tree because you know your greatgrandparents would have had about 8
+[3:10] 10 children and each of them had multiple children. So I wouldn't ever
+[3:13] call it a binary tree but still it is a hierarchal data structure. It's like
+[3:18] organizational structure you know managers the juniors under the people
+[3:24] reporting to manager manager reporting to someone and then they may be that CEO
+[3:28] or CFO or what is called the chairman or whoever. So every time you have a
+[3:34] hierarchal presentation we use what is called a tree. I wouldn't use a binary
+[3:39] tree but a tree but here we are talking about a binary tree because each node
+[3:44] has got two children. If because it has got two children, we call it a binary
+[3:49] tree which is the left node and the right node. But everything is still a
+[3:53] tree representation. Yeah. Continue. Yeah. Now let's look at some
+[3:58] calculations here. The maximum number of nodes possible for a tree of height h is
+[4:06] 2 ^ + 1 minus one. Imagine a tree like this.
+[4:18] What is the height of this tree?
+[4:22] What is the height of this tree guys?
+[4:28] What is height? Two. So what is the maximum number of
+[4:32] nodes you can have? 2 ^ + 1 - 1 2 ^ 3 - 1 which is 7. Now if you have a height
+[4:42] of three which would mean there would be eight more children which are what we
+[4:47] call the leaf nodes
+[4:52] and the height would be 3 to 2 ^ 4 - 1 16 - 1 which is 15.
+[5:04] So you can always do that. Are you guys clear? So that is the first thing.
+[5:09] Remember the height is two or three. It is level zero and not level one.
+[5:15] Continue.
+[5:18] Now look at the other terminology. The minimum number of nodes possible at the
+[5:23] height h is h + one which is what? If it is a root, what is the height? Zero. So
+[5:31] there is one node which is a root. If it is level one, what is the minimum number
+[5:36] of nodes? What is the minimum number of OS?
+[5:41] Two. What would it be? Root and left or maybe right? Minimum. Maximum would be
+[5:47] root left and right. Are you guys getting it? Yeah. Now what? The minimum
+[5:52] height with nodes is log of n + 1 minus one. Now when you look at a tree with 15
+[6:00] nodes, what is the log of 16?
+[6:05] 4 - 1 3. The height is three. Inverse reverse we are doing now when we had the
+[6:10] height we calculated the number of nodes and now when we know the maximum number
+[6:14] of nodes we calculate what the height is which is that guy and the maximum height
+[6:19] with nodes will be n minus one. Can you tell me what that scenario is?
+[6:27] The maximum height with nodes is n minus one.
+[6:34] Anybody tell me what does this mean? The maximum height with nodes will be n
+[6:40] minus one. Anyone
+[6:43] let's take n is equal to six example. >> So sir root node it has a child that
+[6:49] child has another child and so on like just one child of each. So the total
+[6:54] number of nodes are n in that case the height will be n minus one.
+[6:57] >> So you're talking about a tree which is completely skewed
+[7:02] which is a tree diagram. A tree like this.
+[7:11] What is the number of nodes? Four. What is the height?
+[7:16] Three. Completely skewed tree. And we are not talking about a representation
+[7:21] like this. Okay. Yeah. Go back.
+[7:27] So the maximum height with nodes will be n minus one completely skewed tree.
+[7:35] Okay. Shall we move on? Now uh now obviously you know what a binary tree
+[7:40] components are. There are always three components to it which is the left right
+[7:46] and there is what is called the root. Now if you think about a single link
+[7:50] list we have two components the data and the next pointer. When you think about a
+[7:57] doubly link list we have three components. the data where we came from
+[8:01] which is previous and where we are going to go to which is next. Now a tree also
+[8:06] has three components which is the root left and right. So every node is
+[8:12] represented using what is called a self referential structure where a part of
+[8:20] that node is referencing itself which is the left child and another part is
+[8:25] referencing itself which is the right child and a third part is obviously what
+[8:30] we call the data which is contained within it. So what does every node
+[8:34] contain? Every node has the data. Every node has a left component. are null if
+[8:39] there is no left child or a right component or null or minus one in our
+[8:44] case when there is no right child and that is how we identify whether it is a
+[8:49] leaf or not when the data is present but both the left and right happen to be
+[8:54] null and that is what you primarily see are you all clear now if I were to look
+[9:01] at it from a doubly link list point of view I would convert this into a doubly
+[9:05] link list as my doubly link list would Look like there is a previous pointing
+[9:13] to null and next pointing to B. Previous
+[9:20] pointing to A and the next pointing to C previous of this pointing to B and the
+[9:28] next pointing to this. But this is a linear representation where I have the
+[9:36] head of the list. I go next next till I go to the tail which is end. Here it is
+[9:42] not a linear. Each node has got two subdivisions or maybe three or maybe
+[9:48] four if it is not a binary tree but entry.
+[9:52] Are you seeing that is a linear representation. I cannot go to the tail
+[9:56] unless I knew the previous. Likewise I cannot go to the next level
+[10:01] unless I know the root. If I don't know the root I can't go to the next level.
+[10:05] If I don't have the next level node, I can't go to the third level, fourth
+[10:09] level, nth level. So each takes you to what the next is. Are you guys there? So
+[10:15] what you are given in every binary tree problem is the address of the n root
+[10:21] because the tree got built and when you have the address of the root, you can
+[10:25] then figure out, oh yeah, I can go keep traversing left branch, right branch,
+[10:30] and everything will be another sub tree. It's left branch, right branch. So
+[10:34] there'll be multiple such sub trees which we will have to traverse and those
+[10:38] smaller sub trees finally become a large tree which is a complete tree we are
+[10:42] talking about. Okay, are you guys there? Yeah. Now
+[10:46] that's another very interesting example. A perfect binary tree either you have uh
+[10:52] have two children and all leaves have the same depth at the same level
+[10:57] equally distributed on either side with the children being there at every node
+[11:05] level. Scroll down. A complete binary tree is one which has
+[11:11] uh in which at every level there is at least filled or all the nodes are as far
+[11:17] left as possible. Now what do you see interesting about the left? They have
+[11:22] children. But if you look at the right part of it, the right has one left and
+[11:27] right and the left guy has only a left. So when we say it's complete, it is more
+[11:31] on the left side than on the right. If the right tree is not a complete
+[11:36] balanced tree like both parents existing there is a left. Okay, just some
+[11:41] terminology. Continue. Now this is a very interesting and this is the problem
+[11:46] we will be looking at very soon. When do we say a tree is balanced? Sir, give me
+[11:51] some uh client area. I will draw some trees. Uh I'll draw I'll draw trees in
+[11:57] that order. You need to tell me tree one.
+[12:05] Okay. Tree two.
+[12:12] Okay. Tree three.
+[12:30] Okay. And tree four.
+[12:37] Of these four trees which I have represented, which of them do you think
+[12:42] are balanced? I'll just explain to you what it means. A balanced tree is a tree
+[12:48] when the absolute difference between the left and the right levels is less than
+[12:54] equal to one. When the absolute difference between the
+[12:59] left level and the right level of the tree its subcomponents
+[13:06] is less than equal to one. So given these four which one do you think are
+[13:12] balanced? Come on guys, which ones do you think
+[13:17] are balanced? First one is balanced. Okay. Why is the
+[13:23] second one not balanced? What is the left level?
+[13:26] Three and right level is one. So the difference is two which is not less than
+[13:31] equal to one. Fourth is also not balance because the right level is two, the left
+[13:36] is zero. The absolute difference is two. And what about the third one?
+[13:42] What is the right level? What is the right level? Four. What is
+[13:48] the left level? Two. and the difference is
+[13:54] three. Oh sorry difference is two which is why it is not balanced. So given
+[13:58] these four trees we have one which is balanced and all other three are not
+[14:03] balanced. So you'll have to do this programmatically. Now how would you do
+[14:07] it? We will see as we uh go through that problem. Okay. But what is given to you
+[14:12] in every problem is the tree creation is given. Now how is a tree created? Can
+[14:17] anyone tell me how did we create the binary tree?
+[14:21] We have seen lot of problems earlier also which involved a tree. How do you
+[14:26] think tree creation was done for you? If I give you some sample data, sir, give
+[14:31] us some sample data. If I give you a sample data,
+[14:43] how would the tree here look like? We start with the first element which
+[14:47] happens to be the root and the next two elements get added. So we check is the
+[14:53] left of the root null then add the next element. Is the right of the root null?
+[14:59] Yes. Add the next element. So these two get added here. Then we go to the left
+[15:05] of six. Is it null? Yes. So what do we add there?
+[15:10] Nine. And what will the right of six be? Come on guys, answer.
+[15:17] I need to hear others. You have a mic right? Where is the mic
+[15:21] there?
+[15:25] Why shall I don't keep with you? Yeah. What is the right of six?
+[15:30] Come on, guys. 10. No, you guys didn't have lunch or what? What about the
+[15:35] eight? Left, right. Huh?
+[15:40] Null is represented using minus one and right two. What about the remaining?
+[15:45] Where will they go?
+[15:49] >> 9. Yeah.
+[15:52] >> The left of nine is null >> minus one.
+[15:55] >> The right is two. >> Right is two.
+[15:57] >> 3 three see >> three.
+[15:59] >> Again left and right of 10 are minus one.
+[16:02] >> And what will their default left and right be?
+[16:05] >> Minus one. >> Null. They're anywhere null. So this is
+[16:07] how the tree looks like for this data. We are adding level order unlike a
+[16:14] binary search tree where you would have the root and then all the elements left
+[16:20] to the root are lesser and all the elements to the right are larger. That
+[16:26] is what is a binary search tree which is what we say BST. But what we are not
+[16:31] creating is a BST. If I were to create a BS3 then this approach will be very
+[16:36] different. What would you then do? Where would six go?
+[16:40] Right of four. If four is a root, six would go to the right of four. Where
+[16:44] would eight go? Right of six. Where would nine go? Right of
+[16:52] 10 go. So if I were to look at it as a binary search tree, this tree is totally
+[16:58] going to be skewed tree. So it would be like BST
+[17:03] 4 6 8 9 10. Then where does uh uh minus one go? I mean we don't have would have
+[17:12] not minus where would two go? Where would three go?
+[17:18] Now obviously this tree is very different from this tree. So when you're
+[17:21] given a problem you need to ask yourself is it a binary search tree or a binary
+[17:27] tree which is being constructed. The algorithm for binary search tree is
+[17:30] going to be very different. The tree creation itself more than the search.
+[17:35] Whereas the algorithm for binary tree is just level order. If you have four
+[17:39] elements, add at that level. If you have eight elements, add the next level. You
+[17:43] know, keep adding whatever you get in the order at that level. Level order. Uh
+[17:48] insertion is what I would do. So that code is given to you. You can look at
+[17:52] that when you have to. Okay. Any questions so far?
+[17:56] Any questions? continue. Now this is what is uh a very
+[18:02] interesting problem we will be solving later uh which is a tree is height
+[18:06] balanced if the absolute difference between the left and the right is one or
+[18:14] less than one. It should not be greater than one. Okay.
+[18:20] So if you look at the left uh the the the left diagram, the absolute
+[18:24] difference is one. But if you look at the right diagram, what is the uh
+[18:30] absolute difference? The right of the root is one. But what
+[18:34] about the left of the root? Three. So the difference is two. Are you getting
+[18:39] that? If you look at this diagram closely, this is level zero. This is
+[18:43] level zero. This is level one. Level two. level three, sorry, level
+[18:50] two, level three. So the height difference here is three. The height
+[18:54] here is one. So the three minus one is two. Which is why it is not balanced at
+[18:59] all. Whereas the left is uh the this is level level zero,
+[19:08] level one, level two, and this is level three. So the difference is one.
+[19:15] So height is three on the left side, height is two on the right side. The
+[19:20] difference is one. So the left part of the diagram is balanced and the right is
+[19:25] not balanced. Are you all there? Yeah. So far good,
+[19:30] sir. Continue. Continue. Great.
+[19:37] It's like a completely skewed tree. Okay sir. First problem. The first problem
+[19:43] which is part of the syllabus which you will solve is given a tree is it
+[19:48] symmetric tree? I will draw a tree for you. Tell me whether the tree is
+[19:53] symmetric or not. Is it a mirror image of itself or not?
+[20:14] Tell me whether this tree is symmetric or not. Mirror image. If you were to
+[20:19] draw a vertical line here,
+[20:26] is it a mirror image or not? No. What makes you say it is not
+[20:31] symmetric? At what level do you think the symmetricity is missing
+[20:36] at level two? Okay. What is uh the problem?
+[20:43] It is not a symmetric tree. Yeah, tell me what is the problem and what do I
+[20:47] need to do to make it symmetric? >> So the 9 and 10 like
+[20:51] >> 9 and 10 >> they aren't symmetric. So exchange like
+[20:55] either on the left side or >> no which nine and 10 there are two nines
+[20:58] there two 10 >> so like the left hand side or the any
+[21:02] any >> No, you tell me you tell me
+[21:04] >> left hand side you can exchange nine and 10. So I'll replace this guy with
+[21:08] >> 10 >> and this guy with
+[21:10] >> nine. >> Nine. So when I did this, if you look at
+[21:12] it, it is symmetric. 9 and 9 match. The outer 10 and 10 match. The 8 and 8
+[21:19] match. And this anyway is a root. So if you are given a tree like this, which
+[21:24] means the tree data would be 5 8 10 9 10. This is the data which I'm going to
+[21:33] be using to create the tree. Okay. So this is symmetric but the earlier was
+[21:38] not symmetric. Now I'll draw another tree for you.
+[21:50] What about this? Is it symmetric sir? Would you like to answer?
+[21:54] >> Yeah. Is it symmetric?
+[21:59] >> Yes sir. >> Okay. So how did you uh figure out what
+[22:04] algorithm would you use now to tell me whether a tree is symmetric or not?
+[22:09] >> The nodes in uh right side is equals to nodes in left side.
+[22:14] >> Now if I were to write code for it, what would it look like?
+[22:19] >> You need to start traversing from the top to the bottom. Yeah. So the root is
+[22:24] five. Yeah. >> Right of right is equals to left of
+[22:27] left. >> No no that's all gigs for gigs code.
+[22:30] Okay, we don't care. Tell me now if I were to if you had to explain to someone
+[22:35] who doesn't know anything about right, left, left, right, what would you tell
+[22:40] me? >> Left side is a mirror image of uh
+[22:42] >> how do you figure out mirror image? Now, so we start with the root check is a
+[22:49] left null, right null. If any one of them is null, then is it symmetric?
+[22:55] No. Right? Which means both have to be >> equal
+[23:00] >> not null and both have to have the same value.
+[23:04] So we start with the root and what is the left value? Five of left is seven
+[23:09] node and five of right is seven node. Both are not null. What is the data of
+[23:15] root left? Seven. What is the data of root right?
+[23:18] >> Seven. >> Seven. They match. So great. So that at
+[23:20] that level we are saying it is symmetric.
+[23:22] >> Yes. Yes. >> Then where do we again go to? Left of
+[23:24] seven and >> right of seven.
+[23:28] >> Right of seven. And then the right part. Left of seven and
+[23:32] >> right of this point. What do you check? Yeah. Continue. You're saying something.
+[23:37] Now at the root level we check. Oh, is the
+[23:42] root left equal to the root right values? Yes. Then what do you do now?
+[23:48] Imagine this is 11 and this is 11.
+[23:53] Then we'll check both left and right of seven for both sides.
+[23:58] >> Okay. Uh what is the logic you're going to now apply?
+[24:04] You said something before >> the right of seven
+[24:08] the left of seven is equals to the uh right side of
+[24:14] I mean >> so let's call this left road right node.
+[24:19] So this guy is left, this guy is right. This guy is left and this guy is right.
+[24:24] Are you guys getting the terminology? >> Yes sir.
+[24:27] >> Then we would say the left left should be equal to
+[24:31] >> right >> right right and the left right should be
+[24:34] equal to right left. >> Yes sir.
+[24:36] >> We already have the left node and the right node. So if it is a root if the
+[24:40] root is not null then we say is the left of root equal to the right of root
+[24:46] values? Yes. Then we traverse down and we check is a left left equal to right
+[24:52] right and is the left right equal to right left left. So we need to compare
+[24:56] these two guys and we need to compare these two guys. So the outer and the
+[25:01] inner should be matching. Yes. >> Then again you go one level below.
+[25:06] Imagine this guy is 10. This guy is 20 and uh uh this guy would be uh can I
+[25:14] draw that sir?
+[25:18] So you'll have to recursively keep calling it.
+[25:24] So this guy
+[25:30] this guy is 1020. So what what do you think these guys should be now?
+[25:35] And what about these two? There are two more nodes here.
+[25:40] Tell me what should their values be for these two? What should the values be?
+[25:44] 20110 >> 201
+[25:46] >> Okay. And what about this? Let's say this is 1 2 what will they be?
+[25:50] >> 2 1 >> 2 1 Now let's look at whether symmetric
+[25:54] or not. So we we draw a line here and then we say these two should match.
+[26:01] These two should match. These two should match and these two should match.
+[26:06] >> So if you consider this what is this guy? Left right. So this is a node. So
+[26:11] what is the left of this? One
+[26:14] >> and what is the right of this? >> Two.
+[26:17] >> Two. This guy is left. >> So what will you now do?
+[26:22] >> Uh left two. >> No. No. What will you now do? Left left
+[26:26] should match. >> Left right of a right.
+[26:30] >> Left left should match. Right. Right. Right.
+[26:35] >> Yes sir. >> Left. Left should match. Left left
+[26:38] should match. Right. Right. Do you agree?
+[26:39] >> Yes sir. Now >> will you not apply the same thing?
+[26:41] Right. Right, left should match left right.
+[26:47] >> Yes sir. >> Sorry. Right, left should match left
+[26:49] right and right right should match >> left left. Same thing you'll have to
+[26:55] keep doing for every node which you find within the tree. It is not just at that
+[26:59] level. You have to keep traversing and checking oh is the left left matching my
+[27:04] right right and is the left right matching my right left.
+[27:08] Keep doing that and at at any point you find that one of them is null the other
+[27:12] is not null don't go any further. Comparing data is later first is it null
+[27:18] or not null? If it is null ignore stop unless both are null.
+[27:24] Have you got it? Anybody is not clear? So start traversing from the root. Check
+[27:31] the left and the right. If both are not null check their data. If both are
+[27:35] matching then you need to continue. If at any point one node is null, other is
+[27:40] not null, don't bother about checking data. If they both are not null, then
+[27:45] check the data. If the data matches, then there is a point going further. So
+[27:49] when you keep branching, the point to understand is left left should match
+[27:54] right and left right should match right left. And that is where we have that
+[28:00] left left 8 matching right uh right right 8 and uh left right 11 is matching
+[28:08] right left 11. That is why I gave an ter terminology to each of them. Left right
+[28:14] left right. So you know how that works. Are you are you all there? Anybody is
+[28:21] not clear on how to do this. Any questions?
+[28:26] So given any tree you can do this
+[28:33] any other way you can quickly eliminate maybe if you know the height of the left
+[28:38] and the right and if there's a difference in the height then there is
+[28:41] also hey obvious it is not symmetric but then getting to the height is again
+[28:47] going and traversing when you're anyway traversing you may as well check left
+[28:51] versus right right and left right right versus right left and then continue or
+[28:56] stop. Are we good? Any questions? Any questions on how to solve this
+[29:03] problem? Because we'll be solving very soon.
+[29:07] Okay, sir. If they don't have any questions, go to the next problem. A
+[29:11] binary tree is considered symmetric if it is a mirror image of itself. It is
+[29:17] symmetric around the root node. Both the trees are empty or both are not
+[29:22] empty. If any one is empty, then it is not symmetric. Second, the left sub tree
+[29:27] is a mirror of the right subree and the right subree is a mirror of the left.
+[29:33] When I say mirror, I'm not talking about the structure. I'm talking about the
+[29:38] values are exactly the same. Structurally, structurally, they may
+[29:42] mirror, but they are not mirrored. You get what I'm saying? When they say
+[29:47] mirror, it should have the same structure on both left and right. And
+[29:51] the content should also be the same which is the data the values.
+[29:56] Yeah. Are we clear guys? Everybody is clear on how to solve. The reason why
+[30:00] I'm telling you is your unit test performance was pathetic. Do you know
+[30:04] the score? Yeah. Uh and sorry unit test was pathetic. Mid exam was decent
+[30:12] because you were asked the same questions which were in the syllabus.
+[30:16] unit test were like lot of different stuff and you didn't have you know chat
+[30:22] GPT you didn't have any online resources here I see the way you guys solve
+[30:27] problems my god even some LLMs are ashamed of how fast you can do things
+[30:33] huh it doesn't help let me again tell you it doesn't help you need to know how
+[30:37] to do things you need to know the algorithm then you need to implement
+[30:42] implementation can be in any language tomorrow you may implement in Java when
+[30:46] you go to a you know placement drive implement in Python implement in any
+[30:51] other language of your choice C++ but you need to know how to do things again
+[30:56] it's not late so I would recommend even if you don't solve a problem in the
+[31:01] class is okay for me as long as you try doing it on your own struggle make
+[31:07] mistakes fix those problems and see the satisfaction you get when you solve
+[31:13] things on your That is why we are discussing the
+[31:16] algorithm before you make an attempt. So this is an exact mirror image.
+[31:22] Okay. Uh four and four match and the left left three and the right right
+[31:28] three also match and the left right four and the right left four match and there
+[31:34] are no children. Both are null. So no problem. Okay continue. This is
+[31:39] obviously a mismatch. Why? Because if you look at the node two on the left, it
+[31:47] doesn't have a left child. But uh what about the node two on the right? It
+[31:53] doesn't have a left. That's okay. But what is the logic? The right left should
+[31:58] match left right. Is it matching? What is the right left? Null. What is the
+[32:04] left right? Not null. So obviously it's going to fail. And the left left is null
+[32:09] and the right right is not null. So there also it fails. So you don't need
+[32:13] to traverse further at all. Any one condition fails, terminate with a false.
+[32:18] It is not symmetric.
+[32:22] Okay. Tomorrow the problem can be more interesting where they'll say okay it is
+[32:26] not symmetric. Tell me at what level it is not symmetric or maybe the problem
+[32:31] can be slightly different which is like saying oh it is not symmetric. Now what
+[32:34] do I need to do to make it symmetric? Now if I have to make it symmetric then
+[32:38] there are two things I need to do. I need to add a left node on the left left
+[32:43] two and I need to add a left node on the right left
+[32:47] and I also need to ensure that the values 33 are not proper. So they need
+[32:53] to also change. So there are a lot of things which have to be done to make
+[32:56] this guy symmetric tree. As of now it is not symmetric.
+[33:01] Are we clear everybody? You need to solve this in time
+[33:06] complexity of O of N and space complexity of O of N primarily because
+[33:13] the tree can be a completely skewed tree. Okay. Yeah. Next problem. So
+[33:19] you're given a tree. You need to return true if it is balanced and false
+[33:26] otherwise. That's a simple problem.
+[33:30] Now this is the next problem we will be solving today.
+[33:34] Given a binary tree return true if it is balanced or false otherwise
+[33:43] a tree is balanced if it satisfies the following conditions constraints. What
+[33:49] are those? The left and the right sub trees height should differ by maximum
+[33:55] one. Absolute difference should not be more than one. And the left tree is
+[34:01] balanced and the right tree is balanced. That means as you keep going there'll be
+[34:05] sub trees created. Each of them should have an absolute difference of one and
+[34:09] keep doing for the entire tree. Are you guys there?
+[34:17] Now if you look at the uh diagram here now if I wait to start from the root. No
+[34:23] no that diagram sir. If I were to start from the root, I'll call this one uh 2 3
+[34:30] 4 5 6 7 data. And the same thing I'm going to write 1 2 Okay, I'll make it 10
+[34:39] 20 30 40 50 and 60. So we look at the root
+[34:49] traverse all the way to the left. Now, what do you think is the level on the
+[34:54] left side of this?
+[34:58] What is the level on the left side of the root?
+[35:04] What is the level? Sir, you have the mic with you. You have the mic.
+[35:10] Given this as a root, what is the level on the left of the root?
+[35:16] Three. So, we have the level three on the left and what is the level on the
+[35:20] right? right of the root is two and the
+[35:24] absolute difference is one. No problem. It is balanced. Now what is the level on
+[35:29] the left side of this guy? Level one, level two, level three and
+[35:35] the level on the right is one. So the difference is to not balanced.
+[35:40] So this is a very interesting problem because you're not just checking the
+[35:46] root and going left and right. You keep traversing at every level it's left,
+[35:51] left level and right level. And if the difference at that left and right is
+[35:57] more than one, you can just return. Okay. So with this background, let's see
+[36:02] how it works. So continue.
+[36:09] Yeah. Now at node four, what is the height?
+[36:19] At node four, what is the left height which is like
+[36:25] level? What is the left level at left side of four? One. And what is the level
+[36:30] on the right side of four? Three.
+[36:35] That is height. So the absolute difference is
+[36:38] two. Which is why it is not balanced. See at node four left height is one and
+[36:43] right height is three. which is like saying what is the right level and what
+[36:46] is the left level which is the height and then we say the difference is larger
+[36:50] so it is not balanced. Yeah. Can anyone tell me how would you
+[36:55] solve this problem? anyone.
+[37:03] Come on, give it a try guys. Maybe look at whatever resources you want for the
+[37:08] next 5 minutes. Refer to whatever and think about the uh what you understand
+[37:13] from that algorithm and explain. Google chat GPT anything
+[37:22] all of you do that now 5 minutes while I draw a tree for you. Come on now. Tell
+[37:28] me what you understand from what you read now.
+[38:04] This is my tree and you now need to tell me from whatever resources you have
+[38:09] understood how to solve this problem.
+[38:15] Yes sir. Pause the mic behind. Yeah.
+[38:26] refer to whatever resources you guys want.
+[38:30] >> So just find the height of uh left left tree, left sub tree of root and right
+[38:35] sub tree of root. >> Is it enough just to find the left sub
+[38:38] tree and the right sub tree or you have to find at every level also?
+[38:43] Level two.
+[38:56] Okay. What is the height of the left sub tree?
+[39:01] >> Four. What is the height of the right sub tree?
+[39:04] >> Three. >> Three. So, is it balanced? Yeah. But
+[39:07] there's a possibility that left sub tree again has a node. It's left and it's
+[39:12] right.
+[39:17] So you when you say left sub tree are you talking about the big tree? Are you
+[39:20] also talking about the small trees which are there in it? Only the big tree.
+[39:31] Now if you look at this diagram is it remove all the minus ones. That minus
+[39:36] ones are confusing. Remove they're all null. If I don't show anything it is
+[39:40] null.
+[39:44] Now tell me what is the according to you sir your name
+[39:50] Ramak Krishna >> Ramak Krishna according to you what is
+[39:53] the left sub tree level 1 2 3 4 right sub tree is three you are saying it is
+[39:58] balanced is it balanced
+[40:03] how many of you think it is balanced three
+[40:09] you think it is balanced Okay. What about others?
+[40:12] Now look at node eight. What is the left of eight?
+[40:17] What is the level? >> Three.
+[40:20] >> Three. >> Three. What is the right of eight?
+[40:23] >> One. >> So is it balanced?
+[40:24] >> No. >> Then you are just considering the root
+[40:26] and saying, "Oh, there are four here. There are three here. So the difference
+[40:30] is one. So it is balanced. But what about the sub trees within it? Guys,
+[40:36] every node has a left and right. Every node has a left and right. So with
+[40:39] respect to root you can say it is balanced if you only consider the left
+[40:43] part and the right. But what about eight right 10.
+[40:48] >> So then backtrack the value of right. So obviously it is not as simple as what
+[40:53] you are saying just get the height of the left and the height of the right.
+[40:57] Yeah that is partly true but it is just not with respect to the root. It is with
+[41:01] respect to every level. You have to see what the difference in the levels are.
+[41:07] So with respect to the root I would say 4 3. But if you look at 8 as a node
+[41:13] imagine this is a sub tree. You know for a moment imagine this guy is a sub. Give
+[41:17] me a red color. Give me red color. Oh great. Imagine
+[41:21] this was the only tree we had in our diagram.
+[41:26] Would this not be the root then? So with according to your logic the left
+[41:31] levels are three right level is one. So it is not balanced.
+[41:37] So you need to consider root child. That guy is like the root a tree below it.
+[41:44] The left child of it is like a root. So everything is a sub tree. So at every
+[41:50] sub tree level you have to check what is the difference in the left and right. At
+[41:55] any sub tree you find the difference is more. Don't even bother about everything
+[41:58] else. You got it? So on the surface of it it
+[42:03] looks beautiful. Yeah. 4 3 but deep dig deeper. Eight has that's
+[42:10] why I drew the diagram how do you do this now?
+[42:17] Now let's do some backtracking. Remove the red color. Undo. Okay. What would
+[42:23] this be? What is this level?
+[42:27] What is this level? This is level zero. This is level one. This is level two.
+[42:34] This is level three and this is level four. So you keep
+[42:41] traversing left, left, left, left. We get level four.
+[42:46] Does it have any children? No. What is the parent of this guy?
+[42:52] So what is the left level of L2? So 12. What is the left level of 12? What is
+[42:59] the right level of 12? Guys, just look at it. I'm going now
+[43:04] bottom up. The left level of 12, the values, look at 12 as a value, the node.
+[43:10] The left level of 12 is one. The right level is zero. What is the absolute
+[43:15] difference? One. So, you know it is balanced. Okay. Now you go to the parent
+[43:19] of 12. 10. What is the left level of 10?
+[43:25] What is the left level of 10? Two. Right level is one. Balance. Beautiful. No
+[43:30] problem. Go above. Now what is the left level of eight?
+[43:34] Three. What is the right level of eight? One. Unbalanced. That's it. So you are
+[43:39] not just looking at the root left. You're looking at every child of it as a
+[43:44] sub tree and then continuing till you find at a node where things are not
+[43:50] balanced. Are you there?
+[43:54] Is everybody getting this? Now I will show you one more diagram. Sir, keep
+[44:00] that there. I'll show you one more diagram.
+[44:21] What would you call this tree?
+[44:27] Balanced or unbalanced? >> Unbalanced.
+[44:30] Now you are saying unbad earlier what would you have said? Left is
+[44:35] uh left is four sir right is four sir. So difference is zero sir. Balance
+[44:40] beautiful. Now why are you saying Ramakrishna? It is unbalanced. Now
+[44:45] >> sir at the points 10 and 15 the >> at the point 10 what is the left level?
+[44:50] >> Two. >> Two. What is the right level?
+[44:51] >> Zero. >> So you know if you consider this as a
+[44:55] tree itself it is unbalanced. If I consider this as a tree, it is balanced
+[45:00] because left is one, right is zero. No problem. But this sub tree, left is
+[45:06] three, uh two, right is zero. So unbalanced. But if you look at only the
+[45:10] root left and right without the sub trees, then you will still go and say
+[45:15] balanced. So you need to be careful that in a tree there are multiple sub sub
+[45:20] trees and every subree level should be one maximum difference in the levels.
+[45:27] Okay, a tree a binary tree is height balanced if it satisfies the following
+[45:34] constraints. The left and the right sub trees height differ by at most one and
+[45:40] the left tree is left sub tree is balanced and the right sub tree is
+[45:43] balanced. Everything the difference in the height
+[45:47] of the left sub tree and the right should be one and the left is also
+[45:49] balanced and the right is also balanced. You can't just say left is balanced but
+[45:53] not the right. So it's got to be much more than just at a higher level the
+[45:58] outer guys. Okay. Yeah. Can you now show them the other diagram? Yeah. Now look
+[46:04] at this diagram and that should give you a clue of how we are doing things.
+[46:11] So if you look at that 4 7 2 0. Now what is the left height of this guy?
+[46:21] What is the left height of this node zero?
+[46:24] Is there anything on the left? >> Zero.
+[46:26] >> So left height is zero. Right height is zero. Difference is zero. No problem.
+[46:30] What is the parent of this? Left height is
+[46:34] >> one. Right height is >> zero.
+[46:36] >> Difference is one. No problem. So this if you consider this as a sub tree, it
+[46:39] is perfectly balanced. Now you go to the parent. What is the left height? Two.
+[46:44] Right height one. So this sub tree is also
+[46:48] balanced. Now you look at the right part. What is the left height? Zero.
+[46:52] Right height zero. What is the left height? One, right height zero. No
+[46:56] problem. This is balanced. Now if you consider this guy, what is the left
+[47:01] height? Two, right height zero. So this is
+[47:04] unbalanced. Are you there? So if you consider four
+[47:10] and uh this part it is like left height three, right height four
+[47:16] balanced but this sub tree internally is not balanced. So it is not a balanced
+[47:21] binary tree. So with respect to the root the
+[47:25] difference in the height is one but the sub trees difference don't have a height
+[47:29] of one they have a larger height more height so they're not balanced so we
+[47:33] don't continue at any point any one of the sub trees height is more than one
+[47:38] difference stop
+[47:42] is this diagram making sense I mean sir erase what I did but uh is that uh
+[47:48] helping you with the levels Okay.
+[47:52] So you'll have to call recursively find out the left height of every sub
+[47:58] tree. Find out the right height of every sub tree recursively and then do the
+[48:03] compute absolute difference. Is it larger than one? Return false
+[48:08] immediately. If it is not go backtrack to its parent and then find out.
+[48:17] Are we clear everybody? Anybody has any questions?
+[48:22] Any questions on this? Any questions? Are you guys clear?
+[48:29] Is it clear? At every level you need to do. So it is a recursive implementation
+[48:34] given the left and the right node. If the left is not null, go it's left. Find
+[48:40] out it's right. Keep doing keep backtracking till the difference is
+[48:45] either less than one return true or the difference greater than one return
+[48:49] false. Is this making sense? Yeah. Great. Now third problem.
+[48:56] Now third problem I can give multiple problems on that. So I'll tell you what
+[49:01] the problem is. You're given a binary tree.
+[49:22] You're given a binary tree. You need to print the average at every level.
+[49:30] So if I were to print the average at every level, what would the output of
+[49:35] this look like? Yes guys. Starting at the root average
+[49:41] is 10. What about next level? Level one. I didn't hear
+[49:48] 25. What about the third level? Level two. Level zero. Level one. Level two.
+[49:55] Level three. Yeah. So what is level three?
+[50:03] How much is it? Level three.
+[50:11] Average sum divided by number of nodes. I can't hear.
+[50:18] You don't have a mic there.
+[50:22] 50. Good. Thank you. Uh what about the next level
+[50:30] 80? Good. How do you solve this? We have solved lot of problems related to this.
+[50:35] You have to use what technique will you use to do level order average level
+[50:41] order max level order min level order total. Tomorrow the problem can be given
+[50:48] a binary tree print the total at each level. Print the minimum at each level.
+[50:55] Print the maximum at each level. Print something else like average, min, max,
+[51:01] total. You know, problems are all same solution. Computes are different. Yes,
+[51:06] sir. You wanted to say something? Yes. Use a mic and answer. What technique
+[51:10] will we use to solve this problem?
+[51:16] Great. Tell me what you would do. >> BFS.
+[51:20] >> Great. Tell us the whole algorithm now.
+[51:24] If you know BFS that is algorithm
+[51:33] >> first we need to add every node to the Q >> every node you add or only the root to
+[51:39] the que >> firstly we need to add root to the Q
+[51:42] >> okay so let's look at your name madam >> tjeshwini
+[51:46] >> teswini great we will add to the root so this is my Q so I'm going to add to the
+[51:51] Q 10. Yeah.
+[51:58] >> And then for the size of the Q, we need to
+[52:02] >> No, this the size of the Q is one. >> One.
+[52:05] >> Yeah. >> We need to sum the elements.
+[52:07] >> No, hang on. Hang on. Go slow. First we'll take the root add to the Q. While
+[52:14] the Q is not empty, we will find out what the size is. What is the size of
+[52:20] it? one >> one right so what do we loop through for
+[52:26] i is =0 i less than size extract those many elements out of the que so what is
+[52:32] the element I'm going to get out of the queue now
+[52:34] >> 10 >> 10 what is the size
+[52:36] >> one >> what is the average
+[52:38] >> 10 >> 10 so average will go into another
+[52:44] array list where we'll say average of level zero is 10 okay I will remove from
+[52:51] the queue. Then what would I do? What would you do?
+[52:56] >> And add the children of the 10. >> So check if the left child is there. Add
+[53:01] that to the que. Does the right child exist?
+[53:04] >> Yes. >> Add to the que. So what does the queue
+[53:06] now contain? >> 20 30
+[53:09] >> 20 and >> 30.
+[53:10] >> Great. Very good. >> 30. Great. What do you do after that?
+[53:16] >> Size. >> Again the same while loop. While Q not
+[53:19] empty. What did we get? >> We get the size first.
+[53:23] >> We get the size and then after we get the size, what do we do? We extract two
+[53:27] elements because the size is two. And then we find the average of it
+[53:32] >> and then we store that in the array list.
+[53:34] >> But before we go further, what do we need to do again?
+[53:41] >> Pop the >> You got 20.
+[53:45] Then you check, oh, does that have a left and right?
+[53:48] >> Yes. Add those two to the que. Does 30 have a left and right?
+[53:53] >> No. >> Only left. No. Right. So what will get
+[53:56] added? The next level elements to the queue.
+[53:59] >> 60. >> You'll add next level elements. So when
+[54:03] you get 20 and 30, what are we adding to the queue now?
+[54:08] 40 50 and 60. 40 50 coming from the left of
+[54:13] 20 and 60 coming from the left of 30. >> Yes. Yes. So why is the size important?
+[54:19] My question to you now why do we need to know the size
+[54:22] >> in that level we contain that many of elements except the null elements.
+[54:29] >> If you did not go for the size the Q is not empty. You would not know which
+[54:34] element belongs to what level. So the size tells you how many elements are
+[54:39] there and how many would be part of that level average. Those is what you
+[54:44] extract. So then I go to the next level. I find
+[54:48] the size is three. I get three elements. Sum it up. Divide by three. But after I
+[54:55] get that I will again check, oh do they have children? If they have children add
+[55:00] them to the queue. So level zero size is one. Level one
+[55:07] size is two. Level two size is three. Level three size is three. So that size
+[55:13] tells you to compute the average I need to know how [snorts] many I have to
+[55:17] extract and how many I divide by. If I didn't have the size, how will you find
+[55:21] the average? How will you find the sum? How will you find the min or how will
+[55:25] you find the max? Guys, are you there? Have you not solved
+[55:32] lot of problems in BFS using the same approach? Add to the queue while Q not
+[55:36] empty, keep getting it then do you know adjacency list the graphs traversal. He
+[55:41] did that.
+[55:45] Are we clear? Can you solve this? Now tomorrow the problem may be same
+[55:49] problem. Given a binary tree, find the minimum at every level. So what would
+[55:55] you need to do differently if it is minimum?
+[56:06] >> Yes. >> For every level we need to
+[56:09] >> so at level zero the size is one so minimum is that
+[56:15] >> at level one size is two. So what would you do?
+[56:19] >> First element we need to take and coming next elements we need to compare with
+[56:23] the minimum element. >> Very good. First element will be the
+[56:26] minimum and every other element at that level will be compared with the minimum
+[56:30] and if it is smaller reset the minimum. Beautiful. And finally after those many
+[56:34] elements are over you got the minimum put that in some storage. Good. Very
+[56:38] good. Excellent. Say, look at the confidence. Look at the clarity. Look at
+[56:43] the voice. Loud, clear. You couldn't have asked for a better replacement for
+[56:48] me from tomorrow. Huh? So, whenever I decide to take off,
+[56:53] I now know whom to contact before to take my class here. Don't you all agree?
+[56:59] Yeah. See, thank you so much. Good job. Are you all clear, guys? So, very very
+[57:06] simple problem. Given a binary tree, find the average at every level. Binary
+[57:11] tree min at every level, max at every level and so on.
+[57:17] Any questions on those three problems we discussed today? Is the tree symmetric?
+[57:22] Is the tree balanced? Is the given a tree average at every level? Any
+[57:30] questions please? Now we will extend this problem to given
+[57:35] a tree find out the average
+[57:41] of all the left levels and average of all the right levels.
+[57:50] Uh you get what I'm saying? Given the same tree, if the problem
+[57:56] statement changes to not average at every level, average of the left and the
+[58:01] average of the right. How would you do this?
+[58:06] So, I don't want you to print 40 + 50 + 60 divided by 3. I want it to be 40 + 50
+[58:14] / 2 and 60 would be 60. And then the 62 would be the right part.
+[58:21] And you know you get what I'm saying would we be I mean what is that you need
+[58:26] to do additionally
+[58:31] yes stious what will you do average level was not a problem you
+[58:37] dumped everything you knew the size but when you know the size how many belong
+[58:42] to left side how many belong to right side is becoming critical no
+[58:50] so is Is there a way we can do that?
+[58:59] Just think it's just something I thought about and I'm asking you.
+[59:07] So if I consider this tree uh average is 10 for the root.
+[59:15] But when you talk about the left and the right, it is going to be different. Now
+[59:23] the left of the root side, the right of the root side. What do you need to know?
+[59:27] Is it enough just to know that 20, 40, 50, 60 are there? Or do you need to know
+[59:32] whether this is left and these are rights? You need to know how many
+[59:36] elements belong to the left of it. How many belong to the right of it? How do
+[59:40] you do that? Yes sir. How would you do that?
+[59:49] Sir, if the uh for 30 the right is null, right?
+[59:52] >> 30 right is null. Yeah. >> Uh sir, if we encounter a null value, we
+[59:56] will add minus one to the Q and uh we'll take the previous size of the back
+[1:00:03] previous Q size like previous level Q size
+[1:00:07] >> previous level Q size was two 20 and 40. >> So multiply with two we'll get four in
+[1:00:12] that half will be left and half will be right. So what you will do is you will
+[1:00:17] not ignore those which are null. Null for us was minus one. So we are going to
+[1:00:23] add minus one. So we will get at level two four elements. Level three eight
+[1:00:28] elements. Of them three are valid. Remaining five are
+[1:00:32] >> in >> null sorry minus one. So you know the
+[1:00:35] order in which you have inserted. First four belong to the left and the next
+[1:00:38] four belong to the right. Again the first four the first two are left of
+[1:00:42] that and the next two are right of it. you know,
+[1:00:44] >> so that's a very nice solution. So you can, you know, you're thinking so
+[1:00:47] beautifully saying, "Yeah, you know what? This is the way I can address it."
+[1:00:52] Okay. Very nice. Thank you. Maybe you would like to Hello, Dshita.
+[1:00:58] Add such problems. Okay. Okay. Let's uh look at one more problem. Great. Uh so
+[1:01:05] we'll start the programs. We'll start the programs. Three of these what we
+[1:01:10] discussed. These are syllabus programs. And there'll be one additional problem
+[1:01:13] which we will add involving binary trees. What is already given? And uh if
+[1:01:19] you don't understand let us know.

@@ -6,6 +6,8 @@ This records your reported solved problems; the paste does not include account a
 
 Use [the focused FS revision plan](LeetCode_FS_Revision.md) to select practice rather than re-solving the full inventory. The [original paste](sources/LeetCode_Solved_List.txt) is retained.
 
+For the classification of every problem against the coding areas, use [the full topic map](LeetCode_FS_Full_Topic_Map.md).
+
 | ID | Problem | Difficulty |
 |---|---|---|
 | 1 | Two Sum | Easy |

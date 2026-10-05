@@ -1,0 +1,490 @@
+YouTube transcript
+Video ID: tezpwqWUbkY
+Language: en
+Captions: auto-generated
+
+[0:00] Good afternoon. Uh we look at uh the solution to the
+[0:05] brute force implementation of finding the median of two sorted arrays.
+[0:10] [snorts] Uh how many of you have completed that?
+[0:14] One, two, four. Okay. Uh did you use the Java API to do it or did you go through
+[0:22] the manual work of copying data?
+[0:27] No. Sort is fine.
+[0:31] Okay, let's look at what the problem is for everybody's benefit. Uh we look at
+[0:37] two approaches to solving that problem today. One brute force and another using
+[0:43] merge sort like partitioning. on Friday we will look at the binary
+[0:49] search uh and we will not start the next uh module of unit 2 till Wednesday
+[0:55] because I just came to know I believe that Monday is a holiday yeah so we will
+[1:00] start after that so let's look at uh the problem statement
+[1:18] We have two arrays. One with input data 1 9 1215.
+[1:24] Another array with some other data. What we need to find is the median of the
+[1:30] resultant array. Both the arrays are sorted in ascending order. So what would
+[1:37] the resultant array be? 1 2 3 7 9 12 15 20. And since the number
+[1:49] of elements are even the median would be the sum of these two
+[1:57] divided by two which would be eight. Okay. So you must have done this using
+[2:02] brute force. So what do you do in brute force? There is extra space which is the
+[2:09] third array which is the resultant array. That would be the length of array
+[2:13] one plus length length of array 2. So we have got some extra space. That is the
+[2:19] first thing you need to be aware about. The second thing is when you are given
+[2:24] this new array what do you do? The new array doesn't
+[2:29] look like this. The new array is this is array 1. This is array 2. And the new
+[2:36] array would be 1 9 12 15. Add all the data of array 1. Go to the end of it.
+[2:44] Add all the data of array 2 which is this. So that is the first step you need
+[2:50] to do. Allocate extra memory. Copy the contents of array 1. Then copy the
+[2:55] contents of array 2 to the end of array 3. But that is obviously not what we are
+[3:00] looking at because we need to find the median of the resultant array which is
+[3:05] also a sorted array. So we have to go through some sorting algorithm or call a
+[3:09] built-in function which is available and after you sort that you end up getting 1
+[3:14] 2 3 7 9 12 15 20 and then find out is it odd get the middle element. If it is
+[3:21] even get two middle elements sum it up and divide by two. That is what it is.
+[3:26] Some of you have done it. But let's look at how efficiently we can do although we
+[3:31] are eating up additional space. And what would the time complexity of this be?
+[3:35] Anyone who has done this? What is the time complexity?
+[3:40] Log of no. What is the time complexity?
+[3:51] When you have to sort it is n login. Okay. But when you are basically adding
+[3:57] both the arrays, what is the time complexity?
+[4:02] O of M + N. Adding them. Now if you use a while loop or a for loop, you iterate
+[4:09] through one array all the elements which is M elements. You iterate through the
+[4:13] next array all the N elements. So it is O of M plus N. And there is a time
+[4:17] complexity of sorting which is N log N. And then you anyway have to find the
+[4:21] middle element which is not a big deal because that is a simple uh uh
+[4:27] arithmetic operation. Okay. So let's look at what the code is. Sir for
+[4:32] completeness you can use that as the first approach. Sir show the main.
+[4:39] So in the main we take data for two array elements. uh then we take input
+[4:43] for all the array data number of elements and then we call a method
+[4:47] underscorebf is basically brute force which is what we have appro looked at
+[4:53] sir can we go through that code yeah uh guys go through the code it is
+[4:59] exactly what we have discussed the first thing we do in the code is allocate
+[5:04] memory line 23 after we allocate memory there's a very
+[5:08] interesting built-in method called array copy. You know we
+[5:13] have been using system dot system.out.tprint
+[5:17] ln system is a class and out is a static data member and
+[5:26] print ln is a method of the print stream. Now what kind of method is array
+[5:31] copy? Is it static or non-static?
+[5:36] It is static primarily because you're calling it through the class. Anytime
+[5:41] you can call a method through a class, it is by default static. If you have to
+[5:47] create an object to call it, it is obviously non-static. So very very
+[5:52] interesting method. Let me explain what this method is and I'll explain to you
+[5:57] right here. Sir, give me access what this method is. Very very simple way of
+[6:03] understanding. My array 1 is 1 to 7. My array 2 is
+[6:11] uh 3 4 9. So what I'm saying is system dot array copy copy data from array one
+[6:21] where do we start from index zero where do we copy it to array three where do we
+[6:27] start from index zero so it is like saying this is my array three
+[6:34] I am copying from index zero how many elements array 1 dot length I
+[6:41] repeat all the three parameters array three index zero
+[6:47] and length. But what is my source? This is my source. This is my destination. So
+[6:55] it is like saying copy data from source to destination with a control mechanism
+[7:01] which is you don't have to copy everything from array one. You can say I
+[7:05] want to copy the last three elements. So I can give that index. Where do you want
+[7:09] to start from array one? Where do you want to copy in array three? I can say
+[7:14] don't copy from zero. Maybe copy from some other location. But zero means
+[7:19] everything from array one beginning and to array three from the beginning. How
+[7:24] many length? Are you seeing how flexible this is?
+[7:30] Copy from index five to elements. Copy from index five 15 elements. Copy from
+[7:35] index three four elements. To where? Some other destination. Copy from source
+[7:40] to destination number of elements. But from where in the source index where in
+[7:46] the destination index are you clear on the first line 26? So what happened when
+[7:50] that happened? Array three contained 1 2 and 7. Now obviously I cannot copy
+[8:00] from index zero. If I copy from index 0 then 1 to 7 will get overritten with 3 4
+[8:06] 9. So look at line this parameter
+[8:11] copy from index zero of the source to the destination array 3 but not from
+[8:18] index zero from the end of it which is array 1.length. So whatever was the
+[8:23] length of array one I skip those many is like appending to the array like how you
+[8:29] have done in uh every programming language
+[8:33] overwrite a file or append to a file. If you overwrite a file you say yeah from
+[8:38] the beginning when you append to the file you say yeah wherever the file
+[8:41] pointer is let me start writing from that point onwards. So that is what is
+[8:45] very very important and how many elements are we copying all the data of
+[8:49] array 2. So first part of that array 3 contains array 1 data. The second part
+[8:54] contains array 2 data. Is that clear? But obviously it is not sorted. What do
+[9:00] we do? We call a built-in method arrays dot sort.
+[9:05] And when we call arrays doss sort, we get sorted data. And once you get the
+[9:10] sorted data, we now have to call a simple method to find the median. And
+[9:14] that is what that code is. Return median or get median. So anybody has any
+[9:20] questions on that very important method array copy
+[9:24] if you didn't want I've used a simple while loop but then you have to worry
+[9:28] about where is the index in array 3 and then continue. Sure that's another way
+[9:32] of working on it. But whenever you have a built-in function, please use it
+[9:37] because you save on amount of code you write, which means less debugging
+[9:42] effort. And people who look at this code also understand what you're doing
+[9:46] because they know what that method does. So the advantage of using a built-in API
+[9:51] is it not only makes you more productive, it also helps people
+[9:55] understand what you have done. Plus any built-in code is already tested. So you
+[10:00] don't need to worry too much about it giving you wrong results.
+[10:04] Okay. Can we look at get median? Now that's a simple code. Find out the
+[10:10] length of the array. Check if it's odd or even. If it is even then get the
+[10:15] middle two elements sum divide by two. If it is odd return the middle element.
+[10:24] That's a simple code, right? Anybody has any questions on this?
+[10:31] So obviously there are overheads on this problem solution one more time and
+[10:38] obviously space. If the interviewer says no you cannot use additional space then
+[10:45] this solution is totally ruled out. If he says yeah solve this problem using
+[10:52] O of one time complexity no additional space should be taken but
+[10:58] why I'm discussing this is you understand that there is a solution just
+[11:03] in case you cannot get an efficient solution give them the solution and then
+[11:08] the interviewer would ask you oh can you go and optimize it can you not consume
+[11:13] any space can you make it faster so you get time plus there is some confidence
+[11:18] which builds up in you that yeah you know I gave a solution and now I can
+[11:22] work on something better even if I don't get something better I still would get
+[11:26] some credit for whatever I've given rather than saying oh I don't know you
+[11:31] get what I'm saying yeah so can we now look at a more better I mean better
+[11:37] solution maybe not the solution using binary search but using what we learned
+[11:42] in our merge sort anybody has any questions on
+[11:50] No. Okay, sir.
+[12:04] This is array 1 and array 2 is six.
+[12:15] 15. Now what would the median be?
+[12:22] The median would be if I were to write the sorted array it
+[12:28] would be 2 5 6 7 8 12 15 uh 20 which would be
+[12:37] half of this two which is 7.5.
+[12:43] However, we are not going to create a sorted array here. So, the first
+[12:48] difference you notice between the previous solution and this is there is
+[12:54] no sorted array. I am just showing you the sorted array
+[12:59] so that you know how to get the median value. But we are not going to have
+[13:04] additional space to do this. Is that point clear? Now, how do we do this?
+[13:11] We have the concept like two pointers you know pointer one pointing to the
+[13:17] first element of the array pointer two pointing to the second array first
+[13:23] element. So the P1 will point to first element which is index two and P2 will
+[13:29] point to index 6. Now what do you do? Can anyone tell me with this background
+[13:34] which I've given you that the P1 instead of calling P1 I'll call it M1
+[13:39] which is middle element one and I'll call this M2 which is middle element
+[13:43] two. Why am I having M1 M2? Because if the data is even I will sum
+[13:50] them up and divide by two. If the data is odd, I will use only M1.
+[13:56] Okay. So let's call them middle element one, middle element two. Both of them
+[14:01] could be from the first array. Both of them could be from the second array or
+[14:05] both of them could be from one array. I'll give you different test cases to
+[14:09] help you understand that. What do you think we are going to be doing now when
+[14:13] we have found m1 pointing to two and m2 pointing to six.
+[14:19] Now when one more quick question for you when I have eight element array here sum
+[14:24] of four + 4 do I have to process from 0 to
+[14:30] n minus one or can I do something better
+[14:37] 0 to end okay anybody else I don't need to process till the end of
+[14:44] that merged array because when I'm talking about median it is is going to
+[14:49] be only in the half of it. So if I found that answer in the first half of both, I
+[14:55] don't need to look at the end of it. So if you actually look at every problem
+[14:59] which is related to median, there is that data called partition. The left and
+[15:05] the right, you can skip the right totally after you've got what you wanted
+[15:10] at the partition. It will be partition or the value before it. If you're
+[15:15] looking at m1 plus m2 otherwise only that partition is what is important. So
+[15:20] considering this what we will now calculate is the half of these two. What
+[15:25] is the half of these two? Four. So we iterate from
+[15:34] 0 to four. We have to only process five elements. Now what are those five? We
+[15:40] will look at. And how do we get the median? We will also look at are we
+[15:45] clear on this? The merge array can contain n elements but we don't have to
+[15:50] look at all because we are only interested in the median and that would
+[15:55] be 0 to half of the sum which is 0 to 4 in this case. So what do you think we
+[16:01] should do in this problem now? Can you guess now what we are trying to
+[16:07] do? First element m1 is pointing to two. Second second element m2 is pointing to
+[16:12] six. What do you think we should be doing after this?
+[16:20] Anybody would like to make a try? Give it a try.
+[16:24] Compare M1 with M2. Which is smaller? Which is smaller? M1. If M1 is smaller,
+[16:33] what do you do? increment
+[16:38] m1 by 1. Okay. So my m1 is here. I'm comparing m1 with m_sub_2.
+[16:48] Is m1 greater than equal to m_sub_2. If m1 is greater, what do I then
+[16:54] increment? M2. But in our case, m1 is lesser. So
+[17:01] what do I increment? M1. So my M1 comes here. Again I compare
+[17:07] five with six lesser. So M1 comes here. So what is the index here?
+[17:16] Index zero, index one, index two. Then I compare six with 12 is six. Which
+[17:23] is larger? 12. So I increment.
+[17:28] I compare 12 with seven.
+[17:35] What do you do? Can you continue now? No. Because what is the range we are
+[17:39] going from? 02. When I compared the first time, this
+[17:44] got incremented to one. When when I compared 2 to 7, it got incremented to
+[17:48] two. When I compared uh sorry 5 to 7, it got incremented. 12 to
+[17:55] sorry 2 to 6 it got incremented by one. 5 to 6, it got incremented by two. 12 to
+[18:01] 6 it got incremented by three then 7 to 12 it got incremented by four
+[18:08] and then 8 to 12 it got incremented by five so the range is from 0 to 4 I don't
+[18:15] need to go any further which is like saying I'm skipping 12 I'm skipping 15
+[18:20] I'm skipping 20 what are the two values I found
+[18:26] what are the last two values I found
+[18:30] 7 and 8. Very nice. 7 and 8. Is it even numbers or odd numbers?
+[18:36] Is it even numbers or odd numbers? Even. So, what will it be? Average of seven
+[18:41] and eight.
+[18:44] There is no extra array I'm creating. I'm just playing with the two pointers
+[18:50] and I'm saying which direction should I traverse. Should the I pointer traverse
+[18:55] or should the J pointer traverse? Compare element. Wherever the pointer is
+[19:00] pointing to and accordingly accordingly decide where you want to go up to half
+[19:06] the number of elements 0 to four.
+[19:12] How many are not clear? If you're not clear is okay not to be clear. I'll
+[19:16] explain again because after this I will give you a test case and you'll have to
+[19:19] run through and figure out where is your I, where is your J, what is your M1,
+[19:23] what is your M2.
+[19:28] So every time we go into the loop the previous M1 will now become M2.
+[19:34] Okay. Otherwise M2 never gets updated. So the pre M1 was M2. Now next time I
+[19:38] find it becomes M1.
+[19:42] Shall we look at it again? Yeah. Sir, get me a completely new screen or you
+[19:48] can erase the bottom part. Erase the bottom part.
+[19:56] Okay. Yeah. stop.
+[20:00] So what we are doing in this approach is partitioning.
+[20:05] When we partition, we partition into the resultant array half the number of
+[20:12] elements. So if the first array has 10 elements, if the second array has 15
+[20:16] elements, then the result is 12. So I would go from index 0 to 12 or the
+[20:22] result. So that basically the loop will not go up to 10 to 10 + 15 25 it'll go
+[20:29] into half. I no point going further because I already got the result which
+[20:33] is the median of the uh m sorry resultant array. I got that. So why do
+[20:39] you want to go further? Are you are you all there with me? Great. So let's start
+[20:43] with two pointers P1 P2 or I call it M1 M2 because I want the middle element.
+[20:49] Okay. M1 is at index zero. Value two. M2 is at index this. So what do we have? We
+[20:56] have a counter. I'm writing down. We have a counter. The
+[21:00] maximum is four. We have I value. We have J value which are both initially
+[21:07] counter is zero. I is at index z. J is at index zero. I compare array of I with
+[21:15] greater than equal to array of J. If array of i is greater than equal to this
+[21:22] then we will increment j. If array of i is less than equal to a of j. Sorry,
+[21:31] erase this.
+[21:36] Erase it. Yeah. Less than equal to a of j then I increment i. Are you clear on
+[21:43] this? Now compare two with six. Two is smaller. So what gets incremented? I. So
+[21:50] let's write down. Counter is one. Uh I is one. J is still zero.
+[21:58] Then I compare five with six. Five is six.
+[22:02] Counter is two. I is uh I gets incremented because five is lesser than
+[22:08] six and J is still at zero. Then I compare 12 is six. Counter is
+[22:15] three. What is 12 is six?
+[22:20] I is larger. Array I is larger. So I increment J by 1 and I remains two. I
+[22:26] compare 12 is 7. Now 12 is larger. So J gets incremented
+[22:34] uh to two and I remains at two. And now I
+[22:40] compare 12 with 8. Uh
+[22:47] sorry I need to stop now my J is already here four now 0 1 2 3 4
+[22:53] condition is less than equal to four okay yeah now I compare 12 with 8 and uh
+[22:59] obviously that's larger so J will get incremented but before that I already
+[23:03] have M1 and M2 what is my M1 and M2 in this case 7 and
+[23:09] 8 which means both the median values are coming from the same array
+[23:15] They don't have to come. That is why I'm not saying median one, ar median 2, ar
+[23:20] 2. I'm just saying m1, m2, p1, p2. Are you there?
+[23:27] Is everybody getting this?
+[23:32] Are you all there? Can you run through on your own for Yes,
+[23:38] sir.
+[23:41] Where is additional storage? Only I and M1 M2 is a scalar sir. Two variables is
+[23:47] not additional storage. Is not an array. Is not a map. It is not a any other
+[23:53] collection. That way in every program don't we use
+[23:57] inj there is no additional storage. M1 is
+[24:02] just a simple integer. M2 is an integer. So that's perfectly fine. It is still O
+[24:07] of two which is same as O of 1. It is not an array of 10 elements n
+[24:13] elements. It is not a uh map containing all the keys.
+[24:20] It is still additional storage but still O of two which is O of one constant.
+[24:27] I mean you can't write any code without additional storage. You'll always have a
+[24:31] for loop or some other index.
+[24:36] Are we clear guys? Are we clear? Now tell me what would
+[24:42] happen if I give you a test case like this totally. Yeah.
+[24:48] 1 2 3 4 5 6 7 and this guy is uh 10 12. A1 is this. A2 is this.
+[25:01] Now follow the same approach of counter is array one size plus array two size
+[25:08] divided by two which in our case would be
+[25:12] uh 7 + 2 9 / 2 which is 4. Okay. My m1 is pointing here
+[25:21] and my m2 is pointing here.
+[25:27] And every time we find M1, we reset to that to M2 in the next iteration. Yeah.
+[25:33] Can you guys tell me what happens now? Can you do that on your own manually and
+[25:38] tell me where is I going to be?
+[25:56] Is one less than 10? Yes. So where does I go to?
+[26:03] Where does I go to? Two. Two is less than 10 goes to three. 3 is less than 10
+[26:08] goes to four. Four is less than 10 goes to five. Five is less than 10. Yes. But
+[26:12] then the counter also is matching. 0 1 2 3 4. After that you cannot
+[26:18] proceed. So what did we get as our median by using this logic?
+[26:24] Five one is less than 10 move to two is less
+[26:28] than 10 3 4 5. So everything is there in the first array. So the median is
+[26:34] obtained from the first array only. Second array data was never used.
+[26:43] Are you clear? That's one test case. Now look at another test case which will be
+[26:47] from the second array now.
+[27:02] Now what happens here? I is pointing to 10. J is pointing to one. I is larger
+[27:08] than J. So J will get incremented. So compare 10 with one. One shifts to
+[27:13] three. Compare 10 with three, three shifts to five. Compare 10 with five,
+[27:17] five shifts to seven. Compare 10 with seven, shifts to 9. And by then our
+[27:23] counter is over. So the median we got is nine because all
+[27:27] are odd numbers here, five and four.
+[27:32] Are you there? Another test case would be where I and J
+[27:39] get incremented one at a time. And that guy is 1 3 5 7 9 2 4 6 8 10.
+[27:54] Just see this. Now in every step both will get incremented one after the
+[27:57] other. What happens? Comparing one with two, one is smaller. So where
+[28:03] does this pointer move to? Then I compare three with two. Two is
+[28:09] smaller. So we shift here. Are you guys there?
+[28:14] I repeat, I was at zero. J was at zero. One is compared with two. One is
+[28:21] smaller. So one I gets incremented to three. Now three is compared with Z. J
+[28:27] 0. Three is compared with two. Two is smaller. So we increment two to four. J
+[28:33] gets incremented. So either way we get where do we finally point I and J2. Now
+[28:40] uh what is the what is the count value? Five. So we go six iterations. Yeah.
+[28:46] What is the count value here? Five. 0 to five. So tell me after six iterations
+[28:52] where will I point to and where will J point to?
+[29:00] After six iterations. First iteration where did I point to?
+[29:05] Three. After second iteration, where did J
+[29:08] point to? Four. After third iteration, where does
+[29:13] I point to? Five. After fourth iteration, where does J point to? Six.
+[29:18] After fifth iteration, where does I point to? Seven. And after sixth
+[29:22] iteration, where does No, not six. We need five.
+[29:27] So, what do you think is the average you're going to get here?
+[29:31] Five and six.
+[29:38] Are you all clear? Shall I quickly run through the code for you?
+[29:45] >> Come again.
+[29:50] >> Median cannot be out of the array.
+[29:57] >> No, it cannot be. No,
+[30:02] that condition we look at. Okay. I think what you're telling me is
+[30:06] okay give me a test data
+[30:13] uh okay 1 3 7 9 10 12 15 second array two elements okay huh
+[30:24] no but still it is obvious on the friend but then you have to still write code to
+[30:29] do it now Yeah. Yeah.
+[30:34] Are the second arrays empty?
+[30:38] Okay. Shall we look at this code? Okay. I'll quickly run through uh Sir,
+[30:44] can you run the test case first so that the uh test case I'll tell you five
+[30:50] elements 1 3 5 7 9.
+[31:00] Not brute force. Okay. Brute force also you can finish quickly. Run that.
+[31:07] Brute force you can run sir. Yeah.
+[31:26] Four element array. 110 2030 4x 4 4x 4 1 10 20 30
+[31:40] 2 5 15 40 last values don't we don't care
+[31:46] anyway. Yeah this is that brute force. So a new array
+[31:52] got created with 1 2 5 10 15 20 40 30 and uh
+[32:02] uh hey isn't the average wrong
+[32:08] we should have got 12.5
+[32:18] correct so we have to look at that code The output should have been 12.5. Sir go
+[32:24] to the code.
+[32:28] Uh just make that return float of that
+[32:34] you're doing integer division. Not here sir. There also
+[32:45] the the 42 there we need we don't need in the second one because we are
+[32:51] returning only single value
+[32:56] sir one minute go back to your code go back to your code you have to put one
+[33:01] more bracket sir Yeah.
+[33:07] Run. No need.
+[33:12] One of them is float. Now
+[33:17] incompatible is cannot convert from float to integer. Uh where is the return
+[33:23] type? Return type. Sir change that line 36 to float. Return type.
+[33:34] A 2.0 is also fine. Make that float. Fun.
+[33:40] Sir,
+[33:47] copy the same data. Yeah.
+[33:55] Yeah. Are you clear? Since it was integer division, we got uh 12 which is
+[34:01] obviously not correct. So that is where your test cases could fail sometimes.
+[34:06] Yeah. Great. Can we look at the second code? Can you run the second one? Run
+[34:09] the second one and then you'll understand from the debug messages what
+[34:13] is being done.
+[34:18] Yeah.
+[34:22] Uh this is called partitioning. Uh have you added this problem
+[34:28] partitioning?
+[34:32] Uh I'll 5 by five
+[34:57] Right. 1 3 5 7 9 2 4 6 8 10.
+[35:06] Yeah. Just guys go through the debug messages.
+[35:10] Now I'll explain to you while you look at this. Okay. Uh give me access.
+[35:21] 1 3 5 7 9 and 2 4 6 8 10. So my M1 is here. My M2
+[35:33] is here. My I is equal to 0. J is equal to 0. And count is how many? Five. 10
+[35:40] elements. So we range from 0 to five. Six times. Are you clear?
+[35:47] We compare one with two. Which is smaller? One. So what is what is
+[35:52] incremented? I. Are you there? I is now one. J is
+[35:58] one. Why is J one? Because I'm comparing three with two.
+[36:04] Then I becomes two. J becomes one. Then I'm comparing five with four.
+[36:09] 22. Are you seeing that?
+[36:18] Are you all getting what is m1 m2? Initially
+[36:22] m1 and m_sub_2 are both minus1
+[36:30] when I get the first one m1 is that then m1 becomes 2 m2 becomes m2 is m1 we are
+[36:37] swapping them we need both because of even number
+[36:43] otherwise just m1 is enough. Are you guys clear?
+[36:50] The beauty about this code is compared to the previous code there is no extra
+[36:55] storage just two scalar variables M1 M_sub_2 obviously I and J and that is O
+[37:02] of two or O of four which is O of one is a
+[37:07] constant it is not based on a parameter N so whenever something is not based on
+[37:13] a parameter N we say O of constant whether it's four variables or five
+[37:17] variables it does does not matter. It does not change based on the value of n.
+[37:21] Even if n is 100,000, this will still be m1 m2 only. Are you clear sir?
+[37:28] Are we all clear?
+[37:32] Which line? Yeah, we have initialized everything to
+[37:35] minus one. That is after when when you started sir,
+[37:41] you compared no one with two. M1 is pointing to one.
+[37:56] I is zero sir. M1 is that value. I know you're saying minus one should
+[38:02] have become zero. I'm saying the value at that index is one. Value at the index
+[38:06] could be 100 also. Now see do not confuse m1 with index. M1 is
+[38:12] a value at that index. What is index? 0 one that is why we got one. So run this
+[38:20] test case. Don't clear screen. Run with five and five.
+[38:28] Five and five. Give test data 10 20
+[38:33] 30 40 50 and 5. Now the next one is 5 15
+[38:38] multiples. Yeah. Five. Now M1 will be 10.
+[38:46] Yeah. Continue. No. 5 15 25 35 45. Do I have to tell you that? Huh?
+[38:57] See M1 is five. M1 is 10. Are you seeing the values now?
+[39:04] Is it clear? What is M1? M1 is the value at the index. I and J are indices. What
+[39:09] do both I and J point to? Zero. What does M1 point? the value at zero. M2
+[39:14] points to the value of J0. Five is compared with
+[39:19] sorry 10 is compared with five. 10 is compared with five. Which is larger? 10.
+[39:24] So what do we increment? I. Sorry, we increment J.
+[39:28] And then I compare 10 with 15. 10 is smaller. So increment I. Compare 20 with
+[39:34] 15. Increment J. Compare 20 with again you give 20 only. Okay.
+[39:59] Okay, tell me
+[40:06] that is I'm printing after the in the loop sir, not before. When you see the
+[40:10] code, you'll understand. Okay, sir.
+[40:15] Yeah, give me access. Both are initially at
+[40:21] zero.
+[40:26] I is zero. M minus
+[40:31] minus one. And J is 0.
+[40:36] 5 25 35 45. Are you all clear?
+[40:44] This is in that loop I'm printing before I increment and counter. Okay, I compare
+[40:52] 10 with five. Which is smaller? Five. So M1 is five.
+[40:58] So what gets incremented? J gets incremented to one. Then I'm comparing
+[41:03] 10 with 15. Which is smaller? 10. So I gets incremented. Are you seeing there?
+[41:09] And whatever was the previous M1 that now becomes M2 in the next iteration.
+[41:16] Are you seeing that? Also see the debug message. M1 was five. So M2 now becomes
+[41:21] five. And when M1 was 10, M2 becomes 10. So in the beginning of the loop we are
+[41:26] saying M2 is equal to M1. Initially both were minus1. So both will be minus one.
+[41:31] But once you process the first element, we are updating M1 and then we are
+[41:34] updating I RJ. But counter will always get updated.
+[41:40] Okay, I'll show you the code. Show the code now
+[41:45] guys. Silence please. Yeah. Uh if that helps you. Initially m1
+[41:52] m2 are both minus one. Uh what is my
+[41:58] scroll down? Look at that for loop 27. Okay. Can we optimize that for loop?
+[42:07] That for loop is not a good way of writing code. Can anyone tell me what
+[42:12] can we optimize in that for loop?
+[42:17] No, that line 27 how do we optimize it
+[42:24] for 27 line is not a good way of writing code.
+[42:31] Come on guys. Yes. Anyone?
+[42:38] Okay, I'll ask you a question. Is n and m changing?
+[42:43] Then why are we calculating n + m / 2 every time?
+[42:50] Imagine this looping 1 million times. Isn't there an addition
+[42:55] operation and a division? Wouldn't it have been better if I put that once
+[43:00] outside and use that result? Are you there? So what is taking you so
+[43:06] long to answer guys? Huh? Is the is are you getting that
+[43:13] condition? The condition is n plus n. M n plus n doesn't change. So no point
+[43:18] computing it every time. Compute only once which is at the beginning. So I
+[43:22] keep writing such bad code to see if you guys can help me. Anyway, sir, update
+[43:27] that code.
+[43:32] Yeah.
+[43:39] Yes. And put that count less than equal to average. Is it clear?
+[43:46] See all these things may not matter when you write a classroom exercise like
+[43:50] this. But whenever you talk about a production code which is few million
+[43:54] lines of code, every optimized code will make a big difference in the execution.
+[44:00] Okay. Yeah. Yeah. Is that clear? Now what is M2 equal to M1? What are both
+[44:05] initially? Minus one. Okay. Now scroll down. I not equal to N and J not equal
+[44:12] to N. That means we have not gone to the end. If you have not, what is the
+[44:16] condition? If Ai is greater than BJ, then M1 is
+[44:22] equal to B of J++. We we basically look at the smaller
+[44:27] value. And if it is J++ J get J gets incre incremented. If AI is smaller then
+[44:34] A++ whatever is the old value of A and I sorry I ++ is that condition clear? So
+[44:41] go back to your output sir. I'm comparing
+[44:46] 10 with five. J is smaller. So BJ plus I get the B value which is five and J
+[44:54] becomes one. Then I compared 10 with 15.
+[45:00] A is smaller. So A++ A I ++. So A gets assigned and I gets incremented. Is that
+[45:07] clear? Go back. So is that line of code 32 clear? Very
+[45:14] simple merging merging operation without actually creating an additional array to
+[45:20] store the resultant sorted data. Are you clear? After that what is done?
+[45:28] If there are some remaining elements then you update it like how we did in
+[45:32] that merge sort. If there are b remaining elements then update it. So
+[45:37] after all we are printing sir that is why you see count is now
+[45:42] uh zero. It's not got incremented but what is m1 first element. What is
+[45:48] m2? Still minus one. Either i will get incremented or j will get incremented.
+[45:53] And when we go to back to line 29, what are we doing? M2 is equal to M1. So
+[45:58] whatever we calculated, we are printing that assigning it to M2.
+[46:03] Scroll down. If the if there are even number of
+[46:08] elements, look at that code.
+[46:13] If the modulus of two is equal to one, it is odd number. So I return M1. If the
+[46:18] modulus of that is zero, then it is even number. m1 + m2 average.
+[46:27] So that logic of calculating median doesn't change. The difference was in
+[46:32] the previous approach we stored everything into a resultant array then
+[46:36] computed the median. Here we are dynamically generating on the fly
+[46:44] without any additional storage without any sorting without nothing is like the
+[46:50] merge sort merging.
+[46:53] So show the go to the beginning beginning
+[46:58] sir beginning of the file. Yeah. The idea is to simulate the merging
+[47:05] process of two sorted arrays without actually creating a new one
+[47:11] by inter by iterating through both the arrays together until reaching the
+[47:15] middle index. The algorithm keeps track of two selected elements. That is why
+[47:19] you say until middle index. You don't need to do the entire thing. If you do
+[47:23] everything, you'll never get the median. You'll get probably the last few values.
+[47:27] So that is why it is important median. Use a partition position to identify the
+[47:33] middle element of the combined array. If the total number of elements is odd,
+[47:37] return the middle. If they're even, return the average of the two, which is
+[47:41] M1 and M2. Are we good?
+[47:47] This is not still binary search. Binary search we will look at in the next class
+[47:53] when we understand more about again this is giving you leading you to that now
+[47:59] partitioning. So when we talk about binary search we'll talk about partition
+[48:03] element left of partition right of partition and again in that approach we
+[48:08] will still find m1 and m_sub_2 the difference being we don't start from
+[48:13] index zero to half we start from half and then see should I move left or
+[48:18] should I move right like every other binary search so this will help you
+[48:22] understand that because partitioning is also done here not from the middle but
+[48:28] from the beginning till the Okay.
+[48:33] Okay. Thank you for now.

@@ -1,0 +1,974 @@
+YouTube transcript
+Video ID: FCU_flKG3xA
+Language: en
+Captions: auto-generated
+
+[0:00] Yeah, good afternoon. Uh we will discuss the solution to that
+[0:05] problem. Uh minimum product uh which we talked about last class. Uh you're given
+[0:14] an array of numbers mix of negative zeros and positive and what you need to
+[0:21] print is the minimum product. So for the benefit of everybody I'll give you some
+[0:27] examples and then we'll talk about uh how we can solve and then we'll go
+[0:32] through the code.
+[0:36] Example one.
+[0:43] Example two.
+[0:49] Example three.
+[0:57] Uh yeah that's about it. Now as we
+[1:01] discussed in the last class the minimum product of the first one would be what
+[1:06] would it be? The minimum product can be a single number itself. So what would
+[1:10] the minimum product in the first one be? Come on guys answer
+[1:15] zero. Yes. Second one. What was the algorithm we applied? Get
+[1:21] the product of all. Find out how many negatives are. If the negatives are
+[1:25] even, then divide by the largest negative. So what would the result of
+[1:30] that product be? No. 2 into 4 8 8 into 3 24 into 6 whatever that divide by divide
+[1:42] by. So the result of this would be a positive number divide by minus2 because
+[1:48] that is the largest. Are you there? What about this? What
+[1:53] would the result be? The product of all which is 64
+[2:00] minus 48 and this would be
+[2:08] two the minimum positive number. So we went through the algorithm last class.
+[2:14] Get the count of zeros. Get the count of negatives.
+[2:18] If there are only positive number, get the minimum positive. If there are
+[2:22] negative numbers and if they happen to be even numbers, then divide by the
+[2:28] largest negative after you get the product. And if you have a zero and no
+[2:33] negatives, then the minimum would be zero. So according to that, we have got
+[2:38] a bunch of things. How many of you solve this problem?
+[2:45] How many of you solve this problem? Can you raise your hand?
+[2:48] Okay, great. For the benefit of everybody, let's go through the code.
+[2:52] Can madam, can you run this with the first test case? Can you run this
+[2:56] please? Yeah,
+[3:13] 4 4 20
+[3:18] 14. Yeah, whatever. But just look at the debug messages. Can
+[3:22] we go up?
+[3:28] We said negative maximum is integer dot min and positive minimum is maximum and
+[3:36] we are counting how many zeros are there. Do we have any negative count?
+[3:41] No. Do we have zero count? Yes. So we are basically printing
+[4:34] down down let's see the final output zero we'll come back to that give the
+[4:37] other test case uh 21 46 all positive
+[4:48] 1. Okay. Uh give another test case. -2 -4
+[4:56] -2 and -4 two elements. So don't run -2 -4. So we get the
+[5:04] product of it which is 8. And then we divide by the largest
+[5:09] negative. Run minus 4. Uh then you give uh
+[5:16] all positives three elements
+[5:21] uh 1 2 3 one uh then give three negatives only
+[5:28] three not even number of negatives three elements -2 -3 -4
+[5:39] -4 are you clear so shall we look at the code show The main
+[5:46] show the main. Yeah. Uh so we take input for number of elements. Then we take the
+[5:51] array data and then we call a method min product where we pass the array and the
+[5:55] number of elements. So can we look at that code please?
+[6:03] Yeah. Uh if n is equal to one that's the only number. So there's nothing to do.
+[6:10] That's the boundary condition. Imagine I just say one and give whatever value
+[6:14] that would be the answer. Is that clear? Otherwise we are saying negative max is
+[6:19] equal to integer dot min value positive min is equal to max value and then count
+[6:25] of zero count of negative is zero and initially the product is one.
+[6:31] Why did we initialize the product to one? Because if you initialize it to
+[6:36] zero then everything will be a mess. So that is one. Continue.
+[6:40] Yeah, we iterate through all the elements of the array and then keep a
+[6:44] count of negative and zero. So look at that.
+[6:49] If we get zeros, we don't do anything. We don't get the product. We just skip
+[6:53] the rest of it and continue. Continue. If it is less than zero, we get a count
+[6:59] of negative. And after we get the count of negative,
+[7:03] look at line 84. We get the maximum negative.
+[7:07] Why do we need the maximum negative? If the count of negatives is even, we
+[7:11] divide the product by the maximum negative. To address that scenario, we
+[7:18] getting the count of maximum negative. Are you all there? As per the logic,
+[7:24] then what are we also doing in the rest of the code? If it is greater than zero
+[7:28] and if it is less than positive minimum, I'm finding out the positive minimum.
+[7:32] Imagine I have data 215. So, initially positive minimum will be
+[7:37] two. then it'll become one and then it'll become five. If all the data is
+[7:43] positive then we return positive minimum. If there are even number of
+[7:48] negatives we get the product and divide by negative max. So we are basically
+[7:56] doing all the groundwork for the result. Keeping a count of zeros, keeping a
+[8:01] count of nonzeros. Are there uh negatives? If there are
+[8:06] negatives, what is the negative maximum? If there are only positives, what is the
+[8:10] positive minimum? Whether how we use it, we will see later. But all the data is
+[8:15] being collected for subsequent result. How many are not clear?
+[8:23] Okay, continue. And look at this very interesting line 91. Except when it is
+[8:29] zero, we are getting the product of all. So -2 minus 3 get the product. + 2 + 3
+[8:35] get the product later whether we divide by negative max or not we will see but
+[8:40] if it is zero we are not calculating the product the reason being if I have zero
+[8:45] and negative the minimum product will be the negative value so we don't calculate
+[8:51] is that clear to everybody except zero which is why scroll up
+[8:56] scroll up please
+[9:01] we have used a continue if you encounter is zero. Continue. If it is a non zero,
+[9:06] get the product of all. Scroll down. Down. Yeah. Then what are
+[9:13] we doing? If count of zeros is n, all the elements are zeros or count of
+[9:20] negative is zero and count of 0 is greater than zero, we just return zero.
+[9:27] If there are no negatives and if you have a zero, what do we return? Zero
+[9:30] because everything else will be positive. So zero is the answer.
+[9:36] Dish close. Yeah. Is that clear? If count of negative is zero, return
+[9:44] positive minimum. That means there are no negative numbers.
+[9:49] 3 1 2 1. Is that clear? Continue. If count of negative is even number. Are
+[9:59] you seeing that count of negative is even and count of negative is not equal
+[10:03] to zero. Then what are we doing? The product divided by negative max.
+[10:13] So basically do all the uh processing and then
+[10:20] process them at the end for the product. You already got the product. Now based
+[10:25] on some conditions you do some action which is divide the product by negative
+[10:30] max. If it is negative and even number if it is only positive positive minimum
+[10:36] if there's if there's a zero and positive then return zero.
+[10:40] Guys are we clear on those three conditions? Show up go scroll up
+[10:44] slightly. Yeah. 97 to 90 uh 104. Are we clear on those three?
+[10:52] Anybody has any questions on this? Shall we move on?
+[10:57] Great. Yeah. So this is about the problem uh we have seen many of you have
+[11:03] done. Now we'll look at the next topic which we discussed about last class and
+[11:10] accidentally we also gave you the code which is the prims algorithm for
+[11:16] spanning tree. Uh we talked about spanning tree. uh we understand what a
+[11:22] spanning tree is which is a graph which does not have a loop
+[11:29] and uh if you look at a particular graph there can be multiple spanning trees. So
+[11:34] if I look at this graph 0 1 2 3 4 2 5 6 these are the weights
+[11:44] and these are the vertices.
+[11:49] We also understand from the spanning tree property that this cannot have a
+[11:53] cycle and the number of edges is equal to v minus one. So if there are four
+[12:00] vertices there should be three edges. So what are the valid spanning trees?
+[12:07] 0 3 2 1
+[12:12] 3 0 1 2
+[12:17] 0 1
+[12:21] 2 3 Any other spanning tree valid any other valid
+[12:30] 1 1
+[12:35] 0 32
+[12:41] three edges no loop. Now what? Let's write down 6 52
+[12:49] 6 42 52 4
+[12:56] 6 5. Calculate 15
+[13:02] 11 12
+[13:06] 13. We got the sum of all the edges
+[13:11] and we find the one with the 11 is the answer because the problem statement is
+[13:18] minimum cost spanning tree. Is it clear? Now we have discussed how
+[13:25] it works in the last class. It is very very similar to single source shortest
+[13:32] distance. Okay. So let's understand how we can do
+[13:36] this using what is called the prim's algorithm
+[13:41] because once we understand this we will then talk about another very interesting
+[13:46] concept which is disjoint sets to solve this problem using Chrisll's algorithm.
+[13:55] So we'll defer defer that later. Let's understand this on how it can be done.
+[14:02] So are you anybody has any questions those who did not come last class on
+[14:05] what is spanning trees? A spanning tree is a graph which does not have a loop.
+[14:12] The properties of a spanning tree are if there are n number of vertices the
+[14:17] number of edges would be n minus one. And if it is a complete graph how many
+[14:24] spanning trees can we create? If this is a complete graph this is not
+[14:29] a complete graph. If I make it a complete graph where every edge is
+[14:34] connected to every other edge. Okay, are we clear? Can I erase this? Erase it.
+[14:40] Please get me a blank screen. Yeah. If I make a complete graph
+[14:48] with four vertices, how many spanning trees can I create?
+[14:54] Last class we looked at a formula. What was that?
+[14:58] V to the power V - 2
+[15:04] V is 4 4 ^ 2 16 if I have one more edge vertex
+[15:11] and if I have complete graph
+[15:18] number of spanning trees we can create are
+[15:23] 5 ^ 5 - 2 5 ^ 3 125 If I if you have time and a big drawing
+[15:33] sheet, please do that and come up with all.
+[15:37] But if I were to look at the how many edges will the resultant spanning tree
+[15:44] contain? No, only four. Now what could those four be?
+[15:52] are the four could be I'm just giving you an example this this
+[15:59] this or this this this vertically down this there so many you can go this
+[16:08] so you can create 125 such diagrams I'm saying is what you can do but we don't
+[16:15] want to be doing there has to be a better way of calculating what the
+[16:19] minimum cost is given any number number of vertices, complete graph, incomplete
+[16:24] graph, it doesn't matter. But we finally end up with the spanning tree containing
+[16:28] number of edges equal to number of vertices minus one. That is what is a
+[16:34] very important property. Yeah. Are you are you clear? Shall we now look at the
+[16:39] algorithm and then we'll go through the code and then you'll find this code is
+[16:44] very very similar to single source shortest path the dickstras algorithm
+[16:50] very very similar there we were computing the earlier edge weight plus
+[16:55] new weight here we don't do that here we calculate what are all the edges which
+[17:01] are considered and then we sum up all to get the answer okay so let's take an
+[17:06] example blank
+[17:10] Great. I'll take a very simple graph. I will not show you a complete graph but a
+[17:15] simple graph. Five vertices.
+[17:22] Okay. Vertex 0, vertex one, vertex 2, vertex 3, vertex
+[17:30] 4. I'll say the distance between 0 1 is two. And just make it little more
+[17:35] interesting. This distance is three. This distance is
+[17:39] four. Uh this distance is five. This is uh one and this is six. Just different.
+[17:48] They can be same. So I have five vertices. And how many edges do we have?
+[17:55] Number of vertices are five. Number of edges are six. But the spanning tree
+[18:02] will contain four edges. I repeat the spanning tree will contain
+[18:08] only four edges. Now you can look at it and tell me what
+[18:12] will the minimum cost spanning tree value be? Uh can you tell me what is the
+[18:17] minimum cost value be?
+[18:24] 1 0 10. Okay. Uh great. Tell me the edges which
+[18:30] you are considering.
+[18:35] Let's say we start with vertex zero. You can start with any vertex. You know last
+[18:40] class you went through the exercise. She's saying 10. Okay. Anybody has an
+[18:45] answer less than 10? No. 10 is a minimum. Okay. Go ahead. Yeah. Answer.
+[18:51] >> Starting from index 0, 0 to 1. >> 0 to 1. Let me sketch out for you. 0 to
+[18:58] 1 is one edge which you are considering >> 1 to two.
+[19:02] >> 0 to 1. Uh two value. >> 1 to 2 is three.
+[19:09] >> 2 to 3. >> 2 to 3 is one. Then 1 to four.
+[19:15] >> One to >> four.
+[19:17] >> Four. 1 to four. Okay. So this is my four. Now this is four. Now is it
+[19:25] fulfilling the properties? Yes. Number of edges is equal to number of vertices
+[19:30] minus one. So we have spanning tree of four edges. 1 2 3 4. Do you all agree?
+[19:37] Is there a cycle? >> No. So that's fulfilled. What is the
+[19:41] cost of this? 10 10 >> 10 another spanning tree I can create
+[19:51] three 2 1 zero 1 2 3 4 edges property loop no
+[19:58] what is the weight 2 >> 12
+[20:01] >> 3 >> 1 6 What is the cost
+[20:06] >> 12 >> 12 This is lesser
+[20:09] >> there could be multiple others I could create but you come up with one which is
+[20:13] the smallest. So we say the minimum cost spanning tree is
+[20:17] 10. Are you clear? Now let's see how we can
+[20:21] do this and then we will go through the code because code is very very simple uh
+[20:27] self-explanatory but we'll anyway go through the code and look at some debug
+[20:31] messages. Yeah. Uh erase everything except the main diagram.
+[20:42] Yeah, you can erase even that top. Yeah. So the way we start is any vertex. I can
+[20:49] start with vertex 2. I can start with vertex 4. I can start with any other
+[20:53] vertex. But for simplicity, we'll start with vertex zero. So the way we did this
+[20:58] is we create what is called something like the visited array
+[21:06] and we create what is called the distance array.
+[21:11] Okay. What will the initial distance be? If my
+[21:17] 0 1 2 3 4 and this is also 0 1 2 3 4.
+[21:30] The visited array guys all of you silence please. If the start vertex is
+[21:37] zero the distance of 0 to itself is zero. If the start vertex was three then
+[21:45] three would be zero. All others would be maximum. Okay. So this is zero
+[21:54] and all others are
+[22:00] false to start with. Remember the single source shortest
+[22:06] path. Then we create a method called minimum
+[22:10] weight. We call that method minimum weight. The
+[22:15] weight of one vertex is zero. All others are maximum. So that method for the
+[22:20] first time will give me an answer for vertex 0. Zero. So the start vertex
+[22:27] is zero. Great. So once you get that start vertex zero, what do we set that
+[22:32] vertex 0 visited to? True.
+[22:37] Find out all his neighbors. Who are the neighbors of zero?
+[22:41] >> One and four. >> One and four. What is the weight of one?
+[22:46] >> Two. What is the weight of 04? >> Five. So is that smaller than maximum?
+[22:53] >> Yes. So what do we go and update? We go and update the weight of one. Erase M.
+[23:00] Okay, I'll keep it there. I'll update the weight of M from maximum to 2
+[23:08] 01 and 04 maximum to
+[23:14] five. Erase this 2 3 and 0. I'll remove the indexes and put the weight now. Are
+[23:19] you clear? My start vertex was zero. I found the neighbors. The neighbors
+[23:24] weight was smaller than maximum. So I'm updating the distance array. Then again
+[23:29] we call the minimum distance method. Now in the minimum distance method we check
+[23:35] is that vertex visited? Zero is already visited. Which are the other two
+[23:39] vertices not visited? >> I mean 1 2 3 4 are not visited. But
+[23:44] given all of them which is the minimum distance now.
+[23:48] >> Vertex one. What is the distance value? Two. So next vertex selected is one. And
+[23:54] when vertex one is selected, we mark this as true.
+[24:00] Now, so one edge which is considered is 0 to
+[24:05] 1 as of now. Who are the neighbors of one?
+[24:11] >> Two. What is the weight of this? >> Who is another neighbor of one?
+[24:18] >> Four. What was the earlier weight of that?
+[24:21] >> What is the new weight? Which one do we update it to?
+[24:27] Five now becomes four. Interesting. When I considered the edge 04, the weight was
+[24:33] five. When I consider the edge 24, the weight is four. So if there's a new edge
+[24:38] which is smaller than the previous value, go and update it. It's like
+[24:43] saying it is better to consider 0 1 4 rather than 0 1 and 04 because if I sum
+[24:50] them it will be seven. If I sum this, it will be six. So, this is considered.
+[24:56] Yes, please. Yes. Yes. Are we good? Great. After
+[25:02] that, what happens? Um, now we have three and four. Now, between
+[25:09] three and four, which is the shortest weight?
+[25:12] >> Three. >> Three. So, next vertex chosen is vertex
+[25:16] with index two, which has a value three. And if it is chosen, what do we mark
+[25:21] this as? True.
+[25:26] So who are the neighbors of three? Who are the neighbors of vertex uh sorry
+[25:32] vertex two? Who are the neighbors of vertex 2 one already visited?
+[25:37] Three not visited. So what do we update this value from?
+[25:44] There is a condition in our code e less than v minus one.
+[25:50] Now when E is less than V minus one does it fulfill that when we have process all
+[25:54] of them? Yes. If it does that what do we then do? Take the sum of these four and
+[26:00] that is nothing but 10.
+[26:06] Have you got it? Yes. Nikon you seem lost.
+[26:12] Are you clear? There's a condition while E less than V minus one. Keep processing
+[26:17] till that condition only and once you have got that stop.
+[26:23] This is what the prisms prim algorithm is all about. Maintain a array of
+[26:30] visited vertices. Maintain a distance array initially set to all max except
+[26:35] the start vertex. Write a method like minimum distance called minimum weight
+[26:40] which given a set of weights will return you the minimum weight. Start with that
+[26:45] vertex as a base. Find out his neighbors. Update their weight if it is
+[26:50] lesser than the previous. Previously all were max. So we updated it. Then it it
+[26:55] was five. We updated it to four for vertex four.
+[27:00] And then sub it up. However, in our code, we are doing
+[27:04] little more work. We are also finding out who the parent is
+[27:11] because we want to print not only the minimum weight, we also want to print
+[27:16] which are all the edges which are considered.
+[27:20] So in our case the edges considered would be 0 1 uh 0 1 2 uh then it would
+[27:28] be 1 4 and then 2 3. So we'll print that also as part of the test data output.
+[27:36] How many are not clear?
+[27:42] How many are not clear? Great. If you are clear, now make your vertex three as
+[27:47] start vertex. Make vertex three as start vertex. Uh
+[27:52] erase erase not that keep that erase only that e this part bottom. Yeah. Make
+[27:59] your vertex three as start and fill up the visited array and the distance
+[28:06] array. All of you
+[28:11] visited distance. Uh three is my start. So this will be zero. All would be max.
+[28:20] And then when you find the minimum distance you get vertex three. So that
+[28:24] will be set to true. All others will be initially false.
+[28:29] Yeah. So after the first iteration, after the first iteration, what do you
+[28:35] think will that distance array look like after you got that minimum distance
+[28:39] which is vertex 3? After you've got vertex 3, what will the distance array
+[28:44] look like? Come on, one of you.
+[28:54] What will the distance array look like? Shahuk Ruk.
+[28:59] Did I get your name right?
+[29:04] He's Shah Ruk, right? Oh, Shah Ruk is different. He was sitting there
+[29:07] yesterday.
+[29:12] What will the distance area look like? After the first minimum distance call,
+[29:17] minimum weight call.
+[29:34] What will the distance array look like after the first call with three as the
+[29:38] start?
+[29:43] Answer.
+[29:48] Who are the neighbors of three? Four and two. What is the distance
+[29:54] between three and four? Six. So what will this become?
+[30:00] Six. And what will two distance become?
+[30:06] One. Now after you do this, which is the
+[30:11] minimum weight now? >> One. So one will become
+[30:17] true. Now who is the neighbor of vertex two?
+[30:22] >> One. Three is anyway over one. So what will the distance of one become?
+[30:29] What will the distance of one become? Three. Now between three and six which
+[30:34] is the small vertex. >> Three. So this will also become true.
+[30:39] Who is the neighbor of vertex one? which has a value three
+[30:45] >> two zero. So what will this distance become?
+[30:50] Two, right? So what have we got so far? Three
+[30:57] 2 1 and four.
+[31:02] Do you agree? But now after that between two and six we get vertex zero. Who is
+[31:10] the neighbor of vortex zero? Who is the neighbor of vortex zero?
+[31:15] Four. Four is still not visited.
+[31:20] What is the distance of four? Five. What was the previous distance?
+[31:28] >> Six. So what will we replace this with? >> Five.
+[31:36] >> Who is also a neighbor of one? Sorry. Who is a neighbor of one?
+[31:40] >> Four. >> Four. So we replace this six with four
+[31:44] and when we go to this guy we find this is five. So we don't update it. Now if
+[31:49] you look at it it is still going to be 10. So whatever be the start vertex the
+[31:55] spanning tree weight will always be the same minimum cost.
+[32:03] Are you there? So when I went to uh one my neighbor was
+[32:09] four that weight was four. The earlier weight considering 3 4 was six. So I
+[32:15] update now from 6 to 4. When I go from 0 to four I find that
+[32:22] weight is five. It is earlier three earlier four. So I don't update it.
+[32:27] Imagine that was three. Then that will get updated from 6 to 4, four to three
+[32:31] and you'll end up with nine. Is everybody clear?
+[32:37] Yes. Great. Why don't you do one thing? Uh run this without explaining the code.
+[32:42] Just the debug messages uh for one of our test cases.
+[32:47] Edit plus.
+[32:52] Now show the test case first. Edit plus. Madam.
+[32:59] Yeah.
+[33:03] Go up. Simpler one. Simpler one. Great. Take this test case. Let's draw
+[33:11] the graph.
+[33:14] Let's Let's draw the graph. Uh 0 to 1 is 2. 0 to 3 is 6.
+[33:26] Uh it is a unirected graph. So that is fine. Uh then
+[33:32] 1 to 2 is uh 3.
+[33:38] 1 to 3 is 8. 1 to 4 is 5.
+[33:46] H 2 to 0 there's no connectivity. 2 to 1 is 3. 2
+[33:54] to 4 is 7. Then 4 to
+[34:02] 4 to No, something doesn't seem good. Okay. 3
+[34:07] 2 1 is 8. Uh 3 to 4 is >> 9. 3 to 4 is 9.
+[34:16] Okay. And 4 to 1 is 5. 4 to 2 is 7. 4 to 3 is
+[34:22] 9. Okay. Now with this diagram, we will run that
+[34:28] and zero is my start vertex. Okay, let's run through. If you want, take a
+[34:34] screenshot of the diagram. Uh, don't erase that, please. Yeah, run.
+[34:43] Yeah.
+[34:48] >> No. Is that code correct? Do you rename it?
+[34:53] Prims. You rename to MSD. Okay, fine.
+[34:59] Yeah.
+[35:02] Yeah. >> Can you go up?
+[35:05] >> Yeah. Now let's run through the debug messages and this uh initially my start
+[35:13] vertex is zero. So if you look at the distance weight all of them are maximum
+[35:18] except zero. And what is the visited set to? MST is
+[35:23] nothing but minimum spanning tree preset which is visited array. What is it all
+[35:27] set to? False. Then we calculate the minimum weight. We get vertex zero. Then
+[35:34] we figure out who the neighbors of zero are. 0's neighbor is two and three. So
+[35:40] scroll down. Now look at that weight. What is the weight of 01?
+[35:47] What is the weight of 01? Two. What is the weight of 0 3 6? Are you seeing that
+[35:51] getting filled? Remaining two. Now between 2 and six, who is smaller? Two.
+[35:57] So which vortex will be now chosen? Vertex one.
+[36:02] Guys, are you getting this? Give me access please.
+[36:07] >> Are you getting why zero was chosen and why one is chosen? Because between two
+[36:12] and six the minimum weight is two. So vortex one.
+[36:16] Now scroll down. After you get vertex one, who is the neighbor?
+[36:22] 3 2 4. Now what was this distance? I can't see
+[36:30] six. What is this distance? Eight. So we will not update it. What will this
+[36:35] distance two get updated to? Three. What will this distance four get updated to
+[36:38] five? Are you seeing two is getting updated to three and four is getting
+[36:41] updated to >> five. And are you also seeing parent?
+[36:47] >> Now guess what does this mean? Zero is the start vertex. So parent of that is
+[36:52] minus one. Who is a neighbor of zero? One. Who is a parent of one?
+[36:57] >> Zero. Who is a neighbor of zero? Three. Who is a parent of three?
+[37:01] >> So I'm basically saying which vortex did I come from?
+[37:07] We are also maintaining the edge information so that when we output we
+[37:12] will not just output the minimum value but we are also saying how does the
+[37:16] graph look like for this minimum value. Are you guys understanding?
+[37:21] Is that parent array clear? Look at that parent array in this
+[37:25] scenario. Yeah. Parent of 0 is minus one because it is a
+[37:31] parent of itself. Parent of one is 0 0 1. Parent of three is zero. Parent of
+[37:38] two is what? One. And what is the parent of four? One. Is that clear why this is
+[37:44] these are one and these are zeros? You know uv who's what is what did we
+[37:51] come from? U is that value start and end source destination.
+[37:57] >> Guys are you clear? >> Okay. Now between now what is already
+[38:01] done? These two are taken care. So now we have 3 65. The minimum will be three
+[38:06] which is vertex 2. Now who is a neighbor of two? Four.
+[38:12] >> What is the weight? Seven. What was the earlier weight of four? Five. So we will
+[38:15] not update. Continue. See the earlier weight was five. The new
+[38:22] weight is seven. So we will not update. So the weight will still remain 2 365.
+[38:27] Now between six and five which one will we choose?
+[38:31] >> Five. because that is smaller. So five vertex 4 vertex 4 is connected to one
+[38:37] but 0 1 was two 4 1 is five. So we will not update it. Continue.
+[38:44] So that is what you get. 01 give me access please.
+[38:49] So this is chosen 1 2
+[38:56] 0 3 and 1 4. This is how my spanning tree
+[39:03] looks like. Five vertices, four edges. So the edges
+[39:08] are 0 1 1 2 03 1 6 total of that is the answer. Minimum cost.
+[39:20] How many are not clear? How many are not clear?
+[39:28] Is it clear? very very similar to earlier single
+[39:33] source shortest distance.
+[39:39] The only thing we do here is we just maintain the edge weight and if I sum up
+[39:43] all that would be my answer which is 16.
+[39:51] Are we good to go and look at the code now? Continue.
+[39:57] Yeah. We take input for number of vertices. We take data for the graph. Uh
+[40:02] we create a graph. And then what do we call?
+[40:07] Uh we call a method uh minimum spanning tree. And this is called uh prim's
+[40:13] algorithm to calculate the minimum spanning tree. Yeah. Go to the method.
+[40:23] Yeah. Great. continue.
+[40:28] Yeah. Now look at this. The first thing we do, all of you please focus on the
+[40:32] code. Although we may not ask you in the mid
+[40:36] exam because our pattern is going to be different. Yeah. So we are calling uh
+[40:42] parent array. What does the parent array contain? Parent of all vertices. Okay.
+[40:48] Uh what is the weight array containing? We wait for all the vertices. Array.
+[40:52] Continue. There's a boolean array like your visited here. We don't use visited.
+[40:57] We call it MSP set. Minimum spanning tree. Set of elements in the tree. All
+[41:02] those which are set to true, they're considered. All which are false are
+[41:06] ignored. It's like visited are not visited. Fine. Scroll down. Then what do
+[41:11] we initialize all the weights to? Maximum. And what do we initialize all
+[41:15] those to? False. Even if you don't, by default everything in a boolean is
+[41:19] false. But more for readability. Continue. We are picking vertex zero as
+[41:24] always the start. But you can pass a parameter start vortex and that will get
+[41:29] updated. It doesn't have to be zero. It can be three. It can be whatever the
+[41:33] input given by the user is. And that would be the start.
+[41:39] Are we good so far? Yeah. Then continue. And who is a parent
+[41:45] of zero? >> Minus one. Minus one means I'm parent is
+[41:50] itself. All others. What is the parent? Who is the parent of the remaining?
+[41:57] >> Huh? By default, what will that integer array contain?
+[42:05] >> Parent array. Madam >> zeros except the source everybody is
+[42:10] zero default. No, if you don't want zero, you said you do minus one
+[42:15] because vertex cannot be minus one. Minus one means it is not yet processed.
+[42:20] zero can be misleading because zero would mean that parent of two is zero,
+[42:24] parent of three is zero, parent of four is zero when there's no edge connected.
+[42:27] So ideally I would I can make everything as minus one but it's not done but
+[42:31] doesn't matter. We'll update it now. So far continue. Yeah. Are you seeing the
+[42:36] similarity in the code between single source shortest path and this guy? Yes.
+[42:41] After that what are we doing? Minimum weight. That was minimum distance. Take
+[42:46] us to minimum weight code.
+[42:57] Yeah. Now, similar to the previous one, we have minimum is equal to maximum.
+[43:02] Minimum index is minus one. Scroll down. Look at that logic. If it is not already
+[43:07] processed, false. If not visited, false. And the weight is less than minimum,
+[43:12] then we calculate the minimum weight and obviously the minimum index. And what we
+[43:18] return is a minimum index. Okay. So that logic is there. I will not
+[43:24] go through again. That's done. Continue.
+[43:29] Yeah. Continue.
+[43:32] Great. We've got the minimum weight. We are printing the minimum vertex.
+[43:35] Initially it will be zero. After that, scroll down. What have we set that to?
+[43:40] True. Is it visited? Yes, it is there in the set. Yes. Are you all there? After
+[43:46] that, what are we doing? Scroll down for V is equal to zero less than process all
+[43:50] of them. But before that, did you see a very interesting condition? Go up,
+[43:53] madam. Go up slightly. Scroll up. Scroll up.
+[43:59] Scroll up.
+[44:02] No. Okay. Scroll down. Maybe somewhere is there. Yeah. Yeah. For V is equal to
+[44:06] zero, V less than that, we are getting the edge weight U and V. U is the start.
+[44:12] V is the vertices I'm connected to. Okay. Scroll down.
+[44:18] If that has a connectivity graph UV not equal to zero, that means there is a
+[44:23] edge and that edge is not processed. That new vertex is not processed and
+[44:31] that new edge weight is lesser than the previous value only then you update it
+[44:39] otherwise ignore it.
+[44:42] If zero was connected to four and later one gets connected to four, we'll update
+[44:47] the parent of four from 0 to one. Look at that condition. Parent of V is equal
+[44:51] to U. And the weight of V will also be the new one.
+[44:58] Is it clear everybody?
+[45:02] And then scroll down. Then we call a method print MST. And what this print
+[45:09] MST does? It prints start vertex, end vertex and the value. Can you show us
+[45:14] that? Yeah, look at that. Parent of I start I end UV u V and what is the value
+[45:22] in the graph? So I'm printing all the three values
+[45:26] start end weight start end weight UV weight.
+[45:35] This is not the requirement. The requirement is just calculate the
+[45:38] minimum value which is sum of all the edges but we are making it little more
+[45:44] interesting by saying I'm not interested in the value show me also how the graph
+[45:48] looks like is zero connected to one or zero connected to two. So that
+[45:52] information I get by maintaining where I came from which is the parent index.
+[46:00] Is it clear guys? Everybody,
+[46:05] anybody has any questions on the code?
+[46:13] What was the if I ask you difference between this code and the previous code?
+[46:16] What is a very obvious difference you find?
+[46:20] >> Summing the elements.
+[46:24] >> We are adding we we are adding and checking whether it is greater or
+[46:29] >> Yeah. In the previous one, whatever earlier value A to B, B to C, what was
+[46:35] the value of C is that A to B, B to C smaller than direct C? If it is updated,
+[46:42] we were always adding it. Here we are just saying edge weight, edge weight, AB
+[46:46] separate, BC separate, AC separate and all those visited are summation.
+[46:53] Can we move on? >> Yes sir. Yes, everybody is clear on uh
+[47:00] Prim's algorithms for finding the minimum cost spanning tree. So we know
+[47:06] what is a spanning tree. We know what the properties of spanning tree are.
+[47:09] Given any graph, we can calculate what the spanning tree. If somebody would say
+[47:13] don't give me code, explain to me manually how you would approach this.
+[47:17] You now know how to do that which is distance array, visited array and find
+[47:22] out the shortest distance vertex. Make that as a base. Find out his neighbors.
+[47:27] Update their values because they were maximum. And keep continuing till we are
+[47:31] done with all. [snorts] Okay. Shall we move on? And now we have another very
+[47:37] interesting algorithm. Assign a weight value to all the
+[47:41] vertices. Initially all of them are infinite which is integer.max.
+[47:45] Assign a weight zero to the start vertex. Start vortex can be anything
+[47:49] need not be zero. when when mf minimum when the set doesn't include pick a
+[47:56] vertex that is there which has a minimum weight find out all adjacent ones and
+[48:01] then go and update for every adjacent vertex u if the weight of uv is less
+[48:06] than the previous weight then update it if it is greater then retain the
+[48:12] previous guy and continue this till all are processed
+[48:18] are we clear this is one very simple interesting ing algorithm. But we have
+[48:23] one more very interesting algorithm. Is that part of syllabus by the way? Are we
+[48:28] covering for finishing school? Part of syllabus. Okay. Uh then let's talk more
+[48:34] about it. Uh yeah. Go to the blank screen.
+[48:41] Yeah. Uh what is a very important property of a spanning tree?
+[48:47] It should not result in a cycle. Do you agree? So if I give you a
+[48:53] spanning tree like this
+[49:02] 0 1 2 3 0 Sorry, this is weight one. Weight two.
+[49:14] This is weight three. This is weight four. Weight five.
+[49:20] So according to our algorithm we start with zero.
+[49:27] We start with zero.
+[49:34] This is not there. Erase it. Uh zero's weight is initially zero.
+[49:41] Uh when I get the minimum distance all these guys are max.
+[49:47] Are you there? Now I get the shortest distance zero. Who are the neighbors of
+[49:52] zero?
+[49:55] Three and one. So one becomes one. Three becomes
+[50:01] two. Now between these two what do I get
+[50:05] again? What do I get? One. Who is a neighbor of
+[50:11] one? Two. So two becomes five.
+[50:17] Are you there? What do you think will the minimum cost
+[50:22] spanning tree here look like? Now when you go to this who is a which
+[50:31] is the minimum two two
+[50:37] which is index yeah index index two
+[50:42] okay so two is index three who is a neighbor of three
+[50:48] who is a neighbor of three zero and two zero is already visited
+[50:54] two is already visited
+[50:58] No, one minute. I started with zero. So that is set to true. All others are
+[51:03] false. Uh from zero I find one and two. So one is true.
+[51:10] From one I find uh two which is five and then I go to
+[51:18] three. Three is visited. From three I can go to
+[51:23] two. Uh what was the earlier distance? Five.
+[51:28] What will this now get updated to?
+[51:32] Four. Because uh from three, two is shorter than one two.
+[51:40] Okay. So what will the [snorts] spanning tree look like?
+[51:46] Why am I not considering 31? Ideally, this should be better. No.
+[51:53] But what is this resulting in cycle? So how are you detecting cycle?
+[51:59] Here is my question. How are you figuring out? I should not consider
+[52:04] 31.
+[52:07] How are we preventing that from zero? I went to one. So one is visited. From
+[52:13] three I cannot come to one because one is already visited. If that condition
+[52:18] was not looked into then you'll end up coming back to one and that will create
+[52:22] a triangle which is a shorter value but that is violating the property which is
+[52:27] having a loop. Are you there guys? Ideally on the face
+[52:33] of it it should look like yeah I should get an answer 1 + 2 + 3 6 but
+[52:38] unfortunately we cannot one is already visited from zero. You cannot revisit
+[52:43] one from three because that would create a cycle. So that is how we are detecting
+[52:48] a cycle. Now the next thing we look at is the
+[52:53] prim's algorithm. Pretty clear why we cannot go back to
+[52:58] one. We going back to one will violate the
+[53:02] property. But how are we preventing it? One is already visited set to true. So
+[53:06] next time we recalculate we say while not visited
+[53:12] and is there an edge and is this edge weight smaller than the previous value
+[53:17] then go and update here it is already visited one is visited from zero so we
+[53:21] don't visit one from three
+[53:27] shall we move on now let's change the test case slightly uh erase this keep
+[53:33] the diagram
+[53:41] erase this. Now I'll change this value to 11.
+[53:46] Now let's consider the visited array. Visited
+[53:53] 0 1 2 3 0 is visited. True. And what is the initial distance of zero? 0 max max
+[54:03] max who are the neighbors of 0 1 and three what will the one value be 11 what
+[54:09] will the three value be two now it doesn't choose one it chooses
+[54:14] two because between 11 and two which is
+[54:18] smaller two so two will now be visited who is a neighbor of two one and two
+[54:26] what is this distance three what was that earlier distance 11 is one visited?
+[54:33] No. So what will we update this 11 to? Three. And what is three also having a
+[54:39] neighbor? Two. What will this now become?
+[54:43] Two. >> Oh sorry four. My bad. Now between three
+[54:49] and four which are not visited which is selected?
+[54:53] >> Three which is vertex one. Vertex one is visited. Now who is a neighbor of one?
+[54:59] Two. What was the earlier distance of two? Four. What is the new distance?
+[55:04] >> Retain four. Who is a neighbor of one? >> Three. But three is already visited. So
+[55:10] it doesn't create a loop. Now what is the next vertex left?
+[55:17] Four. Who is a neighbor of four? Uh sorry two. Who is a neighbor of two?
+[55:21] Three visited. Who is a neighbor of two? One visited. Nothing gets done. So what
+[55:26] is the answer? What do you get now? 3 42 which is
+[55:35] are you guys there? Take up any example run through the algorithm. You will
+[55:39] never ever get a cycle because of that boolean array visited minimum spanning
+[55:46] tree set. If the set already contains it, we cannot have a connectivity to
+[55:51] that. So one of the very important or a
+[55:55] challenging problem in a spanning tree is to detect cycles.
+[56:01] Guys guys focus.
+[56:06] Gone are the days when they will ask you to write codes.
+[56:10] Yeah maybe yes first round but in the interviews they'll ask you to explain
+[56:13] things. Now take a practical use case and explain to me how sparing tree
+[56:18] works. which means yeah I connect them with a bunch of nodes where every node
+[56:22] is a city and the edge is a distance and I need to find out the minimum distance
+[56:28] traveled which is a spanning tree. So if you understand the problem you will
+[56:32] understand what algorithm to apply and that can be the thing. Okay now the
+[56:37] biggest challenge is how to detect a cycle. The way we detected a cycle here
+[56:43] is by using the boolean array which if it is set cannot visit. So that made
+[56:51] life easy and everything is done. There's another algorithm called a
+[56:57] crystals algorithm. What it does is yeah blank screen now
+[57:08] blank screen. Now I'll just give you some background about it and then we'll
+[57:12] look at some concept to help you solve that problem.
+[57:17] I'll give you a graph 0 1 2 3 4
+[57:28] uh weight of two weight of three sorry undo. I wouldn't want to circle because
+[57:34] that will confuse everybody. Yeah, these are the vertices.
+[57:40] And the weight is 4 3 2 1 5 6. In
+[57:50] Prim's algorithm, the start vertex can be anything. Do you agree? In the
+[57:56] crystals algorithm, what we would do is we will take all the
+[58:02] edges, sort them in the ascending order of the
+[58:07] minimum edge weight. Please understand the fundamental
+[58:12] difference. In a prim's algorithm, you can give any
+[58:17] vertex and we can begin from there. In Crystal's algorithm, it is not that way.
+[58:23] What you do is you're given start vertex, end vertex weight. Like our zero
+[58:28] fractional knapsack, we did sorting. We will sort by the weight which is the
+[58:34] minimum weight. So pick a vertex with the smallest
+[58:39] weight. Now in this example, which would be the vertex with the smallest weight
+[58:45] and then pick the next and continue doing that till e less than v minus one.
+[58:51] Pick those edges. Till number of edges is equal to less than v minus one. Yeah.
+[58:57] Which is the edge which is the smallest weight here
+[59:00] sir 2 three. What is the weight of that?
+[59:05] >> One. So I'm just going to sort it out and write it for you. 2 3 with a weight
+[59:12] of one. What is the next one? 1 four with a weight of
+[59:18] two. What is the next one?
+[59:22] 1 2 with a weight of three. Next one. 01 with a weight of four. 43 with a
+[59:31] weight of five. Uh 04 with a weight of six. This is how the sorted edges will
+[59:41] look like minimum to maximum. Do you are you all
+[59:44] there? Then keep adding one edge at a time till e less than v minus one. So
+[59:51] how many edges can we add? Maximum of four because we have five vertices.
+[59:55] Guys, are you there? So according to you, if I add the first four, what will
+[1:00:01] that be? Just see the interesting problem we are
+[1:00:04] getting into. Now the algorithm is pretty simple. Sort them in the
+[1:00:08] ascending order of the weights. Add all the edges till you can add e
+[1:00:14] less than v minus one. Now we add the first four because the number of
+[1:00:18] vertices are five. So four edges can be there. So I add the first four. Which
+[1:00:23] are the first four? I'll just mark it now.
+[1:00:28] Two to three. I've added two to three. Then I'm adding
+[1:00:36] 1 to 4.
+[1:00:40] Okay. Then I'm adding 1 to two.
+[1:00:47] Then I'm adding >> 0 to 1. Okay. This is the answer.
+[1:00:53] That's it. However, now just see the interesting thing.
+[1:00:59] Erase the last one. Undo the last one. Yeah. Now this is
+[1:01:05] weight of 14. So what happens? This guy will come at
+[1:01:12] the bottom. Put that at the bottom please. I'll put that at the bottom. 0
+[1:01:16] to 114. I raise that there.
+[1:01:24] Great. You see what I did now? According to that algorithm, what will I add?
+[1:01:31] 4 to three. What is this resulting in?
+[1:01:35] Cycle. Are you seeing the problem with this algorithm?
+[1:01:40] I just changed the weight from four to 14 and that guy was not considered
+[1:01:44] because sorting resulted in another edge coming up and that addition is resulting
+[1:01:49] in a cycle which means boom failure. It cannot solve the problem. It is
+[1:01:57] violating the fundamental property of sparing tree. Are you all there? So what
+[1:02:02] is that? We now need scenario. Huh?
+[1:02:08] Avoid cycles. Cycles cannot be formed. In the prim's
+[1:02:14] algorithm, we knew how to avoid cycles because we had a visited array.
+[1:02:20] Now there is a very interesting concept we will look at called disjoint sets to
+[1:02:28] help you solve problem. One of the applications of the disjoint
+[1:02:34] set. Are you guys clear? What is that we are trying to solve?
+[1:02:39] How do you solve it? Do you know what is a disjoint set? Have
+[1:02:44] you done that in earlier years? One to two year second year disjoint. Great.
+[1:02:50] Can you explain sir? No. Are you clear about the problem and why we are looking
+[1:02:56] at a new concept? I don't want to introduce a concept without knowing why
+[1:03:00] we need to do it. Yeah. >> A basic like no two sets have the same
+[1:03:05] elements in it. >> No two common elements.
+[1:03:08] >> Yeah. Great. Okay. Give me an example >> like
+[1:03:14] natural numbers and negative numbers. Real time example.
+[1:03:22] What is said is correct. When we say sets are disjoint. What is set? Set is a
+[1:03:26] collection of elements. And when we say disjoint sets, these two
+[1:03:30] sets don't have anything which is in common.
+[1:03:36] >> So probably animals and humans like there's nothing common or something.
+[1:03:39] >> But where did we come from? Monkeys, apes. So anyway, yeah. Anyway, imagine
+[1:03:44] you have a set of colors and a set of numbers. Red, blue, green, and 1 2 3. So
+[1:03:51] obviously they are disjoint. Or you have a set of odd numbers, a set
+[1:03:56] of even numbers. They are anyway disjoint. Are you there? Yeah. So now
+[1:04:01] let's talk about what is a disjoint set and how does that concept come to our
+[1:04:06] rescue to solve this cyclic problem. Disjoint set is only used to solve the
+[1:04:12] cyclic problem. And because we are getting into a cyclic problem of that
+[1:04:17] sorted by the edge weight, we have to address that. And to address that I need
+[1:04:23] to give you some background madam that word document disjoint sets.
+[1:04:30] Yeah. Can you zoom? Yeah. Uh a set in mathematics is a collection of elements.
+[1:04:37] When you talk about you know set theory uh we have
+[1:04:43] a set one uh you have set two
+[1:04:48] uh intersection of that are these common elements
+[1:04:52] union of that all of that if I call this s_sub_1 minus
+[1:04:59] s_ub_2 what will I get
+[1:05:03] and are you there this is all what you've learned in mathematics ICS a set
+[1:05:08] is a collection of elements. If if you have multiple sets, you can do union,
+[1:05:12] you can do difference, you can do intersection, all of that and you'll
+[1:05:14] come up with another set. Now using the same concept of disjoint sets, we will
+[1:05:20] understand more word document.
+[1:05:24] Yeah. Yeah. Uh we have a set of elements
+[1:05:30] 1 2 3 4 5 6 7 8. Now let's for a moment think blank screen.
+[1:05:39] erase. We have eight vertices.
+[1:05:44] Vertex one, vertex 2, vertex 3, vertex 4, vertex 5, vertex 6, vertex 7, vertex
+[1:05:55] 8. There each is an independent set containing
+[1:06:01] one element at a time. When I create an edge from 1 to two,
+[1:06:08] they become part of a subset 1 2. When I add 1 2 3, then 1 2 3 is a subset. When
+[1:06:16] I add 2 to 4, then 1 2 3 4 becomes a subset. Are you getting it? Each is
+[1:06:23] independent. Now think about it like different cities. Yeah. Imagine you have
+[1:06:29] a bunch bunch of cities, you know, Hyderabad, Vangal, Vijayada, Chennai.
+[1:06:33] There was no connectivity earlier when airlines started they said yeah let's
+[1:06:37] connect Hyderabad and Chennai so they were independent cities now there's a
+[1:06:42] connectivity and then as the country progressed as the airline industry
+[1:06:47] became better the connectivity increased and pretty much you have connectivity
+[1:06:51] all through the country either direct or indirect so initially every city was
+[1:06:57] treated like a set independent entity by itself when they were having some
+[1:07:03] connectivity activity through whatever mode of transport that independent set
+[1:07:08] became a larger set maybe two cities three cities and finally all of them are
+[1:07:12] connected so that is one set of eight is that clear if I connect all of them
+[1:07:18] by via whatever mechanism doesn't matter
+[1:07:26] I can go from 2 to 8 I can go from one to any other city via some other cities
+[1:07:32] So go back to the diagram now.
+[1:07:37] So initially we have a set of 1 to 8 and then I have broken down into three
+[1:07:41] subsets 1 2 4 3 5 four subsets 6 8 and 7. So there are four subsets of the
+[1:07:47] original. If I union all of them I'll get the original.
+[1:07:53] Four subsets unioning them will give me the original. Now which are invalid?
+[1:07:59] 1 2 3 3 4 5 6 7 is invalid because three is common in both invalid. If I union
+[1:08:08] both I'll get 1 2 3 4 5
+[1:08:13] >> but independent sets cannot have a common element. That is why we are
+[1:08:16] calling them disjoint. Nothing common between both.
+[1:08:20] Why is other one invalid? Because four which was part of the original set is
+[1:08:25] missing. So you cannot say I had a larger set when I partitioned into
+[1:08:31] smaller guys you cannot you know delete one. If you delete one that is again
+[1:08:36] incomplete. So both are invalid for their own reasons. One common element is
+[1:08:41] repeated other one element is missing. Are you clear so far? Okay. It's like
+[1:08:48] once it is missing from earlier connectivity for whatever reason you
+[1:08:53] know. Yeah. Continue. Yeah. Now very interesting concept we're
+[1:08:58] talking about. You know the reason why in the prim's algorithm I considered
+[1:09:03] parent is to help you understand parent here.
+[1:09:07] When you have three subsets 1 2 3 4 5 6 7 8 9.
+[1:09:15] Which element in each subset becomes a leader?
+[1:09:21] Who is the parent? Who are the children? Now given 1 2 3 I can make one parent
+[1:09:27] and two and three are children. I can make two parent and one and three are
+[1:09:32] children. Anybody can be a parent as long as no criteria is considered. But
+[1:09:39] in reality we will consider a criteria. It's like you know I'm sure you have a
+[1:09:43] class leader. You have a class leader right now. Was the leader selected?
+[1:09:50] >> Yes. based on some characteristics right and everybody in that class they need
+[1:09:57] anything they'll say you are a representation to the management right
+[1:10:01] to anybody for that matter yeah continue continue
+[1:10:08] so considering 1 2 3 one is a leader four five four is five is a leader and
+[1:10:13] remaining seven one can be leader two can be leader three anybody can be a
+[1:10:17] leader but in that saying in that set I I'm saying one of them is a
+[1:10:22] representative element. Everybody needs to go through him for something which is
+[1:10:28] a parent or what we call the root. If you consider that like a tree
+[1:10:33] consider continue. There are two interesting operations.
+[1:10:38] One union. Union is very obvious. If you have [snorts] a set of one and two,
+[1:10:43] three and four, union will give you 1 2 3 4. Merging them together. Union is
+[1:10:48] like merge. Put them together, combine them, collapse them.
+[1:10:54] Okay, we broke it. We combine them together. Union. Very simple. Merge
+[1:11:00] union. The other is find. Find tells you which set do I belong to.
+[1:11:09] So go to the diagram above. Above. If I have to find which set two belongs
+[1:11:15] to. Oh, I would say find belongs to a set which has elements 1 2 3. Which set
+[1:11:20] does uh 10 belong to? Well, 10 is not there anymore and not there anywhere.
+[1:11:25] Which set does nine belong to? In that set. Are you getting that? Fine is to
+[1:11:30] tell you which set do you belong to? Which means you'll know what your
+[1:11:33] characteristics are is like I can consider all carnivorous animals
+[1:11:38] herbivorous or omnivorous. So what category do you belong to? So I know
+[1:11:42] what your eating habits are. Okay, continue.
+[1:11:47] Are you clear at a high level what is fine doing and what is union merge?
+[1:11:52] Yeah, get the whole diagram. Very very interesting. This is about connectivity.
+[1:11:57] [snorts] Uh we have three uh sets.
+[1:12:03] It's like northern India, western India, southern
+[1:12:07] India, eastern India, you know regions of that. Now we have three regions. One
+[1:12:12] region's representative is Delhi. The other guy says Agra and the third guy
+[1:12:16] says Mumbai. Can I fly from Mumbai to Agra?
+[1:12:23] >> Can I fly from Mumbai to Agra? >> Can I
+[1:12:30] is there a connectivity? >> No. Can I fly? Can I go from Agra to
+[1:12:34] Delhi? No.
+[1:12:38] They're all disjointed. Now if there's a connectivity from Agra to Delhi
+[1:12:44] what does it mean people from Madura people from Reindavan
+[1:12:51] can go to Gura Nida via Delhi and likewise people from Nida can go to
+[1:12:59] Matura once you establish that connectivity. So
+[1:13:04] think about the Delhi as one vertex, Agra as another vertex. Once you have an
+[1:13:10] edge between them, then you can traverse the Delhi side and the Agra side. But
+[1:13:15] right now they are disjointed. What if I union them together?
+[1:13:21] Union them together is like saying these three cities and these three are now
+[1:13:25] part of a bigger set. So I can go from A to B, B to A within those cities itself.
+[1:13:31] But I still cannot go to Mumbai because I have not unioned Mumbai.
+[1:13:35] When I say union is no connectivity given yet.
+[1:13:40] Guys are you there? >> Yeah. Scroll down.
+[1:13:45] >> Scroll down. Now after I've done a union a very very
+[1:13:49] interesting property now becomes now just imagine you have section A and
+[1:13:54] section B. Section A class leader is Ravi. Section B class leader is
+[1:13:59] supermanium. Now we say I'm going to combine these
+[1:14:03] two sections together. Now there will be a tie between who will be the class
+[1:14:08] leader. Ravia Subramanium. >> Now they'll say oh vote.
+[1:14:15] Yeah that's it. Whoever gets the most votes will be a union which sorry class
+[1:14:20] leader. Are you getting what I'm trying to say?
+[1:14:25] Now when there's a tie between two independent representative elements
+[1:14:28] which is parents and when you union them you have to make one a parent of the
+[1:14:33] other. I can make Delhi parent of Agra or I can make Agra parent of Delhi. But
+[1:14:39] why we chose Delhi is because Delhi is obviously a more political influencing
+[1:14:45] uh city compared to Agra. But you can make Agra oh you know there's a
+[1:14:50] beautiful love story there which doesn't have which is not there in Delhi. They
+[1:14:53] say you know Taj Mahal choose whatever you want your criteria because both have
+[1:14:58] the same ranking as of now. I let people choose between Delhi and
+[1:15:02] Agra but one of them has to be a representative element. Is that making
+[1:15:07] sense when you talk about union? >> Is that making sense?
+[1:15:14] >> Yes or no? Scroll down. So after lot of debate and discussion they decided yeah
+[1:15:20] Delhi is going to be the parent and all these guys are
+[1:15:25] representing Delhi and there's another guy Mumbai other people represent
+[1:15:29] Mumbai. If I again union Mumbai and Delhi sets we will have a choice between
+[1:15:34] should Delhi be a representative element or maybe Mumbai. Oh I'll say Mumbai
+[1:15:40] because as a financial capital you know you choose again both of them have same
+[1:15:43] ranking. It doesn't matter when ranks are same, choose anybody. But when rank
+[1:15:48] is higher, that guy has to be a parent. Okay, scroll down.
+[1:15:55] Continue now. So what happened? Whoever was
+[1:15:59] connected to Agra, Agra is now a child of Delhi, which means I can go from
+[1:16:05] Matura to Agra and to Delhi or Matura to Delhi by Agra.
+[1:16:11] Now very interesting thing guys please focus because if you do not understand
+[1:16:15] this you will not understand Chrisal's algorithm everything is based on find
+[1:16:20] and merge find and union because we want to detect the cycle
+[1:16:26] we saw the problem we saw the problem now we are trying to find a solution to
+[1:16:31] the problem I didn't want to explain Chrisll's algorithm directly without
+[1:16:36] giving you a background on disjoint sets though this is a background to help you
+[1:16:40] understand that better are we there?
+[1:16:44] >> This is there in your CP module next semester fifth unit disjoint sets but we
+[1:16:50] are covering here so that you have a better understanding of why we are doing
+[1:16:53] it. Are we clear? Now look at the find algorithms sir madam look at the fine uh
+[1:17:02] disjoint sets is one of the easiest algorithms in computer science. Look at
+[1:17:06] the fine. What is fine doing?
+[1:17:09] Now uh >> yeah I I want to find out about diagram
+[1:17:17] >> about diagram who is a parent of matura
+[1:17:22] >> okay I want to find out who is the parent of matura union is done okay so
+[1:17:27] I'm calling the parent of matura if the parent of that if that parent of
+[1:17:32] that node is that node return otherwise keep traversing up the tree till you go
+[1:17:39] to the root. I repeat, if the parent of that node is
+[1:17:43] that node itself, return that. Otherwise, keep traversing up the tree.
+[1:17:49] Who is a parent of Matura? >> Agra is Agra equal to Matura?
+[1:17:54] >> No. Then find out the parent of Agra. Who is the parent of Agra?
+[1:17:58] >> Delhi. >> Delhi. Is Delhi equal to Agra?
+[1:18:01] >> No. Who is the parent of Delhi? >> Delhi.
+[1:18:03] >> Delhi. Return that. So given any node in the tree we can find out what the root
+[1:18:09] is. How did that connection happen? Where did we come from?
+[1:18:14] >> Is that algorithm clear? Very simple. All problems on disjoint sets the find
+[1:18:19] algorithm will always be the same. Two lines of code. Find the parent if it is
+[1:18:23] same as an node return. Otherwise keep traversing till you get one.
+[1:18:32] Got it? Yeah, we want to find the parent of
+[1:18:36] Matura. Scroll down. Uh, is the parent of Matura Matura? No. Agra. Agra Matura.
+[1:18:41] Parent of Agra. Agra. No. Parent of Agra is Delhi. They don't match. Is the
+[1:18:44] parent of Delhi. Delhi? Yes. Return Delhi.
+[1:18:48] If the node itself is a parent of it, return that.
+[1:18:54] That means somewhere we have to create the link. Where do you think this link
+[1:18:58] will be created? Anyone? From what we understood
+[1:19:04] where will we create this link Agra daily link mature
+[1:19:14] answer
+[1:19:18] yes my question is how did this link between Agra Delhi get created for us to
+[1:19:23] answer for fine to return that yes please
+[1:19:28] >> so while merging the sets. >> Very nice. While merging the set, we had
+[1:19:33] a choice of making Agra the parent of Delhi and Delhi the parent of Agra. When
+[1:19:38] we had U and V, we could make U the parent of V or V the parent of V. We
+[1:19:42] chose one of them. Very good. Excellent. Union does that. Continue. Now show the
+[1:19:47] union code.
+[1:19:52] Uh so what happened is for a moment imagine
+[1:19:59] This guy was not there. We had a set ABC and we had this set.
+[1:20:08] >> We now decide to union this set with this. Who is a representative element of
+[1:20:15] this? A. What is the representative element of this?
+[1:20:19] >> C. So when you union, you say, okay, do I choose A the parent of C or do I
+[1:20:25] choose C the parent of A? I chose this. So that diagram is this. If C was a
+[1:20:31] parent of A, then A would have come below it. Okay, that is how what union
+[1:20:35] does. Union is basically to merge. When two
+[1:20:40] independent sets are merged, they collapse into one set. Two independent
+[1:20:45] sets have two roots, they all collapse into one. So your choice is to pick A1
+[1:20:51] root or A2 root based on ranking. If the ranks are same,
+[1:20:57] choose whatever you want. It doesn't matter. Absolutely doesn't matter.
+[1:21:02] Okay. Are we clear? Now, how do you think this
+[1:21:06] will solve our loop problem? Now, let's go to that. Now, we'll solve the
+[1:21:11] problem. Are you clear with what we have done so far? Why we need disjoint sets?
+[1:21:16] Disjoint sets help us detect loops in spanning trees. Okay. Can you go to
+[1:21:25] the diagram please? Now I'll just give you a background not the code. We'll
+[1:21:28] look at the code all later. Zero
+[1:21:34] uh 1 2 3 4.
+[1:21:47] Uh now we have this as 10 15 3 2 1 4.
+[1:21:57] After we sort the data, how do the edges look like?
+[1:22:01] 2 3 1 1 2
+[1:22:05] 2 1 4 3
+[1:22:11] 4 >> 4 4
+[1:22:15] 0 11 10 0 4 15. Now we know if I add these four
+[1:22:22] it will be a loop. Do you agree? We are trying to solve this problem. Okay, we
+[1:22:27] started guys please understand the algorithm now and how find union is
+[1:22:30] helping us. We started with the lowest edge weight. What is the edge which is
+[1:22:36] the lowest weight? 2 three.
+[1:22:40] Now when I have that edge 23 I can make two parent of three and three parent of
+[1:22:45] two. So when we consider U and V, we consider U as a parent of V. I'm just
+[1:22:50] considering you can consider differently. So when I did that what did
+[1:22:54] the who is a parent of two? So I'm going to write down here now all
+[1:23:00] parent and rank. What are all their ranks
+[1:23:04] initially?
+[1:23:10] Now who is a parent of each element? Parent of zero is zero. Parent of one is
+[1:23:13] one. Parent of two is two. Parent of three is three. Parent of four is four.
+[1:23:17] When I say parent of 0 is 0, 1 is 1. Two is two. It's like saying all are
+[1:23:22] independent. There are all five vertices in this
+[1:23:27] auditorium. You have a connectivity then edges there. When you have an edge that
+[1:23:34] becomes a small subset one more edge larger subset all of them the final
+[1:23:38] subset. Are you there? So when I consider 2
+[1:23:43] three who is a parent of three now? >> Two.
+[1:23:48] >> Who is a parent of three? >> Two.
+[1:23:50] >> Two. Okay, so let's update this. Parent of three is two and what happens to the
+[1:23:58] rank of two >> increments. So it's like saying
+[1:24:02] >> two three in the form of a tree.
+[1:24:08] Got it? Are you all clear?
+[1:24:12] >> What is the next edge? >> One four. Sorry, one two. So who is a
+[1:24:17] parent of two? one. So parent of two is now one. What
+[1:24:24] happens to the rank of one increases? So this is like one and
+[1:24:30] oh sorry one and two. No sorry erase it I missed a point.
+[1:24:36] Uh we had 2 three so parent of three is two. What is the rank of two?
+[1:24:43] One. Rank of two is one because there is a child connected. Now when you connect
+[1:24:49] one and two what is the rank of one
+[1:24:54] >> zero what is the rank of two >> who has a higher rank
+[1:24:59] >> two >> two so element which has a higher rank
+[1:25:02] already has some children so this child gets attached when the ranks are same
+[1:25:06] choose whatever you want when the ranks are different the highest rank guy will
+[1:25:11] become the parent so between one and two what is the
+[1:25:16] parent now One. >> Two. Who has a higher rank?
+[1:25:23] Are you seeing the rank of two is one? >> Sir, when I saw two, three, three's
+[1:25:31] parent is two. So parent rank of two is increased by one. Now when you say, huh?
+[1:25:39] Or rank of two is no. One. Oh, okay. Sorry. Undo. My bad.
+[1:25:43] I missed that guy. Yeah.
+[1:25:48] So this is zero. This is one and this is zero. Now one and two rank of two is
+[1:25:55] more rank of one. So one's parent will be now two. And what will the rank of
+[1:25:59] two become? Two. One more guy got added. So it's like one is also a child of two.
+[1:26:05] Now when you have 1 four what is the rank of one?
+[1:26:10] What is the rank of one?
+[1:26:17] Sorry. What is the rank of one? >> Did I mess it up? Yeah.
+[1:26:23] >> Yeah. Yeah, I messed it.
+[1:26:29] When you say one and four, what will the find of one return you?
+[1:26:35] >> Zero. >> What will the find of return?
+[1:26:38] >> Two. One. >> Who is a parent of one?
+[1:26:41] >> Two. >> Two. Who is a parent of four?
+[1:26:47] >> No. Yeah. Parent of four initially is what? Four itself. No.
+[1:26:54] Rank of one was parent of one was two. Parent of four is four. But which has a
+[1:26:59] higher rank? >> Two. So who will become a parent? Two.
+[1:27:05] So what will the parent of four also become?
+[1:27:08] >> Two. Okay. We'll come back to this in more detail later. So parent of four
+[1:27:13] will also become two. And what will the two ranks become?
+[1:27:17] >> So there's like sing four. Now you do three and four.
+[1:27:23] Who is a parent of three? Two.
+[1:27:27] Who is a parent of four? >> Two. The parents are same which means it
+[1:27:33] is a cycle.
+[1:27:38] When parents are same it means there is a cycle. So that vertex that edge will
+[1:27:44] not be considered. Did you understand?
+[1:27:48] Okay. Shall we go through that again? Okay. So we have a parent array rank
+[1:27:55] array.
+[1:27:59] Uh parent is zero, parent is one, parent is two, parent is three, parent is four.
+[1:28:05] Ranks of all are initially zero.
+[1:28:13] When you added two, three, we made three's parent is two. So parent of
+[1:28:18] three is two and the rank of two will increase by one because there is a
+[1:28:22] child. Got it? Then when you add one, two, who
+[1:28:28] is a parent of two? Two itself. Uh
+[1:28:36] what is the rank? Who is the parent of one? One. What is the rank of one? Zero.
+[1:28:42] What is the rank of two? >> One. Higher ranked is two. So one now
+[1:28:46] becomes a child of two. So who is a parent of one? Two. What is the rank of
+[1:28:52] two? Increasing to one more. Then you have 1 four. Who is the parent of one?
+[1:28:58] Two. Who is the parent of four? Four. But which has a higher rank? Two. So
+[1:29:05] what will the parent of four become? >> Two. What will the rank of this become?
+[1:29:09] Three which is like saying there are three children
+[1:29:12] guys. Artameinda. >> Yes sir.
+[1:29:15] >> Huh? That's the only thing you understand. Artinda.
+[1:29:18] [laughter] Okay. Now what about 3 four? Now look at
+[1:29:22] 3 4. Who is a parent of three? >> Two. Who is a parent of four?
+[1:29:27] >> That's it. If the parents are same, it is a loop. Don't include it.
+[1:29:33] That is why find union algorithm is required to understand Crystal's
+[1:29:39] algorithm for minimum cost spanning tree.
+[1:29:45] Have you understood?
+[1:29:49] High level you understood right? Yeah understood why we are doing it. So
+[1:29:54] next class we will look at find union algorithm code and then we will apply
+[1:29:58] that code to Chris's algorithm which is very simple. Sort them in the descending
+[1:30:04] order. Keep adding till their parents are different.
+[1:30:08] And whenever you find a higher rank guy that becomes a parent of a lower guy.
+[1:30:13] When the ranks are same choose anyone.
+[1:30:18] Is it clear? We are detecting a cycle. The way we detect a cycle is by using
+[1:30:24] find. If find returns same parent, it means it is resulting in a cycle.
+[1:30:31] If I instead of going uh 3 4 I go 0 1. Now who is a parent of zero? Who is a
+[1:30:36] parent of one two? They're different. Rank of two is larger. So zero's parent
+[1:30:41] will also become two. So that is not a cycle.
+[1:30:46] So that is why find is interesting. Union is to merge them together. Union
+[1:30:50] is to put them together. Disjoint sets are union to become a smaller subset.
+[1:30:58] Is actually very interesting when you look at the algorithm not the code.
+[1:31:01] Yeah, code is just a you know vehicle to get that working but you have to
+[1:31:06] understand how things work. Okay.

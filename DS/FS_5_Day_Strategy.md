@@ -8,14 +8,14 @@
 
 The learning method is sound: lecture notes → worked examples → independent questions → review. **Studying all 27 lectures deeply, solving their assignments and related NeetCode tasks, and preparing the other FS subjects within five days is not a realistic target under the stated four-hour daily budget.** Twenty focused hours must cover six subject areas and a mock/review.
 
-The supplied lecture alone is about 94 minutes. We do not have the other lecture durations. As an illustration only, 27 lectures averaging 60 minutes would require 27 hours at normal speed or 18 hours at 1.5×, before pauses, notes or coding. Averaging 90 minutes would require 40.5 or 27 hours respectively. Faster playback does not remove the need for practice.
+The supplied lecture alone is about 94 minutes. The Day 11–27 captions now give individual end times in [the source map](FS_Lecture_Coverage.md); Day 4–10 still rely on your summary. As an illustration only, 27 lectures averaging 60 minutes would require 27 hours at normal speed or 18 hours at 1.5×, before pauses, notes or coding. Averaging 90 minutes would require 40.5 or 27 hours respectively. Faster playback does not remove the need for practice.
 
 Keep the 27-lecture sequence as a study project, but use two priorities:
 
 - **Before FS:** understand the announced coding foundations—recursion, arrays/strings, greedy—and revise class-specific DAA MCQ topics. Attempt a small representative set; revisit mistakes.
 - **After FS:** complete the remaining lecture exercises, harder lab tasks and NeetCode extensions in depth.
 
-All 27 transcripts can eventually receive useful notes. We should select practice by topic, avoiding multiple near-identical problems merely to tick off every lecture. Analysing a transcript and producing notes does not mean you have studied or mastered it.
+All 27 lectures can receive useful notes from available evidence; the consolidated package now supplements the original daily files. We should select practice by topic, avoiding multiple near-identical problems merely to tick off every lecture. Analysing a transcript and producing notes does not mean you have studied or mastered it.
 
 ## 2. Calendar that protects the other subjects
 
@@ -54,7 +54,7 @@ Classify topics before allocating study time:
 | **Detailed notes + scenario MCQs** | Other taught DAA techniques, including search, number theory, trees/graphs/MST/shortest paths, operation costs and language behaviour; study traces and bugs, without full implementation assignments |
 | **Implementation after FS** | Out-of-scope algorithms, advanced DP sequences, hard backtracking extensions and completion of the full lab inventory; their taught concepts still receive notes/MCQs now |
 
-The three coding areas now come directly from your pasted notice. No marks distribution or specific DAA MCQ list is inferred. Your assignment list is broader than the coding areas; keep it as a topic map. Days 1–3 have been analysed; Days 4–27 await transcripts.
+The three coding areas now come directly from your pasted notice. No marks distribution or specific DAA MCQ list is inferred. Your assignment list is broader than the coding areas; keep it as a topic map. Days 1–3 have been analysed; Days 4–10 now have a supplied summary and Days 11–27 have retrieved auto-captions. Their consolidated notes and 250-question DAA bank are linked from [FS_START_HERE.md](FS_START_HERE.md); individual daily files have not been created for those days.
 
 ## 4. Practice rules under this deadline
 
@@ -67,6 +67,6 @@ The three coding areas now come directly from your pasted notice. No marks distr
 
 ## 5. Today's concrete target
 
-As of the Day 3 package, use [Day_03_Notes.md](Day_03_Notes.md), [scope-filtered practice](Day_03_Practice.md) and [Day_03_MCQ.md](Day_03_MCQ.md). Aim to justify the GCD transition, validate all rotated pairs including the odd centre, explain the empty-middle generation base, and diagnose the prime snippets. Carry any weak Day 1/2 foundation into the next block rather than assuming lecture-note delivery means mastery.
+The current entry point is [FS_START_HERE.md](FS_START_HERE.md), which replaces the DAA task choices inside the existing blocks. For the earlier Day 3 foundation, use [Day_03_Notes.md](Day_03_Notes.md), [scope-filtered practice](Day_03_Practice.md) and [Day_03_MCQ.md](Day_03_MCQ.md). Aim to justify the GCD transition, validate all rotated pairs including the odd centre, explain the empty-middle generation base, and diagnose the prime snippets. Carry any weak Day 1/2 foundation into the next block rather than assuming lecture-note delivery means mastery.
 
 On 9 October, use the existing plan's brief recall/logistics routine. The five full study days end on 8 October. GATE preparation can resume after the immediate FS test.

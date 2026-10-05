@@ -96,3 +96,10 @@ The NeetCode side of this shortlist was checked against the [official problem re
 | 42 | U2_BS_SP_LCP | Longest common prefix; do not assume binary search is mandatory from name alone | Optional strings practice; compare with #41 |
 
 Day 1 provides prerequisites for all recursive work, not readiness to solve every backtracking or tree assignment. As later transcripts arrive, promote the appropriate rows and choose a representative task rather than adding every title to that day's workload.
+
+
+## Lecture-evidence update — 5 October
+
+[Days 11–27 caption evidence](FS_Lecture_Coverage.md) now resolves two earlier title ambiguities: the taught maze permits right/down single-cell steps, so it is not the rolling-ball LC 490 variant; Campus Bikes minimizes total Manhattan assignment distance, matching the Campus Bikes II objective. Brace expansion includes discussion of nesting and union/product; the flat local choice generator is only its prerequisite. Maximum Swap is explicitly the extra Day 18 program and is not assumed to be Attendance_Program.
+
+Use [the coding-gap file](FS_Coding_Gap_Practice.md), [expanded LeetCode pool](FS_LeetCode_Practice.md), and [250-question bank](FS_DAA_MCQ_Bank.md) for current FS priorities. The older table records title-derived recommendations; the new package records actual lecture evidence. Additive Number/Beautiful Arrangement and the unresolved StairCase/Attendance titles remain assignment-linked rather than presumed lecture explanations.

@@ -1,0 +1,817 @@
+YouTube transcript
+Video ID: 2kICGFmU3K4
+Language: en
+Captions: auto-generated
+
+[0:00] Uh there are three uh topics in unit 3. Uh uh BFS, DFS,
+[0:07] trees and backtracking. For your unit test one or mid exam,
+[0:15] whatever you want to call it, uh we have unit one, unit two and unit three, BFS
+[0:21] and DFS. And there are lots of interesting problems in DFS and BFS. So
+[0:29] can we see that syllabus sir first? Yeah. Unit three
+[0:36] BFS DFS. What is BFS? Uh what is BFS traversal? What are the
+[0:43] applications? In fact some of these applications can
+[0:47] be done using both BFS and DFS. So when we talk about them we will look at
+[0:53] initial implementation using BFS and then DFS. Yeah. Let's move on.
+[1:00] What is BFS traversal and then we'll discuss more about it from a graph's
+[1:05] perspective. Uh in the last session uh we did talk
+[1:10] about a very interesting problem uh which was the spanning tree.
+[1:17] And what did we do in the spanning tree? We started with any vertex if it was a
+[1:24] prim algorithm. We looked at its neighbors,
+[1:29] processed both the neighbors and then went to neighbors neighbor.
+[1:34] If it was a crystals algorithm, we started with the edge which had the
+[1:39] smallest edge as the starting one. Guys, remember and then we continued
+[1:46] and we discarded all those edges which were resulting in a loop using the union
+[1:53] find algorithm. So both were different but both of them basically used what is
+[1:59] called BFS traversal immediate neighbors to be process first which is breadth
+[2:05] first traversal. So let me show you a very interesting tree and then we look
+[2:11] at for this particular tree what would a BFS look like or what would a DFS
+[2:16] traversal look like.
+[2:30] One 2 3 4
+[2:34] 5 6 7 8 9 10. BFS traversal is also called level order traversal. So we
+[2:46] print everything at level zero, level one, level two. So what would the output
+[2:50] look like? One. Then level one would be 2 3 4. And then level two would be 5 6 7
+[2:57] 8 9 10. So everything would be in an order 1 2 3 4 5 6 7 8 9 10. Are you all
+[3:02] there? Now how would a DFS look like?
+[3:07] We would start with one go to the left node two. We don't go to the other nodes
+[3:15] at that level. We would go to the left of two.
+[3:19] Five. Then we would go to the right of two, six. Then we would go to the right
+[3:24] of one, which is three. Then left of three. You know, we go depth first. Go
+[3:29] all the way till you encounter a leaf. Backtrack and go to the other side.
+[3:37] So it would be very different. The output would be different. The way you
+[3:42] are going to process information would be different in both BFS and DFS. So at
+[3:48] a high level BFS is also called level order traversal. A DFS is depth first go
+[3:56] all the way from the root till we encounter the leaf node. Okay. So let's
+[4:02] talk more about BFS. It is basically a traversal mechanism where we visit all
+[4:07] the nodes of a graph or if you were to process a tree, we would go and look at
+[4:12] all the nodes of a tree. uh BFS traversal or bre first or a level
+[4:18] order traversal is a recursive algorithm for searching all the vertices of a
+[4:24] graph or a tree. uh how we do that is by using again the
+[4:29] same concept of if it is not visited visit if it is already visited ignore so
+[4:35] that visit visited non-visited array now what do we do let's take an example of a
+[4:40] graph and understand more about this using BFS what data structure does a BFS
+[4:46] traversal typically use erase erase all that s what data structure
+[4:52] does a BFS use stack or AQ Q Q and a DFS recursion it will typically be a stack
+[5:02] or you can use a stack. So let's say we have a graph with vertex one, vertex 2,
+[5:08] vertex 3, vertex 4, vertex 5, vertex 6 and there is a seven
+[5:18] and let's say we start with this is our start vortex.
+[5:24] So in a BFS traversal what we do is we pick the start vertex add to the Q. So
+[5:32] the Q looks like vertex one included in it. So the Q would contain
+[5:41] this is my Q and the Q would contain vertex one. So a
+[5:48] typical algorithm is while the Q is not empty
+[5:52] get all the elements from the que. So in this case the only element we have in
+[5:57] the queue is one. So we're going to extract one. Is one visited?
+[6:02] No. So because that is my visited array. The one above is my visited array. And
+[6:08] this visited array contains nothing. Since one is not visited, I'm extracting
+[6:14] from the que and adding one to it. Then who are the neighbors of one?
+[6:20] Two and three. So two and three gets added to the que.
+[6:27] While the Q is not empty, get every element from the Q and the
+[6:32] element which I've got is two. So I'm going to extract two from the Q add to
+[6:38] the visited. Now who are the neighbors of two?
+[6:42] Four. One is already visited. So we ignore and we add four to the Q. Are you
+[6:48] guys there? Then I also get three from the Q because
+[6:52] in the earlier loop while the cube is not empty what are the elements I got?
+[6:56] Two. Add it neighbors four. Then I get three and three gets added to the
+[7:03] visited node. Now
+[7:07] who are the neighbors of three? One and five. One is visited. Five is not
+[7:13] visited. So five gets added to the Q. Then we extract four. Four gets added.
+[7:20] Neighbors of four are six. Three. Two. Two is visited. So don't bother. Add
+[7:27] six. Extract five.
+[7:31] Who are the neighbors of five? Three and six. Three is visited. Uh six
+[7:38] is already in the queue. So what do we do?
+[7:43] Tell me at this point what do we do? I got five three and six.
+[7:50] Three is already uh in the queue. Sorry, three is already
+[7:55] visited. Six is already in the queue. What do we do at this point?
+[8:00] We don't add three and six. We will get six. Now who is a neighbor
+[8:05] of six? Four, five and seven. Four, five are already
+[8:10] processed. So seven gets added. Six goes into this. Then I get seven from the Q.
+[8:17] Any neighbor of Q unprocessed yet? Seven. Any neighbor unprocessed? No. So
+[8:23] what happens? Seven gets added here. The Q is empty. And this is the output of
+[8:30] BFS traverse cell bread first. So process all the neighbors first before
+[8:35] you go to neighbor's neighbor.
+[8:40] And that is also called level order. So we use a very simple data structure
+[8:46] called a Q to do this. And that is what you see as a result of it.
+[8:53] If it was a DFS, what would happen? You start with one. What do you add? One to
+[8:59] stack. Pop that. Who are the neighbors of one?
+[9:06] Two and three. So two you add, three you add at the top get three. Then what do
+[9:11] you do after you get three? Add four. So two will never get process. Now are you
+[9:16] seeing I go from 1 to 3, 3 to 5 and so on. So eventually two will get processed
+[9:24] but it is not immediately everything at that level will not get processed in a
+[9:30] depth first. That will happen only when we talk about bread first or level order
+[9:36] traversal.
+[9:40] Are you guys getting it? Yes, everybody.
+[9:46] Okay. So when we get into DFS, I'll tell you more about it that uses recussion or
+[9:50] we can use a plain simple stack to do it because recussion never uses stack
+[9:55] internally. Here we use a Q to solve. So we add to the queue and get elements
+[10:00] from the beginning. First in first out unlike a stack last in first out. So if
+[10:06] you add two and three three will be processed. If you add three and two two
+[10:09] will be processed. The last guy top of the stack.
+[10:14] Are we good? Shall we look at a very simple example of how BFS is done? Not
+[10:20] even a syllabus program. Just to understand BFS traversal in its most
+[10:25] simplest form. Because once you understand that every program on BFS
+[10:30] will be similar. What you do with it is different because you're going to still
+[10:34] use Q get the elements and keep adding to the queue.
+[10:39] Shall we look at it? Show the mean. Sir, let them create the graph first from the
+[10:44] main.
+[10:47] Great. Guys, why don't you all draw the graph for this input data?
+[10:54] All of you, if you want, please take a screenshot.
+[10:57] Okay, copy that and paste it in that and then we'll draw it there. All of you
+[11:01] please take a screenshot. We're going to move to the other screen now.
+[11:05] Yeah. So, we have two vertices. Okay. So, 0 and one are connected. What is the
+[11:10] next one connected sir? 04
+[11:18] uh 1 0. It is basically unirected graph. 1 and two.
+[11:24] Uh, 1 and 3.
+[11:28] 1 and 4. 2 and 3.
+[11:33] 2 and 1. 3 and 2. 3 and 1. 3 and 4. 4 and 1. 4 and 0. What else?
+[11:43] 43. Yeah. So, that's the graph. Erase that data. Now, so this is the graph.
+[11:48] Uh, why are you assuming start is zero? Is start vortex? So what is the start
+[11:52] vertex? Zero. Great. If start vertex is zero, how will the Q look like now?
+[11:58] How will the Q look like? Q. This is my Q and this would be my BFS
+[12:07] traversal. The Q would contain zero. I extract from the Q. It is not visited.
+[12:12] Add it. What do I then get? One and four. Get one out. Add. Get the
+[12:19] neighbors of one. 4 2 3
+[12:25] sorry uh 2
+[12:29] 3 then get four then who is a neighbor of two three three is already there. So
+[12:35] two then if 0 was my start vertex the output would be 0 1 4 and then 2 and 3
+[12:43] depending on what I write in the order is it 01 first or 04 first you know
+[12:48] adjacent list who is an immediate neighbor of zero is it one or four if it
+[12:52] is four then I add four first and then one but in our case it was 0 1 04 so
+[12:56] immediate neighbor is one the next neighbor is four so we add one and four
+[13:00] in that particular order are we good shall we look at that code.
+[13:07] Yeah sir, can you show that code please? Now there are two interesting parts to
+[13:11] this C code. First is a graph constructor and the second is adding an
+[13:16] H. Can we look at the graph constructor?
+[13:22] Now scroll up sir. Yeah. Up sir. Beginning.
+[13:30] Yeah. So look at the line eight here. We are not having an adjacency matrix. What
+[13:35] we are having is an adjacency list. Now we know how all that works. So what is
+[13:41] that uh line 8 conveying to you? It is an adjacent list which is an array and
+[13:47] every element of that array contains a integer value which is a vertex number.
+[13:52] That is why angular bracket integer. Then in the constructor we are storing
+[13:57] the number of vertices five. uh we are allocating memory for that adjacency
+[14:01] list which is line 15 and each of those is pointing to a empty link list.
+[14:09] Is that code clear? So how does that look like pictorially?
+[14:13] If I were to show you pictorially, it would basically be
+[14:20] five elements. Each is pointing to a list which is
+[14:25] initially empty.
+[14:30] Now when you add h, it will get filled with values. So vertex 0, vertex 1,
+[14:36] vertex 2, vertex 3, vertex 4. This is how pictorially it looks like. Each
+[14:40] element is pointing to an object on the heap which is an empty link list which
+[14:45] contains nothing. Go back to the code. Sit down. Sit down both of you. Chill.
+[14:51] Sit down. Yeah. Is that code clear? Constructor.
+[14:57] Are we good? Now we add edge. When we add 01. Let's see what happens when you
+[15:01] add 01. 01 means 0 is my start vortex. End is one. So who is a neighbor of
+[15:07] zero? One. So the list will get added with one 04 one is there four gets
+[15:14] appended. So zero index vertex had one and four as it neighbors.
+[15:20] Okay. So show the main now main. So add edge. Can you take us to
+[15:26] add edge?
+[15:29] Yeah. Add edge. What is the source? Zero. What is the destination? One. So
+[15:34] we are saying to the list index zero add value one
+[15:40] to that list zero add four. So if I were to go to the diagram, it would look like
+[15:46] 0 has 1 and four. One would have 0 and
+[15:55] four and two are 0 2 4 because we put 2 0 first and 0
+[16:03] 2 and what does or three also 0 2 3 4 what does two contain?
+[16:11] 1 and three. What does three contain? 1 2 4. And what does four contain? 0 1
+[16:19] 3. Is this clear? How the adjacy list looks like for this graph which had all
+[16:25] those edge informations.
+[16:31] Are you guys clear? Respond guys. Yes or no? Yes. Great. Now what is the next
+[16:36] thing we need to do? We have got the graph built. Now we need to go through
+[16:39] the traversal and print what the output will be if it is BFS traversal. Whether
+[16:45] it is BFS or DFS creating the graph does not change it is the same adjacy list
+[16:51] which will be used whether it's BFS or DFS are the same adjacency matrix will
+[16:55] be used if it is DFS or BFS. How we process the neighbors is going to be
+[16:59] different in either of them or each of them.
+[17:03] Shall we move on? Yeah sir, go to that main BFS.
+[17:10] So what is our BFS starting with two? So let's see if it is true. How does it
+[17:15] look like? So let's go to the two sir. Uh erase the top Q and V. Erase them.
+[17:25] So my start vertex is two. So the Q will contain
+[17:30] two. So the first vertex visited will be two. Who are the neighbors of two? One
+[17:36] and three. So one and three will get added
+[17:40] to this. Then I process one. Who is a neighbor of
+[17:44] one? 0 and two. 0
+[17:50] 2 3 4 of that.
+[17:57] Huh? Yeah. Zero. Two is already processed. So it'll be four.
+[18:04] So I'll get three from it. Who is a neighbor of three? Four and two. They're
+[18:09] already in the queue.
+[18:12] Uh three. Then who is a neighbor of 0 1 and four already processed in already in
+[18:17] the queue.
+[18:20] This is what we get. Just check for yourself if it is anything different
+[18:24] from this for vertex 2 being start. If vertex four was a start, it'll the
+[18:30] output will start with four. If vertex uh one is a start, it'll start with one
+[18:34] because the first element of the queue is always the start vertex.
+[18:40] Do you think this is correct?
+[18:45] Do you think it is correct or do you think it's something else?
+[18:49] Correct. Okay, let's do that. Sir, run this program. We'll go to the code later
+[18:53] and then we'll change the start vortex to four and see what output they will
+[18:57] get for four for us.
+[19:09] 2 3 1 4 0. Great. Go back to the code uh diagram.
+[19:15] But I got 2 1 3. Why did I get 1 3? Because I added 1 and 3.
+[19:21] If it was neighbors of 2, three and 1, then I'll get 3 and 1. So can we see the
+[19:26] input sir? Mean uh who was the first neighbor of one?
+[19:32] 1 1 0 1 2 1 3 1 4 uh two is first three and then one not 1 and three. I assumed
+[19:40] one and three. So I got that. Are you getting the difference? So if the first
+[19:44] neighbor of two is three then it will be two neighbors are 3 1. If the first
+[19:48] neighbor was one it will be 1 three. So because it is 31 you get the output
+[19:52] differently. Okay. So now can we go to the code uh diagram diagram please?
+[19:59] I'll update it to 31. Okay. Uh now my start vertex is
+[20:06] four. All of you my start vertex is four. Tell
+[20:11] me what would the output be if the start is four?
+[20:18] So is the four order correct? Who is the first child of four? Go to the I mean
+[20:25] four 1 minute 103 sir we need to update it.
+[20:30] Uh 1 03 because if this is not correct
+[20:34] everything will go for a toss. Uh what about uh uh zero go to the zero is
+[20:39] correct. Yeah. What about one? One is sir one is one is 2 3 4. Okay.
+[20:47] One is uh go back to the code.
+[20:52] Okay. 0 2 3 4. What about 3? 1 2 4. 3 is 1 2 4. So 3 is 1 2 4. Uh this is 3
+[21:03] 1. All this is correct now. Yeah. Guys, what is the output if four is a start
+[21:07] vortex? Yes, I didn't hear
+[21:12] Mike. Mike is not there. 4 1 0 32. Okay, let's run that with
+[21:19] forcer.
+[21:32] 41032. Is it clear to everybody? So shall we
+[21:36] look at the BFS code now? We know how the graph got created. We know how the
+[21:40] adjacy list got created. Now the only thing we need to do is start processing
+[21:45] from the start vortex. add its immediate neighbors which you pick from the
+[21:49] adjacency list and continue this till all the vertices are visited.
+[21:56] Shall we? Yes sir. Show them that BFS code.
+[22:04] Yeah. So we have a boolean array called visited which is initially equal to
+[22:10] number of vertices. Uh then we are creating a queue which
+[22:14] contains all integers and the first thing we add to the queue is line 30
+[22:21] start vertex and what about line 29 the start vertex
+[22:26] is visited is that line clear 2930
+[22:32] are we all clear next scroll down
+[22:37] while the que is not empty there is only one element in in the Q
+[22:42] which is vertex 4 which is the start and that vertex is visited while the Q is
+[22:47] not empty what are we doing extracting the element from the Q which is the
+[22:52] first element four the only element four in this case after that what do we do
+[22:58] look at line 37 get all the neighbors of four who are
+[23:03] all the neighbors of four diagram sir I mean the diagram
+[23:09] 1 0 and three. Get all the neighbors of four. Go to the code
+[23:16] and mark them as visited and add them to the que.
+[23:23] So what does the visited array initially contain? Four. Which are the visited
+[23:27] now? 1 0 and three. Are you there?
+[23:34] I've added all of them to the queue. I mark them as visited. So what are the
+[23:38] next element I get from the queue now? 1 0 3 are there. What is the next
+[23:42] element? I get one. Who are the neighbors of one?
+[23:47] Diagram 0 2 3 4. Uh 0 is already visited by
+[23:55] four. Three is already visited by four. Uh then the only four is anyway visited.
+[24:02] So only thing which is not visited is two. So we add two to the Q and two is
+[24:06] also marked as visited. Now all the five vertices are visited. So anytime you
+[24:12] pick the next element from the que all his neighbors are anyway visited. So
+[24:16] nothing gets added to the queue. So the whole idea of having that visited array
+[24:22] is to ensure that we don't keep and loop infinitely.
+[24:27] Imagine visited was not there. What happen? Zero goes to one, one goes to
+[24:30] zero. And that is a cycle you never get out of.
+[24:37] Is that code clear? So good.
+[24:42] Because every BFS problem you solve will be the same. While Q not empty, get the
+[24:47] element from the Q, get its neighbors and add them to the que and mark them as
+[24:53] visited and continue this process till the Q gets empty. When the Q gets empty,
+[24:59] it basically means that all the vertices are handled, taken care of.
+[25:07] Are we good guys? Come on. Some No joke at all. Huh?
+[25:15] Are we good?
+[25:19] Great. If you're good with it, we'll look at the actual problem which is
+[25:23] expected. This is basically to give you an idea about BFS because everything now
+[25:28] would be solved using BFS traversal. Any questions please?
+[25:34] No. Yeah, let's move on.
+[25:40] Yes, go up, sir. Yeah. So, stop. Start by putting any of the vertices at the
+[25:44] back of a queue. Take the front item. Uh, create a list of those adjacent
+[25:52] vertices, add those which are not visited to the
+[25:56] end of the queue and continue this process till the queue is empty. So,
+[26:00] whatever was the algorithm we went through through the code.
+[26:04] Any questions? Great. Now we have a very interesting problem. How many of you are
+[26:10] single children? A single child? No siblings?
+[26:15] How many? Only one. Can you raise your hand,
+[26:20] please? You don't have any siblings.
+[26:25] Okay. Oh, that's it. Everybody has siblings.
+[26:30] Wow. Interesting.
+[26:36] What are you raising her hand? What does that mean? Huh? Okay.
+[26:43] Okay. Good. Because we have a problem for all those
+[26:48] people who are single child and uh the problem is called lonely
+[26:55] nodes, lonely children.
+[26:59] Okay. So let's look at that problem.
+[27:04] Yeah, in a binary tree which has got two
+[27:09] children left and right
+[27:13] in a binary tree a lonely node is a node that is the only child of its parents.
+[27:23] you know all of you are I would say you are the single
+[27:28] children you are the privileged people you don't need to share anything with
+[27:32] any siblings so let's look at it more positively okay rather than calling
+[27:36] lonely we'll call it privileged nodes the root of a tree is not lonely because
+[27:45] it does not have a parent so we don't consider the root okay now given this
+[27:50] tree you know the lonely node is only four because if you look at node two,
+[27:57] how many children does node two have single? So the child is lonely.
+[28:04] Node two and three are not lonely primarily because the parent has two
+[28:09] children. So two has a sibling three, three has a sibling two. Same level.
+[28:14] Yeah. Same level from the same parent. That's
+[28:17] important. Are you there? Is the problem clear?
+[28:26] How many are not clear with the problem?
+[28:31] Okay, I'll show you another test case. Tell me what would the lonely notes of
+[28:35] that be? Erase everything.
+[29:01] Yeah. Given this tree, what are the privileged nodes?
+[29:08] Are the lonely nodes? Come on. What are they?
+[29:16] Come on.
+[29:19] Where are the mics? Please pass it to the last row. Yeah, pass the person in
+[29:25] front of you. >> Yes sir.
+[29:31] >> Five. >> I write I'll write down for you.
+[29:35] Five is a lonely node. >> So five has a sibling seven.
+[29:39] >> Sibling. Okay. >> This guy has a sibling seven. So this
+[29:42] guy is not lonely. >> 15.
+[29:45] >> Huh? >> 15. Yeah.
+[29:48] >> 10 >> 15
+[29:50] >> 10 >> 10
+[29:55] >> 20 >> Okay.
+[29:57] >> 11s >> 11.
+[30:00] Are you not missing somebody? Check. Check closely.
+[30:07] >> Check at every level. Same parent. Is there a sibling available? Level order.
+[30:14] Same parent. Now, does 15 have a sibling?
+[30:20] >> No, sir. >> No. Does 9 have a sibling? Oh, 9 has a
+[30:24] sibling. Eight, right? Yeah. Okay. My bad.
+[30:26] >> This guy is connected here. Yeah, you're right.
+[30:29] >> The lonely nodes are 15, 20, 10, and 11 because 10 is a single child of 9 and 11
+[30:37] is a single child of 10. And likewise 15 and 20 are single child of their
+[30:44] respective parents. Are you there? So what is already given
+[30:49] to you is this graph. So we going to give you code to build the graph. We're
+[30:54] going to give you the root element and we'll say traverse the tree using level
+[30:59] order which is BFS and print all the lonely nodes. Now if I traverse from the
+[31:05] right I will get 10 11. If I traverse on the left, I'll get 1520. So there can be
+[31:11] multiple answers. So what we are asking you to do is after you get all the
+[31:16] lonely nodes, print them in sorted order. So there will only be one answer.
+[31:21] Is it clear? You need to sort to get the result. Have you mentioned that clearly?
+[31:26] Great. Yeah. How would we do this? How would we solve this problem?
+[31:38] You just learned about Q. You learned about BFS. Apply that knowledge and
+[31:45] solve this problem. And if anybody would like to, we will
+[31:50] pass the mic to you. Sir, would you like to answer? Give it to him.
+[31:57] Yeah, give it to him. How would we solve this? Uh, can you share your name? Yes.
+[32:02] >> Yeshu. Yes. Yes.
+[32:06] Take your time. Think about it. Let me know.
+[32:11] So the representation of this is a tree. It is not an adjacency list. It is not
+[32:16] an adjacy matrix. So typically what is a tree contain? Left hand,
+[32:21] >> right? Yeah. So and and yeah. >> Yes. Yes. Go ahead.
+[32:26] >> Start with the root node. >> We'll start with the root. Can we uh
+[32:30] listen to Yashwant and while he explains? Okay. I start with the root.
+[32:35] What do I do? After I find the root, I found node one. What do I do, sir?
+[32:39] >> If it consists of left and right node, then we traverse to the left node. Sir,
+[32:43] >> uh, isn't the root not lonely? >> Yes, sir. It may exist if it
+[32:48] >> No. Is the root lonely or not lonely? >> In this case, it is not lonely, sir.
+[32:52] >> Root will never be lonely. >> Okay.
+[32:56] >> Because it doesn't have a parent. >> Okay. So, let's say we start with the
+[33:01] Okay. Now considering BFS, this is my uh lonely array which I need
+[33:07] to fill. Uh then there is a Q
+[33:12] and there's a visited array. Okay. Now what did the Q initially contain sir?
+[33:17] >> One sir >> one
+[33:21] >> we extract from the Q. >> Yes sir. And we will add five and seven
+[33:25] to the Q sir. >> Okay. On what basis will you add five
+[33:28] and seven? First the left node will be five and the and then we traverse the
+[33:33] right one sir.
+[33:37] Sir first we go to left then we will get five and then we traverse right side
+[33:43] then we will get seven sir. >> Now what if right was null will you
+[33:47] still add five to the que? >> No sir we will check it first if there
+[33:50] is a left node or right not. >> Uh what will you add to your result?
+[33:56] the child which which means there is a single child.
+[34:01] >> So how do you figure out if it's a single child?
+[34:04] >> If there no if there does not exist the right or left for for example if you
+[34:08] take the left node and there does not exist the right node then we add the
+[34:12] left node to the result and if there exist the right node and does not exist
+[34:16] the left node then we add right node to the result.
+[34:19] >> Very good. Excellent. So what is he doing? He's checking oh does the left is
+[34:23] a left null and right not null which means one of them is existing
+[34:29] which is not null right so right is lonely.
+[34:34] If the left is not null and the right is null that means only one child. So add
+[34:39] the left. Very good. After that what do you do?
+[34:43] >> We will traverse the depth wise. >> Now now if you consider node one is the
+[34:48] left null? No sir. >> Is the right null?
+[34:51] >> No. >> Then what do you do in this case is my
+[34:53] question. >> Then we will take the left node first
+[34:55] sir again. Okay. >> Then we will check for left node
+[34:58] children. >> Uh sir uh
+[35:02] are you going BFS or DFS? Then >> if you are taking left first and then
+[35:08] going to his children then going to his children. Is it BFS or DFS?
+[35:12] >> DFS. >> Then here we are talking about BFS.
+[35:15] >> When we talk about DFS that will apply perfect but today is BFS. Okay.
+[35:20] >> Yeah. >> Okay. Is the first part clear? What is
+[35:24] the criteria of a lonely node? Left is null, right not null. So, right is
+[35:28] lonely. Left not null, right is null. So, left
+[35:34] lonely. Now, in the first scenario, one has two children and both are not null.
+[35:39] If both are not null, what would you do? Yes,
+[35:43] >> sir. Then we will take the next element from the queue sir. Uh sir but see look
+[35:48] my Q contained only one >> sir we as there is no as there exist the
+[35:53] both left and right node we add the left node first and then the right node sir
+[35:57] >> very nice so what happens is if both are not null both will get added to the
+[36:02] queue five and seven he's choosing left right you can choose right left doesn't
+[36:08] matter finally you will sort it great what do you do after that
+[36:12] >> and then we traverse the next element sir which means
+[36:14] >> you'll get this element from the que >> yes sir
+[36:17] Yes. >> Then what do you do?
+[36:18] >> And again we will check for the children of five sir.
+[36:22] >> Who is a child of five? >> 15.
+[36:24] >> 15 left child. Does the right exist? >> There is no right child. So we add only
+[36:28] the 15 to the Q and we also add 15 to the result sir.
+[36:32] >> So we add 15 to the Q and 15 to our lovely result.
+[36:36] >> Yes sir. >> Sorry. Lonely notes result. Okay.
+[36:39] >> Yes. >> Yeah. Uh see I brought a smile on your
+[36:43] face when I said lovely instead of lonely. how quick you are to get those
+[36:47] points. Huh? Okay. Anyway, that's good. Smile is what worth everything mistakes.
+[36:54] Continue >> sir. And again we take the next element
+[36:57] from the Q sir. Then we will get seven. >> No, we got seven.
+[37:01] >> And we again we check for the children of seven. As there exist both left node
+[37:06] and right node, we add both of them to the queue.
+[37:09] >> Very nice. Excellent.
+[37:12] >> Does it get added to the lonely nodes? No sir because both of both the nodes
+[37:16] exist. >> What do you do after that sir?
+[37:18] >> Next element we will take 15 as the next element.
+[37:21] >> Huh? >> 15 and again we check for the children
+[37:26] of 15. >> 15. Huh?
+[37:28] >> And it consist of only one node and we add it to the result as well as to the
+[37:32] Q. >> So 15 got added then 20 got added then
+[37:36] what is getting added here to >> 20.
+[37:38] >> 20. Then what is next element? You get >> eight sir.
+[37:41] >> Eight. And we check for the children of eight. As there are no childs, we move
+[37:45] on to the next element. >> Great. This guy doesn't have children.
+[37:48] Do nothing. Then >> nine huh.
+[37:51] >> And we check for the children of nine. >> As there is no left node and it consist
+[37:55] of only right node, we add it to the result as well as to the QR.
+[38:01] >> Okay. >> And then we traverse to the nine.
+[38:07] >> And we 10 20. Huh? 10. 20 and 20 does not consist of any child.
+[38:15] We move on to the next elements. >> Good.
+[38:17] >> 10 and uh 10 consist of only one child. We add it to the queue as well as to the
+[38:24] >> No. No. When I had 10, I should have added 11 here.
+[38:26] >> Yes sir. >> Huh. So 11.
+[38:30] >> Yes. In that >> does it have any more children?
+[38:32] >> No sir. >> Does the Q contain anything?
+[38:34] >> No. No. >> When do we stop? Now
+[38:38] >> Q is all empty. While Q not empty keep doing this. Good job Yashan. Very good
+[38:42] job. Excellent. You guys saw what he did.
+[38:46] Come on acknowledge somebody's efforts and the confidence and the correctness
+[38:50] which is explained in this algorithm. So I'll just quickly recap what you said
+[38:56] very beautifully done. Uh we start with the Q which is initially empty. We add
+[39:01] the root to the Q and then we start processing the left and right of the Q
+[39:07] which is the root because the only element in the Q is one. We extract one
+[39:12] is a left null. No. Is the right null? No. So add them in an order left, right
+[39:18] or right, left. You choose. Okay. But we choose left and right. So what did we
+[39:22] add? Five and seven because that element one contain both left and right. The
+[39:29] result which is that lonely array does not contain anything.
+[39:35] Then we get the next element. The next element is five. Is it left null? No. Is
+[39:41] it right null? Yes. So add that value to the result and also add that to the Q.
+[39:48] So 15 got added because of that. Then we get the next element from the Q
+[39:54] seven. Is it left null?
+[39:58] No. Is the right null? No. So nothing gets added to the result but 8 and 9 get
+[40:04] added to the queue. So you see eight and nine got added.
+[40:08] We have process seven. Then we process fif uh sorry 15 we process. Now we
+[40:13] process eight. Uh is the left and right of eight null? Yeah. Both are null. So
+[40:19] do nothing. Then what is the next element we process?
+[40:24] Uh nine. Uh is the left and right of nine null? No. Do both exist? No. So
+[40:31] which is the element which is found? So we start with
+[40:37] the Q which contain one and the result which
+[40:43] contain nothing. One has two children. So both get added
+[40:48] to the both get added to the queue. After extracting one
+[40:54] I get five. Left of five is 15. Right of five is nothing. So this is lonely. So
+[41:02] 15 gets added to the result and 15 gets added here.
+[41:08] I get seven. Left and right of seven are eight and nine. So none of them get
+[41:14] added to the result. But both of them get added to the
+[41:21] Q. Is this clear?
+[41:25] I got 15. Who is a child of 15? 20 left. Does the right exist? No. So this is
+[41:31] lonely. So the result contains 20. 15 is extracted and 20 gets added to the cube.
+[41:39] So far are we all good? Great. What are the next element we get? Eight. Left and
+[41:45] right are null. So nothing gets added to the result. Nine. Left is null. Right is
+[41:51] there. So 10 is lonely. So 10 gets added to the que. And 10 gets added to the
+[41:57] result. Then we get 20. 20 is both left and
+[42:01] right null. So nothing gets added to the que.
+[42:05] And obviously nothing to the result. Uh
+[42:11] I got 10. Who is a child of 10? 11 and what about the left? Null. So 11
+[42:19] is uh lonely. 11 gets added. I get 11 from the Q. No
+[42:25] children. So nothing gets added here. And by by now the Q is completely
+[42:33] processed with nothing in it. So the result would be uh 10 11 15 and 20
+[42:40] because we are going to give output in a sorted order.
+[42:45] Is that clear? A very very simple way of addressing
+[42:50] whatever we learned as BFS. We are now putting into a practical use case which
+[42:54] is given a tree find out all the lonely nodes. The node is lonely if it is the
+[42:59] single uh child doesn't have any siblings. Is everybody clear? So please
+[43:07] implement it on your own. What is already given to you is the uh tree uh
+[43:12] implementation. You just have to implement one method which is main is
+[43:16] also given. Great. Main is given. The tree logic is given. Please go through
+[43:21] the tree logic to see how the tree got built. Okay. And if you have if you have
+[43:26] questions ask us. And then what you need to implement is only one method which is
+[43:31] uh print lonely nodes or whatever the method name is.
+[43:36] Everybody's clear. Anybody has any questions?
+[43:41] Okay sir, go through the word document. Uh so in this example, if you go back,
+[43:47] seven has two children. So one and four are not lonely, but one gets added to
+[43:51] the queue. Four gets added. We get one from the queue. One has one child, six.
+[43:55] So six is a result, part of the result. And six gets added to the queue. We get
+[44:01] four. After we get four, what do we get? Five and three. Both are not lonely. So
+[44:06] we add five and three to the Q. So the Q contains six. Five, three, we get six.
+[44:12] No children, ignore. We get five. No children, ignore. We get three. One
+[44:17] child that is two. That gets added to the result. And two gets added to the
+[44:22] que. Does two contain any siblings? No. Sorry. Does two contain any children?
+[44:28] No. So we basically process that Q is empty.
+[44:35] Are we good? Is everybody clear? So code is very
+[44:42] simple because you now know what to do. If one child is null and the other is
+[44:47] not not null, that is added to the Q and also to the result. If both are not
+[44:53] null, just add them to the Q. If both are null, do nothing.
+[45:00] Clear? few two three lines of code. Are we good to go with the next problem?
+[45:08] Very good. Uh there are three problems in the same category. So I'm going to
+[45:12] discuss all three together. Blank screen.
+[45:18] Go just read the problem statement. Problem statement.
+[45:24] You're given a matrix of M into N. A island is a group of ones.
+[45:31] connected four directionally. It could be four directions, it could be two
+[45:35] directions, it could be eight directions. So we'll talk about it. You
+[45:39] can assume all four edges are surrounded by water.
+[45:44] What you need to find is the max area of island.
+[46:07] There are three problems I'm discussing through this test data. One,
+[46:13] max area.
+[46:17] Two, number of islands.
+[46:24] Three, number of
+[46:30] distinct islands. Please understand three
+[46:35] problems with one test case.
+[46:42] Max area of an island, number of islands, and number of distinct islands.
+[46:46] So let's draw the islands now.
+[47:16] Okay. What will the max area of the island return you?
+[47:24] I didn't hear you. What will the max area of island return?
+[47:30] What is the max area? Number of grids which all have a one and they're
+[47:35] adjacent to each other. Now adjacent to each other could be multiple ways.
+[47:40] horizontal adjust horizontally vertically or diagonally. I am
+[47:45] considering horizontal and vertical neighbors.
+[47:49] So what will the max area returned be?
+[47:56] Eight is eight lucky number for some of you.
+[48:02] Yeah. Well, that's the right answer. Which is that eight area which you are
+[48:06] talking about? the top right. There's only one top
+[48:11] right. So that is what max area is. Which is all these gates put together.
+[48:16] Sir, change the color.
+[48:21] Yeah, these.
+[48:26] So eight cells all have a one. So the max area is eight.
+[48:33] Okay, is that clear? Undo, sir. Undo the color. Now how many islands do we have?
+[48:41] Four. All of you able to count right? Four. So
+[48:46] the answer is number of islands is four. What about number of distinct islands?
+[48:57] Three. Why is it one lesser sir? Sir,
+[49:04] is it the area which you're looking at? No. When you say distinct islands, is it
+[49:10] the area which is important or is it the area and the pattern which is important?
+[49:16] Area and the pattern. How do they appear? You could have four
+[49:21] horizontally, four vertically. Area is same but they are still distinct.
+[49:26] So in our case the number of distinct islands would be three which is this guy
+[49:32] is one this guy is another and these two put together all come under one
+[49:42] because they they appear the same 2x two in that order.
+[49:48] Is it clear? Is everybody clear on the three problem
+[49:53] statements? We are going to talk about the first one today and the subsequent
+[49:58] one next class but today first one but the problem statement is still the same.
+[50:03] You're given a matrix of zeros and ones and you need to do different things on
+[50:09] it. First number of islands maybe max area maybe min area maybe whatever area
+[50:15] problem statement is different but the way you approach that problem doesn't
+[50:19] change. Now the only twist in the problem
+[50:22] statement could be when do I say them as neighbors?
+[50:27] If they're adjacent horizontally,
+[50:32] is it horizontal and vertical or is it also diagonally? So when I just say
+[50:38] horizontally, it will be these two.
+[50:44] If I say vertically, it will be these two.
+[50:49] If I say both horizontally and vertically it are these four.
+[50:53] But if I say diagonally then imagine this is also there.
+[50:59] If I say diagonally imagine this is also there. One one one one.
+[51:13] If the problem statement changes to diagonally, horizontally, vertically on
+[51:18] both the sides, you know, eight directions, then what will the max area
+[51:22] become? What will the max area become if eight
+[51:26] directions are considered? Yes sir.
+[51:30] >> 13. It would be 4 + 8 + this. So all this is part of one area.
+[51:42] 13. So read the problem statement carefully. If it is eight directions
+[51:49] then it is 13. If it is four directions it is eight. If it is three d if it is
+[51:56] only horizontally or vertically the answer will be different. Are you all
+[52:00] clear? I can start anywhere.
+[52:05] It depends on you. It is BFS. So do I go horizontally
+[52:11] the column wise or do I add row next row element or do I add next column element
+[52:16] it's up to you how you implement but if there see I'll tell you why it is called
+[52:20] BFSS if you consider row 0
+[52:26] who are his immediate neighbors uh sir can you erase other things yeah just if
+[52:34] you consider row 0 0 who are his immediate neighbors
+[52:40] 0 1 1 0. So both will get added to the que if both are ones.
+[52:49] Are you there? It doesn't matter whether I choose row first or column first. Are
+[52:54] you getting it sir? Doesn't matter. But immediate neighbors if it is diagonal
+[52:59] then I will choose 0 0 because 0 0 is one. I'll choose 0 1 1 0 and 1 1 before
+[53:07] I go to one two I'll go to 1 one immediate who are the people I am
+[53:12] surrounded by what is my closest network we're talking
+[53:17] about and then those guys will take me to somebody else it's like my friends
+[53:21] and their friends and their friends so we keep going all the way to that if you
+[53:25] talk about friendship network I connect to A connects to B connects to C so A
+[53:31] can connect to C via B and if C has a connection to D, A is able to connect to
+[53:35] D via C because all of them are linked and you consider all of them as ones.
+[53:40] Oh, I can traverse through them because there are my neighbors.
+[53:45] Is the problem statement clear? All the three
+[53:50] given a matrix given a grid of zeros and ones find out the maximum area depending
+[53:55] on four direction traversal two direction traversal or eight directions
+[54:00] or maybe six. Choose whatever you want.
+[54:05] Okay. So let's start with the first one max area. But all three problems are
+[54:10] similar. Now if you look at this the max area is
+[54:16] six because diagonals are not considered.
+[54:21] It is only four directions horizontally and vertically. If
+[54:27] diagonals were also considered I will get those six red plus five orange
+[54:35] because one and one are connected diagonally. Are you seeing that
+[54:37] connection? So in our case when we give you a
+[54:42] problem read the problem statement carefully. How many directions are
+[54:46] considered as your immediate neighbors? Okay. Yeah. Continue.
+[54:52] The answer is not 11 because the island must be connected four directionally
+[54:56] only left right top bottom. If it is eight directions what would it be? Sir
+[55:01] blank screen. I want you to understand the terminology.
+[55:07] Uh
+[55:21] if I consider only horizontally and vertically.
+[55:26] So for this guy uh this guy and this guy are his neighbors.
+[55:34] This guy and this guy are neighbors but they're outside the bounds. I will
+[55:37] ignore four directions. But is this one is the second row first
+[55:43] column one? So ignored. So we go with this guy. Who are his neighbors?
+[55:49] This guy and this guy and this guy and this guy. Are you saying for this
+[55:55] guy? These are the four neighbors. Which one did we already process? This.
+[56:01] Can we process this? No. Outside the bounds.
+[56:09] Can we process these two? No. Because this guy is zero.
+[56:15] Understand? Just because you get neighbors, don't add them to the queue.
+[56:18] Is a neighbor also one for you to consider. If it is one, consider. If it
+[56:23] is zero, ignore. So when you are given a matrix
+[56:28] of m into n you start with the first cell which has a value one. If the zero
+[56:35] cell has a value one which is 0 0 index start with it. If that doesn't have go
+[56:40] to the next column. Go to the second third column. If the entire row doesn't
+[56:43] have it go to the next row. Go column wise. Third row column wise. You never
+[56:48] start with 0 0 unless it is one. So it's like saying find out what is the first
+[56:54] cell which has a value one which is part of the island and then go use BFS
+[57:00] traversal. If I ask you what is the smallest area it will be one. What is
+[57:05] the largest area four directions? Six. How many number of islands are there?
+[57:12] Six. How many number of distinct islands?
+[57:21] How many number of distinct islands? >> Six. No two are identical pattern wise.
+[57:26] Area wise they may be but not pattern wise.
+[57:30] How is it same sir? These two guys are same area wise.
+[57:41] These two guys are same area wise. These two guys are same area wise. But they're
+[57:45] not same pattern. No. No rotation is
+[57:50] allowed. Okay. Is it clear?
+[57:57] Yeah. How would you solve this problem? Yeah. If this is my input data, I'm
+[58:03] making it simple input data.
+[58:10] I want to find the maximum area. How do we start given this problem?
+[58:22] Yeah. Yeah. Given a very very simple matrix of 4x4 with one island which has
+[58:30] five grits mark one. We know the max area is five. But how do we start this
+[58:37] problem?
+[58:40] Yeah. Four directions we are allowing. Left, right, top, bottom. Four. Make it
+[58:47] simple. Left, right, top, bottom. >> I was thinking if the top left corner is
+[58:52] 0 0. >> No, it everything is zero except those
+[58:55] five. >> No, no, like uh coordinates
+[58:57] >> like index 0, index zero. Row is zero and column is zero.
+[59:00] >> Is a matrix. No. Yeah. Okay. It is a 4x4 matrix which obviously means this is uh
+[59:08] 0 1 2 3 0 1 2 3 4 into 4. But yeah, go ahead.
+[59:16] >> So we start at uh 0 comma 0 >> and at every point we just check its
+[59:21] right like uh a i comma j + 1 and a i + 1 comma j and bottom.
+[59:28] >> Will you consider 0 0 anuda? >> I'll start from there. I would consider
+[59:32] if it was one. >> Why would you consider?
+[59:34] >> Because it might have one. >> No, it does it have a one?
+[59:37] >> It doesn't. >> No. Let's take our test case.
+[59:39] >> Okay. >> So with this test case obviously will
+[59:43] you consider 0 0 >> in this test case? and start from 1
+[59:45] comma 1. >> Sure.
+[59:47] >> Correct. So how do you know that? So you basically say for i is equal to 0, i
+[59:50] less than n. For j is equal to 0, j less than m. If grid i j is equal to 1, that
+[59:58] is my starting point. >> Right.
+[59:59] >> Right. So we need to do that, right? Great. Yeah. So I start with 0 0. I
+[1:00:03] don't find it. Next row, uh, the entire column, the first row doesn't contain
+[1:00:08] any ones. >> So I go to next row. The first column
+[1:00:12] doesn't contain one. So the starting point which has a one is 1 one index.
+[1:00:18] >> So what we are talking about is check every row every column of that initial
+[1:00:24] matrix whichever is the first one which has a one that is your starting point.
+[1:00:28] In our case 1 one great continue. >> Uh then I would check the right.
+[1:00:34] >> So guys are you clear? We will call something like
+[1:00:38] BFS grid
+[1:00:41] and I comma J.
+[1:00:46] Right. Now what does this BFS grid look like? BFS
+[1:00:50] grid 1 comma 1. Great. Now in this tell me what would you do?
+[1:00:57] >> Uh at at 1 comma 1 I would uh check the right and the bottom.
+[1:01:03] >> Okay. So 1 one is my starting cell. Who are all the neighbors of that going to
+[1:01:08] be? If 1 one is a starting cell, do you agree these four are going to be its
+[1:01:14] immediate neighbors? >> Do you agree or not?
+[1:01:19] >> Yes sir. >> Yeah. Great. What do you do sir?
+[1:01:21] >> Uh because because I already covered that row and the first column that part
+[1:01:26] I won't check the top and left. I check. >> You have to how do you know?
+[1:01:30] >> Okay. >> That we are visualizing
+[1:01:32] >> for recursion. Uh yeah, we would check all four uh indices and uh
+[1:01:36] >> do I need to use recussion or can I do without recussion using simple Q?
+[1:01:41] >> Okay, you could use a Q2. Yeah, >> I can do that. Okay.
+[1:01:44] >> Yeah, makes >> yeah continue.
+[1:01:45] >> But after checking everything there is one uh one at the right and also at the
+[1:01:50] bottom, right? >> Okay. So if you consider one one, what
+[1:01:52] are all the combinations you'll get? One one who are his neighbors?
+[1:01:57] >> Um 01. If I consider top and bottom, let's say top and bottom.
+[1:02:03] >> Yes. >> Uh 01
+[1:02:05] >> 0 1 >> 1 0.
+[1:02:06] >> What is down? >> Uh down is 2 1
+[1:02:10] >> 2 1 What is left? >> 1 0
+[1:02:13] >> 1 0 And what is right? >> 1 2
+[1:02:15] >> 1 2 Are you all clear on this? Please understand this.
+[1:02:20] Four directions I have up whatever. So it's like decrement by row
+[1:02:26] down increment by row left decrement column right increment column. Remember
+[1:02:33] that eight directions would be increment row and column decrement row and column.
+[1:02:39] No top right left top left bottom and right bottom.
+[1:02:45] So in some cases they'll increment both some cases they'll decrement both. But
+[1:02:49] since it's four directions are you clear? U D L R
+[1:02:54] what do you do after that sir? >> Uh I would go then to the first uh
+[1:02:59] element that I find which is one. So in this case that would be uh the right one
+[1:03:03] I guess going clockwise it'll be 1 comma 2. I would go there and repeat this
+[1:03:08] process and uh see if there's any ones I just
+[1:03:12] >> how do you repeat this process? >> I would again check it's up down left uh
+[1:03:15] up down left and right. Yes. >> Will you do that or will you just enter
+[1:03:20] the queue? We talking about BFS,
+[1:03:23] >> right? I would add I would add that and that to the queue for both of them
+[1:03:26] after. >> So basically what you what you what he
+[1:03:28] has got is one one I'll get all his neighbors. I'll check if the neighbor is
+[1:03:33] zero or one. If the neighbor is one add to the Q
+[1:03:38] >> and after adding to Q we'll go to the next one that we found.
+[1:03:41] >> So next element from the Q you get get is neighbors. Now the question to you is
+[1:03:45] once you go to that one two what is one two neighbor of one one
+[1:03:51] >> how do you ensure that you don't go back from one two to one one now one two's
+[1:03:56] left will be 1 one's right was one two how do you ensure you don't go back to 1
+[1:04:00] one >> we'll have a track of visited
+[1:04:02] >> so you're going to create one more uh matrix of m into n visited
+[1:04:07] >> yes >> okay now what if I tell you you cannot
+[1:04:09] have additional storage >> okay
+[1:04:12] >> you're getting my problem. >> Uh in that case, uh because I went to
+[1:04:16] the right, I just won't check the left. >> Why? How do you know, sir? You can't do
+[1:04:21] that. No, you cannot do that. Just be that means you're going to keep track.
+[1:04:25] Oh, I went to left, so don't check left. I mean, I went to right. No, that's
+[1:04:28] somewhere another storage, right? Did you understand my problem? From 1 one, I
+[1:04:34] have gone to one two. But when I go to one, two, the left of one two is 1 one.
+[1:04:39] And if I go from 1 one to 1 12 to 1 221 1 then I'm you know in that loop and
+[1:04:45] never out of it. So he said we'll create one more visited array and we'll mark
+[1:04:51] all of them as visited whichever we have. My question to him is you cannot
+[1:04:55] have additional storage. >> Uh change the element to minus one or
+[1:04:59] something. >> Why not change it to zero?
+[1:05:02] >> Uh because in further iterations it might see that zero as a blank space
+[1:05:06] maybe. So >> no zero means uh
+[1:05:09] >> like no when we go to the next row or whatever it might see that as zero so
+[1:05:12] it's a break but if it sees minus one I was thinking
+[1:05:15] >> how is the input data given zeros and ones and ones
+[1:05:18] >> zeros means >> no land
+[1:05:20] >> no land >> water
+[1:05:21] >> so once you have process one one mark that cell as zero
+[1:05:26] >> okay >> so when you go to one two you will not
+[1:05:29] come back to one one because it is zero >> we don't want additional storage So
+[1:05:36] there now the next question the interviewer says oh if you mark it to
+[1:05:40] zero are you not modifying the original data
+[1:05:44] can I figure out how the original grid look like you're getting what I'm coming
+[1:05:49] to guys >> yes
+[1:05:51] >> questioning your question thought process now letting you think
+[1:05:54] differently
+[1:05:57] have you got it after he does that everything will become zero now if I say
+[1:06:01] oh print the original grid you say oh my god I disturbed it is gone on I cannot
+[1:06:06] print it.
+[1:06:09] So how do you address both my problems? No additional storage and the original
+[1:06:15] grid should be intact as is >> then we can make it minus one only and
+[1:06:20] after the entry I'm coming back to him I'll make it minus1 instead of zero. So
+[1:06:25] minus1 or zero means processed and they don't exist. But when I have to print
+[1:06:31] the original grid, I will go figure out all the cells which are minus one and
+[1:06:36] mark them back to zero and print that. But I still don't have additional
+[1:06:41] storage. Is it clear? Are you guys getting it?
+[1:06:47] No extra storage. We are retaining the original grid by marking it minus one.
+[1:06:52] If you don't care about the original grid, go mark it as zero. In our
+[1:06:55] solution, we are marking it as zero. But I'm just putting this extra thought to
+[1:06:58] you. original grid will be lost if you mark it as zero. Mark it anything other
+[1:07:02] than zero.
+[1:07:06] Are you all clear? Yeah. So one of the interesting things
+[1:07:12] here is once I have gone from left to right, right should not take me back to
+[1:07:17] where I came from. So the way we do it is if it is one mark it as zero which
+[1:07:23] means it is already processed. So with respect to right this will never be
+[1:07:27] considered because in area you can't include both multiple times area will
+[1:07:32] become crazy then so from left I've gone to right left value plus right value two
+[1:07:38] again from right I can't go back to left from top I went to bottom I from bottom
+[1:07:41] I cannot go back to top so you can use a simple a Q where you
+[1:07:50] store in the Q two values a pair I and J and whenever you get from the Q you'll
+[1:07:55] get both I and J and then you find out all his neighbors which is left is minus
+[1:08:01] J right is plus J up is minus I and down is plus I you know increment row up and
+[1:08:07] down row is up and down decrement increment column is left and right
+[1:08:13] decrement column increment column if is that diagram clear
+[1:08:18] yeah now can you go to the word document Down.
+[1:08:24] Down, sir. No. Why are you showing the code?
+[1:08:34] A diagram. Diagram. I mean, what I scribbled?
+[1:08:40] Yeah. So, the real crux is how do you get the neighbors?
+[1:08:46] The other thing you also need to do is if I am here, let's say one, this would
+[1:08:51] be my neighbor and this would be my neighbor and they're not within the
+[1:08:55] bounds. Please make sure you do not consider any I and J which is going
+[1:09:01] beyond the bounds. If it is beyond the bounds, ignore it.
+[1:09:05] If it is zero, ignore it. If it is, you know, I'm in 0 0. Left will be minus and
+[1:09:12] up will be minus. So, ignore it. It has to be within the bounds and it has to
+[1:09:16] have a value one for me to consider. As simple as that.
+[1:09:21] Yes. You have a question. Yeah. Uh did you have any other different way of
+[1:09:26] solving? Yes.
+[1:09:31] Same. Okay. Uh anybody has any other way of looking
+[1:09:36] at this problem? Are you clear? So what is given to you
+[1:09:42] as input is a matrix and you need to calculate the maximum area given
+[1:09:49] the matrix and area is considered a bunch of consecutive ones based on
+[1:09:55] horizontal vertical but in our problem we we have given you eight directions
+[1:10:00] you can consider horizontally vertically two diagonally cross two and the other
+[1:10:06] cross two so it's like uh if it is eight directions uh blank screen,
+[1:10:14] I would have something like this.
+[1:10:20] If this is my data
+[1:10:28] and I'm going to start with this row column 03 has one. So left neighbor
+[1:10:37] is this left diagonal this guy's left
+[1:10:44] down a diagonal considered this is also considered.
+[1:10:50] So the eight directions would be uh for this particular cell
+[1:10:56] down right left uh right up left down left up right down right down
+[1:11:08] right up left up left down left right up and down. So you are
+[1:11:17] considering eight values now and all the eight values have to be
+[1:11:22] marked one for you to consider. I mean any all of them have to be one if you
+[1:11:26] want to consider any one of them and they all have to be within the bounds
+[1:11:30] max area and because it is DFS we are going to use a Q to solve it.
+[1:11:37] How many are unclear about solving this problem?
+[1:11:43] unclear, not clear or something is not clear. Most of it is
+[1:11:48] clear. Whatever doubts you have, please ask.
+[1:11:52] Are you all clear? Because every problem will be solved in the same way. Number
+[1:11:57] of islands and number of distinct islands in BFS. DFS also will be the
+[1:12:02] same approach but there we use a stack or a recussion. But the way we the the
+[1:12:09] result does not change because of BFS or DFS approach.
+[1:12:16] Okay, if you're good, uh what we will do is we'll start with three programs. The
+[1:12:21] first is the BFS. Uh the second is that lonely nodes and the third is max area.
+[1:12:29] Uh and then we'll continue with this in the next class. uh the solution to both
+[1:12:35] of them lonely nodes and max area before we look at number of islands and number
+[1:12:40] of distinct islands. So solution we will share next class not

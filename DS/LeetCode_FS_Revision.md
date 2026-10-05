@@ -1,10 +1,14 @@
 # FS coding revision from your 144 solved problems
 
+**Lecture update, 5 October:** [FS_START_HERE.md](FS_START_HERE.md) and [the expanded 71-problem pool](FS_LeetCode_Practice.md) now incorporate the Day 4–10 summary and Day 11–27 captions. The eight problems below remain a useful earlier shortlist, but the expanded package adds class methods, Stock II, Maximum Swap, Product Except Self and local greedy gaps. Use its priorities to select rather than stacking both queues.
+
 Prepared on 5 October 2026 for the 9 October test. Follow [Study_Workflow.md](Study_Workflow.md): coding preparation focuses on recursion, arrays/strings and greedy. Other lecture topics still need notes and scenario MCQs.
 
 ## What the export establishes
 
 The supplied paste contains **144 unique problem IDs: 52 Easy, 80 Medium and 12 Hard**. The [clean inventory](LeetCode_Solved_Inventory.md) preserves every title and difficulty; the [original paste](sources/LeetCode_Solved_List.txt) is archived separately.
+
+The eight-problem queue below is a representative shortlist. The [complete topic map](LeetCode_FS_Full_Topic_Map.md) classifies all 144 problems: 54 array/string candidates, 12 recursion-related candidates, 11 greedy candidates and 67 conditional/lower-priority implementations. It also explains which methods and advanced variants are optional and why the broad notice cannot establish a definitive per-problem requirement.
 
 This is your reported solved list. The paste does not contain acceptance status, dates, submitted code or current recall. No login/submission verification or mastery assessment is implied. Acceptance percentages were omitted from the clean inventory because they are site-wide figures and do not measure your readiness.
 

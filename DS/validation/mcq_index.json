@@ -1,0 +1,4017 @@
+{
+  "count": 250,
+  "diagnostic": [
+    1,
+    7,
+    21,
+    27,
+    32,
+    37,
+    43,
+    49,
+    55,
+    60,
+    65,
+    70,
+    77,
+    83,
+    92,
+    98,
+    103,
+    108,
+    112,
+    117,
+    123,
+    128,
+    136,
+    142,
+    156,
+    161,
+    166,
+    181,
+    191,
+    196
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "section": "Foundations and output cost",
+      "source": "Days 1\u20132; Day_01_Notes.md and Day_02_Notes.md",
+      "title": "One zero versus two",
+      "body": "For product-except-self without division, what is the output for `[2,0,4,0]`?",
+      "options": [
+        "[0,8,0,8]",
+        "[8,0,8,0]",
+        "Division by zero is unavoidable",
+        "[0,0,0,0]"
+      ],
+      "answer": "D",
+      "correct": "[0,0,0,0]",
+      "explanation": "Every exclusion still leaves at least one zero. Prefix/suffix products handle this without division; a one-zero special case cannot be reused for two zeros.",
+      "extension": false
+    },
+    {
+      "id": 2,
+      "section": "Foundations and output cost",
+      "source": "Days 1\u20132; Day_01_Notes.md and Day_02_Notes.md",
+      "title": "Prefix observation",
+      "body": "Pseudocode: `p=1; for i=0..3: ans[i]=p; p*=a[i]`, with a=[2,3,4,5]. What is ans before the suffix pass?",
+      "options": [
+        "[2,6,24,120]",
+        "[60,40,30,24]",
+        "[1,2,6,24]",
+        "[1,3,12,60]"
+      ],
+      "answer": "C",
+      "correct": "[1,2,6,24]",
+      "explanation": "Write the prefix before multiplying the current element. Each position then excludes itself on the left; the suffix pass supplies its right product.",
+      "extension": false
+    },
+    {
+      "id": 3,
+      "section": "Foundations and output cost",
+      "source": "Days 1\u20132; Day_01_Notes.md and Day_02_Notes.md",
+      "title": "Space accounting",
+      "body": "A \u0398(n) product-except-self algorithm stores prefixes in the returned n-element vector and uses two scalar accumulators. Ignoring output storage, what is auxiliary space?",
+      "options": [
+        "\u0398(n)",
+        "\u0398(1)",
+        "\u0398(log n)",
+        "\u0398(n\u00b2)"
+      ],
+      "answer": "B",
+      "correct": "\u0398(1)",
+      "explanation": "The required output uses \u0398(n) storage but is explicitly excluded here. Count any extra prefix/suffix arrays if the implementation allocates them.",
+      "extension": false
+    },
+    {
+      "id": 4,
+      "section": "Foundations and output cost",
+      "source": "Days 1\u20132; Day_01_Notes.md and Day_02_Notes.md",
+      "title": "A bound is not a case name",
+      "body": "A worst-case runtime is T(n)=3n+7. Which statement is correct?",
+      "options": [
+        "It is both O(n) and \u03a9(n), hence \u0398(n)",
+        "\u03a9(n) describes only its best case",
+        "O(n\u00b2) is false because it is not tight",
+        "\u0398(n) means average-case only"
+      ],
+      "answer": "A",
+      "correct": "It is both O(n) and \u03a9(n), hence \u0398(n)",
+      "explanation": "Bounds apply to the specified runtime function. O(n\u00b2) is also a valid loose upper bound; \u03a9 does not change which case is being measured.",
+      "extension": false
+    },
+    {
+      "id": 5,
+      "section": "Foundations and output cost",
+      "source": "Days 1\u20132; Day_01_Notes.md and Day_02_Notes.md",
+      "title": "Output dominates",
+      "body": "A program returns every permutation of n distinct characters as independent length-n strings. Even if recursion bookkeeping were free, what materialized-output lower bound applies?",
+      "options": [
+        "\u03a9(n!) only, including all character writes",
+        "\u0398(log n) total space",
+        "O(n\u00b2) output time",
+        "\u03a9(n\u00b7n!) character writes"
+      ],
+      "answer": "D",
+      "correct": "\u03a9(n\u00b7n!) character writes",
+      "explanation": "There are n! strings of length n. Fixed-word pointer references are not equivalent to independently materialized strings.",
+      "extension": false
+    },
+    {
+      "id": 6,
+      "section": "Foundations and output cost",
+      "source": "Days 1\u20132; Day_01_Notes.md and Day_02_Notes.md",
+      "title": "Repeated letters",
+      "body": "How many distinct complete strings can be formed by permuting `AABC`?",
+      "options": [
+        "24",
+        "8",
+        "12",
+        "6"
+      ],
+      "answer": "C",
+      "correct": "12",
+      "explanation": "Four positions yield 4! index permutations; exchanging the two A positions does not create a new string, so divide by 2!.",
+      "extension": false
+    },
+    {
+      "id": 7,
+      "section": "Recursion, Fibonacci and stairs",
+      "source": "Days 1\u20132",
+      "title": "Unwinding output",
+      "body": "C++17: `void f(int n){if(n==0)return; f(n-1); cout<<n;}`. What is printed by f(3)?",
+      "options": [
+        "321",
+        "123",
+        "0123",
+        "Nothing"
+      ],
+      "answer": "B",
+      "correct": "123",
+      "explanation": "The recursive call completes before each print. Stack depth is linear even though output rises from 1 to3.",
+      "extension": false
+    },
+    {
+      "id": 8,
+      "section": "Recursion, Fibonacci and stairs",
+      "source": "Days 1\u20132",
+      "title": "Both sides of the call",
+      "body": "C++17: `void f(int n){if(n==0)return; cout<<n; f(n-1); cout<<n;}`. What is printed by f(3)?",
+      "options": [
+        "321123",
+        "321321",
+        "123321",
+        "332211"
+      ],
+      "answer": "A",
+      "correct": "321123",
+      "explanation": "Entry prints3,2,1; unwind prints1,2,3. The base call prints nothing.",
+      "extension": false
+    },
+    {
+      "id": 9,
+      "section": "Recursion, Fibonacci and stairs",
+      "source": "Days 1\u20132",
+      "title": "Post-decrement fails progress",
+      "body": "Java, deliberately faulty: `static int f(int n){if(n==0)return 0;return f(n--);}`. What happens for f(2)?",
+      "options": [
+        "Returns0",
+        "Returns2",
+        "Compile-time error",
+        "Repeated calls receive2; eventually StackOverflowError"
+      ],
+      "answer": "D",
+      "correct": "Repeated calls receive2; eventually StackOverflowError",
+      "explanation": "Post-decrement passes the old value into the child. The suspended caller decrement does not change the child parameter.",
+      "extension": false
+    },
+    {
+      "id": 10,
+      "section": "Recursion, Fibonacci and stairs",
+      "source": "Days 1\u20132",
+      "title": "Fibonacci call counter",
+      "body": "Pseudocode: `fib(n): calls++; if n<=1 return n; return fib(n-1)+fib(n-2)`. Starting calls=0, how many invocations for fib(5), including bases?",
+      "options": [
+        "5",
+        "8",
+        "15",
+        "31"
+      ],
+      "answer": "C",
+      "correct": "15",
+      "explanation": "C(0)=C(1)=1 and C(n)=1+C(n\u22121)+C(n\u22122): C2=3,C3=5,C4=9,C5=15. Sequence value5 is not call count.",
+      "extension": false
+    },
+    {
+      "id": 11,
+      "section": "Recursion, Fibonacci and stairs",
+      "source": "Days 1\u20132",
+      "title": "Time versus active stack",
+      "body": "For unmemoized fib(n)=fib(n\u22121)+fib(n\u22122), n\u22652, which pair describes time and stack?",
+      "options": [
+        "Exponential time and exponential simultaneous stack",
+        "Exponential time, \u0398(n) stack",
+        "\u0398(n) time and \u0398(log n) stack",
+        "\u0398(n\u00b2) time and \u0398(1) stack"
+      ],
+      "answer": "B",
+      "correct": "Exponential time, \u0398(n) stack",
+      "explanation": "Both branches perform work, but they execute at different times; maximum live path has depth n.",
+      "extension": false
+    },
+    {
+      "id": 12,
+      "section": "Recursion, Fibonacci and stairs",
+      "source": "Days 1\u20132",
+      "title": "State recursion",
+      "body": "Java: `f(n,a,b){if(n==0)return a;return f(n-1,b,a+b);}` with arbitrary-size arithmetic ignored. For f(n,0,1), what is guaranteed?",
+      "options": [
+        "\u0398(n) time and \u0398(n) call-stack space",
+        "\u0398(n) time and guaranteed \u0398(1) stack",
+        "Exponential time",
+        "\u0398(log n) time"
+      ],
+      "answer": "A",
+      "correct": "\u0398(n) time and \u0398(n) call-stack space",
+      "explanation": "Each call decreases n by1 and does constant bookkeeping. Java does not guarantee tail-call elimination.",
+      "extension": false
+    },
+    {
+      "id": 13,
+      "section": "Recursion, Fibonacci and stairs",
+      "source": "Days 1\u20132",
+      "title": "Ways at zero",
+      "body": "Counting ordered jumps of length1 or2: ways(n)=ways(n\u22121)+ways(n\u22122), ways(0)=1, ways(n<0)=0. What is ways(4)?",
+      "options": [
+        "3",
+        "4",
+        "8",
+        "5"
+      ],
+      "answer": "D",
+      "correct": "5",
+      "explanation": "The sequences are1111,112,121,211,22. The empty sequence makes ways(0)=1 and supplies the correct recurrence base.",
+      "extension": false
+    },
+    {
+      "id": 14,
+      "section": "Recursion, Fibonacci and stairs",
+      "source": "Days 1\u20132",
+      "title": "Generalized jumps",
+      "body": "Ordered jumps1..3 with ways(0)=1 and ways(n<0)=0. What is ways(4)?",
+      "options": [
+        "4",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": "C",
+      "correct": "7",
+      "explanation": "Ways1=1,2=2,3=4; ways4=4+2+1=7. An unordered coin-combination count answers another question.",
+      "extension": false
+    },
+    {
+      "id": 15,
+      "section": "Strings, containers and language costs",
+      "source": "Days 2, 10\u201311; extensions labelled",
+      "title": "Discarded immutable result",
+      "body": "Java: `String s=\"abc\"; s.concat(\"d\"); System.out.print(s);` What prints?",
+      "options": [
+        "abcd",
+        "abc",
+        "d",
+        "A compilation error"
+      ],
+      "answer": "B",
+      "correct": "abc",
+      "explanation": "concat returns a new string; the existing immutable object is not changed and the return value is discarded.",
+      "extension": false
+    },
+    {
+      "id": 16,
+      "section": "Strings, containers and language costs",
+      "source": "Days 2, 10\u201311; extensions labelled",
+      "title": "Shared builder",
+      "body": "Java: `StringBuilder a=new StringBuilder(\"ab\"); StringBuilder b=a; b.append(\"c\"); System.out.print(a);` What prints?",
+      "options": [
+        "abc",
+        "ab",
+        "c",
+        "An exception"
+      ],
+      "answer": "A",
+      "correct": "abc",
+      "explanation": "Both references point to the same mutable builder. Reassignment of b to a new builder would be a different operation.",
+      "extension": false
+    },
+    {
+      "id": 17,
+      "section": "Strings, containers and language costs",
+      "source": "Days 2, 10\u201311; extensions labelled",
+      "title": "Reversal recursion space",
+      "body": "An in-place char-array reversal recursively swaps endpoints then calls reverse(lo+1,hi\u22121). For length n, absent guaranteed tail-call optimization, what is auxiliary space?",
+      "options": [
+        "\u0398(1) because swaps are in-place",
+        "\u0398(n\u00b2)",
+        "\u0398(log n)",
+        "\u0398(n) stack"
+      ],
+      "answer": "D",
+      "correct": "\u0398(n) stack",
+      "explanation": "There are about n/2 nested calls. The array is not duplicated, but the active call frames still consume linear space.",
+      "extension": false
+    },
+    {
+      "id": 18,
+      "section": "Strings, containers and language costs",
+      "source": "Days 2, 10\u201311; extensions labelled",
+      "title": "Happy-number cycle",
+      "body": "Repeatedly replace a positive integer by the sum of squared decimal digits. Why is \u201creturn false after10 steps\u201d not a correctness criterion?",
+      "options": [
+        "Every integer reaches1 in10 steps",
+        "The map must store all integers ever existing",
+        "An arbitrary cap lacks a proof; use repeated-state detection or a proven cycle test",
+        "The transformation always strictly decreases"
+      ],
+      "answer": "C",
+      "correct": "An arbitrary cap lacks a proof; use repeated-state detection or a proven cycle test",
+      "explanation": "The process eventually enters a cycle in a bounded region, but individual steps need not decrease. Visiting1 means happy; repeating another state means unhappy.",
+      "extension": false
+    },
+    {
+      "id": 19,
+      "section": "Strings, containers and language costs",
+      "source": "Days 2, 10\u201311; extensions labelled",
+      "title": "Signed division",
+      "body": "Which pair is produced by Java `-3/2` and Python `-3//2`, respectively?",
+      "options": [
+        "(-2,-2)",
+        "(-1,-2)",
+        "(-1,-1)",
+        "(-2,-1)"
+      ],
+      "answer": "B",
+      "correct": "(-1,-2)",
+      "explanation": "Java truncates toward zero; Python floor division rounds down. Do not substitute floor for truncation when tracing negative exponents.",
+      "extension": false
+    },
+    {
+      "id": 20,
+      "section": "Strings, containers and language costs",
+      "source": "Days 2, 10\u201311; extensions labelled",
+      "title": "Hidden copying",
+      "body": "Python extension: a recurrence makes two recursive calls on copied halves `a[:mid]` and `a[mid:]`, with no other work. What recurrence counts copying at each non-base call?",
+      "options": [
+        "T(n)=2T(n/2)+\u0398(n)",
+        "T(n)=2T(n/2)+\u0398(1)",
+        "T(n)=T(n\u22121)+\u0398(1)",
+        "T(n)=\u0398(log n)"
+      ],
+      "answer": "A",
+      "correct": "T(n)=2T(n/2)+\u0398(n)",
+      "explanation": "Slice construction copies elements proportional to total half lengths. Passing index intervals avoids that copying toll.",
+      "extension": true
+    },
+    {
+      "id": 21,
+      "section": "Quicksort partition traces",
+      "source": "Days 4\u20135 summary",
+      "title": "Exact partition state",
+      "body": "Last-pivot Lomuto, strict `<`, i=lo; swap passing elements into i then swap a[i],a[hi]. After one partition of [60,50,20,70,30], which result is correct?",
+      "options": [
+        "[20,30,50,60,70], index1",
+        "[30,20,60,70,50], index0",
+        "[20,50,30,70,60], index2",
+        "[20,30,60,70,50], pivot index1"
+      ],
+      "answer": "D",
+      "correct": "[20,30,60,70,50], pivot index1",
+      "explanation": "Only20 is smaller than30. Its scan swap precedes the pivot swap; the right side is not yet sorted.",
+      "extension": false
+    },
+    {
+      "id": 22,
+      "section": "Quicksort partition traces",
+      "source": "Days 4\u20135 summary",
+      "title": "Duplicates and strict comparison",
+      "body": "Same partition on [5,5,5,5] with lo0,hi3. Where is the pivot placed?",
+      "options": [
+        "Index1",
+        "Index2",
+        "Index0",
+        "Index3"
+      ],
+      "answer": "C",
+      "correct": "Index0",
+      "explanation": "No scanned value is strictly smaller, so i stays0. Equal values move to the right partition and cause a degenerate recursion.",
+      "extension": false
+    },
+    {
+      "id": 23,
+      "section": "Quicksort partition traces",
+      "source": "Days 4\u20135 summary",
+      "title": "Comparison changed",
+      "body": "Change Lomuto condition to `a[j]<=pivot`, keeping all other rules. On [5,5,5,5], pivot index?",
+      "options": [
+        "0",
+        "3",
+        "1",
+        "2"
+      ],
+      "answer": "B",
+      "correct": "3",
+      "explanation": "Every scanned equal value advances i. The degeneration moves to the opposite side; changing equality does not balance all-equal input.",
+      "extension": false
+    },
+    {
+      "id": 24,
+      "section": "Quicksort partition traces",
+      "source": "Days 4\u20135 summary",
+      "title": "Nonshrinking interval",
+      "body": "Faulty quicksort: after last-pivot partition p, recurse `[lo,p]` and `[p+1,hi]`. Which input can make a branch retain the entire original range?",
+      "options": [
+        "[1,2,3,4] with last pivot",
+        "Only an empty input",
+        "Every input must terminate anyway",
+        "Only mixed positive/negative values"
+      ],
+      "answer": "A",
+      "correct": "[1,2,3,4] with last pivot",
+      "explanation": "Pivot4 is placed at hi; [lo,p] then equals the old interval. For Lomuto, exclude p from both recursive ranges.",
+      "extension": false
+    },
+    {
+      "id": 25,
+      "section": "Quicksort partition traces",
+      "source": "Days 4\u20135 summary",
+      "title": "Linear stack despite in-place",
+      "body": "Strict last-pivot quicksort runs on an already sorted array of n distinct values. Time and maximum recursive depth?",
+      "options": [
+        "\u0398(nlogn), \u0398(logn)",
+        "\u0398(n\u00b2), \u0398(1)",
+        "\u0398(nlogn), \u0398(n)",
+        "\u0398(n\u00b2) time, \u0398(n) depth"
+      ],
+      "answer": "D",
+      "correct": "\u0398(n\u00b2) time, \u0398(n) depth",
+      "explanation": "Partition sizes repeatedly become n\u22121 and0. In-place partition does not remove call frames.",
+      "extension": false
+    },
+    {
+      "id": 26,
+      "section": "Quicksort partition traces",
+      "source": "Days 4\u20135 summary",
+      "title": "Randomization guarantee",
+      "body": "After choosing pivots uniformly at random, which statement is valid for quicksort on distinct keys?",
+      "options": [
+        "Every execution is \u0398(nlogn)",
+        "The algorithm becomes stable",
+        "Expected \u0398(nlogn), but a \u0398(n\u00b2) worst case remains",
+        "Worst-case stack becomes \u0398(1)"
+      ],
+      "answer": "C",
+      "correct": "Expected \u0398(nlogn), but a \u0398(n\u00b2) worst case remains",
+      "explanation": "Expected behavior is over pivot choices. Extremely unbalanced choices are still possible; swaps still do not ensure stability.",
+      "extension": false
+    },
+    {
+      "id": 27,
+      "section": "Majority candidates and voting",
+      "source": "Days 4\u20135 summary",
+      "title": "Strict majority",
+      "body": "For n=6, which minimum frequency satisfies the majority definition?",
+      "options": [
+        "3",
+        "4",
+        "2",
+        "6"
+      ],
+      "answer": "B",
+      "correct": "4",
+      "explanation": "A majority exceeds n/2, rather than merely attaining half. n/2 equal-frequency candidates may tie without a majority.",
+      "extension": false
+    },
+    {
+      "id": 28,
+      "section": "Majority candidates and voting",
+      "source": "Days 4\u20135 summary",
+      "title": "Vote counter is not frequency",
+      "body": "Voting sets candidate when count0, then +1 for match/\u22121 otherwise. For [1,2,2,2,1,1,1,1,1,2], what are final candidate/count?",
+      "options": [
+        "(1,2)",
+        "(1,6)",
+        "(2,4)",
+        "(2,0)"
+      ],
+      "answer": "A",
+      "correct": "(1,2)",
+      "explanation": "Cancellation discards opposing votes. There are six1s but only a surplus count2 at the end.",
+      "extension": false
+    },
+    {
+      "id": 29,
+      "section": "Majority candidates and voting",
+      "source": "Days 4\u20135 summary",
+      "title": "Missing promise",
+      "body": "Voting on [1,2,3,4] returns a candidate. What is the necessary final step to support a general majority/no-majority interface?",
+      "options": [
+        "Return the final positive counter",
+        "Return a[n/2] without checking",
+        "Require candidate>0",
+        "Count candidate occurrences and require >n/2"
+      ],
+      "answer": "D",
+      "correct": "Count candidate occurrences and require >n/2",
+      "explanation": "Neither a surviving candidate nor a middle sorted element proves existence when the majority promise is absent.",
+      "extension": false
+    },
+    {
+      "id": 30,
+      "section": "Majority candidates and voting",
+      "source": "Days 4\u20135 summary",
+      "title": "D&C complexity",
+      "body": "D&C majority with index ranges: two half candidates, if unequal count both in the current interval. Worst-case time/stack?",
+      "options": [
+        "\u0398(n) time, O(n) stack",
+        "\u0398(n\u00b2) time, O(1) stack",
+        "\u0398(nlogn) time, O(logn) stack",
+        "Exponential time"
+      ],
+      "answer": "C",
+      "correct": "\u0398(nlogn) time, O(logn) stack",
+      "explanation": "Linear combining at each of logarithmically many levels gives nlogn. Equality can skip a combine, but that is not the worst-case guarantee.",
+      "extension": false
+    },
+    {
+      "id": 31,
+      "section": "Majority candidates and voting",
+      "source": "Days 4\u20135 summary",
+      "title": "Sentinel collision",
+      "body": "An implementation uses return\u22121 to mean no majority, while inputs may contain\u22121. What makes its interface ambiguous?",
+      "options": [
+        "Negative values can never have majority",
+        "[-1,-1,2] has legitimate majority\u22121",
+        "Sorting removes all negative values",
+        "Only odd-sized arrays fail"
+      ],
+      "answer": "B",
+      "correct": "[-1,-1,2] has legitimate majority\u22121",
+      "explanation": "Use optional/status+value. Numeric sentinel choice cannot distinguish this valid answer from absence.",
+      "extension": false
+    },
+    {
+      "id": 32,
+      "section": "Fast power and overflow boundaries",
+      "source": "Days 4\u20135 summary",
+      "title": "Count single-half calls",
+      "body": "Pseudocode: p(n) counts entry; if n==0 return1; t=p(floor(n/2)); return even? t*t:t*t*x. Calls for n=13, including base?",
+      "options": [
+        "5",
+        "4",
+        "13",
+        "15"
+      ],
+      "answer": "A",
+      "correct": "5",
+      "explanation": "Arguments13,6,3,1,0 form five entries. Multiplication values do not add recursive calls.",
+      "extension": false
+    },
+    {
+      "id": 33,
+      "section": "Fast power and overflow boundaries",
+      "source": "Days 4\u20135 summary",
+      "title": "Duplicated half",
+      "body": "For positive n, code evaluates `power(x,n/2)*power(x,n/2)` as two independent calls at every level. What time bound replaces logarithmic time?",
+      "options": [
+        "\u0398(logn)",
+        "\u0398(nlogn)",
+        "\u0398(2^n)",
+        "\u0398(n)"
+      ],
+      "answer": "D",
+      "correct": "\u0398(n)",
+      "explanation": "There are two half-sized calls: T(n)=2T(n/2)+\u0398(1). The active depth is still logarithmic.",
+      "extension": false
+    },
+    {
+      "id": 34,
+      "section": "Fast power and overflow boundaries",
+      "source": "Days 4\u20135 summary",
+      "title": "Widen before negation",
+      "body": "Java int n=Integer.MIN_VALUE. Which conversion correctly produces its positive magnitude?",
+      "options": [
+        "`long e=-n;`",
+        "`int e=Math.abs(n);`",
+        "`long e=n; e=-e;`",
+        "`long e=(long)(-n);`"
+      ],
+      "answer": "C",
+      "correct": "`long e=n; e=-e;`",
+      "explanation": "The negation must occur after widening. Negating MIN_VALUE as int wraps to itself; casting afterwards is too late.",
+      "extension": false
+    },
+    {
+      "id": 35,
+      "section": "Fast power and overflow boundaries",
+      "source": "Days 4\u20135 summary",
+      "title": "Integer reciprocal",
+      "body": "C++17: `int x=2; double y=1/x;` What is y?",
+      "options": [
+        "0.5",
+        "0.0",
+        "2.0",
+        "Undefined behavior"
+      ],
+      "answer": "B",
+      "correct": "0.0",
+      "explanation": "Integer operands perform integer division first; conversion to double occurs after the quotient. Use1.0/x.",
+      "extension": false
+    },
+    {
+      "id": 36,
+      "section": "Fast power and overflow boundaries",
+      "source": "Days 4\u20135 summary",
+      "title": "Negative base",
+      "body": "A correct single-half power implementation computes power(\u22122,\u22123). Result?",
+      "options": [
+        "-0.125",
+        "0.125",
+        "-8",
+        "0"
+      ],
+      "answer": "A",
+      "correct": "-0.125",
+      "explanation": "Negative exponent takes the reciprocal; odd exponent preserves negative sign. This is distinct from integer reciprocal truncation.",
+      "extension": false
+    },
+    {
+      "id": 37,
+      "section": "Merge sort and intermediate states",
+      "source": "Day 6 summary",
+      "title": "Before final merge",
+      "body": "Conventional recursive merge sort has finished both child sorts of [6,5,4,3,2,1]. Full array immediately before the top merge?",
+      "options": [
+        "[6,5,4,3,2,1]",
+        "[1,2,3,4,5,6]",
+        "[3,2,1,6,5,4]",
+        "[4,5,6,1,2,3]"
+      ],
+      "answer": "D",
+      "correct": "[4,5,6,1,2,3]",
+      "explanation": "The halves are individually sorted and have already been written back. Only the final cross-half merge remains.",
+      "extension": false
+    },
+    {
+      "id": 38,
+      "section": "Merge sort and intermediate states",
+      "source": "Day 6 summary",
+      "title": "Inclusive split lengths",
+      "body": "lo=2,hi=7,mid=lo+(hi\u2212lo)/2=4. Left and right buffer lengths?",
+      "options": [
+        "(2,4)",
+        "(2,3)",
+        "(3,3)",
+        "(3,4)"
+      ],
+      "answer": "C",
+      "correct": "(3,3)",
+      "explanation": "Left includes both endpoints2 and4:3 elements. Right spans5..7:hi\u2212mid=3.",
+      "extension": false
+    },
+    {
+      "id": 39,
+      "section": "Merge sort and intermediate states",
+      "source": "Day 6 summary",
+      "title": "Stability on ties",
+      "body": "Left run records [(2,A),(2,B)], right [(2,C)]. The merge chooses right whenever keys tie. Output label order?",
+      "options": [
+        "A,B,C; stable",
+        "C,A,B; not stable",
+        "A,C,B; stable",
+        "B,A,C; always stable"
+      ],
+      "answer": "B",
+      "correct": "C,A,B; not stable",
+      "explanation": "The right record originally followed the left run but overtakes it. Sorted keys alone do not imply stability.",
+      "extension": false
+    },
+    {
+      "id": 40,
+      "section": "Merge sort and intermediate states",
+      "source": "Day 6 summary",
+      "title": "Remaining run",
+      "body": "Merging [1,4] and [2,3,5], the main two-nonempty loop ends. Which remaining item must be appended?",
+      "options": [
+        "5",
+        "4",
+        "3",
+        "None"
+      ],
+      "answer": "A",
+      "correct": "5",
+      "explanation": "Selections1,2,3,4 exhaust the left run. A separate drain handles remaining right items.",
+      "extension": false
+    },
+    {
+      "id": 41,
+      "section": "Merge sort and intermediate states",
+      "source": "Day 6 summary",
+      "title": "Sorted input time",
+      "body": "Unoptimized merge sort always recurses and merges on sorted input of n elements. Tight time?",
+      "options": [
+        "\u0398(n)",
+        "\u0398(logn)",
+        "\u0398(n\u00b2)",
+        "\u0398(nlogn)"
+      ],
+      "answer": "D",
+      "correct": "\u0398(nlogn)",
+      "explanation": "Without an explicit already-ordered merge-skip, the same per-level work occurs. Do not transfer quicksort or insertion-sort cases blindly.",
+      "extension": false
+    },
+    {
+      "id": 42,
+      "section": "Merge sort and intermediate states",
+      "source": "Day 6 summary",
+      "title": "Peak versus cumulative memory",
+      "body": "A conventional merge sort allocates merge buffers on demand and releases them when each merge finishes. Which statement can be true?",
+      "options": [
+        "Both quantities must be O(1)",
+        "Cumulative allocations equal peak by definition",
+        "Peak O(n) live buffer space and \u0398(nlogn) cumulative allocated elements",
+        "Peak \u0398(n\u00b2) for every version"
+      ],
+      "answer": "C",
+      "correct": "Peak O(n) live buffer space and \u0398(nlogn) cumulative allocated elements",
+      "explanation": "Summing allocations over all levels counts lifetime traffic, not simultaneous memory. Stack adds O(logn).",
+      "extension": false
+    },
+    {
+      "id": 43,
+      "section": "Recurrence analysis",
+      "source": "Day 7 summary",
+      "title": "Root-dominated case",
+      "body": "T(n)=3T(n/2)+\u0398(n\u00b2), base constant. Tight bound?",
+      "options": [
+        "\u0398(n\u00b2logn)",
+        "\u0398(n\u00b2)",
+        "\u0398(n^(log\u20823))",
+        "\u0398(n\u00b3)"
+      ],
+      "answer": "B",
+      "correct": "\u0398(n\u00b2)",
+      "explanation": "a3 is below b^d=4. Work per level shrinks geometrically relative to root toll.",
+      "extension": false
+    },
+    {
+      "id": 44,
+      "section": "Recurrence analysis",
+      "source": "Day 7 summary",
+      "title": "Equal case",
+      "body": "T(n)=4T(n/2)+\u0398(n\u00b2). Tight bound?",
+      "options": [
+        "\u0398(n\u00b2logn)",
+        "\u0398(n\u00b2)",
+        "\u0398(n\u2074)",
+        "\u0398(nlogn)"
+      ],
+      "answer": "A",
+      "correct": "\u0398(n\u00b2logn)",
+      "explanation": "Each level contributes \u0398(n\u00b2) and there are \u0398(logn) levels.",
+      "extension": false
+    },
+    {
+      "id": 45,
+      "section": "Recurrence analysis",
+      "source": "Day 7 summary",
+      "title": "Leaves dominate",
+      "body": "T(n)=16T(n/4)+\u0398(n). Tight bound?",
+      "options": [
+        "\u0398(nlogn)",
+        "\u0398(n\u2074)",
+        "\u0398(logn)",
+        "\u0398(n\u00b2)"
+      ],
+      "answer": "D",
+      "correct": "\u0398(n\u00b2)",
+      "explanation": "log\u208416=2 exceeds the toll exponent1. Leaves dominate.",
+      "extension": false
+    },
+    {
+      "id": 46,
+      "section": "Recurrence analysis",
+      "source": "Day 7 summary",
+      "title": "Different recurrence family",
+      "body": "T(n)=T(n\u22121)+n with T(1)=1. Tight bound and applicable method?",
+      "options": [
+        "\u0398(nlogn), case2",
+        "\u0398(n), case1",
+        "\u0398(n\u00b2), summation rather than this Master-Theorem form",
+        "\u0398(2^n), recursion tree branching"
+      ],
+      "answer": "C",
+      "correct": "\u0398(n\u00b2), summation rather than this Master-Theorem form",
+      "explanation": "There is one subtractively shrinking call. Sum1+2+\u2026+n; no fixed b>1 describes n\u22121.",
+      "extension": false
+    },
+    {
+      "id": 47,
+      "section": "Recurrence analysis",
+      "source": "Day 7 summary",
+      "title": "Level toll",
+      "body": "For T(n)=3T(n/2)+n\u00b2, n power of2, what is total nonrecursive work at level i?",
+      "options": [
+        "n\u00b2\u00b73^i",
+        "n\u00b2\u00b7(3/4)^i",
+        "n\u00b2/2^i",
+        "n\u00b7(3/2)^i"
+      ],
+      "answer": "B",
+      "correct": "n\u00b2\u00b7(3/4)^i",
+      "explanation": "There are3^i subproblems, each toll(n/2^i)\u00b2. Multiply count by per-node toll.",
+      "extension": false
+    },
+    {
+      "id": 48,
+      "section": "Recurrence analysis",
+      "source": "Day 7 summary",
+      "title": "O does not imply tightness",
+      "body": "Given only T(n)=2T(n/2)+O(n), constant base, which conclusion is always supported?",
+      "options": [
+        "T(n)=O(nlogn), but \u0398(nlogn) is not established from that toll alone",
+        "Always \u0398(nlogn)",
+        "Always \u0398(logn)",
+        "No upper bound is possible"
+      ],
+      "answer": "A",
+      "correct": "T(n)=O(nlogn), but \u0398(nlogn) is not established from that toll alone",
+      "explanation": "The actual toll could be constant, giving \u0398(n). A tight per-level lower bound is needed for the tight nlogn claim.",
+      "extension": false
+    },
+    {
+      "id": 49,
+      "section": "Sorted counts and search boundaries",
+      "source": "Days 7\u20139 summary",
+      "title": "Pruned ones call count",
+      "body": "count(lo,hi) counts entry, returns0 if lo>hi or a[hi]==0, returns hi\u2212lo+1 if a[lo]==1, else sequentially calls both halves and sums. For [0,0,0,1,1], count(0,4) entries?",
+      "options": [
+        "5",
+        "9",
+        "1",
+        "3"
+      ],
+      "answer": "D",
+      "correct": "3",
+      "explanation": "Root splits0..2 (all0) and3..4 (all1), so two children return immediately.",
+      "extension": false
+    },
+    {
+      "id": 50,
+      "section": "Sorted counts and search boundaries",
+      "source": "Days 7\u20139 summary",
+      "title": "Two calls do not force linear",
+      "body": "For the pruned sorted0/1 counter above, why is worst-case time O(logn)?",
+      "options": [
+        "It always makes exactly one recursive call",
+        "The values are Boolean so recursion is free",
+        "At most one child per level still straddles the single0/1 boundary",
+        "Every node is pruned at the root"
+      ],
+      "answer": "C",
+      "correct": "At most one child per level still straddles the single0/1 boundary",
+      "explanation": "The other child is pure and returns in constant time. Counting syntax instead of surviving subproblems gives the wrong recurrence.",
+      "extension": false
+    },
+    {
+      "id": 51,
+      "section": "Sorted counts and search boundaries",
+      "source": "Days 7\u20139 summary",
+      "title": "Without pruning",
+      "body": "A count-ones method recursively splits both halves to single elements, without endpoint shortcuts. Time?",
+      "options": [
+        "\u0398(logn)",
+        "\u0398(n)",
+        "\u0398(nlogn)",
+        "\u0398(2^n)"
+      ],
+      "answer": "B",
+      "correct": "\u0398(n)",
+      "explanation": "There are n leaves and a linear number of internal nodes. Balanced depth alone does not imply logarithmic total work.",
+      "extension": false
+    },
+    {
+      "id": 52,
+      "section": "Sorted counts and search boundaries",
+      "source": "Days 7\u20139 summary",
+      "title": "Occurrence boundaries",
+      "body": "For [1,2,2,2,4], first index of2=1,last=3. Which formula counts occurrences?",
+      "options": [
+        "last\u2212first+1=3",
+        "last\u2212first=2",
+        "first+last=4",
+        "last+1=4"
+      ],
+      "answer": "A",
+      "correct": "last\u2212first+1=3",
+      "explanation": "Inclusive endpoints require +1. For absent keys, handle the absence sentinel before this formula.",
+      "extension": false
+    },
+    {
+      "id": 53,
+      "section": "Sorted counts and search boundaries",
+      "source": "Days 7\u20139 summary",
+      "title": "First occurrence update",
+      "body": "Closed-interval binary search on equality records answer=mid. Which update seeks the earliest equal index?",
+      "options": [
+        "lo=mid+1",
+        "return mid immediately",
+        "hi=mid while lo<=hi without another progress rule",
+        "hi=mid\u22121"
+      ],
+      "answer": "D",
+      "correct": "hi=mid\u22121",
+      "explanation": "The equal position is a candidate; any earlier equal must lie left. Using hi=mid with a closed loop can stall.",
+      "extension": false
+    },
+    {
+      "id": 54,
+      "section": "Sorted counts and search boundaries",
+      "source": "Days 7\u20139 summary",
+      "title": "C++ call order",
+      "body": "C++17: `return traceLeft()+traceRight();` Both functions print their name. What output order is guaranteed by this expression?",
+      "options": [
+        "Always Left then Right",
+        "Always Right then Left",
+        "Neither left-first nor right-first is guaranteed",
+        "Both calls are skipped"
+      ],
+      "answer": "C",
+      "correct": "Neither left-first nor right-first is guaranteed",
+      "explanation": "Arithmetic operand evaluation order does not enforce a traversal order. Assign sequential temporaries when order is part of the question.",
+      "extension": false
+    },
+    {
+      "id": 55,
+      "section": "Search variants and assumptions",
+      "source": "Days 8\u20139 summary",
+      "title": "Rotation convention",
+      "body": "Ascending distinct [1,2,3,4,5] becomes [4,5,1,2,3]. Right-rotation count and minimum index?",
+      "options": [
+        "(3,3)",
+        "(2,2)",
+        "(3,2)",
+        "(2,3)"
+      ],
+      "answer": "B",
+      "correct": "(2,2)",
+      "explanation": "Two right rotations put the minimum at2. Three left rotations create the same array but use a different original direction count.",
+      "extension": false
+    },
+    {
+      "id": 56,
+      "section": "Search variants and assumptions",
+      "source": "Days 8\u20139 summary",
+      "title": "Duplicates degrade rotation search",
+      "body": "An implementation compares a[mid] with a[hi] and on equality executes hi--. Worst-case runtime with duplicates?",
+      "options": [
+        "O(n)",
+        "O(logn) for every input",
+        "O(nlogn)",
+        "O(1)"
+      ],
+      "answer": "A",
+      "correct": "O(n)",
+      "explanation": "All-equal intervals may shrink only one position at a time; distinctness is necessary for the simple logarithmic guarantee.",
+      "extension": false
+    },
+    {
+      "id": 57,
+      "section": "Search variants and assumptions",
+      "source": "Days 8\u20139 summary",
+      "title": "Fixed point fails with duplicates",
+      "body": "Faulty fixed-point search uses `if a[mid]<mid: lo=mid+1` on any sorted array. Which input demonstrates losing an existing fixed point?",
+      "options": [
+        "[-2,-1,1,3,5] with distinct values",
+        "[1,2,3,4,5] has a fixed point",
+        "Every duplicate-free array fails",
+        "[0,0,0,0,0]"
+      ],
+      "answer": "D",
+      "correct": "[0,0,0,0,0]",
+      "explanation": "At mid2 value0 is smaller, so it discards index0 where a[0]=0. With duplicates a[i]\u2212i need not be nondecreasing.",
+      "extension": false
+    },
+    {
+      "id": 58,
+      "section": "Search variants and assumptions",
+      "source": "Days 8\u20139 summary",
+      "title": "Row counting bug",
+      "body": "Rows [[2,2],[3,4]]. A hash counter increments per occurrence and declares a value common when count equals row count2. False output?",
+      "options": [
+        "3",
+        "4",
+        "2",
+        "No false output is possible"
+      ],
+      "answer": "C",
+      "correct": "2",
+      "explanation": "Two occurrences from one row imitate presence in two rows. Deduplicate each row or track last row seen.",
+      "extension": false
+    },
+    {
+      "id": 59,
+      "section": "Search variants and assumptions",
+      "source": "Days 8\u20139 summary",
+      "title": "Flattened ordering",
+      "body": "Rows [1,4,7] and [2,5,8] are individually sorted. Can ordinary binary search on the flattened row-major array be justified?",
+      "options": [
+        "Yes, row sorting implies global ordering",
+        "No; the flattened sequence drops from7 to2",
+        "Yes, because all values are positive",
+        "Only when the target is absent"
+      ],
+      "answer": "B",
+      "correct": "No; the flattened sequence drops from7 to2",
+      "explanation": "Row-wise common-element search uses each row separately. Global binary search requires a stronger ordering premise.",
+      "extension": false
+    },
+    {
+      "id": 60,
+      "section": "LCP method and state traps",
+      "source": "Days 10\u201311",
+      "title": "Exact prefix",
+      "body": "Longest common prefix of gene, genesis, general?",
+      "options": [
+        "gene",
+        "gen",
+        "ge",
+        "genera"
+      ],
+      "answer": "A",
+      "correct": "gene",
+      "explanation": "All three begin g,e,n,e. The first string then ends, limiting the result to four characters. Trace actual characters rather than accepting a summary correction blindly.",
+      "extension": false
+    },
+    {
+      "id": 61,
+      "section": "LCP method and state traps",
+      "source": "Days 10\u201311",
+      "title": "Set not cleared",
+      "body": "For words [\"ab\",\"ab\"], a set is retained across columns; after inserting each column, code requires set.size()==1. Returned prefix length?",
+      "options": [
+        "2 correctly",
+        "0 instead of2",
+        "The loop never ends",
+        "1 instead of2"
+      ],
+      "answer": "D",
+      "correct": "1 instead of2",
+      "explanation": "Column0 leaves {a}; column1 produces {a,b} despite agreement in that column. Clear per-column state.",
+      "extension": false
+    },
+    {
+      "id": 62,
+      "section": "LCP method and state traps",
+      "source": "Days 10\u201311",
+      "title": "Character work",
+      "body": "Straightforward binary search on prefix length repeatedly scans prefixes with startsWith. On N identical strings each of length L, character work can be?",
+      "options": [
+        "\u0398(NlogL) automatically",
+        "\u0398(logL)",
+        "\u0398(NLlogL)",
+        "\u0398(N)"
+      ],
+      "answer": "C",
+      "correct": "\u0398(NLlogL)",
+      "explanation": "Feasible tested lengths approach L, and each check may read \u0398(L) characters over \u0398(logL) tests. Monotone feasibility does not make checks constant-time.",
+      "extension": false
+    },
+    {
+      "id": 63,
+      "section": "LCP method and state traps",
+      "source": "Days 10\u201311",
+      "title": "Java equality",
+      "body": "Java: `new String(\"ab\")==new String(\"ab\")`. What is the value?",
+      "options": [
+        "true",
+        "false",
+        "Compile error",
+        "Depends on alphabet size"
+      ],
+      "answer": "B",
+      "correct": "false",
+      "explanation": "Two explicit constructions create different objects. Use equals for equal content.",
+      "extension": false
+    },
+    {
+      "id": 64,
+      "section": "LCP method and state traps",
+      "source": "Days 10\u201311",
+      "title": "Empty member",
+      "body": "A vertical LCP scan first computes minimum string length. For [\"abc\",\"\"], what should it return under the normal contract?",
+      "options": [
+        "Empty string",
+        "abc",
+        "An out-of-bounds access is necessary",
+        "The first character a"
+      ],
+      "answer": "A",
+      "correct": "Empty string",
+      "explanation": "Minimum length0 means no valid common position; guard before indexing.",
+      "extension": false
+    },
+    {
+      "id": 65,
+      "section": "Koko feasibility and numeric safety",
+      "source": "Days 10\u201311",
+      "title": "Hours trace",
+      "body": "At k=22, piles [30,11,23,4,20] need how many total hours?",
+      "options": [
+        "6",
+        "8",
+        "5",
+        "7"
+      ],
+      "answer": "D",
+      "correct": "7",
+      "explanation": "Ceilings are2,1,2,1,1. Sum them individually; ceil(total/k) would incorrectly combine piles.",
+      "extension": false
+    },
+    {
+      "id": 66,
+      "section": "Koko feasibility and numeric safety",
+      "source": "Days 10\u201311",
+      "title": "First feasible speed",
+      "body": "Same piles, h=6. Minimum feasible integer speed?",
+      "options": [
+        "22",
+        "20",
+        "23",
+        "30"
+      ],
+      "answer": "C",
+      "correct": "23",
+      "explanation": "At22 hours7; at23 hours2+1+1+1+1=6. Monotonicity establishes the first feasible threshold.",
+      "extension": false
+    },
+    {
+      "id": 67,
+      "section": "Koko feasibility and numeric safety",
+      "source": "Days 10\u201311",
+      "title": "Predicate direction",
+      "body": "Binary search minimizes speed. At mid the total hours exceed h. Which update is justified?",
+      "options": [
+        "hi=mid\u22121",
+        "lo=mid+1",
+        "Return mid",
+        "Decrease speed to increase throughput"
+      ],
+      "answer": "B",
+      "correct": "lo=mid+1",
+      "explanation": "Too many hours means speed too small. Every slower speed is also infeasible.",
+      "extension": false
+    },
+    {
+      "id": 68,
+      "section": "Koko feasibility and numeric safety",
+      "source": "Days 10\u201311",
+      "title": "Widening too late",
+      "body": "Java: `int p=2_000_000_000,k=2_000_000_000; long hours=(p+k-1)/k;` Why is the arithmetic faulty?",
+      "options": [
+        "The int numerator overflows before assignment to long",
+        "Division by k is always a floating operation",
+        "The long destination prevents any overflow",
+        "p itself exceeds Java int range"
+      ],
+      "answer": "A",
+      "correct": "The int numerator overflows before assignment to long",
+      "explanation": "Both p and k fit int individually, but their sum does not. Cast p to long before adding; then ceiling is1.",
+      "extension": false
+    },
+    {
+      "id": 69,
+      "section": "Koko feasibility and numeric safety",
+      "source": "Days 10\u201311",
+      "title": "Correct search cost",
+      "body": "n piles, maximum M; each feasibility test scans all piles, binary search over integer speed1..M. Worst-case time?",
+      "options": [
+        "O(logn)",
+        "O(nlogn) because piles must be sorted",
+        "O(M\u00b2)",
+        "O(nlogM)"
+      ],
+      "answer": "D",
+      "correct": "O(nlogM)",
+      "explanation": "Search domain is speed, not indexes; no input sorting is needed.",
+      "extension": false
+    },
+    {
+      "id": 70,
+      "section": "Median merging and partitions",
+      "source": "Days 11\u201313",
+      "title": "Multiset preserves duplicates",
+      "body": "Median of sorted arrays [1,2] and [2,3]?",
+      "options": [
+        "1.5",
+        "2.5",
+        "2.0",
+        "3.0"
+      ],
+      "answer": "C",
+      "correct": "2.0",
+      "explanation": "Merged sequence1,2,2,3 keeps both2s. Deduplicating changes the statistical problem.",
+      "extension": false
+    },
+    {
+      "id": 71,
+      "section": "Median merging and partitions",
+      "source": "Days 11\u201313",
+      "title": "Integer averaging trap",
+      "body": "Java/C++ with safe small ints: `(2+3)/2` assigned to double. Value?",
+      "options": [
+        "2.5",
+        "2.0",
+        "3.0",
+        "Undefined"
+      ],
+      "answer": "B",
+      "correct": "2.0",
+      "explanation": "Division is integer before conversion. Use a widened sum divided by2.0.",
+      "extension": false
+    },
+    {
+      "id": 72,
+      "section": "Median merging and partitions",
+      "source": "Days 11\u201313",
+      "title": "Partition counts",
+      "body": "A length2, B length5; cut i=1 in A. With leftSize=(m+n+1)/2, what is B cut j?",
+      "options": [
+        "3",
+        "2",
+        "4",
+        "1"
+      ],
+      "answer": "A",
+      "correct": "3",
+      "explanation": "LeftSize4 minus cutA1 gives3. Cuts count left elements; they are not element indices.",
+      "extension": false
+    },
+    {
+      "id": 73,
+      "section": "Median merging and partitions",
+      "source": "Days 11\u201313",
+      "title": "Direction of correction",
+      "body": "Partition has maxLeftA=9,minRightB=4. How should cutA move?",
+      "options": [
+        "Right: lo=i+1",
+        "Accept partition",
+        "Move both cuts right together",
+        "Left: hi=i\u22121"
+      ],
+      "answer": "D",
+      "correct": "Left: hi=i\u22121",
+      "explanation": "Too many large A elements are on the left. Reducing i simultaneously increases B left count.",
+      "extension": false
+    },
+    {
+      "id": 74,
+      "section": "Median merging and partitions",
+      "source": "Days 11\u201313",
+      "title": "Even partition result",
+      "body": "A=[1,3],B=[2,4], valid cuts i=1,j=1. Median?",
+      "options": [
+        "2.0",
+        "3.0",
+        "2.5",
+        "1.5"
+      ],
+      "answer": "C",
+      "correct": "2.5",
+      "explanation": "Left maximum=max(1,2)=2; right minimum=min(3,4)=3. Average them safely.",
+      "extension": false
+    },
+    {
+      "id": 75,
+      "section": "Median merging and partitions",
+      "source": "Days 11\u201313",
+      "title": "Empty-side boundaries",
+      "body": "A empty,B=[2,4,6]. Correct odd median partition result?",
+      "options": [
+        "2",
+        "4",
+        "6",
+        "Always reject if either array empty"
+      ],
+      "answer": "B",
+      "correct": "4",
+      "explanation": "Use conceptual infinities for empty A boundaries; B contributes the median. Reject only when both arrays are empty.",
+      "extension": false
+    },
+    {
+      "id": 76,
+      "section": "Median merging and partitions",
+      "source": "Days 11\u201313",
+      "title": "Smaller-array reason",
+      "body": "Why swap arrays so partition binary search runs on the smaller one?",
+      "options": [
+        "It reduces search cost and keeps complementary cut within bounds for the usual full search interval",
+        "It makes the larger array unsorted",
+        "It removes all duplicates",
+        "It guarantees equal array lengths"
+      ],
+      "answer": "A",
+      "correct": "It reduces search cost and keeps complementary cut within bounds for the usual full search interval",
+      "explanation": "Searching i in0..m with m\u2264n supports j=(m+n+1)/2\u2212i in0..n. Time is O(log(min(m,n)+1)).",
+      "extension": false
+    },
+    {
+      "id": 77,
+      "section": "Fractional knapsack and greedy proof",
+      "source": "Day 14",
+      "title": "Optimal fractional value",
+      "body": "Items(value,weight)=(60,10),(100,20),(120,30),capacity50. Fractional optimum?",
+      "options": [
+        "220",
+        "280",
+        "180",
+        "240"
+      ],
+      "answer": "D",
+      "correct": "240",
+      "explanation": "Take first two fully then20/30 of the third:60+100+80. Taking all three would exceed capacity.",
+      "extension": false
+    },
+    {
+      "id": 78,
+      "section": "Fractional knapsack and greedy proof",
+      "source": "Day 14",
+      "title": "Fractions tracked",
+      "body": "For the same instance, original-order selected fractions?",
+      "options": [
+        "[1,1,1]",
+        "[0,1,1]",
+        "[1,1,2/3]",
+        "[1,2/3,1]"
+      ],
+      "answer": "C",
+      "correct": "[1,1,2/3]",
+      "explanation": "Density order6,5,4 fills10+20 first, then remaining20. 0/1 optimum is a different contract.",
+      "extension": false
+    },
+    {
+      "id": 79,
+      "section": "Fractional knapsack and greedy proof",
+      "source": "Day 14",
+      "title": "Raw value is insufficient",
+      "body": "Capacity10, fractional items(value,weight)=(100,100),(60,10). Raw-value descending selects the first fraction. Its value and the density-optimal value?",
+      "options": [
+        "(100,60)",
+        "(10,60)",
+        "(60,10)",
+        "(10,10)"
+      ],
+      "answer": "B",
+      "correct": "(10,60)",
+      "explanation": "First density1 yields10 for10 weight; second density6 yields60. Compare value per unit weight.",
+      "extension": false
+    },
+    {
+      "id": 80,
+      "section": "Fractional knapsack and greedy proof",
+      "source": "Day 14",
+      "title": "Integer ratio ties",
+      "body": "C++ `value/weight` computed as int gives ratios for (5,2) and (7,3). What information is lost?",
+      "options": [
+        "Both truncate to2, hiding the true ordering2.5>7/3",
+        "First becomes3,second2",
+        "Both become0",
+        "The ratios are actually equal"
+      ],
+      "answer": "A",
+      "correct": "Both truncate to2, hiding the true ordering2.5>7/3",
+      "explanation": "Floating ratios or safe cross products preserve density order. Tie-breaking among truly equal ratios differs from artificial truncation ties.",
+      "extension": false
+    },
+    {
+      "id": 81,
+      "section": "Fractional knapsack and greedy proof",
+      "source": "Day 14",
+      "title": "Why fractional exchange works",
+      "body": "A solution contains weight from a lower-density item while some higher-density item remains available. With fractions allowed, exchanging equal weights does what?",
+      "options": [
+        "Always violates capacity",
+        "Always decreases value",
+        "Proves ratio greedy for 0/1 automatically",
+        "Does not decrease value"
+      ],
+      "answer": "D",
+      "correct": "Does not decrease value",
+      "explanation": "Equal-weight exchange preserves capacity and multiplies that weight by a no-smaller density. Indivisible choices may not permit such exchanges.",
+      "extension": false
+    },
+    {
+      "id": 82,
+      "section": "Fractional knapsack and greedy proof",
+      "source": "Day 14",
+      "title": "0/1 has optimal substructure",
+      "body": "Which statement correctly explains failure of ratio greedy for general0/1 knapsack?",
+      "options": [
+        "0/1 has no optimal substructure",
+        "All dynamic programming is greedy",
+        "The greedy choice can fail even though the problem has optimal substructure",
+        "Fractional and0/1 feasible sets coincide"
+      ],
+      "answer": "C",
+      "correct": "The greedy choice can fail even though the problem has optimal substructure",
+      "explanation": "An optimal subproblem decomposition is not enough to justify each local greedy decision. Fractional splitting changes what exchanges are allowed.",
+      "extension": false
+    },
+    {
+      "id": 83,
+      "section": "Coins and activity selection",
+      "source": "Day 14; activity selection is an extension",
+      "title": "Class coin counterexample",
+      "body": "Unlimited coins1,3,4,5, amount7. Greedy count and true minimum count?",
+      "options": [
+        "(2,3)",
+        "(3,2)",
+        "(2,2)",
+        "(7,3)"
+      ],
+      "answer": "B",
+      "correct": "(3,2)",
+      "explanation": "Greedy5+1+1 uses3. Coins3+4 use2, proving largest-first is not generally optimal.",
+      "extension": false
+    },
+    {
+      "id": 84,
+      "section": "Coins and activity selection",
+      "source": "Day 14; activity selection is an extension",
+      "title": "Unreachable remainder",
+      "body": "Descending coin greedy on [6,4],amount5 uses4. What must the interface acknowledge?",
+      "options": [
+        "Leftover1, so exact change was not produced",
+        "One coin is a valid exact answer",
+        "Return0 coins because greedy is always optimal",
+        "Invent a1 coin"
+      ],
+      "answer": "A",
+      "correct": "Leftover1, so exact change was not produced",
+      "explanation": "Allowed denominations contain no1. A greedy decomposition may leave remainder; exact-change feasibility needs its own treatment.",
+      "extension": false
+    },
+    {
+      "id": 85,
+      "section": "Coins and activity selection",
+      "source": "Day 14; activity selection is an extension",
+      "title": "Coin output cost",
+      "body": "For amountA, k denominations, compare repeated coin output with counts `(denomination,count)`.",
+      "options": [
+        "Both outputs are always O(1)",
+        "Counts require more than A records",
+        "Division makes arbitrary greedy optimal",
+        "Counts avoid \u0398(A) output when denomination1 supplies the amount"
+      ],
+      "answer": "D",
+      "correct": "Counts avoid \u0398(A) output when denomination1 supplies the amount",
+      "explanation": "A literal list of A ones has unavoidable \u0398(A) size. Count representation uses at most k records; optimality is a separate issue.",
+      "extension": false
+    },
+    {
+      "id": 86,
+      "section": "Coins and activity selection",
+      "source": "Day 14; activity selection is an extension",
+      "title": "Activity selection trace",
+      "body": "Half-open intervals [1,3),[2,4),[3,5),[0,6),[5,7). Earliest-finish greedy selects how many?",
+      "options": [
+        "2",
+        "4",
+        "3",
+        "5"
+      ],
+      "answer": "C",
+      "correct": "3",
+      "explanation": "Select[1,3),[3,5),[5,7). Equality of next start with last finish is compatible under this contract.",
+      "extension": true
+    },
+    {
+      "id": 87,
+      "section": "Coins and activity selection",
+      "source": "Day 14; activity selection is an extension",
+      "title": "Wrong greedy criterion",
+      "body": "Intervals [0,10),[1,2),[2,3),[3,4). Earliest-start-first accepts0..10. Maximum compatible count?",
+      "options": [
+        "1",
+        "3",
+        "2",
+        "4"
+      ],
+      "answer": "B",
+      "correct": "3",
+      "explanation": "The three short intervals chain and are compatible. Earliest finish has the exchange property; earliest start alone does not.",
+      "extension": true
+    },
+    {
+      "id": 88,
+      "section": "Graph representation costs",
+      "source": "Days 14\u201315",
+      "title": "Neighbour scan",
+      "body": "A graph has V vertices and adjacency matrix. Enumerating all neighbours of a given vertex costs?",
+      "options": [
+        "\u0398(V) scanning its row",
+        "\u0398(degree) automatically",
+        "\u0398(1)",
+        "\u0398(V\u00b2) for one row"
+      ],
+      "answer": "A",
+      "correct": "\u0398(V) scanning its row",
+      "explanation": "O(1) edge lookup does not mean O(1) enumeration. An adjacency list directly stores present neighbours.",
+      "extension": false
+    },
+    {
+      "id": 89,
+      "section": "Graph representation costs",
+      "source": "Days 14\u201315",
+      "title": "Undirected list storage",
+      "body": "An ordinary adjacency list represents an undirected graph with V vertices,E edges, storing each edge at both endpoints. Space?",
+      "options": [
+        "\u0398(E\u00b2)",
+        "\u0398(V\u00b2) always",
+        "\u0398(logV)",
+        "\u0398(V+E)"
+      ],
+      "answer": "D",
+      "correct": "\u0398(V+E)",
+      "explanation": "There are V list heads and2E neighbour records; a constant factor2 does not change asymptotic order.",
+      "extension": false
+    },
+    {
+      "id": 90,
+      "section": "Graph representation costs",
+      "source": "Days 14\u201315",
+      "title": "Zero ambiguity",
+      "body": "A weighted matrix uses0 to mean no edge. What valid Dijkstra-compatible feature can it fail to represent?",
+      "options": [
+        "Every positive edge",
+        "Every undirected edge",
+        "A zero-weight edge",
+        "Only negative cycles"
+      ],
+      "answer": "C",
+      "correct": "A zero-weight edge",
+      "explanation": "Dijkstra accepts nonnegative weights. Separate existence from weight so zero is not overloaded.",
+      "extension": false
+    },
+    {
+      "id": 91,
+      "section": "Graph representation costs",
+      "source": "Days 14\u201315",
+      "title": "Directed matrix",
+      "body": "Matrix entries w[0][1]=5,w[1][0]=0 where0 means absence. What can be inferred?",
+      "options": [
+        "The graph must be undirected",
+        "A directed edge0\u21921 need not have the reverse edge",
+        "A symmetric matrix is compulsory for every graph",
+        "No graph can have this matrix"
+      ],
+      "answer": "B",
+      "correct": "A directed edge0\u21921 need not have the reverse edge",
+      "explanation": "Symmetry is an undirected representation condition, not a universal graph rule.",
+      "extension": false
+    },
+    {
+      "id": 92,
+      "section": "Dijkstra distance traces",
+      "source": "Days 14\u201315",
+      "title": "Relaxation arithmetic",
+      "body": "dist[u]=5,weight(u,v)=6,current dist[v]=12. Correct new tentative distance?",
+      "options": [
+        "11",
+        "6",
+        "5",
+        "12 must remain forever"
+      ],
+      "answer": "A",
+      "correct": "11",
+      "explanation": "Relax using the source distance5 plus edge6, then compare11 with12. Edge weight alone is Prim-style information.",
+      "extension": false
+    },
+    {
+      "id": 93,
+      "section": "Dijkstra distance traces",
+      "source": "Days 14\u201315",
+      "title": "Next finite vertex",
+      "body": "Tentative distances[5,12,0,\u221e,\u221e], vertex2 already visited. Which unvisited vertex is chosen next?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "0"
+      ],
+      "answer": "D",
+      "correct": "0",
+      "explanation": "Vertex0 has smallest remaining finite distance5. Do not confuse a vertex label with its distance.",
+      "extension": false
+    },
+    {
+      "id": 94,
+      "section": "Dijkstra distance traces",
+      "source": "Days 14\u201315",
+      "title": "Matrix runtime",
+      "body": "Dijkstra selects minimum unvisited distance by scanning V entries, then scans a V-entry row, for up to V vertices. Time?",
+      "options": [
+        "O(VlogV)",
+        "O(E) regardless of representation",
+        "O(V\u00b2)",
+        "O(V\u00b3)"
+      ],
+      "answer": "C",
+      "correct": "O(V\u00b2)",
+      "explanation": "Two linear scans per outer iteration remain O(V), yielding O(V\u00b2), not a product of three nested V loops.",
+      "extension": false
+    },
+    {
+      "id": 95,
+      "section": "Dijkstra distance traces",
+      "source": "Days 14\u201315",
+      "title": "Nonnegative requirement",
+      "body": "Which weight restriction is sufficient for standard Dijkstra correctness?",
+      "options": [
+        "Strictly positive only",
+        "All edges nonnegative; zero is allowed",
+        "Any weights if no negative cycle",
+        "Negative undirected edges are always fine"
+      ],
+      "answer": "B",
+      "correct": "All edges nonnegative; zero is allowed",
+      "explanation": "Negative edges can improve an already-finalized vertex. A zero-weight edge is harmless when represented properly.",
+      "extension": false
+    },
+    {
+      "id": 96,
+      "section": "Dijkstra distance traces",
+      "source": "Days 14\u201315",
+      "title": "Counterexample with negative edge",
+      "body": "Directed edges s\u2192a:2,s\u2192b:5,b\u2192a:\u22124. Dijkstra finalizes a before b. True shortest s\u2192a?",
+      "options": [
+        "1, so finalizing2 without revisits is wrong",
+        "2 and no alternative",
+        "5",
+        "There must be a negative cycle"
+      ],
+      "answer": "A",
+      "correct": "1, so finalizing2 without revisits is wrong",
+      "explanation": "s\u2192b\u2192a costs1. There is no directed cycle here, but the negative edge still breaks the finalization proof.",
+      "extension": false
+    },
+    {
+      "id": 97,
+      "section": "Dijkstra distance traces",
+      "source": "Days 14\u201315",
+      "title": "Disconnected case",
+      "body": "All remaining unvisited distances are\u221e. A matrix implementation has no finite chosen index. What should it do?",
+      "options": [
+        "Use index\u22121 directly",
+        "Add\u221e to every edge",
+        "Mark every vertex distance0",
+        "Stop/reject unreachable vertices rather than index with an invalid choice"
+      ],
+      "answer": "D",
+      "correct": "Stop/reject unreachable vertices rather than index with an invalid choice",
+      "explanation": "Unreachable vertices stay\u221e. Guard before accessing a row or performing finite-distance arithmetic.",
+      "extension": false
+    },
+    {
+      "id": 98,
+      "section": "Stock contracts",
+      "source": "Days 15\u201316",
+      "title": "One versus unlimited",
+      "body": "prices=[7,1,5,3,6,4], no fee/cooldown. One-transaction and unlimited maximum profits?",
+      "options": [
+        "(7,5)",
+        "(4,5)",
+        "(5,7)",
+        "(7,7)"
+      ],
+      "answer": "C",
+      "correct": "(5,7)",
+      "explanation": "One buy1/sell6 gives5. Unlimited gains(5\u22121)+(6\u22123)=7. Same array, different feasible actions.",
+      "extension": false
+    },
+    {
+      "id": 99,
+      "section": "Stock contracts",
+      "source": "Days 15\u201316",
+      "title": "Update invariant",
+      "body": "One-transaction scan has minPrice=1,best=4 before price3. After processing3, state?",
+      "options": [
+        "(3,2)",
+        "(1,4)",
+        "(1,2)",
+        "(3,4)"
+      ],
+      "answer": "B",
+      "correct": "(1,4)",
+      "explanation": "Minimum earlier price stays1; current possible profit2 does not replace the larger previous best4.",
+      "extension": false
+    },
+    {
+      "id": 100,
+      "section": "Stock contracts",
+      "source": "Days 15\u201316",
+      "title": "Declining market",
+      "body": "prices=[9,7,4,1], at most one buy/sell and doing nothing allowed. Profit?",
+      "options": [
+        "0",
+        "-2",
+        "-8",
+        "8"
+      ],
+      "answer": "A",
+      "correct": "0",
+      "explanation": "No positive later-price difference exists. Initial best0 represents choosing no transaction.",
+      "extension": false
+    },
+    {
+      "id": 101,
+      "section": "Stock contracts",
+      "source": "Days 15\u201316",
+      "title": "Summing rises",
+      "body": "Unlimited prices=[1,2,2,5,3,4]. Sum of positive adjacent differences?",
+      "options": [
+        "4",
+        "6",
+        "8",
+        "5"
+      ],
+      "answer": "D",
+      "correct": "5",
+      "explanation": "Gains1+0+3+0+1=5. A zero change neither helps nor hurts.",
+      "extension": false
+    },
+    {
+      "id": 102,
+      "section": "Stock contracts",
+      "source": "Days 15\u201316",
+      "title": "Fee extension invalidates formula",
+      "body": "Extension: prices=[1,3], fee1 per completed transaction. Plain sum-positive-differences returns2. Correct net profit?",
+      "options": [
+        "2",
+        "3",
+        "1",
+        "0 always"
+      ],
+      "answer": "C",
+      "correct": "1",
+      "explanation": "The single gain2 incurs fee1. The no-fee greedy formula is not automatically correct after changing the contract.",
+      "extension": true
+    },
+    {
+      "id": 103,
+      "section": "Minimum subset product",
+      "source": "Days 16\u201317",
+      "title": "Even negatives",
+      "body": "Minimum nonempty subset product of [\u22122,\u22123,4]?",
+      "options": [
+        "-24",
+        "-12",
+        "24",
+        "-8"
+      ],
+      "answer": "B",
+      "correct": "-12",
+      "explanation": "All nonzeros product24; drop closest-to-zero negative\u22122 to get\u221212. Dropping\u22123 gives\u22128, which is larger.",
+      "extension": false
+    },
+    {
+      "id": 104,
+      "section": "Minimum subset product",
+      "source": "Days 16\u201317",
+      "title": "Zeros do not force zero",
+      "body": "Minimum subset product of [\u22121,0]?",
+      "options": [
+        "-1",
+        "0",
+        "1",
+        "No valid nonempty subset"
+      ],
+      "answer": "A",
+      "correct": "-1",
+      "explanation": "A singleton\u22121 is allowed and is less than zero. Including every array element is not required.",
+      "extension": false
+    },
+    {
+      "id": 105,
+      "section": "Minimum subset product",
+      "source": "Days 16\u201317",
+      "title": "All positives",
+      "body": "Minimum nonempty subset product of integer values[2,3,5]?",
+      "options": [
+        "30",
+        "0",
+        "1",
+        "2"
+      ],
+      "answer": "D",
+      "correct": "2",
+      "explanation": "No empty subset is allowed; every product of multiple integers\u22651 cannot beat the smallest value2.",
+      "extension": false
+    },
+    {
+      "id": 106,
+      "section": "Minimum subset product",
+      "source": "Days 16\u201317",
+      "title": "Even negative units",
+      "body": "Minimum nonempty subset product of [\u22121,\u22121]?",
+      "options": [
+        "1",
+        "0",
+        "-1",
+        "-2"
+      ],
+      "answer": "C",
+      "correct": "-1",
+      "explanation": "A single\u22121 yields the negative minimum; selecting both gives+1. Even-negative handling must permit dropping one.",
+      "extension": false
+    },
+    {
+      "id": 107,
+      "section": "Minimum subset product",
+      "source": "Days 16\u201317",
+      "title": "Integers are an assumption",
+      "body": "Extension: apply \u201cmultiply all nonzeros with odd negative count\u201d to real values[\u221210,0.2]. It returns\u22122. True minimum nonempty subset product?",
+      "options": [
+        "-2",
+        "-10",
+        "0.2",
+        "0"
+      ],
+      "answer": "B",
+      "correct": "-10",
+      "explanation": "Positive values below1 shrink negative magnitude. The class greedy rule is justified for integer inputs, not arbitrary real values.",
+      "extension": true
+    },
+    {
+      "id": 108,
+      "section": "Maximum Swap suffix state",
+      "source": "Day 18 after about1:07",
+      "title": "Tie chooses rightmost",
+      "body": "At most one swap on1993. Largest result?",
+      "options": [
+        "9913",
+        "9193",
+        "9931",
+        "1993"
+      ],
+      "answer": "A",
+      "correct": "9913",
+      "explanation": "Swap first1 with the later9. 9931 would require additional rearrangement; the rightmost maximum preserves a larger earlier suffix.",
+      "extension": false
+    },
+    {
+      "id": 109,
+      "section": "Maximum Swap suffix state",
+      "source": "Day 18 after about1:07",
+      "title": "Suffix maximum indexes",
+      "body": "For digits84725, rightmost suffix-maximum indices for each position?",
+      "options": [
+        "[0,1,2,3,4]",
+        "[4,4,4,4,4]",
+        "[0,2,2,3,4]",
+        "[0,2,2,4,4]"
+      ],
+      "answer": "D",
+      "correct": "[0,2,2,4,4]",
+      "explanation": "From right:5 at4 dominates2;7 at2 dominates5;4 points to2;8 at0 dominates all. These are indexes, not digit values.",
+      "extension": false
+    },
+    {
+      "id": 110,
+      "section": "Maximum Swap suffix state",
+      "source": "Day 18 after about1:07",
+      "title": "Only one exchange",
+      "body": "Maximum Swap result for84725?",
+      "options": [
+        "87542",
+        "87452",
+        "87425",
+        "84725"
+      ],
+      "answer": "C",
+      "correct": "87425",
+      "explanation": "First improvable position is digit4, suffix maximum7. Swap these and stop; sorting all digits violates the at-most-one-swap rule.",
+      "extension": false
+    },
+    {
+      "id": 111,
+      "section": "Maximum Swap suffix state",
+      "source": "Day 18 after about1:07",
+      "title": "Equal maximum update",
+      "body": "Scanning suffixes right-to-left, new digit equals currently tracked maximum. To retain rightmost tie, should the index update?",
+      "options": [
+        "Yes on equality",
+        "No; update only on strictly larger digit",
+        "Always reset to current position",
+        "Sort all suffix indexes"
+      ],
+      "answer": "B",
+      "correct": "No; update only on strictly larger digit",
+      "explanation": "The existing maximum is farther right. Keeping it makes the eventual displaced smaller digit land later.",
+      "extension": false
+    },
+    {
+      "id": 112,
+      "section": "Spanning trees and Prim",
+      "source": "Days 16\u201317",
+      "title": "Edge count",
+      "body": "An undirected connected graph has6 vertices. Any spanning tree contains how many edges?",
+      "options": [
+        "5",
+        "6",
+        "15",
+        "Depends on weights"
+      ],
+      "answer": "A",
+      "correct": "5",
+      "explanation": "Connected acyclic graphs have V\u22121 edges. Weight values affect optimum choice, not spanning-tree edge count.",
+      "extension": false
+    },
+    {
+      "id": 113,
+      "section": "Spanning trees and Prim",
+      "source": "Days 16\u201317",
+      "title": "Keys differ from distances",
+      "body": "Prim key[u]=4,edge(u,v)=3,current key[v]=5. Correct updated key[v]?",
+      "options": [
+        "7",
+        "4",
+        "5",
+        "3"
+      ],
+      "answer": "D",
+      "correct": "3",
+      "explanation": "Prim compares the single edge crossing the cut. Adding key[u] would confuse it with source-distance relaxation.",
+      "extension": false
+    },
+    {
+      "id": 114,
+      "section": "Spanning trees and Prim",
+      "source": "Days 16\u201317",
+      "title": "Objective contrast",
+      "body": "Triangle edges0\u20131:2,1\u20132:2,0\u20132:3. MST edges versus source0 shortest-path tree?",
+      "options": [
+        "They must always match",
+        "MST requires edge3 because it is direct",
+        "MST uses2+2; shortest-path tree uses edges2 and3",
+        "Shortest path0\u21922 must cost4"
+      ],
+      "answer": "C",
+      "correct": "MST uses2+2; shortest-path tree uses edges2 and3",
+      "explanation": "MST total4 via chain, but direct0\u21922 costs3 versus chain4. Global edge sum differs from individual path distance.",
+      "extension": false
+    },
+    {
+      "id": 115,
+      "section": "Spanning trees and Prim",
+      "source": "Days 16\u201317",
+      "title": "Negative weights in MST",
+      "body": "Connected undirected graph has some negative edge weights. What about MST algorithms Prim/Kruskal?",
+      "options": [
+        "They require nonnegative edges like Dijkstra",
+        "Negative weights are allowed for the MST objective",
+        "They must reject all negative graphs",
+        "A negative edge makes spanning trees undefined"
+      ],
+      "answer": "B",
+      "correct": "Negative weights are allowed for the MST objective",
+      "explanation": "A finite set of spanning trees still has a minimum sum. MST never repeats edges around a negative cycle.",
+      "extension": false
+    },
+    {
+      "id": 116,
+      "section": "Spanning trees and Prim",
+      "source": "Days 16\u201317",
+      "title": "Disconnected Prim",
+      "body": "Prim from vertex0 exhausts all finite keys while some vertices remain unselected. What is indicated?",
+      "options": [
+        "Graph disconnected; no spanning tree over all vertices",
+        "An MST already spans all vertices",
+        "The key array must be reset to zero",
+        "Every remaining vertex is a leaf of the same tree"
+      ],
+      "answer": "A",
+      "correct": "Graph disconnected; no spanning tree over all vertices",
+      "explanation": "A minimum spanning forest can be computed deliberately, but a single connected spanning tree does not exist.",
+      "extension": false
+    },
+    {
+      "id": 117,
+      "section": "DSU parent, root and rank",
+      "source": "Days 17\u201318",
+      "title": "Root differs from direct parent",
+      "body": "parent=[0,0,1,3]. find(2) follows parents recursively. Returned representative?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "0"
+      ],
+      "answer": "D",
+      "correct": "0",
+      "explanation": "2\u21921\u21920. parent[2] by itself is not necessarily the component representative.",
+      "extension": false
+    },
+    {
+      "id": 118,
+      "section": "DSU parent, root and rank",
+      "source": "Days 17\u201318",
+      "title": "Path compression write",
+      "body": "Same parent array, after compressed find(2), what becomes parent[2]?",
+      "options": [
+        "1 remains always",
+        "2",
+        "0",
+        "3"
+      ],
+      "answer": "C",
+      "correct": "0",
+      "explanation": "Assign the root to each visited node on unwind. This changes tree shape, not component membership.",
+      "extension": false
+    },
+    {
+      "id": 119,
+      "section": "DSU parent, root and rank",
+      "source": "Days 17\u201318",
+      "title": "Attach roots only",
+      "body": "parent=[0,0,2,2]. To unite components containing1 and3, which conceptual action is correct?",
+      "options": [
+        "Set parent[1]=3 only; all of component0 must move automatically",
+        "Find roots0 and2 and link one root under the other",
+        "Set parent[0]=1 to create a cycle",
+        "Change rank without changing any parent"
+      ],
+      "answer": "B",
+      "correct": "Find roots0 and2 and link one root under the other",
+      "explanation": "Reparenting an arbitrary child can split rather than merge components. Union operates on representatives.",
+      "extension": false
+    },
+    {
+      "id": 120,
+      "section": "DSU parent, root and rank",
+      "source": "Days 17\u201318",
+      "title": "Unequal-rank union",
+      "body": "Roots a,b have ranks3,1. Standard union-by-rank attaches b below a. New rank[a]?",
+      "options": [
+        "3",
+        "4",
+        "1",
+        "0"
+      ],
+      "answer": "A",
+      "correct": "3",
+      "explanation": "Only equal-rank merges increase rank. Attaching a lower-height upper-bound tree does not force the root height to grow.",
+      "extension": false
+    },
+    {
+      "id": 121,
+      "section": "DSU parent, root and rank",
+      "source": "Days 17\u201318",
+      "title": "Equal ranks",
+      "body": "Two different roots both rank2 are united under one chosen root. New rank of chosen root?",
+      "options": [
+        "2",
+        "4",
+        "1",
+        "3"
+      ],
+      "answer": "D",
+      "correct": "3",
+      "explanation": "Equal-height upper bounds may add one level, so increment by1. The losing root rank is no longer used as a root heuristic.",
+      "extension": false
+    },
+    {
+      "id": 122,
+      "section": "DSU parent, root and rank",
+      "source": "Days 17\u201318",
+      "title": "Amortized is not per-call constant",
+      "body": "With union by rank and path compression, standard bound for a long operation sequence?",
+      "options": [
+        "Every individual find is worst-case O(1)",
+        "Every sequence is \u0398(V\u00b2)",
+        "Amortized O(\u03b1(V)) per operation",
+        "Path compression removes the need to follow parents ever"
+      ],
+      "answer": "C",
+      "correct": "Amortized O(\u03b1(V)) per operation",
+      "explanation": "The inverse-Ackermann bound describes amortized work. A particular initial find can still traverse multiple links.",
+      "extension": false
+    },
+    {
+      "id": 123,
+      "section": "Kruskal edge decisions",
+      "source": "Day 18",
+      "title": "Cycle test",
+      "body": "Accepted edges0\u20131 and1\u20132. Candidate edge0\u20132. DSU roots of0 and2 agree. Action?",
+      "options": [
+        "Accept because direct parents might differ",
+        "Reject it as forming a cycle",
+        "Accept every third edge",
+        "Delete the previous two edges"
+      ],
+      "answer": "B",
+      "correct": "Reject it as forming a cycle",
+      "explanation": "Root equality means there is already a path between endpoints in the accepted forest.",
+      "extension": false
+    },
+    {
+      "id": 124,
+      "section": "Kruskal edge decisions",
+      "source": "Day 18",
+      "title": "Acceptance count",
+      "body": "V=4, sorted edges(0,1,1),(1,2,2),(0,2,3),(2,3,4). MST total weight?",
+      "options": [
+        "7",
+        "6",
+        "10",
+        "3"
+      ],
+      "answer": "A",
+      "correct": "7",
+      "explanation": "Accept1,2; reject3 as cycle; accept4. Need three accepted edges, not merely three examined edges.",
+      "extension": false
+    },
+    {
+      "id": 125,
+      "section": "Kruskal edge decisions",
+      "source": "Day 18",
+      "title": "Necessary not sufficient",
+      "body": "V=4,E=3 with triangle0\u20131,1\u20132,2\u20130 and isolated3. Does E\u2265V\u22121 prove connectivity?",
+      "options": [
+        "Yes by definition",
+        "Only if weights positive, then yes",
+        "A triangle automatically covers all vertices",
+        "No; vertex3 remains isolated"
+      ],
+      "answer": "D",
+      "correct": "No; vertex3 remains isolated",
+      "explanation": "Edge count alone cannot show all vertices are connected. A disconnected graph can have many edges.",
+      "extension": false
+    },
+    {
+      "id": 126,
+      "section": "Kruskal edge decisions",
+      "source": "Day 18",
+      "title": "Exhausted list",
+      "body": "Kruskal loops until accepted=V\u22121 but never checks nextIndex<E. On a disconnected graph, likely code failure?",
+      "options": [
+        "It correctly returns an MST every time",
+        "It must find a new edge automatically",
+        "Out-of-bounds edge access after exhaustion",
+        "It always terminates after exactly V\u22121 reads"
+      ],
+      "answer": "C",
+      "correct": "Out-of-bounds edge access after exhaustion",
+      "explanation": "The Day18 demonstration reaches this failure. Guard edge exhaustion and report a forest/no full spanning tree.",
+      "extension": false
+    },
+    {
+      "id": 127,
+      "section": "Kruskal edge decisions",
+      "source": "Day 18",
+      "title": "Comparator overflow",
+      "body": "Java comparator returns `a.weight-b.weight`. For a.weight=2_000_000_000,b.weight=\u22122_000_000_000, what is the defect?",
+      "options": [
+        "Both weights individually exceed int range",
+        "Subtraction overflows int and can reverse ordering",
+        "Subtraction always widens to long",
+        "Comparison returns only0 or1 by language rule"
+      ],
+      "answer": "B",
+      "correct": "Subtraction overflows int and can reverse ordering",
+      "explanation": "Use Integer.compare/Long.compare or a suitable comparison. MST correctness depends on actual ascending weights.",
+      "extension": false
+    },
+    {
+      "id": 128,
+      "section": "BFS queue and discovery",
+      "source": "Days 19\u201321",
+      "title": "BFS order specified",
+      "body": "Graph adjacency in ascending order:0:[1,2],1:[0,3],2:[0,3],3:[1,2]. BFS from0 marks on enqueue. Dequeue order?",
+      "options": [
+        "0,1,2,3",
+        "0,1,3,2",
+        "0,2,1,3 always",
+        "0,1,3,2,3"
+      ],
+      "answer": "A",
+      "correct": "0,1,2,3",
+      "explanation": "FIFO processes all depth1 vertices before depth2. Node3 is enqueued once when first discovered.",
+      "extension": false
+    },
+    {
+      "id": 129,
+      "section": "BFS queue and discovery",
+      "source": "Days 19\u201321",
+      "title": "Marking too late",
+      "body": "Same graph, visited only when dequeued and no pending-state check. What can happen before3 is dequeued?",
+      "options": [
+        "3 is never reachable",
+        "The queue automatically deduplicates",
+        "The graph becomes directed",
+        "Both1 and2 can enqueue3"
+      ],
+      "answer": "D",
+      "correct": "Both1 and2 can enqueue3",
+      "explanation": "3 is still unvisited when2 examines it. Marking on enqueue prevents the duplicate pending copy.",
+      "extension": false
+    },
+    {
+      "id": 130,
+      "section": "BFS queue and discovery",
+      "source": "Days 19\u201321",
+      "title": "Shortest-path condition",
+      "body": "BFS first-discovery depth minimizes what in an unweighted graph?",
+      "options": [
+        "Arbitrary sum of positive weights",
+        "Sum of all graph edges",
+        "Number of edges from the source",
+        "DFS finishing time"
+      ],
+      "answer": "C",
+      "correct": "Number of edges from the source",
+      "explanation": "Each queue layer adds one edge. Weighted paths need a matching algorithm/objective.",
+      "extension": false
+    },
+    {
+      "id": 131,
+      "section": "BFS queue and discovery",
+      "source": "Days 19\u201321",
+      "title": "Source coverage",
+      "body": "BFS starts in one component of a disconnected graph. What is needed to visit every vertex?",
+      "options": [
+        "The first queue eventually jumps components",
+        "Start additional traversals from remaining unvisited vertices",
+        "Add all edges to a stack",
+        "Sort vertex values"
+      ],
+      "answer": "B",
+      "correct": "Start additional traversals from remaining unvisited vertices",
+      "explanation": "No edge reaches another component. A traversal loop over vertices covers them independently.",
+      "extension": false
+    },
+    {
+      "id": 132,
+      "section": "BFS queue and discovery",
+      "source": "Days 19\u201321",
+      "title": "FIFO versus LIFO",
+      "body": "BFS-like code uses push_back and pop_back from the same sequence rather than removing the front. What changes?",
+      "options": [
+        "It uses LIFO exploration, so BFS level-order guarantees no longer apply",
+        "Nothing; removal end never matters",
+        "It is still always shortest-edge-first",
+        "Every graph becomes a tree"
+      ],
+      "answer": "A",
+      "correct": "It uses LIFO exploration, so BFS level-order guarantees no longer apply",
+      "explanation": "Queue discipline is the reason BFS processes layers. A stack changes pending-state order.",
+      "extension": false
+    },
+    {
+      "id": 133,
+      "section": "Lonely-node structure",
+      "source": "Days 19\u201320",
+      "title": "Root is excluded",
+      "body": "Tree root1 has only left child2; node2 has children3 and4. Lonely node values?",
+      "options": [
+        "[1,2]",
+        "[3,4]",
+        "[1,3,4]",
+        "[2]"
+      ],
+      "answer": "D",
+      "correct": "[2]",
+      "explanation": "2 lacks a sibling. Root has no parent and is excluded; children3 and4 are siblings.",
+      "extension": false
+    },
+    {
+      "id": 134,
+      "section": "Lonely-node structure",
+      "source": "Days 19\u201320",
+      "title": "Leaf does not imply lonely",
+      "body": "A parent has two leaf children7 and8. Which are lonely?",
+      "options": [
+        "Both",
+        "Only7",
+        "Neither",
+        "Only8"
+      ],
+      "answer": "C",
+      "correct": "Neither",
+      "explanation": "Loneliness depends on whether a sibling exists, not whether the node itself has children.",
+      "extension": false
+    },
+    {
+      "id": 135,
+      "section": "Lonely-node structure",
+      "source": "Days 19\u201320",
+      "title": "Condition implements XOR",
+      "body": "Which parent test correctly identifies exactly one child?",
+      "options": [
+        "`left==null && right==null`",
+        "`(left==null)!=(right==null)`",
+        "`left!=null && right!=null`",
+        "`left.data!=right.data`"
+      ],
+      "answer": "B",
+      "correct": "`(left==null)!=(right==null)`",
+      "explanation": "Boolean inequality is exclusive-or of absence. Avoid dereferencing missing children while testing.",
+      "extension": false
+    },
+    {
+      "id": 136,
+      "section": "Islands, area and shape",
+      "source": "Days 19\u201320",
+      "title": "Diagonal separation",
+      "body": "Grid [[1,0],[0,1]], four-neighbour land. Island count and max area?",
+      "options": [
+        "(2,1)",
+        "(1,2)",
+        "(2,2)",
+        "(1,1)"
+      ],
+      "answer": "A",
+      "correct": "(2,1)",
+      "explanation": "Diagonal contact is not a permitted edge. Each component has one cell.",
+      "extension": false
+    },
+    {
+      "id": 137,
+      "section": "Islands, area and shape",
+      "source": "Days 19\u201320",
+      "title": "Three objectives",
+      "body": "Grid [[1,1,0,1],[0,0,0,0],[1,1,0,1]]. Four-neighbour components. Count,max area,distinct translation-only shapes?",
+      "options": [
+        "(2,4,2)",
+        "(4,2,4)",
+        "(4,1,1)",
+        "(4,2,2)"
+      ],
+      "answer": "D",
+      "correct": "(4,2,2)",
+      "explanation": "Two horizontal dominoes and two singles form four components, maximum2 and two distinct shapes.",
+      "extension": false
+    },
+    {
+      "id": 138,
+      "section": "Islands, area and shape",
+      "source": "Days 19\u201320",
+      "title": "Area not shape",
+      "body": "Two islands each have3 cells: a horizontal line and an L. Can area alone deduplicate their shapes?",
+      "options": [
+        "Yes, by definition of distinct islands",
+        "Only if values are1",
+        "No; equal area can have different arrangements",
+        "Every3-cell island is equivalent by translation"
+      ],
+      "answer": "C",
+      "correct": "No; equal area can have different arrangements",
+      "explanation": "Translations preserve relative positions. A line cannot become an L by translation.",
+      "extension": false
+    },
+    {
+      "id": 139,
+      "section": "Islands, area and shape",
+      "source": "Days 19\u201320",
+      "title": "Signature reliability",
+      "body": "Shape serialization records only successful DFS direction letters, dropping returns/null transitions. Why is a structural marker or coordinate canonicalization safer?",
+      "options": [
+        "String sets cannot store equal strings",
+        "Different branch structures can lose distinctions in a bare move sequence",
+        "BFS forbids direction codes",
+        "Coordinates make every shape identical"
+      ],
+      "answer": "B",
+      "correct": "Different branch structures can lose distinctions in a bare move sequence",
+      "explanation": "Record enough structure to reconstruct positions. Fixed-order relative coordinate sets are a clear translation-invariant contract.",
+      "extension": false
+    },
+    {
+      "id": 140,
+      "section": "Islands, area and shape",
+      "source": "Days 19\u201320",
+      "title": "Destructive marking reused",
+      "body": "An island counter turns visited1s into0. Run it twice on the same grid without copying/resetting. Second result?",
+      "options": [
+        "0 islands",
+        "Always same as first",
+        "Doubles the first count",
+        "One island guaranteed"
+      ],
+      "answer": "A",
+      "correct": "0 islands",
+      "explanation": "The first traversal has consumed all land. State ownership matters when comparing methods on one input.",
+      "extension": false
+    },
+    {
+      "id": 141,
+      "section": "Islands, area and shape",
+      "source": "Days 19\u201320",
+      "title": "Grid complexity",
+      "body": "Each land cell is enqueued at most once; four neighbours examined. Full grid dimensions R,C. Time and worst-case queue/visited storage?",
+      "options": [
+        "O(log(RC)) time",
+        "O(R\u00b2C\u00b2) necessarily",
+        "O(RC) time and always O(1) queue",
+        "O(RC) time and O(RC) storage"
+      ],
+      "answer": "D",
+      "correct": "O(RC) time and O(RC) storage",
+      "explanation": "The constant four-direction loop does not add an asymptotic factor. Large components can require linear state.",
+      "extension": false
+    },
+    {
+      "id": 142,
+      "section": "DFS and the actual class maze",
+      "source": "Days 21\u201322",
+      "title": "Push order",
+      "body": "Tree root1,left2,right3. Iterative preorder should visit left before right. Which stack push order after popping1?",
+      "options": [
+        "Push2,then3",
+        "Push only1 again",
+        "Push3,then2",
+        "Queue order is irrelevant"
+      ],
+      "answer": "C",
+      "correct": "Push3,then2",
+      "explanation": "LIFO visits the last pushed item first. This simple tree avoids extra graph discovery-order complications.",
+      "extension": false
+    },
+    {
+      "id": 143,
+      "section": "DFS and the actual class maze",
+      "source": "Days 21\u201322",
+      "title": "Maze contract",
+      "body": "Which moves are permitted in the Day21\u201322 class rat maze?",
+      "options": [
+        "Roll in all directions until a wall",
+        "Right/down single-cell moves over1s",
+        "Knight moves",
+        "Any diagonal move over0s"
+      ],
+      "answer": "B",
+      "correct": "Right/down single-cell moves over1s",
+      "explanation": "Day22 opening explicitly says1 is open,0 blocked, right and down. Do not map a title to a different LeetCode state transition.",
+      "extension": false
+    },
+    {
+      "id": 144,
+      "section": "DFS and the actual class maze",
+      "source": "Days 21\u201322",
+      "title": "Maze reachability",
+      "body": "Class maze [[1,1,0],[0,1,1],[0,0,1]], start(0,0),end(2,2). Reachable?",
+      "options": [
+        "Yes, via(0,1),(1,1),(1,2),(2,2)",
+        "No because down from start is blocked",
+        "Yes by crossing(0,2)",
+        "No because maze must be symmetric"
+      ],
+      "answer": "A",
+      "correct": "Yes, via(0,1),(1,1),(1,2),(2,2)",
+      "explanation": "An invalid first direction should allow the other direction. Reachability does not require every adjacent cell to be open.",
+      "extension": false
+    },
+    {
+      "id": 145,
+      "section": "DFS and the actual class maze",
+      "source": "Days 21\u201322",
+      "title": "Bounds before access",
+      "body": "C++ deliberately faulty: `if(grid[r][c]==0 || r>=R || c>=C)return false;` Called with r=R. What is wrong?",
+      "options": [
+        "It safely returns false by short-circuit",
+        "It necessarily throws Java exception",
+        "It reads0 by C++ guarantee",
+        "It accesses out-of-bounds before checking bounds: undefined behavior"
+      ],
+      "answer": "D",
+      "correct": "It accesses out-of-bounds before checking bounds: undefined behavior",
+      "explanation": "Short-circuit checks left first. Put bounds tests before indexing; vector operator[] is unchecked.",
+      "extension": false
+    },
+    {
+      "id": 146,
+      "section": "DFS and the actual class maze",
+      "source": "Days 21\u201322",
+      "title": "No cycles does not eliminate repeats",
+      "body": "Right/down recursive reachability has no visited/memoization and explores both branches on a no-path grid. Which can occur?",
+      "options": [
+        "No repeated subproblem because no cycles",
+        "Always O(R+C) total time",
+        "The same cell is recomputed through multiple routes, causing exponential worst-case work",
+        "It must recurse infinitely"
+      ],
+      "answer": "C",
+      "correct": "The same cell is recomputed through multiple routes, causing exponential worst-case work",
+      "explanation": "r+c strictly increases, so recursion terminates. Different paths still merge at cells; memoized reachability is O(RC).",
+      "extension": false
+    },
+    {
+      "id": 147,
+      "section": "DFS and the actual class maze",
+      "source": "Days 21\u201322",
+      "title": "One-cell maze",
+      "body": "Class maze [[1]], start and destination both(0,0). Correct reachability?",
+      "options": [
+        "false because no move is possible",
+        "true",
+        "An exception is required",
+        "true even if its only value were0"
+      ],
+      "answer": "B",
+      "correct": "true",
+      "explanation": "Start is already the open destination. Check cell validity before treating that destination match as success.",
+      "extension": false
+    },
+    {
+      "id": 148,
+      "section": "Binary-tree boundary",
+      "source": "Day 22",
+      "title": "Boundary order",
+      "body": "Tree1 with left2,right3;2 has leaves4,5;3 has leaves6,7. Anticlockwise boundary without duplicates?",
+      "options": [
+        "1,2,4,5,6,7,3",
+        "1,2,4,5,3,6,7",
+        "1,2,4,5,6,7,3,1",
+        "1,4,2,5,6,3,7"
+      ],
+      "answer": "A",
+      "correct": "1,2,4,5,6,7,3",
+      "explanation": "Root; nonleaf left boundary; all leaves left-to-right; reversed nonleaf right boundary.",
+      "extension": false
+    },
+    {
+      "id": 149,
+      "section": "Binary-tree boundary",
+      "source": "Day 22",
+      "title": "Singleton tree",
+      "body": "Boundary of a single-node tree9?",
+      "options": [
+        "[9,9]",
+        "[]",
+        "[9,9,9]",
+        "[9] once"
+      ],
+      "answer": "D",
+      "correct": "[9] once",
+      "explanation": "Root is also a leaf. Avoid adding it independently in multiple boundary phases.",
+      "extension": false
+    },
+    {
+      "id": 150,
+      "section": "Binary-tree boundary",
+      "source": "Day 22",
+      "title": "Left fallback",
+      "body": "While collecting nonleaf left boundary, current node has no left child but has a right child. Next step?",
+      "options": [
+        "Stop even though boundary continues",
+        "Switch to root right subtree",
+        "Follow right child",
+        "Visit both children as left-boundary nodes"
+      ],
+      "answer": "C",
+      "correct": "Follow right child",
+      "explanation": "The boundary follows the available exterior route. Leaves will be handled separately.",
+      "extension": false
+    },
+    {
+      "id": 151,
+      "section": "Binary-tree boundary",
+      "source": "Day 22",
+      "title": "Right side reversal",
+      "body": "Right boundary top-down is3,8,10 excluding leaves. What order is appended at the end of anticlockwise boundary?",
+      "options": [
+        "3,8,10",
+        "10,8,3",
+        "8,3,10",
+        "Only3"
+      ],
+      "answer": "B",
+      "correct": "10,8,3",
+      "explanation": "The final traversal climbs from the leaves back toward the root, so this side must reverse.",
+      "extension": false
+    },
+    {
+      "id": 152,
+      "section": "Tree conventions and symmetry",
+      "source": "Days 23\u201324",
+      "title": "Height convention",
+      "body": "Node-height definition h(null)=0,h(node)=1+max(children). Height of a3-node chain?",
+      "options": [
+        "3",
+        "2",
+        "1",
+        "0"
+      ],
+      "answer": "A",
+      "correct": "3",
+      "explanation": "Edge-height would be2. Use the exact base convention; balance differences remain the same if consistent.",
+      "extension": false
+    },
+    {
+      "id": 153,
+      "section": "Tree conventions and symmetry",
+      "source": "Days 23\u201324",
+      "title": "Mirror arguments",
+      "body": "isMirror(a,b) finds equal values. Which recursive pairings are required?",
+      "options": [
+        "(a.left,b.left) and(a.right,b.right)",
+        "Compare node counts only",
+        "Compare only subtree heights",
+        "(a.left,b.right) and(a.right,b.left)"
+      ],
+      "answer": "D",
+      "correct": "(a.left,b.right) and(a.right,b.left)",
+      "explanation": "Reflection reverses child directions. Equal shape without reflection is the same-tree problem.",
+      "extension": false
+    },
+    {
+      "id": 154,
+      "section": "Tree conventions and symmetry",
+      "source": "Days 23\u201324",
+      "title": "Exactly one null",
+      "body": "isMirror receives a=null,b=non-null. Correct result?",
+      "options": [
+        "true",
+        "Return b.value",
+        "false",
+        "Always recurse into a.left"
+      ],
+      "answer": "C",
+      "correct": "false",
+      "explanation": "Missingness is part of structure; guard before dereferencing.",
+      "extension": false
+    },
+    {
+      "id": 155,
+      "section": "Tree conventions and symmetry",
+      "source": "Days 23\u201324",
+      "title": "Same values, wrong placement",
+      "body": "Root1 has left2 with left child3, and right2 also with left child3. Symmetric?",
+      "options": [
+        "Yes because level values match",
+        "No;3 positions are not mirrored",
+        "Yes because heights match",
+        "Only node values determine symmetry"
+      ],
+      "answer": "B",
+      "correct": "No;3 positions are not mirrored",
+      "explanation": "The right-side3 would need to be a right child. Omitting null placeholders from level sequences can hide this mismatch.",
+      "extension": false
+    },
+    {
+      "id": 156,
+      "section": "Balanced-tree height propagation",
+      "source": "Days 23\u201324",
+      "title": "Root test is insufficient",
+      "body": "Root has two equal-height children, but one subtree has a node with child-height difference2. Is the whole tree balanced?",
+      "options": [
+        "No; every node must meet the bound",
+        "Yes because root difference0",
+        "Yes if total node count is odd",
+        "Yes if preorder is sorted"
+      ],
+      "answer": "A",
+      "correct": "No; every node must meet the bound",
+      "explanation": "Local height balance is required recursively; root-only checking loses violations below it.",
+      "extension": false
+    },
+    {
+      "id": 157,
+      "section": "Balanced-tree height propagation",
+      "source": "Days 23\u201324",
+      "title": "Sentinel propagation",
+      "body": "One-pass check returns\u22121 for an unbalanced subtree; left=\u22121,right=2. Correct next action?",
+      "options": [
+        "Return1+max(left,right)=3",
+        "Treat\u22121 as empty height",
+        "Return abs(left\u2212right)=3 as a valid height",
+        "Return\u22121 before using them as heights"
+      ],
+      "answer": "D",
+      "correct": "Return\u22121 before using them as heights",
+      "explanation": "Here normal null height is0, so\u22121 is reserved error state. Propagate it instead of masking an earlier imbalance.",
+      "extension": false
+    },
+    {
+      "id": 158,
+      "section": "Balanced-tree height propagation",
+      "source": "Days 23\u201324",
+      "title": "One-pass height result",
+      "body": "Balanced node has child heights2 and3, node-height convention. Returned height?",
+      "options": [
+        "3",
+        "5",
+        "4",
+        "-1"
+      ],
+      "answer": "C",
+      "correct": "4",
+      "explanation": "Difference1 passes; one plus maximum3 gives4. Balance is not a sum of child heights.",
+      "extension": false
+    },
+    {
+      "id": 159,
+      "section": "Balanced-tree height propagation",
+      "source": "Days 23\u201324",
+      "title": "Repeated heights",
+      "body": "Naive balance recomputes height(left/right) at every node of a long skewed tree. Worst-case time?",
+      "options": [
+        "\u0398(n)",
+        "\u0398(n\u00b2)",
+        "\u0398(logn)",
+        "\u0398(nlogn) for all shapes"
+      ],
+      "answer": "B",
+      "correct": "\u0398(n\u00b2)",
+      "explanation": "Subtree scans have sizes n\u22121,n\u22122,\u2026 . One postorder computes each height once.",
+      "extension": false
+    },
+    {
+      "id": 160,
+      "section": "Balanced-tree height propagation",
+      "source": "Days 23\u201324",
+      "title": "Counts are not heights",
+      "body": "Two child subtrees have equal numbers of nodes but one is a chain and the other compact. Does equality of counts guarantee local height balance?",
+      "options": [
+        "No",
+        "Yes always",
+        "Only if values positive",
+        "Only if root has two children, then yes"
+      ],
+      "answer": "A",
+      "correct": "No",
+      "explanation": "Structural depth, not cardinality, defines height. Equal cardinality can support different heights.",
+      "extension": false
+    },
+    {
+      "id": 161,
+      "section": "Level averages by BFS/DFS",
+      "source": "Days 23\u201324",
+      "title": "Correct averages",
+      "body": "Tree3 has children9,20;20 has children15,7. Per-level averages?",
+      "options": [
+        "[3,14,11]",
+        "[3,9,20,15,7]",
+        "[3,14.5,7.3333]",
+        "[3,14.5,11]"
+      ],
+      "answer": "D",
+      "correct": "[3,14.5,11]",
+      "explanation": "Levels are[3],[9,20],[15,7]. Floating division preserves the half unit.",
+      "extension": false
+    },
+    {
+      "id": 162,
+      "section": "Level averages by BFS/DFS",
+      "source": "Days 23\u201324",
+      "title": "Snapshot size",
+      "body": "BFS level loop pushes children. Why capture n=q.size() before entering that level loop?",
+      "options": [
+        "To force queue storage constant",
+        "To prevent any children being visited ever",
+        "To process exactly the current level despite the queue growing/shrinking",
+        "Because q.size() is an average"
+      ],
+      "answer": "C",
+      "correct": "To process exactly the current level despite the queue growing/shrinking",
+      "explanation": "Using a changing queue size as the loop bound can mix levels or stop too early. Level membership is defined at entry.",
+      "extension": false
+    },
+    {
+      "id": 163,
+      "section": "Level averages by BFS/DFS",
+      "source": "Days 23\u201324",
+      "title": "Overflow before average",
+      "body": "Java int sum adds two level values2_000_000_000,then divides by2.0. What prevents overflow?",
+      "options": [
+        "Only cast the final sum to double",
+        "Use a long accumulator before additions",
+        "Use an int count of2",
+        "Division by2.0 retroactively widens earlier additions"
+      ],
+      "answer": "B",
+      "correct": "Use a long accumulator before additions",
+      "explanation": "Overflow occurs while summing int values. Later floating conversion cannot reconstruct the intended sum.",
+      "extension": false
+    },
+    {
+      "id": 164,
+      "section": "Level averages by BFS/DFS",
+      "source": "Days 23\u201324",
+      "title": "DFS missing state",
+      "body": "A DFS records only sum[depth]. To compute level averages later, what else is needed?",
+      "options": [
+        "count[depth]",
+        "A single global count for the whole tree",
+        "Only the tree root value",
+        "Sort sums numerically"
+      ],
+      "answer": "A",
+      "correct": "count[depth]",
+      "explanation": "Each depth can contain different numbers of nodes. Divide its own sum by its own count.",
+      "extension": false
+    },
+    {
+      "id": 165,
+      "section": "Level averages by BFS/DFS",
+      "source": "Days 23\u201324",
+      "title": "Traversal order versus aggregate",
+      "body": "DFS with explicit depth and BFS with level snapshots both correctly accumulate sums/counts. Can final level averages agree despite different visitation order?",
+      "options": [
+        "No; DFS can never group levels",
+        "Only for empty trees",
+        "Only if all values are equal",
+        "Yes"
+      ],
+      "answer": "D",
+      "correct": "Yes",
+      "explanation": "Grouping by depth determines the aggregate, not the order of visits, provided arithmetic and state are correct.",
+      "extension": false
+    },
+    {
+      "id": 166,
+      "section": "Backtracking and N-Queens",
+      "source": "Day 25",
+      "title": "Undo the choice",
+      "body": "A used-array permutation search sets used[i]=true, recurses, but never restores it. Effect on sibling branches?",
+      "options": [
+        "It necessarily enumerates all permutations twice",
+        "No effect because recursion copies shared arrays automatically",
+        "Legal choices can be incorrectly unavailable",
+        "It improves correctness by remembering all explored paths"
+      ],
+      "answer": "C",
+      "correct": "Legal choices can be incorrectly unavailable",
+      "explanation": "Used flags represent the current path, not every historical choice. Undo when returning to a sibling.",
+      "extension": false
+    },
+    {
+      "id": 167,
+      "section": "Backtracking and N-Queens",
+      "source": "Day 25",
+      "title": "Copied output",
+      "body": "Java recursion appends the same mutable path list object at every leaf, then pops elements. What can fix corrupted stored outputs?",
+      "options": [
+        "Only increment a global counter",
+        "Store a new copy at each leaf",
+        "Clear output before every leaf",
+        "Make all indexes one-based"
+      ],
+      "answer": "B",
+      "correct": "Store a new copy at each leaf",
+      "explanation": "Stored references share later mutations. Snapshotting preserves each completed choice sequence.",
+      "extension": false
+    },
+    {
+      "id": 168,
+      "section": "Backtracking and N-Queens",
+      "source": "Day 25",
+      "title": "Queen diagonal test",
+      "body": "Queens at(r1,c1) and(r2,c2), distinct rows. Diagonal attack condition?",
+      "options": [
+        "|r1\u2212r2|=|c1\u2212c2|",
+        "r1+c1 != r2+c2 always attacks",
+        "r1=r2 only",
+        "c1+c2=n\u22121 only"
+      ],
+      "answer": "A",
+      "correct": "|r1\u2212r2|=|c1\u2212c2|",
+      "explanation": "Same r\u2212c or r+c identifies the two diagonal directions. Column equality is a separate conflict.",
+      "extension": false
+    },
+    {
+      "id": 169,
+      "section": "Backtracking and N-Queens",
+      "source": "Day 25",
+      "title": "Four queens count",
+      "body": "Enumerating all standard N-Queens placements for n=4, one queen per row/column. Total solutions?",
+      "options": [
+        "1",
+        "4",
+        "8",
+        "2"
+      ],
+      "answer": "D",
+      "correct": "2",
+      "explanation": "Column sequences[1,3,0,2] and[2,0,3,1] are the two placements. Finding the first one is not enumerating both.",
+      "extension": false
+    },
+    {
+      "id": 170,
+      "section": "Backtracking and N-Queens",
+      "source": "Day 25",
+      "title": "Five queens count",
+      "body": "Enumerating all standard N-Queens placements for n=5. Total solutions?",
+      "options": [
+        "2",
+        "5",
+        "10",
+        "25"
+      ],
+      "answer": "C",
+      "correct": "10",
+      "explanation": "A lecturer demonstrating two possibilities does not establish completeness. Exhaustive row/column/diagonal search yields10.",
+      "extension": false
+    },
+    {
+      "id": 171,
+      "section": "Backtracking and N-Queens",
+      "source": "Day 25",
+      "title": "Search bound assumptions",
+      "body": "Place one queen per row, never reuse a column, check conflicts using O(1) sets. Useful upper bound on search states excluding output-board copying?",
+      "options": [
+        "Guaranteed O(n\u00b2)",
+        "O(n!)",
+        "\u0398(2^n) exactly for all n",
+        "O(logn)"
+      ],
+      "answer": "B",
+      "correct": "O(n!)",
+      "explanation": "Column-unique branches form partial permutations; diagonals prune them. Scanning board cells or emitting boards adds its own work.",
+      "extension": false
+    },
+    {
+      "id": 172,
+      "section": "Maximum gold path state",
+      "source": "Day 25 after about58:00",
+      "title": "Component sum is not path sum",
+      "body": "Plus-shaped grid [[0,1,0],[1,1,1],[0,1,0]], four directions, no cell revisited. Maximum gold path sum?",
+      "options": [
+        "3",
+        "5",
+        "4",
+        "1"
+      ],
+      "answer": "A",
+      "correct": "3",
+      "explanation": "A path can enter the centre from one arm and leave to one other arm; taking a third arm would require revisiting the centre. Component area/sum5 is not achievable.",
+      "extension": false
+    },
+    {
+      "id": 173,
+      "section": "Maximum gold path state",
+      "source": "Day 25 after about58:00",
+      "title": "Restore after recursion",
+      "body": "Gold search marks grid[r][c]=0 before exploring. Why restore the saved value on return?",
+      "options": [
+        "To allow revisiting within the same path",
+        "Because zeros count as extra gold",
+        "Because BFS needs a sorted grid",
+        "Other candidate paths/start cells may legally use that cell later"
+      ],
+      "answer": "D",
+      "correct": "Other candidate paths/start cells may legally use that cell later",
+      "explanation": "Temporary marking forbids use in the current path. Permanent global consumption wrongly blocks independent paths.",
+      "extension": false
+    },
+    {
+      "id": 174,
+      "section": "Maximum gold path state",
+      "source": "Day 25 after about58:00",
+      "title": "Simple gold trace",
+      "body": "Grid [[0,6,0],[5,8,7],[0,9,0]]. Maximum gold without revisits?",
+      "options": [
+        "35",
+        "23",
+        "24",
+        "29"
+      ],
+      "answer": "C",
+      "correct": "24",
+      "explanation": "Path7\u21928\u21929 gives24. Summing all arms requires revisiting8;6\u21928\u21929 gives23.",
+      "extension": false
+    },
+    {
+      "id": 175,
+      "section": "Maximum gold path state",
+      "source": "Day 25 after about58:00",
+      "title": "Start coverage",
+      "body": "Gold path may start anywhere. Which outer search is necessary?",
+      "options": [
+        "Only start at(0,0)",
+        "Try every positive cell as a start, preserving input between tries",
+        "Only start at maximum-valued cell by greedy guarantee",
+        "Skip all cells with one neighbour"
+      ],
+      "answer": "B",
+      "correct": "Try every positive cell as a start, preserving input between tries",
+      "explanation": "An optimal path endpoint need not be the largest cell or top-left. Greedy start choice is not proved by the problem definition.",
+      "extension": false
+    },
+    {
+      "id": 176,
+      "section": "Hamiltonian safety and closure",
+      "source": "Day 26",
+      "title": "Closing edge",
+      "body": "A path contains every vertex once, but last vertex has no edge back to first. Is it a Hamiltonian cycle?",
+      "options": [
+        "No; it may be a Hamiltonian path only",
+        "Yes because all vertices visited",
+        "Yes if last value is largest",
+        "Only weights decide"
+      ],
+      "answer": "A",
+      "correct": "No; it may be a Hamiltonian path only",
+      "explanation": "The base case must check the closing adjacency, not simply path lengthV.",
+      "extension": false
+    },
+    {
+      "id": 177,
+      "section": "Hamiltonian safety and closure",
+      "source": "Day 26",
+      "title": "Repeated vertex",
+      "body": "Candidate path0,1,2,1,3,0 in a4-vertex graph. What violates Hamiltonian-cycle rules?",
+      "options": [
+        "Returning to0 at end is always forbidden",
+        "Any cycle must use exactly one edge",
+        "Vertex labels must be sorted",
+        "Vertex1 is repeated before closure"
+      ],
+      "answer": "D",
+      "correct": "Vertex1 is repeated before closure",
+      "explanation": "Start repeats only as final closure; all other vertices occur once. Edges alone cannot validate this vertex sequence.",
+      "extension": false
+    },
+    {
+      "id": 178,
+      "section": "Hamiltonian safety and closure",
+      "source": "Day 26",
+      "title": "Vertices versus edges",
+      "body": "What is the essential distinction between Hamiltonian and Eulerian cycles?",
+      "options": [
+        "Both optimize total weight by definition",
+        "Hamiltonian requires visiting every edge",
+        "Hamiltonian visits vertices once; Eulerian traverses edges once",
+        "Eulerian requires every vertex once only"
+      ],
+      "answer": "C",
+      "correct": "Hamiltonian visits vertices once; Eulerian traverses edges once",
+      "explanation": "A connected graph can satisfy one property without the other. Neither name alone states weighted shortest-tour optimization.",
+      "extension": false
+    },
+    {
+      "id": 179,
+      "section": "Hamiltonian safety and closure",
+      "source": "Day 26",
+      "title": "Any cycle versus best tour",
+      "body": "Finding the first Hamiltonian cycle in a weighted graph does what for TSP?",
+      "options": [
+        "Solves TSP optimally automatically",
+        "Shows a feasible tour, not necessarily the minimum-weight tour",
+        "Proves no other cycle exists",
+        "Guarantees polynomial runtime"
+      ],
+      "answer": "B",
+      "correct": "Shows a feasible tour, not necessarily the minimum-weight tour",
+      "explanation": "Existence and optimization are different goals; more expensive valid cycles can be found first.",
+      "extension": false
+    },
+    {
+      "id": 180,
+      "section": "Hamiltonian safety and closure",
+      "source": "Day 26",
+      "title": "Fixing the start",
+      "body": "When enumerating undirected Hamiltonian cycles, fixing start vertex0 removes what redundancy?",
+      "options": [
+        "Cyclic rotations of a tour; reverse-direction duplication may remain",
+        "All reverse duplicates automatically",
+        "All factorial complexity",
+        "The need to check closure"
+      ],
+      "answer": "A",
+      "correct": "Cyclic rotations of a tour; reverse-direction duplication may remain",
+      "explanation": "A reversed cycle may still be enumerated with the same start. Canonical orientation is an additional convention.",
+      "extension": false
+    },
+    {
+      "id": 181,
+      "section": "Brace union, product and nesting",
+      "source": "Day 26 after about1:00",
+      "title": "Cartesian output",
+      "body": "Expand {a,b}{c,d} under set grammar. Sorted output?",
+      "options": [
+        "[a,b,c,d]",
+        "[abcd]",
+        "[ac,bd]",
+        "[ac,ad,bc,bd]"
+      ],
+      "answer": "D",
+      "correct": "[ac,ad,bc,bd]",
+      "explanation": "Concatenation chooses one member of each set. Commas inside braces form alternatives, not concatenated strings.",
+      "extension": false
+    },
+    {
+      "id": 182,
+      "section": "Brace union, product and nesting",
+      "source": "Day 26 after about1:00",
+      "title": "Nested union",
+      "body": "Expand {a,{b,c}}d. Sorted output?",
+      "options": [
+        "[abcd]",
+        "[ad,bcd]",
+        "[ad,bd,cd]",
+        "[a,b,c,d]"
+      ],
+      "answer": "C",
+      "correct": "[ad,bd,cd]",
+      "explanation": "Nested alternatives flatten by union; each selected word concatenates with d.",
+      "extension": false
+    },
+    {
+      "id": 183,
+      "section": "Brace union, product and nesting",
+      "source": "Day 26 after about1:00",
+      "title": "Deduplication",
+      "body": "Expand {{a,b},{b,c}}. Sorted unique output?",
+      "options": [
+        "[a,b,b,c]",
+        "[a,b,c]",
+        "[ab,bc]",
+        "[a,c]"
+      ],
+      "answer": "B",
+      "correct": "[a,b,c]",
+      "explanation": "The grammar denotes sets, so repeated b is present once. Sorting alone does not remove duplicates.",
+      "extension": false
+    },
+    {
+      "id": 184,
+      "section": "Brace union, product and nesting",
+      "source": "Day 26 after about1:00",
+      "title": "Wrong delimiter match",
+      "body": "A parser pairs first opening brace with the first following closing brace regardless of depth. Why does {a,{b,c}} fail?",
+      "options": [
+        "That first closing brace belongs to the inner group",
+        "There is no closing brace",
+        "All braces must be flat by this contract",
+        "Commas cannot occur in expressions"
+      ],
+      "answer": "A",
+      "correct": "That first closing brace belongs to the inner group",
+      "explanation": "Track nesting depth or use recursive parsing; only depth-zero separators split the current union.",
+      "extension": false
+    },
+    {
+      "id": 185,
+      "section": "Brace union, product and nesting",
+      "source": "Day 26 after about1:00",
+      "title": "Output-size lower bound",
+      "body": "Flat groups each choose a or b at n positions, return all length-n strings. Minimum materialization cost?",
+      "options": [
+        "O(n) because parser reads n groups",
+        "O(logn)",
+        "O(n\u00b2) regardless of outputs",
+        "\u03a9(n\u00b72^n) characters"
+      ],
+      "answer": "D",
+      "correct": "\u03a9(n\u00b72^n) characters",
+      "explanation": "Parsing can be linear in input while expanded output is exponential. Complexity must include generated words.",
+      "extension": false
+    },
+    {
+      "id": 186,
+      "section": "Gray code and bit flips",
+      "source": "Day 27 before about47:50",
+      "title": "Reflected three-bit sequence",
+      "body": "Using g(i)=i^(i>>1),i0..7. Sequence?",
+      "options": [
+        "[0,1,2,3,4,5,6,7]",
+        "[0,1,3,7,6,4,2,5]",
+        "[0,1,3,2,6,7,5,4]",
+        "[0,2,4,6,1,3,5,7]"
+      ],
+      "answer": "C",
+      "correct": "[0,1,3,2,6,7,5,4]",
+      "explanation": "XOR each binary index with its right-shifted value. Consecutive binary increments become single Gray-bit changes.",
+      "extension": true
+    },
+    {
+      "id": 187,
+      "section": "Gray code and bit flips",
+      "source": "Day 27 before about47:50",
+      "title": "XOR neighbour",
+      "body": "Current x=3(binary011); toggle bit1 with x^(1<<1). New value?",
+      "options": [
+        "2",
+        "1",
+        "3",
+        "7"
+      ],
+      "answer": "B",
+      "correct": "1",
+      "explanation": "011 XOR010=001. OR would keep an already-set bit unchanged.",
+      "extension": false
+    },
+    {
+      "id": 188,
+      "section": "Gray code and bit flips",
+      "source": "Day 27 before about47:50",
+      "title": "Closing pair",
+      "body": "Candidate n2 sequence[0,1,3,2]. Last-to-first XOR?",
+      "options": [
+        "2, with exactly one set bit",
+        "3, with two set bits",
+        "0",
+        "4 outside range"
+      ],
+      "answer": "A",
+      "correct": "2, with exactly one set bit",
+      "explanation": "2 XOR0=2(binary10). The cyclic Gray contract checks closure as well as internal pairs.",
+      "extension": false
+    },
+    {
+      "id": 189,
+      "section": "Gray code and bit flips",
+      "source": "Day 27 before about47:50",
+      "title": "Duplicate state",
+      "body": "A sequence toggles one bit each step but revisits an earlier integer. Is it a complete valid n-bit Gray sequence?",
+      "options": [
+        "Yes, one-bit steps are the only rule",
+        "Yes if it starts0",
+        "Yes if duplicates are adjacent",
+        "No; every integer must appear exactly once across2^n positions"
+      ],
+      "answer": "D",
+      "correct": "No; every integer must appear exactly once across2^n positions",
+      "explanation": "Length, range, uniqueness, adjacency and cyclic closure are separate conditions. One-bit changes do not prove completeness.",
+      "extension": false
+    },
+    {
+      "id": 190,
+      "section": "Gray code and bit flips",
+      "source": "Day 27 before about47:50",
+      "title": "Materialized size",
+      "body": "An n-bit Gray sequence returned as fixed-width integer vector has how many entries?",
+      "options": [
+        "n",
+        "n\u00b2",
+        "2^n",
+        "n!"
+      ],
+      "answer": "C",
+      "correct": "2^n",
+      "explanation": "Each possible n-bit value appears once. Construction/output storage is exponential in number of bits even when per-entry work is constant.",
+      "extension": false
+    },
+    {
+      "id": 191,
+      "section": "Campus Bikes minimum-total objective",
+      "source": "Day 27 around47:50\u20131:11",
+      "title": "Distance metric",
+      "body": "Manhattan distance between(1,2) and(4,6)?",
+      "options": [
+        "5",
+        "7",
+        "25",
+        "3"
+      ],
+      "answer": "B",
+      "correct": "7",
+      "explanation": "Absolute coordinate differences3+4=7. Euclidean distance5 is a different metric.",
+      "extension": false
+    },
+    {
+      "id": 192,
+      "section": "Campus Bikes minimum-total objective",
+      "source": "Day 27 around47:50\u20131:11",
+      "title": "Nearest-pair counterexample",
+      "body": "Workers W0=(0,0),W1=(2,0),bikes B0=(1,0),B1=(\u22122,0). A greedy tie assigns W0/B0 first. Its total and optimum?",
+      "options": [
+        "(5,3)",
+        "(3,5)",
+        "(5,5)",
+        "(1,1)"
+      ],
+      "answer": "A",
+      "correct": "(5,3)",
+      "explanation": "Greedy distances1+4=5. Alternative W0/B1=2 and W1/B0=1,total3. One local cheapest edge need not minimize assignment sum.",
+      "extension": false
+    },
+    {
+      "id": 193,
+      "section": "Campus Bikes minimum-total objective",
+      "source": "Day 27 around47:50\u20131:11",
+      "title": "Used-bike restoration",
+      "body": "Backtracking assigns bike j to worker i then recurses. Before trying another bike for i, what must happen?",
+      "options": [
+        "Keep j marked globally forever",
+        "Allow j simultaneously for all workers",
+        "Clear every previous worker assignment",
+        "Unmark bike j for the sibling branch"
+      ],
+      "answer": "D",
+      "correct": "Unmark bike j for the sibling branch",
+      "explanation": "The used set belongs to the partial assignment. Undo only the current choice while preserving ancestors.",
+      "extension": false
+    },
+    {
+      "id": 194,
+      "section": "Campus Bikes minimum-total objective",
+      "source": "Day 27 around47:50\u20131:11",
+      "title": "Complete assignments",
+      "body": "N=2 workers,M=3 distinct bikes, one different bike per worker. How many complete assignments?",
+      "options": [
+        "3",
+        "9",
+        "6",
+        "2"
+      ],
+      "answer": "C",
+      "correct": "6",
+      "explanation": "Choose3 bikes for first worker and2 remaining for second:3\u00d72. Worker identities make assignments ordered.",
+      "extension": false
+    },
+    {
+      "id": 195,
+      "section": "Campus Bikes minimum-total objective",
+      "source": "Day 27 around47:50\u20131:11",
+      "title": "Memo state extension",
+      "body": "For sequential worker assignment, used bike bitmask has k bits set. Which state is sufficient for minimum remaining cost?",
+      "options": [
+        "Only total cost spent",
+        "(workerIndex=k,usedMask), with fixed worker order",
+        "Only the last bike index",
+        "Only number of unused bikes, ignoring which"
+      ],
+      "answer": "B",
+      "correct": "(workerIndex=k,usedMask), with fixed worker order",
+      "explanation": "Remaining options depend on bike identities; worker index follows the count when each earlier worker was assigned once. Memoization is a small-M extension.",
+      "extension": true
+    },
+    {
+      "id": 196,
+      "section": "Generalized abbreviations",
+      "source": "Day 27 after about1:11",
+      "title": "Complete ANT set",
+      "body": "Which string is **not** a normalized generalized abbreviation of ANT?",
+      "options": [
+        "A11",
+        "A2",
+        "1N1",
+        "3"
+      ],
+      "answer": "A",
+      "correct": "A11",
+      "explanation": "Two consecutive abbreviated characters merge into count2. Separate counts11 are not normalized output for those adjacent characters.",
+      "extension": false
+    },
+    {
+      "id": 197,
+      "section": "Generalized abbreviations",
+      "source": "Day 27 after about1:11",
+      "title": "Pending count leaf",
+      "body": "Pseudocode skips both letters of AB, incrementing pending twice. At leaf, what must be appended?",
+      "options": [
+        "11",
+        "AB",
+        "Nothing",
+        "2"
+      ],
+      "answer": "D",
+      "correct": "2",
+      "explanation": "Flush the run length on reaching the end. Otherwise an all-abbreviated word loses its representation.",
+      "extension": false
+    },
+    {
+      "id": 198,
+      "section": "Generalized abbreviations",
+      "source": "Day 27 after about1:11",
+      "title": "Keep after skips",
+      "body": "For word WORD, skip W and O,keep R,skip D. Normalized output?",
+      "options": [
+        "11R1",
+        "2R",
+        "2R1",
+        "1R2"
+      ],
+      "answer": "C",
+      "correct": "2R1",
+      "explanation": "Flush pending2 before literal R, reset, then flush suffix count1 at the leaf.",
+      "extension": false
+    },
+    {
+      "id": 199,
+      "section": "Generalized abbreviations",
+      "source": "Day 27 after about1:11",
+      "title": "Count outputs",
+      "body": "Alphabetic word length4, choose keep/abbreviate at every position. Number of normalized outputs?",
+      "options": [
+        "4",
+        "16",
+        "8",
+        "24"
+      ],
+      "answer": "B",
+      "correct": "16",
+      "explanation": "There are2^4 binary decisions; run-length normalization encodes those masks without merging distinct choices for alphabetic input.",
+      "extension": false
+    },
+    {
+      "id": 200,
+      "section": "Generalized abbreviations",
+      "source": "Day 27 after about1:11",
+      "title": "Breadth versus depth",
+      "body": "BFS queue and DFS recursion enumerate all abbreviation masks correctly. What property must both preserve?",
+      "options": [
+        "Independent path state plus consecutive-run merging",
+        "Exactly the same output order",
+        "Only a single global pending count shared by branches",
+        "Sorted words at every internal node"
+      ],
+      "answer": "A",
+      "correct": "Independent path state plus consecutive-run merging",
+      "explanation": "Traversal order can differ. State corruption or unflushed counts changes the represented abbreviation.",
+      "extension": false
+    },
+    {
+      "id": 201,
+      "section": "Assignment-linked extensions",
+      "source": "Assignment titles only; not confirmed explained in these lectures",
+      "title": "Additive leading zeros",
+      "body": "For additive-number strings, can a multi-digit numeric field be \"01\" under the usual decimal contract?",
+      "options": [
+        "Yes whenever its numeric value is1",
+        "Yes in every first field",
+        "Only if later sums are positive",
+        "No; only the single digit0 may begin with0"
+      ],
+      "answer": "D",
+      "correct": "No; only the single digit0 may begin with0",
+      "explanation": "Leading-zero validation is separate from arithmetic equality; otherwise strings with invalid number formatting pass.",
+      "extension": true
+    },
+    {
+      "id": 202,
+      "section": "Assignment-linked extensions",
+      "source": "Assignment titles only; not confirmed explained in these lectures",
+      "title": "Additive continuation",
+      "body": "String112358 can split as1,1 then repeated sums. Is that split valid?",
+      "options": [
+        "No because first two values must differ",
+        "No because sums are products",
+        "Yes:1,1,2,3,5,8",
+        "Yes only after sorting digits"
+      ],
+      "answer": "C",
+      "correct": "Yes:1,1,2,3,5,8",
+      "explanation": "Use consecutive consumed decimal fields; rearranging digits is not permitted. Long values need safe decimal arithmetic.",
+      "extension": true
+    },
+    {
+      "id": 203,
+      "section": "Assignment-linked extensions",
+      "source": "Assignment titles only; not confirmed explained in these lectures",
+      "title": "Arrangement uses OR",
+      "body": "Beautiful Arrangement at one-based position2, candidate value3. Rule value%position==0 OR position%value==0. Allowed?",
+      "options": [
+        "Yes because values are distinct",
+        "No",
+        "Yes because2+3 is odd",
+        "Yes because one index is smaller"
+      ],
+      "answer": "B",
+      "correct": "No",
+      "explanation": "3%2=1 and2%3=2, so neither divisibility direction holds. Uniqueness is also required, but is not sufficient.",
+      "extension": true
+    },
+    {
+      "id": 204,
+      "section": "Assignment-linked extensions",
+      "source": "Assignment titles only; not confirmed explained in these lectures",
+      "title": "Arrangement count",
+      "body": "Beautiful Arrangement for n=2 under that OR rule. Number of valid permutations?",
+      "options": [
+        "2",
+        "1",
+        "0",
+        "4"
+      ],
+      "answer": "A",
+      "correct": "2",
+      "explanation": "Both[1,2] and[2,1] satisfy divisibility at positions1 and2. Enumerating arbitrary choices with reuse would overcount.",
+      "extension": true
+    },
+    {
+      "id": 205,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Indirect recursion observation",
+      "body": "Day1 recursion. C++17:\n```cpp\nvoid B(int);\nvoid A(int n){ if(n<=0)return; cout<<\"A\"<<n<<\" \"; B(n-1); }\nvoid B(int n){ if(n<=0)return; cout<<\"B\"<<n<<\" \"; A(n-2); }\n```\nWhat does A(5) print?",
+      "options": [
+        "A5 B4 A3 B2 A1",
+        "A5 B3 A1",
+        "A5 B4 A2 B1 A0",
+        "A5 B4 A2 B1"
+      ],
+      "answer": "D",
+      "correct": "A5 B4 A2 B1",
+      "explanation": "A5 calls B4, which calls A2, then B1, then A\u22121 stops. Track the different decrements rather than assuming alternation decrements by1.",
+      "extension": false
+    },
+    {
+      "id": 206,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Factorial returns versus calls",
+      "body": "Day1. Pseudocode with exact integers:\n```text\ncalls=0\nf(n):\n  calls += 1\n  if n==0: return 1\n  return n*f(n-1)\n```\nAfter f(4), which pair(value,calls) is correct?",
+      "options": [
+        "(24,4)",
+        "(120,5)",
+        "(24,5)",
+        "(0,5)"
+      ],
+      "answer": "C",
+      "correct": "(24,5)",
+      "explanation": "Calls4,3,2,1,0 total5; base1 is the multiplicative identity. Return value and invocation count are different measurements.",
+      "extension": false
+    },
+    {
+      "id": 207,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Static counter survives runs",
+      "body": "Day1 counter transfer. Java:\n```java\nstatic int calls=0;\nstatic int f(int n){\n  calls++;\n  if(n==0)return 0;\n  return f(n-1)+1;\n}\n// in main:\nf(2); f(1); System.out.print(calls);\n```\nWhat prints?",
+      "options": [
+        "3",
+        "5",
+        "2",
+        "6"
+      ],
+      "answer": "B",
+      "correct": "5",
+      "explanation": "First invocation tree contributes3 calls; second2. Static state is not reset by calling the method again.",
+      "extension": false
+    },
+    {
+      "id": 208,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Low-pivot mirror partition",
+      "body": "Days4\u20135. C++17:\n```cpp\nvector<int> a={30,50,20,70,60};\nint i=4,pivot=a[0];\nfor(int j=4;j>0;--j)\n  if(a[j]>pivot) swap(a[i--],a[j]);\nswap(a[i],a[0]);\n```\nArray and i at the observation point?",
+      "options": [
+        "[20,30,50,70,60], i=1",
+        "[20,30,60,70,50], i=1",
+        "[30,20,50,70,60], i=0",
+        "[20,30,50,60,70], i=1"
+      ],
+      "answer": "A",
+      "correct": "[20,30,50,70,60], i=1",
+      "explanation": "From the right60 and70 swap with themselves,20 is skipped,50 moves to index2. The pivot finally swaps with20 at index1. Mirror scans need their own exact state trace.",
+      "extension": false
+    },
+    {
+      "id": 209,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Power side-effect count",
+      "body": "Days4\u20135. Exact integer pseudocode; calls initially0:\n```text\np(n):\n  calls++\n  if n==0: return 1\n  return p(n//2)*p(n//2)\n```\nHow many entries for p(8), including bases?",
+      "options": [
+        "5",
+        "16",
+        "17",
+        "31"
+      ],
+      "answer": "D",
+      "correct": "31",
+      "explanation": "Depth arguments8,4,2,1,0; a full binary tree with5 levels has1+2+4+8+16=31 entries. This is the duplicated-half variant, not the efficient cached-half variant.",
+      "extension": false
+    },
+    {
+      "id": 210,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Sorted occurrence shortcuts",
+      "body": "Day8. Pseudocode, entry counted, sorted a=[1,2,2,2,4]:\n```text\nc(lo,hi):\n  calls++\n  if lo>hi: return 0\n  if a[hi]<2 or a[lo]>2: return 0\n  if a[lo]==2 and a[hi]==2: return hi-lo+1\n  if lo==hi: return 0\n  mid=(lo+hi)//2\n  L=c(lo,mid)\n  R=c(mid+1,hi)\n  return L+R\n```\nFor c(0,4), result and total entries?",
+      "options": [
+        "(3,5)",
+        "(2,9)",
+        "(3,9)",
+        "(3,11)"
+      ],
+      "answer": "C",
+      "correct": "(3,9)",
+      "explanation": "Visited intervals:0..4;0..2;0..1;0..0;1..1;2..2;3..4;3..3;4..4. Count all pruned entries, not just successful ones.",
+      "extension": false
+    },
+    {
+      "id": 211,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Koko binary-search log",
+      "body": "Days10\u201311. Piles[3,6,7,11],h8; initial lo1,hi11:\n```text\nwhile lo<hi:\n  mid=(lo+hi)//2\n  if hours(mid)<=8: hi=mid\n  else: lo=mid+1\n```\nTested speeds in order and return?",
+      "options": [
+        "6,3,4; return4",
+        "6,3,5,4; return4",
+        "6,9,10; return11",
+        "5,2,3; return3"
+      ],
+      "answer": "B",
+      "correct": "6,3,5,4; return4",
+      "explanation": "At6 hours6 is feasible\u2192hi6; at3 hours10 fails\u2192lo4; at5 hours8\u2192hi5; at4 hours8\u2192hi4. A lower-bound loop keeps a feasible mid instead of discarding it.",
+      "extension": false
+    },
+    {
+      "id": 212,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Median partition log",
+      "body": "Days12\u201313. A=[1,2], B=[3,4,5,6], search cutA in[0,2], leftSize3. First cutA1 then standard direction update. Valid final cut and odd/even median?",
+      "options": [
+        "cutA2,cutB1, median3.5",
+        "cutA1,cutB2, median3.5",
+        "cutA0,cutB3, median3",
+        "cutA2,cutB2, median4.5"
+      ],
+      "answer": "A",
+      "correct": "cutA2,cutB1, median3.5",
+      "explanation": "At cutA1, leftB4>rightA2, so move right. At cutA2 left sides end2 and3, right sides start\u221e and4; total6 is even, average3 and4.",
+      "extension": false
+    },
+    {
+      "id": 213,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Dijkstra multi-step snapshot",
+      "body": "Day15. Undirected edges0\u20131:6,0\u20132:5,0\u20134:13,1\u20132:12,1\u20133:9,1\u20134:5. Start2, process2 then0. Full tentative dist[0..4] afterwards?",
+      "options": [
+        "[5,12,0,9,13]",
+        "[5,6,0,\u221e,13]",
+        "[0,6,5,15,11]",
+        "[5,11,0,\u221e,18]"
+      ],
+      "answer": "D",
+      "correct": "[5,11,0,\u221e,18]",
+      "explanation": "After2 distances are5,12,0,\u221e,\u221e. Through0 improve1 to5+6=11 and discover4 at5+13=18;3 is still undiscovered.",
+      "extension": false
+    },
+    {
+      "id": 214,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "DSU compress then compare",
+      "body": "Days17\u201318. Pseudocode parent=[0,0,1,3,3], find recursively compresses. Execute find(2), then union(2,4) linking root3 under root0. Parent afterwards?",
+      "options": [
+        "[0,0,0,0,0]",
+        "[0,0,1,3,2]",
+        "[0,0,0,0,3]",
+        "[0,0,0,3,0]"
+      ],
+      "answer": "C",
+      "correct": "[0,0,0,0,3]",
+      "explanation": "find2 compresses2 to0. Union finds4\u21923 but it already directly points3; link parent3=0. Node4 is not automatically compressed again after the union.",
+      "extension": false
+    },
+    {
+      "id": 215,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "BFS frontier snapshot",
+      "body": "Days19\u201321. Graph0:[1,2],1:[3,4],2:[4],3:[],4:[]; directed as listed. Mark on enqueue. After dequeuing/processing0 then1, queue front\u2192back?",
+      "options": [
+        "[3,4,2]",
+        "[2,3,4]",
+        "[2,3,4,4]",
+        "[1,2,3,4]"
+      ],
+      "answer": "B",
+      "correct": "[2,3,4]",
+      "explanation": "Processing0 enqueues1,2; processing1 removes1 and appends3,4. Vertex2 has not yet been processed at this point.",
+      "extension": false
+    },
+    {
+      "id": 216,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Changing queue bound bug",
+      "body": "Day24. Java, deliberately faulty; root1 has children2,3, both leaves:\n```java\nq.add(root);\nlong sum=0;\nfor(int i=0;i<q.size();i++) {\n  Node x=q.remove(); sum+=x.val;\n  if(x.left!=null) q.add(x.left);\n  if(x.right!=null) q.add(x.right);\n}\n```\nAt loop end, sum and remaining queue?",
+      "options": [
+        "sum3, queue[3]",
+        "sum1, queue[2,3]",
+        "sum6, queue[]",
+        "sum4, queue[2]"
+      ],
+      "answer": "A",
+      "correct": "sum3, queue[3]",
+      "explanation": "i0 removes root,queue becomes[2,3]. i1 sees size2 and removes2,queue size1. i2<1 fails. The loop mixes one child into root level and stops.",
+      "extension": false
+    },
+    {
+      "id": 217,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Shared path pop",
+      "body": "Day25 string-recursion transfer. C++17:\n```cpp\nvector<string> out;\nstring p;\nfor(char c: string(\"ab\")) {\n  p.push_back(c);\n  for(char d: string(\"12\")) {\n    p.push_back(d); out.push_back(p); p.pop_back();\n  }\n  p.pop_back();\n}\n```\nOutput?",
+      "options": [
+        "[a1,a12,ab1,ab12]",
+        "[a1,b2]",
+        "Four empty strings",
+        "[a1,a2,b1,b2]"
+      ],
+      "answer": "D",
+      "correct": "[a1,a2,b1,b2]",
+      "explanation": "Both pushes have matching pops. push_back copies the current string into out; later pops do not mutate those copies.",
+      "extension": false
+    },
+    {
+      "id": 218,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Negative greedy transfer limits",
+      "body": "Extension: split-array feasibility repeatedly extends a part until its sum would exceed limit, then cuts. Why is the standard proof based on nonnegative elements?",
+      "options": [
+        "Negative values always make the predicate impossible",
+        "Binary search needs sorted input elements",
+        "Negative later values can lower a sum, invalidating a cut forced by an earlier prefix",
+        "Every negative array has exactly one partition"
+      ],
+      "answer": "C",
+      "correct": "Negative later values can lower a sum, invalidating a cut forced by an earlier prefix",
+      "explanation": "Example[5,\u22124] has final sum1 despite initial prefix5. Greedy forced cutting at a limit below5 cannot model arbitrary signed inputs.",
+      "extension": true
+    },
+    {
+      "id": 219,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Coordinate canonicalization",
+      "body": "Day20 extension. Island coordinates[(4,7),(5,7),(5,8)] normalized by subtracting anchor(4,7). Sorted offsets?",
+      "options": [
+        "[(4,7),(5,7),(5,8)]",
+        "[(0,0),(1,0),(1,1)]",
+        "[(0,0),(0,1),(1,1)]",
+        "[(0,0),(1,1),(2,2)]"
+      ],
+      "answer": "B",
+      "correct": "[(0,0),(1,0),(1,1)]",
+      "explanation": "Subtract row and column independently. A translated copy gives the same offsets; rotations are not silently merged.",
+      "extension": true
+    },
+    {
+      "id": 220,
+      "section": "Longer code traces and transfer repairs",
+      "source": "Mixed class-based reconstructions; individual days named",
+      "title": "Abbreviation pending state trace",
+      "body": "Day27. Recursive branch for ABCD: abbreviateA,keepB,abbreviateC,abbreviateD. Pending count resets on keeping a literal. Leaf output?",
+      "options": [
+        "1B2",
+        "1B11",
+        "AB2",
+        "1BCD"
+      ],
+      "answer": "A",
+      "correct": "1B2",
+      "explanation": "Flush1 before B, then combine the final two skips into2. Flushing on each skipped character would produce invalid adjacent count fragments.",
+      "extension": false
+    },
+    {
+      "id": 221,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "state at a specified iteration",
+      "legacy": 1,
+      "raw": "```cpp\nint a = 10, b = 77;\nfor (int i = 0; i < 3; ++i) {\n    int r = a % b;\n    a = b;\n    b = r;\n}\n```\n\nWhat are (a,b) immediately after the loop?\n\nA. (10,7)  \nB. (3,1)  \nC. (7,3)  \nD. (1,0)\n\n<details><summary>Answer and explanation</summary>\n\n**C.** The three transitions are (10,77)\u2192(77,10)\u2192(10,7)\u2192(7,3). Do not count the initial state as an executed iteration. [Notes \u00a73.1](Day_03_Notes.md#31-iteration-trace).\n\n</details>"
+    },
+    {
+      "id": 222,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "the return expression depends on the stopping point",
+      "legacy": 2,
+      "raw": "```cpp\nint f(int a, int b) {\n    while (b != 0) {\n        int r = a % b;\n        a = b;\n        b = r;\n    }\n    return b; // deliberately faulty\n}\n```\n\nWhat does f(63,21) return?\n\nA. 0  \nB. 21  \nC. 63  \nD. A division-by-zero error\n\n<details><summary>Answer and explanation</summary>\n\n**A.** One iteration produces (21,0); the loop stops before another modulus. Returning b returns zero. Correct repair: return a at this exit, not an arbitrary change to the loop guard.\n\n</details>"
+    },
+    {
+      "id": 223,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "a correct-looking swap loses data",
+      "legacy": 3,
+      "raw": "```cpp\nint f(int a, int b) {\n    while (b != 0) {\n        a = b;\n        b = a % b; // deliberately faulty update order\n    }\n    return a;\n}\n```\n\nWhat is f(14,6)?\n\nA. 14  \nB. 2  \nC. 0  \nD. 6\n\n<details><summary>Answer and explanation</summary>\n\n**D.** After a=b, both operands of the modulus are 6, so b becomes 0. The result is 6. Save a%b before replacing a. The existence of a shrinking b does not prove correctness: this loop terminates with the wrong invariant.\n\n</details>"
+    },
+    {
+      "id": 224,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "wrong recursive arguments",
+      "legacy": 4,
+      "raw": "```cpp\nint f(int a, int b) {\n    if (b == 0) return a;\n    return f(a, a % b); // deliberately faulty\n}\n```\n\nWhich result and repair are correct for f(14,6)?\n\nA. Returns 2; no repair needed  \nB. Returns 14; replace the call with f(b,a%b)  \nC. Never terminates; use f(a,b-1)  \nD. Returns 6; change the base case to return b\n\n<details><summary>Answer and explanation</summary>\n\n**B.** The calls are (14,6)\u2192(14,2)\u2192(14,0), so 14 is returned. The Euclidean identity replaces the pair by (b,remainder), preserving common divisors.\n\n</details>"
+    },
+    {
+      "id": 225,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "total calls versus numeric input",
+      "legacy": 5,
+      "raw": "```cpp\nint calls = 0;\nint g(int a, int b) {\n    ++calls;\n    if (b == 0) return a;\n    return g(b, a % b);\n}\n```\n\nStarting with calls=0, after g(55,34), what are (return value,calls)? Include the base-case invocation.\n\nA. (1,8)  \nB. (34,9)  \nC. (1,9)  \nD. (1,55)\n\n<details><summary>Answer and explanation</summary>\n\n**C.** The pairs are (55,34),(34,21),(21,13),(13,8),(8,5),(5,3),(3,2),(2,1),(1,0). Nine calls, eight modulus operations, return 1. The number of calls and number of remainders differ by one.\n\n</details>"
+    },
+    {
+      "id": 226,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "early exit with zeros",
+      "legacy": 6,
+      "raw": "gcd below is correct, nonnegative, and accepts zero.\n\n```cpp\nint seen = 0, result = 0;\nfor (int x : {0,14,21,25,99}) {\n    ++seen;\n    result = gcd(result,x);\n    if (result == 1) break;\n}\n```\n\nWhat are (seen,result) after the loop?\n\nA. (3,7)  \nB. (4,1)  \nC. (5,1)  \nD. (1,0)\n\n<details><summary>Answer and explanation</summary>\n\n**B.** The results are 0,14,7,1. The loop stops at 25; 99 is untouched. Exiting at result==0 would be wrong because gcd(0,14)=14. Only 1 guarantees the answer will remain unchanged for all later inputs.\n\n</details>"
+    },
+    {
+      "id": 227,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "placing the base case too late",
+      "legacy": 7,
+      "raw": "```java\nstatic int g(int a, int b) {\n    int r = a % b; // deliberately before the base case\n    if (b == 0) return a;\n    return g(b,r);\n}\n```\n\nWhat happens when g(14,2) is called?\n\nA. Returns 2  \nB. Returns 0  \nC. Infinite recursion  \nD. Throws ArithmeticException\n\n<details><summary>Answer and explanation</summary>\n\n**D.** First r=0, then the call g(2,0) tries 2%0 before testing b. Integer modulus by zero throws in Java. Test the base first. The equivalent C++ integer operation has undefined behaviour, not a guaranteed Java-style exception.\n\n</details>"
+    },
+    {
+      "id": 228,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "widening after abs is too late",
+      "legacy": 8,
+      "raw": "```java\nint x = Integer.MIN_VALUE;\nlong a = Math.abs(x);\nlong b = Math.abs((long)x);\nSystem.out.println(a + \" \" + b);\n```\n\nWhich output is correct?\n\nA. -2147483648 2147483648  \nB. 2147483648 2147483648  \nC. -2147483648 -2147483648  \nD. Compile-time error because abs cannot accept long\n\n<details><summary>Answer and explanation</summary>\n\n**A.** abs(int) cannot represent the positive magnitude of MIN_VALUE and returns the negative int. Assignment then widens that already-negative value. Casting first calls abs(long), whose range contains 2147483648.\n\n</details>"
+    },
+    {
+      "id": 229,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "skipping the centre",
+      "legacy": 9,
+      "raw": "Input is a nonempty digit string. The table is indexed correctly.\n\n```cpp\nbool check(const std::string& s) {\n    int l=0, r=static_cast<int>(s.size())-1;\n    while (l < r) { // deliberately incorrect for this property\n        if (rot[s[l]-'0'] != s[r]-'0') return false;\n        ++l; --r;\n    }\n    return true;\n}\n```\n\nWhich claim is correct for check(\"161\")?\n\nA. Correctly returns false due to the centre 6  \nB. Throws because the table contains 6  \nC. Incorrectly returns true; use l<=r  \nD. Incorrectly returns false; use l!=r\n\n<details><summary>Answer and explanation</summary>\n\n**C.** Only the outer 1s are checked. The centre 6 must map to itself but maps to 9. A reversal may skip its centre; a rotation validator may not. l!=r is also unsafe for even lengths when the pointers cross.\n\n</details>"
+    },
+    {
+      "id": 230,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "validating keys without validating pairs",
+      "legacy": 10,
+      "raw": "```cpp\nbool check(const std::string& s) {\n    for (char c : s)\n        if (rot[c-'0'] == -1) return false;\n    return true;\n}\n```\n\nWhich input is a counterexample, assuming nonempty canonical digit strings?\n\nA. \"69\"  \nB. \"68\"  \nC. \"101\"  \nD. \"88\"\n\n<details><summary>Answer and explanation</summary>\n\n**B.** Every digit in 68 is rotatable, but rotating the whole string produces 89. A valid-digit check is necessary, not sufficient; mirrored values must correspond.\n\n</details>"
+    },
+    {
+      "id": 231,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "a missing map entry",
+      "legacy": 11,
+      "raw": "Python code deliberately omits 0\u21920:\n\n```python\ndef check(s):\n    rot = {'1':'1', '6':'9', '8':'8', '9':'6'}\n    l, r = 0, len(s)-1\n    while l <= r:\n        if s[l] not in rot or rot[s[l]] != s[r]:\n            return False\n        l += 1\n        r -= 1\n    return True\nprint(check('1001'), check('11'))\n```\n\nWhat is printed?\n\nA. True True  \nB. KeyError  \nC. False False  \nD. False True\n\n<details><summary>Answer and explanation</summary>\n\n**D.** 1001 reaches a zero absent from the map. The `or` short-circuits before rot['0'] is accessed, so there is no KeyError. 11 passes. Add the missing key, not a special case rejecting interior zeros.\n\n</details>"
+    },
+    {
+      "id": 232,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "palindrome is a different predicate",
+      "legacy": 12,
+      "raw": "A checker accepts a digit string iff it equals its reverse. Which input exposes a false positive for strobogrammatic validation?\n\nA. \"66\"  \nB. \"101\"  \nC. \"69\"  \nD. \"6889\"\n\n<details><summary>Answer and explanation</summary>\n\n**A.** 66 is a palindrome but rotates to 99. 69 and 6889 demonstrate false negatives of the same checker, rather than the false positive requested. Read the requested error direction.\n\n</details>"
+    },
+    {
+      "id": 233,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "compare before or after pointer movement?",
+      "legacy": 13,
+      "raw": "In a correct l<=r checker for \"68889\", each successful iteration checks a pair and then does ++l,--r. Which tuple gives (l,r,successful comparisons) immediately after the second iteration?\n\nA. (1,3,2)  \nB. (3,1,3)  \nC. (2,2,2)  \nD. (2,2,3)\n\n<details><summary>Answer and explanation</summary>\n\n**C.** The checked pairs are (0,4) and (1,3). The middle at (2,2) has not yet been checked. A third comparison maps 8 to itself and then moves to (3,1).\n\n</details>"
+    },
+    {
+      "id": 234,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "a character is not a numeric index",
+      "legacy": 14,
+      "raw": "```cpp\nint rot[10] = {0,1,-1,-1,-1,-1,9,-1,8,6};\nstd::string s = \"69\";\nstd::cout << rot[s[0]]; // deliberately faulty\n```\n\nAssume ASCII-compatible character values. Which assessment is correct?\n\nA. Prints 9 because s[0] denotes digit 6  \nB. Undefined behaviour from an out-of-bounds index; use s[0]-'0'  \nC. Guaranteed compiler error  \nD. Prints -1 because the lookup defaults to invalid\n\n<details><summary>Answer and explanation</summary>\n\n**B.** s[0] is the character '6', whose ASCII code is 54, not integer 6. Index 54 is outside the array. Do not guess a deterministic output for undefined behaviour. For arbitrary input, validate that the character is a digit before indexing.\n\n</details>"
+    },
+    {
+      "id": 235,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "Boolean logic that rejects every digit",
+      "legacy": 15,
+      "raw": "To accept only 0,1,8 at the centre, code uses:\n\n```cpp\nif (d != 0 || d != 1 || d != 8) return false;\n```\n\nWhich statement is correct?\n\nA. Correctly rejects exactly the invalid centre digits  \nB. Only rejects 6 and 9  \nC. It should be changed to d==0 && d==1 && d==8  \nD. The condition is always true; replace || with &&\n\n<details><summary>Answer and explanation</summary>\n\n**D.** Even d=0 differs from 1 and 8, so the disjunction is true. A digit is invalid if it differs from **all** three allowed values: d!=0 && d!=1 && d!=8. This is De Morgan's law applied to membership in an allowed set.\n\n</details>"
+    },
+    {
+      "id": 236,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "built-in does not mean constant-time",
+      "legacy": 16,
+      "raw": "A program generates Q candidate strings of length n into a Java ArrayList, then calls list.contains(target). Assume a worst-case unsuccessful search, with long matching prefixes. Which pair of bounds is appropriate for (contains time, auxiliary space of a separate fixed five-entry digit map)?\n\nA. O(nQ), O(1)  \nB. O(1), O(n)  \nC. O(log Q), O(Q)  \nD. O(Q), O(nQ)\n\n<details><summary>Answer and explanation</summary>\n\n**A.** ArrayList.contains scans elements; a string equality comparison may inspect O(n) characters. The fixed digit map has five entries regardless of input length, hence O(1) space. Generation/output memory is a different quantity from the separate map asked about.\n\n</details>"
+    },
+    {
+      "id": 237,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "an empty collection is not an empty middle",
+      "legacy": 17,
+      "raw": "The r=0 base is changed to return an empty list `[]`. All other rules remain unchanged. What are the counts for N=4 and N=3, respectively?\n\nA. 20,12  \nB. 0,0  \nC. 0,12  \nD. 4,3\n\n<details><summary>Answer and explanation</summary>\n\n**C.** The even-length chain reaches r=0, returns no middles, and every wrapping loop stays empty. The odd-length chain reaches r=1, whose three centres still generate 12 valid length-three strings. This bug affects one parity, not both.\n\n</details>"
+    },
+    {
+      "id": 238,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "same remaining length, different context",
+      "legacy": 18,
+      "raw": "Which pair gives the sizes of helper(2,4) and helper(2,2)?\n\nA. 4,4  \nB. 5,4  \nC. 5,5  \nD. 4,5\n\n<details><summary>Answer and explanation</summary>\n\n**B.** (2,4) is an interior layer, so it includes \"00\"; (2,2) is outermost, so it excludes a leading-zero pair. The original length N must remain unchanged throughout recursive calls.\n\n</details>"
+    },
+    {
+      "id": 239,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "a wrong condition can preserve the output count",
+      "legacy": 19,
+      "raw": "The (0,0) condition is mistakenly changed from r!=N to r==N. For N=4, what happens?\n\nA. Still produces the same 20 valid strings  \nB. Produces 25 valid strings  \nC. Produces no strings  \nD. Produces 20 strings, but includes leading-zero strings and loses some valid strings\n\n<details><summary>Answer and explanation</summary>\n\n**D.** The interior length-two layer now has four middles, omitting \"00\". The outer layer has five wrapping pairs including zeros, yielding 4*5=20. Strings such as 0110 are wrongly included; 1001 is lost. Counts alone cannot certify correctness.\n\n</details>"
+    },
+    {
+      "id": 240,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "count the choices at the right layers",
+      "legacy": 20,
+      "raw": "For the correct generator, how many canonical six-digit strings are returned?\n\nA. 100  \nB. 125  \nC. 48  \nD. 64\n\n<details><summary>Answer and explanation</summary>\n\n**A.** Four nonzero outer pairs, five choices for each of the two interior pairs: 4*5*5=100. 125 incorrectly permits outer zeros; 64 incorrectly forbids zeros inside.\n\n</details>"
+    },
+    {
+      "id": 241,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "helper calls are not the number of outputs",
+      "legacy": 21,
+      "raw": "A counter increments once on entry to helper. helper(6,6) calls helper(r\u22122,N) exactly once at each non-base invocation. What is the total entry count?\n\nA. 100  \nB. 6  \nC. 4  \nD. 7\n\n<details><summary>Answer and explanation</summary>\n\n**C.** The entries are (6,6),(4,6),(2,6),(0,6). The generator does much of its work in wrapping loops during return, so four helper entries can still create 100 final strings. This helper descends once per level; it does not recursively call once per output.\n\n</details>"
+    },
+    {
+      "id": 242,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "allowing 6 and 9 at an odd centre",
+      "legacy": 22,
+      "raw": "The r=1 base is changed to [\"0\",\"1\",\"6\",\"8\",\"9\"]. For N=3, how many strings are generated, and how many are actually strobogrammatic?\n\nA. 12 generated,12 valid  \nB. 20 generated,12 valid  \nC. 20 generated,20 valid  \nD. 12 generated,8 valid\n\n<details><summary>Answer and explanation</summary>\n\n**B.** Four outer choices times five centres gives 20 strings. Only the three self-mapping centres work, leaving 4*3=12 valid. A valid outer pair cannot repair an invalid centre.\n\n</details>"
+    },
+    {
+      "id": 243,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "lexicographic is not numeric across lengths",
+      "legacy": 23,
+      "raw": "```python\nvalues = ['8','11','69','101']\nprint(sorted(values))\n```\n\nWhat is printed?\n\nA. ['8','11','69','101']  \nB. ['11','101','69','8']  \nC. ['101','8','11','69']  \nD. ['101','11','69','8']\n\n<details><summary>Answer and explanation</summary>\n\n**D.** Python compares strings lexicographically. '101' precedes '11' because their first characters match and '0'<'1' at the next position. Numeric sorting would need a numeric key; fixed-length digit strings already have matching lexicographic/numeric order.\n\n</details>"
+    },
+    {
+      "id": 244,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "the output itself imposes a lower bound",
+      "legacy": 24,
+      "raw": "The correct generator returns Q strings of length n by concatenating at each layer, then sorts them using comparison-based sorting. Which analysis is valid under the stated character-cost model?\n\nA. Generation \u0398(nQ); sorting adds O(nQ log Q) worst-case character work  \nB. Generation O(n); sorting adds O(log Q)  \nC. Generation O(Q); storage O(n) including all output  \nD. Generation O(n\u00b2); sorting never examines string contents\n\n<details><summary>Answer and explanation</summary>\n\n**A.** Materialising the output writes nQ characters. A string comparison may examine n characters and comparison sorting uses O(Q log Q) comparisons. O(n) recursion depth does not describe the total time spent in the wrapping loops. [Notes \u00a77.4](Day_03_Notes.md#74-output-sensitive-complexity).\n\n</details>"
+    },
+    {
+      "id": 245,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "missing the domain guard",
+      "legacy": 25,
+      "raw": "```python\ndef prime(n):\n    d = 2\n    while d*d <= n:\n        if n % d == 0:\n            return False\n        d += 1\n    return True\nprint(prime(0), prime(1), prime(2))\n```\n\nWhat is printed, and what repair is needed?\n\nA. False False True; none  \nB. True False True; reject only zero  \nC. True True True; return False when n<2 before the loop  \nD. False True False; reject only even inputs\n\n<details><summary>Answer and explanation</summary>\n\n**C.** The loop runs zero times for all three arguments and returns True. Zero and one are not prime. Reject n<2, then allow the no-divisor loop to return True for 2.\n\n</details>"
+    },
+    {
+      "id": 246,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "the square-root boundary is inclusive",
+      "legacy": 26,
+      "raw": "```python\ndef prime(n):\n    if n < 2:\n        return False\n    d = 2\n    while d*d < n:  # deliberately incorrect boundary\n        if n % d == 0:\n            return False\n        d += 1\n    return True\n```\n\nWhat happens for prime(49)?\n\nA. Correctly returns False after checking 7  \nB. Incorrectly returns True because 7 is never checked  \nC. Infinite loop at 7  \nD. Returns False because all odd numbers are composite\n\n<details><summary>Answer and explanation</summary>\n\n**B.** 2\u20136 fail to divide; at d=7 the strict comparison 49<49 is false. Use <=. The square-root argument requires including the exact root of a square.\n\n</details>"
+    },
+    {
+      "id": 247,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "a premature success return",
+      "legacy": 27,
+      "raw": "```python\ndef prime(n):\n    if n < 2:\n        return False\n    d = 2\n    while d*d <= n:\n        if n % d == 0:\n            return False\n        return True  # deliberately inside the loop\n    return True\nprint(prime(9))\n```\n\nWhich assessment is correct?\n\nA. False; 3 is found  \nB. Infinite loop because d never changes  \nC. Indentation error prevents execution  \nD. True; move success after the loop and increment d for each failed candidate\n\n<details><summary>Answer and explanation</summary>\n\n**D.** The first candidate 2 does not divide 9, so True is returned immediately. This code never reaches a next iteration, hence it does not loop forever. A correct loop continues through all candidate divisors before reporting success.\n\n</details>"
+    },
+    {
+      "id": 248,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "the same multiplication differs by language",
+      "legacy": 28,
+      "raw": "```java\nint d = 46341;\nSystem.out.println(d*d);\n```\n\nWhich statement is correct, including the corresponding C++ int expression on a 32-bit signed int system?\n\nA. Java prints -2147479015; corresponding C++ signed multiplication overflows with undefined behaviour  \nB. Both must print 2147488281  \nC. Both must throw an arithmetic exception  \nD. Java refuses to compile; C++ guarantees wraparound\n\n<details><summary>Answer and explanation</summary>\n\n**A.** The mathematical product is 2147488281, beyond signed 32-bit maximum 2147483647. Java int arithmetic wraps: 2147488281\u22124294967296=\u22122147479015. C++ signed overflow does not have a guaranteed numeric result. For positive operands, d<=n/d avoids the overflowing product in a primality guard.\n\n</details>"
+    },
+    {
+      "id": 249,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "short circuit changes which methods run",
+      "legacy": 29,
+      "raw": "S and P are correct predicates: S checks strobogrammatic strings and P checks primality for these small numbers. Each increments its own call counter once.\n\n```java\nint accepted = 0;\nfor (String s : new String[]{\"121\",\"101\",\"69\",\"2882\"}) {\n    if (S(s) && P(Integer.parseInt(s))) ++accepted;\n}\n```\n\nWhat are (S calls,P calls,accepted)?\n\nA. (4,4,1)  \nB. (4,2,2)  \nC. (4,2,1)  \nD. (2,2,1)\n\n<details><summary>Answer and explanation</summary>\n\n**C.** Every input calls S. Only 101 and 69 pass it and therefore reach P; 101 is prime, 69 is not. && also skips parsing on the two S failures. Sequential successful predicates cost O(d+\u221an), not the product, with d digits and numeric value n.\n\n</details>"
+    },
+    {
+      "id": 250,
+      "section": "Day 3 integrated scenarios",
+      "source": "Day 3 supplied transcript and existing question file",
+      "title": "restricting the map still requires mirrored equality",
+      "legacy": 30,
+      "raw": "For the strobogrammatic-palindrome intersection, change entries for 6 and 9 to \u22121, retaining a correct l<=r pair check. What results are returned for [\"69\",\"818\",\"188\",\"0\",\"6\"], in that order?\n\nA. false,true,true,true,false  \nB. false,true,false,true,false  \nC. true,true,false,true,true  \nD. false,false,false,false,false\n\n<details><summary>Answer and explanation</summary>\n\n**B.** Only mirrored strings using 0,1,8 pass. 188 uses permitted digits but its outer 1 and 8 fail equality. 0 maps to itself. 6 is a one-character palindrome but is not strobogrammatic, so it fails the intersection.\n\n</details>"
+    }
+  ]
+}

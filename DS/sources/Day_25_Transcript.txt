@@ -1,0 +1,915 @@
+YouTube transcript
+Video ID: w8wNlhFBVhQ
+Language: en
+Captions: auto-generated
+
+[0:00] Yeah, good afternoon. Any questions on trees and the trees
+[0:05] related problems [snorts] uh which we discussed in the last couple
+[0:10] of sessions.
+[0:16] Okay. Uh let me give you a very simple scenario. Uh
+[0:22] we are at the auditorium here. Okay.
+[0:27] Uh there is one exit uh which is what I would call
+[0:32] exit pane. Uh there is another exit uh uh which is
+[0:41] I would call it exit 2 and exit one easier.
+[0:46] I need to go to
+[0:57] Kachigura.
+[1:03] Okay. Uh we are here in the auditorium. I repeat, we are here in the auditorium.
+[1:11] We all of us and we all need to go to Kachigura
+[1:16] for whatever reason. You know, maybe a movie in that mall. Okay.
+[1:23] So what I start from is yeah I go exit from this place
+[1:29] try getting out of that uh even exit. Uh but then I find that there is
+[1:37] some construction happening at the main gate because of which that is
+[1:44] inaccessible that the exit door is closed.
+[1:49] So what would I do? I would come back to this place and then I find yeah there is
+[1:55] an alternate uh approach uh which is exit 2. I try I try taking that exit. I
+[2:03] get I mean again when you get out of this there is one path which takes you
+[2:09] to that main road which then takes you to YMCA
+[2:15] and from there you go to Kachikura and there's another path which goes
+[2:19] wherever okay so I find that this road is
+[2:25] blocked. I retrace.
+[2:29] I further retrace. I take this path. Go to this place. And then I find there are
+[2:36] two options. One E2. From E2 I can go right
+[2:45] and from E2 I can go left. From exit two I can go left or I can go right. I take
+[2:51] the right approach and I find that there is a dead end.
+[2:57] So what do I do? I come back to that E2 door and then I take a left and find a
+[3:06] path which eventually takes me to Kachigura.
+[3:13] Are you there? Now for a moment imagine I took right
+[3:19] there was a dead end I come back to this place I take a left and this is also a
+[3:28] dead end okay what do you do
+[3:34] what do you do what do you what would you do obviously not stay in auditorium
+[3:39] right but for us it is like saying yeah
+[3:42] there's no way I can reach my destination because all the paths which
+[3:48] take me to that are for some reason inaccessible.
+[3:54] So I have to probably wait till one of the options is viable for us to go
+[4:01] there. Are you all there? Are you all clear
+[4:05] with this scenario? Yes or no?
+[4:10] Great. So what are we basically talking about? We are talking about try finding
+[4:15] a solution. If you don't find a solution, come back from where you
+[4:20] started. Try looking for an alternate solution. If you still don't find it,
+[4:27] come back and see if you can find a third option. If you don't, then say,
+[4:34] "Yeah, there is no feasible solution to the problem which we are trying to
+[4:38] solve." And this is what backtracking is all about
+[4:45] which is a very simple brute force approach
+[4:49] built based on some constraints and if that constraint is
+[4:55] achieved or if you're able to address that
+[4:58] constraint and get the goal which we are interested in we have one feasible
+[5:05] solution. There may be multiple such feasible solutions. Imagine this
+[5:10] scenario where there are no blocks anywhere. Then I can go E1, I can go
+[5:18] take that exit E2, take right, I can go to Kachigura. Take left, I can go to
+[5:26] Kachigura. So there are three feasible solutions. Maybe none, maybe one, maybe
+[5:32] two. So what we are talking about is a very interesting algorithmic approach to
+[5:38] solving problems where we look at all possible options to achieve what we want
+[5:44] and from all those possible options there may be one which is the most
+[5:48] effective because that is what the problem statement says. Tomorrow the
+[5:52] problem statement could be yeah what is the shortest path to reach Kachura?
+[5:58] I can go via E1 maybe 1 kilometer. I go via E2 maybe 2 kilometers and I take a
+[6:04] right from E2 and that may be 2 and a half and then I would say yeah the
+[6:07] shortest is E1 but if that E1 is not feasible then the next shortest is two.
+[6:12] If that is not feasible the best or the [snorts] only solution I have is 2.1
+[6:18] kilometers. So that is what backtracking is all
+[6:22] about. So we are going to look at a very very interesting uh uh understanding of
+[6:28] that first with this example. We'll continue and then we look at two very
+[6:32] interesting problems. One for all the chess lovers. N queen's [clears throat]
+[6:36] problem. I'm sure. How many of you don't know
+[6:39] chess here?
+[6:44] Good. Yeah. Can we go to the document please? Okay. Any questions on this?
+[6:50] Any questions? We we experience backtracking in our life every day and
+[6:54] thanks to the Hyderabad roads, Hyderabad traffic and thanks to that Ganesh
+[6:58] festival where you know you know I yeah let's understand this
+[7:04] can anybody give me an example of backtracking from your experience
+[7:09] from your experience.
+[7:14] Yeah, tell me give me example from your life about backtracking.
+[7:22] >> So a simple example is uh in a maze while we are just solving a maze when we
+[7:27] >> let's not talk about problems now real experience of yours. Yeah, we're talking
+[7:32] about a maze. What path can it take to reach this cheese? Now we're talking
+[7:38] about suduku. We're talking about all of those are problems we will solve.
+[7:42] Has
+[7:46] somebody promised you something and he didn't fulfill? Did he not backtrack on
+[7:50] his word? Huh? Don't you all experience that? Doesn't the college promise so
+[7:56] many things and they don't fulfill? Huh? Yes.
+[8:00] So don't they backtrack on what they committed
+[8:04] and then they will commit something else and that again they backtrack they
+[8:09] commit third thing they again backtrack and then you know what you stop trusting
+[8:13] them anyway I'm just giving an example which I'm
+[8:17] sure all of you would have related in the last two and a half years
+[8:21] are people when you work at companies they promise you a lot of things oh you
+[8:25] join we'll send you this we will do this we will do that after you join Okay,
+[8:30] you know what happens. Okay, anyway, let's look at this in more formal uh not
+[8:37] way. Backtracking is an algorithmic technique that considers searching every
+[8:44] possible solution in order to solve a problem.
+[8:49] The problem we looked at is how to go to Kachigura from this location. So that
+[8:53] was a very simple explanation. This technique involves finding a solution
+[8:59] incrementally by trying different options and undoing if they lead to a
+[9:06] dead end. So can you go back to the diagram?
+[9:11] Yeah. So what happened? We started from here.
+[9:16] We tried this approach which is one step. When we found a dead end, we came
+[9:24] back to the start and then we said, "Oh, is there another way to
+[9:30] go or get out of this college exit?" Yeah, I took this path to came to this
+[9:39] point and then I took a right which is three.
+[9:44] Then I found oh there was no approach dead end. I did not go back to the
+[9:49] start. I went back to the last point which was a feasible way to exit which
+[9:56] is from here I took four. Are you understanding what we are saying? We are
+[10:02] not going back here because going back here doesn't help me in any way because
+[10:05] there is no option here. The only option is this. So if I've already reached
+[10:09] here, why go back? Can I now look at alternates from these? One was three not
+[10:15] feasible. Let's try four notable. If this four is also not physible, I'll
+[10:19] come back and see is there a five, is there a six, is there a seven, is there
+[10:22] an eight. So we look at one point from where we may get other options. But we
+[10:27] do not go back to the beginning unless the beginning also tells me that there
+[10:32] is in addition to this path. There is another way of going which is this.
+[10:38] There's another way of going this. If I find these two as options, then I'll
+[10:42] come back here. If I don't have them as options, I will start from the one where
+[10:47] there may be a feasible option for me. So that is a very important point and
+[10:51] you'll understand that very soon. This technique involves finding a solution
+[10:56] incrementally by trying different options and undoing them. Undoing is
+[11:00] going back from where you started. How much do we undo is based on what we are
+[11:05] trying to do. Okay. It is commonly used in situations where you need to explore
+[11:11] multiple problems or multiple possibilities to solve a problem. It is
+[11:14] that maze, the sudoku, the end queen's problem and so on. Those of you who
+[11:19] solve sudoku pretty much know maybe I'll try a three here and then I find out
+[11:24] there is a three there. It has to be there. Then this three I would undo
+[11:28] because I know in that square of uh 3x3 I cannot have anything which is repeat
+[11:35] and in horizontally vertically also the same number cannot appear. So we keep
+[11:39] trying different combinations. For example to search for a path in a
+[11:43] maze or solve problems like sudoku where a dead end is reached the algorithm
+[11:48] backtracks to the previous decision and then tries to explore a different path
+[11:53] till it finds a solution. If it cannot maybe it'll give up and say yeah there
+[11:56] is no feasible solution. I'm not saying with backtracking you will always get a
+[12:01] feasible. There may be times when you may not have a feasible solution.
+[12:05] Yeah that for backtracking problems the algorithm finds a sequence for the
+[12:10] solution that keeps some checkpoints a point from where a given problem can
+[12:16] backtrack if no workable solution is found for it. So let's see a very simple
+[12:20] example and then understand more about this algorithm. Guys look at this
+[12:25] diagram. Uh now the the the mid checkpoint is m1
+[12:30] m2 m3. Point of not getting a feasible solution is the one in red. The one in
+[12:36] green is a feasible solution. And we have a start which is s. So we start
+[12:43] from s. We could have we could have gone to either m1 or m2 or m3. I choose M1
+[12:49] and I take that path from M1. I try to go to S1 but then I find that S1 is not
+[12:58] my feasible solution. Think about that like a dead end. Think about S3 like
+[13:02] Aigura. So what do I do? I go back to M1. Is there any other option from M1 I
+[13:09] could go to? No. So where do I go back to? Where do I backtrack to? where I
+[13:16] started from before I went to M1 which is my start. So I traverse that path M1
+[13:23] S1 and then I find there is no feasible solution. I backtrack to M1. Is there an
+[13:30] other path from M1? No. I backtrack to start. Is there another path from start?
+[13:36] Yes, there is M2. From M2 I navigate to where? S2. Is that my solution? No. I
+[13:45] backtrack to M2. Is there any other path from M2? I backtrack to the original
+[13:51] which happens to be my start. Is there a path from S uh start? Yes, M3. Does M3
+[13:58] take me to my solution? Yes, I found an answer. For a moment, imagine S3 is not
+[14:03] my solution. I backtrack to M3. I backtrack to start. all the possible
+[14:08] feasible solutions are evaluated and it does not give me a solution to the
+[14:13] problem which I'm trying to achieve. We say yeah there is no solution at all.
+[14:18] But in our case we found this. Now for a moment imagine this diagram are you all
+[14:23] clear with this for a moment imagine this diagram also can have this path.
+[14:30] Then what would happen? I come here come to S1 then backtrack to M1 backtrack to
+[14:36] S. From S I come to M2 go to S2 not a solution found then I backtrack to M2 I
+[14:43] go to S3 solution is found I don't need to go this path anymore
+[14:49] are you guys getting it maybe if I found a solution in the first
+[14:53] path I don't need to traverse the remaining
+[14:57] unless I'm looking for something which is like saying if there are multiple
+[15:00] paths give me the one which is most optimized
+[15:04] then I would probably look I I mean I would not probably look at I will look
+[15:08] at all of them and come up with the optimized answer but here we are just
+[15:12] looking at a feasible solution which is available.
+[15:17] Are we all clear? Now let's look at the some terminology.
+[15:22] Uh decision problems where we search for a feasible solution. Optimization
+[15:27] problems we search for the best solution and enumeration problems we search for
+[15:32] all possible solutions which are there. Okay.
+[15:37] Now a candidate is a potential choice or element that can be added. So in our
+[15:42] case start M3. M3 was a candidate. M2 was a candidate but when I went to S1 I
+[15:51] realized it is not a part of it. So I backtrack and go back to the start. So
+[15:55] till I find a solution it remains a candidate. But once I don't find a
+[16:00] solution we ignore it. Okay. Solution is a valid and complete configuration that
+[16:05] satisfies all the constraints. Partial solution is an intermediate or
+[16:11] incomplete configuration being constructed during the So what was the
+[16:14] part partial configuration? Start M1 was partial. Start M2 was partial. Start M3
+[16:21] was partial. But when I reach S3, that was a complete solution which I got.
+[16:27] Decision space is a set of all possible candidates or choices at the decision
+[16:33] point at each uh feasible solution is a partial or complete solution. Uh dead
+[16:39] end where you don't have a solution. You cannot do anything. You need to
+[16:43] backtrack to the previous state and search space includes all possible
+[16:48] combinations of candidates. So go to the diagram again. So what is my search
+[16:53] space here? What do you think is my search space
+[16:58] with respect to the start? The search space is m1, m2 and m3 and with respect
+[17:05] to m1 it is only s_sub_1 with respect to m_sub_2 it is only s_sub_2 and s3 with
+[17:10] respect to m3. Imagine there were interconnections from S M1 I had a
+[17:14] connection to S_sub_2 then M1 I had a connection to S3 then with respect to M1
+[17:19] there are three potential choices which is S1 S2 and S3 are you if there was a
+[17:26] link you guys getting it
+[17:31] everybody
+[17:34] everybody are we good now let's look at the first problem for today which is the
+[17:42] end queen's problem. Does anyone know what the problem is?
+[17:48] And if you can you explain what the problem is? Anyone?
+[17:56] N queen's problem. And you all have played chess.
+[18:01] You know what the rules of the queen are?
+[18:05] N queen's problem. So two queens can't be in same column or
+[18:11] same row. >> Same row. Same column and
+[18:15] >> diagonal. >> Diagonally. So that is a queen's rule.
+[18:18] Most powerful, right? Great. No. But what is the n queen's problem?
+[18:24] >> No. >> Okay. Anybody? N queen's problem.
+[18:31] Anybody? N queen's problem. No. Nobody. Anybody
+[18:40] n queens problem?
+[18:44] Okay. Now imagine you have a chessboard of 2x2. Let's start with 2x2 then 3x3
+[18:50] then 4x4 and then you will solve the 5x5 for me. Okay. Imagine we have a chess
+[18:56] board of 2x2.
+[19:04] Can I place two queens on a chessboard of 2x2? N queens.
+[19:11] If the chessboard is of n into n then n queen should be placed. So if a
+[19:16] chessboard is of 2x2, can I place two queens?
+[19:21] No. Because a queen, if I place a queen here,
+[19:28] then these three are inaccessible
+[19:32] because a queen has a power to kill anyone horizontally, vertically,
+[19:39] and diagonally. So what is that I've done? I have placed the first queen at
+[19:45] row 0. And after that, I cannot place any other
+[19:50] queen. So we backtrack and remove the queen from 0 0 and check.
+[19:56] Can I place a queen in any other column of the same row?
+[20:01] Can I? Hello sir. Can you wait? Maybe I'll Are you
+[20:08] explaining this? Can you explain to the class? Yeah. Go ahead. Pass the mic. You
+[20:13] don't want to. Then will you keep quiet? Good. Either do one of the things quiet
+[20:18] or talk. talk publicly. Yeah. Okay. So, do you get the problem?
+[20:24] Now, I placed a queen at cell 0 0. Yeah. Because nobody was there, so I I could
+[20:29] place it. But once I place the queen at 0 0, what happens to the rest of them
+[20:34] are inaccessible. So, I backtrack to 0 0 remove the queen
+[20:39] from there and say, okay, is there any other place I can place a queen so that
+[20:44] there may be a feasible solution to place the second queen in the second
+[20:47] row. So, what do I do? I get rid of it from there and then I say yeah okay
+[20:52] let's do one thing this is my first attempt my second attempt is we remove
+[20:57] the queen from here and place the queen here and then as a result of it these
+[21:03] are inaccessible now can I place a queen in second row now okay I backtrack is
+[21:10] there any other feasible solution for the first row I filled column zero I
+[21:16] filled column one there are only two columns I tried all possible
+[21:20] combinations and then I would say you know what no solution is possible. Two
+[21:24] plays two queens on a chess board of 2x2.
+[21:28] Have you got it? I backtracked. Now let's try 3x3. What
+[21:34] do we do with 3x3? I start with the same concept of zero
+[21:40] row zero column.
+[21:46] All are accessible. So I start with the first cell 012 012
+[21:52] queen. Great. I could place now what is inaccessible
+[22:02] in the next row. Where can I place a queen? Now the only available slot and
+[22:07] that is queen.
+[22:12] When I do this what happens? Can I place the third queen?
+[22:18] Okay, I backtrack. Backtrack to where? To this position.
+[22:23] Remove the queen from here and try placing the queen any any other place.
+[22:27] Is it possible? No. So I backtrack to this guy
+[22:34] and then remove the queen from here and place the queen at
+[22:46] I place the queen here. So what happens now when I place the queen here? Can I
+[22:50] place second row? Is it is the second queen possible in
+[22:54] the second row? No. So I backtrack here.
+[23:01] Place a queen here because that is the only other column available in the first
+[23:04] row. I tried column zero. I tried column one. Now I try column two.
+[23:13] Where do I place the second queen?
+[23:18] Now what happens? I again backtrack to this second queen.
+[23:25] I backtrack to this guy. Can I place a queen anywhere else in the second row? I
+[23:31] backtrack to this guy. Remove the queen from here. Can I place a queen anywhere
+[23:35] else? No. I tried zero column, first column, second column. No more columns.
+[23:40] Then I give up and say, "Look, there is no solution for three queens to be
+[23:45] placed on a chessboard of 3x3." Have you got it? We do not backtrack to
+[23:51] the first row if there's already a second row. We backtrack to the second
+[23:55] [clears throat] row and check is there another solution possible which may give
+[23:58] me a possibility of placing the queen in the third row. If I don't have it only
+[24:03] then I go to the first row. I do not jump directly to the start point like
+[24:07] what we saw in our path to go to Kachigura. I start from the last
+[24:14] feasible solution. Are you there? Now can you all try 4x4
+[24:19] now with two not possible with three not
+[24:25] possible with four? Tell me what happens four by four.
+[24:42] Yeah, you can place row wise or you can place column wise. Whatever you decide,
+[24:48] I'm okay with it. Yeah, with 4x4. Tell me is the solution possible or did you
+[24:53] have to backtrack?
+[24:59] 4x4. Did anybody get a solution without
+[25:03] backtracking? How many times did you have to backtrack? My question is, did
+[25:07] you get a solution without backtracking? How many times did you have to
+[25:11] backtrack? Three times. Okay. Three times. Okay. Three is one answer. How
+[25:17] many got a solution? How many times did you backtrack?
+[25:24] Without backtracking, you can't get Huh.
+[25:32] First tell me what is the approach and how many times you have to backtrack.
+[25:40] Come on guys. Simple. Simple. How many got the solution?
+[25:46] How many times did you backtrack, sir?
+[25:53] Twice. Once. Once. Three times. Twice. 1 2 3
+[26:01] twice. You said three. No, you showed me this. You got another solution. So
+[26:07] twice. Okay, let's see. This is a start. I can place a queen because all slots
+[26:13] are available in every row, every column.
+[26:17] But once I place a queen here,
+[26:27] then I place a second queen in the second row at the first available slot,
+[26:31] which is this guy.
+[26:35] And once I do that, this is gone. This is gone.
+[26:41] This is gone because of queen two. Do you agree?
+[26:48] Can I place a queen in the second row?
+[26:53] Yeah, even this one. Can I place a queen in the second row?
+[26:59] So, I backtrack to this and then I say, you know what? Let me shift the queen
+[27:06] position of the second row.
+[27:13] These two are not possible. So I shift to the next cell.
+[27:19] Okay, let's put the same marking.
+[27:25] When I did this, I can now place a queen in the third row. Earlier I couldn't
+[27:30] place in the third row, but now I'm able to place a queen in the third row. But
+[27:35] as a result of it, what happens? I can't place here. So I backtrack here.
+[27:41] Can I place anywhere else? No, I backtrack here. Can I place anywhere
+[27:46] else? No. Then I go and backtrack here. And then I say, okay, let's try shifting
+[27:53] the queen one position from cell 0 0 to 01.
+[28:08] Did you guys notice I could not place a queen here?
+[28:13] So I went back backtracking. So that is one time backtracking
+[28:18] change the slot then I place here I cannot place. So I backtrack backtrack
+[28:25] and then I say oh no solution possible. So I shift the queen
+[28:30] position. Where can I place the second queen
+[28:35] in 013?
+[28:39] What is not available? Where can I place the third queen?
+[28:46] What is not available? Where do I place the fourth queen?
+[28:56] Are you there? This is I was trying to place row wise.
+[29:00] If I try placing column wise, then the answer will be different. But there is
+[29:04] still a solution possible in that case also.
+[29:09] Are you able to pictureize all the things?
+[29:12] We always start with the first feasible solution which is cell 0. Place a queen
+[29:18] and then figure out that some slots are inaccessible because of the queen's
+[29:23] power. And then we try placing the queen in the second row with the available
+[29:29] slot. We can, but then the third row becomes a problem. So we backtrack to
+[29:35] the second queen and shift that position. So that is like shifted from
+[29:41] uh 1 2 to 1 13. Then I'm able to place in the third row and then I not able to
+[29:47] place in the fourth. Then we backtrack to the third queen. Then we backtrack to
+[29:53] the second queen. No other slot. Then we backtrack to the first and say yeah
+[29:57] first queen can be placed anywhere else. So I go to the next slot which is 1
+[30:02] zero. Oh, sorry. 01 and then I find slots available.
+[30:09] Are you all there? Yes. No. How many are not clear?
+[30:16] How many are not clear?
+[30:20] Okay. Try five by five now and tell me how many times did you have
+[30:26] to backtrack for five by five. How many got the solution without
+[30:31] backtracking? Of those interesting scenarios where you are able to place
+[30:36] without any backtracking.
+[30:41] Okay, one more minute for you to try and show you in a moment. 5x5. Let's start
+[30:47] with 5x5.
+[31:08] All slots are available. So the queen one
+[31:13] goes here. What is inaccessible?
+[31:25] Do you agree? Do you all agree? So the next slot
+[31:29] available in the second row is the first available slot which is this guy.
+[31:37] And this is inaccessible.
+[31:49] The third queen goes in the only available slot which is this guy.
+[32:00] Are you there? The fourth queen goes in the only available slot which is this
+[32:05] guy.
+[32:09] And this is where the fifth queen gets the slot.
+[32:16] So I did not have to backtrack in the first navigation itself. I found the
+[32:22] solution. Are you there? What we are talking about
+[32:27] backtracking.
+[32:32] So what is very interesting thing? Did you notice undo
+[32:37] when I shifted the queen from 000 cell to 01 cell for that 4x4
+[32:44] earlier slots which were cross are now undone because some of them may be
+[32:50] crossed some of them are accessible. So we have to follow that practice of
+[32:55] saying oh this is not a feasible solution but when I backtrack this may
+[33:00] be a feasible solution in the next option. So I have to undo what I did and
+[33:06] try going another way. That is why we removed the cross and added the cross
+[33:13] for the other slots or other cells which were inaccessible.
+[33:19] Are you all clear? Conceptually code is very easy to follow. It's not a
+[33:23] big deal. Okay, are you all clear? Conceptually,
+[33:29] now if I were to follow the column approach, let's first instead of going
+[33:33] row wise, let's go column- wise. What do we do? We take the first column and then
+[33:38] look at all the rows where the queen can be placed. Let's go for the 5x5
+[33:45] column wise. Okay. Instead of going placing row wise like
+[33:50] what we did we will go column wise now.
+[34:05] So this is zero 1 2 3 4. So try placing the queen in column zero.
+[34:24] Try placing the queen in column two. What is the slot available?
+[34:29] Are you seeing this now? Column. We are going column wise, not
+[34:33] row wise.
+[34:43] Try placing the queen in column three. This is the only slot available.
+[34:51] Try placing the queen in column four. This is the only slot available. Try
+[34:55] placing the queen in column five. This is slot. So there are two possible
+[34:58] solutions for this particular 5x5 depending on whether you want to first
+[35:04] place row wise or you want to place column wise. So you can take whatever
+[35:08] approach you want and one of the possible solutions is what we are
+[35:12] looking at. Uh where is vshali digshittita test
+[35:18] cases should be either of the two. Yeah because if if I take column approach my
+[35:24] answers are different. You know which cell if it is row approach what is the
+[35:28] cell? 0 0 1 2 row wise 2 4
+[35:35] 3 1 and 4 3. If it is row wise, column wise would be 0 0 2 1
+[35:45] 4 2 fourth row second column then 1 3 and then finally the fifth queen comes
+[35:52] in 3 4. So obviously the answers are different when you look at row wise and
+[35:58] when you look at column wise. Are we all clear?
+[36:04] Yes. Shall we now go through the document and understand more about it
+[36:09] and then we why don't you just run the program with 2x two go for row wise sir.
+[36:14] Let's take the row wise approach for demo.
+[36:18] Yeah.
+[36:23] So just see what happens now. All the
+[36:31] not well, huh? Wash your face. Sleepy. That's what
+[36:36] I'm saying. Go wash your face. Go last row and sleep.
+[36:40] Do that. One of the two. One of the two feasible solutions.
+[36:45] But don't sleep in front of me, you know. Yeah. Yeah. Those who feel sleepy,
+[36:50] I know many in the last row. Go to the last row for you know why. Yeah. Yeah.
+[36:56] Look at it. He two by two. He placed in 0 0 first queen. Then I try
+[37:02] 1 Z. So it's not possible. So where do we backtrack to? Are you seeing that?
+[37:06] Backtrack 0 0. And where is that now queen placed in 01. Is the solution
+[37:12] possible? Again you backtrack to 01. And then you find there are only two
+[37:17] columns. I tried column zero. So I tried column one not possible. So we return an
+[37:22] message. No solution. Are you all clear? Now try 3x3.
+[37:32] Now yeah 3x3.
+[37:38] We started with 0 0 then one two. Okay. We could place a queen here.
+[37:47] But what happened?
+[37:52] Third queen could not be placed. So I backtracked to one, two.
+[37:57] Can I go any further? No. Then I backtrack to 0 0 and I find
+[38:04] the next slot which is this one. Are you seeing 01?
+[38:10] Okay. Okay, when I found 01,
+[38:20] sorry, could I place a query in second row? No. So, I backtrack to 01 and then
+[38:27] I place in 02.
+[38:36] Then I place a queen here. See this? I placed a queen in 02. Then I
+[38:42] placed a queen in 1 0 and then I find that well I cannot do anything. So I
+[38:48] backtrack to 1 zero. No other slot available. I backtrack to 02. No other
+[38:54] solution. So no solution. See the way the backtracking is happening. We
+[38:58] backtrack to the last possible and then try an alternate path. If you don't find
+[39:02] it, we backtrack to from where we came. So it is more like recussion only. A
+[39:06] calls B, B calls C. When recussion is over, stack unwinding happens, B takes C
+[39:11] takes you to B, B takes you to A. From B, if I can go to D, I'll try. If that
+[39:17] doesn't give me, I'll go to B and then I'll say go to A. I explored every
+[39:21] possible solution from B, didn't find an answer, I'll go to A and try alternate
+[39:26] options if there are available. If you have gone to the last column and if
+[39:30] there are no alternate options available, you return an error message.
+[39:32] No solution possible. Guys, are we clear? Is the demo clear
+[39:39] now? 4x4. You have the diagram for 4x4. You can see that.
+[39:48] Yeah. Guys, please go through the uh English and focus on where backtracking
+[39:54] is happening. You have the diagram with you, refer to the diagram and build it
+[39:58] here once again.
+[40:08] Got it.
+[40:12] How about you, sir?
+[40:18] Clear.
+[41:04] I placed a queen at 0 0. Then I placed as one two. I couldn't place in the
+[41:08] third row. So I backtrack to 1 two. And from 1 two where did I go to? 1 three. I
+[41:15] could place a queen in third row. But then I have a problem with fourth. So I
+[41:19] backtrack to 2 1 no other column is possible. I backtrack to 1 13
+[41:26] and then I backtrack to 0 0 and shift that from 0 0 to 01 and then I find a
+[41:32] solution.
+[41:35] Are you guys getting it? Everybody
+[41:40] we do not always go to the start point. We go to intermediate point and see is
+[41:45] there another feasible solution from that. is like that diagram I gave you.
+[41:49] Start M1, M2, M3, S1, S2, S3. I could I went from start to M1, S1 backtrack. If
+[41:57] there was another path from M1, I would have gone there and not to start. I
+[42:01] would have explored all possible paths from that intermediate node of the tree.
+[42:04] It's like a tree. And if I did not find any solutions at the leaf, then I'll go
+[42:10] to its parent. Explore all the possible paths, then it parent so on.
+[42:17] Are we good with the demo, sir? Five by five.
+[42:26] Good. No backtracking. First time you got a solution like what many of you
+[42:32] did.
+[42:36] Got it? Now this is what does that one 0 0 mean for you? What does one mean? The
+[42:43] cell where a queen is placed. So when I say 1 0 0 and when you look at the
+[42:48] second one it is 1 2. If you look at the third one it is 2 4 and so on. Now why
+[42:56] don't you run the column wise 5x five column wise don't clear screen.
+[43:01] Yeah.
+[43:04] Yeah.
+[43:14] Yeah 5 by five sir
+[43:19] you got a solution but the values are now different we are going column-wise
+[43:30] I all fill the first column then second column third column fourth column fifth
+[43:33] column are first row second row third row fourth row so if you go row wise we
+[43:38] take for that row all possible columns if you go column wise for that column
+[43:42] all possible
+[43:50] Shall we briefly look at that code or you guys will try solving on your own?
+[43:56] Try solving. Okay. But I'll just give you a high level what
+[44:01] you need to do. Can you tell me at high level what you need to do? Anyone solve
+[44:06] this problem? What would you need to do? Is a matrix of n into n
+[44:20] Yes, everybody
+[44:23] use a mic
+[44:29] is a matrix of m into n into n sir. Uh let's take an example of 4x4.
+[44:43] Yeah, >> for every queen placed, we have to mark
+[44:47] the uh positions which can't be taken. >> Okay, next.
+[44:51] >> So, how do you mark them which can't be taken?
+[44:54] >> Use another matrix to >> I don't want to use another matrix. No
+[44:59] additional space.
+[45:04] Uh that marking I showed you for explanation.
+[45:07] But in reality, do you really need to mark?
+[45:12] If I know that this is a queen here, what is inaccessible?
+[45:19] All the columns of that row. >> Yes, sir.
+[45:22] >> Are you getting it? >> Yes sir.
+[45:23] >> And all the rows of that. >> All the columns
+[45:26] >> and all the >> diagonals.
+[45:29] >> Diagonals. So what would a diagonal of that be? If it is 0 0 1 1 22 2 3
+[45:35] >> Yes sir. are 0 1 02 03 are 1 0 1 1 I mean 2 0 3 0 rows
+[45:44] that cross is for giving you an understanding of what is inaccessible.
+[45:49] Oh these are slots which the queen cannot occupy and all the empty ones
+[45:54] where what it can occupy. Yeah, that's one. Okay, what else would
+[45:59] you do?
+[46:02] take uh forward to the next row and do the same place.
+[46:06] >> Okay. Then uh when you backtrack, what do you do?
+[46:09] >> Uh uh remove the places and say uh move the queen to next next possible place of
+[46:17] the rook. >> Correct. But when the queen was at 0 0
+[46:19] then you moved to uh 01. What did you do with 0 0 then?
+[46:23] >> 0 0 next for the next uh it will be uh initial stage sir.
+[46:28] >> Correct. Initial stage we didn't get a solution for 4x4.
+[46:31] >> Then we backtracked all the way after a couple of times and then we said 0 0
+[46:35] become 01. >> Yeah.
+[46:36] >> So what do you do in a backtracking thing?
+[46:40] >> You know we have done >> remove the marks or place it in.
+[46:44] >> Yeah. Remove whatever you marked it as. It's like in earlier graphs problem
+[46:48] visited not visited. If it's already visited if it's not visited we set it to
+[46:53] visited so that the neighbor cannot go back to it. Something similar. I'll just
+[46:57] give you at a high level what the methods are. You try filling in uh with
+[47:01] your own understanding. Sir, show the main
+[47:07] not this sir rose problem. N queens you're showing
+[47:13] the maximum gold. So we are having a method called solve
+[47:19] NQ N queens. Yeah, take us to that.
+[47:25] And we are having a matrix of n into n. And initially everything is available.
+[47:32] And then we call a method n queen's utilities. And what are we passing the
+[47:39] first cell value as? Zero. And then if that guy returns
+[47:46] false, negation of that is true. And we say no solution is possible. Yeah.
+[47:50] Continue. Uh if there is a solution possible, we print the board. Okay.
+[47:55] Yeah. Show us that sir. Now look at the very interesting. What did we pass the
+[47:59] row number initially? Zero. If the row is equal to n that means all of them are
+[48:05] processed. Right? So we return true. Scroll down.
+[48:09] Now because we are considering row wise we now need to say for that row all the
+[48:14] columns. If I consider column wise for that column all the rows you know just
+[48:18] have to swap. It's like the transpose of a matrix. Yeah. So I'm now look at that.
+[48:23] Is it safe? What do you think is safe is? We have gone through lot of issafe
+[48:28] methods earlier.
+[48:32] One is it within that bounds 0 to n minus one. Not exceeding the column
+[48:38] size, not exceeding the row and not going below before zero or left of Yeah,
+[48:43] great. What else? Yes, sir. You're saying something?
+[48:47] Mike, pass the mic.
+[48:52] Oh, he got it. Yeah. >> So when we place our queen in a certain
+[48:57] place, we're not able to go uh to the right, left and diagonal or eight or a
+[49:03] directions. >> So eight is safest to check if there's a
+[49:07] queen at some location. Which are all the slots which are inaccessible?
+[49:13] Which are the slots where a queen cannot be placed? Where a queen can be, that is
+[49:18] a safe space. Where a queen cannot be is not a safe space. So can we just quickly
+[49:22] look at is safe?
+[49:27] No. Check row wise for that column. Are are you there? If it is one, return
+[49:34] false. When when does it become one? When a queen is placed there. Okay.
+[49:38] and check upper diagonal and check uh upper diagonal on the right
+[49:44] side which is uh if I were to show it to you
+[49:49] uh graphically. Yeah. So if a queen is placed for a moment imagine this we are
+[49:54] checking upper diagonal on the left upper diagonal on the right and then
+[50:00] obviously we are checking horizontal and we checking vertical. Go back to that
+[50:06] code. See check row wise for that column.
+[50:11] Check upper diagonal on left side. Check upper diagonal on right side. And if any
+[50:16] of them is one, we return false. Otherwise we return true. True basically
+[50:21] means it is safe. False is not safe.
+[50:28] Why are we only checking upper diagonal and not lower?
+[50:32] I thought somebody would ask me that. Why are we only checking the diagram
+[50:38] sir? Why are we only checking the upper
+[50:41] diagonal on the left and upper diagonal in the right? Why not bottom
+[50:48] anyone? Why
+[50:54] the if you saw what was the logic upper diagonal on the left upper diagonal on
+[50:59] the right why not lower diagonal? When I was putting the cross marks, I put
+[51:04] everywhere, right? Not just upper. But why are we not checking lower is my
+[51:08] question.
+[51:14] >> We didn't check that elements in that row. We didn't reach that rows.
+[51:19] >> Very nice. We have not come to that row yet. If I'm if I have process first row
+[51:24] and I I'm processing second, I only will look at second row and not look at
+[51:27] third, fourth, fifth. Right? when I come to five upper guy will take care of 4 3
+[51:32] 2 1 we don't have to worry about below oh am I able to place at this if I am
+[51:38] able to the below guy will anyway worry about the above which is upper diagonal
+[51:44] are you all clear don't go check bottom right and bottom left not required that
+[51:49] anyway will come into effect when you're in the last row everything is checked
+[51:52] above and when in the second row everything before that third row
+[51:56] everything before that so only upper diagonals is Sir code sir only upper
+[52:01] diagonals is required and what is the upper diagonal on the left I - J minus
+[52:06] minus back side and what is on the right I - J right is row wise we decrease but
+[52:15] column wise we increase left is row decreases and column decreases I minus -
+[52:21] J minus minus if so if I'm at 22 I need to worry about 1 one 0 0 I need to worry
+[52:27] about 1 13 and 03. Are you there
+[52:37] guys? Are you clear on this logic?
+[52:41] No. No. Are you clear on this logic? Upper diagonal. And what about
+[52:47] for that row? Uh yeah. I is equal to zero. Number of rows I ++.
+[52:57] Yeah. Are you clear?
+[53:02] Now scroll down. Is safe is over.
+[53:09] Now, now if it is safe, what are we basically updating that cell value with?
+[53:14] One. And after we update and if we do not get a solution, scroll down.
+[53:20] We backtrack. And how what are we doing in backtracking?
+[53:24] that slot which was taken is undone. So it is now available.
+[53:30] So that is what it is. So we'll go and try alternate options.
+[53:35] So if I was if I was able to place in row two then I'll try row three, row
+[53:40] four, row five in 5x5. At any point I'm not able to place I'll backtrack.
+[53:44] Backtrack is the previous row column will get updated to zero. Again I cannot
+[53:49] I'll backtrack one level above who where I came from. It is a recursive function.
+[53:54] So A calls B, B calls C, C calls D. Backtrack reset C to zero. Backtrack
+[53:59] reset B to zero. Backtrack reset A to zero. And try other option from A which
+[54:05] is the first row. That's a very important point of code. If you do not
+[54:09] backtrack, sir, can you comment out that line 84 and run 4x4?
+[54:23] I commented that and run 4x4.
+[54:28] See, and now he says no solution possible. Now let's see why didn't why
+[54:32] he says no solution possible. What happened?
+[54:36] What happened? Can anyone look at that and tell me?
+[54:44] We started with this guy and then we placed a queen here. We couldn't place a
+[54:48] queen anywhere. I backtracked
+[54:54] 4x4, right? Sorry, I backtracked. Placed a queen here. But
+[55:01] did I undo this slot? I did not undo that slot. Are you seeing that? I
+[55:06] backtracked to one, two, and this column is still showing as one. This is one.
+[55:13] This is one. Are you guys there? very important to
+[55:18] reset it if that is not a feasible solution. That's a very it's like
+[55:22] visited not visited. Visited not visited.
+[55:25] Is it a solution? Yes. Not a solution? No. Remove it. Remove from one of the
+[55:30] possible feasible solutions.
+[55:34] Are you there? Same approach. Everything is same. Just one line of code. If you
+[55:38] if you use chat GPT, he'll give you a code and somebody just comment
+[55:43] something. Your code doesn't work. and again give chat GPT and say can you
+[55:46] please fix this code? Yeah, he'll fix it. He'll I know remove that comment and
+[55:51] then do you understand? I'm not saying don't use AI tools but
+[55:57] what I'm trying to say is if you use a tool please understand what it does. See
+[56:01] if it is an optimized code. See how you can work on it so that you learn in the
+[56:06] process. Don't blindly use it and paste it and learn nothing. So I'm just
+[56:11] showing you how one line of code if not understood properly will give you a
+[56:16] solution which is not a solution.
+[56:21] Are we good? Yeah sir. Uh would this be a problem for
+[56:26] 5x5 that commented code? I repeat would that commented code be a
+[56:31] problem for 5x5 tang? Huh?
+[56:38] Because there was no backtracking. So we never had to worry whe there was a zero
+[56:41] or one run five by five.
+[56:46] You the problem is when you backtrack are you undoing it? No, I didn't undo
+[56:50] it. There was a queen there and that guy continues to be there. There's another
+[56:54] queen. There's a third queen. Wow. Interesting, right?
+[56:58] We're not talking about placing all queens in one row, which is also not
+[57:01] possible. Anyway, but that's how the code is written. Now, queen in slot two
+[57:05] remains there. Queen in slot 13 also remains there. Even though we say it is
+[57:09] not a solution, that queen doesn't go, "Oh, I will not leave this chess board."
+[57:13] Huh? It's like that crazy guy. Huh? Come on.
+[57:18] Are we good? Try solving on your own. Now you got a
+[57:21] gist of the code. So, first is check uh is it safe to place the queen? If it is
+[57:27] safe, keep placing the queen and go to the
+[57:32] next row. Try placing. If you cannot undo back and see if there's a feasible
+[57:37] solution available. Okay, maybe now that you know the whole
+[57:41] algorithm, look at some online resource, see how they do it and understand if
+[57:47] needed, but write everything on your own. Okay, that is the first problem.
+[57:53] Second problem.
+[57:58] Another very interesting problem.
+[58:02] Pretty much all back sorry all backtracking problems involve DFS
+[58:09] and recussion. I repeat all backtracking problems
+[58:14] involve depth first recursion. Okay. Now let's let's look at this problem.
+[58:20] Hello. You now need to give me an answer for
+[58:25] the input I give you. So please understand the problem.
+[58:29] In a gold mine of size m into n each cell in this has an integer representing
+[58:36] the amount of gold in that cell. If there is no gold, it is represented
+[58:41] with zero. So either you have zero or non-zero values. Non-zero is there is
+[58:46] some amount of gold. Zero is yeah gold amount is zero. Nothing not there.
+[58:52] return the maximum amount of gold you can collect under the following
+[58:57] conditions. Constraints are what? Every time you are located
+[59:03] uh every time you are located in a cell, you will find all the gold in that cell.
+[59:09] Okay? From your position, you can walk left,
+[59:14] right, up and down, four directions, not diagonally.
+[59:19] Okay? interesting problem. You can't visit the same cell more than once. That
+[59:26] means if you have gone to 0 0 collected gold and you go to 0 1 and then you go
+[59:32] to uh 1 one then you go to 1 0 you again can't go back to 0 0. I mean you can't
+[59:39] collect once you have collected it's like zero. Okay.
+[59:43] Never visit a cell with gold zero. And you can stop and you can start and
+[59:51] stop collecting gold from any position in the grid that has some gold. We don't
+[59:56] have to always start from the left top where the cell is non zero. From
+[1:00:01] anywhere you can start and you can get the gold which is required. So I'll show
+[1:00:06] you a matrix. Yeah.
+[1:00:36] Yeah. Tell me what is the maximum gold we can collect by moving in four
+[1:00:42] directions. Left, top, right, bottom. You can start from anywhere. But once a
+[1:00:48] cell is visited, it cannot be revisited again.
+[1:00:56] Yeah.
+[1:01:00] What did you say? 30. Okay. One answer is 30.
+[1:01:15] 30.
+[1:01:32] Yes, please. It is a maximization problem not just finding feasible
+[1:01:35] solutions.
+[1:01:40] There are multiple feasible solutions but maximum gold is only one
+[1:01:47] 30. How many for 30? 30.
+[1:01:53] 30. Anybody more than 30? More than 30.
+[1:02:01] Anybody more than 30? Okay, great. Uh, you got 30.
+[1:02:07] Uh, explain to me your approach.
+[1:02:13] 30 is the right answer for this input data.
+[1:02:17] Sir, uh, we'll start from two. >> Uh, uh, okay. But why did you jump to
+[1:02:23] two directly? You obviously you're seeing now you're saying I'll start from
+[1:02:27] two. But in a program what would you do? For I is equal to Z, I less than number
+[1:02:32] of columns, number of rows. For J is equal to Z, J less than number of
+[1:02:36] columns. Is my cell having a zero value? Yes. Skip. Go to the next cell. What is
+[1:02:43] the next cell? What is the next cell? 01. Does it have
+[1:02:47] a gold in that? Yes. So, we start with which cell?
+[1:02:52] We start with which cell? If you're going row wise, you'll start with eight.
+[1:02:58] If you're going column wise, nine. Are you guys there?
+[1:03:04] Yes or no? Yeah. I start with cell eight. Then do what?
+[1:03:10] I start with cell 8 in this case.
+[1:03:16] >> I start with cell eight in this case. And then I can go in what directions?
+[1:03:21] >> In right or down. >> Okay. Right
+[1:03:25] >> or down? >> Right will give me two.
+[1:03:28] >> But once I go right, can I come back and go down?
+[1:03:31] >> No. >> No.
+[1:03:32] >> Can I go left? >> No.
+[1:03:35] >> I could have but I can't because it is zero.
+[1:03:37] >> Yeah. >> Right.
+[1:03:40] Because it is zero, I will not be able to visit. Right.
+[1:03:43] So if I go right from eight right, how much gold will I accumulate?
+[1:03:49] Sir, your name sir? >> Rishies.
+[1:03:52] >> Rishies. Yeah. Can we all guys very interesting problem there are multiple
+[1:03:57] solutions but optimal is only one maximum goal. Yes Rishies if I go to
+[1:04:04] eight which is my start cell and if I take right approach how much gold would
+[1:04:09] I have accumulated? >> 10.
+[1:04:11] >> 10. So eight right will be 10. Do you agree? 8 8 + 2. What about
+[1:04:18] eight down? Six.
+[1:04:25] >> What about eight down? >> Yeah, we can go down.
+[1:04:29] >> No, tell me if I go down up. See, look at that first diagram. Eight. What are
+[1:04:35] the two paths available from eight? Okay, let me draw the tree for you. What
+[1:04:39] are the two paths available from eight? One, I can go right. Two, I can go down.
+[1:04:48] Six. Two paths are only available from eight. Do you agree?
+[1:04:52] Hello. Do you agree? Let's draw a tree for each from two. Is there a path
+[1:04:58] available? Rishies from two. Is there a path
+[1:05:03] available? >> No. No.
+[1:05:04] >> No. So, this is a leaf node? >> Yeah.
+[1:05:07] >> What about six again? Six can go.
+[1:05:12] >> Yeah. >> Up, down, right?
+[1:05:14] >> Yeah. >> Up not possible because I came from up.
+[1:05:17] So up is ruled out. What about right? >> Uh zero because
+[1:05:21] >> zero because zero. Okay. What is the down path available?
+[1:05:28] >> Zero. >> Zero. There's no down because zero. What
+[1:05:32] about the left path? >> Yeah. Nine.
+[1:05:35] >> Nine. From nine. What are the paths available?
+[1:05:39] >> Uh down five. >> Down.
+[1:05:43] >> Five. >> Five.
+[1:05:46] Okay. >> Any other path available?
+[1:05:49] >> No. >> So what do you get when you go eight?
+[1:05:53] One answer right was 10 >> 10
+[1:05:55] >> down is what? >> 6 uh 6 95.
+[1:05:59] >> So 8 + 6 >> 28
+[1:06:02] >> 28. If I go down 28. So if imagine these were the these were
+[1:06:09] the only cells I had to consider. I would say if 8 is my start the maximum
+[1:06:16] is >> 28
+[1:06:17] >> 28 but that is still not the answer >> then what do I do after that
+[1:06:21] >> so it's like saying take every cell which is non zero and look at all four
+[1:06:28] possible ways in which it can traverse and get the gold in each find out the
+[1:06:34] maximum of all the four from eight I can traverse only two ways one gave me two
+[1:06:40] one gave me 28 so maximum is did so far. Do you get that?
+[1:06:45] >> Then what happens when you go to two? >> If two is my start cell,
+[1:06:50] >> what will the answer be? >> 30.
+[1:06:54] >> 30. >> If two is my start cell, I can go left.
+[1:06:58] From left I can go down. From down I can go left. From left I can again go down.
+[1:07:04] So if two is my starting cell, the path I have taken is 289 uh 28695. So what is
+[1:07:12] the answer? Do you stop? Will you stop at 30 now?
+[1:07:17] >> Just because uh >> Huh?
+[1:07:21] Because I am seeing 30. I will stop. Huh?
+[1:07:25] >> Uh we'll go to the next cell. >> We will not stop. We will go to the
+[1:07:29] second row, first column. We will go to every possible cell which is non zero.
+[1:07:34] explore all the four options and then see of those four what is the largest.
+[1:07:44] It is not just finding a solution like n queens here. It is like saying there is
+[1:07:50] a solution multiple solutions but the solution which I am looking at is max
+[1:07:55] gold. Sir, can you run this with the same test
+[1:07:59] data 3x3
+[1:08:06] and that will give you a clue on how to solve is a simple DFS problem. We have
+[1:08:10] done multiple problems like this. You know area of an island, number of
+[1:08:14] islands. Remember
+[1:08:26] 509. Yeah. Just see this. I start with row 0 0.
+[1:08:35] Sorry, 01. What is the gold? I got 28. Why 28? Because I'm looking at max. I'm
+[1:08:45] not looking at Okay. Then when I started with 02, what
+[1:08:49] is the max gold? I got 30. When I started with one zero,
+[1:08:56] what what is the gold? I got 25. Why? Why 25?
+[1:09:02] 9 6 82. 9 go right six. Six go up eight. Eight go right two. So 96 82 is 25. If
+[1:09:10] cell is if cell one is my start cell give me access
+[1:09:18] are you guys getting this every cell is considered which has non-zero value
+[1:09:23] three cells have zero so they are not considered
+[1:09:27] what is considered are all cells with non-zero
+[1:09:31] I am not showing you with 82 what is the answer I'm showing you with eight what
+[1:09:35] is the maximum with two what is the maximum with nine What is the maximum?
+[1:09:41] 25 with six. What is the maximum? 20. Why 20?
+[1:09:48] 6 95. 695 is 20. 682 is 16. So, max is 20.
+[1:09:55] Obviously, this is not considered with five. What is the maximum?
+[1:10:00] 20. Sorry, 30. You know 5 9682
+[1:10:06] 28695 doesn't matter. Both are same. and with uh 2 to 9.
+[1:10:15] Have you got this? So if I were to draw a tree, how would
+[1:10:21] the tree look like? How will the tree look like? The tree
+[1:10:26] will look different for each option. For 000 start, there are four branches I can
+[1:10:33] take if it had a non-zero value. Left, top, right, bottom. For every cell take
+[1:10:39] four possible options and generate what is the gold computed in each of them.
+[1:10:48] Are you there? Now look at two one one very closely. One one is this guy.
+[1:10:58] If I were to draw the tree six I can go up.
+[1:11:03] Eight I can go left. 9. If there was a down path, I could
+[1:11:10] have gone down. But there are only two paths. So I go up eight up. I can go
+[1:11:16] left. If there was a path not there, I can go right
+[1:11:21] two. What is the sum of them? 16. Now when I take the 69 left, 9 down
+[1:11:30] five. What is the sum of this till the leaf?
+[1:11:34] 20. So which is larger? 20. That is what you do for every cell you encounter. So
+[1:11:40] there'll be four calls to DFS function. I repeat there'll be four calls to DFS
+[1:11:46] function. Right, left, top, bottom. Calculate for each of them what is the
+[1:11:50] cell if I were to traverse and then get me the maximum.
+[1:11:57] Are you there? Yes. Okay. Another test case I'll give
+[1:12:01] you and you compute the max goal for me.
+[1:12:35] given this sample data. Calculate the maximum del maximum gold and tell me
+[1:12:41] what are those cell values. All of you and start with 0 0 if there
+[1:12:46] is you can start with seven now because
+[1:12:50] there is 0 0 has a value seven. So you start with cell 0 0
+[1:12:56] traverse right all possible options traverse down all possible options left
+[1:13:01] and up is anyway meaningless for 0 0 it is not safe it is not within the bounds
+[1:13:17] 33 okay one answer is 33 Now if I start with 0 0 tell me what is
+[1:13:24] the maximum?
+[1:13:29] If I start with 0 0 the maximum is 25. If I go right it is 15. If I go down 7 8
+[1:13:37] 1 then one right is 9. Is there any 9 path possible after that? No. So it will
+[1:13:43] be 7 8 1 9 which is 25. So if cell 0 0 is my start the maximum is 25 max of 25
+[1:13:52] comma 15 25 but that may not be the final answer then I start with 01
+[1:14:00] now when I start with 01 what happens 01 is 8 goes back seven down
+[1:14:11] so eight eight down right anything. So the sum will be 78
+[1:14:19] 87 819 that will be 33. Then you start with
+[1:14:26] 03. If you start with 03, what is the maximum goal?
+[1:14:31] Huh? No, there's more. If I start with 03, 4 2
+[1:14:38] 1 65 is maximum. But there's one more. 422
+[1:14:43] 8. So of the two the maximum is 18. So so far what is the max still 33. So
+[1:14:50] we'll retain that. We'll not disturb that unless we get somebody more than
+[1:14:54] 33. Get that test case reducer.
+[1:15:00] Uh if I start with cell one uh sorry second row first column 2 1 uh 2 0
+[1:15:08] if I start with two 0 what will you get?
+[1:15:16] I repeat sir if I start with 2 0 this is this cell
+[1:15:21] if I start with this cell what will the maximum
+[1:15:26] right 1 + 9 if I go take the up approach 1 + 8 + 7 + 8 which is
+[1:15:35] 24 so at every cell you can calculate maximum
+[1:15:40] can you do that and tell All of you
+[1:15:44] come on simple addition here. See how that way you'll understand your
+[1:15:49] understanding whether you understood it correctly or not with gold prices being
+[1:15:55] so high you know it'll be good easy if you can get more gold like this. So all
+[1:15:58] if not for anything gold come on guys tell me can you tell me all the answers
+[1:16:05] I'll write down for you. 0 0 what is the max goal? 0 1 1 2 Sorry. 02
+[1:16:14] 1 0 1 2 1 3 Yeah. First six you tell me.
+[1:16:24] Come again sir. Use the mic and answer please. 25
+[1:16:34] 33 02
+[1:16:40] 02.
+[1:16:46] So 03 this one. Huh? 18 1 0 1 0
+[1:16:57] Sure. 1 zero. Why will it be 18? So it'll be
+[1:17:01] more. 8 + 5 8 + 7 + 8. I can go up and write now
+[1:17:13] answer guys. I can't hear you. 23. Who has a mic there?
+[1:17:20] Where are the mics? Use a mic and answer. 23. Come on. Quick. 1 2
+[1:17:28] 1 2 Easy. 9 + 1 + 8 + 7 + 8.
+[1:17:35] >> What did we get when we did that? >> 33.
+[1:17:39] >> And 13. Uh, how is it 16 sir? 1 13 is this. I
+[1:17:46] can go down and left 12 or I can go up seven. I can go up and left five. So the
+[1:17:54] answer is >> 1 to 16
+[1:17:56] >> 12 >> for this guy. What is the answer? 1
+[1:18:00] three. Sorry, not >> 1 three.
+[1:18:06] Oh, sorry. I'm confusing. 1 three is this guy. Yeah. So what would
+[1:18:13] it be? 2 + 1 plus this.
+[1:18:20] If I go up six. If I go left four. If I go down and left 14. Yeah.
+[1:18:27] >> 12. >> Yeah. 13. What about it?
+[1:18:33] >> Uh one two. Sorry, I one two is this guy, right? That can't be 33.
+[1:18:41] Uh uh 1 2 2 + 2 4 + 10 16
+[1:18:51] 1 2 would be 16. Yeah sir. Run that with the data which
+[1:18:57] we have given.
+[1:19:02] Yeah. Erase everything sir. Uh 0025 0133. Sir go back to the code my
+[1:19:10] diagram. 0 0 25 01 133 03 is go back
+[1:19:22] 18 uh 10 23 16 14 Just see whether it's
+[1:19:27] correct or not. 23 16 14. But what is the max still 33?
+[1:19:32] So we don't change that. Have you understood?
+[1:19:38] Everybody now give give another test case with 1 2
+[1:19:44] 3 4 5 6 7 8 9 3x3
+[1:19:50] 1 2 3 Yeah. Tell me what would you get in all
+[1:19:55] the nine cells? Huh? Don't jump fast. Huh? Diagram.
+[1:20:07] Yeah, come on guys. Is not so very obvious
+[1:20:14] but not also very difficult.
+[1:20:32] What did you say? You got 45.
+[1:20:40] Isn't it sum of all the numbers? You start with one. 1 2 3 6 9 8 7 4 5
+[1:20:47] possible path. You know this is one possible path.
+[1:20:53] Go right, go down, go left, go up, go here. So 1 2 3 6 9 875.
+[1:21:02] You start with two. 23 6. What do you get with two?
+[1:21:11] You can skip one. 2 3 6 9 8 745. So one is removed 44. What do you get with
+[1:21:17] three? 44
+[1:21:22] 3 6 987452
+[1:21:25] and 1 45. No repeatation. We're not going back
+[1:21:32] where we came from. What about when you start with six
+[1:21:38] 44 69 8745 23 If you go 21 42
+[1:21:46] 23 is 45 sir run
+[1:21:57] erase. So you're you're navigating between 44
+[1:22:02] and 50 45 one element if you're given a choice to skip we are all removing one.
+[1:22:08] We are calculating with one but then we if we include one we get lesser
+[1:22:11] excluding one is giving more. So we continue with that.
+[1:22:16] Is it clear? Okay. I'll quickly show you the code
+[1:22:20] highle code.
+[1:22:26] Go to the max go. Yeah. Yeah, we take input for matrix M into N.
+[1:22:32] Then we call a method maximum goal.
+[1:22:37] Then we start with standard problem of a island.
+[1:22:42] Start with row zero, column zero. If it is non zero, that becomes the first
+[1:22:47] cell. If it is zero, go to the next column. Remember the standard code? Any
+[1:22:52] questions on that code?
+[1:23:00] We have done so many problem. Area of an island, number of islands
+[1:23:08] similar standard code. Now code doesn't change.
+[1:23:12] Scroll down. We're calling a method. Yeah.
+[1:23:20] Now what are we basically doing? The current gold is a variable which
+[1:23:26] will get updated with whatever the gold in that cell is. Clear? Then we are
+[1:23:32] creating a temporary value. Why temporary value?
+[1:23:37] Why temporary value? Look at that. What did we change that grid to?
+[1:23:42] What did we change that cell value to? Zero. So if I'm going from 0 1 to 1 0, I
+[1:23:48] can't go back to 0 0 because it is zero. But if that is not but I need that value
+[1:23:54] original value back. So the original value will be backtrack which is temp.
+[1:23:59] Very interesting. You have to store that old value which you set to zero because
+[1:24:04] when you backtrack you have to reset back to the old value.
+[1:24:09] Okay. Down. Now is it safe to go next row I + 1. Is
+[1:24:16] it safe to go next column J + 1? Is it safe to go left uh sorry up I minus one?
+[1:24:24] Is it safe to go left J minus one? You know four directions.
+[1:24:29] If it is safe calculate the gold and if that is larger than the previous
+[1:24:35] max max will get updated. So with every cell we are checking all the four
+[1:24:41] options and each of them will again check all the four options. So it is
+[1:24:46] directly DFS.
+[1:24:52] Are you there? Number of recursive calls.
+[1:24:56] Scroll down. And then finally if it is not giving you the result which you want
+[1:25:01] with I mean finally we reset that cell back to the old value.
+[1:25:06] Sir, comment out that code 167 and tell me what will you get for 1 2 3
+[1:25:13] 4 5 6 7 8 9 answer now.
+[1:25:18] Will you get 45 44 or will it keep changing now?
+[1:25:24] Huh?
+[1:25:29] Come on. Just saw one line of code I commented
+[1:25:34] sir. Now for sir don't run for the same input can you tell me what will the
+[1:25:38] output be with that backtracking code commented which means if it is zero it
+[1:25:44] remains zero it will not get that old value of one or two or three
+[1:25:51] huh
+[1:25:54] what will happen to cell which has a value one
+[1:25:58] zero when you go to cell two what will that also become when you go to cell
+[1:26:02] three so when the when the Other guys are calculating them. Will they see 1 2
+[1:26:06] 3 or will they see zeros? So you'll not get what you got. Sir run.
+[1:26:18] Why are you getting this 45 only and none of the other answers?
+[1:26:23] Because all of them became zero. No from 0 0 I went to from one I went to two,
+[1:26:29] two became zero, three became zero, four became zero. then I can't go to the next
+[1:26:33] cell. Are you getting it? I mean that's not
+[1:26:37] it's like saying one solution take it or leave it.
+[1:26:40] [laughter] Are you all getting it? How important
+[1:26:44] that critical how important that code is one line code when you backtrack you're
+[1:26:49] undoing. Undoing is resetting it back to the old value which it had.
+[1:26:56] In that n queen's problem, it was unoccupied. So we reset it back to zero.
+[1:27:01] Once the queen is placed, we set it to one. Likewise, that is sir very very
+[1:27:07] important code. So remember in every uh backtracking problem, if you find a
+[1:27:13] solution or if you don't find a solution, you need to reset the old
+[1:27:17] value to its state. Which is why we are storing into that temp variable the cell
+[1:27:22] value. So that once you are done we reset to the old value otherwise
+[1:27:26] everything is zero. You saw how that 9 by9 processing became one.
+[1:27:34] Are you all clear everybody? Great. We are going to start with these
+[1:27:38] two programs.

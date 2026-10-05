@@ -1,0 +1,942 @@
+YouTube transcript
+Video ID: Dt-MLTO_8gk
+Language: en
+Captions: auto-generated
+
+[0:00] Please attend when I go to meet it. He just throwing me out.
+[0:05] Okay, I'll dismiss that. Yeah. Uh good afternoon guys.
+[0:11] Uh today we'll discuss three things. uh one continue on disjoint sets then talk
+[0:17] about the crystals algorithm which uses disjoint sets to check if the spanning
+[0:24] tree has a unit is a has a cycle and then the additional program which is to
+[0:30] find the largest number. Uh so we discussed in the last class what a
+[0:35] disjoint set is. A disjoint set is primarily a set or a bunch of sets which
+[0:42] do not have any common elements. So imagine there's a set 1 2 3 and another
+[0:47] set 4 5 6. These two are disjoint because there is no common element. So
+[0:53] when we talked about graphs what we understood is there are a bunch of
+[0:58] vertices and each vertex is basically a part of a set by itself. So imagine
+[1:04] there are five vertices. 1 2 3 4 5. I would have five sets. Set containing one
+[1:10] set containing two set one more set containing three. One more containing
+[1:14] four and five. Now when I have an edge connecting set one and two which is
+[1:20] vortex one and two then what happens is those two sets which were independent of
+[1:25] each other are now a part of it. So the set is now one and two. Now if you add
+[1:31] another edge to it then the set would contain 1 2 3. If you add another edge
+[1:35] to it four then it it would contain 1 2 3 4. So in initially each vortex was a
+[1:42] set by itself but having an edge connecting them is resulting in lesser
+[1:47] number of sets and each set having more number of elements. So what we looked at
+[1:52] in the last class is every set which you create has what is called a
+[1:57] representative element or what is called a leader or what we call a parent. So if
+[2:02] you have an edge one and two and because both these edges have sorry if you have
+[2:07] a vertex one and two and because both these vertices have the same rank you
+[2:12] can choose one as a parent of two or you can choose two as a parent of one it
+[2:17] doesn't matter. However, if the ranking is higher, a vertex which has a higher
+[2:24] rank would ideally be the parent of another vertex which has a lower rank.
+[2:31] But if the ranks are the same, then any vertex can be chosen as a parent. So
+[2:37] with this background, let's look at a very simple code which is Yeah, I I'm
+[2:42] going to share. Hang on, I've not shared the screen yet. I'm just talking about
+[2:47] what is required before we No, I'm sharing the screen. Uh by the way, there
+[2:53] is nothing to share that is why you are not seeing anything.
+[2:58] Now that I am showing you the u code, you're seeing it. Okay. So, uh this is a
+[3:04] very simple code on union find. Uh the idea of explaining this code is this is
+[3:10] a code which we're going to use for our crisals algorithm. So please look at
+[3:15] this code closely. There is a union find class which has an
+[3:19] array of parents. There's a constructor and in the constructor what we have done
+[3:25] is depending on the number of vertices we have allocated memory for the parent
+[3:31] and every parent has its index as a value. That means if zero is a vertex
+[3:39] the parent of zero is zero. If three is a vertex, the parent of three is three.
+[3:43] Are you seeing this code? Anybody has any questions on this highlighted code?
+[3:56] >> Okay. Uh so let's look at the main. In the main we are saying size is five. We
+[4:03] are saying union fine. So what happened when the constructor was called? It
+[4:07] basically created a parent array with five elements and each parent
+[4:12] uh each element's parent was itself. Okay. Then I'm saying union one and two.
+[4:19] Earlier we had one separate, two separate, three separate, four separate.
+[4:23] Now I'm union. Now when I look at the union code, please look at the union
+[4:28] code. Union is also called merge. where we take a bunch of independent vertices
+[4:33] connect them with an edge and those two then become part of a bigger set. So the
+[4:38] first thing we do when we say union one and two is we call find.
+[4:43] So find of I find of J. Find of I gives you I representation which is who is a
+[4:50] representative of I which is a parent and find of J gives you the J represent
+[4:54] representative element which is parent. Now let's look at the fine code standard
+[4:59] code please. So who is a parent of one?
+[5:04] One. Who is a parent of two? Two. Are you all clear from the constructor?
+[5:11] Are you all clear from the constructor?
+[5:19] Parent of every vertex with itself. Are you guys clear?
+[5:24] >> Yes sir. Yes sir. >> Do a find. Find find of I is returning
+[5:31] you. If I is one returning you one. So parent of one is one which is I. So I'm
+[5:38] returning I. Initially parent of one is one. So this is true. So one is
+[5:43] returned. Parent of two is two. So two is
+[5:47] returned. So what is Ire? One. What is JRE? Two. Now look at this. What we have
+[5:53] done? we saying parent of two is one. So when you have an edge I to J we are
+[5:59] saying the parent of J is I because both the ranks are same initially.
+[6:09] Have you understood?
+[6:12] Later we will look at this logic where we will update with a different value.
+[6:21] Okay. Then again you're calling union of one
+[6:25] and three. When you say union of one and three, one parent is one. Three's parent
+[6:31] is three. But what are we again doing? Three's parent will become one according
+[6:37] to this union logic.
+[6:43] Then when you say 3 4 what happens? What will the parent of three return be
+[6:49] in this case? Line 44.
+[6:55] Tell me
+[7:03] anyone
+[7:10] >> must you repeat the question sir like >> who who will be the parent of three in
+[7:14] line 44 >> one
+[7:18] >> very good because in line 23 who is a parent of three 1. Now look at the very
+[7:25] interesting thing now find. So when you say find we will call with three. So
+[7:31] what is I? Three. But who is the parent of I?
+[7:35] One. Are they matching? No. Then we'll say find parent of one.
+[7:42] Parent of one is one. So then we'll return one. Are you guys there?
+[7:54] Yes sir. >> Okay. So just to help you what I will do
+[7:57] is I'll just say system dot out dot print line and then we'll say parent
+[8:06] and we'll print
+[8:10] the parent array.
+[8:18] Okay. So here what you will see parent of zero is zero parent of one is one
+[8:23] parent of two is one and after that again when I when I print here
+[8:32] and when I print here it will be different.
+[8:36] Okay. So let's just print that and then we'll look at the rest of the code.
+[8:47] Non-static variable. Okay, obviously I'll make it static then.
+[9:09] Initially
+[9:16] when you look at it the parent of the parents were 0 1 2 3 4 but then when I
+[9:21] did a union so two's parent is one then when I did a union of 1 three's parent
+[9:27] is one are you here then when I did a union of 3 4 what was 3's parent one did
+[9:33] 1 and three match. No. Then it again called parent of find with one. One's
+[9:39] parent is one. So one and one match. So it is basically going up the tree. Now
+[9:46] is this clear how union works? Great. After that we are saying UF dot
+[9:54] find one. So find one will return the parent of one. What is the parent of
+[9:58] one? One. UF.ind four. What is the find returning you? parent of 41. Are they
+[10:05] both matching? Yes. If they match, what are we saying? They're in the same set
+[10:18] because they're all union together now. So, it's like saying one to two edges
+[10:23] connected, 1 to three edges connected, and 3 to four edges connected. So, if I
+[10:26] were to draw it, it would be as simple as
+[10:30] this.
+[10:36] It will be like there is an edge
+[10:41] 1 2 there is an edge 1 2 3 and there's an edge
+[10:50] 3 to 4. So this is basically
+[11:00] your one. Okay, I'll use epic pen.
+[11:06] Are you guys there? Because of the union, they were they're no longer
+[11:09] disjointed. They were all disjointed earlier. And now because of the union of
+[11:13] 1, two, there's an edge. So one and two are part of a set. Because of one and
+[11:17] three, 1 2 3 are now part of the set. and subsequently somebody else will also
+[11:21] be a so this is like one
+[11:31] uh oh wait okay sorry
+[11:36] why am I not getting that text
+[11:46] okay it doesn't okay no worries I'll scribble here.
+[11:53] One, then there is a two.
+[11:59] There's a three here. And there's a four here. Now, because I am saying find one
+[12:05] returns one. Look at this debug. Find one returns one. Find four returns one.
+[12:11] And are they in the same set? Yes.
+[12:15] Okay. I'll do another interesting thing now.
+[12:23] uh
+[12:27] I'll say 0 and four tell me what will line 49 and line 50 return now
+[12:35] I modified union of 1 and two union of 1 and three union of 0 and
+[13:01] Yes. Please tell me what happens.
+[13:09] See guys, if you don't tell me, I don't know if I am lost because sometimes
+[13:12] somebody's throwing me out. Yeah. >> What will 51 return? F1 and F_sub_2
+[13:22] >> and Z and >> parent of four is zero. Parent of one is
+[13:28] one. So you'll get one and one and zero. So obviously they are not same and they
+[13:33] are in different set. Okay, very good. So, let me save this
+[13:39] and explain this
+[13:45] initially. Uh, one and two. So, two's parent is one. One and three, three's
+[13:50] parent is one. 0 and four, four's parent is zero. So, find of one returns you
+[13:55] one. Find of four returns you zero. They're not same, which is obvious.
+[14:01] If you look at it this way,
+[14:06] this is like
+[14:11] I have uh one and two,
+[14:17] one and three and then I have 0 and four. Are you clear?
+[14:27] >> Yes, sir. >> Yeah. So this is like your one uh two
+[14:39] how do I script that
+[14:43] 2 3 0 and four. So there are two sets disjoint sets. Set one contains vertices
+[14:52] 1 2 3. Set two contains vertex 0 and four. If I have one more saying 0 and
+[14:59] three in this. Now I'll add one more zero and three.
+[15:08] Now what happens? Parent of three will become zero.
+[15:13] Okay. So let's uh run this.
+[15:35] Uh why is this giving you one minute? Did I save it? Yes. Uh when I union
+[15:41] two's parent is one, three's parent four's parent is zero. And when I did
+[15:48] this,
+[15:53] three's parent is one. Uh why is three parent one? Can
+[15:59] anyone tell me
+[16:07] why is it one and why not something else?
+[16:13] That's how we specified it like we mention in the line above us
+[16:18] >> where one three and yes
+[16:22] >> huh
+[16:25] >> so we mentioned it there >> one comma
+[16:30] >> it's you >> correct three's parent is one initially
+[16:33] right >> yes
+[16:36] >> then when I say 0a 3 uh why is it What is 0a 3? Then now resulting in tell
+[16:44] me
+[16:47] union. Union is calling find. Find will call for find zero. Find zero will
+[16:52] return zero. So 0 and zero match. Find three will return one. Right? Find will
+[16:58] return one. >> One and three don't match. Then again I
+[17:02] say find of one. Find of one parent of one will
+[17:08] return one. So one and one match. So that is why you're getting three. So
+[17:12] just because you have 03, you don't make three's parent as zero. Is are you guys
+[17:17] getting it?
+[17:20] >> Yes sir. >> Yeah. Because the earlier logic was
+[17:24] what? Find will keep traversing up the tree till it finds an a parent whose
+[17:31] value is equal to that element. So when I did a 03 0's parent was zero. So 0 and
+[17:37] zero match. it return immediately. But when I did a three, three's parent is
+[17:41] one. One and three don't match. So again it is calling recursively find find of
+[17:46] parent three. Find of parent three is one. So find of one is one. So that is
+[17:50] why you get three's parent is one. Even though I have this 03, it doesn't update
+[17:55] it because the earlier parent of three was one. It keeps going up till it finds
+[18:01] one. And now I'm saying oh is find the parent of one.
+[18:06] Yes. Find the parent of four zero. And they're basically returning same set.
+[18:13] Are you all clear? Any questions?
+[18:19] >> No sir. >> Good. Vali, please share this code with
+[18:23] them. >> Whatever, not the updated one, the
+[18:27] earlier one. They can put debug messages. It's a good idea to put debug
+[18:31] messages like arrays. string parent so that you exactly know every time a union
+[18:36] is done how is that parentage aging. So that really helps you understand how
+[18:41] union is making the joint sets combined together into a smaller subset.
+[18:48] So if you're clear on this let's move on to the next very interesting concept
+[18:52] which is the crystals algorithm. Shall we move on?
+[18:57] >> Yes sir. >> Yes sir.
+[19:03] Uh we looked at um couple of things earlier.
+[19:07] Uh we understand what is spanning tree. We understand the properties of a
+[19:12] spanning tree and one of the most important property is it cannot have a
+[19:18] cycle. So we have seen how we can use the prim algorithm to solve it where we
+[19:25] maintain we figure out we start from a vertex of our choice find out its
+[19:30] neighbors and then uh basically uh update those neighbors with the distance
+[19:37] and then calculate the shortest distance. So that gate becomes the next
+[19:40] neighbor and we continue doing this. And how we figured out whether it has a loop
+[19:45] or not is every time we process a particular vertex we are setting that
+[19:51] as visited true. So if a vertex is already visited a neighbor of that will
+[19:57] not revisit it again so that it doesn't result in a loop. So that was our prim
+[20:02] algorithm. But then we understood uh you have any do you have any
+[20:07] questions on prim's algorithm because if you don't have any questions
+[20:13] we'll then look at Chris's algorithms
+[20:20] anybody has any questions
+[20:26] so far no sir. So far no. Great. Now let's look at what is a critical
+[20:31] algorithm. And before we look at it, let's take a sample data and run through
+[20:36] that. This is the data I have and I'm going to show you how the graph for this
+[20:41] looks like. Uh there is a vertex 0 to 1 with a weight of two. So let me draw 0
+[20:48] to 1
+[20:52] and
+[20:56] this is zero. This is one. And what is the weight? Two. There is 0 to two with
+[21:04] a weight of.
+[21:10] So let me draw all the edges first. 0 to 2
+[21:14] then 1 to 2.
+[21:19] Okay. Uh 2 to 3
+[21:26] 2 to 3 and 1 to 3. So I'm going to mark the values now for you.
+[21:34] Okay. This is two. This is three. Uh and the weight is four.
+[21:42] The weight of 2 to 3 is six. The weight of 1 to 2 is three.
+[21:51] And the weight of 0 to2 is one. Okay, this is the data we have. Are you all
+[21:57] clear on the graph and the input data?
+[22:04] I'm talking about test case one. >> Yes sir.
+[22:07] >> Yes sir. >> Great. So looking at this and if you
+[22:11] were to apply the prim algorithm what would the shortest the minimum weight
+[22:18] for this graph be
+[22:26] >> seven >> seven yes I cannot choose uh 1 2 3
+[22:32] because that would result in a cycle right so using the prims algorithm you
+[22:39] know if I'm already here and if zero and two are processed I cannot visit from
+[22:44] one to two so I have to pick the next one which is three
+[22:50] or any other vertex this guy may be connected to so according to the prim's
+[22:54] algorithm you would have got 1 2 and four as the uh minimum weights and the
+[23:00] edges would be 0 to2 0 to 1 and 1 to 3 so the answer is seven great now let's
+[23:05] see how we can do this using Chris's algorithm. The thing which we really
+[23:10] have to understand is there is this cycle. If I consider 1 2 3 so to avoid
+[23:16] the cycle what we are using is a union find and if union find is to merge and
+[23:24] to avoid the cycle we use a find and if both the parents are same it means it is
+[23:29] going to result in a loop. So we have to ignore such a edge. Okay. So when we go
+[23:36] through that we'll understand. So let's look at a high level what this algorithm
+[23:40] is and then we will get into the details. But before that I will run this
+[23:45] test case for you to really understand how it all works. So let's look at the
+[23:50] algorithm at a high level.
+[23:54] First is sort all the edges by ascending edge weight. Okay. So if you were to
+[24:01] consider this diagram, what would the
+[24:06] sorted data look like? 0 to2 with a weight of 1. 0 to 1 with a weight of
+[24:12] two. 1 to two with a weight of three. 1 to sorry 1 to2 with a weight of three. 1
+[24:18] 2 3 with a weight of four. And 2 to 3 with a weight of six. So first the
+[24:22] weight one then two then three then four and then six will appear. Are you clear
+[24:29] guys? First point. >> Yes sir.
+[24:31] >> Great. Second, walk through the sorted edges and look at the two nodes the edge
+[24:36] belongs to. So when I did this uh weighted uh graph,
+[24:42] okay, I walk through and what did we find? We found that the
+[24:49] shortest edge was 0 to2 with a weight of one. So I'm basically going through
+[24:54] that. If the nodes are already unified, we don't include this. Otherwise we
+[24:58] include it. What does this already unified mean? If both the vertices
+[25:02] parents are same then it is unified. If they are different they're not unified.
+[25:08] Consider. So when you start with it what happens? We take 0 to two. Are they
+[25:13] unified? No. Why? Because 0's parent is zero. Two's parent is two. So we apply
+[25:19] the same logic which we did earlier. All the vertices are having the parent and
+[25:25] the parent of every vertex will be itself. So 0's parent is 0, 1's parent
+[25:30] is one, two's parent is two, three's parent is three. So when I consider 0
+[25:34] into 0's parent find returns zero for zero, two for two and they are
+[25:40] different. So we unify them. But the very interesting thing now is both these
+[25:45] zero and two had the same rank. So which one do you want to make a parent? I will
+[25:50] consider zero. You may consider two, it doesn't matter. Okay? If you follow that
+[25:55] UV principle, if U is a parent of V, make sure U is a parent of V for every
+[26:01] edge. So 0 becomes a parent of two. And when
+[26:05] zero becomes a parent of two, the rank of zero will increase by one.
+[26:10] So two's parent is zero. Now when you consider 0 and one,
+[26:15] what is the parent of zero? Zero. Parent of one is one. They are different. So we
+[26:20] unify them. When we unify we say one's parent is zero. Two's parent is zero. So
+[26:25] it looks something like this. Now 0 is a root child is one child is two. Rank of
+[26:32] zero is two. And when you try to consider this edge
+[26:37] one two who is a parent of two
+[26:42] >> zero. >> Who is a parent of one?
+[26:44] >> Zero. >> And when both the parents are same can
+[26:47] we consider the edge? Skip
+[26:50] >> skip. So we skip three for that reason. So Chris's algorithm union find union is
+[26:56] to merge. Find is to find out who the ancestor is. So where do we go to the
+[27:02] next edge with the highest weight four parent of one is zero. Parent of three
+[27:07] is three. They're different. So consider this. And there's a very interesting
+[27:13] property. Remember in Crystal's algorithm in spanning tree the number of
+[27:18] edges should be equal to number of vertices minus one. So if there are four
+[27:23] vertices the number of edges considered can be only three. So we would consider
+[27:28] edge one with a weight one edge with a weight two edge with a weight four.
+[27:32] Three cannot be considered because that will result in a loop.
+[27:37] So if you're clear with this that is the algorithm.
+[27:44] Okay, so let's consider sort edges by ascending edge weight.
+[27:49] Walk through the sorted edges and look at the two nodes that it belongs to. If
+[27:53] the nodes are already unified, we don't include otherwise we include it. The
+[27:57] algorithm terminates when every edge has been processed or all the vertices have
+[28:01] been unified. When it meets that criteria, E less than V minus one.
+[28:07] E less than equal to V minus one.
+[28:12] Okay. So before we get into this code, I'm going to run this for you so that
+[28:17] you understand how it is and why we are getting seven.
+[28:23] What is the name of the main class graph?
+[28:40] Okay. So as I explained the algorithm let's see what it is now.
+[28:46] Before sorting this is the data.
+[28:52] Okay. Before sorting this is the data 0 1 2 same order. After sorting it
+[29:01] becomes sorted in the ascending order of the
+[29:04] weight. So 021 012 1 2 3 1 3 4 2 36. Is this clear sir?
+[29:18] >> Yes sir. >> Great. What have we initially said? The
+[29:22] parent of zero is zero. Parent of one is one. Parent of two is two. Parent of
+[29:26] three is three. And all the vertices have the same rank of zero. Is this
+[29:31] debug message clear?
+[29:37] >> Yes sir. >> Great. Then we do a very interesting
+[29:40] thing. We say yeah union 02 with a weight of one. Who is a parent of zero?
+[29:47] Zero. Who is a parent of two? Two. They're different. So we can union it.
+[29:52] So we have got the parent of zero is zero. Parent of two is two. Because both
+[29:57] of them have the same rank. What we are doing is we are making zero the parent
+[30:02] of two. See rank of zero is zero. Rank of two is
+[30:09] zero. Initially everything is zero. So we are then saying when I consider U and
+[30:15] V, U becomes the parent of V. If you don't like that, you can make V the
+[30:20] parent of U. Choice is yours please. When the ranks are same, any vertex can
+[30:24] be the parent. But just ensure you follow the same protocol everywhere.
+[30:29] So after we did this now what happens? See this parent of zero is zero but rank
+[30:35] of zero is increased to one because two is now a parent of zero. Is this taken?
+[30:40] Is this clear?
+[30:45] >> Parent of two is zero. So rank of zero has increased by one. That means there
+[30:51] is one child connected to that root zero. So Z 0 is a root and a sibling of
+[30:57] that is vertex 2. If I were to represent it in the form of a tree.
+[31:04] Is this clear to everybody?
+[31:10] If you're not clear, yeah, anybody is not clear, please ask because this is
+[31:14] the same code which you'll follow throughout now.
+[31:18] Okay. Now we consider 012. Okay. Who is a parent of zero?
+[31:24] Zero. Who is a parent of one? One. But which
+[31:28] vertex has a higher rank? Now here rank comes into picture. Zero has a higher
+[31:33] rank because rank of zero is one. So whenever a vertex has a higher rank that
+[31:38] automatically becomes the parent of the other one. So here there is no uh
+[31:44] discussion because zero had a higher rank. I make one the parent of zero. So
+[31:48] I make zero the parent of one. So look at this please. Because zero has become
+[31:53] the parent of one. The rank of zero has increased to two now. Earlier it was
+[31:57] zero. Then it became one. Then it became two.
+[32:03] And who is a parent of one? Zero. Are you saying parent of one is zero. Parent
+[32:09] of two is zero. So it means now if I were to show you in the form of a graph
+[32:14] there is a zero root and one would be the child of it. So this is zero. Child
+[32:22] is one and child is two. Is this clear presentation
+[32:35] guys? Answer. If you have questions, ask. If you have clear respond
+[32:43] or maybe just take a minute, look at the debug messages and then let me know if
+[32:47] you have any questions or can I continue? I'm considering these two
+[32:52] vertices and these are the debug messages. Don't bother about one and two
+[32:56] yet. Just look at the first two.
+[33:20] Yeah, let me know whatever you decide whether to continue or wait.
+[33:44] Guys, any questions?
+[33:48] >> No sir. >> Okay. Now you have no questions. Right.
+[33:51] Now this is a very interesting thing. One and two. Who is a parent of one?
+[33:55] Look at this parent array. Who is a parent of one?
+[34:00] Zero. Who is a parent of two? Zero. Because both the parents are same. It is
+[34:05] going to result in a cycle which is what you can see. So that is not considered.
+[34:10] Is very important. You understand why this edge one two with a weight of three
+[34:16] is not considered. Both of them have the same parent.
+[34:23] See parent of one is zero. Parent of two is zero. So whenever the
+[34:29] parents are same that edge is discarded which is why this is not considered as
+[34:34] part of the spanning tree. Even though the weight is smaller than the remaining
+[34:38] four and six, it cannot be considered because that is cycle.
+[34:46] That is the crux of Chris's algorithm.
+[34:53] Shall we move on then?
+[34:59] >> Yes sir. >> The next vertex with the higher weight
+[35:02] is 134. Parent of one is zero, parent of three is three, they are different. So
+[35:09] that is considered. And then because parent of three is three and a parent of
+[35:16] zero was zero. Zero had a higher rank which is rank two. Three had a rank of
+[35:21] zero. So three's parent now becomes zero. And when that happens, the rank of
+[35:26] zero will increase by one more. So you'll see that here one and sorry one
+[35:31] and one and three parent of one is zero parent of three is three rank of zero is
+[35:39] two so three's parent will become zero and the rank of that has gone up to
+[35:44] three which is like saying oh there is one more child under this which is
+[35:50] three.
+[35:54] Is this debug message clear?
+[36:10] and and once that edge is considered we stop because E is less than equal to V.
+[36:17] Three edges number of vertices are four. So that is correct.
+[36:27] Hello.
+[36:34] Are you guys clear?
+[36:38] >> Yes sir. >> Do you see how simple this beautiful
+[36:41] algorithm is? First you need once you understand union, find, merge and find
+[36:48] everything here is applied. So now let's go through the code because of that uh
+[36:52] because you are clear with the way it works. We have seen the debug messages.
+[36:56] So we are printing we are also printing the edges. So we are saying the edges
+[37:00] are 0 to one with a weight one 0 to one with a weight two and then 1 2 3 with a
+[37:08] weight four and then the total is seven. Yeah.
+[37:19] Shall I show you the code now?
+[37:24] >> Yes sir. >> Okay. So where were we? Uh okay I can
+[37:32] I can delete or close this also. Yeah
+[37:38] when required we'll come back. So let's start with the main.
+[37:44] uh we take input for number of vertices, number of edges. Uh then we create a
+[37:49] graph. So we have a graph. So let's see the graph constructor.
+[37:55] So this is the graph where v is number of vertices, e is number of edges.
+[38:02] These are all instance variables. And then I'm creating an array of edges. And
+[38:08] what is each of those edge pointing to? An empty one. Now what is the starting
+[38:14] ending I don't know it is just to ensure that we have enough memory. So what
+[38:18] happens when you do this? It is like saying oh there is an array of V edges
+[38:26] and each element of the array is pointing to an edge
+[38:31] memory wise. Is this clear constructor?
+[38:36] Now when you say edge what is the start vertex end vertex? I don't know. After I
+[38:41] take input we will assign that. But this is like saying we have enough memory to
+[38:45] store an array of edges. Can we continue?
+[38:58] Is the constructor clear? >> Yes sir.
+[39:01] >> Okay. Great.
+[39:08] Okay. Now where do we go to next line?
+[39:15] Then I take data. Then we take data for start vertex end vertex weight. Start
+[39:23] vortex end vertx weight. So we take data for that. And now we are saying source
+[39:28] is equal to start vertex destination is equal to end vertex and the weight is
+[39:33] equal to this. So let me show you edge class.
+[39:40] Please look at the edge class. Now the most important thing in a
+[39:45] crystal algorithm is sort the edges by the weight. So whenever we have to sort
+[39:51] remember we discussed earlier in that fractional napsack that we have to have
+[39:59] a class which implements comparable interface. So we have an edge class
+[40:03] which implements comparable interface and the edge class has three properties
+[40:07] source destination and weight. And what is the uh logic of comparing? We are
+[40:13] comparing based on the weight. This dot weight minus compare hweight.
+[40:21] And then we have a two-string method which will print the attributes.
+[40:28] Very important class. Please understand. If you don't understand any line, let me
+[40:32] know. Because whenever you say arrays dots sort and pass to it an array of
+[40:36] edges it will internally call it will check oh have you implemented
+[40:41] comparable. If you have implemented comparable it will call the compare to
+[40:44] and return whatever it is zero if both are same minus if the first weight is
+[40:51] lesser than the second and plus if the first weight is larger than the second
+[40:55] negative zero and positive. Any questions on the edge class?
+[41:14] Any questions?
+[41:18] >> No sir. >> Good. Great. Then we have another very
+[41:22] interesting class called a subset. The subset is you know as you each vertex is
+[41:27] separate. So if there are five vertices there are five subsets but when you join
+[41:32] two vertices the subset contains more elements. So what are what are the
+[41:36] subset contained? Parent and rank. So initially how many subsets did you
+[41:42] see in the debug messages? There were five subsets zero
+[41:48] and with these values and later they get updated as we do the union initially
+[41:56] 0 0 1 0 2 0 3 0 4 0. How is that done? Look at the subset class. I'll show you
+[42:03] in a moment. Any questions on the subset class?
+[42:10] >> No sir. >> Okay, great. If you have no questions,
+[42:13] uh we have a method. Remember what is the next method? We called
+[42:17] graph.edge.source edge. So when you created all these
+[42:22] graphs, we are adding for each the start vertex, end vertex weight, start vertx,
+[42:26] end vertex weight. So that is what is done. Okay.
+[42:31] Then what is the next thing we are doing? We are calling a method graph.
+[42:35] Crisals md minimum spanning tree. So any questions so far how the graph
+[42:40] constructor works, how the subset works or how the edge works because if you
+[42:45] have understood these three the code is I'll just again show you everything for
+[42:51] completeness graph constructor
+[42:56] H class the subset plus.
+[43:08] Okay. Now if you're clear, let's look at Chrisus algorithm.
+[43:15] Okay. We are creating a result array uh which consists of
+[43:21] V vertices.
+[43:24] Uh the starting edge is E 0. And what is the result? Again because
+[43:31] there is a array of references we are saying each reference is pointing to to
+[43:36] an edge. But what does edge contain? I don't know till we continue. So this is
+[43:41] basically basically creating some additional memory to store the result of
+[43:46] edges and each edge like this is again pointing to an empty array sorry empty
+[43:52] object of edge type. So this is like the result
+[44:03] and index zero is pointing to h. What does the data contain? 0 0 0. All
+[44:10] the values will be zero because all are integers. We will fill it up later.
+[44:17] Can I continue?
+[44:22] So before sorting we printed the edges. Before sorting we printed the edges.
+[44:27] Then we call a built-in method arrays. sort edge. When you call arrays dots
+[44:31] sorted, it is calling the compare method of the edge class. The compare method
+[44:36] returns some value plus minus zero and based on that the edges get sorted and
+[44:44] after that we are printing what the sorted edges are. So this is the debug
+[44:49] message before sorting after sorting.
+[44:56] Can we continue?
+[45:02] >> Yes sir. >> Great. After that based on the number of
+[45:05] vertices, we are creating those many subsets. We are allocating memory for
+[45:09] it. And what does each subset data contain initially? The parent of each
+[45:14] vertex is itself and the rank is zero. And I'm printing the subsets array. So
+[45:20] that is what you saw. Initial subsets parent is itself
+[45:25] which is the vertex rank zero parent rank parent rank parent rank. So when
+[45:30] there are three four parents uh the index is 0 to three.
+[45:38] So this is so far all the ground work which is initialization. There is no
+[45:42] union there is no find. All the basic data structures are done in place.
+[45:52] The reason why we are storing all the subsets is so that we print. If you
+[45:56] didn't want to print, you can skip all this piece. You can just keep summing up
+[45:59] the weights and you'll get the answer. This is just so that I can print the
+[46:04] output in a more meaningful manner which is what are the uh
+[46:10] edges and what is the rank. If this is the only thing you want, then you don't
+[46:15] need to go through all this headache. I won't say headache all this logic.
+[46:20] Okay.
+[46:24] Can we continue?
+[46:41] >> Yes sir. >> Okay. Great. So what are we doing after
+[46:44] that? The real works begins now. What was E initially? Zero. E less than
+[46:50] V minus one. That is a rule for spanning tree. We pick the first edge. Pick the
+[46:57] smallest edge. Increment the index. So the first edge which I picked was a edge
+[47:02] with 0 to one. Then you're calling subsets. Find
+[47:09] find the method which given the source will tell who the parent is. which given
+[47:16] the destination will tell who the parent is. So when I gave uh 0 to parent of
+[47:23] zero was zero parent of two was two. So sorry
+[47:28] I got I'm printing all this data. Are you seeing this guys? Crus source zero
+[47:33] destination weight parent of zero is zero parent of two is two fine. Now
+[47:38] let's see how find works. find is that most easiest code
+[47:45] given a subset we're saying if the parent of that is if the parent of I is
+[47:50] not equal to I then you recursively call find subsets
+[47:57] instead of I you're saying the parent
+[48:03] is this code clear it's like saying if the parent of a
+[48:07] vertex is not the vertex itself Then you recursively call find with the parent
+[48:14] and keep going up till you find the root because the parent of the root will
+[48:18] always be the root. At that point you return that otherwise you keep
+[48:22] recursively going up the hierarchy.
+[48:28] It's like I have one then two is a child of it. Three is a child of it. Four is a
+[48:33] child of it. So if I do a find on four I will get parent three. Three and four
+[48:40] don't match. So I'll call find on three. Find on three will get the parent of it.
+[48:45] Two. Two and three don't match. Then again I'll call find with the parent of
+[48:49] three is two. Find of two will return one. One and two don't match. Then again
+[48:54] I will call find with one. One will return one. So we see this. If the
+[48:59] parent of I is not equal to I then we will call with its parent. If it is then
+[49:04] we return that. Is this making sense to you?
+[49:27] >> Is it making sense?
+[49:31] >> Yes sir. >> Yes sir.
+[49:32] >> Great. So what? So based on that we saw the logic parent uh
+[49:41] uh crystals.
+[49:45] Yeah. Parent of 0 is 0. Parent of two is two. Okay. So uh we are done with it.
+[49:50] Now let's move on.
+[49:56] We got the first edge. We got the parent of 0 is 0. Parent of two is two. Now
+[50:02] are they unequal? Yes. 0 and two are not same. If including this edge doesn't
+[50:09] cause a cycle, include it and increment the index. When do we say it is not a
+[50:14] cycle? If both the parents are different, it is not a cycle. If parents
+[50:18] are same, it will be a cycle. If it is not a cycle, then include them.
+[50:22] Including is what? I'm storing in the result that first h which is 0 to two
+[50:28] with a value of one. I'm storing that. Is that result clear?
+[50:33] And after I do that I'm incrementing E because this condition is important. I'm
+[50:38] incrementing E. More important is union code.
+[50:43] So who was a parent of 0. So I'm calling union of zero and two.
+[50:52] If the parents are not matching or sorry if the parents are not the same, union
+[50:56] them. If the parents are same, don't include that
+[51:01] and continue with the next edge which has higher weight. If you include it,
+[51:06] please in increment the edge count and then do a union.
+[51:13] Guys, go through this code. Let me know because if you're clear on this, I will
+[51:17] explain union. We'll see union code.
+[51:44] Yes, please tell me.
+[52:14] Shall we move on if you're clear?
+[52:19] >> Yes sir. >> Okay. Is everybody clear? Very very
+[52:23] important logic. Okay. Great. Let's see. Union. Union is again a very uh simple
+[52:29] code.
+[52:38] Okay, let's see union. See this again when we do union we are calling
+[52:43] find. Find will return for 0 0 2. Okay. So using that logic again union
+[52:53] parent is the root. Root is nothing but the ancestor representative element. For
+[52:58] zero it is zero. For two it is two. The rank of 0 is zero. The rank of two is
+[53:04] also zero. Now now look at this condition. If the rank of x is less than
+[53:10] y then y becomes a parent of x and if y is a parent of x you increase the y's
+[53:17] rank. If the rank of X is larger than Y then X
+[53:23] becomes a parent of Y and increase the X rank. This is pretty obvious saying
+[53:28] whichever element has a higher rank that becomes a parent of the other. If X has
+[53:35] a higher rank, X is a parent. If X has a lower rank then Y is a parent. Is this
+[53:41] code clear?
+[53:46] However, in this first scenario, 0 to 1, 0's rank is zero. Two's rank is zero.
+[53:55] Are you seeing that? Zero's rank is zero. Two's rank is zero. Both are same.
+[54:00] So, it doesn't go to if and else. So, what are we then doing? If ranks are
+[54:03] same, then make one of them as a root and increment its rank by one. So, what
+[54:08] I'm what is the logic I'm using? >> If it is X and Y, X is the parent of Y.
+[54:13] Or you can change it to Y being a parent of X. No problem. If the ranks are same,
+[54:18] we saying X parent Y's parent is X. And because X is a parent, X rank is
+[54:25] increasing.
+[54:29] This is how we apply union logic in real time application. We use some criteria
+[54:35] which is like a rank and then update the rank if that element is a parent and
+[54:42] every time after that when we consider because that has become the root this
+[54:47] rank is higher. So other elements which have a lower rank this parent will be
+[54:52] the higher ranked element. Any questions on union? Earlier union code was a
+[54:57] direct one. We just made X parent of Y. But here it is all based on our ranking.
+[55:12] Yeah, guys, go through this. If you're clear on this, let me know. I'll again
+[55:17] go back and explain to you the debug messages.
+[55:41] Yeah, I'm I I'm waiting for your updates whenever you are ready. Let
+[56:24] Anybody
+[56:28] has any questions?
+[56:34] >> Others others please check. Very important.
+[56:39] Okay, no questions. Right. So let's now uh then what do we do? We continue
+[56:44] applying the same logic till E less than V minus one. And after that we are
+[56:50] basically uh iterating through all the edges and then printing whatever the
+[56:56] result array is. And that is what you saw being printed.
+[57:02] If you don't want to print the edges, you can just print this output spanning
+[57:06] tree count. So minimum cost is equal to result
+[57:10] weight. Since my result already contains source destination and weight, I'm able
+[57:14] to print it. If the result did not contain source destination weight, it
+[57:19] just contained the running weight, you just print that value.
+[57:24] Is this logic also clear to everybody?
+[57:36] >> Yes sir. >> Great. Now we will look at uh No, I
+[57:39] don't want such a big test case. Uh interesting. Take this test case. The
+[57:45] output is minus one. Okay, let's see why it is minus one. Uh take this test case.
+[57:51] Let's draw right our good old paint.
+[57:58] Okay,
+[58:03] let's draw this. Uh 0 to 1 with a weight of two.
+[58:10] 0 1 with a weight of two. 0 to two with a weight of four
+[58:21] and one to two with a weight of three.
+[58:35] Why are we getting minus one? Something doesn't seem good.
+[58:40] What do you think the answer here should be? If I were to sort this data, it will
+[58:44] be 0 to 1 2 uh 1 2 3 and uh
+[58:53] 0 to 2 4 sorted data. Okay, something doesn't seem good. Yeah. Can
+[58:59] you tell me what will according to the algorithm which you have seen what will
+[59:04] happen? Unsorted data will be this. Sorted data will be 0 to 1 2 1 2 3 and 0
+[59:12] to 2 4. Then we will add the first edge 0 to 1. Who is a parent of zero? Zero.
+[59:18] Parent of one one. Are they matching? No. So that gets added to the result.
+[59:23] Then what happens? One's parent will become zero. Okay. Uh then we go to one
+[59:29] to two. Uh one's parent is zero. Two's parent is two. So they don't match. So
+[59:35] this edge is also considered. So you'll get two and three by by then we are
+[59:41] fulfilling that criteria. So the answer should be five here. Something is wrong.
+[59:45] Test case you'll have to check the test cases. Now
+[59:51] >> okay sir we'll check and update >> because it can't be minus one. Let me
+[59:55] see why we got that minus one.
+[1:00:00] Five. Yeah. So this should be five.
+[1:00:06] Okay guys, go through this again. One more simple example. The unsorted data
+[1:00:11] was 012 02 4 1 2 3. Sorted data 012 1 2 3 024. Wait is three smaller than four.
+[1:00:19] Ranks are zeros and parent are 012. Okay. When I consider 0 1 parent of 0 is
+[1:00:27] 0, parent of one is one. They are different. So we make one's parent as
+[1:00:31] zero and zero's rank is increased by one.
+[1:00:37] So one's parent is zero. Is this is this line clear to everybody?
+[1:00:49] Are this message is clear? Great. Then we consider 1 2 3. Now one's parent is
+[1:00:55] zero. Two's parent is two. They're again different. So we union them. When we
+[1:01:00] union them we make two's parent as zero. So two's parent is zero. So zero
+[1:01:09] has two children one and two. So the rank of zero has increased.
+[1:01:14] But then what happened to E? E is uh uh
+[1:01:19] two. Two less than two. It's true.
+[1:01:27] Got it guys.
+[1:01:45] >> Yes sir. >> Yes sir.
+[1:01:50] >> Okay. So anybody has any questions? You can write the way you want it. Now
+[1:01:55] you understand the important concept is union find. So Chris's algorithm is
+[1:02:01] using union find and union find is required to detect whether a graph has a
+[1:02:06] cycle or not. We detect a cycle in a graph when we have what is called
+[1:02:15] both the parents pointing to the same value. So that's the now what happens in
+[1:02:20] this if I say 012 and let's make number of vertices as
+[1:02:26] five 0 1 2
+[1:02:35] 3 4
+[1:02:40] and four five Yeah guys can you mute
+[1:02:45] yourself please? I can hear somebody. Mute yourself. Now given this test data,
+[1:02:52] >> tell me what will the output be? >> Guys, can you mute yourself please?
+[1:02:58] Thank you.
+[1:03:13] Hello. Okay.
+[1:03:17] Hello. Can you mute yourself? Mute that person.
+[1:03:36] Mute everybody except me.
+[1:03:47] Oops. How do I get rid of that?
+[1:03:54] Yeah. Now, given this test data, tell me the output, guys. I'll draw the graph
+[1:03:58] for you.
+[1:04:01] 0 to 1
+[1:04:07] 2 2 to 3
+[1:04:15] 4 and what about 4 to 5
+[1:04:25] 3. What will the output be for this?
+[1:04:38] How many
+[1:04:42] disjoint sets will you see?
+[1:04:47] >> Three.
+[1:04:54] >> Three. Yes. One's parent will be zero. Three's parent will be two and five's
+[1:04:59] parent will be four. Yeah, let's run this.
+[1:05:16] Yeah, you got an exception because you know the number of edges are very few.
+[1:05:21] Somewhere in our code we have E less than V minus one and you know you give
+[1:05:26] an exception that's fine but if you look at it what logic
+[1:05:31] parent of 0 is 0 parent of one 0 is 0 parent of one is one
+[1:05:38] because 01 is connected now then two three are connected
+[1:05:46] whose rank is increasing and four five are connected but then you get an
+[1:05:51] exception because there is no uh
+[1:06:02] where are we getting exception
+[1:06:06] line 137 137 is an exception so what is line 137
+[1:06:17] h i ++ uh okay I is increasing So we don't have an edge with that
+[1:06:22] value. Number of edges are fewer. No, that's an exception. That's okay.
+[1:06:29] Are we clear? Shall we move on with the last topic for today?
+[1:06:38] >> Yes sir. This is wrong test data because one of
+[1:06:43] the basic criteria for a crisal's algorithm anything spanning tree is
+[1:06:48] number of edges should be equal to v minus one. Here number of edges cannot
+[1:06:52] is not equal to v minus one. You know it should be at least five edges only three
+[1:06:57] are given.
+[1:07:04] Yeah. Great. Let's move on with the third problem.
+[1:07:09] Uh you know this was a very interesting problem. I'll explain what the problem
+[1:07:13] is.
+[1:07:16] Yeah. Where are we?
+[1:07:25] If you're given a number uh let's say 1 2
+[1:07:31] 3 4 uh you need to generate a largest number by swapping only two digits.
+[1:07:39] So we know in this input four is the largest one is the smallest. So we go
+[1:07:44] and interchange and we get 4 2 3 1. This is the additional program which some of
+[1:07:54] you did last class. They were asking me doubts on it. So I thought I'll explain
+[1:07:58] how the logic can be. You may have your own logic but I'll explain my logic. Are
+[1:08:03] you clear on this problem now?
+[1:08:08] >> Yes sir. >> Now another test case. We have 4
+[1:08:16] 3 2 1. Since the first element is the
+[1:08:21] largest and every other element is in a
+[1:08:25] descending order, there is no other number which can be larger. So the
+[1:08:30] output will also be the same which is this.
+[1:08:35] If however you have a test case like 8 5 7 for this input
+[1:08:46] what do you think should the output be
+[1:08:52] for this input what do you think should the output become
+[1:09:00] guys >> same number
+[1:09:03] No, it will be 8 75.
+[1:09:10] We would swap these two.
+[1:09:16] Why would it be same? Can we not swap them?
+[1:09:24] Swap any two digits to get a larger number.
+[1:09:34] So it's like saying it's like saying given 5 7 and 8 the largest number we
+[1:09:38] can form is 875. Are you clear madam?
+[1:09:44] >> Yes sir. >> Okay. Now I will not uh I'll close this.
+[1:09:51] I'll just run some test cases for you with some debug messages and then you
+[1:09:56] will pretty much know what is the
+[1:10:02] algorithm we are using. It become very obvious by looking at some debug
+[1:10:06] messages. What is the name of the code?
+[1:10:12] Max number. Okay. Java C max number Java maximum number.
+[1:10:20] Yeah.
+[1:10:23] And Java solution.
+[1:10:28] 1 2 3 4 1 2 3 4
+[1:10:33] Are you saying 4 321? 42 31.
+[1:10:45] Can anyone tell me what are these three? What are these values I'm showing you
+[1:10:48] here?
+[1:10:58] Look at this and see what the values are.
+[1:11:05] Look at this and tell. Now I've given you three samples where everything is
+[1:11:09] ascending where everything is descending and this is mixed and there is some
+[1:11:13] debug message which is digits just some digit. Can you tell me what these mean
+[1:11:19] to you now? 3333 022 0122 uh 0123 anyone because if you can interpret that the
+[1:11:28] code is clear to you
+[1:12:21] Can anyone tell me guys? Many may have solved this problem.
+[1:12:31] >> Maximum question, sir. >> Yeah, maximum question.
+[1:12:37] >> You want the logic or >> No, I don't want the logic. I'm saying
+[1:12:40] with my logic debug messages what is this your understanding 3333 022 0123
+[1:12:48] for this test data I'm asking you what did you understand nothing more
+[1:12:55] then you can tell me your logic of how you have implemented no problem sir
+[1:13:02] >> so basically you made a two point traversing from
+[1:13:07] both the sides H
+[1:13:12] >> and you keep swapping until >> No sir. No, we can only swap
+[1:13:18] >> two digits. >> You try to find the uh large smallest
+[1:13:24] digit and you traverse and then like the
+[1:13:29] moment you >> No, my question I'm not asking you for
+[1:13:32] your logic sir. In my program, I'm printing some debug message
+[1:13:38] like this. 3333 022 0123. I'm asking you what does this
+[1:13:44] in values mean to you from this test data? Check and tell me. Huh?
+[1:13:56] >> Yes. >> Just look at it.
+[1:13:59] >> The number which is getting swapped sir. Like
+[1:14:03] >> it is the number which is getting >> swapped like in this case three third
+[1:14:07] index three like 1 2 3 4 the fourth third ele fourth element is start index
+[1:14:12] third >> it is getting swapped and coming first.
+[1:14:15] M >> similarly when we go down you start it
+[1:14:18] with zero but >> zero it's already at its original
+[1:14:21] position the next ele next large element is number two
+[1:14:25] >> index two >> yes so you swap it so you're just
+[1:14:28] basically telling this is the largest number
+[1:14:31] >> during this period >> and what about this guy
+[1:14:40] >> not sure about this one sir >> this is like message is the number of
+[1:14:45] digits greater than the present digit. For example,
+[1:14:50] last test case 4 3 2 1 >> right at first place four is present. No
+[1:14:56] sir. >> So we are checking number of dates
+[1:14:59] greater than four. >> No no no.
+[1:15:05] Okay. Then according to that what should this test case give? Number of digits
+[1:15:09] greater than eight. Two. No.
+[1:15:14] Uh what somebody go ahead >> sir we are starting from the last uh
+[1:15:20] digit like in the last case it is if you take the case 4 3 2 1 we are going from
+[1:15:27] 1 2 3 4 >> and noting the index of the max uh like
+[1:15:33] uh if I'm at the position one the maximum will be one so uh you are noting
+[1:15:38] the index three and when you go to two uh from one and two the maximum is two
+[1:15:43] you're keeping two uh two is the index at that position like
+[1:15:49] >> okay so I think many of you are correct but slight change coming to your last
+[1:15:55] example 43 21 I get I always start from the right and print whatever is the
+[1:16:01] index of the rightmost element okay if that was a five-digit number that value
+[1:16:06] index will be four but since it is a four-digit number the index is three are
+[1:16:10] you clear so So the last element will always be
+[1:16:15] the index once I convert that into character array. Once you convert this
+[1:16:20] into character array, this is an array of four. So the last element will be the
+[1:16:24] last index. Is that clear to everybody irrespective of the data?
+[1:16:33] Is that clear or no?
+[1:16:38] >> Yes sir. >> Great. After that we start from right
+[1:16:41] and move left. You know we move left. I'm sorry. How do I scrippble here? Okay
+[1:16:48] fine. I can't. So we move from right and left. What is the next number? Three. So
+[1:16:53] we check if the if the left of the right if the if the left of that number if the
+[1:16:58] left of the previous number is larger then we update that with that index. If
+[1:17:03] the left of the number is smaller we still retain the right index. Since
+[1:17:07] three is larger smaller than four, we update that with the right index which
+[1:17:13] is the index of the previous largest. You got it?
+[1:17:20] >> Yes sir. >> Since two is also lesser, we update with
+[1:17:24] three. One is also lesser. Then after that, what are we doing? We checking
+[1:17:29] what is this? If you look at it, if I were to draw this for you in a different
+[1:17:33] way.
+[1:17:39] If I were to say 1 2 3 4
+[1:17:45] 1 2 3 4. The original array indices are
+[1:17:54] 0 1 2 3. The digits are
+[1:18:01] three 3.
+[1:18:06] So we check the value of index zero in the original array one. Then we check
+[1:18:12] the value of index three in the original array four. And we interchange them.
+[1:18:21] Is that clear?
+[1:18:27] Yes sir. Now in this example uh zero
+[1:18:33] and the other index is zero. So nothing to be done. But when you come to this
+[1:18:38] what is the index of the second element? One. And what is the index of the
+[1:18:42] element you want to swap with? Two. So we are basically saying swap index one
+[1:18:46] and two which is seven and five. Five and seven. Are you getting it?
+[1:18:59] Are you guys there? >> Yes sir.
+[1:19:03] >> And likewise here 0 0 nothing to be done. 1 one nothing to be done. 22
+[1:19:08] nothing to be done. 3 3 nothing to be done. So no swapping has to be done.
+[1:19:14] Okay. Now that if you if you have understood this, I'll give you a test
+[1:19:17] case and you tell me how will the digit array look like for this input data.
+[1:19:35] I just want the digit array not the original array. Original array is any
+[1:19:39] index 0 1 2 3 4 digit array.
+[1:19:48] This will be the fourth one. I'll not uh I I'm doing the easy part. Now what
+[1:19:53] about the remaining
+[1:20:04] the digit array?
+[1:20:27] Yes, please. >> In third position, we will have four,
+[1:20:32] sir. >> In the third position, we'll have four.
+[1:20:34] Very good. Why? Because two is smaller than
+[1:20:37] >> five. >> Five. Great. What about
+[1:20:40] >> two? >> Two because seven is larger.
+[1:20:44] >> So, considering seven and five, we consider. What about in position four?
+[1:20:48] also >> two and what about position zero?
+[1:20:51] >> Zero. >> Very nice. Excellent. So then what do we
+[1:20:54] do? We start with index zero. Is this index zero and zero matching? Yes.
+[1:20:59] Nothing to do. Okay. Then we have
+[1:21:05] uh original element four is index one. What
+[1:21:09] is the digit index two? So we are saying swap index one value and index two
+[1:21:15] value. So this will this will give you 87425.
+[1:21:19] Okay. So let's run this. What are the input data? 84725.
+[1:21:25] 84725.
+[1:21:29] This good job.
+[1:21:33] 02244. Is it clear now?
+[1:21:38] So once you understand this code is very easy to explain.
+[1:21:44] Shall we look at the code?
+[1:21:49] I'm sure many of you may have done it in a different way. But what is important?
+[1:21:53] I've seen some code where you have n² time complexity
+[1:21:58] where n is the length of the array. Now this is reduced complexity.
+[1:22:04] Shall we look at it? >> Yes sir.
+[1:22:08] >> Great. So we take input from the user uh we call maximum swap. Maximum swap is
+[1:22:14] like getting a maximum number after swapping two digits.
+[1:22:19] Uh yeah so we convert that uh into a
+[1:22:24] character array and then based on the length of the
+[1:22:29] string we are creating a digit array. So there is additional space of N.
+[1:22:36] then I is initially the last index length minus one and
+[1:22:42] the value at that last index will always be itself. So in every example the value
+[1:22:48] of the last index will be the length minus one. Is this clear to
+[1:22:53] everybody?
+[1:22:59] >> Yeah.
+[1:23:04] Then we start from the right length minus 2 and we check whether num of i
+[1:23:10] whether the num at that last index is less than num of k.
+[1:23:17] So consider this example 2 is less than
+[1:23:22] k is length minus 2 which is index three. Is the value at index three
+[1:23:31] less than sorry is the value at index four less than three is it no five is ra
+[1:23:41] than two are you there guys?
+[1:23:46] >> Yes sir. >> So what are we saying? We are updating
+[1:23:49] the index of that to the previous one. So index of the previous element will be
+[1:23:55] equal to the next element. digit of K is equal to I.
+[1:24:02] Okay. However, seven is larger than five.
+[1:24:08] Num of K was five and num of sorry, num at I is five. Num of K is seven. So
+[1:24:15] seven is larger than five. And if it is larger, what are we saying? I is getting
+[1:24:19] updated to K. Earlier I was the last index. Now I will be the index of two.
+[1:24:24] And after that I will be this index only or it may be some other index but it
+[1:24:28] will not be the last anymore. So this value says that if I have to swap I will
+[1:24:33] keep going till I get an index which is not same and I'll swap with that value
+[1:24:38] which is at the largest index. So going from left to right will give you an
+[1:24:44] index which is the largest element value from that position.
+[1:24:50] So the here we are basically maintaining the index of the largest element from
+[1:24:55] left to right immediate largest. Is it clear sir this
+[1:25:00] code? >> Yes sir.
+[1:25:03] >> Great. After that now look at it. It's still O of N time complexity. Those who
+[1:25:08] have done with O of N² please update it if you need to. Then we are saying J is
+[1:25:13] equal to zero. J less than S do. Length J++. So we are going to the original
+[1:25:18] data. What is nums of J when it is zero? 8. Is that less than
+[1:25:26] nums of digit J? What is there at digit zero?
+[1:25:32] When J is zero, what is at digit 0? Z. So what is nums of zero?
+[1:25:39] 8 is not lesser than 8. So we don't do
+[1:25:44] anything. Are you there? Yes sir.
+[1:25:48] >> Yes sir. >> Now what is there at J when J is one?
+[1:25:52] Num of J is four. What is there in digit two? Two. What is the value of digit
+[1:25:58] two? Seven. Is four less than seven? Yes. Interchange
+[1:26:05] and stop because we have to do only one swapping. So we break.
+[1:26:25] Is it taken guys? Is it clear to everybody?
+[1:26:29] >> Yes sir. >> Yeah. You may have your own way of
+[1:26:32] implementation but I've seen some of you doing n².
+[1:26:37] This is O of N. Obviously there's an extra space which is to maintain the
+[1:26:41] digit array.
+[1:26:49] >> So what if a person maintains of login sir
+[1:26:54] >> of login binary >> in login sir
+[1:26:58] >> uh that means you're sorting it. Yes, I sorted once and that's one sorting.
+[1:27:04] Let's take this example of yours 84725. You sorted in what order? Descending or
+[1:27:10] ascending? >> Descending, sir?
+[1:27:12] >> Descending. So, you would get something like 2 4
+[1:27:18] 5 7 8. Okay, great. What did you do after that? Sir after that I was
+[1:27:24] comparing linearly key uh like largest number should be the first if largest
+[1:27:31] number is at its first place well and while if it's not we'll again we'll swap
+[1:27:36] it where it should >> no no wait a minute you this is original
+[1:27:39] data you sorted you got 2 4 5 7 8 then you're comparing the original with the
+[1:27:44] sorted >> yes
+[1:27:46] >> index wise >> yes sir
+[1:27:48] >> so you're comparing eight with two so original eight is larger so nothing to
+[1:27:51] do You're comparing four with four. Same. Nothing to do.
+[1:27:55] >> Ah. >> Then you're comparing seven with five.
+[1:27:58] >> Yes sir. Seven should be there. But if there is five, I'll I'll find the
+[1:28:02] position of five and seven and then we can swap them.
+[1:28:06] >> Isn't it so much work? Unnecessarily. Look at this very simple logic. Now
+[1:28:10] >> yes sir. >> Very very simple.
+[1:28:16] >> Yes sir. That was the first thing that came in my mind.
+[1:28:20] >> That's okay. That's okay. But what I'm trying to say is you have to keep
+[1:28:24] optimizing your own code. Sometimes it is good to get it working
+[1:28:28] then you see yeah how can I make it better and then keep optimizing it and
+[1:28:33] then if you don't find it great and now that you found something like this you
+[1:28:37] can try updating your code. >> Got it?
+[1:28:42] >> Yes sir. >> Yeah this question many of you are
+[1:28:44] asking me the other day. So I thought let me show the code for the additional
+[1:28:49] programming. No problem. So that way next time you have something similar you
+[1:28:53] can go ahead and do it. Is everybody clear?
+[1:29:01] If you have any test data now if I were to run this with 2 4 5 7 8 uh
+[1:29:09] 2 4 5 78
+[1:29:14] uh now how will that array look like?
+[1:29:19] Let me erase this guy.
+[1:29:24] How will the digit array look like?
+[1:29:33] Now digit array.
+[1:29:37] >> Yeah. >> 2 4 5 7 8. So 8 will be
+[1:29:43] four. Uh is seven lesser than eight? Yes. So that will also be four. Then
+[1:29:49] what about this guy? Yeah. What about this one? Is five less
+[1:29:55] than 8? Four >> is less than 8. Four.
+[1:30:00] Four. And what will it go and do? It will compare two at index zero. It is
+[1:30:04] two. What is that index four of the original eight? It go and swap. So
+[1:30:09] you'll get 8 2
+[1:30:14] 4 4 5
+[1:30:18] sorry 8 8 4 5
+[1:30:24] 72 84 572 8 4 5 72 Let's run this.
+[1:30:36] That's clear. Once you get this algorithm any test case you should be
+[1:30:40] able to interpret that is my focus has been lot this batch on you know manually
+[1:30:45] doing manually doing then we look at code then we look at code don't look at
+[1:30:49] code at all once you understand this you write your code code in any way you want
+[1:30:55] okay
+[1:30:58] with is everybody
+[1:31:11] So according to you tang if I had done the sorting for this you will get 2 4
+[1:31:16] 578 but then you will not get 87425.
+[1:31:22] No. So my point is u like if I do it in descending order
+[1:31:27] >> okay like I make a clone of it and then sort the clone.
+[1:31:33] >> Okay. In the descending order >> what happens is I am iterating
+[1:31:40] both the arrays parallelly. So let's suppose first index both of them have
+[1:31:45] eight. I move >> one minute. Let me write down for you
+[1:31:48] again. Your original array was 84
+[1:31:54] uh 75 >> 25. So you you're now printing this in
+[1:31:58] descending order. >> Yes sir. So 87 542
+[1:32:02] >> 875 >> 42.
+[1:32:06] >> Huh. >> Now what happens is I traverse
+[1:32:09] parallelly. Let's suppose like I I pointer and traverse
+[1:32:12] >> 8 and 8. Okay. 8 and 8. >> 8 and 8 they are matching. Now I compare
+[1:32:16] four and seven. Now, now that it is not there, so I'll find
+[1:32:21] where the seven is and I swap it with the four.
+[1:32:25] >> Where wait? You are getting four here and then you'll search for
+[1:32:29] >> seven because that's where ideally that's how we'll get the next possible
+[1:32:33] large number now sir by replacing getting seven there.
+[1:32:36] >> So that means you'll search for seven in the original array.
+[1:32:39] >> Yes. And I'll swap it with four and then we'll get the the answer.
+[1:32:50] No, but how are you getting the answer? >> 87425
+[1:32:56] >> 87 >> 542 542
+[1:33:01] a input data was different. Okay. Okay. 84 725. This will become 87425.
+[1:33:08] Sorry. >> 25. Yeah. So like
+[1:33:10] >> no no but I'm saying this is descending order. Huh?
+[1:33:13] >> No. Yes. So comparing becomes easy. >> So uh eight and eight then okay so
+[1:33:18] you're unnecessarily going through one more sorting.
+[1:33:21] >> Yes. So that's what I first thought >> right
+[1:33:26] that means you'll have to search in the original array for which seven is
+[1:33:30] >> yes there I'm applying binary search >> first occurrence of seven.
+[1:33:33] >> Yeah binary search there. >> Uh so you're using a binary search here.
+[1:33:43] Yes sir. That was the idea which clicked to me. Sir,
+[1:33:46] >> you can use only binary search in the sorted data. Sir, you can't apply binary
+[1:33:50] search in the original. >> Sorry, Alex. Sorry, linear search. But
+[1:33:53] yeah, >> okay. Because this is sorted, you can
+[1:33:56] apply binary search. This is obviously you cannot. So you're saying I'm
+[1:34:00] comparing 47 since 7 is larger. I will search linearly for the first occurrence
+[1:34:04] of seven and that index and this index I'll maintain and okay fine.
+[1:34:11] Good. Great. Uh, so what? Uh, no, there a couple of things I need to do. First,
+[1:34:16] stop sharing the screen. That's done. Then I need to stop recording.
+[1:34:24] Yeah.

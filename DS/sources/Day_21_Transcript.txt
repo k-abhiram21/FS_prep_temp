@@ -1,0 +1,662 @@
+YouTube transcript
+Video ID: Klt84gSfRSo
+Language: en
+Captions: auto-generated
+
+[0:00] Yeah guys, uh good afternoon. Uh today we'll start with DFS. [snorts] Uh uh in
+[0:07] the last class we looked at some very interesting problems and the solution to
+[0:10] those three problems. Uh one was number of islands, the other was uh max area
+[0:17] and the third was number of distinct islands. [snorts]
+[0:21] Uh today we'll talk about DFS. uh you'll find quite a few uh similarities
+[0:28] uh because every problem which we can solve using BFS you can also solve using
+[0:34] DFS you can solve the max area number of islands and number of distinct islands
+[0:40] using DFS so that would be given to you as a program for you to work on so if
+[0:47] the program expects you to solve using DFS please use only DFS and don't
+[0:51] implement your BFS solution test cases will pass but that's not what
+[0:55] we expect like some of you uh in the last class when we asked you to do
+[1:00] lonely nodes you solved using uh DFS because that was a code which was
+[1:04] available online and you didn't realize what you were doing anyway so let's uh
+[1:11] uh look at uh DFS I'll show you a
+[1:28] Okay. Uh this is a tree representation. Uh what would the uh BFS uh output of
+[1:36] this tree look like? Uh it would be level order which would
+[1:41] be five. The next level 10 15. The third level 20 30 40 and 50
+[1:49] and then you would get 70. Great. So the level order traversal of this would be 5
+[1:54] 10 15 20 30 40 50 and 70. But if I talk about uh depth first traversal a depth
+[2:04] first search uh what would it be uh if I process left first and then right?
+[2:11] Yes sir.
+[2:14] 5 10 20 then go to the left of it. Yeah, it does exist. Is there a left of 30?
+[2:20] No. Stop. Then go to the right of uh 10 uh which is 30. And then go to the right
+[2:27] of five which is 15. Does that five have a left again?
+[2:32] Yes. Uh which is 40. Imagine that 40 had one more child. So we go all the way to
+[2:38] the bottom before we start looking at the next side. In a level order it was
+[2:44] all the nodes at that level. But when we talk about depth first traversal it is
+[2:50] basically recursively keep traversing all the way to the leaf the left
+[2:55] component then the right and then continue doing that at every node. Which
+[3:01] means at 20 if I had a right that would get processed first before I process 30.
+[3:06] At uh uh 50 if I had a right that would get processed after that. So we
+[3:13] basically talk about go all the way to the bottom depth. Okay? Now in BFS uh we
+[3:20] have seen how we can use a stack sorry how we could how we could use a queue to
+[3:25] get things going. uh in DFS uh we are going to use a stack or if you don't
+[3:30] want to you can have that as a recursive uh function call. So let's first
+[3:35] understand how the DFS uh looks like uh using a stack. Now if I were to
+[3:40] implement this using a stack uh what would I first I would add to the stack
+[3:48] five while stack not empty keep popping an
+[3:54] element like what we did in the BFS while Q not empty get an element using
+[4:01] pole. So I extract five.
+[4:05] What is the left of five? 10. But then I also have a right. So
+[4:12] what am I going to add? The left of it which is 10. What would I
+[4:20] add after that? 20. What would I add after that? 70.
+[4:25] Then what would I add after that? 30. What would I add after that?
+[4:32] 15
+[4:46] stack is empty which we had done similar but that was a
+[4:51] cue. So first we will look at a simple program on how we can implement it using
+[4:58] a stack plain simple DFS algorithm and after that we will see how we can apply
+[5:05] that in the problems which are related to it. There are two important problem
+[5:11] but like I said earlier every problem you can solve using DFS. Whatever you
+[5:16] could solve using BFS but obviously the way you get the output is going to be
+[5:22] very different than what it is if it is a uh BFS specific problem but whether it
+[5:28] is a max area or number of islands or number of distinct islands the output
+[5:33] doesn't change. I repeat the output will not change but in this scenario the
+[5:38] output is going to change when you traverse the tree in a BFS level B BFS
+[5:44] order versus DFS order day they it was a very generic problem which is max area
+[5:50] max area doesn't change whatever be the scenario but the way we approach is
+[5:55] going to be different so can we look at that very simple word document yeah
+[6:00] again we go through the same process or if it is visited uh don't visit it
+[6:04] because if I come from A and go to B, my B's neighbor would also be A but if A is
+[6:10] already processed, we don't want to reprocess that otherwise you are going
+[6:14] to be never ending that process. Uh it is a recursive algorithm
+[6:20] or a stack based approach for searching all the vertices of a graph or a tree
+[6:27] data structure. uh traversal basically means processing
+[6:32] all the nodes of a graph. Uh you add them to the visited node are not visited
+[6:39] and what is visited don't reprocess it and only look at the nodes which have to
+[6:45] be processed. Okay. And before you look at show the main yeah
+[6:50] guys can you draw the graph yourself. Uh while you look at this graph uh
+[6:57] whether it is a BFS or a DFS you need to come up with the representation of it
+[7:03] which is either an adjacency list or an adjacy matrix. So you're given a graph
+[7:09] which is unweighted graph. Yeah.
+[7:16] So let's draw the graph. So we have a graph uh which I'm going to show. Uh
+[7:21] then we will write the adjacency list for this particular graph. You can
+[7:26] convert into a matrix if you want to. So we have a edge 0 to 1 connected
+[7:35] 0 to 4
+[7:39] 1 2 0 uh 1 to 2
+[7:45] uh 1 2 3
+[7:51] 1 to 4 2 3
+[7:57] 2 1 3 3 2 1 3 2 3 4 So down
+[8:05] 3 to 4 4 2 1 4 0 Okay, great. Now what is Yeah,
+[8:11] that's fine. Adjacency list. Uh what is 0 connected to?
+[8:17] 1 4 1 is connected to 0 2 3 4.
+[8:27] Okay. Two is connected to 3 1. So scroll down.
+[8:37] Two is connected. Three is connected to 1 2 4. And four is connected to
+[8:44] Four is connected to 1 0 3. Uh two is connected to uh 3 and 1. Three
+[8:55] is connected to 1 2 4 1 2 4 Okay. Four is connected to 103. Yeah, you can get
+[9:01] rid of this guy now.
+[9:07] Get get rid of it. Is that clear to everybody? The graph and the adjacency
+[9:11] list. Yes. Great. Now for a moment think it is
+[9:19] BFS. Let's look at the BFS for this.
+[9:28] Yeah. How would the BFS look like if my start vertex is three?
+[9:35] I repeat, my start vertex is three. I need to traverse through the graph with
+[9:41] three being the start vertex. So in the BFS, what did we do? We said, oh, let's
+[9:46] add three to the Q because that is my start. While the Q is not empty,
+[9:53] extract the element from the Q and what would that element extracted be?
+[10:00] What would that element be? Whatever you added, right? What was my start vortex?
+[10:04] Three. So three would be extracted. So the first thing you see as output is if
+[10:09] three is my start vertex then three the Q contained
+[10:18] visited
+[10:21] extracted this is my output three is visited now
+[10:27] who are the neighbors of three 1 2 and four so what am I going to add 1 2 4
+[10:35] I'll extract one. So one is visited. Extract. But after I extract one, who
+[10:42] are the neighbors of one? In fact, two and four are also visited
+[10:46] when you add to the queue. So when I extract one, who are the neighbors?
+[10:51] Zero. Two is visited, ignored. Three is
+[10:55] visited, ignored. Four is visited. Then what do I get from the que? Two.
+[11:02] Who are the neighbors of two? Three and one both visited. Do nothing.
+[11:06] get four. Who are the neighbors of four? 1 0 3 uh 0 is also visited when I add to
+[11:13] the queue. So all are visited. This would be my output if I were to go
+[11:18] for plain simple level order traversal. Process all the elements at that level
+[11:26] before you go to the next level.
+[11:31] Are you all clear now? How would it look like if it is DFS?
+[11:36] Assume three is my start vortex.
+[11:43] What would the stack look like?
+[11:49] Okay, three I extract. Then what? Who are the neighbors of three? 1 2 4.
+[12:00] So we are going to add in the reverse order. What am I going to add?
+[12:06] Four 2 and 1. What would the t top of the stack return
+[12:13] you?
+[12:16] One. Who are the neighbors of one?
+[12:21] 0 to 3 4. Right? So let's say uh which are already
+[12:28] visited now and three and one. So what am I going to
+[12:34] add? Four 3 2 0
+[12:43] three already visited so we don't add. What do I get now?
+[12:50] Zero. This is also my output by the way. Okay. Okay, visited output. Who are the
+[12:56] neighbors of zero? One and four. One is visited. What am I
+[13:01] going to add? Four. What are the top returning you?
+[13:11] Four. Who are the neighbors of four?
+[13:16] 1 03. 1 3 are visited. Four is also visited. Now, what is the next element?
+[13:23] What is the next element? Two.
+[13:28] See the difference in the output. What happened? I started with this. I went to
+[13:33] this guy. I did not look at three neighbors. I went to the neighbor of
+[13:38] one. I went to the neighbor of zero. And then I was processing. I took one
+[13:43] particular node find found out its neighbor continued that process. Unlike
+[13:49] in a BFS where this nodes all neighbors are handled first
+[13:57] guys are you there
+[14:01] did you see three's immediate neighbor was one's neighbor was zero zero's
+[14:08] neighbor was four and then we went to two after they are done it's like I'm
+[14:14] going A to B to C to D and then I go to somewhere Where else?
+[14:20] Isn't that how recussion works?
+[14:25] Factorial of five will call four. Four will call three, three will call two,
+[14:28] two will call one. And then I get the output and unwind. So that is what so
+[14:34] there's a difference in the way the output looks like when we do a BFS or a
+[14:39] DFS.
+[14:43] Are you there? Now imagine zero is my start vertex. How would the DFS output
+[14:49] look like for zero? All of you? Zero is my start vertex. What would the
+[14:55] output now look like?
+[15:00] Come on, keep drawing the stack.
+[15:17] Zero is my start. What would it look like?
+[15:24] Who is the immediate neighbor of zero? One. Who is the immediate neighbor of
+[15:29] one? Zero is already processed. No. So will I
+[15:33] consider? No, I'll go to two. Okay. Who is the immediate neighbor of two?
+[15:40] Huh? Huh? But immediate with respect to two
+[15:45] is 31. Right.
+[15:49] Order. That's the order, sir. That's how the edges were created.
+[15:54] I wrote that order based on the edge addage.
+[15:59] Are you guys seeing that? So, what would it be if it is zero as
+[16:04] the start vertex? Zero.
+[16:09] uh 0 has one, one has uh two uh two has three and three has one and two they're
+[16:16] anyway handled. So if it is zero, it would be 0 1 2 3 4. If it is three, it
+[16:23] will be something else. If it is two, it will be something else.
+[16:32] So what is your start vertex in that program?
+[16:36] Zero. Run with zero. Don't show the code anything. Just run with zero. Then run
+[16:40] with three.
+[16:44] No. Is it zero, sir? Where do we see? Yeah. Okay. Zero is the start vortex
+[16:59] 0 1 2 3 4. Now make the start vertex three.
+[17:07] Okay.
+[17:13] 3 1 042. Go back to what we did.
+[17:21] Are you there? Now make the start vertex as
+[17:26] two. Now with the start vertex two, uh tell
+[17:30] us what the output would be. Now look at the adjacency list. It is important when
+[17:35] you see two 2 3 1 or 1 3 makes a difference.
+[17:50] Did you update code? Did you update code to two at the start
+[17:55] vortex?
+[17:58] Yeah. With two as a start, what is the output?
+[18:05] 2 sir diagram sir 2
+[18:11] 2 3 1 yeah so from two we went to three 3 1 then 1 zero and then four if it was
+[18:21] uh uh bfs it would have been probably different right yeah so can you run sir
+[18:28] with two
+[18:34] 2 3 1 04. So we keep going till we find no more
+[18:41] neighbors are those neighbors which are already visited.
+[18:48] Yes madam you look lost. Are you clear?
+[18:56] Are you clear? Clear? Shall we move on and look at the
+[19:01] code everybody?
+[19:06] Okay. Uh go through the code add and all they know we will not focus.
+[19:13] Go to the DFS code.
+[19:17] Yeah. Uh we have a visited array uh like what
+[19:22] we did earlier and we are calling a utilities method. What does that take as
+[19:26] parameters? Two arguments. one the uh graph sorry
+[19:32] int number of vertices. Okay.
+[19:37] Yeah. Starting vertex which in our case is two.
+[19:41] Now last example two. So what is the start vortex? V and visited array. So
+[19:47] initially start vortex is two. Visited array is all set to false. Are we clear?
+[19:53] Show that code. Yeah. We are creating a stack. Earlier
+[19:59] we had a Q. What did we add to the stack? The start vortex. What did we add
+[20:04] to the Q? The start vortex. While Q not empty while stack not empty. What are we
+[20:08] extracting? The first element at the top of the stack using pop.
+[20:14] So what did we get? Two being my start word. Hello sir.
+[20:23] Two being my start vortex. I'm getting two from it. Oh, is that visited? No. If
+[20:29] it is visited, we continue. Otherwise, what are we setting that to?
+[20:33] Visited. So, two index vortex is visited. And getting all the neighbors
+[20:40] of two. Scroll down. Where are we starting from? Last one. So, when I say
+[20:47] two is connected to one and three, three is added to the stack and then one. So,
+[20:52] what I get is a top. Otherwise the order will change. When the edge was created
+[20:58] 21 was first and 2 three was later. So order of processing should also be one
+[21:03] first. So we're adding it in the reverse order. Unless you add to the adjacency
+[21:09] list at the beginning and not at the end.
+[21:13] Are you there? If I had created two as three and one then add in the same order
+[21:18] three and one. But the addition was to the end. We were appending to the list
+[21:22] and not inserting at the beginning. Guys, are you getting it? No. And what
+[21:28] does this mean, sir? Huh? Okay. Is that clear why we are doing it?
+[21:34] Yeah. Then what did what did we get? Adjacent element. Is the adjacent
+[21:39] element visited? No, not visited. What do we add to stack? So, going back to
+[21:45] the diagram. Going back to the diagram. Uh, so erase
+[21:50] everything except the adjacencies. Oh yeah. Yeah. Everything except the
+[21:55] adjacency list and the graph. Remove all the stacks and cues.
+[22:06] Great. So we started with the first element. Uh what was the start vortex?
+[22:11] Two. Right. So this is my start vortex two. So the stack had two.
+[22:19] The visited array had two. I extract get the neighbors of two three
+[22:26] and one. What am I adding first? Reverse order one. And then I'm adding
+[22:34] three. I get three from the stack. Three is visited.
+[22:40] So what is the output? I've got 2, three. Who are the neighbors of three?
+[22:46] 4 2 1 4 2 is visited. So we don't add one
+[22:55] reverse order 4 to 1 2 is already visited. So we continue
+[22:59] we add four and one. What do I get now? One. Who are the neighbors of one? 4 3 2
+[23:08] 0.
+[23:11] 2 and three are skipped. Four and zero.
+[23:18] I add four to the Q. Sorry, not four, not yet. I get zero.
+[23:26] Zero is added to the Q. Uh, sorry, visited output. Who are the neighbors of
+[23:31] zero? Four and one. Uh, one is already processed. So, four
+[23:43] then I get any of them all are visited. So, we just continue. So the output if
+[23:47] it is two is 2 3 1 04. Yeah. Go back to the code
+[23:55] guys. Is this code clear to everybody? While the stack is not empty, keep
+[23:59] getting an element from it. Find all his neighbors.
+[24:03] Go in the reverse order. The reason being we added the last element uh in
+[24:09] the edge connectivity at the end. So that needs to be processed at the last.
+[24:15] So we are adding it in the reverse order. If you had created the adjacency
+[24:19] list where the last element is always at the beginning then add the way it is
+[24:23] given. Since it is append we are going in the
+[24:26] reverse order.
+[24:31] How many are not clear? [snorts]
+[24:38] So can you run the output with two or did you already run? You ran with two.
+[24:44] Okay.
+[24:47] Are we all clear? Okay. Are you clear or not clear? Because if
+[24:53] not clear. Okay. Good. Uh what is not clear? Go back to the diagram.
+[24:59] Okay. Is the graph create clear? Is the adjacency list clear? Great. There were
+[25:05] two ways of creating the adjacency list. one I am adding to the list at the end.
+[25:14] That is great when you talk about a stack uh sorry Q I pick the first guy
+[25:19] but since it is a stack uh what I need to do is see there's another way of
+[25:24] creating the list. I could have created this in 4 1 4 3 2 0 1 3 4 2 1 3 0 1 in
+[25:40] which case I will go from index one to this and keep adding to the stack 4 and
+[25:44] 1. This would mean what? When you're adding
+[25:49] to the list you will not use append. You will say insert at index zero. you'll
+[25:55] add a value but since we created that adjacency list
+[26:00] in reverse order we are starting with the last element so that I add four
+[26:05] first and then I add one so the top of the stack is one and not four
+[26:11] are you are you there so show the code again
+[26:18] see this code for imagine I don't write that code that way
+[26:23] I say for i is equal to Z I less than adjacency list dot size I ++ what do you
+[26:29] think will happen sir update the code
+[26:35] what do you think will happen now if I did that what will get added to the
+[26:39] stack first when you have one and four one will get added and then four so
+[26:43] which is the top now four so from uh three will go to four and maybe not one
+[26:49] that's okay we'll see what happens now I is zero less than equal
+[26:54] Yeah. Uh, can you see the adjacency list, please?
+[27:10] Yeah. Can we see the adjacency list?
+[27:15] This is my adjacency list. What will happen when you start with two? Come on,
+[27:20] guys. What will happen when you start with two? What are you adding?
+[27:27] What are you adding? Tell me. Two is over. After that, what?
+[27:33] Three. >> Then one. So, one will be removed. Then
+[27:37] after one, what are you adding? Two is already there.
+[27:44] Three is already added. No, three is not visited. Huh? Are you seeing the
+[27:48] difference? So if I did that modification to the
+[27:52] code, tell me what will the output be if the start vertx is two now.
+[27:57] Come on quick.
+[28:05] Yes sir. What will the output be? 2
+[28:10] 1
+[28:16] 4
+[28:26] after four tell me three. Yes.
+[28:31] 21 430 sir. Run.
+[28:47] Okay, go back to the diagram. But if you look at the adjacency list,
+[28:53] who is an immediate neighbor of two? First
+[28:57] three and one, not one and three. So ideally you would like three to be
+[29:02] visited when you talk about depth first. Yes sir.
+[29:09] What is the it where where is the difference? Uh
+[29:15] well it doesn't matter but it's like when you create the graph how what are
+[29:19] the order? Who is my immediate neighbor? First neighbor 2 three or 21.
+[29:25] Are you guys getting it? What do I process first?
+[29:29] So that's the way we look at it. Whereas if it is BFS, it doesn't matter. One and
+[29:34] three will NV at the same time. Imagine I go with one. One is not candidate to
+[29:38] three. One will take you to four. One will take you to five, one will take you
+[29:41] to seven. Whereas if I take three, t three is a different option. Here you
+[29:46] are seeing no difference because one and three are connected. But imagine three
+[29:50] is connected to somebody else. One is connected to somebody else. The way you
+[29:53] handle is different when you go one path over three path.
+[29:58] You understanding? I will never visit one if I take the
+[30:01] three approach till all the nodes of three are handled. I will only go to one
+[30:08] after everything is complete. Are you guys understanding?
+[30:17] And the the order was in that particular order. So we also want to process in
+[30:21] that order. Nothing else. And because I saved it in a different order in the uh
+[30:27] list as part of the adjacency list, I'm doing the reverse handling.
+[30:32] But I want to handle when it's 3 1 and 3 five one first and then five. Consider
+[30:38] five only after one path is addressed. Are we good? The problem is very very
+[30:46] simple. Okay.
+[30:52] Okay. Just to give you an example of this with respect to the placements.
+[30:56] Okay. So blank screen. Uh there is a candidate C1, candidate C2.
+[31:06] Candidate C1 can sit for uh
+[31:11] okay I'll say student one, student two, he can sit for company one, company two.
+[31:20] The catch is hello guys.
+[31:25] The catch is you can only go to company 2 if you're rejected in C1.
+[31:32] Parallelly we will not allow you to sit for both.
+[31:36] And now C1 okay please understand this. Somebody was asking me why is it making
+[31:42] a difference whether I take 1 three or 31. Now you have two company
+[31:46] opportunities and the constraint is unless you're
+[31:51] rejected in one you cannot go. We don't want you to attend both parallelly go
+[31:56] till the HR round and then get selected in both and then reject one which is not
+[32:00] fair. So what do we tell you now? You have to decide oh should I go for C1 or
+[32:05] C2. So one one is a a IML job paying you 10 lakhs. Other is full stack
+[32:10] development paying you 30 lakhs. You like a IML that is a passion. But then
+[32:15] your parents want 30 lakhs and you are in a dilemma.
+[32:22] So what do you say? Okay, let me go for IML. You go there, you get selected,
+[32:27] you'll never take this path. You take C2, you get selected, you'll never take
+[32:32] that path. So that is what depth first is. Now what will C2 contain? Aptitude
+[32:37] round, programming round, interview round, HR round, project manager round,
+[32:43] all five. You do that one after the other. Selected, no C1 option. Not
+[32:50] selected. Yeah. Now I'll go to C2 or C1. Is that making sense? Which path do I
+[32:55] want to process first when it is depth first? Because if I take this path I'm
+[33:00] going to navigate all the children of this all the connected nodes of this
+[33:04] before I even look at the other guy depth you remember that in the tree I
+[33:08] went all the way to the left only then I process the right at in BFS yeah
+[33:14] everybody at that level is processed then next level then third level then
+[33:16] nth level okay how will the BFS here look like okay now
+[33:22] let's take both C1 C2 do something about it and then we'll do something else
+[33:26] after that C1 C1 could have another five set of steps. C2 could have another five
+[33:31] set of steps. But both are being done parallelly.
+[33:35] Okay, I'll look at C1 and then I see two. Then again children of C1, children
+[33:40] of C2, then children of C1, then children of C2. So we are going
+[33:42] parallelly at every level. Okay, great. Sir, can you now take us to
+[33:48] the actual problem we need to solve today?
+[33:59] Great. Now in all the problems we looked at till today, we said it could be four
+[34:07] directions. It could be two directions, left, right,
+[34:11] up, down or it could be eight directions which are diagonally. Remember now this
+[34:17] is a very different problem. Blank screen.
+[34:23] You're given a matrix.
+[34:29] [snorts]
+[34:34] Go to the problem statement. Let me read down. Read it for them.
+[34:38] The maze game from childhood where a player starts from one place and ends up
+[34:43] at the bottom the game. So it's like the the rat and
+[34:48] the cheese. Okay. You can only go in forward and down. Please, this is
+[34:54] different. It is not right, left, up, down. It is right, down, right, down. So
+[35:00] once I've gone to column two, I cannot go to column one again. From two, I will
+[35:06] go to column three or I'll come to next row. But when I go to next row again, I
+[35:11] can't go back to the previous column. Is that direction clear? Because if you
+[35:15] don't understand the direction, then you can go in multiple ways and your
+[35:18] approach will be different. Now uh what is given
+[35:23] uh you're given zero which means the the rat cannot occupy that space that is
+[35:29] like a block you can't go there one means yeah there is a path available so
+[35:34] I'm going to now draw the ones and zeros for you
+[35:40] this is one test case
+[36:10] Yeah.
+[36:19] We return true if the rat is able to go from the start till the end. False
+[36:25] otherwise. So what do you think would be the
+[36:30] highest level boundary condition for you to solve this problem? What do you check
+[36:35] for?
+[36:39] You see the diagram and tell me the rat starts with 0 0 always should end with n
+[36:46] minus one comma m minus one and if it has to end the cheese is there
+[36:55] and if it has to start there is the starting point. What do you
+[37:00] see in those two diagonal values? They both have to be one. If there is no
+[37:07] cheese in that last cell, you obviously cannot reach. It's like a dead end, a no
+[37:12] block. If it's zero, can you ever reach there? No. So false. And if we start
+[37:18] with zero, can the rat start from there? So that is the first condition. Now, now
+[37:24] for a moment, imagine this problem is to be solved using BFS.
+[37:30] I repeat, this problem has to be solved using BFS. What are the directions you
+[37:34] can take? right
+[37:38] and down. Okay. If it is BFS, how will the Q look like? [snorts]
+[37:45] What will we start adding to the queue initially?
+[37:49] 0 0 because that has a value one. If the first cell has a value one, it means
+[37:56] yeah the rat can't start and there is a possible solution. Whether we get or
+[38:01] not, we don't know till we go to the last cell.
+[38:05] Then the other thing is oh can I go to the last cell? What if there are blocks
+[38:08] in between? Okay I could go to the last cell but is the last cell one or not?
+[38:13] You know you have to ask yourself those questions. Yeah we start with 0 0. What
+[38:19] does the Q look like?
+[38:23] So this is my BFS solution. Now when we look at DFS in a moment what does the Q
+[38:27] look like? 0 0 I'll extract. Who are the neighbors
+[38:34] of 0 0 1 and so I'm going to add both of them.
+[38:43] Whether I add 1 zero first or 01 first is my choice whether I go right first or
+[38:48] down first. It doesn't matter. Right now I get 01.
+[38:54] I get 01. After that what do I add to the queue?
+[39:00] What do I add to the queue? Write down what is down.
+[39:07] What is down? One. One. Is it zero or one? Zero. So, do we consider? No. What
+[39:15] about the right? Yes. So, I'm going to add 02 to the que.
+[39:22] Are you there? Then what about 1 Z?
+[39:28] 1 0. What about 1 Z? Now, did you notice I took this guy, added
+[39:34] his neighbors, and then I'm taking this guy and adding his neighbors. Who are
+[39:38] the neighbors of 1 Z? 2. Uh, am I going down or right first,
+[39:43] sir? >> No, I'm going right. So, right will be
+[39:48] uh 1 one. 1 is invalid. So, I go down. And down is
+[39:54] 2 0. What are the next thing I get? 02.
+[40:00] Uh, what is the right of 02? 03.
+[40:06] What is the down of 02? 1 2 is it valid? No. Then what is the
+[40:13] next thing I get? This is over 2 0
+[40:19] 2 1 and
+[40:23] 3 0 3 0 is invalid. Are you guys seeing that? I will
+[40:29] continue this process adding each guy's neighbors immediately
+[40:34] till I find that I've added
+[40:39] sorry 44. 44 is this guy.
+[40:45] Why I have added 44? Because the neighbor of this guy was this and that
+[40:51] is one. So I'm adding >> no four four no sir. Oh, four three
+[40:57] sorry three column four columns 4 three are you seeing that
+[41:04] I take the first guy add his right add his bottom to the queue then take the
+[41:08] first one after that right and bottom if it is valid how do we check the validity
+[41:14] it should be within the bounds and the neighbor should have a value one and if
+[41:19] it is add to the queue keep continuing how would the DFS look like for
+[41:26] If I'm going to create a stack of this guy, what will the DFS look like?
+[41:37] We will consider right first and down second.
+[41:41] Okay. What will the stack look like? 0 0 extract.
+[41:49] After that, what who is the right of that?
+[41:54] I'm going to add this first and this. So what is the thing I'm going to add? 0 1
+[42:02] and then what am I going to add? 1 zero. What will I get from the Q stack?
+[42:09] 1 0 I have not processed this. Who is I write of 1 0 1 1. Is it valid?
+[42:17] What will I add? 2 0.
+[42:23] What will I add after that? 2 1 will I add 3 0?
+[42:31] What will I add after 2 1?
+[42:36] 22 not valid. 3 1
+[42:40] will I add after 3 1? 32 not valid.
+[42:45] 41. What will I add after 41?
+[42:50] 42. Can I go down? No. Out of bounds. What
+[42:54] will I add after 42? 43. What will I add after 43? Nothing.
+[43:01] So, what happened? I took this path and I found a solution. I did not even have
+[43:05] to search this path. Now, are you getting it?
+[43:12] If I had taken the right approach first, I would have added uh 01 then 01's next
+[43:18] would be 02 03 and then check. Oh, is there a path available from right?
+[43:25] Great. Maybe I don't even need to look at left. What are we saying? Is there a
+[43:28] possibility for the cat to go from the beginning till the end? We are not
+[43:34] searching for all possible options. I take right, I get the solution. I take
+[43:39] down, I get the solution. I don't get solution either way. I take down and
+[43:43] then maybe right, maybe down, maybe right. I am taking one path and
+[43:47] following that till I find or I don't find before I go to the next one. Are
+[43:53] you seeing how the queue and the stacks are so different here?
+[44:01] Are you guys seeing that?
+[44:06] So there are two ways of solving it and normally
+[44:10] uh when we use DFS uh we are pretty much talking about recursion
+[44:16] because stack so it is easier to call a recursive function
+[44:22] but I don't want to get into the code immediately I want you to understand how
+[44:27] the Q and the stack are so different.
+[44:41] Yeah. If anybody is not clear, please let me know. The focus is not on the
+[44:45] code right now. The focus is on how the processing happened. If it is BFS, it's
+[44:50] like uh with respect to that 0 0, the two neighbors are 0 1 and 1 0. both get
+[44:56] added to the queue and then we process one and the other guy in the stack once
+[45:01] I've gone the right way I'm going to continue the right way till I find a
+[45:04] solution or not before I go the down way or if I go down down first and then
+[45:10] right I'm not going to look at oh if not this
+[45:14] that no let's go this way great if I don't find it let's try some other
+[45:18] option
+[45:24] yes sir
+[45:28] Clear? Everybody's clear. Okay. Uh sir, take us to that uh
+[45:36] document. Last test case.
+[45:45] Take this data and
+[45:50] take that data. Maybe zoom that. I want you to process right first and then down
+[45:59] and tell me how does the stack look like for that input data right down and then
+[46:05] later we'll change it to down right and how does it look like
+[46:11] yeah guys take this data I'll maybe draw it for you here
+[46:18] 1 0
+[46:33] We process right first and then
+[46:40] down. Okay. Now I'm going to write down the stack initially with
+[46:47] 0 0. Yeah 0 0 is valid because there is one and the last element is also valid
+[46:52] because there's a one. Now is there a path from 0 0 to 44 is what we have to
+[46:58] see. Do not even process that if the 0 and 44
+[47:04] are not having one return false there's no way I can go to the end.
+[47:13] Yeah. Now given this input data and the direction right and down tell me stack
+[47:23] how does the stack look like? Keep adding all to the stack.
+[47:40] I am saying I'm going to process right first and then down. So what will the
+[47:45] top of the stack look like?
+[47:52] I repeat when I say right and then down what will the stack contain?
+[48:02] Come on guys answer.
+[48:08] I say right and then down. What will the stack look like?
+[48:17] Recussion guys. Recussion.
+[48:27] Why is nobody answering? Sir, tell me. Right. And for right and down stack.
+[48:35] No, that I did. I get that from the stack. After that what?
+[48:47] So if it is like this DFS right DFS down these are called recursively. So
+[48:56] what are you going to add here?
+[49:03] Huh? Right first.
+[49:11] Okay. Right is not one. But what will I if I were to call the DFS? What will it
+[49:16] look like?
+[49:19] 0 1. But is 0 1 1? So will you call it? No. Then what do we call 1 0. Okay. Now
+[49:28] with respect to 1 0 what is again valid? 1 one. Okay.
+[49:36] With respect to 1 one, what is again valid?
+[49:40] Right? 1 2 with respect to 1 12. What is valid?
+[49:46] 1 3. With respect to 13, what is valid?
+[49:53] This not valid. No. Then what do you do?
+[50:00] What will you do?
+[50:05] down. Recussion, guys. Recussion.
+[50:16] You can't go backwards. Unwinding. Huh?
+[50:30] What will happen? Come on.
+[50:35] In every recursive code, there'll be a termination
+[50:40] statement. When will it terminate? When I'm calling it. And if the cell value is
+[50:46] zero, so return. But if the cell value is not zero, again I will call right and
+[50:53] down. Right and down. First I'm going right and then down. No.
+[50:59] So if I were to show you rough rough code erase that sir
+[51:07] erase the DFS stuff
+[51:12] recussion please again focus on recussion
+[51:20] okay DFS I'm calling with 0 0
+[51:27] and the DFS of 0 0 we'll call DFS with 01
+[51:34] DFS with 1 0 do you agree right and down what will DFS of 01 again call
+[51:44] DFS of right 02 and 1 one
+[51:51] will DFS of 02 call DFS of 03
+[51:57] and DFS of one two are you getting that
+[52:03] I'm not checking whether zero or one at as of now
+[52:08] I'm just saying the way the process happens is go all the way to the right
+[52:13] only when you don't find would we like to look down
+[52:18] which is one path I'm taking or go all the way down and if you don't find this
+[52:23] route then maybe we'll unwind go back and look at the other on.
+[52:32] So if you were to start adding it to the stack, what will the stack now look
+[52:36] like? What is DFS of 0 0 calling?
+[52:42] 0 comma 1. Is that valid? No. So that is gone. So what will it call now? 1 0. Are
+[52:50] you seeing that? That's gone. 1 0. So what is this top of the stack now
+[52:54] containing? 1 Z. Now what will DFS of 1 Z call 1 and
+[53:03] 2 0 is 1 one valid? So will I go to 0 or will I take the 1
+[53:08] one path? 1. Only when I did not find that 01, I went
+[53:14] to 1 0. If I had found 01, I would have gone to 02. I would have gone to 03. I
+[53:19] would have gone to 04. And then only I would have gone the other way.
+[53:33] Are you there guys? It's like a factorial of five calls four. Four calls
+[53:38] 3 3 2 1 and then unwind back give the result and finally we say what is
+[53:43] factorial of five
+[53:48] recussion. And if you don't want to use recussion keep adding it to the stack.
+[53:52] Let's add to the stack. Erase is that sir.
+[54:00] Erase this. So the way the stack here looks like is
+[54:07] 0 0 I've extracted. Then can I add 0 1? No. What am I going to add? 1 0. 1 0 is
+[54:15] calling. Uh
+[54:20] yeah. 1 0 is calling where is 1 1
+[54:27] and 2 0 1 1 is valid so 1 1 I'll not even add 2 0 only after it's over then
+[54:34] what about 1 1
+[54:38] 2 then 1 3 I'm not taking this path I'm
+[54:43] continuing in this and only if this fails I'll go to the next
+[54:50] Are you there? No. No. When I say I'm processing,
+[54:55] right, I'm making that the top. >> Yeah.
+[55:00] When I say I'm processing first, I'm making that the top.
+[55:03] >> Yes. So, we're making it the top. But, uh, 21 will be in the stack, right?
+[55:08] >> Uh, let's see. >> Below one.
+[55:09] >> See, we started with 0 0. What is the right of it? 01. Is that valid?
+[55:14] >> So, this is gone. So I'll go to >> 1 Z
+[55:17] >> 1 Z. >> So again with 1 Z what will you see?
+[55:20] Right and down. What is 1 Z right? >> Right
+[55:24] >> 1 is 1 one valid. >> Yes.
+[55:26] >> Yes. So 1 one gets added. 1 0 1 1. I'll not even come to uh 1 zero. Sorry 1 has
+[55:35] 1 1 and 2 0. This is again calling DFS. This
+[55:41] is again calling DFS. So unless this is over 20 will never be called.
+[55:45] So with 1 one where will it go to now? >> 1 2
+[55:49] >> 1 2 With one two where will it go to? >> 1 3
+[55:52] >> 1 3 after that will it go to 1 14? >> It'll go down.
+[55:57] >> It cannot go to 1 14 because that is zero. So what do I now look for?
+[56:02] >> Go down. So I'm taking that path only sir. Can you run this output with that
+[56:08] same test data? Same test data. Uh we can you also show us whether we
+[56:15] are moving right first or left. That is important. If we go down first then the
+[56:20] stack will look different over right. Now show me the code. What are we
+[56:24] processing first? Right or down? That is important. It doesn't matter what we do
+[56:28] but we can take any approach. Okay. We are going right first and then sorry we
+[56:32] are going down first and then right. We change the order. Uh do one thing change
+[56:37] the order. Make the we discuss right first. No change the order. Okay. We
+[56:41] will also the we'll follow the same order right and then down. Are you
+[56:45] seeing column plus one and then row plus one which means right and then down. Now
+[56:50] given that same test data how will the debug messages look like if I go right
+[56:56] first and down. How would it look like if I go down and then right? Very
+[57:00] different. Yeah sir.
+[57:05] All of you please remember the test data. Without that, uh, you could go.
+[57:18] Did you compile? Huh? Okay.
+[57:30] Yeah. So, we assuming is a square matrix. Yeah. Guys, go up. Please focus.
+[57:36] Right. Right and down. Right and down. Uh debug messages are important for you
+[57:40] to know and how the stack works. Now write first and then down.
+[57:46] Okay. So with respect to 0 0 what was right?
+[57:52] 01. Is that valid? Is that 0 1 valid? So we are skipping. Then down we go. What
+[58:00] is down? 1 0. Is that valid?
+[58:05] And if it is 1 Z, what is right of 1 0? 1 1. Is that valid? What is right of 1?
+[58:13] 1 2. Is that valid? What is right of 1 2 1 3. Is that valid?
+[58:20] Scroll down.
+[58:23] What is right of one? Uh 1 3 1 4. Is that valid? No. Then where are we going
+[58:30] to go up, sir?
+[58:35] Can you tell me why did we go to 2 three after 14? Why did we go to 2 three?
+[58:44] We were at 13. We tried going right not allowed. Then we go down.
+[58:50] Then when we are at 13 uh no 1 13 2 3 what is the right of it? 2 4 invalid.
+[58:57] Then we go to 3 33. Again go to right 3 4 invalid. Go
+[59:04] to 43. Go to the right. Valid. Scroll down.
+[59:10] See, we did not even have to bother about the other guys. Did you
+[59:15] understand? Once I went one direction and I found
+[59:21] the path, I'm not even looking at the rest of it.
+[59:28] Are you guys there?
+[59:33] How many are not clear? Wherever you see that one, it means there's a path and in
+[59:38] that one four we are not having the output displayed which means zero. We
+[59:42] are skipping. So going back to the diagram because we
+[59:47] started write down it was basically this way
+[59:51] 1 0 not valid 1 1 has 1 2 1 2 has 1 13 1 3 as 1 14. Write not valid down. Write
+[59:58] not valid down. Write not valid down. Right valid. So this is the path we got.
+[1:00:06] Okay. Is that clear? See the debug messages.
+[1:00:11] Remember 0 0 1 invalid 1 0 1 0 uh 1 1 valid. Then 1 2 valid 1 13 valid.
+[1:00:23] Continue. 1 4 invalid. So 2 three valid. 1 three
+[1:00:28] valid. Then we down 2 three. After 2 3 2 4 is invalid. So 33
+[1:00:40] point taken. Now go back to the diagram above. Yeah. So this is the output. Now
+[1:00:47] imagine I had gone down first and then right. What would it be like?
+[1:00:53] The same test data. If I go down,
+[1:00:58] if I go down and then write
+[1:01:14] down first and then right. What will this look like? 0 0 will
+[1:01:21] become 1 zero. Is it valid? Then I'll go to 2 0. Is that valid? I'll go to 1 one.
+[1:01:27] Is that valid? I will not go right. I'll go down.
+[1:01:31] Is this valid? No, I'll go down. Is this valid? No, I'll go down. So I would have
+[1:01:35] got this path.
+[1:01:41] So there are multiple solutions possible. We don't care about them. We
+[1:01:45] are saying, oh, is there a path available? Which way you go first is
+[1:01:50] making a difference in the output.
+[1:01:55] Got it sir. Swap the code and show the same test case.
+[1:02:01] We are calling recursively dfs right dfs down. Write will again call right down.
+[1:02:07] Right will call write down and uh down will again call right down.
+[1:02:21] Get it how the stack looks like is based on DFS course only.
+[1:02:26] Yeah. Just see the difference in the outputs.
+[1:02:30] Now see 0 0 down first 1 0 2 0 is invalid 1 1 2 1 3 1 4 1 4 1 is also
+[1:02:41] valid. Then write 42 52 and 53. Are you there? 54.
+[1:02:51] Are you all seeing that 53 is invalid but then 44 is valid? No.
+[1:02:58] Two different solutions. Just the way you start processing it.
+[1:03:04] Is that helping you again understand why take left I mean down right versus right
+[1:03:09] down.
+[1:03:13] Are you there guys?
+[1:03:24] Are you clear? Shall we move on? The stack looks very different in either of
+[1:03:29] them. And we are always processing the top. And after we process the top again,
+[1:03:34] we add to it elements. Okay.
+[1:03:40] Okay. Uh
+[1:03:46] can you represent the entire stack for me for this
+[1:03:51] down and right? Take this piece of output and show us
+[1:03:58] down and write stack representation [snorts]
+[1:04:03] start. So starting with 0 0 after that down
+[1:04:13] 1 0
+[1:04:16] right then what will the stack here look like? See DFS of 0 0 cause DFS of 1 0
+[1:04:28] DFS of 01 DFS of 1 0 valid. What will DFS of one
+[1:04:34] zero call? DFS is of two 0 and DFS of 1 one.
+[1:04:43] What about DFS of 2 0? Is it valid? No. So where will I go to? 1 one. So the
+[1:04:51] stack will look like 1 one is valid. What will DF as a 1 one call?
+[1:04:58] DFS of 21 and DFS of one two is DFS of 21 valid.
+[1:05:06] So stack will contain 21. What will DFS of 21 contain? DFS of 31
+[1:05:12] and 22. Stack will contain 31 because 31 is
+[1:05:17] valid. What will DFS of 31 contain? 41 and 32.
+[1:05:25] stack is valid 41. We are not adding all these till this is
+[1:05:32] empty till we unwind it. Till we go back. Now what about DFS of 41? Can it
+[1:05:38] call 51? No. What will it call? 42. 42. Can it call 52? No.
+[1:05:46] 43. 53. No. 44. Does it have a one? Yes, we
+[1:05:51] already checked. I am not processing the rest of them.
+[1:05:58] I'm not processing them. I don't need to. I've got what I want.
+[1:06:05] Recussion, guys. Recussion.
+[1:06:13] Just visualize. There are two calls A1 and B1. A1 calls A2. A2 calls A3. A1
+[1:06:23] calls A2 but again it'll call B2. A2 will call A3 B3. A4 B4. If I have the A
+[1:06:31] solution, the B's never get processed.
+[1:06:37] The lot of those calls never get executed at all. So I'll just show you
+[1:06:43] the highle code and write it your own way. Sir, or shall we look at the code
+[1:06:50] next class? Tell me,
+[1:06:55] huh? How many want the code to be discussed today?
+[1:06:59] Nobody. Okay, cool. Yeah. Uh,
+[1:07:05] we will discuss this solution next class and uh there are lot of additional
+[1:07:11] programs today where you will solve this using BFS also.
+[1:07:16] You solve using DFS then solve using BFS. Solve the previous problem using B
+[1:07:20] uh DFS.
