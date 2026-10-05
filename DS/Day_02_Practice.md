@@ -1,19 +1,19 @@
 # DAA Day 2 — practice before reading solutions
 
-Read [Day 2 notes](Day_02_Notes.md), close them, and write the recurrence or invariant before coding. This is a focused set for the FS deadline; it is not a demand to finish every related problem on the internet.
+Read [Day 2 notes](Day_02_Notes.md), close them, and write the recurrence or invariant before coding. Under [the workflow revised on Day 3](Study_Workflow.md), prioritize recursion/strings here; Happy Number is now math/cycle-analysis revision, not required standalone coding. Existing reference examples remain available.
 
 ## 1. Order of work
 
 | Order | Task | Source | Target |
 |---:|---|---|---|
-| 1 | Fibonacci trace and optimisation drills A–C | Original exercises from the lecture | Explain repeated work and implement linear time |
+| 1 | Fibonacci trace and optimisation drill A | Original exercises from the lecture | Explain repeated work and implement linear time |
 | 2 | [Climbing Stairs, LC 70](https://leetcode.com/problems/climbing-stairs/) / [NeetCode version](https://neetcode.io/problems/climbing-stairs/question) | NeetCode 150; directly taught | Implement bottom-up and explain the bases |
-| 3 | [Reverse String, LC 344](https://leetcode.com/problems/reverse-string/) | NeetCode 150; direct string match | Two-pointer in-place method; then recursive version |
-| 4 | [Happy Number, LC 202](https://leetcode.com/problems/happy-number/) | NeetCode 150; directly taught | Digit-square helper plus cycle detection |
-| 5 | Generalised jumps and Java semantics D–F | Original extensions | Handle m jumps, references, and mutability |
-| Later | [Min Cost Climbing Stairs, LC 746](https://leetcode.com/problems/min-cost-climbing-stairs/) | NeetCode 150 extension | Do after the counting recurrence is solid; minimising cost is a different state |
+| 3 | [Reverse String, LC 344](https://leetcode.com/problems/reverse-string/) | Direct string match on the broader NeetCode list; **not NeetCode 150** | Two-pointer in-place method; then recursive version |
+| 4 | [Happy Number, LC 202](https://leetcode.com/problems/happy-number/) | NeetCode 150; directly taught; **MCQ analysis under the revised scope** | Trace digit transformation, termination and cycle-detection snippets |
+| 5 | Generalised jumps and Java semantics B–C | Original extensions | Handle m jumps, references, and mutability |
+| After FS | [Min Cost Climbing Stairs, LC 746](https://leetcode.com/problems/min-cost-climbing-stairs/) | NeetCode 150 DP extension | Defer new DP implementation under the current coding scope |
 
-These four direct NeetCode matches should replace duplicates from the college list when the statements are identical. The supplied assignment titles do not clearly name Fibonacci, Reverse String, Climbing Stairs, or Happy Number. U2_BS_SP_LCP is a string problem but tests longest common prefix, not reversal.
+The direct NeetCode 150 matches are Climbing Stairs and Happy Number; Reverse String is additional direct lecture practice. This corrects the original Day 2 sheet's membership claim, checked against the [official registry](https://github.com/neetcode-gh/leetcode/blob/main/.problemSiteData.json) on 5 October 2026. Replace a college duplicate only when its statement matches. The supplied titles do not clearly name these problems; U2_BS_SP_LCP tests longest common prefix, not reversal.
 
 ## 2. Paper drills
 
@@ -51,9 +51,9 @@ System.out.println(s2);
 ### D — Happy number
 
 1. Compute the full sequence for 13 and 116 until the stopping state.
-2. Implement sumOfDigitSquares(n) using % 10 and integer / 10.
+2. Trace sumOfDigitSquares(n), identifying the digit, accumulated sum and remaining n after each % 10 and integer / 10 operation.
 3. Why are “stop when the next value is larger” and “stop when it equals the original input” invalid general rules?
-4. Implement the set-based version and the constant-space Floyd version. State the convention for input 0.
+4. Explain how a set-based version detects repeats and how a constant-space Floyd version detects a cycle. Analyse supplied snippets rather than assigning another implementation. State the convention for input 0.
 
 ## 3. Coding targets
 
@@ -64,7 +64,8 @@ Attempt each without looking at the reference file. Use C++ for the algorithmic 
 3. climbStairs(n) — bottom-up O(n) time and O(1) space.
 4. countWays(n,m) — memoized general-jump version with ways(0)=1 and negative states 0.
 5. reverseInPlace(s) — two-pointer C++ string method; also write the recursive form.
-6. isHappy(n) — set-based cycle detection, including n=0.
+
+Happy Number's existing reference is optional reading; it is excluded from required coding under the revised scope.
 
 For each function, write one boundary case, one normal case, and the complexity before coding. Reattempt the same function after a break without opening the notes.
 

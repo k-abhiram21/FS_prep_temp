@@ -4,7 +4,22 @@
 
 **Day 1 selection:** Product Except Self and Climbing Stairs from NeetCode 150, plus local factorial/recursion/counting drills. The list has no unambiguous direct counterpart for the first two. `StairCase` requires its statement.
 
-**Day 2 selection:** Climbing Stairs, Reverse String and Happy Number are direct NeetCode 150 practice matches; Fibonacci and generalised jumps are local exercises from the lecture. The supplied college titles do not clearly identify any of these four exact problems. U2_BS_SP_LCP and U2_BS_SP_LCP HashMap concern longest common prefix, so do not count them as reverse-string duplicates. Avoid treating U2_BS_AP_StairCase as Climbing Stairs until its statement confirms the recurrence.
+**Day 2 selection:** Climbing Stairs and Happy Number are direct NeetCode 150 matches; Reverse String is on the broader NeetCode list, not the 150. Fibonacci and generalised jumps are local exercises. Under the Day 3 workflow, Happy Number is MCQ analysis rather than mandatory standalone coding. The supplied college titles do not clearly identify these problems. U2_BS_SP_LCP and U2_BS_SP_LCP HashMap concern longest common prefix, not reversal. Read U2_BS_AP_StairCase's statement before mapping it to Climbing Stairs.
+
+**Current FS rule:** coding practice/reference solutions are restricted to recursion, arrays/strings and greedy. The complete inventory below is a topic map, not a request to code every listed assignment. Other topics receive notes and code-scenario MCQs. See [Study_Workflow.md](Study_Workflow.md).
+
+## Day 3 practice map
+
+| Lecture topic | Selected exercise | Relationship / scope |
+|---|---|---|
+| Euclidean GCD | Recursive GCD + array reduction in [Day 3 practice](Day_03_Practice.md) | Custom lecture exercise; recursion/array reduction; no exact supplied assignment |
+| Strobogrammatic check | Local checker / [LC 246](https://leetcode.com/problems/strobogrammatic-number/) | Direct lecture match; strings; not NeetCode 150 |
+| Strobogrammatic generation | Local small-input generator / [LC 247](https://leetcode.com/problems/strobogrammatic-number-ii/) | Direct lecture match; optional recursion attempt; not NeetCode 150 |
+| Palindrome comparison | [Valid Palindrome, LC 125](https://leetcode.com/problems/valid-palindrome/) | NeetCode 150 related transfer, with different normalization rules; not identical to rotation |
+| Strobogrammatic prime | [Day 3 MCQs Q25–29](Day_03_MCQ.md#primality-and-combined-predicates--mcq-study) | Primality guard, sqrt boundary, overflow and short circuit; no standalone prime coding |
+| Strobogrammatic palindrome | Optional combined strings checker | Local transfer; no exact college title identified |
+
+The membership correction and Day 3 transfer were checked in the [official NeetCode registry](https://github.com/neetcode-gh/leetcode/blob/main/.problemSiteData.json) on 5 October 2026. The named strobogrammatic tasks are not in that registry. Do not add later backtracking/graph assignments solely because Day 3 introduces recursive generation.
 
 ## Day 2 practice map
 

@@ -2,6 +2,8 @@
 
 **Window: 4–8 October 2026; test on 9 October as stated in your supplied plans.** This is a focused adaptation of [PreFS_6_Day_Preparation_Plan.md](/mnt/windows/Users/abhir/Documents/Projects/PreFS_6_Day_Preparation_Plan.md) and [GATE_CS_2027_PreFS_Study_Guide.md](/mnt/windows/Users/abhir/Documents/Projects/GATE_CS_2027_PreFS_Study_Guide.md). They supply context; your latest instruction makes FS the immediate priority. The original files have not been changed.
 
+**Update, 5 October:** the notice you pasted directly confirms three coding areas—recursion, arrays/strings and greedy—plus three coding questions, 30 MCQs in 30 minutes, and two hours total. New lecture packages follow [Study_Workflow.md](Study_Workflow.md). Every lecture topic is covered in notes; topics outside these coding areas receive deeper explanations and code-scenario MCQs instead of standalone coding tasks. The notice gives no detailed DAA MCQ topic list, so lecture coverage remains useful. Your instruction sets the hard scenario-based preparation format.
+
 ## 1. Is the original plan feasible?
 
 The learning method is sound: lecture notes → worked examples → independent questions → review. **Studying all 27 lectures deeply, solving their assignments and related NeetCode tasks, and preparing the other FS subjects within five days is not a realistic target under the stated four-hour daily budget.** Twenty focused hours must cover six subject areas and a mock/review.
@@ -22,16 +24,16 @@ This keeps the four-hour budget from the newer plan. The Day 1 DAA package **rep
 | Date | Minutes, in study order | Total |
 |---|---|---:|
 | **4 Oct** | 15 diagnostic/platform checks; **90 Day 1 DAA notes + drills + product coding**; 65 WT basics/collections/JSON; 55 Java/output questions; 15 closed-book recall | **240** |
-| **5 Oct** | 15 recall; **70 recursion coding** (25 Climbing Stairs, 20 recursive binary search, 15 simple include/exclude trace, 10 review); 50 async JavaScript; 30 DOM; 45 Python; 30 mixed questions | **240** |
+| **5 Oct** | 15 recall; **70 Day 2/3 recursion + strings + MCQs** (15 notes, 20 checker, 10 recursive GCD or weak Climbing Stairs reattempt, 15 Day 3 MCQs, 10 review); 50 async JavaScript; 30 DOM; 45 Python; 30 mixed questions | **240** |
 | **6 Oct** | 15 recall; **65 greedy** (activity selection and fractional knapsack); 45 CN OSI/physical; 70 CN data link; 25 SE process models; 20 review | **240** |
-| **7 Oct** | 15 recall; **45 coding reattempt**; 80 AI/ML/ANN/TensorFlow; 60 SE/Agile/DevOps/Git; **20 DAA breadth recall**; 20 mixed MCQs | **240** |
+| **7 Oct** | 15 recall; **45 coding reattempt within the three areas**; 80 AI/ML/ANN/TensorFlow; 60 SE/Agile/DevOps/Git; **20 DAA scenario-MCQ repair**; 20 mixed MCQs | **240** |
 | **8 Oct** | 120 full mock; 60 review; 45 repair weakest topic; 15 final recall/platform readiness | **240** |
 
 Breaks are outside focused time. The small blocks assume revision of previously encountered material, not learning every subject from zero. Reallocate familiar-topic time to genuinely new topics when needed, and mark what remains uncovered.
 
-The 5 October recursion block replaces the older plan's exact task list: Climbing Stairs is now its first implementation; the short include/exclude exercise is a preview, not full backtracking mastery. On 6 October, use the college fractional-knapsack assignment rather than doing an external duplicate. On 7 October, reattempt a failed task before adding a new one.
+The 5 October block replaces the older exact task list with the supplied Day 2/3 content. If the Day 2 staircase recurrence is still weak, reattempt it instead of adding GCD coding. Day 3's larger recursive generator is optional, not extra compulsory time. On 6 October, use the college fractional-knapsack assignment rather than doing an external duplicate. On 7 October, repair missed code-scenario MCQs and reattempt a failed allowed-scope task before adding a new one.
 
-The mock format—30 MCQs in 30 minutes and three coding prompts in the remaining 90 minutes—comes from the supplied plans' account of your notice. It is a practice allocation; actual section locking, accepted languages and exam start time still require the platform/college instructions. C++ is the preferred coding language in those plans, conditional on platform acceptance; revise Java/Python output behaviour separately.
+The directly supplied notice confirms the mock's 30 MCQs/30 minutes and three coding questions/two-hour total. Allowing the remaining 90 minutes for coding is a practice allocation; actual section locking, accepted languages and exam start time still require the platform/college instructions. C++ is preferred in the context plans, conditional on platform acceptance; scenario snippets state their language explicitly so Java/Python behaviour is not confused with C++.
 
 ## 3. How to process the remaining lectures
 
@@ -40,18 +42,19 @@ For each supplied lecture, make a package with:
 1. **Scope and timestamps:** what was actually taught, and any missing prior-class assumptions.
 2. **Core concept:** intuition, definitions, recurrence/invariant and a worked trace.
 3. **Exam recall:** contrasts, output questions, complexity and common traps.
-4. **Practice selection:** normally one or two representative tasks, deduplicated against college assignments and previous lectures; a dense lecture can be split across sessions.
-5. **Extensions:** useful later, clearly separated from this week's required work.
+4. **Coding selection:** one or two representative recursion, array/string or greedy tasks, deduplicated against college assignments and previous lectures. No standalone implementation tasks for other topic areas before FS.
+5. **Scenario MCQs:** a dedicated Day_XX_MCQ.md with code, four options, hidden answers and explanations of output, intermediate states, complexity, bugs and edge cases. Include every other taught topic here, with detailed supporting notes.
+6. **Extensions:** useful later, clearly separated from this week's required work. A question bank can be attempted in small targeted subsets.
 
 Classify topics before allocating study time:
 
 | Priority | Use before FS |
 |---|---|
 | **Deep practice** | Arrays/strings, recursion traces and coding, elementary greedy; topics explicitly required by the actual FS notice |
-| **Recall and representative examples** | Search/complexity, data structures, and taught trees/graphs/MST/shortest-path contrasts for broad DAA questions |
-| **Later depth unless confirmed required** | Hard backtracking, specialised binary-search tasks, full DP sequences and completing all lab tasks |
+| **Detailed notes + scenario MCQs** | Other taught DAA techniques, including search, number theory, trees/graphs/MST/shortest paths, operation costs and language behaviour; study traces and bugs, without full implementation assignments |
+| **Implementation after FS** | Out-of-scope algorithms, advanced DP sequences, hard backtracking extensions and completion of the full lab inventory; their taught concepts still receive notes/MCQs now |
 
-These priorities come from the exam scope described in your plans, not an inferred marks distribution. Your assignment list is broader than those named coding areas. If your actual notice or past paper explicitly includes a deferred topic, promote it and swap time from a familiar block. We have only Day 1's transcript; topics for Days 2–27 have not yet been reconstructed.
+The three coding areas now come directly from your pasted notice. No marks distribution or specific DAA MCQ list is inferred. Your assignment list is broader than the coding areas; keep it as a topic map. Days 1–3 have been analysed; Days 4–27 await transcripts.
 
 ## 4. Practice rules under this deadline
 
@@ -64,6 +67,6 @@ These priorities come from the exam scope described in your plans, not an inferr
 
 ## 5. Today's concrete target
 
-Use [Day_01_Notes.md](Day_01_Notes.md) and [Day_01_Practice.md](Day_01_Practice.md). By the end of the allocated session, aim to derive exclusive prefix/suffix products, trace recursive returns, distinguish asymptotic bounds, and attempt the product problem. Derive stairs today and implement it in tomorrow's recursion block. If a foundational concept needs more time, carry it forward explicitly rather than claiming Day 1 is mastered.
+As of the Day 3 package, use [Day_03_Notes.md](Day_03_Notes.md), [scope-filtered practice](Day_03_Practice.md) and [Day_03_MCQ.md](Day_03_MCQ.md). Aim to justify the GCD transition, validate all rotated pairs including the odd centre, explain the empty-middle generation base, and diagnose the prime snippets. Carry any weak Day 1/2 foundation into the next block rather than assuming lecture-note delivery means mastery.
 
 On 9 October, use the existing plan's brief recall/logistics routine. The five full study days end on 8 October. GATE preparation can resume after the immediate FS test.
