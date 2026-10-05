@@ -4,6 +4,8 @@
 
 **FS use:** [coding practice](Day_03_Practice.md) covers recursion and arrays/strings. [The 30-question MCQ bank](Day_03_MCQ.md) covers all lecture topics, including primality, library-operation cost, bugs and intermediate states. Follow [the updated workflow](Study_Workflow.md); no greedy method was taught in this lecture.
 
+**Language update:** study Java code scenarios in [the hard bank](FS_Java_Hard_MCQ_Bank.md); submit C++ using [the existing references](code/day03_reference.cpp) and [the I/O revision sheet](FS_Java_CPP_Exam_Revision.md).
+
 ## 1. What was discussed
 
 | Time | Topic | Exam skill |

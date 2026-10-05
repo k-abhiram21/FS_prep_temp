@@ -6,7 +6,7 @@ Days 1–3: transcripts previously supplied by you, with individual notes/practi
 
 ## Days 1–10
 
-| Day | Evidence | Substantive coverage | New bank section |
+| Day | Evidence | Substantive coverage | Original bank section |
 |---|---|---|---|
 | 1 | [transcript](sources/Day_01_Transcript.txt), [notes](Day_01_Notes.md) | Product except self; O/Ω/Θ; factorial; head/tail/tree/indirect recursion; permutations; Fibonacci; stairs | Foundations; Recursion and strings |
 | 2 | [transcript](sources/Day_02_Transcript.txt), [notes](Day_02_Notes.md) | Iterative/state/branching Fibonacci; generalized stairs; reversal; immutable strings and builders; happy-number cycles | Recursion and strings; Language and cost |
@@ -49,6 +49,8 @@ Times identify approximate topic windows; use the timestamped source for exact w
 - [Coding gaps](FS_Coding_Gap_Practice.md): local exercises for method-specific recursion, arrays/strings and elementary greedy. Graph/tree implementations remain in the MCQ track for this FS window.
 - [Exact LeetCode pool](FS_LeetCode_Practice.md): every row checked against your 144-ID inventory. Direct class matches, method transfers and extensions are labelled separately.
 - [DAA MCQ bank](FS_DAA_MCQ_Bank.md): original four-option questions with hidden explanations, including the existing 30 Day 3 questions in one file. Each new section points to its lecture evidence. Extensions are marked explicitly.
+- [Hard Java bank](FS_Java_Hard_MCQ_Bank.md): 160 code-only scenario questions with a separate 27-section coverage index; deeper search, graph/tree and backtracking traces, Java bugs, complexity and intermediate states. Java/API and assignment-only extensions are labelled.
+- [Java/C++ exam revision](FS_Java_CPP_Exam_Revision.md): full-program input/output and method syntax for the actual exam format; this is platform transfer material rather than a claim about lecture screen code.
 
 ## Evidence boundaries and unresolved assignment titles
 

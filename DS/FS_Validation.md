@@ -18,3 +18,7 @@ The C++ reference checks use `-Wall -Wextra -Wpedantic -Werror` plus address/und
 Tests validate implementations under the stated local contracts and selected question answers. They do not establish lecturer-screen equivalence, exhaust every input/type beyond those contracts, verify unknown assignment statements, or predict exam coverage. Days 4–10 are user summaries; Days 11–27 are auto-captions. No claim is made that the full FS MCQ syllabus across all subjects is covered by this DAA file.
 
 **Latest run:** PASS — bank structure, solved-status mapping, source/link checks, 40 selected answers, C++ reference checks and compiled C++/Java traces.
+
+## Separate Java-only scenario package
+
+The original bank above is preserved. See [FS_Java_Validation.md](FS_Java_Validation.md) for the new 160-question Java bank, paired Java/C++ input/output templates, selected syntax checks and the corrected C++ state-Fibonacci boundary. These have separate repeatable validation scripts; the new report distinguishes executed outputs from manually reasoned complexity.

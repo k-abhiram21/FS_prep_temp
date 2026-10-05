@@ -154,3 +154,15 @@ The set must be checked before adding the current state a second time. Alternati
 | Date | Task | Mistake or uncertainty | Correct rule | Reattempt result |
 |---|---|---|---|---|
 | | | | | |
+
+
+## C++ counterpart for C5
+
+```cpp
+std::string s1="genesis";
+std::string s2=s1;
+s1 += "ng";
+std::cout<<s1<<'\n'<<s2<<'\n';
+```
+
+Both languages print genesisng then genesis here, but for different representations: Java replaces an immutable string reference; C++ mutates its copied string value. For the exam MCQ answer use the original Java code’s rules.

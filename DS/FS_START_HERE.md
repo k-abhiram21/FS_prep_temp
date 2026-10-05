@@ -8,12 +8,15 @@ Prepared 5 October 2026 for the 9 October FS described in your pasted notice: 3 
 
 | File | What you get |
 |---|---|
+| [FS_Java_Hard_MCQ_Bank.md](FS_Java_Hard_MCQ_Bank.md) | **Primary MCQ practice:** 160 Java-only code scenarios; output, intermediate state, bugs, complexity and repairs; deeper graph/tree/search/backtracking coverage |
+| [FS_Java_CPP_Exam_Revision.md](FS_Java_CPP_Exam_Revision.md) | Ten-point recall checklist plus broad paired Java/C++ syntax, full-program input/output, parsing, conversions and collections |
 | [FS_Coding_Gap_Practice.md](FS_Coding_Gap_Practice.md) | 13 local/method exercises: contracts, examples, expected complexity, priorities and reference-function links |
 | [FS_LeetCode_Practice.md](FS_LeetCode_Practice.md) | 71 exact problems: 42 in your 144-ID paste, 29 new; direct class matches versus transfers/extensions; coding versus MCQ priorities |
-| [FS_DAA_MCQ_Bank.md](FS_DAA_MCQ_Bank.md) | 250 four-option scenarios with hidden explained answers; topic index and30-question diagnostic; all existing 30 Day 3 questions included |
+| [FS_DAA_MCQ_Bank.md](FS_DAA_MCQ_Bank.md) | Preserved 250-question concept/background bank; use the new Java bank for the requested code-analysis format |
 | [FS_Concept_Notes.md](FS_Concept_Notes.md) | Worked rules, traces, complexity and corrected assumptions across the lecture sequence; links to detailed Days 1–3 notes |
 | [FS_Lecture_Coverage.md](FS_Lecture_Coverage.md) | Day-by-day evidence, approximate timestamps, scope and unresolved assignment variants |
 | [FS_Validation.md](FS_Validation.md) | What was checked and what remains a source limitation |
+| [FS_Java_Validation.md](FS_Java_Validation.md) | Compilation/output checks for every new Java question and paired exam I/O templates |
 
 ## Your first queue
 
@@ -43,7 +46,9 @@ Use the existing [four-hour daily plan](FS_5_Day_Strategy.md), replacing its DAA
 |7 Oct|45 coding repair: 35 weakest reattempt, 10 partition/merge/power trace; plus existing20-minute DAA MCQ block for mistakes|
 |8 Oct|Keep120-minute mixed FS mock and review. Choose unfamiliar allowed-scope coding tasks; include other subjects in the 30 MCQs. Repair errors before adding breadth.|
 
-Times are preparation choices, not an official section schedule. If you already finished a task independently, recall it briefly and use its time for a weak task. No assumption is made that you have completed any practice. The whole bank is reference material to select from, not 250 compulsory questions before9 October.
+Times are preparation choices, not an official section schedule. If you already finished a task independently, recall it briefly and use its time for a weak task. No assumption is made that you have completed any practice. Both banks are reference pools, not compulsory checklists before9 October. Use the new Java bank's diagnostic for timed MCQ blocks and repair missed topics using its coverage index.
+
+**Language split from your latest instruction:** all new MCQs use Java; coding examples and full-program practice offer C++17 alongside Java. Before a timed coding attempt, write the class/main, parser and output loop yourself using the revision sheet. An accepted LeetCode method alone does not practise this part of the exam.
 
 ## How to re-solve
 

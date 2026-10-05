@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <string>
+#include <stdexcept>
 #include <unordered_set>
 #include <vector>
 
@@ -16,9 +17,17 @@ long long fibIterative(int n) {
     return b;
 }
 
-long long fibState(int remaining, long long a = 0, long long b = 1) {
-    if (remaining == 0) return a;
-    return fibState(remaining - 1, b, a + b);
+// Helper stops before an unused F(n+1) would overflow at the F(92) boundary.
+static long long fibStateImpl(int remaining,long long a,long long b) {
+    if(remaining==0) return a;
+    if(remaining==1) return b;
+    return fibStateImpl(remaining-1,b,a+b);
+}
+// Default seeds compute F(n) for 0..92. Other seeds require fitting additions.
+long long fibState(int remaining,long long a=0,long long b=1) {
+    if(remaining<0 || remaining>92)
+        throw invalid_argument("default-seed Fibonacci requires 0..92");
+    return fibStateImpl(remaining,a,b);
 }
 
 long long climbStairs(int n) {

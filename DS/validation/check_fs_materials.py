@@ -28,7 +28,10 @@ for d in range(11,28):
     assert 'Captions: auto-generated' in t and len(re.findall(r'^\[',t,re.M))>400
 # Check file targets in all newly produced user documents, without requiring external URLs.
 for p in list(DS.glob('FS_*.md')):
-    for target in re.findall(r'\]\(([^)]+)\)',p.read_text()):
+    # C++ lambdas such as [](args) are code, not Markdown links.
+    prose=re.sub(r'```.*?```|~~~.*?~~~','',p.read_text(),flags=re.S)
+    prose=re.sub(r'`[^`]*`','',prose)
+    for target in re.findall(r'\]\(([^)]+)\)',prose):
         if target.startswith(('http:','https:','#','mailto:')):continue
         local=target.split('#')[0].split(':')[0].strip('<>')
         if local:assert (p.parent/local).exists(),(p.name,target)

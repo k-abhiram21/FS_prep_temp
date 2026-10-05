@@ -5,9 +5,12 @@ Start with [the lecture-based package](FS_START_HERE.md), then follow [the FS st
 | Material | Purpose |
 |---|---|
 | [FS_START_HERE.md](FS_START_HERE.md) | Current priorities, first queue and how to use the complete package |
+| [FS_Java_Hard_MCQ_Bank.md](FS_Java_Hard_MCQ_Bank.md) | **160 Java-only code-analysis questions:** output, iteration snapshots, bugs, complexity and repair; primary MCQ bank |
+| [FS_Java_CPP_Exam_Revision.md](FS_Java_CPP_Exam_Revision.md) | Broad paired syntax/API revision, complete stdin/stdout programs and ten-point recall checklist |
+| [FS_Java_Validation.md](FS_Java_Validation.md) | Every new Java snippet compiled; bounded results verified; paired input/output checks |
 | [FS_Coding_Gap_Practice.md](FS_Coding_Gap_Practice.md) | 13 local/method coding drills with contracts and reference code |
 | [FS_LeetCode_Practice.md](FS_LeetCode_Practice.md) | Expanded exact 71-problem pool: 42 in your paste, 29 new |
-| [FS_DAA_MCQ_Bank.md](FS_DAA_MCQ_Bank.md) | 250 original scenarios with hidden answers and a 30-question diagnostic |
+| [FS_DAA_MCQ_Bank.md](FS_DAA_MCQ_Bank.md) | Preserved 250-question background/concept bank with hidden answers |
 | [FS_Concept_Notes.md](FS_Concept_Notes.md) | Consolidated lecture concepts, traces, complexity and corrections |
 | [FS_Lecture_Coverage.md](FS_Lecture_Coverage.md) | Evidence and timestamps for Days 1–27; unresolved variants |
 | [FS_Validation.md](FS_Validation.md) | Checks performed and limits |
@@ -32,7 +35,7 @@ Start with [the lecture-based package](FS_START_HERE.md), then follow [the FS st
 | [sources/Day_02_Transcript.txt](sources/Day_02_Transcript.txt) | Unedited copy of the second transcript you supplied |
 | [sources/Day_03_Transcript.txt](sources/Day_03_Transcript.txt) | Unedited copy of the third transcript you supplied |
 
-C++ follows the language preference in your attached preparation plan, conditional on test-platform acceptance. Java snippets explain the classroom traces and language semantics. The study package contains no claim that a college judge submission has been made.
+Your latest instruction confirms Java-only MCQs and a C++ option for coding. New MCQ snippets therefore remain Java; algorithm examples and exam I/O revision supply C++ counterparts where useful. The local checks use Java17 and C++17; the judge's actual version and input contract still apply. The study package contains no claim that a college judge submission has been made.
 
 The notice pasted on 5 October confirms the exam date (9 October), two-hour duration, three coding questions and 30 MCQs in 30 minutes. DAA topics beyond the three coding areas stay in the notes/MCQ track. Earlier reference material is retained; it does not create new coding obligations outside that scope.
 

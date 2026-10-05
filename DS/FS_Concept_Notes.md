@@ -2,6 +2,8 @@
 
 Read [the evidence map](FS_Lecture_Coverage.md) for source quality and timestamps. **Class** below means the concept is present in the supplied summary/captions; **extension** means added transfer material. Code is C++17 unless Java/Python is named. Indexes are zero-based; complexity assumes fixed-width operations and counts copying by actual length. Arithmetic must fit unless overflow is the topic.
 
+These algorithm notes support your C++ coding option. For **Java-only exam MCQs**, use [the hard Java bank](FS_Java_Hard_MCQ_Bank.md): language-specific evaluation, overflow, identity, exceptions and collection rules follow Java. The [paired syntax revision](FS_Java_CPP_Exam_Revision.md) explains the differences and full-program I/O. Do not transfer a C++ unspecified-order or undefined-overflow answer to a Java snippet.
+
 For Days 1–3 use [Day 1](Day_01_Notes.md), [Day 2](Day_02_Notes.md), [Day 3](Day_03_Notes.md). Their essentials: empty products use identity 1; output space differs from auxiliary space; O/Ω/Θ are bounds rather than synonyms for worst/best/average; recursion needs a base and progress; linear stack depth can accompany exponential total calls; accumulator recursion still uses stack unless optimization is guaranteed; GCD uses (a,b)→(b,a%b); odd strobogrammatic centres can only be 0,1,8; leading zeros are forbidden only at the outer layer. A happy-number sequence needs cycle detection, not an arbitrary iteration cap. Java strings are immutable but variables can be reassigned; a builder can mutate a shared object.
 
 ## 1. Divide and conquer; quicksort — Days 4–5

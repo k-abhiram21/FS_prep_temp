@@ -6,6 +6,8 @@
 
 **Use:** read the core sections, close the notes and attempt [Day 1 practice](Day_01_Practice.md). Consult the reference code only after attempting a solution. The full notes support understanding; the final recall sheet supports revision.
 
+**Language update:** MCQs are Java-only per your latest instruction; coding may be C++. Java examples remain for analysis, with C++ counterparts beside the core algorithms. Use [the hard Java bank](FS_Java_Hard_MCQ_Bank.md) and [syntax/I/O sheet](FS_Java_CPP_Exam_Revision.md).
+
 ## 1. What the lecture covers
 
 | Approximate video time | Topic | What you should be able to do |
@@ -275,6 +277,15 @@ static long factorial(int n) {
 }
 ```
 
+**C++ coding counterpart** (assume `<iostream>` / `<stdexcept>` as needed; place functions outside main):
+
+```cpp
+long long factorial(int n) {
+    if(n<0 || n>20) throw std::invalid_argument("0..20 required");
+    return n<=1 ? 1 : n*factorial(n-1);
+}
+```
+
 Trace factorial(4):
 
 ```text
@@ -328,6 +339,16 @@ static void head(int n) {
 }
 ```
 
+**C++ coding counterpart** (assume `<iostream>` / `<stdexcept>` as needed; place functions outside main):
+
+```cpp
+void head(int n) {
+    if(n<=0) return;
+    head(n-1);
+    std::cout<<n<<' ';
+}
+```
+
 `head(4)` descends to head(0), then prints on return: **1 2 3 4**. Each frame remembers its own n. Time Θ(n), stack Θ(n). A base-case guard can come before the recursive call; “first operation” means first substantive operation after that guard.
 
 ### 7.2 Tail-style: work before recursion
@@ -337,6 +358,16 @@ static void tail(int n) {
     if (n <= 0) return;
     System.out.print(n + " ");
     tail(n - 1);
+}
+```
+
+**C++ coding counterpart** (assume `<iostream>` / `<stdexcept>` as needed; place functions outside main):
+
+```cpp
+void tail(int n) {
+    if(n<=0) return;
+    std::cout<<n<<' ';
+    tail(n-1);
 }
 ```
 
@@ -363,6 +394,20 @@ static void B(int n) {
 }
 ```
 
+**C++ coding counterpart** (assume `<iostream>` / `<stdexcept>` as needed; place functions outside main):
+
+```cpp
+void B(int n); // forward declaration for the indirect cycle
+void A(int n) {
+    if(n<=0) return;
+    std::cout<<n<<' '; B(n-1);
+}
+void B(int n) {
+    if(n<=0) return;
+    std::cout<<n<<' '; A(n/2);
+}
+```
+
 ```text
 A(10) → B(9) → A(4) → B(3) → A(1) → B(0)
 Printed: 10 9 4 3 1
@@ -384,6 +429,18 @@ static void tree(int n) {
     System.out.print(n + " ");
     tree(n - 1);
     tree(n - 1);
+}
+```
+
+**C++ coding counterpart** (assume `<iostream>` / `<stdexcept>` as needed; place functions outside main):
+
+```cpp
+int calls=0; // reset before each independent experiment
+void tree(int n) {
+    ++calls;
+    if(n<=0) return;
+    std::cout<<n<<' ';
+    tree(n-1); tree(n-1);
 }
 ```
 
@@ -447,6 +504,15 @@ static long fib(int n) {
     if (n < 0) throw new IllegalArgumentException("n must be nonnegative");
     if (n < 2) return n;
     return fib(n - 1) + fib(n - 2);
+}
+```
+
+**C++ coding counterpart** (assume `<iostream>` / `<stdexcept>` as needed; place functions outside main):
+
+```cpp
+long long fib(int n) {
+    if(n<0 || n>30) throw std::invalid_argument("small naive demo only");
+    return n<2 ? n : fib(n-1)+fib(n-2);
 }
 ```
 

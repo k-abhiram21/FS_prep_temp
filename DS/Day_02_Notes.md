@@ -4,6 +4,8 @@
 
 **How to use this file:** read the concept and worked trace, close it, then attempt [Day 2 practice](Day_02_Practice.md). Read [the reference code](code/day02_reference.cpp) only after writing your own solution.
 
+**Language update:** Java is the MCQ language; C++ is available for coding. Keep Java semantics here and use [the Java-only hard bank](FS_Java_Hard_MCQ_Bank.md) plus [the paired syntax/I/O guide](FS_Java_CPP_Exam_Revision.md).
+
 ## 1. Lecture map
 
 | Approx. time | Topic | Skill to retain |
@@ -147,7 +149,16 @@ Call it with (s,0,s.length()-1). Time is Θ(n), but recursion stack is Θ(n). It
 String reversed = new StringBuilder(s).reverse().toString();
 ~~~
 
-This is concise and correct. It allocates a mutable builder and a resulting String, so it does not meet a strict “no extra space” requirement. Read the problem’s constraint before choosing convenience over the explicit two-pointer method.
+**C++ coding counterpart** (include `<algorithm>` and `<string>`):
+
+```cpp
+std::string reversed=s; // copy if original must be retained
+std::reverse(reversed.begin(),reversed.end());
+```
+
+To reverse the original mutable string, call `std::reverse(s.begin(),s.end())`. C++ value copying differs from Java immutable-string reassignment; see the paired guide.
+
+The Java builder version is concise and correct. It allocates a mutable builder and a resulting String, so it does not meet a strict “no extra space” requirement. The shown C++ copy also takes linear extra storage. Read the problem’s constraint before choosing convenience over the explicit two-pointer method.
 
 ## 5. Java String, StringBuilder and StringBuffer
 
@@ -238,3 +249,15 @@ so it is not happy. The digit-square helper is a separate reusable function, whi
 - Can I compute a digit-square sum and stop happy-number iteration using a cycle rule?
 
 The final lecture instruction was to optimise the previous Fibonacci program and continue both previous and Day 2 programs. Do that only after attempting the practice sheet from memory.
+
+
+## C++ counterpart for the Java reference-reassignment example
+
+```cpp
+std::string s2="genesis";
+std::string s1=s2; // independent value copy
+s1 += "ng";
+// s1 is genesisng; s2 remains genesis.
+```
+
+C++ strings mutate their own value; `std::string& alias=s1` would share mutations. Java StringBuilder’s shared mutable object is therefore closer to an explicit C++ reference than to this value copy. See [the exam syntax sheet](FS_Java_CPP_Exam_Revision.md) for append, erase, conversion and collections.

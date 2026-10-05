@@ -2,6 +2,8 @@
 
 The screening notice pasted on 5 October 2026 is the current scope: **9 October 2026, two hours, three coding questions, and 30 MCQs in 30 minutes.** Coding is restricted to **recursion, arrays and strings, and greedy**. The notice names DAA in the MCQ section without a detailed DAA topic list. The expectation of difficult code-scenario MCQs comes from your instruction, rather than an explicit difficulty statement in the notice.
 
+Your latest instruction specifies **Java-only MCQs**, with C++ available for coding. Use [the hard Java bank](FS_Java_Hard_MCQ_Bank.md) for exam-format practice and [the Java/C++ revision sheet](FS_Java_CPP_Exam_Revision.md) for full-program syntax/input/output. The earlier mixed-language/concept bank is retained as background material.
+
 ## What each lecture package contains
 
 | File | Contents |
@@ -18,6 +20,8 @@ For example, Day 3's recursive GCD and recursive string generation directly prac
 
 ## Rules for code-scenario questions
 
+- Every new question contains Java code, including all helpers needed to trace it. Prefer intermediate states, interacting bugs, method costs and counterexamples over definition-only recall.
+- Give greater depth to lecture topics outside coding scope: search, graphs, trees, parsing and backtracking need several traces/repairs per method.
 - State the language, inputs, indexing convention, integer assumptions and observation point.
 - Ask for intermediate state, output, call/iteration count, complexity, a minimal counterexample, or a repair.
 - Explain why the chosen answer is right and what assumption makes the tempting alternative fail.
@@ -25,6 +29,8 @@ For example, Day 3's recursive GCD and recursive string generation directly prac
 - Do not give a numeric output for undefined C++ behaviour. If a snippet deliberately has such a bug, that is the answer.
 - Keep answers hidden using GitHub-compatible details blocks so the files work on a phone.
 - Questions are original practice, not claimed past papers or predictions of exam questions.
+
+For coding revision, add C++ counterparts to useful Java algorithm examples while preserving Java-specific material such as reference equality, unboxing, evaluation order and collection overloads. Practise complete class/main, stdin parsing, test-case resets and exact stdout formatting; a platform-supplied method signature is insufficient practice for this exam.
 
 ## Working within the deadline
 
