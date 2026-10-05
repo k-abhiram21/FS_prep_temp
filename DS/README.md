@@ -4,6 +4,8 @@ Follow [the FS study workflow](Study_Workflow.md): coding is limited to recursio
 
 | Material | Purpose |
 |---|---|
+| [LeetCode_FS_Revision.md](LeetCode_FS_Revision.md) | Focused revision from your solved problems: diagnostics, eight candidate attempts, transfer checks and gap repair |
+| [LeetCode_Solved_Inventory.md](LeetCode_Solved_Inventory.md) | Clean inventory of all 144 reported solved problems |
 | [Day_01_Notes.md](Day_01_Notes.md) | Worked explanations, corrected lecture claims and quick recall |
 | [Day_01_Practice.md](Day_01_Practice.md) | Two direct NeetCode matches, paper drills, hidden answer key and reattempt log |
 | [Day_02_Notes.md](Day_02_Notes.md) | Fibonacci, staircase recurrences, string reversal, Java string semantics and happy numbers |
