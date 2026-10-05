@@ -1,5 +1,7 @@
 # DAA preparation — FS first
 
+For interactive, offline revision, open [Algorithm Atlas](visualize/README.md). Its portable site is [visualize/dist/index.html](visualize/dist/index.html); it includes visual lessons, step labs, the MCQ banks and a non-transcript source library.
+
 Start with [the lecture-based package](FS_START_HERE.md), then follow [the FS study workflow](Study_Workflow.md): coding is limited to recursion, arrays/strings and greedy; all other lecture topics receive detailed notes and scenario MCQs. Start with Day 1 and Day 2, then [Day 3 notes](Day_03_Notes.md), [Day 3 coding practice](Day_03_Practice.md) and [Day 3 MCQs](Day_03_MCQ.md). Use [the five-day strategy](FS_5_Day_Strategy.md) to protect the other subjects, and [the assignment map](Assignment_Map.md) to avoid duplicate tasks.
 
 | Material | Purpose |
