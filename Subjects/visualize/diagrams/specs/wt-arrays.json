@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Array methods: transform, select, combine",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "wt-arrays-step1",
+    "wt-arrays-step2",
+    "wt-arrays-step3",
+    "wt-arrays-step4"
+  ],
+  "nodes": [
+    {
+      "id": "wt-arrays-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Input",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "wt-arrays-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Map",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "wt-arrays-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Filter",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "wt-arrays-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Result",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "wt-arrays-step1",
+      "to": "wt-arrays-step2",
+      "label": "double values",
+      "role": "main"
+    },
+    {
+      "from": "wt-arrays-step2",
+      "to": "wt-arrays-step3",
+      "label": "select x > 2",
+      "role": "main"
+    },
+    {
+      "from": "wt-arrays-step3",
+      "to": "wt-arrays-step4",
+      "label": "return selection",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The methods have different contracts. Choose transformation for map, selection for filter, and accumulated state for reduce."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "A shallow array copy still shares nested objects. For numeric ascending order, use a comparator such as (a, b) => a - b."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This topic supplements missing college coverage."
+      ]
+    }
+  ]
+}

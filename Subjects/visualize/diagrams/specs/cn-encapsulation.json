@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Encapsulation and local delivery",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "cn-encapsulation-step1",
+    "cn-encapsulation-step2",
+    "cn-encapsulation-step3",
+    "cn-encapsulation-step4"
+  ],
+  "nodes": [
+    {
+      "id": "cn-encapsulation-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Build first frame",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "cn-encapsulation-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Receive at router",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "cn-encapsulation-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Route the packet",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "cn-encapsulation-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Build next frame",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "cn-encapsulation-step1",
+      "to": "cn-encapsulation-step2",
+      "label": "receive on link 1",
+      "role": "main"
+    },
+    {
+      "from": "cn-encapsulation-step2",
+      "to": "cn-encapsulation-step3",
+      "label": "inspect destination",
+      "role": "main"
+    },
+    {
+      "from": "cn-encapsulation-step3",
+      "to": "cn-encapsulation-step4",
+      "label": "send on link 2",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "A link frame only needs to reach the next device on that link. Routing determines the next step toward the network destination."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Do not claim that a packet remains byte-for-byte unchanged at a router. Fields such as IPv4 TTL change; address translation can also change addresses."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

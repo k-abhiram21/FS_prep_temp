@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Async/await without hidden magic",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "wt-async-step1",
+    "wt-async-step2",
+    "wt-async-step3",
+    "wt-async-step4"
+  ],
+  "nodes": [
+    {
+      "id": "wt-async-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Enter task",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "wt-async-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Reach await",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "wt-async-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Continue caller",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "wt-async-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Resume task",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "wt-async-step1",
+      "to": "wt-async-step2",
+      "label": "reach await",
+      "role": "main"
+    },
+    {
+      "from": "wt-async-step2",
+      "to": "wt-async-step3",
+      "label": "caller continues",
+      "role": "main"
+    },
+    {
+      "from": "wt-async-step3",
+      "to": "wt-async-step4",
+      "label": "resume function",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The function runs synchronously until await. The caller continues, then the function resumes in a later Promise-related continuation."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Awaiting operations one after another can serialize them. When independent operations can overlap, start both before awaiting their combined results."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

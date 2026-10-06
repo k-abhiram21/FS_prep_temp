@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Data, targets and learning tasks",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "ai-tasks-step1",
+    "ai-tasks-step2",
+    "ai-tasks-step3",
+    "ai-tasks-step4"
+  ],
+  "nodes": [
+    {
+      "id": "ai-tasks-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Define output",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "ai-tasks-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Split examples",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "ai-tasks-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Fit on training data",
+      "sublabel": "Step 3",
+      "width": 190
+    },
+    {
+      "id": "ai-tasks-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Evaluate",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "ai-tasks-step1",
+      "to": "ai-tasks-step2",
+      "label": "protect unseen data",
+      "role": "main"
+    },
+    {
+      "from": "ai-tasks-step2",
+      "to": "ai-tasks-step3",
+      "label": "fit parameters",
+      "role": "main"
+    },
+    {
+      "from": "ai-tasks-step3",
+      "to": "ai-tasks-step4",
+      "label": "test generalization",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The target contract determines appropriate outputs, losses, and evaluation. Numeric storage alone does not specify the task."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Repeatedly selecting a model based on test results leaks information from the test set. Keep a final test set for a later evaluation."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

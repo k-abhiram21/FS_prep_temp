@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "An artificial neuron",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "ai-neuron-step1",
+    "ai-neuron-step2",
+    "ai-neuron-step3",
+    "ai-neuron-step4"
+  ],
+  "nodes": [
+    {
+      "id": "ai-neuron-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Multiply",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "ai-neuron-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Sum",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "ai-neuron-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Add bias",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "ai-neuron-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Activate",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "ai-neuron-step1",
+      "to": "ai-neuron-step2",
+      "label": "add contributions",
+      "role": "main"
+    },
+    {
+      "from": "ai-neuron-step2",
+      "to": "ai-neuron-step3",
+      "label": "add bias",
+      "role": "main"
+    },
+    {
+      "from": "ai-neuron-step3",
+      "to": "ai-neuron-step4",
+      "label": "apply ReLU",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "Each multiplication measures one input’s contribution. The bias shifts the combined value; the activation then transforms it."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Do not apply the activation separately to each input in this neuron formula. Also, a biological-neuron analogy does not describe every implementation detail."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

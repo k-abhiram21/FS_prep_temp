@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "GitHub and remote collaboration",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "se-github-step1",
+    "se-github-step2",
+    "se-github-step3",
+    "se-github-step4"
+  ],
+  "nodes": [
+    {
+      "id": "se-github-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Clone",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "se-github-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Commit locally",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "se-github-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Push",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "se-github-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Collaborate",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "se-github-step1",
+      "to": "se-github-step2",
+      "label": "save locally",
+      "role": "main"
+    },
+    {
+      "from": "se-github-step2",
+      "to": "se-github-step3",
+      "label": "publish commits",
+      "role": "main"
+    },
+    {
+      "from": "se-github-step3",
+      "to": "se-github-step4",
+      "label": "request review",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The separation lets developers work locally and share reviewed history later. A remote can reject a push when it would overwrite divergent history."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "A pull request does not automatically merge itself. git pull is a Git operation; a GitHub pull request is a collaboration object."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

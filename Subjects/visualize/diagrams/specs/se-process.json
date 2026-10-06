@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "What a software process controls",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "se-process-step1",
+    "se-process-step2",
+    "se-process-step3",
+    "se-process-step4"
+  ],
+  "nodes": [
+    {
+      "id": "se-process-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Agree on a need",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "se-process-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Specify behavior",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "se-process-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Build and check",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "se-process-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Maintain",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "se-process-step1",
+      "to": "se-process-step2",
+      "label": "define behavior",
+      "role": "main"
+    },
+    {
+      "from": "se-process-step2",
+      "to": "se-process-step3",
+      "label": "implement",
+      "role": "main"
+    },
+    {
+      "from": "se-process-step3",
+      "to": "se-process-step4",
+      "label": "policy changes",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "Testing compares observed behavior with the agreed requirement. Reviews can also inspect requirements and designs before executable code exists."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "A process model does not guarantee defect-free software. Teams still need appropriate skills, checks, and feedback."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

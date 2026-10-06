@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Hamming code and single-bit correction",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "cn-hamming-step1",
+    "cn-hamming-step2",
+    "cn-hamming-step3",
+    "cn-hamming-step4"
+  ],
+  "nodes": [
+    {
+      "id": "cn-hamming-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Count data",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "cn-hamming-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Try two checks",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "cn-hamming-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Try three checks",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "cn-hamming-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Use seven positions",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "cn-hamming-step1",
+      "to": "cn-hamming-step2",
+      "label": "test r = 2",
+      "role": "main"
+    },
+    {
+      "from": "cn-hamming-step2",
+      "to": "cn-hamming-step3",
+      "label": "test r = 3",
+      "role": "main"
+    },
+    {
+      "from": "cn-hamming-step3",
+      "to": "cn-hamming-step4",
+      "label": "allocate positions",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The check results form a binary syndrome. With exactly one flipped bit, that syndrome matches the parity-check column for its position."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "If multiple bits can be wrong, blindly flipping the syndrome position can miscorrect. State the code variant and error assumption."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

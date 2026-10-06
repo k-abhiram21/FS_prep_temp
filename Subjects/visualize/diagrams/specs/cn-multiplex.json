@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Multiplexing: sharing one link",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "cn-multiplex-step1",
+    "cn-multiplex-step2",
+    "cn-multiplex-step3",
+    "cn-multiplex-step4"
+  ],
+  "nodes": [
+    {
+      "id": "cn-multiplex-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Separate sources",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "cn-multiplex-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Assign slots",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "cn-multiplex-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Transmit one stream",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "cn-multiplex-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Demultiplex",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "cn-multiplex-step1",
+      "to": "cn-multiplex-step2",
+      "label": "schedule slots",
+      "role": "main"
+    },
+    {
+      "from": "cn-multiplex-step2",
+      "to": "cn-multiplex-step3",
+      "label": "combine streams",
+      "role": "main"
+    },
+    {
+      "from": "cn-multiplex-step3",
+      "to": "cn-multiplex-step4",
+      "label": "separate by slot",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "An agreed schedule prevents the receiver from mixing the sources. The same principle applies to separated frequency bands or wavelengths."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Do not confuse multiplexing with a specific medium-access contention rule. An FDM channel does not require users to alternate fixed time slots."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Accuracy, confusion matrices and overfitting",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "ai-evaluation-step1",
+    "ai-evaluation-step2",
+    "ai-evaluation-step3",
+    "ai-evaluation-step4"
+  ],
+  "nodes": [
+    {
+      "id": "ai-evaluation-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Count classes",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "ai-evaluation-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Predict all negative",
+      "sublabel": "Step 2",
+      "width": 190
+    },
+    {
+      "id": "ai-evaluation-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Calculate accuracy",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "ai-evaluation-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Calculate recall",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "ai-evaluation-step1",
+      "to": "ai-evaluation-step2",
+      "label": "miss positives",
+      "role": "main"
+    },
+    {
+      "from": "ai-evaluation-step2",
+      "to": "ai-evaluation-step3",
+      "label": "count correct",
+      "role": "main"
+    },
+    {
+      "from": "ai-evaluation-step3",
+      "to": "ai-evaluation-step4",
+      "label": "count found positives",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The common negative class dominates the correct-count total. A class-specific metric reveals the failures hidden by the overall percentage."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "When a denominator is zero, a precision or recall value needs an explicit handling convention. The test set must remain separate from repeated model selection."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

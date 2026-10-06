@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "DOM: selecting and changing a page",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "wt-dom-step1",
+    "wt-dom-step2",
+    "wt-dom-step3",
+    "wt-dom-step4"
+  ],
+  "nodes": [
+    {
+      "id": "wt-dom-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Document tree",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "wt-dom-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Select",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "wt-dom-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Check existence",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "wt-dom-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Update text",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "wt-dom-step1",
+      "to": "wt-dom-step2",
+      "label": "querySelector",
+      "role": "main"
+    },
+    {
+      "from": "wt-dom-step2",
+      "to": "wt-dom-step3",
+      "label": "guard against null",
+      "role": "main"
+    },
+    {
+      "from": "wt-dom-step3",
+      "to": "wt-dom-step4",
+      "label": "assign textContent",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The selected element is a live node in the current document. Changing its text updates what the browser displays."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Check for null when an element might not exist. A browser provides document; an ordinary Node.js script does not provide a browser DOM."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

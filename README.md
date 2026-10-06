@@ -4,7 +4,9 @@ This repository holds preparation material for the FS screening test on 9 Octobe
 
 **Start here:** [syllabus and material guide](FS_MATERIAL_GUIDE.md) → [plan from 5 October evening](FS_REMAINING_DAYS_PLAN.md). These map the actual screening topics to the college files and mark remaining gaps.
 
+- [Separate revision notes for every test subject](FS_SUBJECT_NOTES.md) — SE, WT, CN, AI, Java, Python and DAA, with worked examples and short self-checks
 - [Data Structures and Algorithms (DS)](DS/README.md)
+- [SE, WT, CN and AI visual study website](Subjects/visualize/README.md) — a separate site with 41 visual lessons, 164 MCQs, college sources and marked AI supplements
 - [Hard Java code-scenario MCQs](DS/FS_Java_Hard_MCQ_Bank.md)
 - [Java/C++ exam syntax and input/output revision](DS/FS_Java_CPP_Exam_Revision.md)
 - [Data Structures and Algorithms in Java (DS-JAVA)](DS-JAVA/README.md) — matching notes, practice, MCQs, source folders and runnable Java references
@@ -13,6 +15,8 @@ This repository holds preparation material for the FS screening test on 9 Octobe
 - [Computer Networks sources](CN/)
 - [Artificial Intelligence sources](AI/)
 
-Additional materials were copied from your authorized study folders. See [source locations and verified hashes](MATERIAL_SOURCES.md). College units contain extra topics; use the guide's selected sections. Dedicated Java/Python and full WT fundamentals/collections/DOM revision packs remain incomplete.
+Additional materials were copied from your authorized study folders. See [source locations and verified hashes](MATERIAL_SOURCES.md). College units contain extra topics; use the guide's selected sections. No dedicated college Java/Python fundamentals packs were identified; the new programming notes supply marked explanations with official references. The Subject Atlas website fills the identified WT teaching gaps with clearly marked explanations and official references.
+
+Start both separate websites with `node Subjects/visualize/scripts/start-both.mjs`: DAA at `http://127.0.0.1:5173/`, and Subject Atlas at `http://127.0.0.2:5180/`.
 
 The hidden workspace support folders `.agents`, `.aws`, and `.codex` are excluded by `.gitignore`.

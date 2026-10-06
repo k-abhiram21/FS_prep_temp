@@ -2,3 +2,6 @@
 .agents/
 .aws/
 .codex/
+
+# Local verification scripts and compiled examples.
+/build/

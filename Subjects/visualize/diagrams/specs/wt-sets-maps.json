@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Sets and Maps",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "wt-sets-maps-step1",
+    "wt-sets-maps-step2",
+    "wt-sets-maps-step3",
+    "wt-sets-maps-step4"
+  ],
+  "nodes": [
+    {
+      "id": "wt-sets-maps-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Create Set",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "wt-sets-maps-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Insert Map key",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "wt-sets-maps-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Update Map key",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "wt-sets-maps-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Read sizes",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "wt-sets-maps-step1",
+      "to": "wt-sets-maps-step2",
+      "label": "set SE to 8",
+      "role": "main"
+    },
+    {
+      "from": "wt-sets-maps-step2",
+      "to": "wt-sets-maps-step3",
+      "label": "set SE to 9",
+      "role": "main"
+    },
+    {
+      "from": "wt-sets-maps-step3",
+      "to": "wt-sets-maps-step4",
+      "label": "count entries",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The duplicate Set value adds no new entry. The second Map write updates the value associated with the existing key."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Use .size for Set and Map, rather than array .length. Objects use identity as keys; property similarity does not merge them."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This topic supplements missing college coverage."
+      ]
+    }
+  ]
+}

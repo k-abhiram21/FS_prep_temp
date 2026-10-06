@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Loss, gradients and parameter updates",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "ai-training-step1",
+    "ai-training-step2",
+    "ai-training-step3",
+    "ai-training-step4"
+  ],
+  "nodes": [
+    {
+      "id": "ai-training-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Forward pass",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "ai-training-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Measure loss",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "ai-training-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Calculate gradient",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "ai-training-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Update",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "ai-training-step1",
+      "to": "ai-training-step2",
+      "label": "compare target",
+      "role": "main"
+    },
+    {
+      "from": "ai-training-step2",
+      "to": "ai-training-step3",
+      "label": "differentiate loss",
+      "role": "main"
+    },
+    {
+      "from": "ai-training-step3",
+      "to": "ai-training-step4",
+      "label": "subtract scaled gradient",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The positive gradient says a small increase in w would increase the local loss. Subtracting the gradient moves in the opposite local direction."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "A large learning rate can overshoot. An update is not guaranteed to reduce every individual example’s loss or find the global best solution."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

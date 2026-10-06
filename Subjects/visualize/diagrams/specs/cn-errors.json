@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Parity, checksum and CRC",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "cn-errors-step1",
+    "cn-errors-step2",
+    "cn-errors-step3",
+    "cn-errors-step4"
+  ],
+  "nodes": [
+    {
+      "id": "cn-errors-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Choose generator",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "cn-errors-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Extend data",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "cn-errors-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Divide with XOR",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "cn-errors-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Append the remainder",
+      "sublabel": "Step 4",
+      "width": 190
+    }
+  ],
+  "edges": [
+    {
+      "from": "cn-errors-step1",
+      "to": "cn-errors-step2",
+      "label": "append zeros",
+      "role": "main"
+    },
+    {
+      "from": "cn-errors-step2",
+      "to": "cn-errors-step3",
+      "label": "XOR division",
+      "role": "main"
+    },
+    {
+      "from": "cn-errors-step3",
+      "to": "cn-errors-step4",
+      "label": "attach check bits",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "Valid codewords satisfy a relation. Some corruptions violate it and are detected. Other corruptions can turn one valid codeword into another."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Do not call CRC a correction method. State the generator and bit convention before doing a numerical trace."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

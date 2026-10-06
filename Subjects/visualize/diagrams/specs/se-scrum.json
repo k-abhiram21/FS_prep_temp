@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Scrum: people, events and artifacts",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "se-scrum-step1",
+    "se-scrum-step2",
+    "se-scrum-step3",
+    "se-scrum-step4"
+  ],
+  "nodes": [
+    {
+      "id": "se-scrum-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Product Backlog",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "se-scrum-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Sprint Planning",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "se-scrum-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Develop an Increment",
+      "sublabel": "Step 3",
+      "width": 190
+    },
+    {
+      "id": "se-scrum-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Review and improve",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "se-scrum-step1",
+      "to": "se-scrum-step2",
+      "label": "select work",
+      "role": "main"
+    },
+    {
+      "from": "se-scrum-step2",
+      "to": "se-scrum-step3",
+      "label": "create usable work",
+      "role": "main"
+    },
+    {
+      "from": "se-scrum-step3",
+      "to": "se-scrum-step4",
+      "label": "inspect and adapt",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The artifacts make the product direction, current plan, and delivered result visible. Each event provides a specific opportunity to inspect or adapt."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "The Daily Scrum is for Developers to inspect progress toward the Sprint Goal. It is not defined as a manager status-report meeting."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

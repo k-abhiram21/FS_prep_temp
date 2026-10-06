@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Waterfall, incremental and iterative",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "se-models-step1",
+    "se-models-step2",
+    "se-models-step3",
+    "se-models-step4"
+  ],
+  "nodes": [
+    {
+      "id": "se-models-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Requirements",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "se-models-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Design",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "se-models-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Implement and test",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "se-models-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Deliver and maintain",
+      "sublabel": "Step 4",
+      "width": 190
+    }
+  ],
+  "edges": [
+    {
+      "from": "se-models-step1",
+      "to": "se-models-step2",
+      "label": "plan the structure",
+      "role": "main"
+    },
+    {
+      "from": "se-models-step2",
+      "to": "se-models-step3",
+      "label": "build and test",
+      "role": "main"
+    },
+    {
+      "from": "se-models-step3",
+      "to": "se-models-step4",
+      "label": "release",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "A smaller release can provide feedback before the entire product is complete. A sequential plan can make agreed phase outputs easier to track."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Do not interpret Waterfall as physically preventing every return to an earlier phase. The key distinction is its planned phase structure."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

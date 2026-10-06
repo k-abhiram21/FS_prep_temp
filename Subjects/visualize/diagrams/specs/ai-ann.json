@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "ANN layers and parameter counts",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "ai-ann-step1",
+    "ai-ann-step2",
+    "ai-ann-step3",
+    "ai-ann-step4"
+  ],
+  "nodes": [
+    {
+      "id": "ai-ann-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Read input shape",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "ai-ann-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Connect units",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "ai-ann-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Add biases",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "ai-ann-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Count and output",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "ai-ann-step1",
+      "to": "ai-ann-step2",
+      "label": "3 × 4 weights",
+      "role": "main"
+    },
+    {
+      "from": "ai-ann-step2",
+      "to": "ai-ann-step3",
+      "label": "4 extra biases",
+      "role": "main"
+    },
+    {
+      "from": "ai-ann-step3",
+      "to": "ai-ann-step4",
+      "label": "add parameters",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "Every output unit needs one weight for each input plus its own bias. The same learned parameters are reused for every example in a batch."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Flatten changes shape without learning Dense weights. More parameters can increase capacity but do not guarantee better unseen-data performance."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

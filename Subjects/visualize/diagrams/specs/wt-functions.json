@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Functions, returns and shared objects",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "wt-functions-step1",
+    "wt-functions-step2",
+    "wt-functions-step3",
+    "wt-functions-step4"
+  ],
+  "nodes": [
+    {
+      "id": "wt-functions-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Call",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "wt-functions-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Mutate",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "wt-functions-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Reassign locally",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "wt-functions-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Read caller state",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "wt-functions-step1",
+      "to": "wt-functions-step2",
+      "label": "write property",
+      "role": "main"
+    },
+    {
+      "from": "wt-functions-step2",
+      "to": "wt-functions-step3",
+      "label": "rebind parameter",
+      "role": "main"
+    },
+    {
+      "from": "wt-functions-step3",
+      "to": "wt-functions-step4",
+      "label": "read shared object",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The caller and parameter initially refer to the same object. A property write changes that object. A local reassignment only changes one binding."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "An arrow function with a block body needs an explicit return for a value. x => {x * 2} returns undefined."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This topic supplements missing college coverage."
+      ]
+    }
+  ]
+}

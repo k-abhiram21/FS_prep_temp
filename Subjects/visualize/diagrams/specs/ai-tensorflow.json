@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "TensorFlow and Keras workflow",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "ai-tensorflow-step1",
+    "ai-tensorflow-step2",
+    "ai-tensorflow-step3",
+    "ai-tensorflow-step4"
+  ],
+  "nodes": [
+    {
+      "id": "ai-tensorflow-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Build",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "ai-tensorflow-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Compile",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "ai-tensorflow-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Fit",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "ai-tensorflow-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Evaluate and predict",
+      "sublabel": "Step 4",
+      "width": 190
+    }
+  ],
+  "edges": [
+    {
+      "from": "ai-tensorflow-step1",
+      "to": "ai-tensorflow-step2",
+      "label": "set optimizer/loss",
+      "role": "main"
+    },
+    {
+      "from": "ai-tensorflow-step2",
+      "to": "ai-tensorflow-step3",
+      "label": "train on examples",
+      "role": "main"
+    },
+    {
+      "from": "ai-tensorflow-step3",
+      "to": "ai-tensorflow-step4",
+      "label": "inspect outputs",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The layer shapes specify the calculation. compile selects how to measure and update it. fit performs updates; prediction alone does not train the model."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "For cross-entropy, match from_logits to the actual output representation. This example uses a linear regression output and MSE, not a classification output."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

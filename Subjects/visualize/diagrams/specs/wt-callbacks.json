@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Callbacks: who calls the function?",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "wt-callbacks-step1",
+    "wt-callbacks-step2",
+    "wt-callbacks-step3",
+    "wt-callbacks-step4"
+  ],
+  "nodes": [
+    {
+      "id": "wt-callbacks-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Pass the function",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "wt-callbacks-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "First callback",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "wt-callbacks-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Second callback",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "wt-callbacks-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Continue",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "wt-callbacks-step1",
+      "to": "wt-callbacks-step2",
+      "label": "call with 2",
+      "role": "main"
+    },
+    {
+      "from": "wt-callbacks-step2",
+      "to": "wt-callbacks-step3",
+      "label": "call with 4",
+      "role": "main"
+    },
+    {
+      "from": "wt-callbacks-step3",
+      "to": "wt-callbacks-step4",
+      "label": "finish iteration",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "forEach invokes show once for each present element in this array. Those calls complete before execution reaches the final statement."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "A callback is not automatically asynchronous. Also, forEach does not wait for promises returned by an async callback."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

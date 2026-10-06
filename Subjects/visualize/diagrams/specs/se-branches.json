@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Branches, merges and recovery",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "se-branches-step1",
+    "se-branches-step2",
+    "se-branches-step3",
+    "se-branches-step4"
+  ],
+  "nodes": [
+    {
+      "id": "se-branches-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Common history",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "se-branches-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Feature commit",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "se-branches-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Check ancestry",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "se-branches-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Fast-forward",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "se-branches-step1",
+      "to": "se-branches-step2",
+      "label": "commit on feature",
+      "role": "main"
+    },
+    {
+      "from": "se-branches-step2",
+      "to": "se-branches-step3",
+      "label": "inspect ancestry",
+      "role": "main"
+    },
+    {
+      "from": "se-branches-step3",
+      "to": "se-branches-step4",
+      "label": "move main",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "History relationships determine the merge operation. File contents alone do not tell you whether a fast-forward is possible."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "A conflict is not automatically a lost file. Inspect both intended changes before selecting the resolved result. Revert does not erase the old commit."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

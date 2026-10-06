@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Promise chains, catch and all",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "wt-chains-step1",
+    "wt-chains-step2",
+    "wt-chains-step3",
+    "wt-chains-step4"
+  ],
+  "nodes": [
+    {
+      "id": "wt-chains-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Fulfill",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "wt-chains-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Transform",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "wt-chains-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Reject",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "wt-chains-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Recover",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "wt-chains-step1",
+      "to": "wt-chains-step2",
+      "label": "return value",
+      "role": "main"
+    },
+    {
+      "from": "wt-chains-step2",
+      "to": "wt-chains-step3",
+      "label": "throw error",
+      "role": "main"
+    },
+    {
+      "from": "wt-chains-step3",
+      "to": "wt-chains-step4",
+      "label": "handle rejection",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "Each step passes a result or failure to the next Promise. Returning a value from catch switches this path back to fulfillment."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "If a handler starts a Promise but does not return it, the outer chain cannot wait for that operation through the returned value."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

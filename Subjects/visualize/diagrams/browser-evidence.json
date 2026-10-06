@@ -1,0 +1,316 @@
+{
+  "evidenceKind": "automated-browser",
+  "status": "pass",
+  "visualReview": "pending",
+  "viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      1600,
+      1000
+    ],
+    [
+      1920,
+      1080
+    ],
+    [
+      2048,
+      1320
+    ]
+  ],
+  "endpointThemes": [
+    "light",
+    "dark"
+  ],
+  "results": [
+    {
+      "id": "se-models",
+      "status": "pass",
+      "sha256": "a9cb4f5ab883c5b826c3fbcab4d88c2af07481ae24e821072697869e05cc6f5a",
+      "bytes": 798533,
+      "diagnostics": []
+    },
+    {
+      "id": "se-process",
+      "status": "pass",
+      "sha256": "d54995d87c58c61bc3818c78cab9c1146f1a1fc5da1560e83eb981dd27570f2b",
+      "bytes": 798448,
+      "diagnostics": []
+    },
+    {
+      "id": "se-evolution",
+      "status": "pass",
+      "sha256": "a98f62effc7621f99bff3c2231d167fa74c501b8490a57bde063b81f6651f173",
+      "bytes": 798523,
+      "diagnostics": []
+    },
+    {
+      "id": "se-scrum",
+      "status": "pass",
+      "sha256": "ebba0a1a1a795c22d150b8ec3dcaa6f82cace61f9d8343ebdc517bc3aa272b97",
+      "bytes": 798745,
+      "diagnostics": []
+    },
+    {
+      "id": "se-agile",
+      "status": "pass",
+      "sha256": "531dd0e662c040d0c05d4d9279256e848bcfc0cad3006bea260e7ad79d31fc87",
+      "bytes": 798533,
+      "diagnostics": []
+    },
+    {
+      "id": "se-devops",
+      "status": "pass",
+      "sha256": "cb77aeeef78354ebc75864dbaa6e85e7a18a14c7fbcbb4036b16ecf0c246fb17",
+      "bytes": 802419,
+      "diagnostics": []
+    },
+    {
+      "id": "se-git-state",
+      "status": "pass",
+      "sha256": "07b3a807f6dd84110cb5a0fa4d022bc7f72f82726f875c63c59369c3004086f7",
+      "bytes": 798414,
+      "diagnostics": []
+    },
+    {
+      "id": "se-branches",
+      "status": "pass",
+      "sha256": "ca0fcfdf9a2897aae0a5e3a8a614888cdddf3ede278a96f2fd8f71135cdc2ce4",
+      "bytes": 798551,
+      "diagnostics": []
+    },
+    {
+      "id": "se-github",
+      "status": "pass",
+      "sha256": "17c436699375d77df1b8e30b2b244bb37cdc03d2224805aa275acea233b37d5d",
+      "bytes": 798407,
+      "diagnostics": []
+    },
+    {
+      "id": "wt-operators",
+      "status": "pass",
+      "sha256": "3a8b504472dba207705e57c4da8cfa3470c2063d05a96ec5d8fc42595a335881",
+      "bytes": 798634,
+      "diagnostics": []
+    },
+    {
+      "id": "wt-variables",
+      "status": "pass",
+      "sha256": "f6b09139b78ab25d2c3cbf5528dd6418cb77bee211421814a91af455de2f8fb8",
+      "bytes": 798470,
+      "diagnostics": []
+    },
+    {
+      "id": "wt-functions",
+      "status": "pass",
+      "sha256": "2ffe5b68ab60dd725bb384124acbcb631a315f060d75de22a5fc1757a2326206",
+      "bytes": 798697,
+      "diagnostics": []
+    },
+    {
+      "id": "wt-json",
+      "status": "pass",
+      "sha256": "57e3dc8de3a2ccc55ad195364277e6d7345a14b6031b1e03f220f098565e09ae",
+      "bytes": 798306,
+      "diagnostics": []
+    },
+    {
+      "id": "wt-callbacks",
+      "status": "pass",
+      "sha256": "09b86d38c2014161c24d4ad3d155a206a052872412f02164a2153c9eb877b10e",
+      "bytes": 798601,
+      "diagnostics": []
+    },
+    {
+      "id": "wt-promises",
+      "status": "pass",
+      "sha256": "adcb3b12ecddd57e4991887389686bf870c0c1f352745a76d1566512e5f1d497",
+      "bytes": 798596,
+      "diagnostics": []
+    },
+    {
+      "id": "wt-chains",
+      "status": "pass",
+      "sha256": "f4fad91e2e81ff8c817250fe428cec58e24b073855df48abb4df8eb803108c00",
+      "bytes": 798450,
+      "diagnostics": []
+    },
+    {
+      "id": "wt-arrays",
+      "status": "pass",
+      "sha256": "80cd24495d90ab3f6939223bd91a4515104382949dc1125d3ec617bf0c372779",
+      "bytes": 798363,
+      "diagnostics": []
+    },
+    {
+      "id": "wt-sets-maps",
+      "status": "pass",
+      "sha256": "f20badcdc4a9171e9f0912f0a6512e34beab2c04b6591777a7c9c1fe886c9479",
+      "bytes": 798468,
+      "diagnostics": []
+    },
+    {
+      "id": "wt-dom",
+      "status": "pass",
+      "sha256": "195ecb76753db93791be6823fdcaa42757748efec359b2da0d23eb136545d443",
+      "bytes": 798448,
+      "diagnostics": []
+    },
+    {
+      "id": "wt-events",
+      "status": "pass",
+      "sha256": "850bd45136694fbfafc35a53f2a78495bcd5f5736f0fadfd6c641999ad08e617",
+      "bytes": 798446,
+      "diagnostics": []
+    },
+    {
+      "id": "cn-osi",
+      "status": "pass",
+      "sha256": "5126e1d0a235f749697f26fa53eb6d714af1939e703debc03b9dbb108619ce3a",
+      "bytes": 798504,
+      "diagnostics": []
+    },
+    {
+      "id": "cn-encapsulation",
+      "status": "pass",
+      "sha256": "74b98b6e02e81cf7c27bace947278ec96ed2107d3afd9ce8371b3298a6fbc0ac",
+      "bytes": 798707,
+      "diagnostics": []
+    },
+    {
+      "id": "cn-media",
+      "status": "pass",
+      "sha256": "b255b10cb732a43c4aaba7c8fe84f276bd9a52ca301280a40899f102af1d5507",
+      "bytes": 798451,
+      "diagnostics": []
+    },
+    {
+      "id": "cn-multiplex",
+      "status": "pass",
+      "sha256": "b1a9f3de3df40112ad865609bf5f6abd38fd14315caf2487db8e0c5be413e6ca",
+      "bytes": 798642,
+      "diagnostics": []
+    },
+    {
+      "id": "cn-signals",
+      "status": "pass",
+      "sha256": "290ac5f096a39bb5a70e56a662c8a08cabd0a0e5fa135432b7d2f9f05c5af992",
+      "bytes": 798587,
+      "diagnostics": []
+    },
+    {
+      "id": "wt-async",
+      "status": "pass",
+      "sha256": "530c7d4898315573444b0919d323fe9a90b6b07b075e5e343b943373a7fb1d50",
+      "bytes": 798518,
+      "diagnostics": []
+    },
+    {
+      "id": "cn-framing",
+      "status": "pass",
+      "sha256": "8dbfbb8b73a5f32532ab06c8639ca9d2e925ec7bf44e7bf36a3da4e267483583",
+      "bytes": 798578,
+      "diagnostics": []
+    },
+    {
+      "id": "cn-errors",
+      "status": "pass",
+      "sha256": "caa1ee52f4d58b0780482b9d53e198f6eacbb006eb74efef55e4b75aa67aa239",
+      "bytes": 798496,
+      "diagnostics": []
+    },
+    {
+      "id": "cn-hamming",
+      "status": "pass",
+      "sha256": "d715a6dd6e5aac56ff5bf5a8fc4efd6a09166948fc0d5eacc320c8ec9d0b1a22",
+      "bytes": 798487,
+      "diagnostics": []
+    },
+    {
+      "id": "cn-stopwait",
+      "status": "pass",
+      "sha256": "81f8329a55f729197f89212f817577800bf0fbdd52e380fb8f410d6239679ad0",
+      "bytes": 798464,
+      "diagnostics": []
+    },
+    {
+      "id": "cn-windows",
+      "status": "pass",
+      "sha256": "d04e3b33b2f6e692294ac5920b2710ff574f02edbcc7706e9694fdaeb539121e",
+      "bytes": 798519,
+      "diagnostics": []
+    },
+    {
+      "id": "cn-access",
+      "status": "pass",
+      "sha256": "4a5e802e48284d6c659ca8027bc46d6f19b24da480f22d15f60430d3c1e3a622",
+      "bytes": 798527,
+      "diagnostics": []
+    },
+    {
+      "id": "ai-tasks",
+      "status": "pass",
+      "sha256": "da753846f7bfac6fd98c30f8d7c9a962df56aef7f56c0f5446191219ec0aa07b",
+      "bytes": 798571,
+      "diagnostics": []
+    },
+    {
+      "id": "ai-regression",
+      "status": "pass",
+      "sha256": "61d6bb2cb8232572bee8ca8c1beccacf764566ca61ec510123e88ab7fe26fcce",
+      "bytes": 798508,
+      "diagnostics": []
+    },
+    {
+      "id": "ai-classification",
+      "status": "pass",
+      "sha256": "0b3a822acd668988adbf9f5644d17feb5379093c5637062ef8f158da65d83b2a",
+      "bytes": 798731,
+      "diagnostics": []
+    },
+    {
+      "id": "ai-neuron",
+      "status": "pass",
+      "sha256": "020ff776bd2fb14613267b1c81161ff432b8f9fb943aa00e9fa3b30e345db845",
+      "bytes": 798349,
+      "diagnostics": []
+    },
+    {
+      "id": "ai-activations",
+      "status": "pass",
+      "sha256": "b16e2b143fede9c9520446f570a1802bd412f32a59a610534b6fa8995a6130da",
+      "bytes": 798783,
+      "diagnostics": []
+    },
+    {
+      "id": "ai-ann",
+      "status": "pass",
+      "sha256": "7ec3906d240b8be5ade80f118c30577677f4ad10581d682a2deac347585c5fbd",
+      "bytes": 798536,
+      "diagnostics": []
+    },
+    {
+      "id": "ai-training",
+      "status": "pass",
+      "sha256": "3bf1692d69b00e7db9e7a6d04af651e2836265be861a61305dec9bd384dbcd54",
+      "bytes": 798696,
+      "diagnostics": []
+    },
+    {
+      "id": "ai-tensorflow",
+      "status": "pass",
+      "sha256": "3ff6a4e8038597aa21eea3b141593bafaeb73bb0b8341b4832701adeb49cc1dd",
+      "bytes": 798570,
+      "diagnostics": []
+    },
+    {
+      "id": "ai-evaluation",
+      "status": "pass",
+      "sha256": "8dfb8139d6b16dbb9d3b26c2665088f72e178852900e3431b384650d0c5418ec",
+      "bytes": 798770,
+      "diagnostics": []
+    }
+  ]
+}

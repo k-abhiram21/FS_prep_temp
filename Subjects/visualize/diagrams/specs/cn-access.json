@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "ALOHA, CSMA/CD and CSMA/CA",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "cn-access-step1",
+    "cn-access-step2",
+    "cn-access-step3",
+    "cn-access-step4"
+  ],
+  "nodes": [
+    {
+      "id": "cn-access-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Sense",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "cn-access-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Transmit",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "cn-access-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Detect collision",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "cn-access-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Back off",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "cn-access-step1",
+      "to": "cn-access-step2",
+      "label": "start together",
+      "role": "main"
+    },
+    {
+      "from": "cn-access-step2",
+      "to": "cn-access-step3",
+      "label": "signals overlap",
+      "role": "main"
+    },
+    {
+      "from": "cn-access-step3",
+      "to": "cn-access-step4",
+      "label": "stop and retry",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The channel information reaches a station after propagation delay. A retry delay reduces the chance that competing stations restart together."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Modern switched full-duplex Ethernet does not use collision detection for ordinary frame transmission. CSMA/CA reduces collision risk; it cannot guarantee none."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

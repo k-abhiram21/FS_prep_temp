@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Activation functions and output contracts",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "ai-activations-step1",
+    "ai-activations-step2",
+    "ai-activations-step3",
+    "ai-activations-step4"
+  ],
+  "nodes": [
+    {
+      "id": "ai-activations-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Read hidden score",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "ai-activations-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Apply ReLU",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "ai-activations-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Build output scores",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "ai-activations-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Apply softmax",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "ai-activations-step1",
+      "to": "ai-activations-step2",
+      "label": "suppress negative",
+      "role": "main"
+    },
+    {
+      "from": "ai-activations-step2",
+      "to": "ai-activations-step3",
+      "label": "separate example",
+      "role": "main"
+    },
+    {
+      "from": "ai-activations-step3",
+      "to": "ai-activations-step4",
+      "label": "normalize scores",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "Composition of linear transformations remains linear. A nonlinear transformation changes the family of relationships that the network can express."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Softmax is not the usual choice for independent multilabel decisions. Loss functions must agree with whether the model returns probabilities or raw logits."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

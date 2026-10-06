@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Stop-and-Wait ARQ",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "cn-stopwait-step1",
+    "cn-stopwait-step2",
+    "cn-stopwait-step3",
+    "cn-stopwait-step4"
+  ],
+  "nodes": [
+    {
+      "id": "cn-stopwait-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Send frame 0",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "cn-stopwait-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Accept frame",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "cn-stopwait-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Lose ACK",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "cn-stopwait-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Handle duplicate",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "cn-stopwait-step1",
+      "to": "cn-stopwait-step2",
+      "label": "deliver once",
+      "role": "main"
+    },
+    {
+      "from": "cn-stopwait-step2",
+      "to": "cn-stopwait-step3",
+      "label": "timeout and retry",
+      "role": "main"
+    },
+    {
+      "from": "cn-stopwait-step3",
+      "to": "cn-stopwait-step4",
+      "label": "check sequence",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The sender cannot distinguish a lost frame from a lost acknowledgment using silence alone. The sequence number prevents duplicate application delivery."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "A timeout means the sender did not obtain the expected acknowledgment in time. It does not prove which message was lost."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

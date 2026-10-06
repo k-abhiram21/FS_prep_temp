@@ -1,0 +1,142 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "From a change to a release",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "change",
+      "label": "Change and review"
+    },
+    {
+      "id": "automation",
+      "label": "Build and verification"
+    },
+    {
+      "id": "release",
+      "label": "Delivery and observation"
+    }
+  ],
+  "mainPath": [
+    "commit",
+    "review",
+    "build",
+    "test",
+    "release",
+    "observe"
+  ],
+  "nodes": [
+    {
+      "id": "commit",
+      "lane": "change",
+      "col": 0,
+      "type": "frontend",
+      "label": "Commit",
+      "sublabel": "save a local snapshot"
+    },
+    {
+      "id": "review",
+      "lane": "change",
+      "col": 1,
+      "type": "frontend",
+      "label": "Review",
+      "sublabel": "check the change"
+    },
+    {
+      "id": "build",
+      "lane": "automation",
+      "col": 2,
+      "type": "backend",
+      "label": "Build",
+      "sublabel": "produce an artifact"
+    },
+    {
+      "id": "test",
+      "lane": "automation",
+      "col": 3,
+      "type": "security",
+      "label": "Check",
+      "sublabel": "run blocking tests"
+    },
+    {
+      "id": "release",
+      "lane": "release",
+      "col": 4,
+      "type": "cloud",
+      "label": "Release",
+      "sublabel": "approve or automate"
+    },
+    {
+      "id": "observe",
+      "lane": "release",
+      "col": 5,
+      "type": "backend",
+      "label": "Observe",
+      "sublabel": "measure live behavior"
+    }
+  ],
+  "edges": [
+    {
+      "from": "commit",
+      "to": "review",
+      "label": "propose",
+      "role": "main"
+    },
+    {
+      "from": "review",
+      "to": "build",
+      "label": "accept",
+      "role": "main"
+    },
+    {
+      "from": "build",
+      "to": "test",
+      "label": "verify",
+      "role": "main"
+    },
+    {
+      "from": "test",
+      "to": "release",
+      "label": "checks pass",
+      "role": "main"
+    },
+    {
+      "from": "release",
+      "to": "observe",
+      "label": "deploy",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "A release condition",
+      "items": [
+        "A failed blocking check stops promotion.",
+        "Continuous delivery keeps a release ready for approval."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Read the distinction",
+      "items": [
+        "Continuous deployment also automates production promotion.",
+        "Monitoring provides evidence for the next change."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the college DevOps topic."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "JavaScript variables and scope",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "wt-variables-step1",
+    "wt-variables-step2",
+    "wt-variables-step3",
+    "wt-variables-step4"
+  ],
+  "nodes": [
+    {
+      "id": "wt-variables-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Create an array",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "wt-variables-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Bind scores",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "wt-variables-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Push 7",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "wt-variables-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Read length",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "wt-variables-step1",
+      "to": "wt-variables-step2",
+      "label": "declare const",
+      "role": "main"
+    },
+    {
+      "from": "wt-variables-step2",
+      "to": "wt-variables-step3",
+      "label": "mutate array",
+      "role": "main"
+    },
+    {
+      "from": "wt-variables-step3",
+      "to": "wt-variables-step4",
+      "label": "read length",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The binding and the object are different things. Preventing reassignment does not prevent changes inside the object."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Do not say that const makes every value immutable. Strings and numbers are primitive values; arrays and ordinary objects have mutable contents."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This topic supplements missing college coverage."
+      ]
+    }
+  ]
+}

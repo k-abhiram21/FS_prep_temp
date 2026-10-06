@@ -89,6 +89,8 @@ The 3-1 AI folders also contain CNN, RNN/LSTM/GRU, autoencoders and other advanc
 
 No dedicated Java/Python fundamentals revision pack was found in the relevant materials inspected. Java algorithm snippets, socket code and Python ML notebooks are not a substitute for language MCQ preparation. The notice gives no language subtopic list.
 
+**Added revision aid, 6 October:** [Java fundamentals](Programming/Java_FS_Revision_Notes.md) and [Python fundamentals](Programming/Python_FS_Revision_Notes.md) now provide separately marked AI explanations and official references. [All subject notes](FS_SUBJECT_NOTES.md) link the complete revision set. These additions fill teaching gaps; they do not establish an exact language subtopic list from the college.
+
 Allocate a separate block to language/output questions: types and operators, control flow, functions, strings and collections, mutability/references, exceptions and basic OOP. Existing [Day 2 notes](DS-JAVA/Day_02_Notes.md), section 5, help with Java string semantics only.
 
 ## What changed in this repository

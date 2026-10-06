@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "DOM events and propagation",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "wt-events-step1",
+    "wt-events-step2",
+    "wt-events-step3",
+    "wt-events-step4"
+  ],
+  "nodes": [
+    {
+      "id": "wt-events-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Register",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "wt-events-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "First click",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "wt-events-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Second click",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "wt-events-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Display",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "wt-events-step1",
+      "to": "wt-events-step2",
+      "label": "dispatch click",
+      "role": "main"
+    },
+    {
+      "from": "wt-events-step2",
+      "to": "wt-events-step3",
+      "label": "dispatch next click",
+      "role": "main"
+    },
+    {
+      "from": "wt-events-step3",
+      "to": "wt-events-step4",
+      "label": "write count",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The handler closes over the count binding. Each click updates the same binding, so the value persists across calls."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Pass the handler function rather than calling it during registration. Not every DOM event bubbles; inspect the event type when tracing propagation."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This topic supplements missing college coverage."
+      ]
+    }
+  ]
+}

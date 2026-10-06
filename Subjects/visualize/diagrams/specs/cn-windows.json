@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Go-Back-N and Selective Repeat",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "cn-windows-step1",
+    "cn-windows-step2",
+    "cn-windows-step3",
+    "cn-windows-step4"
+  ],
+  "nodes": [
+    {
+      "id": "cn-windows-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Send a window",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "cn-windows-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Lose frame 1",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "cn-windows-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Receive later frames",
+      "sublabel": "Step 3",
+      "width": 190
+    },
+    {
+      "id": "cn-windows-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Recover",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "cn-windows-step1",
+      "to": "cn-windows-step2",
+      "label": "lose frame 1",
+      "role": "main"
+    },
+    {
+      "from": "cn-windows-step2",
+      "to": "cn-windows-step3",
+      "label": "handle later frames",
+      "role": "main"
+    },
+    {
+      "from": "cn-windows-step3",
+      "to": "cn-windows-step4",
+      "label": "retransmit",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "Selective Repeat uses more receiver state to avoid repeating correctly received frames. Sequence-space limits prevent old frames from being confused with new ones."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "State whether an ACK number means the last received frame or the next expected frame. Both conventions exist; do not mix them in a trace."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

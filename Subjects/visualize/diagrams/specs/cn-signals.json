@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Signals, encoding and capacity",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "cn-signals-step1",
+    "cn-signals-step2",
+    "cn-signals-step3",
+    "cn-signals-step4"
+  ],
+  "nodes": [
+    {
+      "id": "cn-signals-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "State the model",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "cn-signals-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Read the units",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "cn-signals-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Calculate",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "cn-signals-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Interpret",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "cn-signals-step1",
+      "to": "cn-signals-step2",
+      "label": "check units",
+      "role": "main"
+    },
+    {
+      "from": "cn-signals-step2",
+      "to": "cn-signals-step3",
+      "label": "apply formula",
+      "role": "main"
+    },
+    {
+      "from": "cn-signals-step3",
+      "to": "cn-signals-step4",
+      "label": "state the bound",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The logarithm counts the available information under the model. More bandwidth or a better signal-to-noise ratio can increase this bound."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Actual throughput includes coding and protocol constraints. Capacity is not a promise of application speed. This supplement is possible Physical Layer coverage, not confirmed exam emphasis."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This topic supplements missing college coverage."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "The seven OSI layers",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "cn-osi-step1",
+    "cn-osi-step2",
+    "cn-osi-step3",
+    "cn-osi-step4"
+  ],
+  "nodes": [
+    {
+      "id": "cn-osi-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Application data",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "cn-osi-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Transport and Network",
+      "sublabel": "Step 2",
+      "width": 198
+    },
+    {
+      "id": "cn-osi-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Data Link",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "cn-osi-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Physical",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "cn-osi-step1",
+      "to": "cn-osi-step2",
+      "label": "encapsulate",
+      "role": "main"
+    },
+    {
+      "from": "cn-osi-step2",
+      "to": "cn-osi-step3",
+      "label": "add local frame",
+      "role": "main"
+    },
+    {
+      "from": "cn-osi-step3",
+      "to": "cn-osi-step4",
+      "label": "encode signals",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "Each layer offers services to the layer above while using services below. This separation makes responsibilities easier to reason about."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "A router is primarily associated with Layer 3 forwarding. A bridge or ordinary Ethernet switch is primarily associated with Layer 2 forwarding. Real devices can have additional functions."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

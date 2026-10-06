@@ -1,0 +1,1109 @@
+[
+  {
+    "id": "se-process",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\se-process.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\se-process.html",
+      "specification": {
+        "sha256": "405a5bb27b9b6989159b968231b0649c085593e34b763d0ca90a5f0ecefc988a",
+        "bytes": 2398
+      },
+      "artifact": {
+        "sha256": "d54995d87c58c61bc3818c78cab9c1146f1a1fc5da1560e83eb981dd27570f2b",
+        "bytes": 798448
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "se-models",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\se-models.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\se-models.html",
+      "specification": {
+        "sha256": "c54699095756c9089cb3a76937eb93f9908455812dc4b6de56ea9027d43a7595",
+        "bytes": 2411
+      },
+      "artifact": {
+        "sha256": "a9cb4f5ab883c5b826c3fbcab4d88c2af07481ae24e821072697869e05cc6f5a",
+        "bytes": 798533
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "se-evolution",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\se-evolution.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\se-evolution.html",
+      "specification": {
+        "sha256": "62a4bfbfd757415e7b9c6d2f7d09b1b11b3ab26a0998eb308b6ec17ec81b63ee",
+        "bytes": 2433
+      },
+      "artifact": {
+        "sha256": "a98f62effc7621f99bff3c2231d167fa74c501b8490a57bde063b81f6651f173",
+        "bytes": 798523
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "se-agile",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\se-agile.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\se-agile.html",
+      "specification": {
+        "sha256": "fa9578c98d1cd54b6d30f7d4c7208af8fe90ae60321a8349271f66c81c707df2",
+        "bytes": 2389
+      },
+      "artifact": {
+        "sha256": "531dd0e662c040d0c05d4d9279256e848bcfc0cad3006bea260e7ad79d31fc87",
+        "bytes": 798533
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "se-scrum",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\se-scrum.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\se-scrum.html",
+      "specification": {
+        "sha256": "e7cc1796e3a13829c3659c3583345d8bdef3678a6571227088b9b727b0f47737",
+        "bytes": 2416
+      },
+      "artifact": {
+        "sha256": "ebba0a1a1a795c22d150b8ec3dcaa6f82cace61f9d8343ebdc517bc3aa272b97",
+        "bytes": 798745
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "se-devops",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\se-devops.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\se-devops.html",
+      "specification": {
+        "sha256": "9e0d6c253f050cc82d184cdaf935421ce4bd3cd971a8e82b8b6654284b83dfc6",
+        "bytes": 2811
+      },
+      "artifact": {
+        "sha256": "cb77aeeef78354ebc75864dbaa6e85e7a18a14c7fbcbb4036b16ecf0c246fb17",
+        "bytes": 802419
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "se-git-state",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\se-git-state.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\se-git-state.html",
+      "specification": {
+        "sha256": "a7800eaf1cacc1a27a21994c10fb4865c6bf3c18a4f38c8c9673515c2d4c8f2b",
+        "bytes": 2394
+      },
+      "artifact": {
+        "sha256": "07b3a807f6dd84110cb5a0fa4d022bc7f72f82726f875c63c59369c3004086f7",
+        "bytes": 798414
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "se-branches",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\se-branches.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\se-branches.html",
+      "specification": {
+        "sha256": "fe97883b905a28562678b9a28cede4f947c41c90ba8f5dfd8d52da2b5d9df141",
+        "bytes": 2428
+      },
+      "artifact": {
+        "sha256": "ca0fcfdf9a2897aae0a5e3a8a614888cdddf3ede278a96f2fd8f71135cdc2ce4",
+        "bytes": 798551
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "se-github",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\se-github.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\se-github.html",
+      "specification": {
+        "sha256": "c039dbc53e24d4bc397f42220c1768bbd47514b5d17e5c32f5b8fc6b36198227",
+        "bytes": 2383
+      },
+      "artifact": {
+        "sha256": "17c436699375d77df1b8e30b2b244bb37cdc03d2224805aa275acea233b37d5d",
+        "bytes": 798407
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "wt-variables",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\wt-variables.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\wt-variables.html",
+      "specification": {
+        "sha256": "b04c910c95b2c8e68273d414f55fbee10a2b173734f4eace55064331c34efc46",
+        "bytes": 2398
+      },
+      "artifact": {
+        "sha256": "f6b09139b78ab25d2c3cbf5528dd6418cb77bee211421814a91af455de2f8fb8",
+        "bytes": 798470
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "wt-operators",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\wt-operators.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\wt-operators.html",
+      "specification": {
+        "sha256": "2e998e2b121ae22adda7de213bb0c38a7cd8fa603547dabcb3e487c1a51e6b7f",
+        "bytes": 2436
+      },
+      "artifact": {
+        "sha256": "3a8b504472dba207705e57c4da8cfa3470c2063d05a96ec5d8fc42595a335881",
+        "bytes": 798634
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "wt-functions",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\wt-functions.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\wt-functions.html",
+      "specification": {
+        "sha256": "808688ff7e74ac40d34fcdf55fc449afbc8fdeb83c92dee85d5e5225250757b5",
+        "bytes": 2408
+      },
+      "artifact": {
+        "sha256": "2ffe5b68ab60dd725bb384124acbcb631a315f060d75de22a5fc1757a2326206",
+        "bytes": 798697
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "wt-json",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\wt-json.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\wt-json.html",
+      "specification": {
+        "sha256": "581ba4ca7f21bd12859ecc99d73bd63f1c17130b4b463b44016071180bb8bf84",
+        "bytes": 2353
+      },
+      "artifact": {
+        "sha256": "57e3dc8de3a2ccc55ad195364277e6d7345a14b6031b1e03f220f098565e09ae",
+        "bytes": 798306
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "wt-callbacks",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\wt-callbacks.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\wt-callbacks.html",
+      "specification": {
+        "sha256": "4138d597b4e8252e1806b6f7844bfbde5beb05dfc45a704c3859edf23cc69daa",
+        "bytes": 2418
+      },
+      "artifact": {
+        "sha256": "09b86d38c2014161c24d4ad3d155a206a052872412f02164a2153c9eb877b10e",
+        "bytes": 798601
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "wt-promises",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\wt-promises.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\wt-promises.html",
+      "specification": {
+        "sha256": "2ff7815f95c83aa305ecdb2499efba555c2e7fbb49a7133a976df9cd6cecdd68",
+        "bytes": 2405
+      },
+      "artifact": {
+        "sha256": "adcb3b12ecddd57e4991887389686bf870c0c1f352745a76d1566512e5f1d497",
+        "bytes": 798596
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "wt-chains",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\wt-chains.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\wt-chains.html",
+      "specification": {
+        "sha256": "0fec01315bea2ea1f3dd578d7b58543c02948a753135c0d67fc78e15e1820c00",
+        "bytes": 2352
+      },
+      "artifact": {
+        "sha256": "f4fad91e2e81ff8c817250fe428cec58e24b073855df48abb4df8eb803108c00",
+        "bytes": 798450
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "wt-async",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\wt-async.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\wt-async.html",
+      "specification": {
+        "sha256": "f7f0a3ab659339358b00c7a5fe53b44368b871763b4b0edd373a27cdf6a29cf1",
+        "bytes": 2390
+      },
+      "artifact": {
+        "sha256": "530c7d4898315573444b0919d323fe9a90b6b07b075e5e343b943373a7fb1d50",
+        "bytes": 798518
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "wt-arrays",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\wt-arrays.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\wt-arrays.html",
+      "specification": {
+        "sha256": "2b5393df882584b69834754df349d69b1ec6b8ce86bc4830c1897346e9a2dbbf",
+        "bytes": 2334
+      },
+      "artifact": {
+        "sha256": "80cd24495d90ab3f6939223bd91a4515104382949dc1125d3ec617bf0c372779",
+        "bytes": 798363
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "wt-sets-maps",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\wt-sets-maps.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\wt-sets-maps.html",
+      "specification": {
+        "sha256": "31b25ef868dcbaf51775188d7bc991287f577e6d34a0e61044992b837e75c243",
+        "bytes": 2365
+      },
+      "artifact": {
+        "sha256": "f20badcdc4a9171e9f0912f0a6512e34beab2c04b6591777a7c9c1fe886c9479",
+        "bytes": 798468
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "wt-dom",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\wt-dom.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\wt-dom.html",
+      "specification": {
+        "sha256": "fa0c6e7bb580e03b5f787e51e5ae5c3ae4683788c2d21e92aa5646fc0f07e3d9",
+        "bytes": 2335
+      },
+      "artifact": {
+        "sha256": "195ecb76753db93791be6823fdcaa42757748efec359b2da0d23eb136545d443",
+        "bytes": 798448
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "wt-events",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\wt-events.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\wt-events.html",
+      "specification": {
+        "sha256": "9d674a6275813edf782c26ec947be9fa2d53ba8d0d562e13befbcf29e297242b",
+        "bytes": 2358
+      },
+      "artifact": {
+        "sha256": "850bd45136694fbfafc35a53f2a78495bcd5f5736f0fadfd6c641999ad08e617",
+        "bytes": 798446
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "cn-osi",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\cn-osi.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\cn-osi.html",
+      "specification": {
+        "sha256": "ea56df4cae246203b4e882f0fd9a7c84edc31a8afc8fb3764a23fae572c61823",
+        "bytes": 2396
+      },
+      "artifact": {
+        "sha256": "5126e1d0a235f749697f26fa53eb6d714af1939e703debc03b9dbb108619ce3a",
+        "bytes": 798504
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "cn-encapsulation",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\cn-encapsulation.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\cn-encapsulation.html",
+      "specification": {
+        "sha256": "9e22f4e867a20d88ad770c1e18cd53999df1e5d89184605a0aecb19cdf2ac891",
+        "bytes": 2524
+      },
+      "artifact": {
+        "sha256": "74b98b6e02e81cf7c27bace947278ec96ed2107d3afd9ce8371b3298a6fbc0ac",
+        "bytes": 798707
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "cn-media",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\cn-media.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\cn-media.html",
+      "specification": {
+        "sha256": "921514c36a48b714efb9a1554bde6dbbeb57df36ec026474dbcce2a8715efed4",
+        "bytes": 2369
+      },
+      "artifact": {
+        "sha256": "b255b10cb732a43c4aaba7c8fe84f276bd9a52ca301280a40899f102af1d5507",
+        "bytes": 798451
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "cn-multiplex",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\cn-multiplex.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\cn-multiplex.html",
+      "specification": {
+        "sha256": "4d621d54bcef4c30824c00c4936c2f0ad3f7e35088b31767715b7a0a5e543e6b",
+        "bytes": 2456
+      },
+      "artifact": {
+        "sha256": "b1a9f3de3df40112ad865609bf5f6abd38fd14315caf2487db8e0c5be413e6ca",
+        "bytes": 798642
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "cn-signals",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\cn-signals.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\cn-signals.html",
+      "specification": {
+        "sha256": "517c517fc03f64502bbc617e848d6d5118fa60b48f67077c3e1c40decc8962a7",
+        "bytes": 2444
+      },
+      "artifact": {
+        "sha256": "290ac5f096a39bb5a70e56a662c8a08cabd0a0e5fa135432b7d2f9f05c5af992",
+        "bytes": 798587
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "cn-framing",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\cn-framing.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\cn-framing.html",
+      "specification": {
+        "sha256": "bf1fc3872b5eab94b8ee3f0067e2ef36e886354a1fc555990d2742c970b80c49",
+        "bytes": 2402
+      },
+      "artifact": {
+        "sha256": "8dbfbb8b73a5f32532ab06c8639ca9d2e925ec7bf44e7bf36a3da4e267483583",
+        "bytes": 798578
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "cn-errors",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\cn-errors.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\cn-errors.html",
+      "specification": {
+        "sha256": "a8bdb6cab6561ed0f600bdb624be1900b6337aecd358ee1f227e41d1cee2138a",
+        "bytes": 2376
+      },
+      "artifact": {
+        "sha256": "caa1ee52f4d58b0780482b9d53e198f6eacbb006eb74efef55e4b75aa67aa239",
+        "bytes": 798496
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "cn-hamming",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\cn-hamming.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\cn-hamming.html",
+      "specification": {
+        "sha256": "6199eb9bb07beaa24058063b8d3001416a0988b293ba73140d8aa96270385ab9",
+        "bytes": 2415
+      },
+      "artifact": {
+        "sha256": "d715a6dd6e5aac56ff5bf5a8fc4efd6a09166948fc0d5eacc320c8ec9d0b1a22",
+        "bytes": 798487
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "cn-stopwait",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\cn-stopwait.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\cn-stopwait.html",
+      "specification": {
+        "sha256": "f23740c9240256c58110f234a30ed7f52e5a7f59ec1a1e2349d4cb806db1ee09",
+        "bytes": 2408
+      },
+      "artifact": {
+        "sha256": "81f8329a55f729197f89212f817577800bf0fbdd52e380fb8f410d6239679ad0",
+        "bytes": 798464
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "cn-windows",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\cn-windows.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\cn-windows.html",
+      "specification": {
+        "sha256": "7b218396be6b649d8e7b974331db432673a94e0da33a666660b419c8330102ee",
+        "bytes": 2438
+      },
+      "artifact": {
+        "sha256": "d04e3b33b2f6e692294ac5920b2710ff574f02edbcc7706e9694fdaeb539121e",
+        "bytes": 798519
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "cn-access",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\cn-access.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\cn-access.html",
+      "specification": {
+        "sha256": "0a95ad97d3b15e0fc3d695f605ffb55b048117145173557f52c18a8bbb13f9e6",
+        "bytes": 2408
+      },
+      "artifact": {
+        "sha256": "4a5e802e48284d6c659ca8027bc46d6f19b24da480f22d15f60430d3c1e3a622",
+        "bytes": 798527
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "ai-tasks",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\ai-tasks.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\ai-tasks.html",
+      "specification": {
+        "sha256": "3f0ea645c4129e8da196dc827aa575aab4f3e8df7c76eecad6651170597b81f5",
+        "bytes": 2383
+      },
+      "artifact": {
+        "sha256": "da753846f7bfac6fd98c30f8d7c9a962df56aef7f56c0f5446191219ec0aa07b",
+        "bytes": 798571
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "ai-regression",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\ai-regression.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\ai-regression.html",
+      "specification": {
+        "sha256": "d02b61e80f9bfd9e4e443302060be1511ab95b91a3e54685b739a6df9c51d8d0",
+        "bytes": 2443
+      },
+      "artifact": {
+        "sha256": "61d6bb2cb8232572bee8ca8c1beccacf764566ca61ec510123e88ab7fe26fcce",
+        "bytes": 798508
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "ai-classification",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\ai-classification.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\ai-classification.html",
+      "specification": {
+        "sha256": "a68da0a7abd541e52a5003483abed4619651cd27f7f1837a2b773226e1b13c64",
+        "bytes": 2514
+      },
+      "artifact": {
+        "sha256": "0b3a822acd668988adbf9f5644d17feb5379093c5637062ef8f158da65d83b2a",
+        "bytes": 798731
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "ai-neuron",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\ai-neuron.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\ai-neuron.html",
+      "specification": {
+        "sha256": "d2cc4a82cad7b030bdcb898fc3565a9071fde2747586b58c13e4330e819d5073",
+        "bytes": 2367
+      },
+      "artifact": {
+        "sha256": "020ff776bd2fb14613267b1c81161ff432b8f9fb943aa00e9fa3b30e345db845",
+        "bytes": 798349
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "ai-activations",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\ai-activations.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\ai-activations.html",
+      "specification": {
+        "sha256": "df509080cc33c4e61d31aa16552b0bbcc9e36078b7ac64b140cc0625e2e887fc",
+        "bytes": 2521
+      },
+      "artifact": {
+        "sha256": "b16e2b143fede9c9520446f570a1802bd412f32a59a610534b6fa8995a6130da",
+        "bytes": 798783
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "ai-ann",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\ai-ann.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\ai-ann.html",
+      "specification": {
+        "sha256": "35f092af3a588401f0cce5bba18377e3d111a990b734560b88f5bb81e9c0a381",
+        "bytes": 2368
+      },
+      "artifact": {
+        "sha256": "7ec3906d240b8be5ade80f118c30577677f4ad10581d682a2deac347585c5fbd",
+        "bytes": 798536
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "ai-training",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\ai-training.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\ai-training.html",
+      "specification": {
+        "sha256": "b43b9b25819615c1401b19c3eeb26e52f4ff1e21fb21518bcf05f73aed4c3d5b",
+        "bytes": 2455
+      },
+      "artifact": {
+        "sha256": "3bf1692d69b00e7db9e7a6d04af651e2836265be861a61305dec9bd384dbcd54",
+        "bytes": 798696
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "ai-tensorflow",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\ai-tensorflow.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\ai-tensorflow.html",
+      "specification": {
+        "sha256": "d149e0de3f577e34e02f87060a1ff10edd47b0f8ad886cb6eabd8f19c69a95d1",
+        "bytes": 2479
+      },
+      "artifact": {
+        "sha256": "3ff6a4e8038597aa21eea3b141593bafaeb73bb0b8341b4832701adeb49cc1dd",
+        "bytes": 798570
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  },
+  {
+    "id": "ai-evaluation",
+    "receipt": {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "workflow",
+      "input": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\specs\\ai-evaluation.json",
+      "output": "D:\\FS_prep_temp\\Subjects\\visualize\\diagrams\\html\\ai-evaluation.html",
+      "specification": {
+        "sha256": "1b50e60c0c1afcfecc9ccbf7e14f9c95ec66a506db4102baa73dafcce18d7478",
+        "bytes": 2514
+      },
+      "artifact": {
+        "sha256": "8dfb8139d6b16dbb9d3b26c2665088f72e178852900e3431b384650d0c5418ec",
+        "bytes": 798770
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  }
+]

@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Regression and mean squared error",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "ai-regression-step1",
+    "ai-regression-step2",
+    "ai-regression-step3",
+    "ai-regression-step4"
+  ],
+  "nodes": [
+    {
+      "id": "ai-regression-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Predict",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "ai-regression-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Subtract",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "ai-regression-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Square",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "ai-regression-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Average",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "ai-regression-step1",
+      "to": "ai-regression-step2",
+      "label": "actual − predicted",
+      "role": "main"
+    },
+    {
+      "from": "ai-regression-step2",
+      "to": "ai-regression-step3",
+      "label": "square residuals",
+      "role": "main"
+    },
+    {
+      "from": "ai-regression-step3",
+      "to": "ai-regression-step4",
+      "label": "divide by count",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The average uses squared magnitudes rather than signed differences. Every selected squared error contributes a nonnegative amount."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "A linear output is common for unrestricted numerical predictions. MSE is a loss value, not an accuracy percentage, and has squared target units."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}

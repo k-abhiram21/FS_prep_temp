@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Types, coercion and equality",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "wt-operators-step1",
+    "wt-operators-step2",
+    "wt-operators-step3",
+    "wt-operators-step4"
+  ],
+  "nodes": [
+    {
+      "id": "wt-operators-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Inspect operands",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "wt-operators-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Apply +",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "wt-operators-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Apply - separately",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "wt-operators-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Compare strictly",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "wt-operators-step1",
+      "to": "wt-operators-step2",
+      "label": "concatenate",
+      "role": "main"
+    },
+    {
+      "from": "wt-operators-step2",
+      "to": "wt-operators-step3",
+      "label": "compare subtraction",
+      "role": "main"
+    },
+    {
+      "from": "wt-operators-step3",
+      "to": "wt-operators-step4",
+      "label": "compare types",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The first operation has a string operand and joins text. The second converts the numeric string. Strict equality keeps the type distinction."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "typeof null returns \"object\" for historical reasons. This result does not mean that null is an ordinary object with readable properties."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This topic supplements missing college coverage."
+      ]
+    }
+  ]
+}

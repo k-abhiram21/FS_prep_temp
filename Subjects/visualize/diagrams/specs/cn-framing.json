@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Framing and stuffing",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "start",
+      "label": "Starting state and rule"
+    },
+    {
+      "id": "result",
+      "label": "Result and interpretation"
+    }
+  ],
+  "mainPath": [
+    "cn-framing-step1",
+    "cn-framing-step2",
+    "cn-framing-step3",
+    "cn-framing-step4"
+  ],
+  "nodes": [
+    {
+      "id": "cn-framing-step1",
+      "lane": "start",
+      "col": 0,
+      "type": "frontend",
+      "label": "Read data",
+      "sublabel": "Step 1",
+      "width": 184
+    },
+    {
+      "id": "cn-framing-step2",
+      "lane": "start",
+      "col": 1,
+      "type": "backend",
+      "label": "Count five 1 bits",
+      "sublabel": "Step 2",
+      "width": 184
+    },
+    {
+      "id": "cn-framing-step3",
+      "lane": "result",
+      "col": 2,
+      "type": "backend",
+      "label": "Insert a 0",
+      "sublabel": "Step 3",
+      "width": 184
+    },
+    {
+      "id": "cn-framing-step4",
+      "lane": "result",
+      "col": 3,
+      "type": "external",
+      "label": "Send the last bit",
+      "sublabel": "Step 4",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "from": "cn-framing-step1",
+      "to": "cn-framing-step2",
+      "label": "read five 1 bits",
+      "role": "main"
+    },
+    {
+      "from": "cn-framing-step2",
+      "to": "cn-framing-step3",
+      "label": "stuff a 0",
+      "role": "main"
+    },
+    {
+      "from": "cn-framing-step3",
+      "to": "cn-framing-step4",
+      "label": "send remaining bit",
+      "role": "main"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "The rule",
+      "items": [
+        "The inserted bit breaks the special run within payload data. A separately transmitted flag remains distinguishable under the protocol rule."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Check the limit",
+      "items": [
+        "Count consecutive data 1 bits correctly, and restart the count after a 0. Do not apply payload stuffing to the boundary flag itself."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Explanation provenance",
+      "items": [
+        "ai explnation due to lack of material",
+        "This worked explanation supplements the linked college topic."
+      ]
+    }
+  ]
+}
