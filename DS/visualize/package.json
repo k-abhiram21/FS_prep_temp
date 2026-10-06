@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "content": "python3 scripts/build_content.py",
+    "content": "node scripts/content.mjs",
     "dev": "vite --host 127.0.0.1",
     "build": "npm run content && vite build && node scripts/inline_build.mjs",
     "preview": "vite preview --host 127.0.0.1"

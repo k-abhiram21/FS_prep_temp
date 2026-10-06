@@ -1,5 +1,6 @@
 // Curated from DS/Day_01..03_Notes.md and DS/FS_Concept_Notes.md.
 // The source library retains the detailed contracts and corrections.
+import { conceptFlows } from './content/concept-flows.js'
 export const lessons = [
   {
     id: 'prefix', title: 'Product except self', lane: 'Coding', days: 'Day 1', minutes: 7, priority: 1,
@@ -285,4 +286,12 @@ lessons.push(
   },
 )
 
+for (const lesson of lessons) {
+  if (conceptFlows[lesson.id]) lesson.diagram = conceptFlows[lesson.id]
+  if (lesson.id === 'language') {
+    lesson.title = 'Java expressions and input rules'
+    lesson.summary = 'Trace Java operations in order and read the required input format.'
+    lesson.points = ['Java evaluates operands from left to right.', 'Widen an operand before arithmetic that can overflow.', 'Practice the required main method or Solution signature.']
+  }
+}
 export const lessonById = Object.fromEntries(lessons.map((lesson) => [lesson.id, lesson]))

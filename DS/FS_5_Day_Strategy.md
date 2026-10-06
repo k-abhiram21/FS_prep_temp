@@ -1,5 +1,7 @@
 # FS first — five-day strategy for the 27-lecture DAA sequence
 
+**Historical plan:** its 4–8 October window and assumed progress have been superseded for the current preparation by [the plan from 5 October evening](../FS_REMAINING_DAYS_PLAN.md). Use [the material guide](../FS_MATERIAL_GUIDE.md) for the newly added college sources. The four-hour budget below was inherited from earlier documents, not confirmed by the current user.
+
 **Window: 4–8 October 2026; test on 9 October as stated in your supplied plans.** This is a focused adaptation of [PreFS_6_Day_Preparation_Plan.md](/mnt/windows/Users/abhir/Documents/Projects/PreFS_6_Day_Preparation_Plan.md) and [GATE_CS_2027_PreFS_Study_Guide.md](/mnt/windows/Users/abhir/Documents/Projects/GATE_CS_2027_PreFS_Study_Guide.md). They supply context; your latest instruction makes FS the immediate priority. The original files have not been changed.
 
 **Update, 5 October:** the notice you pasted directly confirms three coding areas—recursion, arrays/strings and greedy—plus three coding questions, 30 MCQs in 30 minutes, and two hours total. New lecture packages follow [Study_Workflow.md](Study_Workflow.md). Every lecture topic is covered in notes; topics outside these coding areas receive deeper explanations and code-scenario MCQs instead of standalone coding tasks. The notice gives no detailed DAA MCQ topic list, so lecture coverage remains useful. Your instruction sets the hard scenario-based preparation format.

@@ -1,0 +1,1384 @@
+0:00
+strobatic number. So let me share the screen.
+0:12
+Yeah. Uh sir, go to a blank screen.
+0:17
+Yeah. Now if you look at this blank screen, uh we have a bunch of numbers.
+0:22
+So I'll give uh call them 10 uh 20 and
+0:27
+uh 35. Uh what is the greatest common divisor
+0:35
+of these three? So we have seen one approach in the last class where we get all the factors
+0:42
+uh 1 2 5 10 and this guy has factors uh 1 2 4
+0:51
+5 10 20. And this guy has factors 1
+1:00
+5 7 uh and
+1:07
+35. Now if you look at these three numbers and their corresponding factors uh you
+1:15
+find that five is the number which is common in all these three in addition to
+1:22
+1 and five because we are looking at the greatest common divisor. The answer
+1:28
+would be five. Are you with me?
+1:37
+Guys respond if you are with me one of you.
+1:44
+Yes. Yeah. Erase this sir.
+1:52
+Now if I have 10 13
+1:58
+27 uh what would the GCD of this be?
+2:12
+Yes, please. 1 1 correct. 1 2 5
+2:20
+1 13 1 3 9 27 and the only number which is
+2:29
+common is 1. Okay. So one way of solving this problem we have seen a brute force
+2:35
+is get the factors where you can iterate and get the factors where you divide uh
+2:40
+each number by i where i ranges from 1 to that number and you can get the
+2:47
+factors and then we have seen you can add the factors to a hashmap. One occurs
+2:53
+once. Two occurs once. Uh five occurs once. Uh three occurs once. Uh 13 occurs
+3:02
+once. 9 occurs once. 27 occurs once and then you find that
+3:09
+there is only one number which occurs three times which is equal to the number of numbers and that is the answer. A
+3:16
+very very uh simple brute force way of solving. Get factors,
+3:25
+add them to map
+3:30
+and then find the largest
+3:37
+which where frequency
+3:42
+is equal to the number of variables. Are you guys clear with this algorithm?
+3:55
+Guys, are you clear?
+4:03
+Hello. Are you clear? Yeah, you need to respond fast so we
+4:09
+don't waste time. Yeah, great. Sir, can you erase everything and take me to the word document?
+4:17
+We look at a efficient algorithm to solve this. And can you zoom this?
+4:25
+Yeah. The greatest common uh divisor of two numbers a and b is the
+4:32
+largest positive common divisor that divides both the integers a and b. Uh
+4:38
+let's take number 63 and 21. Uh the factors are written there. And what you
+4:44
+find the three common factors are 3721
+4:49
+and of those three the greatest is obviously 21. So we have the answer 21.
+4:55
+Uh one algorithm which we are going to be discussing is the ukidian algorithm.
+5:02
+So just let's go through that and I'll then I'll explain through an example. Let a and b be two numbers. In in our
+5:09
+case let's take them as 21 and 63. And then you calculate the modulus. So
+5:17
+give me access here. Yeah. So a is 23
+5:26
+and b is 61. Then you say uh some variable r is equal to a modulus b. What
+5:35
+is a modulus b going to be? 23. And then uh b will be now r and uh
+5:47
+a will be b. So b is r 23 and a is b 61.
+5:54
+Then again you calculate the modulus. R is equal to uh 61 / 3 uh 21 sorry 63
+6:04
+sorry 21 and 63
+6:11
+then 63 divide modulus 21 would be zero.
+6:16
+So if uh if uh r is equal to zero then we
+6:22
+return a you know sorry you return B in our case
+6:28
+is 21. Repeat step two and three until A modulus B is greater than zero. And if
+6:36
+when it is zero you return B. Are you guys clear?
+6:48
+Yes sir. Okay. Now let's go to a blank screen and run this algorithm with a different set
+6:55
+of values. Sir, we again take 10
+7:01
+20 50 and uh 70
+7:07
+uh let's say 77. So to find the GCD of all we will first
+7:13
+find the GCD of these two. So A is 10, B is 20. So what is R?
+7:21
+A modulus B. What is 10 modulus 20? 10.
+7:28
+So B will be now uh
+7:33
+so A will be now 10.
+7:39
+So A will be 20 and B will be 10 which is remainder. So what is R now? 20
+7:47
+modulus 10 which is zero. So when it is zero we return b 10. So we know given
+7:54
+these two numbers the gcd is 10. Now we use that result and compute the gcd with
+8:01
+50. So we know gcd of 10 and 50 will also be at some point of time uh 10
+8:08
+modulus 50 is uh 10. So B will be 10, A will be 50
+8:16
+and then 50 modulus 10 is zero. So when it is zero we return B 10. So we know 50
+8:23
+10 modulus is also 10. Now you have to get the modulus of these two. Now how do
+8:28
+you do that? Let's do that. A is 10, B is 77. So 10 modulus 77 is 10. So B will
+8:40
+be 10. and a is 77. So 77 modulus 10 is
+8:46
+7. So b will be now 7. Uh a will be 10. Now
+8:54
+what will 10 modulus 7 be 3. So b will be
+9:02
+three. A will be 7. 7 modulus 7 uh 3 is
+9:08
+1. So b will be 1. A will be
+9:14
+A will be three. So 3 modul is 1 is Z uh
+9:20
+zero. So we return B which is one. Are you seeing how we got this?
+9:26
+I mean although this not in the right order but when I did 1077 10 modulus 77 is 10 and B is 10
+9:36
+and A will be 77. 77 modulus 10 is 7. So B is 7, A is 10, 10 modulus 7 is 3. Then
+9:44
+7 modulus 3 is 1, 3 modulus 1 is Z 0. So we return B which is once. Are
+9:52
+you guys there? A simple uh equation where we say if B is equal to 0 or A is
+10:01
+equal to zero return the other number A. else
+10:06
+gcd of a comma a modulus b
+10:12
+that's the thing now why don't you try
+10:17
+this logic with three numbers which I'm giving you uh five
+10:23
+uh sorry 14
+10:30
+2 and 6 calculate 1426 using this and
+10:35
+tell me what you get. Few minutes take a paper pen do that. Calculate the GCD of
+10:41
+142. We know it is going to be two but you calculate it and then we also know between two and six it will be two. So
+10:47
+the answer is two. That is fine. But do the calculations using this ukadian
+10:54
+formula all of you? I'll explain after you're
+11:01
+done.
+11:14
+and if one of you are finished you can you can explain and I will write down on this white Peace.
+11:36
+Yeah, hang on. Let's write. So, erase this. We'll take three numbers. 14, 2, and six. Erase everything. Yeah.
+11:44
+14, 2, and 6. A is 14 and B is 2. Yeah,
+11:50
+go ahead. A 14 mod 2 = 0
+12:00
+= 2. Okay. So 14 modu
+12:06
+2 is = 0. So what do we return
+12:11
+to? We return B and that is answer two. So we know the modulus between these two is
+12:16
+two. So we have two and six. A is two b is six. Yeah.
+12:24
+So two modulus 6 will be what? Two. Two. So what will b be now?
+12:32
+Come again. Two. Two. And what will a be?
+12:37
+Six. Yeah. So what is six modulus 2 now? Zero. So when it is zero what do we
+12:44
+return? B is equal to we return B.
+12:50
+Got it? So basically a simple iterative solution you can use and then you can
+12:56
+convert this into a recursive solution where we put that condition if b is
+13:03
+equal to zero return a or if a is equal to 0 return b
+13:10
+whatever and gcd of a comma a modulus b
+13:22
+Got it.
+13:28
+Okay. Now let's go to the iterative solution of this uh particular problem.
+13:38
+Yeah. Yeah. Uh show the main sir.
+13:46
+uh in the main we are taking a bunch of numbers using a space separator line 29
+13:52
+then we do a split we get the array uh then we convert all of them into an
+13:57
+integer and then we are calling find gcd of that array okay that is our find gcd
+14:03
+method yeah go to that sir
+14:09
+yeah now interesting now here we have taken care of negative numbers because the gcd always should be positive
+14:16
+number. So look at that if nums is equal to zero that means no data is given I return zero. If only one element is
+14:23
+given I return that element. If you given minus2 I will return plus otherwise whatever it is. Is that
+14:29
+condition clear? Why we are doing uh absolute because gcd is always positive.
+14:34
+Now what are we doing after that? Now give me a blank screen sir.
+14:41
+No I I I need access there. Sorry. Er, erase that.
+14:47
+Erase everything sir. Yeah. Now give me access here. Can you go up show the GCD
+14:53
+code also?
+14:59
+Yeah. Stop. Now let's take an example. Uh 5 10
+15:06
+30. Now I find the So we start with I is equal to 1. I less than nums I ++. Now
+15:14
+what is my result? First element. So the first element is the result. Then I call the GCD of five and 10. Is this code
+15:21
+clear to you? So we start with one because zero is anyway the first number. So result. Then I call GCD. Now look at
+15:28
+the GCD. A is equal to 5, B is equal to 10. While B not equal to 0, I'm saying
+15:35
+temp is equal to B, B is equal to A modulus B and A is equal to 10. Our logic which we wrote. And when b is
+15:41
+equal to zero I return a.
+15:48
+So what happens when you take five and 10? temp is equal to 10. B is equal to 5
+15:54
+modus 10 which is 5 and a is equal to 10. So b is five. Then we loop back. B
+16:01
+is not zero. So temp is equal to 5. B is
+16:06
+equal to 10 modulus 5 which is zero. and a is equal to five. So when b is
+16:14
+equal to zero, the while loop terminates and we return a five. So the gcd of five and 10 is five. So that is stored in the
+16:23
+result. Now I'm saying if the result is one return one. Can anyone tell me why
+16:28
+is this condition critical? What happens with this condition which is written there 21?
+16:38
+anyone if we get one as an output then all the
+16:44
+output will be one sir for every iteration exactly because if the gcd of the any
+16:50
+two numbers is one then you can't have a gcd larger than that so if that is the
+16:56
+case we don't need to process the rest of it we can just return one immediately is that condition clear even if I did
+17:03
+not have this the code will still work but then what would happen imagine you had 1 5 10 100 and you had 10,000 more
+17:12
+numbers. You you have already got this as one. You cannot get anything larger than one even if you process it. So why
+17:18
+unnecessarily iterate? Can you not exit and reduce the time required to uh run
+17:25
+your code? Are you guys getting this?
+17:34
+Is this clear to everybody? Yes sir. Yeah. Even without that you'll always
+17:40
+get one but there's unnecessarily processing of the rest of the element. So you need to you know start thinking
+17:45
+of how you can make things better. Anybody has any questions on this?
+17:52
+Any questions? So now the advantage here is we are not
+17:57
+writing logic to get all the factors. We are not dumping into a hashmap. We are not processing the hashmap to find the
+18:04
+frequency equal to the number of element. This is so much more efficient than that. But in case you cannot think
+18:10
+about this in the interview, please go back to your fallback mechanism which is
+18:15
+the brute force approach.
+18:21
+Now I'll show you the recursive implementation of it.
+18:26
+Eraser. Erase everything. Yeah. Show the recursive implementation.
+18:34
+Now one minute the find GCD doesn't change. So that is still the same. Go
+18:39
+up. Same code sir. Everything is same here except the gcd which was a
+18:46
+non-recursive implementation is now a recursive implementation. See this if b
+18:52
+is equal to zero return a. Otherwise gcd of b comma a modulus b.
+19:00
+So this is that swapping which we were doing in the show the non iterative.
+19:06
+Show the iterative. See the swapping we were doing and that is what we are doing
+19:12
+in the recursive. A comma b has become b comma a modulus b
+19:18
+and that keeps changing. Are you good?
+19:34
+Any questions on either the iterative or the recursive implementation?
+19:45
+Guys, response. No sir. No questions. Great. Minimize sir.
+19:54
+Yeah. We now go back to our word document and look at another very very interesting problem. I'm sure this will
+19:59
+take lot more discussion. Sir, continue. Yeah. Stop. Zoom this.
+20:07
+Uh, how many of you know what is a strobatic number?
+20:14
+Minimize sir. How many of you know what is a strobatic number?
+20:23
+Does anyone know that?
+20:30
+Okay, looks like nobody knows. Yeah, go back to the word document.
+20:35
+Yeah, a strobatic number is a number whose numerical value is rotationally
+20:42
+symmetric so that it appears the same when rotated by 180°.
+20:48
+In other words, the number looks the same right side up and upside down.
+20:54
+Numbers like 8, 88, 101, 69, 96.
+21:02
+Then there's an extension to this which we will discuss later. A strobatic prime
+21:08
+is a strobatic number that is not only a strobatic number but it also prime that
+21:15
+is it is divisible by itself. For example, 1 one
+21:21
+88 is a strobatic number but but it's not a prime.
+21:26
+69 is a strobatic number but is not a prime. Whereas 101
+21:35
+11 they're all both strobatic and also prime. Are you seeing the extension to
+21:41
+that same problem?
+21:47
+Is this basic thing clear? Yes sir. Huh? It is a type of ami ambig words and
+21:56
+numbers that retain their meaning when you view them from a different perspective like a palindrome. Like in a
+22:03
+palendrome we say it is the same when you read that word backwards. Okay. Now
+22:08
+scroll down slightly. Yeah. Now look at this diagram. You have
+22:14
+916. I have rotated by 90°. Then further rotate by 90°. And then you again rotate
+22:22
+by 90° and again 90. So you get the same number 916.
+22:35
+What happens when you give 69? So when you say it means each number
+22:42
+when rotated by 9 180° this rotated by 180° and this
+22:51
+rotated by 180° will be this. And again you further rotate you will
+22:57
+get 69.
+23:06
+Are you there? Yes sir. Yes sir. So given numbers 0 to 9, which ones do
+23:15
+you think are not strobatic numbers?
+23:24
+Except 018 69. Exh.
+23:35
+So six when you rotate will become nine. No.
+23:40
+So how is it a topogrammatic number? With nine it could be. Now sir
+23:46
+I know but six when you rotate by 180° what do you get? Nine sir.
+23:52
+Nine. Whereas eight when you rotate by 188° what do you get? Eight. Eight.
+23:57
+69 is 6 and 9 are not okay
+24:03
+you're getting it. 69 is but 6 and 9 are not that's what I'm
+24:09
+trying to tell you. 6 will become this and then it'll become
+24:17
+9. So when you rotate by 180° do you get
+24:23
+six 9 do you get six back or do you get nine
+24:29
+nine? So it is not a stop but when you look at 69 each number when you rotate will become
+24:36
+what? 9 and this will become six. Then again you rotate this by 180° it will
+24:43
+become 69. Are you understanding what I'm saying?
+24:49
+each number by itself is rotated by 180° and then the result is rotated by 180°
+24:56
+and then you get the original number whereas six when you rotate by 180° will
+25:02
+give you 9 and likewise 9 when you rotate you'll get six so they are not so if I were to ask you a single digit
+25:09
+strobatic number it will be 0 1 8 only 0 1 and Eight.
+25:20
+Are you guys getting it? Yes, sir. How about it? Double digit. Two digit.
+25:31
+Yeah.
+25:37
+What do you think? They are two digits. Anything
+25:44
+which has a 2 3 4 5 7 are obviously
+25:50
+invalid.
+25:57
+Yeah, tell me sir. I'm waiting.
+26:02
+It is 69 will add two. No, but 69. Yes. Which means 96. What else?
+26:14
+Z one. Okay. One
+26:20
+and 88.
+26:26
+These are the two twodigit straatic numbers.
+26:32
+What about three digits?
+26:38
+Three digit you're seeing here. No, are you not seeing that?
+26:44
+See, all these are three-digit numbers.
+26:50
+101 111181 69 619 689 808 906 916
+27:00
+986 Are you seeing that? Yes.
+27:07
+Now sir, erase this. Okay. Interesting. Now we look at a very
+27:12
+interesting pattern. Erase everything.
+27:17
+Pay attention to the first three single digit. Pay attention to the next
+27:26
+four double digit. 0 1 8
+27:35
+1 1 6 9 8 8
+27:41
+96 and then pay attention to this.
+27:49
+Just we look at it. What do you see? Are you seeing a pattern anywhere?
+28:13
+Yeah. 018 were repeating in one. So it is like 101 is from 11 and zero. 111 is
+28:22
+11 and 1.81 is 11 and 8. Likewise then you can guess then remaining will be
+28:28
+zero in between 69 69 0 between 88 88
+28:35
+zero between this then 6 8 in between 69 68 9 8 in between
+28:43
+88 888 between this 986
+28:49
+are you there guys? So we are going to use the smaller number to generate the
+28:55
+larger to generate the larger and to generate this. So there there are some base conditions which is when uh n is
+29:02
+equal to0 I return empty string. When n is equal to 1 I generate these three.
+29:07
+When n is equal to 2 these are fixed. But when n is = 3 4 5 up to whatever we
+29:14
+will generate dynamically.
+29:21
+Are you there? Yes sir. Sir, scroll down.
+29:30
+Erase.
+29:35
+Yeah. Yeah. Let us look at and enumerate. So look at this please.
+29:42
+Uh n is equal to0. No numbers. n is equal to 1 0 and 8. So 6 and 9 are
+29:47
+obviously missing. And which is correct because 6 and 9 are not stopoggrammatic
+29:53
+numbers. They do not give the same value when you rotate by 180°. N is equal to
+29:59
+2. These are now when n is = 3. Look at what we get.
+30:09
+And when n is equal to 4, what do you get?
+30:15
+See, when n is equal to three and then four, there's a zero getting
+30:22
+added in between. There's a one getting added here. There's an eight getting added in. So zero gets added in all the
+30:29
+numbers. One gets added and then eight gets
+30:35
+added. And what we are printing here is sorted
+30:41
+order. That is why you see they in ascending order.
+30:48
+Okay. So with this scroll down sir. Yeah. Stop. Okay. Scroll up. Yeah.
+30:54
+Observation. When n is zero and n is 2, you can find that the latter is based on the former
+31:02
+and the left and right sides of each number are increased by 1 one. n is 0 and n is 2. The second one is
+31:10
+based on the former and they all increased by 1 1 69 88 96. Scroll down.
+31:19
+Yeah. Now stop. When n is one and n is three, n is so can you erase this? Move
+31:25
+that fellow. When n is one and n is three, it is more obvious. Increase [snorts] 11 1 around 0
+31:33
+becomes 101. Increase around zero becomes
+31:42
+60 9.
+31:47
+And likewise you'll get the other numbers
+31:53
+808 9069 [snorts] 906.
+32:01
+So we basically take the first layer add another to it keep adding this use this
+32:08
+to generate use the previous to generate this use this to generate this and so on. So with the base conditions so I
+32:15
+would just give you some time please go through this observation with this data and if something is not clear let me
+32:21
+know
+32:27
+because understanding this is important for the code. Code is a very easy piece of code. Nothing big deal.
+32:51
+Uh that means n= 4 uh sequence was uh getting from n= 3 sequence you know. No,
+33:00
+n is equal to two sequence. Okay. Evens who are coming from even odds who
+33:07
+are coming from. Yes. Thank you. We always Yeah. Thank you. We always say
+33:13
+n minus 2 to whatever be the n.
+33:19
+Yeah.
+33:34
+Anybody
+33:45
+has any questions on this uh pattern observation?
+34:03
+Shall we look at the code and explain you?
+34:09
+Yes. Yeah. So before that can you run the program sir?
+34:14
+We'll just help you understand some debug messages.
+34:25
+What are you doing?
+34:37
+Yeah,
+34:42
+we'll give NS1.
+34:47
+No. Yeah. Which one are you running?
+34:53
+Solution or whatever.
+35:12
+Okay. Give two.
+35:17
+Give three. Okay. Just observe there are some debug messages. It'll make sense little later.
+35:24
+When I gave one, I was printing the default 018. There's nothing to process. When I gave two, I said n minus 2 0
+35:36
+and we got one. And then for two, we returned this. When n= 3, are you seeing uh we got for n= 1,
+35:46
+for n= 3, we got n is equal to 1. For n= 1, what is the maxis?
+35:55
+See for n is equal to 3 we got n is equal to 1. So the three previous numbers are 0 1 8.
+36:04
+Are you there? Now give four sir.
+36:11
+Don't clear. Give four.
+36:18
+See for four we get n= 2. When n is equal to two remember
+36:25
+these five numbers we got. So we use this as a base to generate for four. So it is always for odd the previous odd
+36:32
+value and for even the previous even value. Are you seeing the pattern there
+36:39
+give six generate first two then that will use to
+36:44
+generate four that will be used to generate six. Go up sir. Go up. See. So we got for n= 4.
+36:55
+Then we got for n is equal to 6 using the previous numbers.
+37:02
+Okay. How is it done? We will see in the code. But the previous n minus 2 pattern is used to
+37:09
+generate the nth patterns.
+37:14
+Okay. So these are all the debug messages uh where initially both n and m are same
+37:20
+six and six then we got for two the values and those are the five elements
+37:27
+then we update it and so on. So we'll go through the code. Uh shall we shall we
+37:33
+look at the code now if you're clear on this? Yes sir. Yeah. Can you take us to the main sir?
+37:44
+Please understand. Very important you understand. Yeah. Scroll down. Uh we take input for n call this method.
+37:52
+Then we are doing a sorting. The reason being if I don't do sort you can
+37:57
+generate that output in any order and that may not match our test cases. So we are saying we want a sorted order and
+38:05
+that way everybody's test cases will match what we are expecting. So please make sure you use the sort before you
+38:12
+print. Yeah. Scroll down sir. Yeah. Great. Uh please look at the
+38:19
+initial values. We have two pairs of digits. Hello. uh which is the for n is
+38:26
+equal to 2 remember 1 69 888 96 so we use that as a base. Now if you look at
+38:32
+that helper function uh in the help in the helper function if n is equal to 4
+38:39
+we are passing four and four. So four is n four is m. If n is equal to 0 we
+38:44
+return an empty list. If n is equal to 1 we return 0 and 8. So we know these are
+38:50
+the two base conditions. There's nothing much we need to process
+38:56
+except return an ar list of 018. Is is that clear to everybody? Because it is
+39:01
+recursive function, we need to have a termination statement. So we terminate for either of them.
+39:08
+Okay. So now give me access. Yeah. So I started with n is equal to 4.
+39:14
+So we call the helper with 4a 4. Now this is not true. This is not true. So
+39:20
+I'm calling the helper with 2a 4. Are you saying n minus 2 m? So the helper
+39:26
+function is again called uh does it match? No. So again I call the helper
+39:31
+with 0a 4. So when I call the helper with 0, 4, what does it return? Empty
+39:37
+string. When it returns an empty string, what is returned back to this guy? An empty string. So when an empty string is
+39:43
+returned back to this guy, what are we doing in this rest of the code now? Okay guys, are you clear with what I'm
+39:49
+explaining? From the uh finds robboatic, we are calling helper with 44 that is
+39:55
+calling the helper with uh two and four because the if conditions are not true.
+40:01
+The helper with 24 again calls the helper with 04. When it calls the helper with 04, this condition is true. So what
+40:07
+is returned to 24 is an empty string. And when it returns an empty string here, we now look at the rest of the
+40:13
+code. Can I proceed?
+40:19
+Yes. Yes sir. Yes. Scroll down sir. Yeah. Stop. So we are printing the list
+40:27
+size. What will the list size be? Empty. Okay.
+40:32
+Uh then we basically have empty string. So list is one
+40:38
+element which is empty. For i is equal to0. I get the value. That value is empty string. Then I'm printing n m
+40:46
+string is empty. Then we are saying is m not equal to m. Yes. N is 2 m is 4 not
+40:53
+equal. So what are we adding? 0 0. Are you seeing the first string which I'm adding is 0 0. Give me accessor.
+41:01
+I'm adding the first string 0 0. Okay. For n is equal to 2. Then we are going
+41:06
+through each pair. What are the pairs? We looked at 1 1 6 96
+41:12
+and 88. We are going through each pair two digits and we are saying oh get me
+41:18
+the digit zero. Digit zero is one. What is the empty string? Uh what is empty?
+41:24
+What is the digit two? One. So I'm generating the twodigit
+41:29
+strobagnic number using this logic for.
+41:35
+If you don't want this for loop you can do something more readable. So scroll down.
+41:41
+Yeah, you can directly say result dot add one empty string 1 6 empty string 9
+41:47
+69 8 empty string 888 9 empty string 9 six Instead of writing all these
+41:53
+statement this for loop is doing the same thing because our digit pair if you look at the top is a two-dimensional
+42:00
+array with 1 69 88 and 96
+42:07
+scroll down yeah so What is h of h of 24 returning
+42:14
+you an array list 0 1 1 6 9 8 and 96. So
+42:24
+when this is returned back to h of four again scroll up
+42:30
+swap what is the list size now list size is five then I get the first element
+42:38
+what is the first element I get accessor what is the first element I get 0 0 is n
+42:48
+equal to m in our case n and m are same four and four then what are we doing we are taking uh each pair and adding. So
+42:57
+we say uh 1 one one our str is now 11 1. So 1
+43:03
+11 1 1 then what is the next pair sir? 6 11 1 1 9
+43:10
+818 9116
+43:17
+So for 0 0 I'm doing it.
+43:23
+And for 11 one I'm doing it. For 69 I'm doing this. Are you guys there?
+43:29
+Yes sir. Yes sir. So so when so I'll get all these numbers. So imagine this H uh 6, 6. So
+43:37
+this data will be passed to it. That guy will take this generated array list and again prefix it with 0 0. If uh they are
+43:47
+not if they're not same. In our case they are same we don't do it. Then we take every digit. So we say uh 1
+43:54
+whatever the number one uh six whatever the number nine 8 whatever the number
+44:00
+for each of the data which is generated for each string we have four such values
+44:06
+generated now.
+44:13
+Is it making sense? Yes. Uh sir can you show the output now?
+44:22
+Show the output. Now see the output sir. No don't do anything. See the output. Uh
+44:29
+when I gave six, give me access sir. When I gave six, we started with helper
+44:36
+66. Uh you can erase this.
+44:44
+We started with helper 66 that called helper.
+44:50
+that called helper 46. That called helper 26. That called helper
+44:57
+06. When helper 06 was called, what did I return here? Empty string. So what did
+45:03
+this guy generate? 0 0 1 1 69 88 96. So this was returned
+45:12
+to this guy. What did this guy do? It said, "Oh, add zero."
+45:17
+uh uh sorry uh basically uh take each digit pair and add it. So it generated
+45:23
+this numbers. Are you guys there? So this was returned to 66. So this set
+45:30
+of data was returned. So scroll down
+45:35
+down and finally 66 will be these values. It uses that data and prefixes. The
+45:42
+important code is blank. Go to the code again. The very important code is this line
+45:48
+sir. For each of that pair, we take the first element of the pair. Add that
+45:54
+generated string of the previous number and add the second. So the pairs were 1
+46:01
+one and whatever the pairs were
+46:06
+1 one and whatever the number in between 88 whatever the number in between 6 9
+46:11
+whatever the number in between 9 and six whatever the number. So scroll down sir.
+46:18
+That commented code makes it so much more easier for you to understand. So basically what it means is generate the
+46:24
+strobatic number for the smaller one and add to the left and right 1 69 88 and 96
+46:32
+and for the next set again you generate and do it. That's how we keep increasing the size
+46:39
+of the strogrammatic number.
+46:46
+Anybody has any questions? So, erase it sir and show them the code again.
+46:56
+Yeah. From the findmatic number. I'm calling the helper. The helper has two
+47:02
+base conditions. N is equal to 0 and n is equal to 1. And none of them match
+47:07
+here. But that is useful if you initially give 0 1 or subsequently also anyway 1 and 0 will be generated. It'll
+47:14
+be zero when we have an even number. It'll be one when we have an odd number. And then we go through that helper
+47:21
+recursive call line 13 helper n minus 2, m. So at at some point that will be true
+47:29
+based on line 10 or 11 depending on the n value. and then scroll down. We get
+47:35
+the previous generated value and use that to generate the next. The only time
+47:40
+we add 0 0 at the beginning is when n and m are not same. We add 0 0 at the
+47:45
+beginning. So that we generate a two-digit number which is 0 0 and that can be subsequently used to generate a
+47:52
+four-digit number which is like 10 01 or 8008 or 6009 or 9006.
+47:59
+That is the only time that is why that condition is important. m not equal to n. And after that we take all those four
+48:08
+pairs of digits and add this generated number in between the left and the right
+48:14
+which is digit pair zero and append a string to it and digit pair once.
+48:24
+Are we good?
+48:30
+Anybody has any questions? Any questions?
+48:37
+So this is the first part of the program. There are two other programs which are add-on programs which we will
+48:43
+discuss. But I'll give you a minute in case you guys still have a question. Uh show the word docer. Uh let them look at
+48:50
+that generated numbers and if they have question they can ask otherwise we look at two additional programs today.
+49:10
+Yeah, let me know when we can continue.
+49:24
+Is everybody clear? Yes sir.
+49:30
+Great sir. Can we move on? Get me a blank screen. The first problem for you
+49:39
+is given a number
+49:47
+return true.
+49:53
+True. if it is a
+49:59
+strobo grammatic number. So if I'm giving you a
+50:06
+number 121
+50:12
+6 89
+50:18
+177 3 sorry 1771 Given these three numbers
+50:25
+which one would be true and false?
+50:34
+First and second. Third will be false. First is first will be true. Second will be true.
+50:40
+Third will be false. Okay. What about others?
+50:47
+False. True. False. Second one is true sir. Remaining false.
+50:52
+Exactly sir. Two is not a strobatic number. Hello sir. Who said that? 1 2 1
+50:57
+is true. Sorry sir. Sir I didn't say true. Then what did you see? [laughter]
+51:04
+What did you see sir? Okay, no problem. Did you watch the FIFA
+51:09
+match yesterday? Early morning. No sir. Okay. Otherwise, I thought you could be
+51:15
+in a sleepy state. No worries. No worries. The right answer is false. True. False. Great. How do you do this
+51:22
+is my question now. How would you solve this problem? Given any number
+51:28
+return true if it is strobatic number. There could be multiple ways of solving.
+51:35
+Uh tell us how you can solve using any technique. Check if it is in the generated list.
+51:42
+Generated list. My god. Okay. Uh can we uh erase this uh true and false this
+51:49
+this part sir? Okay fine. Uh who answered this? Your name sir? Immad.
+51:56
+Immad. Okay. Immad. Uh, I'll write down uh X. Give me X.
+52:05
+Uh, check if the number is in
+52:14
+generated list. Okay. Brute force. So, what you're saying is I will take uh 1 2 1. I know
+52:22
+it is a three-digit. Okay. Why don't you only explain sir? How would you do this
+52:30
+sir? 1 121 would not be there in the list when we iterate and check. So no can you tell me
+52:37
+that means you'll first check the number is a three-digit number and generate a list of
+52:43
+for all three and then you'll take each of them
+52:49
+sorry you'll take this then what will you do after that? What is the three-digit numbers? 101
+52:54
+uh 619, right? Yes. 916
+53:00
+818. Okay. So, okay. Let's there may be more. I'm not even looking at it. But
+53:05
+let's say three-digit numbers is this. What how will you check if it is there or not?
+53:12
+Iterate and check. Iterate and check. Okay. So, you'll go through each element of it. So, for I is
+53:18
+equal to zero. I I less than list dot size I ++ you'll get that value compare
+53:24
+with this or is there a better way sir
+53:29
+can someone help you monitor approach sir no no we look at that I'm just asking his solution how would you check whether
+53:36
+a number is there in a list or not
+53:42
+there's a method called contains IMAD yes you can use that okay what do you think
+53:48
+is the uh problem with this image a long time complexity
+53:54
+very long first you're generating that means you're storing somewhere and then again you're iterating iterating to
+54:01
+check contains or not do you think your test cases will pass
+54:06
+you'll get t you'll get t yeah great but anyway good approach because you're
+54:12
+saying we just learned how to generate a stopmatic so you're saying I'll generate it and then I will check fine brute
+54:18
+force No problem. Good try. Excellent. Now, uh, somebody else had another
+54:23
+solution. Can you erase this, sir? Just keep the numbers. Erase everything.
+54:33
+Okay, that's one approach, but not obviously efficient.
+54:38
+Yeah. Yes, sir. Go ahead, sir. Like the previous problem, we will
+54:45
+have a map for 1888 69. 1 minute 1 minute 1 minute give me a map. So you're
+54:51
+saying I'll create a hashmap and I'll have keys and
+54:56
+values. Right? What will the keys be sir? One
+55:03
+one 8 69.
+55:08
+You remember we did the digit pair 1 one 88
+55:13
+69 and 96. remember a digit pair. Yes sir.
+55:19
+So what will one be mapped to? 1 8 96
+55:24
+96. Very good. Uh observation from the digit pair and you're saying I'll create a hashmap. Wonderful. Uh now erase this
+55:31
+part. Yeah. What do you do after that? Uh what's your name sir? Wut sir.
+55:37
+Wut. Yes. Wen cut. Uh I will put a first pointer at the
+55:43
+starting of the one minute one minute. So we will take one
+55:49
+2 one. My left pointer is here and
+55:55
+right pointer is here. Okay great. Then what do you do?
+56:00
+Check the left pointer value both sir. Check the left and right with the map. 1
+56:06
+minute I'll get the left pointer I'll get the left pointer value that is
+56:13
+one okay and then what will I check in the map uh matching to the right sir
+56:20
+so so I just to explain for everybody I'll get the value of the left pointer
+56:25
+which is one I'll get the value from the hashmap I'll get one I'll check whether
+56:30
+that one matches my right pointer is that correct what you're saying wat yes sir
+56:36
+Yes. Then I will increment left by one and decrement right by one.
+56:43
+I get two. Yeah. Then what do you do? Which not which not belongs to the keys.
+56:50
+So returns false. Since two is not there in the map, I
+56:55
+will return false.
+57:01
+Have you all understood this?
+57:10
+Yes sir. Now take an example. 6 8 8 8
+57:16
+9. Now follow the same approach. Left is pointing here. Right is pointing here.
+57:26
+Okay. I'll get the value from the I'll get the value from the map for six. What
+57:32
+do I get as value? nine. Does this value match the right value? Yes.
+57:38
+Then I will increment left by one. Sorry, I'll increment by one
+57:43
+and decrement right by one. So my left is here. My right is here. I'll get the value from the map. Eight. Eight. Does
+57:51
+it match this? Yes. So while left less than equal to right. So I will terminate
+57:56
+saying yeah it is true. 1 0 1 it is
+58:04
+1 0 0 1
+58:10
+yeah if the number is zero then I don't need to check anywhere now
+58:17
+in the sense okay now take that left and right match where is my
+58:25
+1 0 0 1 then you can add to the map 0 and
+58:31
+zero also please add to the map 0 and 0 in this case. Yes, there is a condition
+58:36
+if n= m remember.
+58:42
+So add to the map 0 0 because if 0 0 is not there then our code will return
+58:48
+false because we checking the map. So good observation thank you. Uh 0 0
+58:53
+should also be an entry in the map. That takes care of that n not equal to m
+58:59
+we are adding 0 0.
+59:07
+So that way if you have 1 0 2 1 it will fail because zero value is zero which is
+59:14
+not matching two so it will fail.
+59:20
+Are you all clear? Yes sir.
+59:25
+Great. Uh okay great wonderful erase the code. Now the interviewer says I do not
+59:32
+want you to use a map but still solve this problem.
+59:38
+Map is a great solution but you know in the interview. Okay let's look at your palendrome
+59:44
+method. Okay. So let's say
+59:50
+uh 18 87
+59:55
+which is not a slobatic number uh 881
+1:00:04
+6 8 9 both are Yeah. Now tell me your
+1:00:10
+palendroic method sir.
+1:00:19
+Who who wanted to say what's your name sir?
+1:00:25
+Come here. Come again. Explain.
+1:00:30
+I couldn't hear you sir. Yeah. Go ahead. Explain. Anyway,
+1:00:36
+uh sir, you can take a list of uh uh sorry array of values like 0 1
+1:00:45
+what sir can we wait yeah so you're saying let me take
+1:00:51
+an array what how big will the array be sir uh size of five sir
+1:00:56
+size of five okay 0 1 1 6
+1:01:02
+3 5 This is the index. Okay, I have put the index. Now what are the values?
+1:01:09
+0 1 0 1 6
+1:01:15
+6 8 8 9 Okay, fine.
+1:01:22
+Now tell me what will we do? Uh firstly we check the palendrome of
+1:01:27
+the number. Okay. uh 1887 palendrome will fail. So
+1:01:32
+we do nothing. Now what about this guy? Then uh if the uh digits were of the
+1:01:39
+palendrome number are not present in the uh list of uh array of the numbers then
+1:01:45
+we can cancel out the number. Okay fine. So that way first it is not a
+1:01:51
+palent room. 8 and 7 and one are not palent room. So we don't even need to do anything. Do you agree?
+1:01:58
+Yes sir. Okay. But what six and 9? Six and 9 are also not talent rooms. But
+1:02:04
+what do we do in this case? Now
+1:02:10
+the difference is seven and 9. Seven is there in the list. Uh sorry, seven is not there in this list. Nine is there.
+1:02:17
+So tell me sir take this example and explain first.
+1:02:24
+Then we look at this example and explain because in both the cases it is not palendrome. So if it is not palendrome
+1:02:30
+why does this work and why does this not work? Yeah
+1:02:36
+first we check 187 is palendrome or not. Uh if it's not palendrome so we cannot
+1:02:43
+consider the number sir but what about 6889 6889 is also not
+1:02:48
+a palent room. So will you not consider?
+1:02:55
+No, there's something more you need to do just not pilent room
+1:03:05
+anybody. So while doing the pilent room if you encounter 9 or six just uh reverse swap
+1:03:12
+it with six and how by uh modulo by 10 if you got nine
+1:03:20
+why do you six so you don't want an array now? No.
+1:03:25
+Okay. So, you're not going for this. Now, tell me your approach, sir. Palendrome approach. One minute.
+1:03:31
+Palendrome approach. Yes sir. Palendrome approach. Okay. Let's take that example.
+1:03:37
+1887. Left is here. Right is here. Remember
+1:03:42
+you did this for your reverse of a string. Yeah. Uh 1 and 7 don't match. Yeah. Then what do you do? Tell me now.
+1:03:51
+One and seven don't. We don't require no sir then
+1:03:56
+but six and no sir you can't because you're saying
+1:04:02
+one 887 is not stoogrammatic you're saying we don't require but 6 and 9 when
+1:04:08
+6 and 9 is found what do you do see it is full it is not matching your
+1:04:14
+palendrome logic right 1 17 69 is both failing
+1:04:22
+sir can I So yeah go ahead. So normally we put two pointers one at
+1:04:28
+the front and other at the back. Mhm. Now first when we encounter a number at
+1:04:34
+the left side we check whether if that number is a strobo chromatic number. How we do that is
+1:04:40
+we use a map. I said without using no I said without using a map sir map is done. We
+1:04:46
+understood that. Okay. I said that is already done. We discussed, we went through some test
+1:04:52
+cases, we know how it works. Now I'm saying without using a map, let's do it.
+1:04:57
+So somebody gave me an array of five. Now somebody says, I don't want an array. So I'm just waiting to listen to
+1:05:05
+your solutions. So that way you will know for yourself multiple ways of solving it. Why one is
+1:05:12
+better, why one is not better. Map is a great solution. I totally agree with it.
+1:05:17
+But I'm just trying to ask you is there any other way of doing it?
+1:05:23
+Sir, we can use left if left pointer is six and we check if the right one is
+1:05:30
+nine. If the left pointer is nine, we check if the right one is six.
+1:05:37
+So that means you'll have to put such conditions everywhere. You have to put number of conditions.
+1:05:43
+So basically if I don't go for a map I'm checking take this example 1 is seven
+1:05:50
+they don't match but then I check oh is this value either six or 9
+1:05:58
+if it is not 6 or 9 I can return false do you agree yes sir
+1:06:04
+yes sir whereas if this value is six the other should be nine or if the left is nine
+1:06:10
+the right should be only then I would continue.
+1:06:17
+Correct? Yes sir. So the advantage of this approach is there is no extra storage.
+1:06:24
+Map required extra storage but very elegant solution. Honestly very elegant solution.
+1:06:30
+Whereas this is additional condition. So you'll say is my left pointer six then
+1:06:36
+make sure the right pointer is nine otherwise return false. If my left
+1:06:41
+pointer is nine, make sure the right pointer is six. And if that is the case, then I will increment left and I will
+1:06:47
+decrement right. Are you there? That is the only
+1:06:53
+condition you have to worry about. Six and 9 and one anyway will take care of palindrome. 8 and 8 will anyway be taken
+1:06:59
+care through palendrome. 0 will be taken care through palindrome. So the only thing is in that map 0 0 I don't need to
+1:07:06
+worry. 1 I don't need to worry. 88 I don't need to worry I just need to check
+1:07:12
+for 69 and 9 and six because 88 will be taken care through the palendrome
+1:07:18
+approach and this but again the danger is sir it is not just as simple as this
+1:07:24
+now what happens if you give 2882 you are saying it is a palendrome but
+1:07:29
+it's not a strobatic number so you can't just check for 6 and 9 you have to also make sure it is not two not three not
+1:07:36
+four not five not seven Are you seeing that? Yes sir. Isn't that a painful thing writing so
+1:07:43
+many such conditions? Yes sir. So you're you're thinking only six and n
+1:07:50
+because test case was given. Now your test case will be two and two code will fail.
+1:07:56
+So we can basically put a character thing. So after we enter the loop we
+1:08:01
+encounter one minute uh erase that eraser. Erase this array.
+1:08:12
+Yeah. Now tell me what you want to do sir. Yeah. Yes sir. Take
+1:08:17
+the example 288 2 88 82 now. Yeah.
+1:08:22
+Yes sir. So whenever we enter the array uh I mean the loop and then we have the left pointer towards the leftmost two
+1:08:30
+and the right pointer towards the rightmost two and you check let's say uh
+1:08:38
+array L and then array R if either both of them are two or seven or any other
+1:08:45
+number where the whole thing how do you define that array now just terminate terminate it how do you define that array
+1:08:55
+How would you define that array now? I didn't get you.
+1:09:00
+No, how will you define that array? You're saying there's a left array and a right array. What will that left array? Not a left array and right array, sir.
+1:09:07
+Then what? Oh, charact I mean like you have we have two pointers, right? Yeah. This is here and this is here.
+1:09:14
+Yeah. Yes, sir. Both are matching. Then what?
+1:09:21
+First we'll have a matching condition and then we'll have a not equal to two or and not equal to 7 not equal to 5.
+1:09:29
+Correct. Isn't that a very horrible way of writing code? So many if if if I are you getting it
+1:09:37
+I mean we can put it into a single statement. I know but still Yeah. Yeah. Go ahead.
+1:09:45
+My question to you is if I want to create an array equivalent to a hashmap,
+1:09:50
+how would I do it? Extra storage. You I don't want to use a hashmap. Yeah.
+1:09:58
+Uh if you don't want to use hashmap, we can put an array with with a particular
+1:10:03
+index, you have to put its corresponding submatic number. It takes a lot of space.
+1:10:09
+No. Why? It'll take only an array of 10 elements. 10 elements. Yeah. Yeah, if I consider 10 is a lot but yeah
+1:10:16
+not a lot. No, see you have to look at trade-off between size here and maintenance of
+1:10:21
+code. Here you have to check if 2 not equal to 3, not equal to 4, not equal to 7, not equal to 5. You know that's a
+1:10:29
+messy code. So here what will I put set? Zero. So at zero index we put zero. At one we
+1:10:36
+put one. H uh it uh for example let's take minus one as a not strochmatic number
+1:10:43
+very good for uh for two we put minus and for the rest for six we put corresponding 9
+1:10:50
+0 1 2 3 4 5
+1:10:55
+9 7 is five 8 is 8 and this will be six
+1:11:01
+are you guys there yes sir now when you get two you'll check Oh,
+1:11:07
+does that array 2 contain minus1? Return false. Does array 3 contain minus1?
+1:11:14
+Return false. You know, does that array element contain negative value? Are you guys getting it?
+1:11:22
+Yes sir. That way there's only one condition. If array of that index
+1:11:29
+equal to minus1 return false whatever that value be yeah array of that index
+1:11:37
+here is nothing but that left value are you guys getting what I'm trying to convey
+1:11:43
+yes sir so you always have to sometimes make a trade-off between I don't mind some
+1:11:48
+amount of space but I want my code to be clean with as few uh statements which
+1:11:54
+are easy to maintain. So this is a problem where you're given a number, you
+1:12:00
+need to use a hashmap or an array and do it. I'm okay with it. But don't write
+1:12:05
+too many if else if conditional code just to save on that 10 uh bytes of
+1:12:11
+memory uh 10 into whatever the size of integer. Are you are you there?
+1:12:17
+Yes sir. Yeah. Okay. Yeah. In case they say no additional space then go ahead and then
+1:12:24
+you'll have to write all that condition. If it is not equal to this or equal to this return false. Yeah. Now the third
+1:12:30
+problem is given a strobatic number print if it is
+1:12:38
+a prime strobatic number. So arrays
+1:12:43
+now uh given
+1:12:49
+given a number print
+1:12:54
+true if it is sturbo grammatic
+1:13:00
+try. So if I give you a number
+1:13:08
+101. If I give you a number
+1:13:15
+181. If I give you a number
+1:13:23
+69 which are true
+1:13:37
+is 101 strobatic. Yes sir. Yes. Is 69 strobmatic?
+1:13:43
+No. So 169 ismatic, right? Yes sir, it is. Yes sir.
+1:13:49
+Is 181? Yes sir. Yes. Yes. Now of those. So what will the
+1:13:55
+steps here be? First you'll have to write logic to check is it a stooggrammatic number
+1:14:02
+and if it is then you'll have to pass it to a method which you write or is it
+1:14:07
+prime. So there'll be a method like is prime and that guy will take number as
+1:14:12
+input and that guy will return a boolean. So there'll be two methods which you'll have to write is topogrammatic that
+1:14:19
+returns true then you call is prime that will also return true. If both return true print that otherwise return false
+1:14:27
+any one of them for that matter. Yeah. Now tell me of these three which are strobmatic prime.
+1:14:35
+101 and 181 are strobboric primes. Okay. And this is
+1:14:42
+not just what about 11matic
+1:14:50
+prime sir? Yeah. So you you're clear right? What to do in this problem?
+1:14:58
+Yes sir. Though you solved the previous problem, how to find if it's robogrammatic. Use the same logic here.
+1:15:04
+Extend it by adding one more method. Please write separate methods for each of those problems. Nothing should be
+1:15:10
+done in main except your input and output. So one method here will be isogrammatic. Second is is prime and
+1:15:17
+then your code is. So that way you're writing modular code. Tomorrow if you need the logic is prime somewhere else,
+1:15:24
+you can plug it in. If you want to check is pro so grammatic check it you know
+1:15:29
+use it somewhere else. Okay
+1:15:38
+I can I'm thinking of one more problem why I'm talking to you guys. One more problem could be check if a number is
+1:15:48
+stoogrammatic palendrome.8
+1:15:56
+is stopbo grammatic palendrome but 69 is
+1:16:02
+not. Are you there?
+1:16:10
+Yes sir. Whereas thousand 10,0001
+1:16:16
+is sturogrammatic palendrome whereas
+1:16:21
+uh 6009 is not. So if I give you a problem like
+1:16:29
+this what would your approach be? What will your first approach be?
+1:16:42
+In the same code stoographic code add in the array for 6 and 9 also -1 - one sir
+1:16:50
+for 6 and 9 also -1 - one
+1:16:57
+uh 6 and 9 - 1 - one
+1:17:03
+okay yes uh because stromogrammatic room. Yeah. 69 regardless of which it doesn't match.
+1:17:11
+Yeah, it doesn't match. Correct. So, basically reducing the amount of time complexity
+1:17:16
+rather than computing two separate. No. Or will you?
+1:17:25
+Okay. So, that way if you get six and nine, you don't even need to uh check
+1:17:32
+whether the left pointer value is equal to the right pointer value.
+1:17:39
+Correct. Yes sir. Yes sir. Because there anyway minus one minus
+1:17:44
+one. So you return and you can't have 6,6 because that is not going to be a
+1:17:50
+palent room anyway. 6 is not a palent room. 9 is not a palent room. So just having 6es 6 or 9 doesn't help anyway.
+1:17:57
+So there is an extension to that array where 6 and 9 will also be updated with minus1 and minus1.
+1:18:05
+Good. Great. So, you can create your own problems. Uh, this problem is not
+1:18:10
+generated, but you know what you should do for this. Okay. Uh, do you guys have
+1:18:16
+any questions? Any questions?
+1:18:25
+Google Meet. Any questions?
+1:18:32
+Because if you don't have any questions, we will stop the recording and uh
+1:18:39
+and then start the program. Let me know if you have any questions on what we have covered.
+1:18:46
+Sir, when will the recording be shared? Oh, you've not got any recording yet?
+1:18:52
+No sir, of the first session. No. What about the previous uh Google Meet session?
+1:18:58
+Uh no sir. Oh, not yet.
+1:19:08
+No, you should have got by now. We'll share today the previous two and this whenever we have it ready.
+1:19:17
+[clears throat] All right, sir. Yeah, I missed the first 30 minutes of this class. So that's why sir
+1:19:24
+okay but I don't want you guys to use this as a excuse for joining late
+1:19:29
+because our recording is anyway there how does it matter how many of you think that way
+1:19:39
+okay if that happens then we'll stop recording right we'll see anyway the attendance here if the attendance in the
+1:19:46
+class or attendance online keeps reducing because recording is available we will not record anyway recording is
+1:19:52
+basically to benefit those teley paradigm students who are not able to attend. you know there's a genuine problem they have they are at uh Udan
+1:20:00
+lab here or they at github and because they can't attend we are recording it but it's not for others to say yeah
+1:20:08
+let's bunk recording we can listen anytime it doesn't happen you know anytime doesn't happen at all there'll
+1:20:14
+be so many other things for you to do anyway uh I'm going to stop the recording the programs will start thank
+1:20:20
+you so much uh we're going to be here online till 5 uh anytime after 4:45 till
+1:20:27
+5:15 that tennis program can start and you'll be given a minute to complete
+1:20:34
+it. Yeah. Stop recording.

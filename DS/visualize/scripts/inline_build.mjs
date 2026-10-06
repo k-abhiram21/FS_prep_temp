@@ -1,6 +1,6 @@
 // Turn Vite's one JS chunk and CSS asset into a portable offline HTML file.
 import { readFile, writeFile } from 'node:fs/promises'
-import { resolve, dirname } from 'node:path'
+import { resolve, dirname, relative as relativePath, isAbsolute } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const dist = resolve(dirname(fileURLToPath(import.meta.url)), '../dist')
@@ -10,7 +10,8 @@ let html = await readFile(index, 'utf8')
 function localAsset(url) {
   const relative = url.replace(/^\.\//, '').replace(/^\//, '')
   const absolute = resolve(dist, relative)
-  if (!absolute.startsWith(`${dist}/`)) throw new Error(`Unexpected asset path: ${url}`)
+  const displacement = relativePath(dist, absolute)
+  if (displacement.startsWith('..') || isAbsolute(displacement)) throw new Error(`Unexpected asset path: ${url}`)
   return absolute
 }
 
@@ -30,5 +31,6 @@ const shell = html.replace(/<script type="module">[\s\S]*?<\/script>/, '').repla
 if (/<script\b[^>]*\bsrc=/.test(shell) || /<link\b[^>]*\brel="stylesheet"/.test(shell)) {
   throw new Error('External application assets remain')
 }
-await writeFile(index, html)
+// Use consistent line endings in the portable artifact on Windows and Unix.
+await writeFile(index, html.replace(/\r\n?/g, '\n'))
 console.log(`Portable offline build: ${index}`)
