@@ -2,7 +2,7 @@
 
 A separate visual revision website for the FS screening topics. It does not add pages to the DAA website.
 
-For text revision, use [the separate subject notes](../../FS_SUBJECT_NOTES.md). SE, WT, CN and AI notes share this website's teaching content and question explanations. Regenerate those four files from the repository root with `node Subjects/visualize/scripts/export-notes.mjs`; edit the content module or exporter when changing generated notes.
+For direct study, use [the complete subject guides](../../FS_SUBJECT_NOTES.md). SE, WT, CN and AI are taught from the beginning, with worked examples and 15 MCQs per guide. These guides are maintained directly as Markdown. `node Subjects/visualize/scripts/export-notes.mjs` refreshes only their marked MCQ sections and preserves the complete teaching text. The website remains an optional visual companion.
 
 Start both websites from the repository root:
 

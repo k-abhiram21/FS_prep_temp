@@ -4,6 +4,8 @@ Updated on 5 October 2026, evening. The screening notice is the scope: coding in
 
 **Start with [the remaining-time plan](FS_REMAINING_DAYS_PLAN.md).** Your reported progress is a few string problems on 5 October; other topics are not assumed complete. You have confirmed about four study hours in college plus two to three at home, and prefer Java for coding. The older four-hour timetable has been superseded.
 
+**Direct study update, 7 October:** for SE, WT, CN and AI, use [the complete subject guides](FS_SUBJECT_NOTES.md). They teach the topics without requiring these source files to be read first. The source map below is an optional reference for those four subjects.
+
 PDF page references below mean the page number in the PDF viewer, starting at 1. Word documents are located by headings because pagination depends on the viewer.
 
 ## DAA coding and MCQs

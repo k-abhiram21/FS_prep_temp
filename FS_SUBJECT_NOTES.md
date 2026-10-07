@@ -2,26 +2,29 @@
 
 Test: **9 October 2026**. Three coding questions; 30 MCQs in 30 minutes; total duration two hours. Coding topics: recursion, arrays and strings, greedy method.
 
-These files cover every subject named in the notice. The SE, WT, CN, and AI notes follow the new Subject Atlas lessons. Java and Python fundamentals are separate. The DAA sheet is a short revision route through the existing Java material.
+**For SE, WT, CN, and AI, study the four guides below directly. You do not need to read the college materials first.** They teach the background, explain terms as they appear, work through examples, and include their own practice questions and answers. College files and website links are optional references.
+
+Updated on **7 October 2026**. The guides cover the announced topic areas; the notice does not provide an exact paper or detailed question distribution. Java, Python, and DAA links remain available for those separate parts of the test.
 
 | Subject | Notes | What to revise first |
 |---|---|---|
-| Software Engineering | [SE notes](SE/FS_Revision_Notes.md) | Model differences, Scrum events, CI/CD, Git snapshots and remote commands. |
-| Web Technologies | [WT notes](WT/FS_Revision_Notes.md) | JavaScript values, output order, JSON, array methods, DOM. |
-| Computer Networks | [CN notes](CN/FS_Revision_Notes.md) | OSI duties, media, framing, error detection, retransmissions, access methods. |
-| Artificial Intelligence | [AI notes](AI/FS_Revision_Notes.md) | Task types, neuron/loss calculations, training, Keras workflow, metrics. |
+| Software Engineering | [Complete SE guide](SE/FS_Revision_Notes.md) | Process foundations and models, Agile, Scrum, DevOps, Git and GitHub. |
+| Web Technologies | [Complete WT guide](WT/FS_Revision_Notes.md) | JavaScript foundations, code traces, JSON, async work, collections, DOM and events. |
+| Computer Networks | [Complete CN guide](CN/FS_Revision_Notes.md) | OSI, Physical Layer, framing, worked error checks, ARQ, medium access and Ethernet. |
+| Artificial Intelligence | [Complete AI guide](AI/FS_Revision_Notes.md) | Features and targets, regression/classification, ANN calculations, training, TensorFlow and evaluation. |
 | Java programming | [Java notes](Programming/Java_FS_Revision_Notes.md) | Output traces, strings, reference sharing, collections, OOP and exceptions. |
 | Python programming | [Python notes](Programming/Python_FS_Revision_Notes.md) | Division, slices, collection changes, shared objects, function defaults. |
 | Data Structures & Algorithms | [DAA notes in Java](DS-JAVA/FS_Test_Revision_Notes.md) | Recursion progress, array/string methods, greedy proofs, complexity. |
 
-## How to study with the time remaining
+## Your direct study route for the four subjects
 
-Use your available college time for concept notes and MCQ traces. Use a home block for Java coding attempts. This is a suggested order, not a claim that you have completed an earlier day.
+Read each guide in order. Cover a worked result, calculate it yourself, then compare with the explanation. Answer the **15 included MCQs** at the end of that guide. If you miss a question, revisit the corresponding explanation in that same file.
 
-1. **6 October:** SE and WT; revise Java language traps; solve one recursion and one array/string problem.
-2. **7 October:** CN and AI; calculate the numerical examples; solve two greedy problems with different assumptions.
-3. **8 October:** revisit wrong answers; do a 30-question timed MCQ round; attempt three coding problems under the time rules you expect on the platform.
-4. **Before the test:** use each file's quick table and final self-check. Repair a specific mistake by returning to its worked example.
+1. **SE:** follow the attendance-app example from requirements through release; trace what Git actually stages and commits.
+2. **WT:** calculate code outputs, especially conversion, function returns, Promise order, and array methods.
+3. **CN:** identify layer responsibilities, then calculate checksum, CRC, Hamming, delay, and window examples.
+4. **AI:** identify the target type, calculate neuron/loss/update examples, and distinguish the TensorFlow training steps.
+5. **Final pass:** read each guide's recall sheet and reattempt only the questions you missed.
 
 Choose questions across all subjects during mixed revision. The notice does not give marks per subject or a detailed Java/Python subtopic list. Practice allocation does not establish the paper's distribution.
 
@@ -32,7 +35,7 @@ Choose questions across all subjects during mixed revision. The notice does not 
 - For a wrong answer, write the rule you misunderstood and one counterexample.
 - A successful MCQ attempt is separate from being able to code a complete solution.
 
-Each subject file includes worked examples, common traps, and questions with hidden explanations. There are **59 short self-checks** across these seven files: 41 for SE/WT/CN/AI and six each for Java, Python, and DAA. The websites and existing question banks provide more practice.
+The four complete guides contain **60 MCQs with hidden explanations**, 15 per subject. The existing Java, Python, and DAA files contain six short self-checks each. Use the four guides as your main material for the four theory subjects; other question banks are optional extra practice.
 
 ## Teaching and source labels
 

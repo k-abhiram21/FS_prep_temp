@@ -4,7 +4,7 @@ This repository holds preparation material for the FS screening test on 9 Octobe
 
 **Start here:** [syllabus and material guide](FS_MATERIAL_GUIDE.md) → [plan from 5 October evening](FS_REMAINING_DAYS_PLAN.md). These map the actual screening topics to the college files and mark remaining gaps.
 
-- [Separate revision notes for every test subject](FS_SUBJECT_NOTES.md) — SE, WT, CN, AI, Java, Python and DAA, with worked examples and short self-checks
+- [Direct study guides and subject notes](FS_SUBJECT_NOTES.md) — complete SE, WT, CN and AI guides with 60 included MCQs; separate Java, Python and DAA revision
 - [Data Structures and Algorithms (DS)](DS/README.md)
 - [SE, WT, CN and AI visual study website](Subjects/visualize/README.md) — a separate site with 41 visual lessons, 164 MCQs, college sources and marked AI supplements
 - [Hard Java code-scenario MCQs](DS/FS_Java_Hard_MCQ_Bank.md)

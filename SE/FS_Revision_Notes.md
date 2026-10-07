@@ -1,466 +1,357 @@
-# Software Engineering: FS revision notes
+# Software Engineering: complete FS study guide
 
-For the screening test on **9 October 2026**. Scope: Process models · Agile & DevOps · Git & GitHub.
+**Study this file directly. You do not need to read the college PDFs first.** It teaches the announced topics: process models, Agile and DevOps, Git and GitHub. Read sections 1–9 in order, answer the included MCQs, and use section 10 for final recall.
 
-[All subject notes](../FS_SUBJECT_NOTES.md) · [Visual study website](../Subjects/visualize/README.md)
+Test: **9 October 2026**. [Other subject guides](../FS_SUBJECT_NOTES.md).
 
-## How to use these notes
+**ai explnation due to lack of material** — the explanations and examples are AI-authored. The college SE units cover the main topics. This label identifies added teaching; it does not mean those sources are absent.
 
-First compare process models. Then trace a change through Agile and CI/CD. Finish by tracing which file content Git stages, commits, and sends to a remote.
+## 1. What software engineering does
 
-Read the quick table first. For each topic, cover the result and work through the example. Explain the MCQ trap in your own words. Finish with the short self-check at the end.
+Software engineering is an organized way to develop, deliver, and maintain software. The team must understand the problem, decide how the software will work, write it, check its behavior, and handle later changes.
 
-**Teaching provenance: ai explnation due to lack of material.** These are AI-authored explanations and examples, not verbatim college notes. Each topic identifies whether the selected college material covers it, covers it partly, or lacks a focused explanation. The label does not mean that every underlying topic is missing. The writing uses short, direct explanations inspired by ASD-STE100, with technical terms explained through concrete steps.
+Use one example throughout this guide: a college needs an attendance application.
 
-The notice gives topic names, not an exact question distribution. These notes are revision aids and do not predict the test paper.
-
-## Quick recall
-
-| Topic | Explain it this way |
+| Activity | What the team does |
 |---|---|
-| Verification / validation | Verification checks specified requirements. Validation checks intended user needs. |
-| Increment / iteration | An increment adds usable capability. An iteration revises a solution. A team can do both. |
-| Spiral | Identify risks and use evidence to choose the next development work. |
-| Agile | Use working results and feedback to adapt. Useful plans and documents still have value. |
-| Scrum events | Review: inspect the product outcome. Retrospective: improve how the team works. |
-| CI / delivery / deployment | CI gives integration feedback. Delivery keeps changes releasable. Deployment also automates production release. |
-| Git snapshot | A commit saves staged content. A later unstaged edit is excluded. |
-| fetch / pull / push | Fetch obtains remote history. Pull fetches and integrates. Push sends local history to a remote. |
-| Git / GitHub | Git manages version history. GitHub hosts repositories and collaboration features. |
+| Requirements | Agree that each student can have only one attendance record per class. |
+| Design | Decide which records, screens, and permission checks will implement that rule. |
+| Implementation | Write the program. |
+| Testing | Try to add a duplicate; check that the app rejects it. |
+| Deployment | Make the app available for teachers to use. |
+| Maintenance | Correct defects or adapt the app when the college changes its rules. |
 
-## Reading order
+A **requirement** states needed behavior or a constraint. A **process** organizes the development activities. A **process model** arranges them into phases, cycles, or releases. The **software development life cycle**, or SDLC, is the product's development and maintenance path.
 
-1. What a software process controls
-2. Waterfall, incremental and iterative
-3. Prototypes, spiral and concurrent work
-4. Agile values in a real change
-5. Scrum: people, events and artifacts
-6. DevOps and CI/CD
-7. Git: working tree, staging and commits
-8. Branches, merges and recovery
-9. GitHub and remote collaboration
+### The generic process framework
 
-## 1. What a software process controls
+The college notes use five framework activities:
 
-**Main idea:** Follow a request from a need to maintained software.
+1. **Communication:** understand users and other stakeholders. A stakeholder is someone affected by the product or its development.
+2. **Planning:** estimate work, arrange people and time, and consider risks.
+3. **Modeling:** describe requirements and design.
+4. **Construction:** write code and test it.
+5. **Deployment:** deliver the result, support users, and obtain feedback.
 
-**ai explnation due to lack of material**
+These activities can repeat. They do not require every project to use a rigid sequence.
 
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
+**Umbrella activities** run across the project. Examples are tracking progress, managing risks, reviewing quality, keeping documentation, and controlling versions. A **task set** identifies the tasks, outputs, and checks needed for an activity. Construction might include writing a permission check, reviewing it, and running its tests.
 
-A software process organizes the work needed to build and maintain software. It identifies activities, outputs, responsibilities, and checks.
+The layered view has a **quality focus** as its foundation, a **process** that organizes work, **methods** for performing technical work, and **tools** that support it. Installing a tool does not guarantee quality.
 
-A process model arranges those activities. A model can use sequential phases, repeated cycles, or small releases.
+### Verification and validation
 
-Consider a college attendance app. The team must agree on attendance rules before it can check whether the implemented app follows them.
+**Verification** asks whether an output meets its specified requirements. **Validation** asks whether the product meets the user's intended needs.
 
-### Worked example
+- Checking that the app rejects duplicate records verifies the stated rule.
+- Teachers finding that they cannot correct mistaken attendance exposes an unmet user need during validation.
+
+A program can implement its specification correctly while that specification misses an important need. Reviews can verify requirements or designs before executable code exists.
+
+**Maintenance types:** corrective fixes a defect; adaptive responds to an environment change; perfective improves features or performance; preventive reduces future maintenance problems. A change can serve more than one purpose.
+
+## 2. Process models: understand the order of work
+
+### Waterfall
 
 ```text
-Need: record attendance
-Requirement: one record per student per class
-Check: reject a second record for the same class
+Requirements → design → implementation → testing → deployment → maintenance
 ```
 
-**Result and interpretation:** A stated requirement gives the team a result that it can test.
+The team plans phases and checks their outputs before moving forward. This can suit well-understood requirements and projects needing clear phase records. A late requirement change can force earlier outputs to be revised.
 
-### Follow the steps
+**Example:** after design approval, the college asks for attendance corrections. Requirements, screens, permissions, and tests can all need rework. Waterfall does not physically forbid returning to an earlier phase; its planned structure makes changes more controlled and potentially costly.
 
-1. **Agree on a need:** Students need attendance records. Identify the user and the problem first.
-2. **Specify behavior:** One record per student and class. Replace a vague request with a checkable rule.
-3. **Build and check:** Try to add a duplicate record. A test can compare the actual result with the requirement.
-4. **Maintain:** Change the rules when the college changes its policy. Delivered software can require corrections and improvements.
+### Incremental and iterative development
 
-**Why this works:** Testing compares observed behavior with the agreed requirement. Reviews can also inspect requirements and designs before executable code exists.
-
-**MCQ trap:** A process model does not guarantee defect-free software. Teams still need appropriate skills, checks, and feedback.
-
-| Distinction | Meaning |
-|---|---|
-| Requirement | The behavior that a user or system needs. |
-| Design | The structure selected to produce that behavior. |
-| Verification | Check whether an output meets its specified requirements. |
-| Validation | Check whether the product meets the intended user needs. |
-
-**College sources:** [Unit-1 Software Engineering (1).pdf](<../SE/Unit-1 Software Engineering (1).pdf>).
-
-## 2. Waterfall, incremental and iterative
-
-**Main idea:** Choose a model by how the work and feedback are arranged.
-
-**ai explnation due to lack of material**
-
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-Waterfall organizes work into a sequence of phases. Changes to approved earlier work usually need controlled rework.
-
-Incremental development delivers usable parts of the product. Iterative development revises a solution through repeated cycles. A team can use both.
-
-For an attendance app, an increment could add reports after basic attendance works. An iteration could improve the existing attendance screen.
-
-### Worked example
+An **increment** adds usable capability:
 
 ```text
 Release 1: record attendance
 Release 2: add monthly reports
-Iteration: revise the attendance screen
+Release 3: add authorized corrections
 ```
 
-**Result and interpretation:** New functionality is an increment. Improvement of an existing solution is an iteration.
+Users receive a useful part before the whole product is complete. The design must allow the parts to work together.
 
-### Follow the steps
+An **iteration** is a cycle that revises a solution. The attendance screen works, but users find it confusing. The next cycle improves that screen.
 
-1. **Requirements:** Attendance rules are agreed. This trace shows a simplified Waterfall path.
-2. **Design:** Choose records, screens and validation rules. Define how the app will implement the agreed behavior.
-3. **Implement and test:** Build the design and check duplicate handling. Phase outputs guide the next activity.
-4. **Deliver and maintain:** Release the app and process later changes. Later changes can require controlled rework.
+Incremental describes **added capability**. Iterative describes **repeated improvement**. A project can do both in the same release.
 
-**Why this works:** A smaller release can provide feedback before the entire product is complete. A sequential plan can make agreed phase outputs easier to track.
+### Prototyping and evolutionary development
 
-**MCQ trap:** Do not interpret Waterfall as physically preventing every return to an earlier phase. The key distinction is its planned phase structure.
+A **prototype** is an early representation used to learn. It can be a clickable screen or a small working experiment.
 
-| Distinction | Meaning |
-|---|---|
-| Waterfall | Plan sequential phases; changes can cause earlier work to be repeated. |
-| Incremental | Add usable functionality in successive releases. |
-| Iterative | Revise the solution using feedback. |
-| Choice | Consider uncertainty, risks, user access, and release constraints. |
+1. Users cannot explain the report they need.
+2. The team shows a sample report.
+3. Users request daily details instead of monthly totals.
+4. The team revises the requirement before building the full report.
 
-**College sources:** [Unit-1 Software Engineering (1).pdf](<../SE/Unit-1 Software Engineering (1).pdf>).
+A **throwaway prototype** is discarded after learning. An **evolutionary prototype** is improved into the product. A quickly built prototype can need substantial redesign and testing before production use.
 
-## 3. Prototypes, spiral and concurrent work
+**Trap:** a prototype answers an early question. It does not prove that the complete product is ready.
 
-**Main idea:** Use feedback and risk to decide what to do next.
+### Spiral model
 
-**ai explnation due to lack of material**
-
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-A prototype lets users examine an early version or model. It can reveal requirements that were difficult to state in advance.
-
-A throwaway prototype is discarded after learning. An evolutionary prototype is developed further. Neither choice makes an untested shortcut production-ready.
-
-The spiral model organizes repeated cycles around objectives, risks, development, and planning. Risk analysis is its central feature.
-
-Concurrent development allows related activities to have different states at the same time. It does not mean that dependencies disappear.
-
-### Worked example
+A **risk** is an uncertain event or condition that can harm the project. Spiral organizes repeated cycles around risks:
 
 ```text
-Risk: users may misunderstand the report
-Experiment: show a sample report
-Finding: users need a daily view
-Decision: revise the design before building the full report
+Set objectives → identify and reduce risks → develop and check → plan next cycle
 ```
 
-**Result and interpretation:** The experiment removes uncertainty before a larger investment.
+Suppose reports may be too slow for 50,000 students. Build a small performance experiment before choosing the full design. Use its result to select the next work.
 
-### Follow the steps
+Spiral is recognized by **risk analysis**, rather than repetition alone. It can suit large or uncertain projects, but assessing risks requires effort and skill.
 
-1. **Set objectives:** Create an attendance report users can interpret. State what this cycle must achieve.
-2. **Evaluate risk:** Users may need daily details rather than totals. Identify a specific uncertainty.
-3. **Develop and check:** Show a small report prototype to users. Collect evidence about that uncertainty.
-4. **Plan the next cycle:** Build the daily view with the confirmed requirement. Use the result to select the next work.
+### Concurrent development
 
-**Why this works:** A small experiment can expose a costly mistake early. The next cycle uses what the team learned rather than blindly repeating the same plan.
+Related activities can have different states at the same time. One feature can be in testing, another in design, and a third waiting for a requirement decision. The model records states such as active, under review, awaiting changes, and completed.
 
-**MCQ trap:** Spiral is not simply Waterfall drawn as a circle. Identify the risk and the action used to reduce it.
+Concurrency permits overlap. Dependencies still apply: a test needs behavior that has been defined and implemented.
 
-| Distinction | Meaning |
+### Choose by the question's clue
+
+| Main clue | Relevant model or idea |
 |---|---|
-| Prototype | Explore a question with an early representation. |
-| Spiral | Choose development work after evaluating risk. |
-| Concurrent | Track overlapping activities and their states. |
+| Planned sequence of phases | Waterfall |
+| Usable functionality arrives in parts | Incremental |
+| An existing solution is revised through cycles | Iterative |
+| An early sample clarifies unclear requirements | Prototyping |
+| Each cycle evaluates risks before choosing work | Spiral |
+| Activities occupy different states concurrently | Concurrent development |
 
-**College sources:** [Unit-1 Software Engineering (1).pdf](<../SE/Unit-1 Software Engineering (1).pdf>).
+No model guarantees defect-free software or is best for every project.
 
-## 4. Agile values in a real change
+## 3. Agile: use feedback to guide the next work
 
-**Main idea:** Connect early delivery, feedback and adaptation.
+Agile approaches make useful changes in short cycles and adapt using evidence. If the college changes its correction policy, the team discusses the effect, adjusts priorities, implements a small change, and checks it with teachers.
 
-**ai explnation due to lack of material**
+The four value preferences concern:
 
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
+- People and their collaboration, with tools and processes supporting them.
+- Working software, with useful documentation supporting understanding.
+- Customer collaboration, with contracts supporting the relationship.
+- Responding to change, with plans providing revisable guidance.
 
-Agile approaches use short feedback cycles to respond to change. Working software provides evidence that the team has delivered useful behavior.
+The lower-priority item still has value. Agile does not remove planning, documentation, testing, or responsibility.
 
-Agile values people, working software, collaboration, and responding to change. Plans, tools, contracts, and documentation can still have value.
+### The twelve principles in plain language
 
-Suppose the college changes an attendance rule. The team discusses the effect, revises priorities, implements a small change, and checks it with users.
+1. Deliver useful software early and keep delivering value.
+2. Respond to requirement changes, including late changes.
+3. Deliver working results frequently.
+4. Keep business people and developers in regular collaboration.
+5. Support motivated people and trust them to do the work.
+6. Use direct conversation to communicate effectively.
+7. Judge progress through working software.
+8. Maintain a sustainable pace.
+9. Keep improving technical quality and design.
+10. Avoid work that does not need to be done.
+11. Let capable teams organize their work and contribute to design decisions.
+12. Reflect on the working process and adjust it regularly.
 
-### Worked example
+**Example:** twenty completed slides do not establish that attendance correction works. A checked feature that teachers can use is stronger evidence of product progress.
+
+Official basis: [Agile principles](https://agilemanifesto.org/principles.html). This is a teaching paraphrase.
+
+### Recognize common approaches
+
+| Approach | Recognizing feature |
+|---|---|
+| Scrum | Sprints, defined accountabilities, artifacts, and inspection events. |
+| Kanban | Visualize workflow and limit work in progress. A board alone does not establish effective flow. |
+| Extreme Programming, XP | Pair programming, test-driven development, refactoring, and continuous integration. |
+| Lean | Reduce waste and improve the flow of useful value. |
+| Feature-Driven Development, FDD | Organize development around small client-valued features. |
+
+**Test-driven development:** write a failing test for needed behavior, implement enough to pass, then improve the code while tests continue to pass. **Refactoring:** improve code structure while preserving intended observable behavior.
+
+## 4. Scrum: who does what, and what is inspected?
+
+A **Sprint** is a fixed-length cycle of one month or less. The team works toward a Sprint Goal and produces usable product results.
+
+| Accountability | Responsibility |
+|---|---|
+| Product Owner | Maximize product value and manage the ordered Product Backlog. |
+| Scrum Master | Help establish Scrum and improve team effectiveness. |
+| Developers | Create the usable Increment and adapt their delivery plan. |
+
+An **artifact** makes work or results visible:
+
+| Artifact | Meaning | Associated commitment |
+|---|---|---|
+| Product Backlog | Ordered product work | Product Goal |
+| Sprint Backlog | Sprint Goal, selected work, and delivery plan | Sprint Goal |
+| Increment | Usable product result | Definition of Done |
+
+The **Definition of Done** states the required quality conditions. Completing many tasks does not replace those conditions.
+
+| Event | Purpose |
+|---|---|
+| Sprint Planning | Decide why the Sprint matters, what can be done, and how. |
+| Daily Scrum | Developers inspect progress toward the Sprint Goal and adjust their plan; 15 minutes. |
+| Sprint Review | Inspect the product outcome with stakeholders and adapt future work. |
+| Sprint Retrospective | Improve how the team works. |
+
+**Worked distinction:** teachers try the feature and suggest a permission change: Review. Developers identify slow code reviews and agree to review smaller changes: Retrospective.
+
+Scrum relies on **transparency** (make work visible), **inspection** (examine evidence), and **adaptation** (adjust after learning). Its values are commitment, focus, openness, respect, and courage.
+
+An Increment can be delivered before the Sprint ends. The Review is not a mandatory release gate. The Daily Scrum is not defined as a manager status meeting.
+
+Rule reference: [official Scrum Guide](https://scrumguides.org/scrum-guide.html). College examples of two-to-four-week Sprints do not replace the official one-month-or-less limit.
+
+## 5. DevOps and CI/CD
+
+**Development** builds and changes the product. **Operations** runs it and observes behavior. **DevOps** connects those responsibilities through cooperation, automation, and feedback.
 
 ```text
-Original rule: mark attendance once
-New need: allow an authorized correction
-Small delivery: add an audited correction action
+Edit → commit → review → build → automated checks → release decision
+     → deploy → observe real behavior → improve
 ```
 
-**Result and interpretation:** Feedback can change the next priority without removing the need for tests.
+A **build** turns source into a usable artifact, such as an application package. A **pipeline** arranges automated steps. **Deployment** places a version in an environment. **Monitoring** collects evidence about running behavior, such as errors or response time.
 
-### Follow the steps
+| Term | Meaning | Example |
+|---|---|---|
+| Continuous integration, CI | Integrate frequent changes with automated build/test feedback. | A commit triggers compilation and checks. |
+| Continuous delivery | Keep verified changes ready for production release. | Checks pass, but a person approves promotion. |
+| Continuous deployment | Automatically promote changes after the required checks pass. | Release proceeds without a manual production decision. |
 
-1. **Prioritize:** An authorized correction is the highest-value change. Select a small useful result.
-2. **Build a small change:** Record who corrected attendance and why. Deliver enough behavior for a meaningful check.
-3. **Inspect with users:** Teachers try the correction flow. Check whether the result solves the real problem.
-4. **Adapt the next plan:** Clarify permissions before the next change. Use feedback to revise priorities.
+**CD** can mean delivery or deployment. Identify whether production promotion is automatic.
 
-**Why this works:** Frequent usable results let users check actual behavior. The team can adjust before it spends months following an incorrect assumption.
+**Failure trace:** a duplicate-attendance test fails. A blocking check should stop promotion. The team corrects the change and obtains fresh evidence. Compilation alone cannot establish correct behavior.
 
-**MCQ trap:** Agile does not mean no planning, no documentation, or no discipline. A team must still manage quality and a sustainable workload.
+**After release:** monitoring finds failed corrections for one teacher role. Operational feedback creates the next development task. Automation helps repeat steps, but it cannot prove that the selected requirements meet every user need.
 
-| Distinction | Meaning |
+## 6. Git: understand the three places where content lives
+
+**Git** records version history. A **repository** stores commits and metadata. A **commit** records a snapshot of selected content and links to earlier commits. **HEAD** normally identifies the currently checked-out branch's latest commit.
+
+| Place | What it holds |
 |---|---|
-| Plan | Useful guidance that can change when evidence changes. |
-| Feedback | Information from users, tests, and delivered behavior. |
-| Adaptation | Adjust the work after inspecting that information. |
+| Working tree | Files you are editing. |
+| Staging area, or index | Content selected for the next commit. |
+| Repository history | Saved commit snapshots. |
 
-**College sources:** [Unit-1 Software Engineering (1).pdf](<../SE/Unit-1 Software Engineering (1).pdf>).
+### The important Git trace
 
-**Official references:** [Agile Manifesto: principles](https://agilemanifesto.org/iso/en/principles.html).
+Start with a file containing `A`:
 
-## 5. Scrum: people, events and artifacts
+1. Run `git add notes.txt`. The index now contains `A`.
+2. Edit the working file to `B`. The index still contains `A`.
+3. Run `git commit`. The commit saves `A`.
+4. The working file still contains the unstaged edit `B`.
 
-**Main idea:** Distinguish the goal, the work, and the feedback events.
+**Why:** `git add` selects content at that moment. Committing does not silently include later unstaged edits.
 
-**ai explnation due to lack of material**
+| Command | What to predict |
+|---|---|
+| `git status` | Lists staged, unstaged, and untracked changes. |
+| `git add file` | Selects current file content for a future commit. |
+| `git diff` | Compares working content with staged content. |
+| `git diff --staged` | Compares staged content with the current commit. |
+| `git commit` | Records the staged snapshot. |
+| `git log` | Displays commit history. |
+| `git restore --staged file` | Restores the index entry from HEAD by default; keeps the working edit. |
+| `git restore file` | Restores working content from the index by default; can discard an unstaged edit. |
 
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
+An **untracked file** has not been added to Git's tracking. `.gitignore` rules affect matching untracked files; they do not automatically stop tracking an already committed file.
 
-Scrum is a framework for work on complex problems. A Scrum Team includes a Product Owner, a Scrum Master, and Developers.
+A local commit works without GitHub or an internet connection. Uploading it is a later action.
 
-The Product Owner is accountable for maximizing product value. The Scrum Master helps establish Scrum and improve team effectiveness. Developers create a usable Increment.
+## 7. Branches, merges, and recovery
 
-The Product Backlog contains ordered product work. The Sprint Backlog contains the Sprint Goal, selected items, and the delivery plan.
-
-A Sprint lasts one month or less. The Sprint Review inspects the product outcome. The Retrospective examines how the team worked.
-
-### Worked example
+A **branch** is a movable name pointing to a commit. A new branch initially shares its starting commit's history.
 
 ```text
-Sprint Goal: teachers can correct attendance
-Selected work: permission check, correction screen, audit record
-Done: the Increment meets the Definition of Done
+          C  main
+         /
+A ── B
+         \
+          D  feature
 ```
 
-**Result and interpretation:** Completing selected tasks is insufficient if the result is not usable and does not meet the Definition of Done.
+Both branches share A and B. Main receives C; feature receives D.
 
-### Follow the steps
-
-1. **Product Backlog:** The correction feature is ordered by value. The Product Owner manages the product direction.
-2. **Sprint Planning:** The team sets a correction-related Sprint Goal. Select work and plan how to deliver it.
-3. **Develop an Increment:** Build, test and meet the Definition of Done. Inspect progress during the Sprint.
-4. **Review and improve:** Inspect the product, then the way the team worked. Review and Retrospective answer different questions.
-
-**Why this works:** The artifacts make the product direction, current plan, and delivered result visible. Each event provides a specific opportunity to inspect or adapt.
-
-**MCQ trap:** The Daily Scrum is for Developers to inspect progress toward the Sprint Goal. It is not defined as a manager status-report meeting.
-
-| Distinction | Meaning |
+| Command | Action |
 |---|---|
-| Planning | Decide why the Sprint is valuable, what can be done, and how. |
-| Daily Scrum | Inspect progress and adapt the current plan. |
-| Review | Inspect the outcome with stakeholders. |
-| Retrospective | Improve quality and effectiveness of the team’s work. |
+| `git switch -c feature` | Create a branch and switch to it. |
+| `git switch main` | Switch to an existing branch. |
+| `git merge feature` | Integrate feature into the currently checked-out branch. |
 
-**College sources:** [Unit-1 Software Engineering (1).pdf](<../SE/Unit-1 Software Engineering (1).pdf>).
+If main is still at B and feature has advanced to D, main can move directly to D. This is a **fast-forward**: B is already an ancestor of D.
 
-**Official references:** [Official Scrum Guide](https://scrumguides.org/scrum-guide.html).
+If main has C and feature has D, the histories diverged. A normal non-fast-forward merge can combine changes in a new commit with both tips as parents. Their common base helps Git determine what each side changed.
 
-## 6. DevOps and CI/CD
+A **merge conflict** means Git cannot automatically reconcile a change. Inspect both versions, choose or combine the intended content, remove conflict markers, stage the result, and finish the merge. History is not automatically lost.
 
-**Main idea:** Follow a change through checks and release decisions.
-
-**ai explnation due to lack of material**
-
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-DevOps connects development and operations through shared responsibility, feedback, and automation. A tool alone does not create this cooperation.
-
-Continuous integration combines frequent changes with automated build and test feedback. A failing check must receive attention before promotion.
-
-Continuous delivery keeps verified changes ready for release. Continuous deployment also automates production release after the required checks pass.
-
-Monitoring checks behavior after release. A successful build does not prove that a live service meets every user need.
-
-### Worked example
-
-```text
-Change → review → build → tests → release decision → deployment → monitoring
-```
-
-**Result and interpretation:** An automatic production release distinguishes continuous deployment from a delivery process with manual approval.
-
-### Follow the steps
-
-1. **Commit and review:** A correction feature is accepted. Save and inspect the change.
-2. **Build:** The pipeline produces the application artifact. Use a repeatable process.
-3. **Check:** Blocking tests pass. A failed check stops promotion.
-4. **Release and observe:** Release the verified change and measure behavior. Approval can be manual or automatic, depending on the process.
-
-**Why this works:** Small changes and repeatable checks can reveal defects earlier. Operational feedback helps the team identify problems that pre-release checks did not reveal.
-
-**MCQ trap:** CI is not the same as production deployment. A green build can still wait for an approval or a scheduled release.
-
-| Distinction | Meaning |
+| Recovery term | Main distinction |
 |---|---|
-| CI | Integrate changes and obtain automated build/test feedback. |
-| Continuous delivery | Keep verified changes releasable; promotion can require approval. |
-| Continuous deployment | Automate production promotion after the configured gates. |
+| `revert` | Creates a new commit reversing a previous change; preserves the history record. |
+| `reset` | Moves a branch/reference and can change the index and working tree, depending on mode. |
+| `stash` | Temporarily stores suitable uncommitted changes. |
+| `rebase` | Replays commits onto another base, producing new commit identities. |
 
-**College sources:** [Unit-1 Software Engineering (1).pdf](<../SE/Unit-1 Software Engineering (1).pdf>).
+Reset **soft** keeps index and working edits; **mixed** resets the index and keeps working edits; **hard** resets both to the selected commit and can discard local tracked edits. In an MCQ, identify which places the operation changes.
 
-**Official references:** [Microsoft: DevOps](https://learn.microsoft.com/en-us/devops/what-is-devops).
+## 8. GitHub and remote collaboration
 
-## 7. Git: working tree, staging and commits
+**GitHub** hosts repositories and collaboration features. A **remote** is a named connection to another repository. `origin` is a conventional name, not a mandatory special server.
 
-**Main idea:** Predict exactly which edit a commit will save.
-
-**ai explnation due to lack of material**
-
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-The working tree contains the files you edit. The staging area records the content selected for the next commit.
-
-A commit records the staged snapshot and its history relationships. It does not automatically include every later edit in the working tree.
-
-If you edit a file after git add, the staged version and the current file can differ. Check both differences before committing.
-
-### Worked example
-
-```text
-Edit report.txt to A
-git add report.txt
-Edit report.txt to B
-git commit -m "Save report"
-```
-
-**Result and interpretation:** The commit saves A. B remains as a working-tree change.
-
-### Follow the steps
-
-1. **Edit:** Working tree = A. The edit is not staged yet.
-2. **Stage:** Index = A. git add selects the current file content.
-3. **Edit again:** Working tree = B; index = A. The second edit does not replace the staged snapshot automatically.
-4. **Commit:** HEAD records A; B remains changed. The commit records the index.
-
-**Why this works:** Staging lets you select a coherent snapshot. Git can record that snapshot even when other unfinished edits remain in the working tree.
-
-**MCQ trap:** git commit saves locally. It does not upload the commit to GitHub. git push transfers commits to a configured remote.
-
-| Distinction | Meaning |
+| Command or feature | Meaning |
 |---|---|
-| git diff | Compare unstaged working-tree changes with the index. |
-| git diff --cached | Compare the staged content with HEAD. |
-| git status | Summarize tracked, staged and untracked state. |
-| git log | Inspect recorded commit history. |
+| `clone` | Create a local repository copy and obtain its history. |
+| `fetch` | Obtain remote history and update remote-tracking references; does not itself merge into the checked-out branch. |
+| `pull` | Fetch, then integrate using the configured merge or rebase behavior. |
+| `push` | Send local history and request remote reference updates. |
+| Fork | A hosted repository copy under another account or namespace. |
+| Pull request, PR | A request to review and integrate changes between branches. |
 
-**College sources:** [Unit-2 Understanding Requirements.pdf](<../SE/Unit-2 Understanding Requirements.pdf>).
+**Worked path:** clone → create a feature branch → edit → stage → commit → push → open a PR → review and integrate.
 
-**Official references:** [Pro Git: recording changes](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository).
+A PR does not itself merge changes. A fork is a hosted repository copy; a branch is a line of history within a repository. `pull` and “pull request” describe different actions.
 
-## 8. Branches, merges and recovery
+A push can be rejected when the remote has newer history that the proposed update would overwrite. Obtain and integrate the changes, resolve conflicts if needed, then retry.
 
-**Main idea:** Treat a branch as a name for a commit history.
+## 9. Apply the ideas to one scenario
 
-**ai explnation due to lack of material**
+The college requests authorized attendance corrections:
 
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
+1. Specify permitted staff and the required audit record.
+2. Prototype the workflow if users cannot explain it clearly.
+3. Deliver a usable feature as an increment; revise it through later iterations.
+4. In Scrum, order the work in the Product Backlog and plan a Sprint Goal.
+5. Commit staged changes in Git and push them for GitHub review.
+6. Use CI checks; identify whether release requires approval or occurs automatically.
+7. Validate the workflow with teachers and monitor behavior after release.
 
-A Git branch is a movable reference to a commit. Creating a branch does not duplicate every file into another physical folder.
+For a scenario MCQ, identify the described action before selecting its name.
 
-A fast-forward merge moves a branch reference to a descendant commit. A three-way merge combines changes using a common ancestor.
+## 10. Final recall sheet
 
-A conflict requires a decision when Git cannot combine edits automatically. Resolve the content, stage it, and finish the merge.
+- Framework: communication, planning, modeling, construction, deployment.
+- Verification checks specified requirements; validation checks user needs.
+- Waterfall: phases. Incremental: added capability. Iterative: repeated improvement.
+- Prototype: learn early. Spiral: manage risks. Concurrent: overlapping activity states.
+- Agile: frequent working results and adaptation, with useful planning and documentation.
+- Scrum Review inspects the product; Retrospective improves teamwork.
+- CI gives integration feedback; delivery keeps releases ready; deployment automates production promotion.
+- Working tree → `add` → index → `commit` → local history → `push` → remote.
+- A commit saves staged content. Fetch obtains; pull obtains and integrates.
+- Fast-forward follows existing ancestry; a merge can combine divergent histories.
+- Revert records a reversal; reset modes can move history and alter local state.
+- Git manages versions; GitHub provides hosting and collaboration.
 
-git revert creates a new commit that reverses a chosen commit’s effect. git reset changes references and can also change the index or files.
+## Included MCQ practice
 
-### Worked example
+Answer before opening the explanation. For a wrong answer, return to the matching section above. The concepts needed for every question are explained in this guide.
 
-```text
-main: A → B
-feature: A → B → C
-Merge feature into main: main can move from B to C.
-```
+<!-- FS-MCQ-START -->
 
-**Result and interpretation:** This merge can fast-forward because main has no separate commit after B.
+**ai explnation due to lack of material** — original study questions, not past-paper questions. There are 15 questions in this file.
 
-### Follow the steps
-
-1. **Common history:** Both names point at B. The feature begins from the current shared commit.
-2. **Feature commit:** feature points at C; main remains at B. A commit advances the current branch.
-3. **Check ancestry:** B is an ancestor of C. There is no divergent main commit in this example.
-4. **Fast-forward:** main now points at C. No new merge commit is required for this path.
-
-**Why this works:** History relationships determine the merge operation. File contents alone do not tell you whether a fast-forward is possible.
-
-**MCQ trap:** A conflict is not automatically a lost file. Inspect both intended changes before selecting the resolved result. Revert does not erase the old commit.
-
-| Distinction | Meaning |
-|---|---|
-| Branch | A movable name pointing to a commit. |
-| Merge | Integrate another history into the current branch. |
-| Revert | Record an inverse change as a new commit. |
-| Reset | Move the current branch; effects depend on the mode. |
-
-**College sources:** [Unit-2 Understanding Requirements.pdf](<../SE/Unit-2 Understanding Requirements.pdf>).
-
-**Official references:** [Pro Git: recording changes](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository).
-
-## 9. GitHub and remote collaboration
-
-**Main idea:** Separate local history from a hosted repository.
-
-**ai explnation due to lack of material**
-
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-Git is the version-control system. GitHub hosts repositories and provides collaboration features such as pull requests and reviews.
-
-clone creates a local copy of a repository and configures a remote. fetch updates remote-tracking information without integrating it into your current branch.
-
-pull fetches and then integrates, usually by merge or rebase according to configuration. push requests an update to a remote branch.
-
-A fork is a hosted repository copy. A branch is a reference inside a repository. A pull request proposes a change for discussion and integration.
-
-### Worked example
-
-```text
-Local: commit C
-Remote: commit B
-git push origin main
-Remote can move to C if permissions and history checks allow it.
-```
-
-**Result and interpretation:** Local and remote branch states can differ until they exchange commits.
-
-### Follow the steps
-
-1. **Clone:** A local repository starts from the hosted history. Download the repository and configure origin.
-2. **Commit locally:** The local branch gains C. Saving local history does not publish it.
-3. **Push:** The remote accepts C. History and permissions must allow the update.
-4. **Collaborate:** A pull request can request review. Review and merge are separate collaboration actions.
-
-**Why this works:** The separation lets developers work locally and share reviewed history later. A remote can reject a push when it would overwrite divergent history.
-
-**MCQ trap:** A pull request does not automatically merge itself. git pull is a Git operation; a GitHub pull request is a collaboration object.
-
-| Distinction | Meaning |
-|---|---|
-| fetch | Download objects and update remote-tracking references. |
-| pull | Fetch, then integrate into the current branch. |
-| push | Request a remote branch update. |
-| fork | Create a hosted copy under another owner. |
-
-**College sources:** [Unit-2 Understanding Requirements.pdf](<../SE/Unit-2 Understanding Requirements.pdf>).
-
-**Official references:** [Pro Git: recording changes](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository).
-
-## Self-check: one question per topic
-
-**ai explnation due to lack of material** — original revision questions, not past-paper questions. Try them before opening the answer. The full website provides four questions per topic.
-
-### 1. What a software process controls
+### Question 1
 
 A team checks whether its attendance app prevents duplicate records, as specified. What is it checking?
 
@@ -478,61 +369,61 @@ The duplicate rule is a specified requirement. Comparing implemented behavior wi
 
 </details>
 
-### 2. Waterfall, incremental and iterative
+### Question 2
 
-A later release adds reports to an already usable attendance app. Which term best describes the added capability?
+A team revises the existing attendance screen after feedback. What is the most direct description?
 
-- **A.** Compiler optimization
-- **B.** Packet encapsulation
-- **C.** A Git merge conflict
-- **D.** Increment
-
-<details>
-<summary>Answer and explanation</summary>
-
-**D. Increment**
-
-An increment adds usable capability. An iteration revises a solution through a cycle. This release introduces reports that the earlier usable product did not provide. The two approaches can occur together, but the added capability is an increment.
-
-</details>
-
-### 3. Prototypes, spiral and concurrent work
-
-What is the defining emphasis of the spiral model?
-
-- **A.** Never examining requirements
-- **B.** Using a circular user interface
-- **C.** Deploying before every test
-- **D.** Evaluating and reducing risks during repeated cycles
+- **A.** An iteration improves the current solution
+- **B.** A new network layer is created
+- **C.** All software history is discarded
+- **D.** No development work has occurred
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. Evaluating and reducing risks during repeated cycles**
+**A. An iteration improves the current solution**
 
-A spiral cycle identifies objectives, evaluates risks, performs appropriate development work, and plans the next cycle. Its risk emphasis distinguishes it from simply repeating a fixed list of phases.
+The team repeats a development cycle to improve an existing solution. That is iteration. An increment emphasizes added product capability; this example focuses on improving the current screen.
 
 </details>
 
-### 4. Agile values in a real change
+### Question 3
 
-Which action best uses an Agile feedback cycle?
+What happens to a throwaway prototype after it has served its purpose?
 
-- **A.** Ignore feedback until the entire product is finished
-- **B.** Avoid every written requirement
-- **C.** Choose tools instead of discussing user needs
-- **D.** Deliver a small useful change, inspect it with users, then revise priorities
+- **A.** It proves every requirement is complete
+- **B.** It is discarded rather than becoming the production implementation
+- **C.** It must always be deployed unchanged
+- **D.** It becomes a Git remote
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. Deliver a small useful change, inspect it with users, then revise priorities**
+**B. It is discarded rather than becoming the production implementation**
 
-A small usable result provides evidence. Users can check its actual behavior, and the team can adjust its next plan. Agile does not remove planning or documentation; it uses them alongside feedback and adaptation.
+A throwaway prototype is built to answer a question. Its implementation is discarded after the team learns from it. An evolutionary prototype follows a different plan and is developed further with suitable quality work.
 
 </details>
 
-### 5. Scrum: people, events and artifacts
+### Question 4
+
+Which is stronger evidence of product progress?
+
+- **A.** The number of installed tools alone
+- **B.** A plan with no implemented behavior
+- **C.** A working attendance correction that users can inspect
+- **D.** A large count of slides alone
+
+<details>
+<summary>Answer and explanation</summary>
+
+**C. A working attendance correction that users can inspect**
+
+Working behavior lets users evaluate whether the intended capability exists. Documents and tools can help the work, but their quantity alone does not demonstrate that the product solves the user’s problem.
+
+</details>
+
+### Question 5
 
 Which event primarily examines how the team worked and how it can improve?
 
@@ -550,61 +441,61 @@ The Retrospective focuses on quality and team effectiveness. The Sprint Review f
 
 </details>
 
-### 6. DevOps and CI/CD
+### Question 6
 
-A pipeline builds and tests changes, then waits for a human production approval. Which distinction applies?
+A blocking automated test fails. What should the described pipeline do?
 
-- **A.** It necessarily performs continuous deployment
-- **B.** It cannot perform CI
-- **C.** It has no release process
-- **D.** It supports continuous delivery; production promotion is not fully automatic
-
-<details>
-<summary>Answer and explanation</summary>
-
-**D. It supports continuous delivery; production promotion is not fully automatic**
-
-Continuous delivery keeps verified changes ready for release and can retain an approval step. Continuous deployment also automates production promotion after the required gates. A build/test pipeline can provide CI in either arrangement.
-
-</details>
-
-### 7. Git: working tree, staging and commits
-
-You stage file content A, then edit it to B without staging again. What does the next ordinary commit record for that file?
-
-- **A.** B automatically
-- **B.** Both as separate commits automatically
-- **C.** Neither because a second edit is forbidden
-- **D.** A
+- **A.** Stop promotion and provide feedback for correction
+- **B.** Promote anyway because the build exists
+- **C.** Delete all tests
+- **D.** Treat failure as a successful approval
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. A**
+**A. Stop promotion and provide feedback for correction**
 
-git add selected content A for the index. Editing the working-tree file afterward does not replace that selection. The commit records A, and the unstaged difference toward B remains in the working tree.
+A blocking check is a release condition. Failing that condition stops promotion. The team uses the result to correct the change; generating an artifact alone is not evidence that the checked requirement passed.
 
 </details>
 
-### 8. Branches, merges and recovery
+### Question 7
 
-What is a Git branch at the history level?
+Does git commit itself upload a commit to GitHub?
 
-- **A.** A mandatory physical copy of every file
-- **B.** A separate GitHub account
-- **C.** A syntax rule for JavaScript
-- **D.** A movable reference to a commit
+- **A.** Only when the file is Java
+- **B.** No; it records local history
+- **C.** Yes; every repository always has GitHub access
+- **D.** Yes; staging uploads the content
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. A movable reference to a commit**
+**B. No; it records local history**
 
-The branch name points to a commit. Making a commit on that branch advances the reference. Git can switch the working tree to another branch without creating a second physical project folder.
+An ordinary commit records a local snapshot. Publishing to a configured remote uses push and depends on access and remote history. Git can be used without GitHub or even without a remote.
 
 </details>
 
-### 9. GitHub and remote collaboration
+### Question 8
+
+Git reports a merge conflict in one file. What does this mean?
+
+- **A.** The branch name is invalid in every case
+- **B.** The file can never be repaired
+- **C.** Git needs a decision to combine the conflicting edits
+- **D.** Both complete histories are automatically lost
+
+<details>
+<summary>Answer and explanation</summary>
+
+**C. Git needs a decision to combine the conflicting edits**
+
+A conflict identifies content Git could not combine automatically. Inspect the intended changes, edit the resolved result, stage it, and complete the merge. A conflict is not proof that the histories or file are irrecoverable.
+
+</details>
+
+### Question 9
 
 Which operation downloads remote history without integrating it into the current branch?
 
@@ -622,9 +513,122 @@ Fetch retrieves objects and updates remote-tracking references. It does not itse
 
 </details>
 
-## Source reading targets
+### Question 10
 
-- [Unit-1 Software Engineering (1).pdf](<../SE/Unit-1 Software Engineering (1).pdf>) — Process models, Agile and DevOps; viewer pages 15–55.
-- [Unit-2 Understanding Requirements.pdf](<../SE/Unit-2 Understanding Requirements.pdf>) — Git and GitHub; viewer pages 30–50 and 57–66.
+Which framework activity primarily establishes the needs of users and stakeholders?
 
-College files can include material outside the announced topics. Read the selected sections. The examples above use fixed inputs for explanation; some original class examples use random outcomes.
+- **A.** Only compilation
+- **B.** Only version tagging
+- **C.** Communication
+- **D.** Only deployment
+
+<details>
+<summary>Answer and explanation</summary>
+
+**C. Communication**
+
+Communication identifies the need through discussion. Planning arranges work, modeling describes requirements/design, construction builds and tests, and deployment delivers and obtains feedback. Start by matching the described action to its purpose.
+
+</details>
+
+### Question 11
+
+A team replaces support for an obsolete operating environment after that environment changes. Which maintenance purpose is most directly described?
+
+- **A.** Corrective only
+- **B.** A merge conflict
+- **C.** Throwaway prototyping
+- **D.** Adaptive
+
+<details>
+<summary>Answer and explanation</summary>
+
+**D. Adaptive**
+
+Adaptive maintenance responds to a changed environment. Corrective maintenance fixes a defect; perfective improves features or performance; preventive reduces future maintenance problems. The environment change is the deciding clue here.
+
+</details>
+
+### Question 12
+
+Which approach is most directly associated with visualizing workflow and limiting work in progress?
+
+- **A.** Kanban
+- **B.** Waterfall phase approval only
+- **C.** CRC checking
+- **D.** A Git hard reset
+
+<details>
+<summary>Answer and explanation</summary>
+
+**A. Kanban**
+
+Kanban makes the workflow and current work visible and uses work-in-progress limits to help manage flow. A board is a supporting mechanism, not proof by itself that flow is effective. Scrum emphasizes Sprints and its defined events and artifacts.
+
+</details>
+
+### Question 13
+
+A file contains A when staged. You then edit it to B and commit without staging again. Which content is saved?
+
+- **A.** No content can be committed
+- **B.** A
+- **C.** B automatically
+- **D.** Both versions as the same file content
+
+<details>
+<summary>Answer and explanation</summary>
+
+**B. A**
+
+Staging selected A at that moment. Editing the working tree to B did not update the index. A normal commit records the staged snapshot, so B remains an unstaged working edit. Stage again if the intended next snapshot must contain B.
+
+</details>
+
+### Question 14
+
+Main is at B; feature is at D, and B is an ancestor of D. What can a fast-forward integration do?
+
+- **A.** Always require a new two-parent commit
+- **B.** Automatically upload D to GitHub
+- **C.** Move main directly to D
+- **D.** Delete B from every history
+
+<details>
+<summary>Answer and explanation</summary>
+
+**C. Move main directly to D**
+
+The feature history already includes main history. Moving the main reference to D includes the added history without reconciling divergent changes. This is a local history operation; uploading still requires a separate remote action.
+
+</details>
+
+### Question 15
+
+Which Git reset mode moves the selected reference while preserving both the index and working edits?
+
+- **A.** Hard
+- **B.** Mixed
+- **C.** Fetch
+- **D.** Soft
+
+<details>
+<summary>Answer and explanation</summary>
+
+**D. Soft**
+
+Soft reset preserves index and working-tree content. Mixed resets the index while keeping working edits. Hard resets both to the selected commit and can discard local tracked edits. Fetch obtains remote history rather than selecting a reset mode.
+
+</details>
+
+<!-- FS-MCQ-END -->
+
+## Optional source references
+
+These document the guide's basis. You do not need to read them before studying this file.
+
+- [College SE Unit 1](<Unit-1 Software Engineering (1).pdf>): framework, models, Agile, DevOps; viewer pages 15–55.
+- [College SE Unit 2](<Unit-2 Understanding Requirements.pdf>): Git/GitHub; viewer pages 30–50 and 57–66.
+- [Pro Git: recording changes](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository).
+- [Git restore reference](https://git-scm.com/docs/git-restore).
+- [Microsoft: DevOps](https://learn.microsoft.com/en-us/devops/what-is-devops).

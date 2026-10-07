@@ -1,644 +1,518 @@
-# Web Technologies: FS revision notes
+# Web Technologies: complete FS study guide
 
-For the screening test on **9 October 2026**. Scope: JavaScript · JSON · Async code · Collections · DOM.
+**Study this file directly. No earlier JavaScript or college-note reading is required.** It teaches JavaScript basics, JSON, callbacks, Promises, async/await, arrays, Sets, Maps, and the DOM. Examples in this subject use **JavaScript**. Read sections in order, calculate the outputs, and then attempt the included MCQs.
 
-[All subject notes](../FS_SUBJECT_NOTES.md) · [Visual study website](../Subjects/visualize/README.md)
+Test: **9 October 2026**. [Other subject guides](../FS_SUBJECT_NOTES.md).
 
-## How to use these notes
+**ai explnation due to lack of material** — this is AI-authored teaching. College examples cover callbacks, Promises, and async/await; JSON and DOM coverage is partial. The basic-language and collection explanations fill identified gaps.
 
-Use JavaScript for this subject, even though you will use Java for coding problems. Trace variable values first. Then trace function calls, Promise jobs, array methods, and DOM changes.
+## 1. Begin with values, variables, and objects
 
-Read the quick table first. For each topic, cover the result and work through the example. Explain the MCQ trap in your own words. Finish with the short self-check at the end.
+JavaScript runs instructions such as calculations, function calls, and page updates. A **value** is data, such as `5`, `"FS"`, or `true`. A **variable binding** connects a name to a value.
 
-**Teaching provenance: ai explnation due to lack of material.** These are AI-authored explanations and examples, not verbatim college notes. Each topic identifies whether the selected college material covers it, covers it partly, or lacks a focused explanation. The label does not mean that every underlying topic is missing. The writing uses short, direct explanations inspired by ASD-STE100, with technical terms explained through concrete steps.
-
-The notice gives topic names, not an exact question distribution. These notes are revision aids and do not predict the test paper.
-
-## Quick recall
-
-| Topic | Explain it this way |
-|---|---|
-| const | Prevents rebinding. It does not freeze the contents of an object or array. |
-| === | Does not coerce different operand types into equality. Object comparisons still use identity. |
-| JSON | Text format: double-quoted keys and strings; no functions, comments, or trailing commas. |
-| Callback | A function passed for another operation to call. It can run synchronously. |
-| Promise | Its executor runs synchronously. A registered then handler runs later as a Promise job. |
-| async / await | An async call returns a Promise. await suspends that function, not the whole program. |
-| map / filter / reduce | Transform each element / select elements / combine elements into a result. |
-| Set / Map | Store unique values / associate keys with values. Read their size with .size. |
-| DOM | The live document tree. Selecting an element can return null. |
-| Events | target identifies the event origin. currentTarget identifies the current listener element. |
-
-## Reading order
-
-1. JavaScript variables and scope
-2. Types, coercion and equality
-3. Functions, returns and shared objects
-4. JSON: text to data and back
-5. Callbacks: who calls the function?
-6. Promises and execution order
-7. Promise chains, catch and all
-8. Async/await without hidden magic
-9. Array methods: transform, select, combine
-10. Sets and Maps
-11. DOM: selecting and changing a page
-12. DOM events and propagation
-
-## 1. JavaScript variables and scope
-
-**Main idea:** Track the binding separately from the object it refers to.
-
-**ai explnation due to lack of material**
-
-**Material basis:** A focused explanation of this topic was not identified in the selected college material. This section is a supplement.
-
-let creates a block-scoped binding that can be reassigned. const creates a block-scoped binding that cannot be reassigned.
-
-const does not freeze an object or array. The binding can keep pointing to the same object while that object’s contents change.
-
-var is scoped to its function or global context rather than an ordinary block. Accessing let or const before initialization causes a ReferenceError.
-
-### Worked example
-
-```text
-const scores = [4];
-scores.push(7);
-console.log(scores.length);
+```javascript
+let marks = 8;
+marks = 9;
+console.log(marks); // 9
 ```
 
-**Result and interpretation:** 2. The same array now contains two elements.
+`console.log` displays a value. A semicolon ends a statement here. `//` starts a comment. Strings can use single or double quotes. JavaScript is case-sensitive: `marks` and `Marks` are different names.
 
-### Follow the steps
+### let, const, and var
 
-1. **Create an array:** Object A contains [4]. The array literal creates an object.
-2. **Bind scores:** scores refers to A. const prevents reassignment of this binding.
-3. **Push 7:** A now contains [4, 7]. push changes the array contents.
-4. **Read length:** scores.length is 2. The binding still refers to A.
-
-**Why this works:** The binding and the object are different things. Preventing reassignment does not prevent changes inside the object.
-
-**MCQ trap:** Do not say that const makes every value immutable. Strings and numbers are primitive values; arrays and ordinary objects have mutable contents.
-
-| Distinction | Meaning |
+| Declaration | Scope and reassignment |
 |---|---|
-| let | Use when the binding must receive another value. |
-| const | Use when the binding will keep its initial value. |
-| var | An ordinary block does not create a separate var scope. |
+| `let` | Block scope; can be reassigned. |
+| `const` | Block scope; cannot be reassigned. |
+| `var` | Function scope, or a global binding when used at the top level of a classic script; does not create a separate binding for an ordinary block. |
 
-**Official references:** [MDN: grammar and types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types).
+A **block** is a group of statements inside `{}`. **Scope** is where a name can be used.
 
-## 2. Types, coercion and equality
-
-**Main idea:** Read the operator before predicting a conversion.
-
-**ai explnation due to lack of material**
-
-**Material basis:** A focused explanation of this topic was not identified in the selected college material. This section is a supplement.
-
-JavaScript can convert values during an operation. The + operator can join strings, while subtraction requires numeric conversion.
-
-Strict equality, ===, compares values without the coercion used by ==. Distinct object references do not become equal because their contents match.
-
-Falsy primitive values include false, 0, an empty string, null, undefined, and NaN. An empty array or object is truthy.
-
-### Worked example
-
-```text
-console.log("5" + 2);
-console.log("5" - 2);
-console.log("5" === 5);
+```javascript
+if (true) {
+  var a = 1;
+  let b = 2;
+}
+console.log(a); // 1
+// console.log(b); would throw ReferenceError: b is outside its scope.
 ```
 
-**Result and interpretation:** 52
-3
-false
+`var` declarations are processed before their statements execute. The binding initially holds `undefined`; the assignment still happens at its written position.
 
-### Follow the steps
+```javascript
+console.log(x); // undefined
+var x = 5;
+```
 
-1. **Inspect operands:** Left is the string "5"; right is the number 2. Start with actual values and types.
-2. **Apply +:** The numeric value is converted to text. This operation joins strings.
-3. **Apply - separately:** The string "5" becomes the number 5. Subtraction performs numeric conversion.
-4. **Compare strictly:** "5" === 5 is false. The types differ.
+`let` and `const` cannot be accessed before initialization in their scope. That interval is the **temporal dead zone**. Such access throws `ReferenceError`; it does not print `undefined`.
 
-**Why this works:** The first operation has a string operand and joins text. The second converts the numeric string. Strict equality keeps the type distinction.
+### Types
 
-**MCQ trap:** typeof null returns "object" for historical reasons. This result does not mean that null is an ordinary object with readable properties.
+The primitive types are number, string, boolean, undefined, null, bigint, and symbol. **Primitive** means the value is not an ordinary mutable object. Objects include arrays, functions, and objects with named properties.
 
-| Distinction | Meaning |
+- `undefined`: a value has not been supplied, for example a missing return value.
+- `null`: an explicit “no value” choice.
+- `NaN`: a number value representing an invalid numerical result.
+
+```javascript
+console.log(typeof 5);         // number
+console.log(typeof "5");       // string
+console.log(typeof undefined); // undefined
+console.log(typeof null);      // object: a historical language behavior
+console.log(typeof []);        // object
+console.log(typeof (() => 1)); // function
+```
+
+A **property** is named data inside an object:
+
+```javascript
+const student = {name: "Asha", marks: 8};
+student.marks = 9;
+console.log(student.marks); // 9
+```
+
+`const` keeps the binding attached to that object. It does not freeze properties. Reassigning `student` to a different object would fail.
+
+## 2. Operators, conversion, and conditions
+
+**Coercion** means an operation converts a value to another type. Read the operator before predicting conversion.
+
+```javascript
+console.log("5" + 2);     // 52: string concatenation
+console.log("5" - 2);     // 3: numerical conversion
+console.log(5 / 2);       // 2.5: ordinary number division
+console.log("5" == 5);    // true: equality permits coercion
+console.log("5" === 5);   // false: strict equality keeps the type distinction
+console.log(NaN === NaN); // false
+```
+
+`=` assigns. `==` compares with coercion rules. `===` compares without that equality coercion. `!==` is strict inequality.
+
+### Objects compare by identity
+
+```javascript
+const a = {n: 1};
+const b = {n: 1};
+const c = a;
+console.log(a === b); // false: separate objects
+console.log(a === c); // true: the same object
+```
+
+Matching properties do not make two object references identical. An array is also an object: `[] === []` is false.
+
+### Truthy and falsy
+
+An `if` condition converts its value to a Boolean. Falsy values include `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, and `NaN`. Ordinary empty arrays and empty objects are truthy. So are the strings `"0"` and `"false"`.
+
+```javascript
+console.log(Boolean([]));      // true
+console.log(Boolean("false")); // true
+console.log(0 || 10);          // 10
+console.log(0 ?? 10);          // 0
+```
+
+`||` uses the right operand if the left is falsy. `??` uses it only if the left is null or undefined. Thus `??` preserves zero when zero is valid data. `&&` stops when its left operand is falsy. These operators can return operand values, not only Booleans.
+
+**Example:** `false && doWork()` does not call `doWork`. The left value already determines the outcome.
+
+## 3. Conditions, loops, and functions
+
+```javascript
+let total = 0;
+for (let i = 0; i < 3; i++) {
+  total += i;
+}
+console.log(total); // 3
+```
+
+Trace: add 0, then 1, then 2. The failed condition at `i = 3` does not run the body.
+
+| Form | Behavior |
 |---|---|
-| + with a string | Can perform string concatenation. |
-| - | Converts operands to numbers for subtraction. |
-| === | Avoids equality coercion. |
-| [] === [] | false, because the literals create separate objects. |
+| `if / else` | Select a branch based on a condition. |
+| `while` | Check before each iteration; the body can run zero times. |
+| `do...while` | Check after the body; it runs at least once. |
+| `for...of` | Read iterable values, such as array elements. |
+| `for...in` | Enumerate enumerable property keys, potentially including inherited keys. |
+| `break / continue` | Exit the loop / skip the rest of the current iteration. |
 
-**Official references:** [MDN: expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators).
+Use `for...of` when you want array values. `for...in` supplies keys rather than the values themselves.
 
-## 3. Functions, returns and shared objects
+A **function** groups work so it can be called. A **parameter** is a name inside its definition. An **argument** is the value supplied by a call. `return` supplies the call's result.
 
-**Main idea:** Follow a call and see which data can change.
+```javascript
+function double(n) { return n * 2; }
+const triple = n => n * 3;
+const missing = n => { n * 2; };
+console.log(double(4)); // 8
+console.log(triple(4)); // 12
+console.log(missing(4)); // undefined
+```
 
-**ai explnation due to lack of material**
+An arrow expression body returns its expression. An arrow block body needs an explicit `return` to supply a value. A normal call that reaches the end without returning a value produces `undefined`.
 
-**Material basis:** A focused explanation of this topic was not identified in the selected college material. This section is a supplement.
+### Shared objects and closures
 
-A function receives arguments and can return a result. Without an executed return value, a normal function call produces undefined.
-
-JavaScript passes argument values. When an argument is an object reference, the function can use that reference to change the shared object.
-
-Reassigning the parameter changes the local binding. It does not redirect the caller’s binding to the replacement object.
-
-### Worked example
-
-```text
+```javascript
 const item = {count: 1};
 function change(x) {
   x.count = 2;
   x = {count: 9};
 }
 change(item);
-console.log(item.count);
+console.log(item.count); // 2
 ```
 
-**Result and interpretation:** 2. The property mutation affects the original object; the parameter reassignment does not.
+The parameter receives the argument value, which here is an object reference. Initially `item` and `x` reach the same object. A property write changes that shared object. Reassigning `x` changes only the local binding.
 
-### Follow the steps
+A **closure** is a function that can continue using bindings from its surrounding scope:
 
-1. **Call:** item and x refer to object A. The reference value is copied into the parameter.
-2. **Mutate:** A.count becomes 2. Both bindings can observe the changed property.
-3. **Reassign locally:** x refers to object B with count 9. item still refers to A.
-4. **Read caller state:** item.count is 2. The caller’s binding did not change.
-
-**Why this works:** The caller and parameter initially refer to the same object. A property write changes that object. A local reassignment only changes one binding.
-
-**MCQ trap:** An arrow function with a block body needs an explicit return for a value. x => {x * 2} returns undefined.
-
-| Distinction | Meaning |
-|---|---|
-| Mutation | Change the contents of an existing object. |
-| Reassignment | Make one binding hold a different value. |
-| Return | Supply the result of the call. |
-
-**Official references:** [MDN: grammar and types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types).
-
-## 4. JSON: text to data and back
-
-**Main idea:** Check syntax before using the parsed value.
-
-**ai explnation due to lack of material**
-
-**Material basis:** The selected college material provides only part of this topic. The explanation fills the identified gaps.
-
-JSON is a text format for exchanging data. Its values can be objects, arrays, strings, numbers, booleans, or null.
-
-Object keys and string values use double quotes. Comments, undefined, functions, and trailing commas are not valid JSON syntax.
-
-JSON.parse reads JSON text and returns a JavaScript value. JSON.stringify produces JSON text from a supported JavaScript value.
-
-Serialization does not preserve every JavaScript feature. For example, an undefined object property is omitted.
-
-### Worked example
-
-```text
-const text = '{"name":"Asha","marks":[8,9]}';
-const student = JSON.parse(text);
-console.log(student.marks[1]);
+```javascript
+function makeCounter() {
+  let count = 0;
+  return () => ++count;
+}
+const next = makeCounter();
+console.log(next()); // 1
+console.log(next()); // 2
 ```
 
-**Result and interpretation:** 9. The input is text; the parsed result is an object containing an array.
+Both calls use the same captured `count`. It is not recreated for each call to `next`.
 
-### Follow the steps
+Arrow functions also obtain `this` from their surrounding scope. Ordinary function `this` depends on how the function is called. Do not assume an arrow is identical to a normal method in every context.
 
-1. **Receive text:** A string contains name and marks. Text does not support object-property access by itself.
-2. **Parse:** Validate the JSON syntax. Invalid syntax stops with a SyntaxError.
-3. **Read data:** marks[1] is 9. The parsed array uses zero-based indexing.
-4. **Serialize:** JSON.stringify can produce outgoing text. Only supported data is represented.
+## 4. JSON: distinguish text from usable data
 
-**Why this works:** Parsing validates the text structure and creates usable values. A string that merely looks like an object is still a string until parsed.
+**JSON**, JavaScript Object Notation, is a text format for exchanging data. It supports objects, arrays, strings, numbers, booleans, and null.
 
-**MCQ trap:** JSON.parse throws a SyntaxError for invalid JSON. JSON.stringify can throw for circular references; it is not a universal deep-copy operation.
+Valid JSON:
 
-| Distinction | Meaning |
-|---|---|
-| Parse | Text → a JavaScript value. |
-| Stringify | A JavaScript value → JSON text. |
-| JSON object | Uses quoted keys and JSON-compatible values. |
+```json
+{"name":"Asha","marks":[8,9],"passed":true,"comment":null}
+```
 
-**College sources:** [Unit 1_MongoDB.pdf](<../WT/Unit 1_MongoDB.pdf>).
+Rules: keys and strings use double quotes; comments, functions, undefined, single-quoted strings, and trailing commas are not valid JSON syntax. A JavaScript object literal has broader syntax and is not itself JSON text.
 
-**Official references:** [MDN: JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON).
+```javascript
+const text = '{"marks":[8,9]}';
+const data = JSON.parse(text);
+console.log(data.marks[1]); // 9
+console.log(JSON.stringify(data)); // {"marks":[8,9]}
+```
 
-## 5. Callbacks: who calls the function?
+`parse` converts valid text into a JavaScript value. `stringify` produces JSON text. Invalid JSON passed to `parse` throws `SyntaxError`.
 
-**Main idea:** Passing a function does not tell you when it will run.
+**Serialization** means producing a transferable representation. It has limits:
 
-**ai explnation due to lack of material**
+```javascript
+JSON.stringify({a: undefined, b: 2}); // '{"b":2}'
+JSON.stringify([undefined, 2]);       // '[null,2]'
+```
 
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
+An undefined object property is omitted; an undefined array entry becomes null. Circular references normally cause `stringify` to throw. Therefore JSON serialization is not a universal copy method that preserves every JavaScript feature.
 
-A callback is a function passed to another operation so that operation can call it. It can run immediately or later.
+## 5. Callbacks: passing a function for someone else to call
 
-forEach calls its callback during array iteration. A timer callback runs later after the current work and the relevant scheduling conditions.
+A **callback** is a function supplied to another operation so that operation can call it.
 
-Pass the function when the operation needs a callback. Calling it while passing the argument gives the operation its result instead.
-
-### Worked example
-
-```text
-function show(x) { console.log(x); }
+```javascript
+function show(n) { console.log(n); }
 [2, 4].forEach(show);
 console.log("done");
+// 2, then 4, then done, on separate lines.
 ```
 
-**Result and interpretation:** 2
-4
-done
+`forEach` calls `show` during iteration. This is a **synchronous callback**: those calls complete before the next statement.
 
-### Follow the steps
+```javascript
+setTimeout(() => console.log("later"), 0);
+console.log("now");
+// now, then later
+```
 
-1. **Pass the function:** forEach receives show. No show call occurs in the argument expression.
-2. **First callback:** show(2) prints 2. forEach supplies the first array value.
-3. **Second callback:** show(4) prints 4. The next present element is processed.
-4. **Continue:** Print done. The synchronous iteration has finished.
+The timer schedules a callback for later. A zero delay does not mean interrupting the current statements immediately.
 
-**Why this works:** forEach invokes show once for each present element in this array. Those calls complete before execution reaches the final statement.
+**Passing versus calling:** `show` is the function value. `show(2)` calls it now and supplies its return value. If an API expects a callback, pass the function, for example `() => show(2)`.
 
-**MCQ trap:** A callback is not automatically asynchronous. Also, forEach does not wait for promises returned by an async callback.
+Multiple nested asynchronous callbacks can make sequencing and error handling hard to follow. Promises describe the eventual result in a form that can be chained.
 
-| Distinction | Meaning |
-|---|---|
-| show | The function value; another operation can call it. |
-| show(2) | A call now; the expression produces its return value. |
-| Synchronous callback | Runs as part of the current operation. |
-| Asynchronous callback | Runs after the operation schedules later work. |
+## 6. Promises: states and execution order
 
-**College sources:** [UNIT III.pdf](<../WT/UNIT III.pdf>); [ex2.js](<../WT/examples/callback_functions/ex2.js>).
+A **Promise** represents an eventual result. Its states are **pending**, **fulfilled** with a successful result, and **rejected** with a failure reason. Fulfilled and rejected are both **settled** states. Settlement is not reversed.
 
-## 6. Promises and execution order
+```javascript
+const p = new Promise((resolve, reject) => {
+  resolve(5);
+});
+p.then(value => console.log(value)); // eventually prints 5
+```
 
-**Main idea:** Separate synchronous work from later reactions.
+The function passed to `new Promise` is its **executor**. It runs synchronously. `resolve` supplies an outcome; it can also adopt another Promise's result. `reject` supplies a failure. A `.then` handler runs later, including when its Promise is already fulfilled.
 
-**ai explnation due to lack of material**
+### Trace synchronous work, Promise jobs, then a timer
 
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-A Promise represents an eventual result. It starts pending and can settle as fulfilled or rejected. Settlement cannot be reversed.
-
-The executor passed to new Promise runs synchronously. A .then reaction runs asynchronously after the current synchronous work completes.
-
-A fulfilled Promise can carry a value. A rejected Promise carries a reason. Attach a rejection handler when a failure can occur.
-
-### Worked example
-
-```text
+```javascript
 console.log("A");
-Promise.resolve("B").then(x => console.log(x));
-console.log("C");
+new Promise(resolve => {
+  console.log("B");
+  resolve("C");
+}).then(value => console.log(value));
+setTimeout(() => console.log("T"), 0);
+console.log("D");
+// A, B, D, C, T — each on a separate line
 ```
 
-**Result and interpretation:** A
-C
-B
+1. Print A.
+2. Run the executor immediately; print B and fulfill the Promise with C.
+3. Register the reaction and schedule the timer.
+4. Finish current synchronous work; print D.
+5. Run the queued Promise reaction; print C.
+6. Run the timer callback; print T.
 
-### Follow the steps
+Promise reactions use the **microtask** queue. In this ordinary example, the microtask checkpoint runs after current synchronous work and before the next timer task. A pending Promise is not itself a separate thread.
 
-1. **Print A:** Output = A. Run the first synchronous statement.
-2. **Register a reaction:** The reaction for B is queued. The Promise is already fulfilled, but its reaction is not run inline.
-3. **Print C:** Output = A, C. Complete the synchronous statements.
-4. **Run the reaction:** Output = A, C, B. Process the queued reaction after the current work.
+## 7. Promise chains and failures
 
-**Why this works:** Registering a reaction does not run it inline. The current statements finish first, then the queued Promise reaction can execute.
+`.then` returns a new Promise. The handler's outcome determines that next Promise:
 
-**MCQ trap:** A pending Promise is not a background thread. The platform or operation determines how the underlying work is performed.
-
-| Distinction | Meaning |
+| Handler action | Next Promise |
 |---|---|
-| Pending | No final result yet. |
-| Fulfilled | The Promise has a successful result. |
-| Rejected | The Promise has a failure reason. |
-| Settled | Either fulfilled or rejected. |
+| Return a value | Fulfills with that value. |
+| Return a Promise | Follows that Promise's eventual result. |
+| Throw an error | Rejects with the error. |
+| Return no value normally | Fulfills with undefined. |
 
-**College sources:** [UNIT III.pdf](<../WT/UNIT III.pdf>).
-
-**Official references:** [MDN: promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises).
-
-## 7. Promise chains, catch and all
-
-**Main idea:** Return the next result so the chain can follow it.
-
-**ai explnation due to lack of material**
-
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-then returns a new Promise. A handler’s returned value fulfills that next Promise. A returned Promise makes the chain follow its eventual result.
-
-A thrown error rejects the next Promise. catch can handle a rejection; a normal return from catch can recover the chain.
-
-Promise.all fulfills with results in input order when every input fulfills. It rejects when an input rejects, but does not automatically cancel the other work.
-
-### Worked example
-
-```text
+```javascript
 Promise.resolve(3)
   .then(x => x * 2)
   .then(x => { throw new Error("stop"); })
   .catch(() => 9)
-  .then(x => console.log(x));
+  .then(x => console.log(x)); // 9
 ```
 
-**Result and interpretation:** 9. The catch handler recovers by returning 9.
+Trace: 3 becomes 6; the next handler throws; `catch` handles the rejection and returns 9; the final handler receives 9. A normal return from `catch` recovers the chain. Throwing from it would keep the path rejected.
 
-### Follow the steps
+**Missing-return trap:** if a handler starts an asynchronous operation but does not return its Promise, the outer chain does not wait for it through that handler's return value.
 
-1. **Fulfill:** The initial value is 3. The first reaction receives 3.
-2. **Transform:** The next value is 6. The handler returns x * 2.
-3. **Reject:** The handler throws stop. The rejection travels to catch.
-4. **Recover:** catch returns 9; the final handler prints 9. A normal return creates a fulfilled continuation.
-
-**Why this works:** Each step passes a result or failure to the next Promise. Returning a value from catch switches this path back to fulfillment.
-
-**MCQ trap:** If a handler starts a Promise but does not return it, the outer chain cannot wait for that operation through the returned value.
-
-| Distinction | Meaning |
+| Combining method | Outcome |
 |---|---|
-| Return a value | The next Promise fulfills with that value. |
-| Return a Promise | The next Promise follows its outcome. |
-| Throw | The next Promise rejects. |
-| catch returns normally | The following step can receive a recovered value. |
+| `Promise.all` | Fulfills when all fulfill, with values in input order; rejects if an input rejects. |
+| `Promise.allSettled` | Waits for all outcomes, including rejections. |
+| `Promise.race` | Follows the first input to settle. |
 
-**College sources:** [UNIT III.pdf](<../WT/UNIT III.pdf>).
+`Promise.all` does not automatically cancel other operations after a rejection. Input order of successful results is different from completion order.
 
-**Official references:** [MDN: promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises).
+`.finally` runs cleanup after settlement. A normal return usually preserves the prior outcome; throwing or returning a rejecting Promise can replace it with a rejection.
 
-## 8. Async/await without hidden magic
+## 8. async and await
 
-**Main idea:** Pause one async function while other work continues.
+An **async function always returns a Promise**. Returning `5` from it creates a Promise that fulfills with 5.
 
-**ai explnation due to lack of material**
-
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-An async function returns a Promise. A returned ordinary value becomes the Promise’s fulfillment value.
-
-await suspends that async function until its awaited value is available. It does not block the entire JavaScript environment.
-
-If the awaited Promise rejects, await throws inside the async function. Use try/catch to handle the rejection at that point.
-
-### Worked example
-
-```text
+```javascript
 async function task() {
   console.log("A");
   await Promise.resolve();
   console.log("B");
+  return 5;
 }
-task();
+const result = task();
 console.log("C");
+// A, C, B
+// result is a Promise, not the number 5.
 ```
 
-**Result and interpretation:** A
-C
-B
+The call starts executing immediately. `await` suspends this function and arranges a later continuation. The caller continues and prints C. The function later resumes and prints B. Even awaiting an already fulfilled Promise resumes asynchronously.
 
-### Follow the steps
-
-1. **Enter task:** Print A. Calling task begins executing its body.
-2. **Reach await:** Suspend task. Arrange a later continuation.
-3. **Continue caller:** Print C. The caller is not blocked by the suspended function.
-4. **Resume task:** Print B. The awaited fulfilled value is now available to the continuation.
-
-**Why this works:** The function runs synchronously until await. The caller continues, then the function resumes in a later Promise-related continuation.
-
-**MCQ trap:** Awaiting operations one after another can serialize them. When independent operations can overlap, start both before awaiting their combined results.
-
-| Distinction | Meaning |
-|---|---|
-| async return | Always supplies a Promise to the caller. |
-| await | Pauses the current async function. |
-| try/catch | Can handle a rejection thrown by await. |
-
-**College sources:** [UNIT III.pdf](<../WT/UNIT III.pdf>).
-
-**Official references:** [MDN: async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function).
-
-## 9. Array methods: transform, select, combine
-
-**Main idea:** Choose the method by the shape of the result.
-
-**ai explnation due to lack of material**
-
-**Material basis:** A focused explanation of this topic was not identified in the selected college material. This section is a supplement.
-
-map creates an array from callback results. filter creates an array containing values that pass a test. reduce combines values into one result.
-
-forEach performs callback calls and returns undefined. It is useful for side effects, not for collecting a returned result array.
-
-slice returns a shallow selection. splice changes the array. sort changes the array and compares strings by default unless given a comparator.
-
-### Worked example
-
-```text
-const values = [1, 2, 3];
-const result = values.map(x => x * 2).filter(x => x > 2);
-console.log(result);
+```javascript
+async function read() {
+  try {
+    await Promise.reject(new Error("bad"));
+  } catch (error) {
+    return "recovered";
+  }
+}
+read().then(console.log); // recovered
 ```
 
-**Result and interpretation:** [4, 6]. map creates [2, 4, 6]; filter keeps values greater than 2.
+A rejected awaited Promise throws inside the async function. `try/catch` can handle it there. If it remains unhandled, the async function's returned Promise rejects.
 
-### Follow the steps
+For independent operations, start both before waiting for the combined result:
 
-1. **Input:** values = [1, 2, 3]. Start from a fixed dense array.
-2. **Map:** Mapped values = [2, 4, 6]. Multiply each value by 2.
-3. **Filter:** Keep 4 and 6. Only these values satisfy x > 2.
-4. **Result:** result = [4, 6]; values remains [1, 2, 3]. These callbacks do not mutate the input.
+```javascript
+// getA and getB are assumed to be functions returning Promises.
+const aPromise = getA();
+const bPromise = getB();
+const [a, b] = await Promise.all([aPromise, bPromise]);
+```
 
-**Why this works:** The methods have different contracts. Choose transformation for map, selection for filter, and accumulated state for reduce.
+This fragment belongs inside an async function or a suitable module. Sequential `await getA(); await getB();` starts B only after A completes. Do not overlap work that depends on the earlier result.
 
-**MCQ trap:** A shallow array copy still shares nested objects. For numeric ascending order, use a comparator such as (a, b) => a - b.
+**forEach trap:** `forEach(async x => ...)` does not wait for the returned Promises. Use an awaited `for...of` loop for deliberate sequential work, or `Promise.all(values.map(...))` for independent work.
 
-| Distinction | Meaning |
-|---|---|
-| map | One callback result for each visited element. |
-| filter | Keep an element when the predicate is truthy. |
-| reduce | Carry an accumulator through the visited elements. |
-| forEach | Perform effects; no result array is returned. |
+## 9. Arrays: choose the result you need
 
-**Official references:** [MDN: indexed collections](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections).
+An array is an ordered collection. Indices start at zero. `[8,9]` has length 2, and its last index is 1.
+
+| Method | Result | Changes the original array? |
+|---|---|---|
+| `push(x)` | New length | Yes: adds at the end. |
+| `pop()` | Removed last value, or undefined if empty | Yes. |
+| `map(fn)` | Array of callback results | Not by the method itself. |
+| `filter(fn)` | Array of selected original elements | Not by the method itself. |
+| `reduce(fn, initial)` | Accumulated result | Depends on callback actions. |
+| `forEach(fn)` | undefined | Callback can cause effects. |
+| `slice(start,end)` | Shallow selection; end excluded | No. |
+| `splice(start,count,...)` | Array of removed elements | Yes: removes/inserts. |
+| `sort(compare)` | The sorted original array | Yes. |
+| `find(fn)` | First matching value, or undefined | Not by the method itself. |
+| `includes(x)` | Boolean membership result | No. |
+
+Callbacks can mutate shared data even when `map` or `filter` creates a new outer array.
+
+```javascript
+const a = [1, 2, 3];
+const b = a.map(x => x * 2).filter(x => x > 2);
+const sum = b.reduce((total, x) => total + x, 0);
+console.log(b);   // [4, 6]
+console.log(sum); // 10
+console.log(a);   // [1, 2, 3]
+```
+
+Map produces `[2,4,6]`; filter keeps 4 and 6; reduce starts at 0, then accumulates 4, then 10. Supplying an initial accumulator makes an empty-array sum well-defined. Reducing an empty array without an initial value throws `TypeError`.
+
+```javascript
+const a = [10, 2, 30];
+a.sort();                // [10, 2, 30]: default string comparison
+a.sort((x, y) => x - y);  // [2, 10, 30]: numeric ascending comparison
+```
+
+The comparator's sign determines ordering; the numeric difference need not be exactly −1 or 1.
+
+**Shallow-copy example:** `[...a]` creates a new outer array. If a contains an object, both arrays still reach that object. Changing its property affects both views.
 
 ## 10. Sets and Maps
 
-**Main idea:** Decide whether you need unique values or keyed values.
+A **Set** stores distinct values. A **Map** associates each key with a value. Both iterate in insertion order.
 
-**ai explnation due to lack of material**
-
-**Material basis:** A focused explanation of this topic was not identified in the selected college material. This section is a supplement.
-
-A Set stores unique values. A Map stores key/value pairs. Both preserve insertion order during iteration.
-
-Use Set when you need membership or duplicate removal. Use Map when a value must be found using a key.
-
-Map keys can be objects. Two different objects remain different keys even when their properties are equal. Adding an existing primitive key replaces its value.
-
-### Worked example
-
-```text
+```javascript
 const seen = new Set(["SE", "WT", "SE"]);
+console.log(seen.size);      // 2
+console.log(seen.has("WT")); // true
+seen.add("CN");
+seen.delete("SE");
+```
+
+Adding an existing primitive value does not create another entry. Separate object literals remain separate values. For collection key equality, repeated NaN is treated as the same value, even though `NaN === NaN` is false.
+
+```javascript
 const marks = new Map();
 marks.set("SE", 8);
 marks.set("SE", 9);
-console.log(seen.size, marks.size, marks.get("SE"));
+console.log(marks.size);      // 1
+console.log(marks.get("SE")); // 9
+console.log(marks.has("AI")); // false
 ```
 
-**Result and interpretation:** 2 1 9
+A second write to an existing key replaces its value. `get` on an absent key returns undefined. Use `has` when you need to distinguish an absent key from a key explicitly mapped to undefined.
 
-### Follow the steps
+Map keys can be objects. Two separately created `{id:1}` objects are different keys. Use `.size` for Set and Map; arrays use `.length`.
 
-1. **Create Set:** seen contains SE and WT. The repeated SE value is not a new unique value.
-2. **Insert Map key:** SE → 8. Create one key/value association.
-3. **Update Map key:** SE → 9. The existing key receives a replacement value.
-4. **Read sizes:** seen.size = 2; marks.size = 1. The two collections count different kinds of entries.
+## 11. DOM: change the live page
 
-**Why this works:** The duplicate Set value adds no new entry. The second Map write updates the value associated with the existing key.
+**DOM**, Document Object Model, represents a document as a tree of nodes. An element such as a paragraph is a node; it can contain text or other nodes. JavaScript uses `document` to find and change the live browser document.
 
-**MCQ trap:** Use .size for Set and Map, rather than array .length. Objects use identity as keys; property similarity does not merge them.
+**HTML** describes page elements using tags. `<p>Waiting</p>` is a paragraph containing text; `<button>Add</button>` is a button. An attribute such as `id="status"` names an element for selection. A `<script>` element contains or loads JavaScript.
 
-| Distinction | Meaning |
+| Operation | Meaning |
 |---|---|
-| Set.add(value) | Store a unique value. |
-| Set.has(value) | Check membership. |
-| Map.set(key, value) | Insert or replace an associated value. |
-| Map.get(key) | Read the associated value, or undefined when absent. |
+| `document.querySelector("#status")` | First element with the id status, or null. |
+| `document.querySelectorAll(".item")` | Static NodeList of elements with class item. |
+| `document.getElementById("status")` | Element with that id, or null. |
+| `node.textContent = text` | Replace content with literal text. |
+| `node.innerHTML = markup` | Parse markup as HTML. |
+| `document.createElement("li")` | Create an element; it is not yet attached to the document. |
+| `parent.append(child)` | Attach a child. |
+| `node.classList.add("active")` | Add a CSS class. |
+| `node.remove()` | Remove that node from its parent. |
 
-**Official references:** [MDN: Sets and Maps](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections).
+`#` indicates an id selector; `.` indicates a class selector. An id should identify one element; a class can be shared.
 
-## 11. DOM: selecting and changing a page
-
-**Main idea:** Treat the document as nodes rather than a string.
-
-**ai explnation due to lack of material**
-
-**Material basis:** The selected college material provides only part of this topic. The explanation fills the identified gaps.
-
-The DOM represents a document as a tree of nodes. JavaScript can select nodes, read properties, and change the displayed page.
-
-querySelector returns the first matching element or null. querySelectorAll returns a static NodeList of matching elements.
-
-textContent assigns text. innerHTML parses markup. Use textContent when you intend to display ordinary text, especially input from a user.
-
-### Worked example
-
-```text
+```html
 <p id="status">Waiting</p>
-
-const node = document.querySelector("#status");
-if (node) node.textContent = "Ready";
+<script>
+  const p = document.querySelector("#status");
+  if (p) p.textContent = "Ready";
+</script>
 ```
 
-**Result and interpretation:** The paragraph displays Ready. The original HTML file on disk is not rewritten.
+The script appears after the paragraph, so the element exists when selected. The displayed text becomes Ready. The original HTML file on disk is not rewritten.
 
-### Follow the steps
+A script placed before its elements can get null. Use suitable loading order, a deferred external script, or a `DOMContentLoaded` listener. A missing selection is null; reading a property from it throws an error.
 
-1. **Document tree:** A paragraph node contains Waiting. The browser has parsed the HTML.
-2. **Select:** Find the node with id status. The selector #status identifies an id.
-3. **Check existence:** The selected node is not null. Guard against a missing element.
-4. **Update text:** The paragraph now contains Ready. The live document changes.
+**Text versus markup:** setting `textContent` to `"<b>FS</b>"` displays the literal characters. Setting `innerHTML` to that string creates a bold element. Use the operation matching the intended data.
 
-**Why this works:** The selected element is a live node in the current document. Changing its text updates what the browser displays.
+A NodeList is not automatically an Array with every Array method. `Array.from(list)` can create an array. `querySelectorAll` is static: it does not automatically collect later-added matches. Some other DOM collections are live.
 
-**MCQ trap:** Check for null when an element might not exist. A browser provides document; an ordinary Node.js script does not provide a browser DOM.
+An ordinary Node.js program does not automatically provide a browser's `document`.
 
-| Distinction | Meaning |
-|---|---|
-| querySelector | First match, or null. |
-| querySelectorAll | A static list of matches. |
-| textContent | Write text without interpreting it as HTML. |
-| createElement and append | Create a node and attach it to the document. |
+## 12. Events: register now, run on interaction
 
-**College sources:** [index7.html](<../WT/examples/promises/index7.html>).
+An **event** describes an occurrence such as a click. An **event listener** is a function registered to run when the event is dispatched.
 
-**Official references:** [MDN: DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
-
-## 12. DOM events and propagation
-
-**Main idea:** Register a handler, then follow the event path.
-
-**ai explnation due to lack of material**
-
-**Material basis:** A focused explanation of this topic was not identified in the selected college material. This section is a supplement.
-
-addEventListener registers a function for an event. The browser calls the function when that event is dispatched to the relevant target.
-
-For events that bubble, the event can travel from a target to its ancestors. event.target identifies the original target. currentTarget identifies the current listener’s node.
-
-preventDefault cancels a cancelable default action. stopPropagation stops further propagation; it does not automatically cancel the default action.
-
-### Worked example
-
-```text
+```html
 <button id="count">Add</button>
-let count = 0;
-const button = document.querySelector("#count");
-button.addEventListener("click", () => {
-  count += 1;
-  button.textContent = String(count);
-});
+<script>
+  let count = 0;
+  const button = document.querySelector("#count");
+  button.addEventListener("click", () => {
+    count += 1;
+    button.textContent = String(count);
+  });
+</script>
 ```
 
-**Result and interpretation:** After two dispatched clicks, the button displays 2.
+Registering does not call the handler. First click: count becomes 1 and the button displays 1. Second click: the same captured binding becomes 2. This uses the closure idea from section 3.
 
-### Follow the steps
+For an event that **bubbles**, listeners can run on the target and then ancestors. If a span inside a button is clicked:
 
-1. **Register:** The click listener is stored. Registration does not invoke the handler.
-2. **First click:** count becomes 1. The browser dispatches the event and calls the handler.
-3. **Second click:** count becomes 2. The same captured binding is updated.
-4. **Display:** The button text is 2. textContent writes the current count.
+- `event.target` identifies the span where the event originated.
+- `event.currentTarget` identifies the button while its listener runs.
 
-**Why this works:** The handler closes over the count binding. Each click updates the same binding, so the value persists across calls.
+`preventDefault()` cancels a cancelable default action, such as a link navigation. `stopPropagation()` stops further propagation along the event path. Stopping propagation does not automatically cancel a default action. Not every event bubbles.
 
-**MCQ trap:** Pass the handler function rather than calling it during registration. Not every DOM event bubbles; inspect the event type when tracing propagation.
+**Registration trap:** pass `handler`, not `handler()`. The latter calls the function during registration and supplies its result.
 
-| Distinction | Meaning |
-|---|---|
-| target | The node at which the event originated. |
-| currentTarget | The node whose listener is currently running. |
-| preventDefault | Cancel a cancelable default action. |
-| stopPropagation | Stop the event from continuing along its propagation path. |
+## Final recall sheet
 
-**Official references:** [MDN: event listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+- let/const have block scope; var has function scope. const does not freeze objects.
+- Read types and operators before predicting coercion. Object equality uses identity.
+- Function with no returned value → undefined; async function → Promise.
+- JSON parse: text to value. Stringify: value to text, with serialization limits.
+- Callback can run synchronously or later.
+- Promise executor runs now; then reactions run later.
+- Return a Promise so its chain can follow the work. A catch can recover with a value.
+- Await pauses one async function; the caller can continue.
+- Map transforms, filter selects, reduce accumulates, forEach performs effects.
+- Slice copies a selection; splice and sort mutate. Default sort compares strings.
+- Set stores unique values; Map stores key/value associations; both use size.
+- DOM is the live tree; selector can return null; textContent writes literal text.
+- target is the event origin; currentTarget is the current listener's element.
 
-## Additional basics: conditions and loops
+## Included MCQ practice
 
-**ai explnation due to lack of material** — additional JavaScript fundamentals for the broad “JavaScript Basics” topic.
+Try the outputs on paper before opening the answer. For a mistake, return to the corresponding explanation in this file.
 
-An `if` condition converts its value to a Boolean. Values such as `false`, `0`, `""`, `null`, `undefined`, and `NaN` are falsy. Empty arrays and empty objects are truthy. A string containing `"false"` is also truthy.
+<!-- FS-MCQ-START -->
 
-`for...of` reads iterable values, such as array elements. `for...in` enumerates enumerable property keys; it can include inherited keys. Use `for...of` when you want the values in an array.
+**ai explnation due to lack of material** — original study questions, not past-paper questions. There are 15 questions in this file.
 
-```javascript
-const a = [3, 5];
-let total = 0;
-for (const value of a) total += value;
-console.log(total); // 8
-console.log(Boolean([])); // true
-console.log(0 || 10); // 10
-console.log(0 ?? 10); // 0
-```
-
-`||` uses the right operand when the left operand is falsy. `??` uses it only when the left operand is `null` or `undefined`. Both short-circuit. This difference matters when zero is a valid value.
-
-A `while` loop checks its condition before each iteration. A `do...while` loop checks it after the body, so the body runs at least once. `break` exits the loop. `continue` skips the remaining body of the current iteration.
-
-For an output question, write down the value before the condition, after the body, and after the update. Do not count a failed final condition as another execution of the body.
-
-References: [MDN: loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration), [MDN: nullish coalescing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing).
-
-## Self-check: one question per topic
-
-**ai explnation due to lack of material** — original revision questions, not past-paper questions. Try them before opening the answer. The full website provides four questions per topic.
-
-### 1. JavaScript variables and scope
+### Question 1
 
 What does this print?
+
+```javascript
 const a = [1]; a.push(2); console.log(a.length);
+```
 
 - **A.** 1
 - **B.** A required TypeError from push
@@ -654,63 +528,61 @@ const prevents reassignment of a. push changes the existing array, which is allo
 
 </details>
 
-### 2. Types, coercion and equality
+### Question 2
 
-What are the results of "6" + 2 and "6" - 2?
+Which expression is false?
 
-- **A.** 8 and 4
-- **B.** "62" and "4"
-- **C.** 8 and "62"
-- **D.** "62" and 4
-
-<details>
-<summary>Answer and explanation</summary>
-
-**D. "62" and 4**
-
-The + operation joins text because one operand is a string. Subtraction converts the numeric string to a number. Read each operator’s conversion behavior rather than assuming every operation uses the same rule.
-
-</details>
-
-### 3. Functions, returns and shared objects
-
-What does this print?
-const twice = x => { x * 2; };
-console.log(twice(3));
-
-- **A.** 6
-- **B.** 3
-- **C.** A mandatory SyntaxError
-- **D.** undefined
+- **A.** "5" === 5
+- **B.** Boolean([])
+- **C.** Boolean({})
+- **D.** 5 === 5
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. undefined**
+**A. "5" === 5**
 
-The arrow function has a block body and no return statement. Evaluating x * 2 does not automatically return it. An expression body, x => x * 2, would return 6 for this input.
+Strict equality does not coerce the string to a number, so the different types make this comparison false. Empty arrays and objects are truthy. Comparing the number 5 with itself is true.
 
 </details>
 
-### 4. JSON: text to data and back
+### Question 3
 
-Which string contains valid JSON?
+A function changes its parameter from object A to a new object B. Does that assignment redirect the caller’s binding?
 
-- **A.** {name:"Asha"}
-- **B.** {"name":"Asha",}
-- **C.** {"value":undefined}
-- **D.** {"name":"Asha","active":true}
+- **A.** The original object must be deleted
+- **B.** No; it reassigns the local parameter binding
+- **C.** Yes, every reference everywhere changes
+- **D.** Yes, but only for const callers
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. {"name":"Asha","active":true}**
+**B. No; it reassigns the local parameter binding**
 
-JSON object keys use double quotes. JSON permits booleans but does not permit an undefined value or a trailing comma. The valid string can be parsed into an object.
+Reassigning the parameter changes the value held by that local binding. The caller’s binding can continue pointing to A. This differs from mutating A’s properties through the original reference.
 
 </details>
 
-### 5. Callbacks: who calls the function?
+### Question 4
+
+Why is JSON stringify/parse not a universal deep-copy method?
+
+- **A.** JSON supports all JavaScript values
+- **B.** Parsing always returns the original reference
+- **C.** Some values are omitted or changed, and circular references can cause failure
+- **D.** It preserves every function and prototype exactly
+
+<details>
+<summary>Answer and explanation</summary>
+
+**C. Some values are omitted or changed, and circular references can cause failure**
+
+JSON represents a restricted data format. It does not preserve functions or object prototypes, and stringify can fail on a circular reference. It can copy suitable JSON-compatible data, but its limitations must match the input contract.
+
+</details>
+
+### Question 5
 
 Is every callback asynchronous?
 
@@ -728,63 +600,61 @@ Callback describes a passed function’s role. It does not specify timing. forEa
 
 </details>
 
-### 6. Promises and execution order
+### Question 6
 
-What is the output order?
-console.log("A"); Promise.resolve().then(()=>console.log("B")); console.log("C");
+Which are the three basic Promise states?
 
-- **A.** A, B, C
-- **B.** B, A, C
-- **C.** C, B, A
-- **D.** A, C, B
-
-<details>
-<summary>Answer and explanation</summary>
-
-**D. A, C, B**
-
-The two direct log statements run synchronously. The Promise reaction is queued and runs after the current synchronous work. A Promise that is already fulfilled still schedules its then reaction rather than running it inline.
-
-</details>
-
-### 7. Promise chains, catch and all
-
-What reaches the final handler?
-Promise.resolve(3).then(x => x * 2).then(x => console.log(x));
-
-- **A.** 3
-- **B.** undefined
-- **C.** A required rejection
-- **D.** 6
+- **A.** Pending, fulfilled, rejected
+- **B.** Started, compiled, deployed
+- **C.** Waiting, staged, committed
+- **D.** Open, closed, forked
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. 6**
+**A. Pending, fulfilled, rejected**
 
-The first handler returns 6. then creates a next Promise that fulfills with that return value, so the final handler receives 6. Omitting the return in a block-bodied handler would change the result.
+A Promise begins pending, then can settle as fulfilled or rejected. Settled refers to either final state. State changes do not restart the Promise after settlement.
 
 </details>
 
-### 8. Async/await without hidden magic
+### Question 7
 
-What does an async function return to its caller?
+Promise.all receives [slowA, fastB]. Both fulfill. Which order does its result array use?
 
-- **A.** Only an ordinary number
-- **B.** A callback without a result
-- **C.** Always undefined
-- **D.** A Promise
+- **A.** Only the last completed result
+- **B.** Input order: A result, then B result
+- **C.** Completion order: B, then A
+- **D.** Random order
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. A Promise**
+**B. Input order: A result, then B result**
 
-An async function wraps its result in a Promise. An ordinary returned value fulfills it, while an unhandled thrown error rejects it. The caller must handle the Promise contract.
+Promise.all preserves the input positions in its fulfillment array. Completion order does not reorder those results. It fulfills only after all the inputs fulfill.
 
 </details>
 
-### 9. Array methods: transform, select, combine
+### Question 8
+
+Two independent operations should overlap. Which plan allows that?
+
+- **A.** Block the browser with an infinite loop
+- **B.** Replace both operations with forEach and assume it waits
+- **C.** Start both operations, then await their combined Promises
+- **D.** Await the first before starting the second
+
+<details>
+<summary>Answer and explanation</summary>
+
+**C. Start both operations, then await their combined Promises**
+
+Starting both operations before awaiting permits their underlying work to overlap when supported. Awaiting one before starting the next serializes those starts. Independence must be real; dependencies can require sequential work.
+
+</details>
+
+### Question 9
 
 What is [1,2,3].map(x=>x*2).filter(x=>x>2)?
 
@@ -802,65 +672,123 @@ map first produces [2,4,6]. filter then retains values greater than 2, leaving [
 
 </details>
 
-### 10. Sets and Maps
+### Question 10
 
-What is new Set([2,2,3]).size?
+A Map receives set("a",1), then set("a",2). What are its size and value for a?
 
-- **A.** 3
-- **B.** 1
-- **C.** undefined
-- **D.** 2
-
-<details>
-<summary>Answer and explanation</summary>
-
-**D. 2**
-
-The Set stores unique values. The repeated number 2 does not create another entry, so the entries are 2 and 3. Set uses size for the entry count.
-
-</details>
-
-### 11. DOM: selecting and changing a page
-
-What does querySelector return when there is no matching element?
-
-- **A.** An empty array
-- **B.** A new element
-- **C.** undefined in every case
-- **D.** null
+- **A.** Size 1; value 2
+- **B.** Size 2; value 1
+- **C.** Size 2; value [1,2]
+- **D.** Size 0; value undefined
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. null**
+**A. Size 1; value 2**
 
-querySelector returns the first matching element or null. Check that result before writing properties when a match is not guaranteed. querySelectorAll has a different contract: a NodeList of all matches.
+The same primitive key identifies the existing association. The second set replaces its value without adding a second key. The Map therefore has one entry whose value is 2.
 
 </details>
 
-### 12. DOM events and propagation
+### Question 11
 
-Which registers a callback correctly?
+Is the NodeList from querySelectorAll automatically updated when later matching nodes are added?
 
-- **A.** button.addEventListener("click", handle())
-- **B.** button.addEventListener("click", null())
-- **C.** button.addEventListener(handle(), "click")
-- **D.** button.addEventListener("click", handle)
+- **A.** It updates the original HTML file on disk
+- **B.** No; it is a static NodeList
+- **C.** Yes; it is always live
+- **D.** Only if the nodes are paragraphs
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. button.addEventListener("click", handle)**
+**B. No; it is a static NodeList**
 
-Pass the function value handle. Calling handle() during registration passes its result instead, unless that result is intentionally a handler. The event type belongs in the first argument.
+querySelectorAll takes a static selection of matches. Later matching elements do not automatically join that list. Other DOM collection APIs can return live collections, so identify the particular API before tracing behavior.
 
 </details>
 
-## Source reading targets
+### Question 12
 
-- [Unit 1_MongoDB.pdf](<../WT/Unit 1_MongoDB.pdf>) — Introductory JSON; viewer page 8. Other MongoDB chapters are outside this site.
-- [UNIT III.pdf](<../WT/UNIT III.pdf>) — Callbacks, promises and async/await; viewer pages 15–29.
-- [ex2.js](<../WT/examples/callback_functions/ex2.js>) — Original class example; examples can have random outcomes. Teaching traces use fixed inputs.
-- [index7.html](<../WT/examples/promises/index7.html>) — Original class example; examples can have random outcomes. Teaching traces use fixed inputs.
+A listener increments one captured count from 0 on each click. What is count after three clicks?
 
-College files can include material outside the announced topics. Read the selected sections. The examples above use fixed inputs for explanation; some original class examples use random outcomes.
+- **A.** 0
+- **B.** A new independent value for each call
+- **C.** 3
+- **D.** 1
+
+<details>
+<summary>Answer and explanation</summary>
+
+**C. 3**
+
+The listener keeps access to the same captured binding. Each call adds one to its current value, giving 1, then 2, then 3. Registering the listener once does not reset the count for each event.
+
+</details>
+
+### Question 13
+
+What does this print? console.log(0 || 10, 0 ?? 10);
+
+- **A.** 10 0
+- **B.** 0 10
+- **C.** 10 10
+- **D.** 0 0
+
+<details>
+<summary>Answer and explanation</summary>
+
+**A. 10 0**
+
+Zero is falsy, so || chooses 10. Zero is neither null nor undefined, so ?? keeps it. Use nullish fallback when a valid zero should survive. Both operations can return operand values rather than a Boolean.
+
+</details>
+
+### Question 14
+
+A script logs A, registers a fulfilled Promise handler that logs P, schedules a zero-delay timer that logs T, and logs B. What is the order in this ordinary example?
+
+- **A.** A, B, T, P
+- **B.** A, B, P, T
+- **C.** A, P, T, B
+- **D.** P, A, B, T
+
+<details>
+<summary>Answer and explanation</summary>
+
+**B. A, B, P, T**
+
+Current synchronous work prints A and B. The fulfilled Promise reaction runs as a microtask after that work. The timer callback runs in a later task. A zero timer delay does not interrupt current statements.
+
+</details>
+
+### Question 15
+
+What does JSON.stringify([undefined, 2]) produce?
+
+- **A.** "[2]"
+- **B.** A JavaScript Map
+- **C.** "[null,2]"
+- **D.** "[undefined,2]"
+
+<details>
+<summary>Answer and explanation</summary>
+
+**C. "[null,2]"**
+
+An undefined array entry becomes null in this serialization. In contrast, an undefined object property is omitted. The result is JSON text, not an Array or Map, so read the return type as well as the contents.
+
+</details>
+
+<!-- FS-MCQ-END -->
+
+## Optional source references
+
+These are evidence and extra references; they are not required earlier reading.
+
+- [College WT Unit III](<UNIT III.pdf>): callbacks, Promises, async/await; viewer pages 15–29.
+- [College JSON source](<Unit 1_MongoDB.pdf>): viewer page 8; the remaining MongoDB content is outside this guide.
+- [MDN: grammar and types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types), [operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators), [loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration).
+- [MDN: JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), [arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections), [Sets and Maps](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections).
+- [MDN: Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), [Promise chains](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises), [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function).
+- [MDN: DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model), [event listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).

@@ -1,491 +1,414 @@
-# Artificial Intelligence: FS revision notes
+# Artificial Intelligence: complete FS study guide
 
-For the screening test on **9 October 2026**. Scope: Regression · Classification · TensorFlow · ANN.
+**Study this file directly. No prior college-note reading is required.** It teaches the announced regression, classification, TensorFlow, and artificial neural network topics. Read the concepts, calculate the worked examples, and answer the included MCQs. You do not need to install TensorFlow to study its code and workflow here.
 
-[All subject notes](../FS_SUBJECT_NOTES.md) · [Visual study website](../Subjects/visualize/README.md)
+Test: **9 October 2026**. [Other subject guides](../FS_SUBJECT_NOTES.md).
 
-## How to use these notes
+**ai explnation due to lack of material** — explanations and added examples are AI-authored. The selected college AI units cover the main topics; this guide supplies the background and intermediate steps needed to study them directly.
 
-Decide what the target means. Then calculate a neuron output and a loss by hand. Finally trace training, evaluation, and the TensorFlow/Keras calls that perform those steps.
+## 1. Start with data, features, and targets
 
-Read the quick table first. For each topic, cover the result and work through the example. Explain the MCQ trap in your own words. Finish with the short self-check at the end.
+A **model** is a calculation used to make predictions. In **machine learning**, training adjusts that calculation using examples instead of manually specifying every decision.
 
-**Teaching provenance: ai explnation due to lack of material.** These are AI-authored explanations and examples, not verbatim college notes. Each topic identifies whether the selected college material covers it, covers it partly, or lacks a focused explanation. The label does not mean that every underlying topic is missing. The writing uses short, direct explanations inspired by ASD-STE100, with technical terms explained through concrete steps.
+A **sample** is one example. A **feature** is an input value describing that example. A **target**, or label, is the known answer used in supervised training.
 
-The notice gives topic names, not an exact question distribution. These notes are revision aids and do not predict the test paper.
+| Sample | Feature: study hours | Feature: attendance % | Target: score |
+|---|---|---|---|
+| Student A | 2 | 80 | 55 |
+| Student B | 4 | 90 | 75 |
 
-## Quick recall
+The model receives hours and attendance and predicts score. Training compares predictions with known scores. The unknown score is not supplied as an input for the prediction task.
 
-| Topic | Explain it this way |
-|---|---|
-| Regression / classification | Predict a numerical quantity / predict a category. Numeric category IDs still represent classes. |
-| Linear neuron | Compute z = sum(w_i*x_i) + b, then apply the chosen activation. |
-| MSE | Square each prediction error, sum the squares, then divide by the number of examples. |
-| Logistic regression | A classification model despite its name. A threshold converts a score into a class decision. |
-| ReLU / sigmoid / softmax | max(0,z) / a value between 0 and 1 / a normalized vector across classes. |
-| Dense parameters | input_count × unit_count + unit_count, when each unit has a bias. |
-| Training | Forward prediction → loss → backpropagated gradients → optimizer update. |
-| Epoch / batch | One pass over the training dataset / a group used for a training step. |
-| Validation / test | Validation guides choices. A held-out test set estimates performance after those choices. |
-| Precision / recall | TP/(TP+FP) / TP/(TP+FN). Check for a zero denominator. |
+**Supervised learning** uses known target examples. **Unsupervised learning** seeks structure without supplied target labels. The announced regression and classification topics primarily concern supervised prediction.
 
-## Reading order
+### Parameters and hyperparameters
 
-1. Data, targets and learning tasks
-2. Regression and mean squared error
-3. Classification and logistic regression
-4. An artificial neuron
-5. Activation functions and output contracts
-6. ANN layers and parameter counts
-7. Loss, gradients and parameter updates
-8. TensorFlow and Keras workflow
-9. Accuracy, confusion matrices and overfitting
+- A **parameter** is a value learned during training, such as a weight or bias.
+- A **hyperparameter** is a chosen setting, such as learning rate, layer width, or batch size.
 
-## 1. Data, targets and learning tasks
+A model learns the weights. The training setup chooses how quickly and how often to update them.
 
-**Main idea:** Decide what the output means before choosing a model.
+### Regression versus classification
 
-**ai explnation due to lack of material**
+| Task | Desired result | Example |
+|---|---|---|
+| Regression | A numerical quantity | Predict score, temperature, price. |
+| Classification | A category or categories | Predict spam/not spam or digit class. |
 
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
+A class represented by a number is still a category. Predicting the digit label 7 is classification; estimating a temperature of 7 degrees is regression. Decide from the target's meaning, not its storage type.
 
-Supervised learning uses examples with inputs and known target values. The model learns a mapping that should also work on unseen examples.
+## 2. Data splitting and preparation
 
-Regression predicts a numerical quantity, such as a price. Classification predicts a category, such as spam or not spam.
+Use separate data for different decisions:
 
-A category can be stored as a number. A label 0 or 1 does not automatically make the task regression.
+1. **Training set:** fit the learned parameters.
+2. **Validation set:** compare settings or decide when to stop training.
+3. **Test set:** assess the selected model on held-out examples.
 
-Split data before fitting data-dependent preprocessing. Fit transformations on training data, then apply them to validation and test data.
+If you repeatedly choose models using test results, that set has become part of your selection process and is no longer an independent final check.
 
-### Worked example
+**Data leakage** occurs when unavailable or held-out information influences training. Example: computing a normalization rule using the entire dataset before splitting can expose test information. Split first, fit learned preprocessing on training data, then apply the same rule to validation/test data.
+
+**Scaling** puts features on useful numerical ranges. For example, values in millions can dominate poorly scaled numerical training alongside values between 0 and 1. Scaling can help optimization; it does not create useful information or guarantee better results.
+
+Other preparation can include handling missing values and encoding categories. Keep the same feature meanings and order when making predictions.
+
+## 3. Regression: produce a numerical prediction
+
+For one input, linear regression uses:
 
 ```text
-Input: hours studied
-Regression target: predicted examination score
-Classification target: pass or fail
+prediction = w × x + b
 ```
 
-**Result and interpretation:** The meaning of the target determines the learning task.
+x is the feature, w is its weight or slope, b is an offset called bias. The model learns w and b from data. With several features, add their weighted contributions.
 
-### Follow the steps
+**Example:** w = 3, b = 2, x = 5. Prediction = 3×5+2 = 17. Increasing x by one increases the prediction by 3 for this fixed model.
 
-1. **Define output:** Choose score or pass/fail. These contracts need different prediction interpretations.
-2. **Split examples:** Create separate training, validation and test sets. Preserve unseen examples for evaluation.
-3. **Fit on training data:** Learn parameters and preprocessing from training examples. Avoid using future evaluation information.
-4. **Evaluate:** Compare predictions with unseen targets. Training success alone is insufficient.
+“Linear” describes how the prediction depends on the coefficients in the specified model. A single linear-output neuron can implement this regression calculation. It does not need a probability output.
 
-**Why this works:** The target contract determines appropriate outputs, losses, and evaluation. Numeric storage alone does not specify the task.
+### Mean squared error, MSE
 
-**MCQ trap:** Repeatedly selecting a model based on test results leaks information from the test set. Keep a final test set for a later evaluation.
-
-| Distinction | Meaning |
-|---|---|
-| Feature | An input used to make a prediction. |
-| Target / label | The known outcome used during supervised training. |
-| Training set | Examples used to fit parameters. |
-| Validation / test | Model selection feedback / later evaluation of the selected model. |
-
-**College sources:** [KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf>); [SUPERVISED_LEARNING_REGRESSION.pdf](<../AI/SUPERVISED_LEARNING_REGRESSION.pdf>).
-
-## 2. Regression and mean squared error
-
-**Main idea:** Calculate a prediction and measure its numerical error.
-
-**ai explnation due to lack of material**
-
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-A simple linear regression model predicts y-hat = w x + b. The weight controls the slope, and the bias controls the intercept.
-
-The residual is the difference between an actual target and its prediction. Mean squared error averages the squared residuals.
-
-Squaring prevents positive and negative errors from canceling. It also makes large residuals contribute more strongly than small ones.
-
-### Worked example
+A **prediction error** is the difference between prediction and target. A **loss** measures disagreement. For N numerical targets:
 
 ```text
-Actual: [10, 20, 30]
-Predicted: [8, 22, 29]
-Residuals: [2, -2, 1]
-MSE = (4 + 4 + 1) / 3
+MSE = sum of (prediction − target)^2 / N
 ```
 
-**Result and interpretation:** MSE = 3.
+| Target | Prediction | Difference | Squared difference |
+|---|---|---|---|
+| 10 | 8 | −2 | 4 |
+| 20 | 22 | 2 | 4 |
+| 30 | 29 | −1 | 1 |
 
-### Follow the steps
+MSE = (4+4+1)/3 = **3**. Squaring prevents positive and negative errors from cancelling and makes larger errors more influential. MSE has the target units squared.
 
-1. **Predict:** The model outputs 8, 22, 29. Compare predictions with the matching targets.
-2. **Subtract:** Residuals are 2, -2, 1. Use the same actual-minus-predicted convention throughout.
-3. **Square:** Squared residuals are 4, 4, 1. Signs no longer cancel.
-4. **Average:** 9 / 3 = 3. Divide by the number of predictions.
+**MAE**, mean absolute error, averages absolute differences. Here MAE = (2+2+1)/3 = 5/3. **RMSE** is the square root of MSE, here √3, and has the original target units.
 
-**Why this works:** The average uses squared magnitudes rather than signed differences. Every selected squared error contributes a nonnegative amount.
+Lower loss on the same evaluation task generally means closer predictions under that measure. Different datasets, target scales, or loss definitions need care before comparing numerical loss values.
 
-**MCQ trap:** A linear output is common for unrestricted numerical predictions. MSE is a loss value, not an accuracy percentage, and has squared target units.
+## 4. Classification: produce a category decision
 
-| Distinction | Meaning |
-|---|---|
-| Weight w | Changes prediction as x changes. |
-| Bias b | Shifts the prediction even when x is zero. |
-| MSE | Average squared numerical error. |
-| MAE | Average absolute numerical error. |
+### Three types of class task
 
-**College sources:** [KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf>); [SUPERVISED_LEARNING_REGRESSION.pdf](<../AI/SUPERVISED_LEARNING_REGRESSION.pdf>).
+- **Binary:** one of two classes, such as spam/not spam.
+- **Multiclass:** one mutually exclusive class among several, such as one digit from 0–9.
+- **Multilabel:** several labels can apply together, such as an image containing both a cat and a car.
 
-**Official references:** [TensorFlow: regression](https://www.tensorflow.org/tutorials/keras/regression).
+A model can produce scores or probability estimates before selecting labels. A **threshold** is a chosen decision boundary.
 
-## 3. Classification and logistic regression
+### Logistic regression
 
-**Main idea:** Distinguish a score, a probability and a class decision.
-
-**ai explnation due to lack of material**
-
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-A classifier predicts categories. Binary classification has two alternatives. Multiclass classification selects among more than two mutually exclusive classes.
-
-Binary logistic regression applies a sigmoid to a linear score. Despite its name, it is normally used for classification.
-
-A threshold converts a probability into a class decision. A threshold of 0.5 is common, but the costs of different errors can justify another threshold.
-
-For mutually exclusive classes, softmax can normalize scores into values that sum to one. Multilabel tasks can instead use separate sigmoid outputs.
-
-### Worked example
+Despite its name, logistic regression is a classification model. For a binary task:
 
 ```text
-P(spam) = 0.70
-Rule: predict spam if probability ≥ 0.50
-Prediction: spam
+z = w × x + b
+p = sigmoid(z) = 1 / (1 + exp(−z))
 ```
 
-**Result and interpretation:** The 0.70 score becomes a class only after applying the decision rule.
+`exp` is the exponential function. Sigmoid converts a finite numerical score z to a value strictly between 0 and 1. With threshold 0.5, choose the positive class when p ≥ 0.5.
 
-### Follow the steps
+If p = 0.7, that rule predicts positive. If the selected threshold is 0.8, the same score predicts negative. The threshold is a decision choice; it is not the learning rate.
 
-1. **Read features:** An email is represented by numeric features. The text must be converted into usable inputs.
-2. **Calculate a score:** The model computes a weighted score. Weights and bias define this calculation.
-3. **Apply sigmoid:** The estimated spam probability is 0.70. Map the score into the interval between 0 and 1.
-4. **Apply the threshold:** 0.70 ≥ 0.50, so predict spam. The threshold creates the discrete decision.
+A score described as a probability estimate can still be poorly calibrated. A prediction is evidence from a model, not certainty about the world.
 
-**Why this works:** The model estimates a score from features. The decision rule connects that score to the required output category.
+### Classification loss
 
-**MCQ trap:** A high score is not a guarantee that this particular prediction is correct. Threshold choice and probability calibration are separate concerns.
-
-| Distinction | Meaning |
-|---|---|
-| Binary | Choose between two classes. |
-| Multiclass | Choose one of several mutually exclusive classes. |
-| Multilabel | Several labels can be true for the same example. |
-| Logistic regression | A classification model based on a transformed linear score. |
-
-**College sources:** [KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf>); [SUPERVISED_LEARNING_REGRESSION.pdf](<../AI/SUPERVISED_LEARNING_REGRESSION.pdf>).
-
-**Official references:** [TensorFlow: classification](https://www.tensorflow.org/tutorials/keras/classification).
-
-## 4. An artificial neuron
-
-**Main idea:** Multiply, add a bias, then apply an activation.
-
-**ai explnation due to lack of material**
-
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-An artificial neuron combines inputs using weights, adds a bias, and applies an activation function.
-
-The pre-activation value is z = sum(w_i x_i) + b. The output is f(z). The activation determines how the combined value becomes an output.
-
-Weights are learned parameters. A negative weight reduces the weighted sum for a positive input, but its practical effect depends on the other inputs.
-
-### Worked example
+For a binary probability p and target y equal to 0 or 1, binary cross-entropy is:
 
 ```text
-x = [2, 3]; w = [0.5, -1]; b = 1
-z = 2 × 0.5 + 3 × (-1) + 1 = -1
-ReLU(z) = max(0, -1)
+−[y ln(p) + (1−y) ln(1−p)]
 ```
 
-**Result and interpretation:** The neuron output is 0 when its activation is ReLU.
+`ln` is the natural logarithm. For y = 1, it simplifies to −ln(p). A correct-class probability of 0.8 gives loss about 0.223; 0.2 gives about 1.609. Assigning low probability to the actual class receives a larger penalty.
 
-### Follow the steps
+Accuracy counts final correct labels. Loss can also distinguish how confident the scores are. Two models can have the same accuracy and different cross-entropy losses.
 
-1. **Multiply:** Contributions are 1 and -3. Use the corresponding input and weight pairs.
-2. **Sum:** The weighted sum is -2. Combine all contributions.
-3. **Add bias:** z = -2 + 1 = -1. The bias shifts the sum.
-4. **Activate:** ReLU(-1) = 0. The negative input is mapped to zero.
+For multiclass tasks, **categorical cross-entropy** commonly expects encoded class vectors; **sparse categorical cross-entropy** commonly expects integer class IDs. Use the loss that matches the target representation.
 
-**Why this works:** Each multiplication measures one input’s contribution. The bias shifts the combined value; the activation then transforms it.
+## 5. A neuron: weighted sum followed by an activation
 
-**MCQ trap:** Do not apply the activation separately to each input in this neuron formula. Also, a biological-neuron analogy does not describe every implementation detail.
-
-| Distinction | Meaning |
-|---|---|
-| Input | A feature or an output from an earlier layer. |
-| Weight | A multiplier learned during training. |
-| Bias | An added learned offset. |
-| Activation | The function applied to the combined value. |
-
-**College sources:** [KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf>).
-
-## 5. Activation functions and output contracts
-
-**Main idea:** Choose the function by the required behavior.
-
-**ai explnation due to lack of material**
-
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-ReLU returns max(0, z). Sigmoid returns a value between 0 and 1. tanh returns a value between -1 and 1.
-
-Nonlinear hidden activations allow a network to represent relationships that stacked linear transformations alone cannot represent.
-
-Output choices depend on the task. Linear outputs are common for regression, sigmoid for binary probability, and softmax for mutually exclusive classes.
-
-### Worked example
+An **artificial neuron** combines input values with learned weights, adds a bias, and applies a chosen activation function:
 
 ```text
-z = [-2, 0, 3]
-ReLU(z) = [0, 0, 3]
-For equal softmax scores [0, 0], outputs are [0.5, 0.5].
+z = w1×x1 + w2×x2 + ... + b
+output = activation(z)
 ```
 
-**Result and interpretation:** Activation changes the representation; the chosen output contract determines its interpretation.
+The **bias** shifts the calculation independently of the feature values. It allows an offset even when every input is zero. A weight's contribution depends on both its value and the feature scale; a large weight alone does not prove causal importance.
 
-### Follow the steps
+### Calculate one neuron
 
-1. **Read hidden score:** z = -2. This value was produced by weights and a bias.
-2. **Apply ReLU:** The hidden output becomes 0. A negative score is suppressed.
-3. **Build output scores:** The final layer produces equal scores [0, 0]. These are two class scores in a separate output example.
-4. **Apply softmax:** Probabilities become [0.5, 0.5]. The normalized outputs sum to one.
+Inputs x = [2,3], weights w = [0.5,−1], bias b = 1:
 
-**Why this works:** Composition of linear transformations remains linear. A nonlinear transformation changes the family of relationships that the network can express.
+1. First contribution: 2×0.5 = 1.
+2. Second contribution: 3×(−1) = −3.
+3. Add the bias: z = 1−3+1 = −1.
+4. With ReLU activation, output = max(0,−1) = **0**.
 
-**MCQ trap:** Softmax is not the usual choice for independent multilabel decisions. Loss functions must agree with whether the model returns probabilities or raw logits.
+The weighted sum and activated output are different quantities. Do not apply the activation separately to each input unless the model explicitly says so.
 
-| Distinction | Meaning |
-|---|---|
-| ReLU | Zero for a negative input; identity for a positive input. |
-| Sigmoid | One bounded output, often for binary probability. |
-| Softmax | Normalize a vector for mutually exclusive classes. |
-| Linear | No activation transformation; useful for unrestricted numerical output. |
+### Basic neuron models
 
-**College sources:** [KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf>); [KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf>).
+A threshold neuron outputs a class according to whether z reaches a threshold. A classical **McCulloch–Pitts** model uses a fixed logical threshold setup. A **perceptron** can adjust weights from classification examples.
 
-## 6. ANN layers and parameter counts
+For a simple 0/1 perceptron convention, a weight update can be `w_i ← w_i + learning_rate × (target−prediction) × x_i`. The exact update depends on the stated label and threshold convention.
 
-**Main idea:** Follow shapes and count weights before training.
+A single linear decision boundary cannot solve XOR on the four binary input pairs: the two positive cases lie on opposite corners. A suitable hidden-layer network with nonlinear activations can form more complex boundaries.
 
-**ai explnation due to lack of material**
+## 6. Activation functions: match the output to the task
 
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
+An **activation function** transforms z. Nonlinear hidden activations let a network represent relationships that a stack of purely linear layers cannot.
 
-An artificial neural network connects layers of units. A Dense layer connects each input feature to each unit in that layer.
+| Activation | Calculation or range | Typical role |
+|---|---|---|
+| Linear | Output z; unbounded | Numerical regression output. |
+| ReLU | max(0,z) | Hidden layers. |
+| Leaky ReLU | z when nonnegative; a small slope times z when negative | Retain a small response/gradient for negative inputs. |
+| Sigmoid | 1/(1+exp(−z)); between 0 and 1 | Binary or independent multilabel outputs. |
+| tanh | Between −1 and 1 | A nonlinear activation centered around zero. |
+| Softmax | exp(z_i)/sum(exp(z_j)) | A normalized distribution across mutually exclusive classes. |
 
-With n inputs and m units, a Dense layer has n × m weights. With one bias per unit, it also has m biases.
+At z = 0, sigmoid gives 0.5; tanh gives 0; ReLU gives 0. For two equal softmax scores `[0,0]`, each output is `1/(1+1) = 0.5`. Softmax probabilities sum to 1 across that class axis; independent sigmoid outputs need not.
 
-The total is (n + 1) × m when biases are enabled. The batch dimension counts examples; it does not multiply the number of model parameters.
+**Linear-layer trap:** if h = A×x+a and output = B×h+b, substitution gives `(B×A)×x + (B×a+b)`. Without an intervening nonlinearity, this is still one linear-plus-offset calculation.
 
-### Worked example
+### Output and loss contracts
+
+A **logit** is a raw classification score before probability conversion.
+
+| Task | Common output setup | Common loss |
+|---|---|---|
+| Numerical regression | One linear output per numerical target | MSE or MAE |
+| Binary classification | One sigmoid probability | Binary cross-entropy |
+| Multiclass classification | Softmax vector over classes | Categorical or sparse categorical cross-entropy |
+| Multilabel classification | Independent sigmoid per label | Binary cross-entropy per label |
+
+Some loss implementations can accept raw logits instead. If `from_logits=True`, supply logits; if false, supply the required probability representation. Do not apply a probability activation and then falsely declare its output to be raw logits. [TensorFlow binary cross-entropy reference](https://www.tensorflow.org/api_docs/python/tf/keras/losses/BinaryCrossentropy).
+
+## 7. ANN architecture and parameter counts
+
+An **Artificial Neural Network**, ANN, connects neurons in layers:
 
 ```text
-Dense layer: 3 input features, 4 units
-Weights = 3 × 4 = 12
-Biases = 4
-Total trainable parameters = 16
+Input features → hidden representations → output prediction
 ```
 
-**Result and interpretation:** Each example produces four outputs from this layer.
+An **input layer** supplies features. A **hidden layer** makes intermediate outputs. The **output layer** has the form required by the task. A feedforward network moves information forward through these connections.
 
-### Follow the steps
-
-1. **Read input shape:** One example has 3 features. Count features independently of batch size.
-2. **Connect units:** Each of 4 units receives all 3 features. The layer needs 12 weights.
-3. **Add biases:** Each unit has one bias. There are 4 more parameters.
-4. **Count and output:** 16 parameters; 4 outputs per example. Weights are shared across the batch.
-
-**Why this works:** Every output unit needs one weight for each input plus its own bias. The same learned parameters are reused for every example in a batch.
-
-**MCQ trap:** Flatten changes shape without learning Dense weights. More parameters can increase capacity but do not guarantee better unseen-data performance.
-
-| Distinction | Meaning |
-|---|---|
-| Input layer | Supplies features. |
-| Hidden layer | Builds intermediate representations. |
-| Output layer | Produces predictions with the task’s shape. |
-| Batch dimension | The number of examples processed together. |
-
-**College sources:** [KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf>); [KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf>).
-
-## 7. Loss, gradients and parameter updates
-
-**Main idea:** Separate measuring error from changing parameters.
-
-**ai explnation due to lack of material**
-
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-Forward propagation calculates a prediction from the current parameters. A loss compares that prediction with the training target.
-
-Backpropagation calculates gradients through the network using the chain rule. An optimizer uses those gradients to update parameters.
-
-A gradient describes how the loss changes locally with a parameter. Gradient descent subtracts a learning-rate-scaled gradient.
-
-For one squared-error example, prediction is w x. The chain rule combines the loss change per prediction with the prediction change per weight.
-
-An epoch is one pass through the training data. A batch is a group of examples used for an update in mini-batch training.
-
-### Worked example
+A **Dense**, or fully connected, layer connects each input to every unit in that layer. With n inputs and m units:
 
 ```text
-x = 1; target = 0.5; w = 2; bias = 0
-prediction = w × x = 2
-loss = (prediction - target)² = 2.25
-gradient = 2 × (prediction - target) × x = 3
+weights = n×m
+biases = m, when one bias per unit is enabled
+total = (n+1)×m
+```
+
+**Example:** three input features → four hidden units → one output:
+
+- Hidden layer: 3×4 weights + 4 biases = 16 parameters.
+- Output layer: 4×1 weights + 1 bias = 5 parameters.
+- Model total = **21 trainable parameters** with these biases enabled.
+
+For a batch of 32 examples, the same 21 parameters are reused. Batch size does not multiply parameter count. The hidden output shape is `(32,4)`; final output shape is `(32,1)`.
+
+**Flatten** changes shape, for example a 2×2 input into four values. It does not itself introduce Dense weights. More parameters increase possible model flexibility; they do not guarantee better performance on unseen data.
+
+## 8. Training: prediction, loss, gradient, update
+
+Training repeats four distinct steps:
+
+1. **Forward propagation:** calculate predictions with the current parameters.
+2. **Loss calculation:** compare predictions with known targets.
+3. **Backpropagation:** calculate how parameter changes locally affect the loss.
+4. **Optimizer update:** change parameters using those gradients and an update rule.
+
+A **gradient** collects derivatives: local rates of loss change with respect to parameters. A positive derivative means a small increase in that parameter locally increases the loss. Gradient descent moves in the opposite direction:
+
+```text
+new parameter = old parameter − learning_rate × gradient
+```
+
+**Backpropagation calculates gradients. The optimizer applies updates.** In some informal descriptions both are grouped as “training,” but their jobs differ.
+
+### One complete numerical update
+
+Use one input x = 1, target y = 0.5, weight w = 2, and bias fixed at 0. Define loss as squared error for this example.
+
+```text
+prediction = w×x = 2
+error = prediction−target = 1.5
+loss = error² = 2.25
+```
+
+The loss changes at rate `2×error` with respect to prediction. The prediction changes at rate x with respect to w. The chain rule multiplies those rates:
+
+```text
+gradient for w = 2×error×x = 2×1.5×1 = 3
 learning rate = 0.1
-w_new = 2 - 0.1 × 3
+new w = 2−0.1×3 = 1.7
 ```
 
-**Result and interpretation:** w_new = 1.7.
+With bias still fixed at zero, the new prediction is 1.7 and the new squared loss is `(1.7−0.5)² = 1.44`. This particular step improves the loss. Updating a trainable bias as well would require its own gradient and would produce a different prediction.
 
-### Follow the steps
+A very large learning rate can overshoot and increase the loss. A small rate can make progress slow. General neural-network optimization is not guaranteed to find the global best solution.
 
-1. **Forward pass:** With x = 1 and w = 2, prediction is 2. The bias is zero in this one-weight example.
-2. **Measure loss:** Target is 0.5; squared loss is 2.25. Square the difference 2 - 0.5.
-3. **Calculate gradient:** The gradient for w is 2 × (2 - 0.5) × 1 = 3. The chain rule multiplies 2 × prediction error by the input x.
-4. **Update:** w becomes 1.7. Subtract 0.1 × 3 from the old weight.
+### Batch, iteration, and epoch
 
-**Why this works:** The positive gradient says a small increase in w would increase the local loss. Subtracting the gradient moves in the opposite local direction.
+A **batch** is a group of examples used for a training step. An **iteration** here means one optimizer step. An **epoch** is one pass through the training dataset.
 
-**MCQ trap:** A large learning rate can overshoot. An update is not guaranteed to reduce every individual example’s loss or find the global best solution.
-
-| Distinction | Meaning |
+| Gradient method | Examples used per update |
 |---|---|
-| Forward pass | Produce predictions. |
-| Loss | Measure disagreement with targets. |
-| Backpropagation | Calculate gradients. |
-| Optimizer | Apply a parameter-update rule. |
+| Batch gradient descent | Entire training dataset. |
+| Stochastic gradient descent | One example. |
+| Mini-batch gradient descent | A smaller group of examples. |
 
-**College sources:** [KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf>); [KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf>).
+For 100 samples and batch size 32, an ordinary full pass has batches of 32,32,32,4: four steps per epoch when the remainder is kept. Five epochs then have 20 steps. Dropping the remainder would change the count.
 
-**Official references:** [TensorFlow: automatic differentiation](https://www.tensorflow.org/guide/autodiff).
+An optimizer such as Adam uses a more detailed update rule than plain gradient descent. It still depends on the calculated gradients. No optimizer choice guarantees success.
 
-## 8. TensorFlow and Keras workflow
+## 9. TensorFlow: tensors, shapes, and gradients
 
-**Main idea:** Distinguish model setup, training, evaluation and prediction.
+**TensorFlow** provides numerical operations and automatic differentiation. **Keras** provides higher-level model and training interfaces, including `tf.keras`.
 
-**ai explnation due to lack of material**
+A **tensor** is a numerical value with a shape and a data type, or dtype. Its **rank** is the number of axes, not the number of entries.
 
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
+| Example | Rank | Shape |
+|---|---|---|
+| Scalar 5 | 0 | `()` |
+| Vector [1,2,3] | 1 | `(3,)` |
+| Matrix with two rows and three columns | 2 | `(2,3)` |
+| Batch of 32 examples, each with 3 features | 2 | `(32,3)` |
 
-TensorFlow provides tensor operations and tools for automatic differentiation. A tensor has a shape and a data type.
+`tf.constant` creates a tensor value. `tf.Variable` stores a value that can be updated and is commonly used for learned parameters. Compatible dtype and shape matter for operations; a shape does not describe what the data means by itself.
 
-tf.keras provides higher-level model building and training interfaces. Sequential arranges layers in a sequence.
+### Read an automatic-differentiation example
 
-compile configures the optimizer, loss, and metrics. fit trains on provided examples. evaluate reports metrics on supplied data. predict produces outputs.
-
-GradientTape records suitable operations to calculate derivatives. TensorFlow code here is conceptual Python; this website does not run a TensorFlow runtime.
-
-### Worked example
-
-```text
+```python
 import tensorflow as tf
+w = tf.Variable(3.0)
+with tf.GradientTape() as tape:
+    value = w * w
+slope = tape.gradient(value, w)
+# value is 9.0; slope is 6.0.
+```
+
+`GradientTape` records suitable operations. The derivative of w² is 2w, so at w = 3 the gradient is 6. This code computes a derivative; it does not apply a training update.
+
+Tensor multiplication with `*` is elementwise for compatible tensors. Matrix multiplication, such as `tf.matmul`, combines rows and columns. Those operations generally produce different results.
+
+## 10. Keras: build, compile, fit, evaluate, predict
+
+```python
+import tensorflow as tf
+
 model = tf.keras.Sequential([
     tf.keras.Input(shape=(3,)),
     tf.keras.layers.Dense(4, activation="relu"),
     tf.keras.layers.Dense(1)
 ])
 model.compile(optimizer="adam", loss="mse")
-# model.fit(x_train, y_train, epochs=5)
-# model.evaluate(x_test, y_test)
+
+x_train = tf.constant([[0.,0.,0.], [1.,0.,0.],
+                       [0.,0.,1.], [1.,1.,1.]])
+y_train = tf.constant([[0.], [2.], [1.], [3.]])
+x_test = tf.constant([[2.,0.,0.], [2.,1.,1.]])
+y_test = tf.constant([[4.], [5.]])
+
+model.fit(x_train, y_train, epochs=2, batch_size=2, verbose=0)
+test_loss = model.evaluate(x_test, y_test, verbose=0)
+predictions = model.predict(x_test, verbose=0)
 ```
 
-**Result and interpretation:** This model maps three features to one regression output. Training needs compatible numeric arrays.
+Read the code in this order:
 
-### Follow the steps
+1. **Build:** each example has three features. Dense(4) produces four hidden outputs. Dense(1) produces one numerical regression prediction. Its default activation is linear.
+2. **Compile:** choose the optimizer and loss. This configures training; it does not learn from the dataset.
+3. **Fit:** train using the four supplied training examples. Two batches per epoch and two epochs give four update steps in this example.
+4. **Evaluate:** compare predictions with targets for the two separate test examples and report loss.
+5. **Predict:** return the numerical outputs for those examples, with shape `(2,1)`.
 
-1. **Build:** Create layers for 3 features and 1 output. The model structure determines compatible shapes.
-2. **Compile:** Configure Adam and MSE. No training examples are processed by this configuration step.
-3. **Fit:** Update parameters using training examples. Targets must match the output contract.
-4. **Evaluate and predict:** Measure unseen-data performance, then use outputs. Metrics and raw predictions are different results.
+The model has the 21 parameters calculated in section 7. `shape=(3,)` describes one example; it excludes the batch axis.
 
-**Why this works:** The layer shapes specify the calculation. compile selects how to measure and update it. fit performs updates; prediction alone does not train the model.
+These tiny arrays demonstrate the workflow. They do not establish that two epochs produce accurate predictions, and exact outputs depend on initialization and training. Reading this code is sufficient for its MCQ concepts; running a training project is not a prerequisite here.
 
-**MCQ trap:** For cross-entropy, match from_logits to the actual output representation. This example uses a linear regression output and MSE, not a classification output.
+## 11. Evaluation: examine the right mistakes
 
-| Distinction | Meaning |
-|---|---|
-| Tensor | An array-like numerical value with shape and dtype. |
-| compile | Configure training choices. |
-| fit | Perform training with supplied data. |
-| evaluate / predict | Report metrics / produce model outputs. |
+Choose one class as **positive**. For spam detection, let positive mean spam:
 
-**College sources:** [KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf>); [KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf>).
+| Actual class | Predicted positive | Predicted negative |
+|---|---|---|
+| Positive | True positive, TP | False negative, FN |
+| Negative | False positive, FP | True negative, TN |
 
-**Official references:** [TensorFlow: classification](https://www.tensorflow.org/tutorials/keras/classification); [TensorFlow: automatic differentiation](https://www.tensorflow.org/guide/autodiff).
-
-## 9. Accuracy, confusion matrices and overfitting
-
-**Main idea:** Check unseen behavior and the cost of errors.
-
-**ai explnation due to lack of material**
-
-**Material basis:** The topic is present in the selected college material. The worked explanation below is an AI-authored study aid.
-
-Accuracy is the fraction of correct predictions. It can be misleading when one class is much more common than another.
-
-Precision is TP/(TP + FP). Recall is TP/(TP + FN). State which class is treated as positive before interpreting these values.
-
-Overfitting occurs when the model fits training-specific patterns that do not generalize well. Compare training and validation behavior rather than training performance alone.
-
-Regularization, suitable model capacity, better data, and early stopping can help. No single method guarantees generalization.
-
-### Worked example
+TP: spam correctly detected. FP: ordinary email incorrectly called spam. FN: spam missed. TN: ordinary email correctly rejected as spam.
 
 ```text
-100 emails: 90 not spam, 10 spam
-Predict not spam for every email
-Correct = 90; accuracy = 90%
-Spam recall = 0 / 10 = 0
+Accuracy  = (TP+TN)/(TP+TN+FP+FN)
+Precision = TP/(TP+FP)
+Recall    = TP/(TP+FN)
+F1        = 2TP/(2TP+FP+FN)
 ```
 
-**Result and interpretation:** High accuracy can coexist with failure to detect every spam email.
+**Precision:** of the positive predictions, how many are actually positive? **Recall:** of the actual positive examples, how many were found? F1 combines precision and recall using their harmonic mean when defined.
 
-### Follow the steps
+For TP=8, FP=2, FN=4, TN=6:
 
-1. **Count classes:** There are 90 negatives and 10 positives. Treat spam as the positive class.
-2. **Predict all negative:** All 10 positive examples are missed. There are no positive predictions.
-3. **Calculate accuracy:** 90 / 100 = 90%. Most examples belong to the negative class.
-4. **Calculate recall:** TP = 0; FN = 10; recall = 0. The classifier detects no spam despite high accuracy.
+- Accuracy = 14/20 = 0.7.
+- Precision = 8/10 = 0.8.
+- Recall = 8/12 ≈ 0.667.
+- F1 = 16/22 ≈ 0.727.
 
-**Why this works:** The common negative class dominates the correct-count total. A class-specific metric reveals the failures hidden by the overall percentage.
+Check a denominator before dividing. A zero denominator needs an explicit convention; it does not yield an ordinary fraction automatically.
 
-**MCQ trap:** When a denominator is zero, a precision or recall value needs an explicit handling convention. The test set must remain separate from repeated model selection.
+### Class imbalance
 
-| Distinction | Meaning |
-|---|---|
-| TP / FP | Positive prediction that is correct / incorrect. |
-| FN | A true positive-class example predicted negative. |
-| Precision | Of predicted positives, how many are actually positive? |
-| Recall | Of actual positives, how many were found? |
+Suppose 90 of 100 emails are ordinary and 10 are spam. Predicting ordinary for every email gives 90% accuracy but zero spam recall. A high overall score can hide complete failure on a rare class.
 
-**College sources:** [KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf>); [SUPERVISED_LEARNING_REGRESSION.pdf](<../AI/SUPERVISED_LEARNING_REGRESSION.pdf>).
+Use the metric relevant to the cost of errors. Missing urgent disease cases raises a recall concern; falsely blocking legitimate mail raises a precision concern. This is a task decision rather than a universal best metric.
 
-## Hand calculations to practise once
+### Underfitting and overfitting
 
-**ai explnation due to lack of material** — worked revision examples using the college topics.
+**Underfitting:** the model fails to capture useful patterns, often producing poor training and validation performance. **Overfitting:** the model captures training-specific patterns that do not transfer well.
 
-1. **Neuron:** x = [2, 3], w = [0.5, -1], b = 1. Compute z = 1 - 3 + 1 = -1. With ReLU, the output is 0.
-2. **MSE:** targets [10, 20, 30], predictions [8, 22, 29]. Errors are [2, -2, 1]. MSE = (4 + 4 + 1)/3 = 3. Its units are the target units squared.
-3. **Dense layer:** 3 inputs, 4 units, one bias per unit. Parameters = 3×4 + 4 = 16. The batch size does not change this count.
-4. **One training step:** x = 1, target = 0.5, w = 2, b = 0. Prediction = 2; squared loss = 2.25. The weight gradient is 2(2-0.5)×1 = 3. At learning rate 0.1, the new weight is 2-0.1×3 = 1.7. This example updates the weight while holding the bias fixed.
-5. **Metrics:** TP = 8, FP = 2, FN = 4, TN = 6. Precision = 8/10 = 0.8. Recall = 8/12 ≈ 0.667. Accuracy = (8+6)/20 = 0.7.
+If training loss keeps falling while validation loss rises, investigate overfitting. Training performance alone cannot establish generalization, meaning useful performance on new examples.
 
-A high accuracy can hide poor detection of a rare class. If 90 of 100 examples are negative, always predicting negative gives 90% accuracy and zero recall for the positive class.
+Possible remedies:
 
-## Self-check: one question per topic
+- **More representative data:** improve evidence about the actual task.
+- **Suitable model size:** reduce unnecessary flexibility when appropriate.
+- **Regularization:** penalize or constrain overly complex parameter choices, such as with weight penalties.
+- **Dropout:** randomly omit selected activations during training to reduce some dependencies.
+- **Early stopping:** stop based on validation behavior instead of continuing to improve only training loss.
 
-**ai explnation due to lack of material** — original revision questions, not past-paper questions. Try them before opening the answer. The full website provides four questions per topic.
+These methods can help; none guarantees generalization. Preserve an independent test set for final assessment.
 
-### 1. Data, targets and learning tasks
+## Final recall sheet
+
+- A feature is input; a target is the known training answer.
+- Regression predicts a quantity; classification predicts categories, even with numeric class IDs.
+- Parameters are learned; hyperparameters are selected settings.
+- Split before fitting learned preprocessing. Training fits, validation selects, test assesses.
+- Linear prediction: weighted inputs plus bias. MSE averages squared errors.
+- Logistic regression is classification. Threshold converts a score into a class decision.
+- Neuron: weighted sum, then activation. Nonlinear hidden activations increase representational ability.
+- Dense(n inputs, m units) has nm+m parameters when biases are enabled.
+- Forward calculates predictions; loss measures disagreement; backprop calculates gradients; optimizer updates.
+- Tensor rank counts axes. Shape describes axis lengths; dtype describes numerical type.
+- Compile configures; fit trains; evaluate reports loss/metrics; predict returns outputs.
+- Match logits/probabilities, output shape, target representation, and loss.
+- Precision counts FP in its denominator; recall counts FN. Check class imbalance and zero denominators.
+- Good training performance alone is not evidence of good unseen-data performance.
+
+## Included MCQ practice
+
+Calculate each answer before opening its explanation. Every tested concept is explained above.
+
+<!-- FS-MCQ-START -->
+
+**ai explnation due to lack of material** — original study questions, not past-paper questions. There are 15 questions in this file.
+
+### Question 1
 
 A model predicts pass or fail, stored as 0 or 1. What task is described?
 
@@ -503,61 +426,61 @@ The values represent categories. Numeric encoding does not change the target’s
 
 </details>
 
-### 2. Regression and mean squared error
+### Question 2
 
-For y-hat = 2x + 3 and x = 4, what is the prediction?
+Actual values are [10,20,30], predictions are [8,22,29]. What is MSE?
 
-- **A.** 8
-- **B.** 7
-- **C.** 14
-- **D.** 11
-
-<details>
-<summary>Answer and explanation</summary>
-
-**D. 11**
-
-Multiply the input 4 by the weight 2 to obtain 8, then add bias 3. The prediction is 11. The actual target would be needed separately to calculate a prediction error.
-
-</details>
-
-### 3. Classification and logistic regression
-
-Why is logistic regression normally a classification method?
-
-- **A.** Its name guarantees a continuous-value target
-- **B.** It has no learned parameters
-- **C.** It only predicts network bandwidth
-- **D.** It transforms a linear score into a probability used for a class decision
+- **A.** 3
+- **B.** 1/3
+- **C.** 9
+- **D.** 0
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. It transforms a linear score into a probability used for a class decision**
+**A. 3**
 
-The usual binary logistic model applies sigmoid to a linear score. A threshold then selects a category. The method’s historical name does not determine the target meaning; the output contract does.
+The residuals are 2, -2, and 1. Their squares are 4, 4, and 1, totaling 9. Divide by three examples to get MSE 3. Signed residual cancellation is not the MSE operation.
 
 </details>
 
-### 4. An artificial neuron
+### Question 3
 
-For x = [2,3], w = [0.5,-1], b = 1, what is z?
+Which output arrangement is typical for several mutually exclusive classes?
 
-- **A.** 0
-- **B.** 1
-- **C.** -2
-- **D.** -1
+- **A.** A Hamming parity bit
+- **B.** Softmax over the class scores
+- **C.** One unrestricted regression number with no decision rule
+- **D.** A required Set object
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. -1**
+**B. Softmax over the class scores**
 
-The contributions are 2 × 0.5 = 1 and 3 × (-1) = -3. Their sum is -2. Adding bias 1 produces z = -1. Activation is a separate next step.
+Softmax normalizes the class-score vector into values that sum to one. Selecting a class then uses a decision rule such as the largest value. Independent multilabel decisions often use separate sigmoid outputs instead.
 
 </details>
 
-### 5. Activation functions and output contracts
+### Question 4
+
+Which order matches the stated neuron formula?
+
+- **A.** Add the learning rate to every input and stop
+- **B.** Count epochs before doing any multiplication
+- **C.** Multiply inputs by weights, sum, add bias, apply activation
+- **D.** Apply activation to the class label, then delete inputs
+
+<details>
+<summary>Answer and explanation</summary>
+
+**C. Multiply inputs by weights, sum, add bias, apply activation**
+
+The pre-activation sum combines weighted inputs and bias. The activation transforms that combined value. Applying the activation separately to each raw input would define a different calculation.
+
+</details>
+
+### Question 5
 
 What is ReLU applied to [-2,0,3]?
 
@@ -575,61 +498,61 @@ ReLU keeps each positive input and maps each negative input to zero. At zero it 
 
 </details>
 
-### 6. ANN layers and parameter counts
+### Question 6
 
-A Dense layer has 3 input features, 4 units, and biases. How many parameters are there?
+Does increasing the batch size multiply a Dense layer’s learned parameter count?
 
-- **A.** 12
-- **B.** 4
-- **C.** 7
-- **D.** 16
-
-<details>
-<summary>Answer and explanation</summary>
-
-**D. 16**
-
-Each of four units has three input weights, giving 12 weights. Each also has one bias, giving four more parameters. The total is 16.
-
-</details>
-
-### 7. Loss, gradients and parameter updates
-
-w = 2, gradient = 3, learning rate = 0.1. What is one gradient-descent update?
-
-- **A.** 2.3
-- **B.** 0.6
-- **C.** 3.1
-- **D.** 1.7
+- **A.** No; examples reuse the same weights and biases
+- **B.** Yes, every example permanently adds new weights
+- **C.** Only for a batch of two
+- **D.** The batch size is always the number of classes
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. 1.7**
+**A. No; examples reuse the same weights and biases**
 
-Gradient descent subtracts the learning-rate-scaled gradient. Compute 2 - 0.1 × 3 = 1.7. Adding the gradient would move in the opposite local direction from this descent rule.
+The batch contains more examples, not more model units. Each example uses the same parameter values. Intermediate tensor sizes can change with batch size while the learned parameter count remains fixed.
 
 </details>
 
-### 8. TensorFlow and Keras workflow
+### Question 7
 
-Which Keras method performs training updates on supplied examples?
+What is an epoch?
 
-- **A.** compile
-- **B.** predict
-- **C.** summary
-- **D.** fit
+- **A.** One test example in every model
+- **B.** One pass through the training examples
+- **C.** Always one parameter update
+- **D.** One class label
 
 <details>
 <summary>Answer and explanation</summary>
 
-**D. fit**
+**B. One pass through the training examples**
 
-fit runs the training procedure using data and targets. compile configures its loss, optimizer, and metrics. predict produces outputs without the ordinary training update loop.
+An epoch covers the training data once. With mini-batches, that pass can include many updates. Batch size and training-set size determine how examples are grouped during the pass.
 
 </details>
 
-### 9. Accuracy, confusion matrices and overfitting
+### Question 8
+
+A model has one linear numerical output and uses MSE. Which task is this example configured for?
+
+- **A.** JSON serialization
+- **B.** Stop-and-Wait acknowledgment
+- **C.** Regression
+- **D.** Mutually exclusive ten-class classification
+
+<details>
+<summary>Answer and explanation</summary>
+
+**C. Regression**
+
+The output represents one unrestricted numerical prediction, and MSE measures its numerical error against a target. A ten-class classifier would need an appropriate class-output contract and matching loss.
+
+</details>
+
+### Question 9
 
 A dataset has 90 negative and 10 positive examples. Always predicting negative gives what accuracy and positive recall?
 
@@ -647,10 +570,122 @@ Ninety negative predictions are correct, so accuracy is 90/100. None of the ten 
 
 </details>
 
-## Source reading targets
+### Question 10
 
-- [KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf>) — Regression and classification; viewer pages 2–21.
-- [SUPERVISED_LEARNING_REGRESSION.pdf](<../AI/SUPERVISED_LEARNING_REGRESSION.pdf>) — Linear and logistic regression; viewer pages 2–3 and 14–19.
-- [KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf](<../AI/KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf>) — ANN foundations, training and TensorFlow; viewer pages 16–54.
+An ANN has 3 inputs, Dense(4), and Dense(1), with a bias per unit. How many trainable parameters are present?
 
-College files can include material outside the announced topics. Read the selected sections. The examples above use fixed inputs for explanation; some original class examples use random outcomes.
+- **A.** 16
+- **B.** 20
+- **C.** 32 times the number of examples
+- **D.** 21
+
+<details>
+<summary>Answer and explanation</summary>
+
+**D. 21**
+
+The hidden layer has 3×4+4 = 16. The output layer has 4×1+1 = 5. Add the layers: 21. Every example reuses these parameters; changing batch size changes the amount of data processed together, not the number of weights.
+
+</details>
+
+### Question 11
+
+In the guide's one-weight example, w=2, gradient=3, and learning rate=0.1. What is the updated weight?
+
+- **A.** 1.7
+- **B.** 2.3
+- **C.** 0.3
+- **D.** 3.0
+
+<details>
+<summary>Answer and explanation</summary>
+
+**A. 1.7**
+
+Gradient descent subtracts the scaled gradient: 2−0.1×3 = 1.7. The gradient is a local loss sensitivity, not the new parameter. The example holds the bias fixed; updating a trainable bias would be a separate calculation.
+
+</details>
+
+### Question 12
+
+What does model.compile configure?
+
+- **A.** The number of test answers already known
+- **B.** The optimizer, loss, and selected metrics
+- **C.** A completed fit of all weights to training examples
+- **D.** Only held-out predictions
+
+<details>
+<summary>Answer and explanation</summary>
+
+**B. The optimizer, loss, and selected metrics**
+
+Compile selects how training and reporting will work. It does not itself fit the training dataset. Fit performs parameter updates; evaluate measures supplied-data loss/metrics; predict returns output values.
+
+</details>
+
+### Question 13
+
+A binary model outputs sigmoid probabilities. Which ordinary BinaryCrossentropy setting matches them?
+
+- **A.** The setting never depends on the output
+- **B.** Use integer class IDs as the sigmoid input
+- **C.** from_logits=False
+- **D.** from_logits=True
+
+<details>
+<summary>Answer and explanation</summary>
+
+**C. from_logits=False**
+
+A sigmoid output is a probability representation, not a raw logit. The loss must be told which representation it receives. A logits-based setup can instead omit the output sigmoid and use from_logits=True.
+
+</details>
+
+### Question 14
+
+For 100 samples and batch size 32, with the remainder kept, how many optimizer steps occur in one ordinary epoch?
+
+- **A.** 3
+- **B.** 32
+- **C.** 100
+- **D.** 4
+
+<details>
+<summary>Answer and explanation</summary>
+
+**D. 4**
+
+The batches contain 32,32,32,4 examples. Each batch gives one step, so there are four. An epoch is one pass over the dataset, not one batch. A setup that drops the incomplete batch would have a different count.
+
+</details>
+
+### Question 15
+
+Which preparation helps preserve an independent assessment?
+
+- **A.** Split data first; fit learned preprocessing on training data
+- **B.** Use test labels to select every model repeatedly
+- **C.** Normalize using every held-out sample before splitting
+- **D.** Report only training accuracy
+
+<details>
+<summary>Answer and explanation</summary>
+
+**A. Split data first; fit learned preprocessing on training data**
+
+Learning preprocessing from held-out data can leak information into the training workflow. Fit such rules using training data and apply them to other sets. Validation guides selection; the final test set should remain separate from repeated choices.
+
+</details>
+
+<!-- FS-MCQ-END -->
+
+## Optional source references
+
+These record the guide's basis. They are optional for this study route.
+
+- [College Unit I Part 1](KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf): neurons and ANN, pages 16–33; loss, gradients and backpropagation, 34–49; TensorFlow, 52–54.
+- [College Unit I Part 2](KR24-CSE-3-1-UNIT1-PART2-NOTES.pdf): regression, pages 2–10; classification and model workflow, 10–21.
+- [Earlier supervised-learning notes](SUPERVISED_LEARNING_REGRESSION.pdf): linear/logistic distinctions and metrics.
+- [TensorFlow: regression](https://www.tensorflow.org/tutorials/keras/regression), [classification](https://www.tensorflow.org/tutorials/keras/classification), [automatic differentiation](https://www.tensorflow.org/guide/autodiff).
+- [TensorFlow: training and evaluation methods](https://www.tensorflow.org/guide/keras/training_with_built_in_methods).
