@@ -32,7 +32,11 @@ MST and shortest paths are taught under greedy in the college material. They are
 
 ## Software Engineering
 
-Both existing SE PDFs already provide the announced topics; no extra Git pack was needed.
+Both existing SE PDFs introduce the announced topics, but coverage depth varies. **The [SE learning map and source audit](SE/FS_SE_Learning_Map.md), checked on 8 October, supersedes the earlier claim that no supplementary Git material was needed.** It gives a granular topic checklist, corrections, selected external readings and a study route. Process models have useful explanatory coverage; Scrum rules and Git command/state reasoning need supplementation, and the Agile/DevOps comparison needs correction.
+
+The [direct SE guide](SE/FS_Revision_Notes.md), added in the newer remote commits, already supplies clearer explanations of many of these PDF gaps. Use it first; the audit separately maps its coverage and the Subject Atlas's foundation questions to the deeper practice still needed.
+
+Practice with the [120-question SE scenario bank](SE/FS_SE_Hard_MCQ_Bank.md): 24 process-model, 30 Agile/Scrum, 26 DevOps and 40 Git/GitHub questions. Answers and explanations for all four choices are hidden. Four mixed 30-question sets cover the entire bank once. The 37 Git and 13 Java pipeline traces have executable output checks; run the [validator](SE/validation/check_se_bank.py) with `python3 SE/validation/check_se_bank.py` from the repository root.
 
 | Test topic | Existing source | Reading target |
 |---|---|---|
@@ -41,7 +45,7 @@ Both existing SE PDFs already provide the announced topics; no extra Git pack wa
 | DevOps | Same Unit 1 | pp. 46–55: Agile comparison, lifecycle, CI, continuous delivery/deployment and pipeline |
 | Git & GitHub | [Unit 2](SE/Unit-2%20Understanding%20Requirements.pdf) | pp. 30–50 and 57–66: VCS, Git vs GitHub, working directory/staging/commits, commands, branches, merge, revert, clone/push/pull/fork and conflicts |
 
-Skip Unit 2's long requirements-engineering/SRS discussion as a first-pass FS task. SSH setup and screenshot-heavy sections are lower priority than command meaning and repository state. No tool installation or new GitHub project is needed for this revision.
+Skip Unit 2's long requirements-engineering/SRS discussion as a first-pass FS task. SSH setup and screenshot-heavy sections are lower priority than command meaning and repository state. No tool installation or new GitHub project is needed for this revision. Use the learning map for Scrum artifacts/commitments, CI/delivery/deployment, staging and diff variants, fetch/pull, branch graphs, undo commands and conflict completion.
 
 ## Web Technologies
 
