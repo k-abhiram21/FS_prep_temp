@@ -4,7 +4,7 @@ Test: **9 October 2026**. Three coding questions; 30 MCQs in 30 minutes; total d
 
 **For SE, WT, CN, and AI, study the four guides below directly. You do not need to read the college materials first.** They teach the background, explain terms as they appear, work through examples, and include their own practice questions and answers. College files and website links are optional references.
 
-Updated on **7 October 2026**. The guides cover the announced topic areas; the notice does not provide an exact paper or detailed question distribution. Java, Python, and DAA links remain available for those separate parts of the test.
+Updated on **8 October 2026**. The guides cover the announced topic areas; the notice does not provide an exact paper or detailed question distribution. Java, Python, and DAA links remain available for those separate parts of the test.
 
 | Subject | Notes | What to revise first |
 |---|---|---|
@@ -15,6 +15,10 @@ Updated on **7 October 2026**. The guides cover the announced topic areas; the n
 | Java programming | [Java notes](Programming/Java_FS_Revision_Notes.md) | Output traces, strings, reference sharing, collections, OOP and exceptions. |
 | Python programming | [Python notes](Programming/Python_FS_Revision_Notes.md) | Division, slices, collection changes, shared objects, function defaults. |
 | Data Structures & Algorithms | [DAA notes in Java](DS-JAVA/FS_Test_Revision_Notes.md) | Recursion progress, array/string methods, greedy proofs, complexity. |
+
+## Compact hard MCQ banks
+
+For deeper practice in fewer questions, use [the compact-bank index and coverage audit](FS_Remaining_Subjects_Learning_Map.md). It links to 70 questions each for CN, AI, Java, Python and DAA, with hidden explanations and source-based gap readings. [SE](SE/FS_SE_Hard_MCQ_Bank.md) and [WT](WT/FS_WT_Hard_MCQ_Bank.md) retain their 80-question banks. The new Java language bank is distinct from the older 160-question Java DAA bank.
 
 ## Your direct study route for the four subjects
 
@@ -35,7 +39,7 @@ Choose questions across all subjects during mixed revision. The notice does not 
 - For a wrong answer, write the rule you misunderstood and one counterexample.
 - A successful MCQ attempt is separate from being able to code a complete solution.
 
-The four complete guides contain **60 MCQs with hidden explanations**, 15 per subject. The existing Java, Python, and DAA files contain six short self-checks each. Use the four guides as your main material for the four theory subjects; other question banks are optional extra practice.
+The four complete guides contain **60 MCQs with hidden explanations**, 15 per subject. The existing Java, Python, and DAA files contain six short self-checks each. Use the guides for foundations and the compact banks to learn through deeper traps and worked cases. The older large DAA banks remain optional extended practice.
 
 ## Teaching and source labels
 

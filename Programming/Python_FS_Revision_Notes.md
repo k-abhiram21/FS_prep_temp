@@ -6,6 +6,9 @@ For the screening test on **9 October 2026**. Use this for Python MCQs. Your cod
 
 **ai explnation due to lack of material** — a dedicated college Python fundamentals pack was not identified in the material inspected. The notice gives no Python subtopic list. These original notes cover common Python 3 fundamentals and output questions.
 
+
+**Deep practice:** [70 hard MCQs with hidden explanations](FS_Python_Hard_MCQ_Bank.md) · [coverage and source-gap map](../FS_Remaining_Subjects_Learning_Map.md)
+
 ## 1. Values, names, and arithmetic
 
 A Python name refers to an object. Assignment can bind the name to another type of object. It does not change the type of the existing object.

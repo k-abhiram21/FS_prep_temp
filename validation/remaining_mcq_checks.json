@@ -1,0 +1,2127 @@
+{
+  "CN": {
+    "path": "CN/FS_CN_Hard_MCQ_Bank.md",
+    "questions": [
+      {
+        "id": "CN001",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN002",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN003",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN004",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN005",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN006",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN007",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN008",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN009",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN010",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN011",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN012",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN013",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN014",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN015",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN016",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN017",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN018",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN019",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN020",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN021",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN022",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN023",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN024",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN025",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN026",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN027",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN028",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN029",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN030",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN031",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN032",
+        "lang": null,
+        "expected": null,
+        "mode": "concept"
+      },
+      {
+        "id": "CN033",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN034",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN035",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN036",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN037",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN038",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN039",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN040",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN041",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN042",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN043",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN044",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN045",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN046",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN047",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN048",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN049",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN050",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN051",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN052",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN053",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN054",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN055",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN056",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN057",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN058",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN059",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN060",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN061",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN062",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN063",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN064",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN065",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN066",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN067",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN068",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN069",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "CN070",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      }
+    ]
+  },
+  "JV": {
+    "path": "Programming/FS_Java_Hard_MCQ_Bank.md",
+    "questions": [
+      {
+        "id": "JV001",
+        "lang": "java",
+        "expected": "-1794967296 2500000000",
+        "mode": "run"
+      },
+      {
+        "id": "JV002",
+        "lang": "java",
+        "expected": "-3 -1",
+        "mode": "run"
+      },
+      {
+        "id": "JV003",
+        "lang": "java",
+        "expected": "3.0 3.5",
+        "mode": "run"
+      },
+      {
+        "id": "JV004",
+        "lang": "java",
+        "expected": "-128",
+        "mode": "run"
+      },
+      {
+        "id": "JV005",
+        "lang": "java",
+        "expected": "",
+        "mode": "compile_error"
+      },
+      {
+        "id": "JV006",
+        "lang": "java",
+        "expected": "4 10",
+        "mode": "run"
+      },
+      {
+        "id": "JV007",
+        "lang": "java",
+        "expected": "1 false false",
+        "mode": "run"
+      },
+      {
+        "id": "JV008",
+        "lang": "java",
+        "expected": "1 4294967296 1",
+        "mode": "run"
+      },
+      {
+        "id": "JV009",
+        "lang": "java",
+        "expected": "-2147483648 2147483648",
+        "mode": "run"
+      },
+      {
+        "id": "JV010",
+        "lang": "java",
+        "expected": "false true Infinity",
+        "mode": "run"
+      },
+      {
+        "id": "JV011",
+        "lang": "java",
+        "expected": "",
+        "mode": "compile_error"
+      },
+      {
+        "id": "JV012",
+        "lang": "java",
+        "expected": "4",
+        "mode": "run"
+      },
+      {
+        "id": "JV013",
+        "lang": "java",
+        "expected": "9",
+        "mode": "run"
+      },
+      {
+        "id": "JV014",
+        "lang": "java",
+        "expected": "Y true",
+        "mode": "run"
+      },
+      {
+        "id": "JV015",
+        "lang": "java",
+        "expected": "false true",
+        "mode": "run"
+      },
+      {
+        "id": "JV016",
+        "lang": "java",
+        "expected": "true false",
+        "mode": "run"
+      },
+      {
+        "id": "JV017",
+        "lang": "java",
+        "expected": "a.b ---",
+        "mode": "run"
+      },
+      {
+        "id": "JV018",
+        "lang": "java",
+        "expected": "3 2",
+        "mode": "run"
+      },
+      {
+        "id": "JV019",
+        "lang": "java",
+        "expected": "[] bc",
+        "mode": "run"
+      },
+      {
+        "id": "JV020",
+        "lang": "java",
+        "expected": "1 3",
+        "mode": "run"
+      },
+      {
+        "id": "JV021",
+        "lang": "java",
+        "expected": "false true",
+        "mode": "run"
+      },
+      {
+        "id": "JV022",
+        "lang": "java",
+        "expected": "9 2",
+        "mode": "run"
+      },
+      {
+        "id": "JV023",
+        "lang": "java",
+        "expected": "",
+        "mode": "exception:ArrayStoreException"
+      },
+      {
+        "id": "JV024",
+        "lang": "java",
+        "expected": "false true",
+        "mode": "run"
+      },
+      {
+        "id": "JV025",
+        "lang": "java",
+        "expected": "7",
+        "mode": "run"
+      },
+      {
+        "id": "JV026",
+        "lang": "java",
+        "expected": "7",
+        "mode": "run"
+      },
+      {
+        "id": "JV027",
+        "lang": "java",
+        "expected": "[30]",
+        "mode": "run"
+      },
+      {
+        "id": "JV028",
+        "lang": "java",
+        "expected": "1 3",
+        "mode": "run"
+      },
+      {
+        "id": "JV029",
+        "lang": "java",
+        "expected": "z",
+        "mode": "run"
+      },
+      {
+        "id": "JV030",
+        "lang": "java",
+        "expected": "",
+        "mode": "exception:UnsupportedOperationException"
+      },
+      {
+        "id": "JV031",
+        "lang": "java",
+        "expected": "",
+        "mode": "exception:UnsupportedOperationException"
+      },
+      {
+        "id": "JV032",
+        "lang": "java",
+        "expected": "null 9 true",
+        "mode": "run"
+      },
+      {
+        "id": "JV033",
+        "lang": "java",
+        "expected": "",
+        "mode": "exception:NullPointerException"
+      },
+      {
+        "id": "JV034",
+        "lang": "java",
+        "expected": "4",
+        "mode": "run"
+      },
+      {
+        "id": "JV035",
+        "lang": "java",
+        "expected": "null 1 1",
+        "mode": "run"
+      },
+      {
+        "id": "JV036",
+        "lang": "java",
+        "expected": "2 true",
+        "mode": "run"
+      },
+      {
+        "id": "JV037",
+        "lang": "java",
+        "expected": "3 1 2",
+        "mode": "run"
+      },
+      {
+        "id": "JV038",
+        "lang": "java",
+        "expected": "null",
+        "mode": "run"
+      },
+      {
+        "id": "JV039",
+        "lang": "java",
+        "expected": "1 2 3",
+        "mode": "run"
+      },
+      {
+        "id": "JV040",
+        "lang": "java",
+        "expected": "",
+        "mode": "compile_error"
+      },
+      {
+        "id": "JV041",
+        "lang": "java",
+        "expected": "",
+        "mode": "compile_error"
+      },
+      {
+        "id": "JV042",
+        "lang": "java",
+        "expected": "[a, b]",
+        "mode": "run"
+      },
+      {
+        "id": "JV043",
+        "lang": "java",
+        "expected": "long",
+        "mode": "run"
+      },
+      {
+        "id": "JV044",
+        "lang": "java",
+        "expected": "String",
+        "mode": "run"
+      },
+      {
+        "id": "JV045",
+        "lang": "java",
+        "expected": "",
+        "mode": "compile_error"
+      },
+      {
+        "id": "JV046",
+        "lang": "java",
+        "expected": "Object",
+        "mode": "run"
+      },
+      {
+        "id": "JV047",
+        "lang": "java",
+        "expected": "1 2",
+        "mode": "run"
+      },
+      {
+        "id": "JV048",
+        "lang": "java",
+        "expected": "A",
+        "mode": "run"
+      },
+      {
+        "id": "JV049",
+        "lang": "java",
+        "expected": "0\n7",
+        "mode": "run"
+      },
+      {
+        "id": "JV050",
+        "lang": "java",
+        "expected": "SII",
+        "mode": "run"
+      },
+      {
+        "id": "JV051",
+        "lang": "java",
+        "expected": "",
+        "mode": "compile_error"
+      },
+      {
+        "id": "JV052",
+        "lang": "java",
+        "expected": "A",
+        "mode": "run"
+      },
+      {
+        "id": "JV053",
+        "lang": "java",
+        "expected": "",
+        "mode": "compile_error"
+      },
+      {
+        "id": "JV054",
+        "lang": "java",
+        "expected": "String",
+        "mode": "run"
+      },
+      {
+        "id": "JV055",
+        "lang": "java",
+        "expected": "",
+        "mode": "compile_error"
+      },
+      {
+        "id": "JV056",
+        "lang": "java",
+        "expected": "",
+        "mode": "compile_error"
+      },
+      {
+        "id": "JV057",
+        "lang": "java",
+        "expected": "true false",
+        "mode": "run"
+      },
+      {
+        "id": "JV058",
+        "lang": "java",
+        "expected": "true true",
+        "mode": "run"
+      },
+      {
+        "id": "JV059",
+        "lang": "java",
+        "expected": "8",
+        "mode": "run"
+      },
+      {
+        "id": "JV060",
+        "lang": "java",
+        "expected": "",
+        "mode": "compile_error"
+      },
+      {
+        "id": "JV061",
+        "lang": "java",
+        "expected": "2",
+        "mode": "run"
+      },
+      {
+        "id": "JV062",
+        "lang": "java",
+        "expected": "1",
+        "mode": "run"
+      },
+      {
+        "id": "JV063",
+        "lang": "java",
+        "expected": "",
+        "mode": "compile_error"
+      },
+      {
+        "id": "JV064",
+        "lang": "java",
+        "expected": "",
+        "mode": "exception:NumberFormatException"
+      },
+      {
+        "id": "JV065",
+        "lang": "java",
+        "expected": "[] hello",
+        "mode": "run"
+      },
+      {
+        "id": "JV066",
+        "lang": "java",
+        "expected": "-3",
+        "mode": "run"
+      },
+      {
+        "id": "JV067",
+        "lang": "java",
+        "expected": "true",
+        "mode": "run"
+      },
+      {
+        "id": "JV068",
+        "lang": "java",
+        "expected": "[1, 3]",
+        "mode": "run"
+      },
+      {
+        "id": "JV069",
+        "lang": "java",
+        "expected": "TBA",
+        "mode": "run"
+      },
+      {
+        "id": "JV070",
+        "lang": "java",
+        "expected": "body close",
+        "mode": "run"
+      }
+    ]
+  },
+  "PY": {
+    "path": "Programming/FS_Python_Hard_MCQ_Bank.md",
+    "questions": [
+      {
+        "id": "PY001",
+        "lang": "python",
+        "expected": "-4 1 -4 -1",
+        "mode": "run"
+      },
+      {
+        "id": "PY002",
+        "lang": "python",
+        "expected": "3.5 3 3.0",
+        "mode": "run"
+      },
+      {
+        "id": "PY003",
+        "lang": "python",
+        "expected": "True 64",
+        "mode": "run"
+      },
+      {
+        "id": "PY004",
+        "lang": "python",
+        "expected": "-4 4 0.25",
+        "mode": "run"
+      },
+      {
+        "id": "PY005",
+        "lang": "python",
+        "expected": "True True False",
+        "mode": "run"
+      },
+      {
+        "id": "PY006",
+        "lang": "python",
+        "expected": "'x' 7 ''",
+        "mode": "run"
+      },
+      {
+        "id": "PY007",
+        "lang": "python",
+        "expected": "True 2 True",
+        "mode": "run"
+      },
+      {
+        "id": "PY008",
+        "lang": "python",
+        "expected": "False 2 4",
+        "mode": "run"
+      },
+      {
+        "id": "PY009",
+        "lang": "python",
+        "expected": "E",
+        "mode": "run"
+      },
+      {
+        "id": "PY010",
+        "lang": "python",
+        "expected": "2",
+        "mode": "run"
+      },
+      {
+        "id": "PY011",
+        "lang": "python",
+        "expected": "[5, 3, 1] []",
+        "mode": "run"
+      },
+      {
+        "id": "PY012",
+        "lang": "python",
+        "expected": "False 0",
+        "mode": "run"
+      },
+      {
+        "id": "PY013",
+        "lang": "python",
+        "expected": "2 5",
+        "mode": "run"
+      },
+      {
+        "id": "PY014",
+        "lang": "python",
+        "expected": "|abc",
+        "mode": "run"
+      },
+      {
+        "id": "PY015",
+        "lang": "python",
+        "expected": "ec edcba",
+        "mode": "run"
+      },
+      {
+        "id": "PY016",
+        "lang": "python",
+        "expected": "",
+        "mode": "exception:ValueError"
+      },
+      {
+        "id": "PY017",
+        "lang": "python",
+        "expected": "['a', 'b'] ['', 'a', '', 'b', '']",
+        "mode": "run"
+      },
+      {
+        "id": "PY018",
+        "lang": "python",
+        "expected": "X",
+        "mode": "run"
+      },
+      {
+        "id": "PY019",
+        "lang": "python",
+        "expected": "-1",
+        "mode": "exception:ValueError"
+      },
+      {
+        "id": "PY020",
+        "lang": "python",
+        "expected": "aaaa bbaa",
+        "mode": "run"
+      },
+      {
+        "id": "PY021",
+        "lang": "python",
+        "expected": "[1, [2, 3], 4, 5]",
+        "mode": "run"
+      },
+      {
+        "id": "PY022",
+        "lang": "python",
+        "expected": "[1, 2, 3] None",
+        "mode": "run"
+      },
+      {
+        "id": "PY023",
+        "lang": "python",
+        "expected": "[1] None 2",
+        "mode": "run"
+      },
+      {
+        "id": "PY024",
+        "lang": "python",
+        "expected": "([1, 3], 2)",
+        "mode": "run"
+      },
+      {
+        "id": "PY025",
+        "lang": "python",
+        "expected": "[[0, 7], [0, 7]]",
+        "mode": "run"
+      },
+      {
+        "id": "PY026",
+        "lang": "python",
+        "expected": "[[0, 7], [0, 0]]",
+        "mode": "run"
+      },
+      {
+        "id": "PY027",
+        "lang": "python",
+        "expected": "[[1, 9], [2]] [[1, 9], [8]]",
+        "mode": "run"
+      },
+      {
+        "id": "PY028",
+        "lang": "python",
+        "expected": "[1, 2] [1]\n[1, 2] [1, 3]",
+        "mode": "run"
+      },
+      {
+        "id": "PY029",
+        "lang": "python",
+        "expected": "[9] [9] True",
+        "mode": "run"
+      },
+      {
+        "id": "PY030",
+        "lang": "python",
+        "expected": "([1, 2],)",
+        "mode": "run"
+      },
+      {
+        "id": "PY031",
+        "lang": "python",
+        "expected": "['b', 'a']",
+        "mode": "run"
+      },
+      {
+        "id": "PY032",
+        "lang": "python",
+        "expected": "[] {}\n{'x': [1]}",
+        "mode": "run"
+      },
+      {
+        "id": "PY033",
+        "lang": "python",
+        "expected": "F\n1",
+        "mode": "run"
+      },
+      {
+        "id": "PY034",
+        "lang": "python",
+        "expected": "['a', 'b']",
+        "mode": "run"
+      },
+      {
+        "id": "PY035",
+        "lang": "python",
+        "expected": "1 c c",
+        "mode": "run"
+      },
+      {
+        "id": "PY036",
+        "lang": "python",
+        "expected": "{(1, 2): 'ok'}",
+        "mode": "exception:TypeError"
+      },
+      {
+        "id": "PY037",
+        "lang": "python",
+        "expected": "[1, 2, 3] None",
+        "mode": "run"
+      },
+      {
+        "id": "PY038",
+        "lang": "python",
+        "expected": "True True False",
+        "mode": "run"
+      },
+      {
+        "id": "PY039",
+        "lang": "python",
+        "expected": "[1]\n[1, 2]",
+        "mode": "run"
+      },
+      {
+        "id": "PY040",
+        "lang": "python",
+        "expected": "1 9",
+        "mode": "run"
+      },
+      {
+        "id": "PY041",
+        "lang": "python",
+        "expected": "[1, 2]",
+        "mode": "run"
+      },
+      {
+        "id": "PY042",
+        "lang": "python",
+        "expected": "",
+        "mode": "exception:UnboundLocalError"
+      },
+      {
+        "id": "PY043",
+        "lang": "python",
+        "expected": "1 2",
+        "mode": "run"
+      },
+      {
+        "id": "PY044",
+        "lang": "python",
+        "expected": "[2, 2, 2]",
+        "mode": "run"
+      },
+      {
+        "id": "PY045",
+        "lang": "python",
+        "expected": "[0, 1, 2]",
+        "mode": "run"
+      },
+      {
+        "id": "PY046",
+        "lang": "python",
+        "expected": "9 [0, 1, 2]",
+        "mode": "run"
+      },
+      {
+        "id": "PY047",
+        "lang": "python",
+        "expected": "1 [2] []",
+        "mode": "run"
+      },
+      {
+        "id": "PY048",
+        "lang": "python",
+        "expected": "A\nF 1\n2",
+        "mode": "run"
+      },
+      {
+        "id": "PY049",
+        "lang": "python",
+        "expected": "[(1, 'a'), (2, 'b')]",
+        "mode": "run"
+      },
+      {
+        "id": "PY050",
+        "lang": "python",
+        "expected": "1\n9",
+        "mode": "run"
+      },
+      {
+        "id": "PY051",
+        "lang": "python",
+        "expected": "7",
+        "mode": "exception:TypeError"
+      },
+      {
+        "id": "PY052",
+        "lang": "python",
+        "expected": "None [1]",
+        "mode": "run"
+      },
+      {
+        "id": "PY053",
+        "lang": "python",
+        "expected": "[1] True",
+        "mode": "run"
+      },
+      {
+        "id": "PY054",
+        "lang": "python",
+        "expected": "[1] [] []",
+        "mode": "run"
+      },
+      {
+        "id": "PY055",
+        "lang": "python",
+        "expected": "3 3",
+        "mode": "run"
+      },
+      {
+        "id": "PY056",
+        "lang": "python",
+        "expected": "B",
+        "mode": "run"
+      },
+      {
+        "id": "PY057",
+        "lang": "python",
+        "expected": "",
+        "mode": "exception:TypeError"
+      },
+      {
+        "id": "PY058",
+        "lang": "python",
+        "expected": "True",
+        "mode": "exception:TypeError"
+      },
+      {
+        "id": "PY059",
+        "lang": "python",
+        "expected": "2",
+        "mode": "run"
+      },
+      {
+        "id": "PY060",
+        "lang": "python",
+        "expected": "E\nF",
+        "mode": "run"
+      },
+      {
+        "id": "PY061",
+        "lang": "python",
+        "expected": "L",
+        "mode": "run"
+      },
+      {
+        "id": "PY062",
+        "lang": "python",
+        "expected": "['12', '7'] [12, 7]",
+        "mode": "run"
+      },
+      {
+        "id": "PY063",
+        "lang": "python",
+        "expected": "",
+        "mode": "exception:NameError"
+      },
+      {
+        "id": "PY064",
+        "lang": "python",
+        "expected": "2",
+        "mode": "run"
+      },
+      {
+        "id": "PY065",
+        "lang": "python",
+        "expected": "[1, 2]",
+        "mode": "run"
+      },
+      {
+        "id": "PY066",
+        "lang": "python",
+        "expected": "0 [1, 2, 3] 4",
+        "mode": "run"
+      },
+      {
+        "id": "PY067",
+        "lang": "python",
+        "expected": "[('c', 0), ('b', 1), ('a', 1)]",
+        "mode": "run"
+      },
+      {
+        "id": "PY068",
+        "lang": "python",
+        "expected": "True [1, 2]",
+        "mode": "run"
+      },
+      {
+        "id": "PY069",
+        "lang": "python",
+        "expected": "True False True",
+        "mode": "run"
+      },
+      {
+        "id": "PY070",
+        "lang": "python",
+        "expected": "False",
+        "mode": "run"
+      }
+    ]
+  },
+  "AI": {
+    "path": "AI/FS_AI_Hard_MCQ_Bank.md",
+    "questions": [
+      {
+        "id": "AI001",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI002",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI003",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI004",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI005",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI006",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI007",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI008",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI009",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI010",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI011",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI012",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI013",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI014",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI015",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI016",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI017",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI018",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI019",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI020",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI021",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI022",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI023",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI024",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI025",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI026",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI027",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI028",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI029",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI030",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI031",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI032",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI033",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI034",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI035",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI036",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI037",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI038",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI039",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI040",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI041",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI042",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI043",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI044",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI045",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI046",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "AI047",
+        "lang": "tensorflow",
+        "expected": "2 [2, 3] 6",
+        "mode": "run"
+      },
+      {
+        "id": "AI048",
+        "lang": "tensorflow",
+        "expected": "[[11, 21, 31], [12, 22, 32]]",
+        "mode": "run"
+      },
+      {
+        "id": "AI049",
+        "lang": "tensorflow",
+        "expected": "[2, 2] 0.5",
+        "mode": "run"
+      },
+      {
+        "id": "AI050",
+        "lang": "tensorflow",
+        "expected": "[[5, 12], [21, 32]]\n[[19, 22], [43, 50]]",
+        "mode": "run"
+      },
+      {
+        "id": "AI051",
+        "lang": "tensorflow",
+        "expected": "[[1, 2], [3, 4], [5, 6]]",
+        "mode": "run"
+      },
+      {
+        "id": "AI052",
+        "lang": "tensorflow",
+        "expected": "[5, 7, 9] [6, 15]",
+        "mode": "run"
+      },
+      {
+        "id": "AI053",
+        "lang": "tensorflow",
+        "expected": "",
+        "mode": "exception:InvalidArgumentError"
+      },
+      {
+        "id": "AI054",
+        "lang": "tensorflow",
+        "expected": "1.0 1.0",
+        "mode": "run"
+      },
+      {
+        "id": "AI055",
+        "lang": "tensorflow",
+        "expected": "9.0 6.0 3.0",
+        "mode": "run"
+      },
+      {
+        "id": "AI056",
+        "lang": "tensorflow",
+        "expected": "None",
+        "mode": "run"
+      },
+      {
+        "id": "AI057",
+        "lang": "tensorflow",
+        "expected": "6.0",
+        "mode": "run"
+      },
+      {
+        "id": "AI058",
+        "lang": "tensorflow",
+        "expected": "None",
+        "mode": "run"
+      },
+      {
+        "id": "AI059",
+        "lang": "tensorflow",
+        "expected": "4.0 None",
+        "mode": "run"
+      },
+      {
+        "id": "AI060",
+        "lang": "tensorflow",
+        "expected": "[[0, 1], [2, 3], [4]]\n[[0, 1], [2, 3]]",
+        "mode": "run"
+      },
+      {
+        "id": "AI061",
+        "lang": "tensorflow",
+        "expected": "[2.0, 4.0]",
+        "mode": "run"
+      },
+      {
+        "id": "AI062",
+        "lang": "tensorflow",
+        "expected": "3.0",
+        "mode": "run"
+      },
+      {
+        "id": "AI063",
+        "lang": "tensorflow",
+        "expected": "",
+        "mode": "exception:RuntimeError"
+      },
+      {
+        "id": "AI064",
+        "lang": "tensorflow",
+        "expected": "4.0 12.0",
+        "mode": "run"
+      },
+      {
+        "id": "AI065",
+        "lang": "tensorflow",
+        "expected": "[[6.0, 6.0], [15.0, 15.0]] 8",
+        "mode": "run"
+      },
+      {
+        "id": "AI066",
+        "lang": "tensorflow",
+        "expected": "[[2.0]] 0.0 2.0",
+        "mode": "run"
+      },
+      {
+        "id": "AI067",
+        "lang": "tensorflow",
+        "expected": "[2, 12] 0",
+        "mode": "run"
+      },
+      {
+        "id": "AI068",
+        "lang": "tensorflow",
+        "expected": "1.098612",
+        "mode": "run"
+      },
+      {
+        "id": "AI069",
+        "lang": "tensorflow",
+        "expected": "[[2.0, 4.0]] 0",
+        "mode": "run"
+      },
+      {
+        "id": "AI070",
+        "lang": "tensorflow",
+        "expected": "1.5",
+        "mode": "run"
+      }
+    ]
+  },
+  "DA": {
+    "path": "DS/FS_DAA_Hard_MCQ_Bank.md",
+    "questions": [
+      {
+        "id": "DA001",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA002",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA003",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA004",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA005",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA006",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA007",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA008",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA009",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA010",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA011",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA012",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA013",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA014",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA015",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA016",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA017",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA018",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA019",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA020",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA021",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA022",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA023",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA024",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA025",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA026",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA027",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA028",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA029",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA030",
+        "lang": null,
+        "expected": null,
+        "mode": "run"
+      },
+      {
+        "id": "DA031",
+        "lang": "java",
+        "expected": "2 1 B 0 B 1 B",
+        "mode": "run"
+      },
+      {
+        "id": "DA032",
+        "lang": "java",
+        "expected": "21",
+        "mode": "run"
+      },
+      {
+        "id": "DA033",
+        "lang": "java",
+        "expected": "[1, 8, 0] 0",
+        "mode": "run"
+      },
+      {
+        "id": "DA034",
+        "lang": "java",
+        "expected": "CAB",
+        "mode": "run"
+      },
+      {
+        "id": "DA035",
+        "lang": "java",
+        "expected": "[[5, 2], [7, 3]]",
+        "mode": "run"
+      },
+      {
+        "id": "DA036",
+        "lang": "java",
+        "expected": "9193",
+        "mode": "run"
+      },
+      {
+        "id": "DA037",
+        "lang": "java",
+        "expected": "8192 5",
+        "mode": "run"
+      },
+      {
+        "id": "DA038",
+        "lang": "java",
+        "expected": "1",
+        "mode": "run"
+      },
+      {
+        "id": "DA039",
+        "lang": "java",
+        "expected": "true true",
+        "mode": "run"
+      },
+      {
+        "id": "DA040",
+        "lang": "java",
+        "expected": "2 1 0 | 1",
+        "mode": "run"
+      },
+      {
+        "id": "DA041",
+        "lang": "java",
+        "expected": "9 5",
+        "mode": "run"
+      },
+      {
+        "id": "DA042",
+        "lang": "java",
+        "expected": "0:5 0:4 3:4 | 3",
+        "mode": "run"
+      },
+      {
+        "id": "DA043",
+        "lang": "java",
+        "expected": "4 6 3 10\n4",
+        "mode": "run"
+      },
+      {
+        "id": "DA044",
+        "lang": "java",
+        "expected": "4 7",
+        "mode": "run"
+      },
+      {
+        "id": "DA045",
+        "lang": "java",
+        "expected": "1 2 false 4 2",
+        "mode": "run"
+      },
+      {
+        "id": "DA046",
+        "lang": "java",
+        "expected": "1 2",
+        "mode": "run"
+      },
+      {
+        "id": "DA047",
+        "lang": "java",
+        "expected": "dcba",
+        "mode": "run"
+      },
+      {
+        "id": "DA048",
+        "lang": "java",
+        "expected": "[5, 11, 0, 999, 18]",
+        "mode": "run"
+      },
+      {
+        "id": "DA049",
+        "lang": "java",
+        "expected": "[5, 6, 0]",
+        "mode": "run"
+      },
+      {
+        "id": "DA050",
+        "lang": "java",
+        "expected": "[0, 2, 2, 7] [-1, 0, 1, 1]",
+        "mode": "run"
+      },
+      {
+        "id": "DA051",
+        "lang": "java",
+        "expected": "4 2",
+        "mode": "run"
+      },
+      {
+        "id": "DA052",
+        "lang": "java",
+        "expected": "[0, 0, 0, 0, 3] [2, 0, 0, 1, 0]",
+        "mode": "run"
+      },
+      {
+        "id": "DA053",
+        "lang": "java",
+        "expected": "[1, 0, 0, 1, 0]",
+        "mode": "run"
+      },
+      {
+        "id": "DA054",
+        "lang": "java",
+        "expected": "4 3 7",
+        "mode": "run"
+      },
+      {
+        "id": "DA055",
+        "lang": "java",
+        "expected": "2 5 false",
+        "mode": "run"
+      },
+      {
+        "id": "DA056",
+        "lang": "java",
+        "expected": "[2, 3, 4]",
+        "mode": "run"
+      },
+      {
+        "id": "DA057",
+        "lang": "java",
+        "expected": "[0, 1, 1, 2, 2]",
+        "mode": "run"
+      },
+      {
+        "id": "DA058",
+        "lang": "java",
+        "expected": "0132",
+        "mode": "run"
+      },
+      {
+        "id": "DA059",
+        "lang": "java",
+        "expected": "4:2 0:0",
+        "mode": "run"
+      },
+      {
+        "id": "DA060",
+        "lang": "java",
+        "expected": "-1",
+        "mode": "run"
+      },
+      {
+        "id": "DA061",
+        "lang": "java",
+        "expected": "3 3",
+        "mode": "run"
+      },
+      {
+        "id": "DA062",
+        "lang": "java",
+        "expected": "[1, 2, 4, 5, 6, 7, 3]",
+        "mode": "run"
+      },
+      {
+        "id": "DA063",
+        "lang": "java",
+        "expected": "2 17",
+        "mode": "run"
+      },
+      {
+        "id": "DA064",
+        "lang": "java",
+        "expected": "false [0, -1, -1, -1]",
+        "mode": "run"
+      },
+      {
+        "id": "DA065",
+        "lang": "java",
+        "expected": "[ac, ad, ae, bc, bd, be]",
+        "mode": "run"
+      },
+      {
+        "id": "DA066",
+        "lang": "java",
+        "expected": "1 3 1",
+        "mode": "run"
+      },
+      {
+        "id": "DA067",
+        "lang": "java",
+        "expected": "3 2 [false, false]",
+        "mode": "run"
+      },
+      {
+        "id": "DA068",
+        "lang": "java",
+        "expected": "2,4,16,37,58,89,145,42,20,stop=4 size=9",
+        "mode": "run"
+      },
+      {
+        "id": "DA069",
+        "lang": "java",
+        "expected": "12 101 986",
+        "mode": "run"
+      },
+      {
+        "id": "DA070",
+        "lang": "java",
+        "expected": "true false",
+        "mode": "run"
+      }
+    ]
+  }
+}

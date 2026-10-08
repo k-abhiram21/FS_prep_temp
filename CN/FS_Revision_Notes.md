@@ -6,6 +6,9 @@ Test: **9 October 2026**. [Other subject guides](../FS_SUBJECT_NOTES.md).
 
 **ai explnation due to lack of material** — explanations and worked calculations are AI-authored. College CN notes cover the main layer, media, framing, error-control, and access topics. Signal encoding, capacity, and added calculations supply focused teaching where the selected material is incomplete.
 
+
+**Deep practice:** [70 hard MCQs with hidden explanations](FS_CN_Hard_MCQ_Bank.md) · [coverage and source-gap map](../FS_Remaining_Subjects_Learning_Map.md)
+
 ## 1. Start with what crosses a link
 
 A **network** connects devices so they can exchange data. A **link** is a connection between neighboring devices. A **medium** carries its signals, such as copper, optical fiber, or wireless propagation.

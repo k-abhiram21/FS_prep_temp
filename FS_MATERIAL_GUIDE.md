@@ -8,6 +8,10 @@ Updated on 5 October 2026, evening. The screening notice is the scope: coding in
 
 PDF page references below mean the page number in the PDF viewer, starting at 1. Word documents are located by headings because pagination depends on the viewer.
 
+## Compact hard practice
+
+Use [70-question banks and the remaining-subject coverage audit](FS_Remaining_Subjects_Learning_Map.md) for CN, AI, Java, Python and DAA. Each bank teaches its rules through hidden worked explanations; the audit identifies source gaps and targeted official readings. SE and WT keep their existing 80-question banks.
+
 ## DAA coding and MCQs
 
 | Topic | Read here | Use before FS |

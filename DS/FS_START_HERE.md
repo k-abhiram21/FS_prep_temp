@@ -1,5 +1,8 @@
 # Start here — FS lecture-based revision
 
+**Compact final-day MCQ route:** [70 hard DAA questions](FS_DAA_Hard_MCQ_Bank.md), with 40 selected Java traces and 30 proof/structure questions. [All subject banks and coverage audit](../FS_Remaining_Subjects_Learning_Map.md). The larger banks below remain extended references.
+
+
 **Your LeetCode revision is a useful base, but it is not enough by itself for class-method MCQs.** Re-solving a representative set helps recover implementation skill; the lecture notes and scenario questions add partition/merge states, recurrences, search assumptions, graph/tree traces, and language traps that an accepted solution does not assess.
 
 Prepared 5 October 2026 for the 9 October FS described in your pasted notice: 3 coding questions; 30 MCQs in 30 minutes; 2 hours total. Coding priorities remain recursion, arrays/strings and greedy. Other DAA topics are in the notes/MCQ track. These files cover DAA, not the other subjects' complete exam preparation.

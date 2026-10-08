@@ -14,6 +14,7 @@ This repository holds preparation material for the FS screening test on 9 Octobe
 - [80 hard SE scenario MCQs](SE/FS_SE_Hard_MCQ_Bank.md) — hidden explanations, four 20-question sets, 23 Git traces and 8 Java pipeline traces
 - [Web Technologies learning map, coverage audit and selected sources](WT/FS_WT_Learning_Map.md) — [college materials and class examples](WT/)
 - [80 hard WT JavaScript and DOM MCQs](WT/FS_WT_Hard_MCQ_Bank.md) — hidden explanations, four 20-question sets, method comparisons and 13 executable repairs
+- [350 compact hard MCQs for CN, AI, Java, Python and DAA](FS_Remaining_Subjects_Learning_Map.md) — 70 per bank, coverage audit, targeted official readings and checked code
 - [Computer Networks sources](CN/)
 - [Artificial Intelligence sources](AI/)
 

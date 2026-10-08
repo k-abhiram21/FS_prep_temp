@@ -6,6 +6,9 @@ For the screening test on **9 October 2026**. Java is your preferred coding lang
 
 **ai explnation due to lack of material** — a dedicated college Java fundamentals pack was not identified in the material inspected. These are original study explanations. The notice does not specify Java subtopics; the selection below covers common fundamentals. Examples use Java 17-compatible syntax.
 
+
+**Deep practice:** [70 hard MCQs with hidden explanations](FS_Java_Hard_MCQ_Bank.md) · [coverage and source-gap map](../FS_Remaining_Subjects_Learning_Map.md)
+
 ## 1. Types, initialization, and arithmetic
 
 Java checks variable types before execution. Its eight primitive types are `byte`, `short`, `int`, `long`, `float`, `double`, `char`, and `boolean`. `String` and arrays are reference types.

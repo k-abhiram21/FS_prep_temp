@@ -6,6 +6,9 @@ Test: **9 October 2026**. [Other subject guides](../FS_SUBJECT_NOTES.md).
 
 **ai explnation due to lack of material** — explanations and added examples are AI-authored. The selected college AI units cover the main topics; this guide supplies the background and intermediate steps needed to study them directly.
 
+
+**Deep practice:** [70 hard MCQs with hidden explanations](FS_AI_Hard_MCQ_Bank.md) · [coverage and source-gap map](../FS_Remaining_Subjects_Learning_Map.md)
+
 ## 1. Start with data, features, and targets
 
 A **model** is a calculation used to make predictions. In **machine learning**, training adjusts that calculation using examples instead of manually specifying every decision.
