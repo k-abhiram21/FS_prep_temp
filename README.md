@@ -12,7 +12,8 @@ This repository holds preparation material for the FS screening test on 9 Octobe
 - [Data Structures and Algorithms in Java (DS-JAVA)](DS-JAVA/README.md) — matching notes, practice, MCQs, source folders and runnable Java references
 - [Software Engineering learning map, coverage audit and selected external sources](SE/FS_SE_Learning_Map.md) — [college PDFs](SE/)
 - [120 hard SE scenario MCQs](SE/FS_SE_Hard_MCQ_Bank.md) — hidden explanations, four mixed sets, 37 Git traces and 13 Java pipeline traces
-- [Web Technologies sources and selected class examples](WT/)
+- [Web Technologies learning map, coverage audit and selected sources](WT/FS_WT_Learning_Map.md) — [college materials and class examples](WT/)
+- [180 hard WT JavaScript and DOM MCQs](WT/FS_WT_Hard_MCQ_Bank.md) — hidden explanations, six mixed sets, method comparisons and 15 executable repairs
 - [Computer Networks sources](CN/)
 - [Artificial Intelligence sources](AI/)
 

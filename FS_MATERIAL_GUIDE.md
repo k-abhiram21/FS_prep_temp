@@ -49,6 +49,10 @@ Skip Unit 2's long requirements-engineering/SRS discussion as a first-pass FS ta
 
 ## Web Technologies
 
+**Depth update, 8 October:** start with the [direct WT guide](WT/FS_Revision_Notes.md), then use the [WT learning map and source audit](WT/FS_WT_Learning_Map.md). The map assesses both the college materials below and the newer guide/Atlas, compares similar methods, and links selected MDN and official Node documentation for deeper rules.
+
+Practice with the [180-question WT bank](WT/FS_WT_Hard_MCQ_Bank.md): 36 basics/functions/strings, 42 arrays, 18 Set/Map, 18 JSON, 36 callbacks/Promises/await and 30 DOM/events questions. Six mixed sets cover every question once. Hidden answers explain the correct choice and all distractors; 15 questions also require a repair/use-case decision and provide executable fixes. Explicit script assumptions and HTML fixtures make the traces reproducible. The [validator](WT/validation/check_wt_bank.mjs) checks 150 language questions plus 13 repairs in Node, and all 180 questions plus 15 repairs in a real browser. See the bank for runtime requirements and the partial language-only command.
+
 | Test topic | Existing or added source | Coverage |
 |---|---|---|
 | Callbacks, promises, async/await | [UNIT III](WT/UNIT%20III.pdf), pp. 15–29 | Useful explanations and examples; separate the JavaScript ideas from Node-specific internals |
@@ -60,7 +64,7 @@ Skip Unit 2's long requirements-engineering/SRS discussion as a first-pass FS ta
 | Async/await | [ex1.js](WT/examples/Async%26Await/ex1.js), [ex5.js](WT/examples/Async%26Await/ex5.js), [ex6.js](WT/examples/Async%26Await/ex6.js) | Return values, error handling and awaited versus unawaited calls |
 | Small DOM example | [index7.html](WT/examples/promises/index7.html) and its companion `promises8.js` | `querySelector` and style changes in a browser; this is not full DOM coverage |
 
-Still missing a dedicated pack for **JavaScript basics, array methods, Sets, Maps and broader DOM**. Revise variable scope, types/coercion, equality, functions, object/array references, `map/filter/reduce`, Set uniqueness, Map keys, selecting/updating nodes and events. JSON also needs practice beyond the introductory paragraph. These are preparation targets, not an inferred marks distribution.
+The college files alone lack a coherent pack for **JavaScript basics, array methods, Sets, Maps and broader DOM**. The newer direct guide and Atlas supply that foundation. The hard bank adds deeper practice with variable scope, coercion/equality, function returns, method contracts, sparse arrays, shared references, JSON losses, rejection propagation and DOM identity/events. These are preparation targets, not an inferred marks distribution.
 
 Most MongoDB CRUD, indexes, aggregation, Express, Node modules, buffers, streams and server projects are outside the explicitly named WT list. Skip them for the first pass. The two `Unit2_NodeJs_Syllabus` PDFs have identical extracted text; they are outlines, not two separate revision chapters. Existing duplicate files were retained.
 
