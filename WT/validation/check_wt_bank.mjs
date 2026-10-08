@@ -12,9 +12,9 @@ const file=path.join(WT,'FS_WT_Hard_MCQ_Bank.md');
 const md=fs.readFileSync(file,'utf8'), tick=String.fromCharCode(96), fence=tick.repeat(3);
 // A lookahead for end of input must not match blank lines.
 const blocks=[...md.matchAll(/^### WT(\d{3}) — ([^\n]+)\n([\s\S]*?)(?=^### WT\d{3}|$(?![\s\S]))/gm)];
-assert.deepEqual(blocks.map(b=>Number(b[1])),Array.from({length:180},(_,i)=>i+1));
-assert.equal((md.match(/<details>/g)||[]).length,180);
-assert.equal((md.match(/<\/details>/g)||[]).length,180);
+assert.deepEqual(blocks.map(b=>Number(b[1])),Array.from({length:80},(_,i)=>i+1));
+assert.equal((md.match(/<details>/g)||[]).length,80);
+assert.equal((md.match(/<\/details>/g)||[]).length,80);
 const choicesRE=new RegExp('^([ABCD])\\. '+tick+'(.*?)'+tick+'\\s*$','gm');
 const codeRE=new RegExp('^'+fence+'javascript\\n([\\s\\S]*?)\\n'+fence,'m');
 const htmlRE=new RegExp('^'+fence+'html\\n([\\s\\S]*?)\\n'+fence,'m');
@@ -52,24 +52,24 @@ for(const b of blocks){
  assert.equal((body.match(/<\/details>/g)||[]).length,1,id+': closing disclosure');
  qs.push({id,title:b[2],code,html,spec});
 }
-assert.deepEqual(answers,{A:45,B:45,C:45,D:45});
-assert.equal(qs.filter(q=>q.spec.kind==='js').length,150);
-assert.equal(qs.filter(q=>q.spec.kind==='dom').length,30);
-assert.equal(qs.filter(q=>q.spec.repair).length,15);
+assert.deepEqual(answers,{A:20,B:20,C:20,D:20});
+assert.equal(qs.filter(q=>q.spec.kind==='js').length,68);
+assert.equal(qs.filter(q=>q.spec.kind==='dom').length,12);
+assert.equal(qs.filter(q=>q.spec.repair).length,13);
 const traces=qs.flatMap(q=>q.spec.repair?[q,{...q,id:q.id+' repair',code:q.spec.repair.code,
                                          spec:{kind:q.spec.kind,stdout:q.spec.repair.stdout}}]:[q]);
-assert.equal(traces.filter(q=>q.spec.kind==='js').length,163);
-assert.equal(traces.filter(q=>q.spec.kind==='dom').length,32);
-const sets=[...md.matchAll(/^\| ([1-6]) \| 6 \| 7 \| 3 \| 3 \| 6 \| 5 \| (.+) \|$/gm)];
-assert.deepEqual(sets.map(s=>s[1]),[...'123456']);
+assert.equal(traces.filter(q=>q.spec.kind==='js').length,79);
+assert.equal(traces.filter(q=>q.spec.kind==='dom').length,14);
+const sets=[...md.matchAll(/^\| ([1-4]) \| (\d+) \| (\d+) \| (\d+) \| (\d+) \| (\d+) \| (\d+) \| (.+) \|$/gm)];
+assert.deepEqual(sets.map(s=>s[1]),[...'1234']);
 const covered=[];
 for(const set of sets){
- const ids=[...set[2].matchAll(/\[WT(\d{3})\]\(#wt\d{3}\)/g)].map(x=>Number(x[1]));
- assert.equal(ids.length,30);assert.equal(new Set(ids).size,30);
- const counts=[[1,36],[37,78],[79,96],[97,114],[115,150],[151,180]].map(([a,b])=>ids.filter(n=>a<=n&&n<=b).length);
- assert.deepEqual(counts,[6,7,3,3,6,5]);covered.push(...ids);
+ const ids=[...set[8].matchAll(/\[WT(\d{3})\]\(#wt\d{3}\)/g)].map(x=>Number(x[1]));
+ assert.equal(ids.length,20);assert.equal(new Set(ids).size,20);
+ const counts=[[1,16],[17,36],[37,42],[43,50],[51,68],[69,80]].map(([a,b])=>ids.filter(n=>a<=n&&n<=b).length);
+ assert.deepEqual(counts,set.slice(2,8).map(Number));covered.push(...ids);
 }
-assert.deepEqual(covered.sort((a,b)=>a-b),Array.from({length:180},(_,i)=>i+1));
+assert.deepEqual(covered.sort((a,b)=>a-b),Array.from({length:80},(_,i)=>i+1));
 const prose=md.replace(new RegExp('^'+fence+'[^\\n]*\\n[\\s\\S]*?^'+fence+'\\s*$','gm'),'')
               .replace(/<!--[\s\S]*?-->/g,'');
 const defs=new Map([...prose.matchAll(/^\[([^\]]+)\]: (\S+)$/gm)].map(m=>[m[1],m[2]]));
@@ -80,7 +80,7 @@ for(const target of [...defs.values(),...[...prose.matchAll(/\[[^\]\n]+\]\(([^)]
  else if(target.startsWith('https://'))assert.ok(new URL(target).hostname);
  else assert.ok(fs.existsSync(path.resolve(WT,decodeURIComponent(target))),'Missing file '+target);
 }
-console.log('PASS: 180 unique questions; hidden answers; four choices; balanced answer positions; six complete mixed sets.');
+console.log('PASS: 80 unique questions; hidden answers; four choices; balanced answer positions; four complete mixed sets.');
 
 // Each context has pristine language intrinsics. Only explicitly provided host functions exist.
 async function nodeTrace(q){
@@ -109,9 +109,9 @@ const failures=[];
 for(const q of traces.filter(q=>q.spec.kind==='js')){
  const failure=await nodeTrace(q);if(failure)failures.push(failure);
 }
-console.log('Node language traces checked: 150 questions + 13 repairs');
+console.log('Node language traces checked: 68 questions + 11 repairs');
 if(process.argv.includes('--node-only')){
- console.log('DOM traces NOT executed: 30 questions + 2 repairs. Full validation requires Playwright and a browser.');
+ console.log('DOM traces NOT executed: 12 questions + 2 repairs. Full validation requires Playwright and a browser.');
 }else{
  const require=createRequire(import.meta.url);
  let chromium;
@@ -149,7 +149,7 @@ if(process.argv.includes('--node-only')){
    await context.close();
   }
  }finally{await browser.close();}
- console.log('Browser traces checked: 180 questions (150 language/async + 30 DOM) + 15 repairs.');
+ console.log('Browser traces checked: 80 questions (68 language/async + 12 DOM) + 13 repairs.');
 }
 if(failures.length){console.error(JSON.stringify(failures,null,2));process.exitCode=1;}
 else console.log('PASS: all requested runtime outputs matched exactly.');

@@ -4,11 +4,11 @@ Audited on **8 October 2026** against your notice for **9 October 2026**. The SE
 
 **Assessment:** the college PDFs introduce every named SE area. They are a useful starting point, but topic presence is not the same as sufficient depth. Process models have the strongest explanatory coverage. Scrum needs precise rules, DevOps needs corrections to its Agile comparison, and Git needs command/state reasoning beyond reading screenshots.
 
-**Latest repository update checked:** after integrating remote commit fb95774, the [direct SE study guide](FS_Revision_Notes.md) and [Subject Atlas](../Subjects/visualize/README.md) are also available. The direct guide already fills many PDF gaps: iterative/incremental distinctions, throwaway prototypes, Scrum commitments/Done, release versus Review, CI/CD, staging/diff, reset modes and fetch/pull. Start there for teaching. The remaining need is deeper application, conflicting conditions and multi-step traces, which the new bank supplies.
+**Current teaching material:** after integrating remote commit fb95774, the [direct SE study guide](FS_Revision_Notes.md) and [Subject Atlas](../Subjects/visualize/README.md) are also available. The direct guide already fills many PDF gaps: iterative/incremental distinctions, throwaway prototypes, Scrum commitments/Done, release versus Review, CI/CD, staging/diff, reset modes and fetch/pull. Start there for teaching. The remaining need is deeper application, conflicting conditions and multi-step traces, which the new bank supplies.
 
 This map distinguishes what the files actually teach from recommended supplementary depth. The latter is a preparation judgement, not a prediction of the paper.
 
-**Practice:** use the [120 hard SE scenario MCQs](FS_SE_Hard_MCQ_Bank.md) after each topic. The bank has hidden reasoning, four mixed sets of 30 and verified Git/Java traces. Its lower-priority supplements are marked so you can prioritize the announced topics before the screening.
+**Practice:** use the revised [80 hard SE scenario MCQs](FS_SE_Hard_MCQ_Bank.md) after each topic. The existing bank now selects 80 questions with simpler wording, hidden explanations, four mixed sets of 20 and verified Git/Java traces. It covers all announced areas; this map also keeps notes on extra depth beyond the compact selection.
 
 ## 1. Sources and how to use them
 
@@ -67,13 +67,13 @@ These assessments refer to the current guide and Atlas source, rather than the o
 
 | Area | Current repository teaching | Depth still useful for hard MCQs |
 |---|---|---|
-| Process models | Guide section 2 and Atlas process/model/evolution lessons explain selection cues, iteration versus increments, disposable prototypes, risk and concurrency | Tradeoffs with several simultaneous constraints, limits of prototype evidence, specific risk experiments and activity-state transitions: bank SE001-SE024 |
-| Agile/Scrum | Guide sections 3-4 include the values/principles, accountabilities, artifacts/commitments, Done, event purposes, empiricism and release-before-Review distinction | Delegation, cancellation authority, scope versus Goal, organization-wide Done minimums, multiple teams, timebox/format exceptions and unfinished work: SE025-SE054 |
-| DevOps | Guide section 5 and Atlas explain culture, CI/delivery/deployment, human approval, blocking tests and monitoring | Checks on the wrong revision, stale approval, skipped checks, artifact mismatches, faulty boolean gates and rollout denominators: SE055-SE080 |
-| Git local state | Guide sections 6-7 explain staged snapshots, diff endpoints, restore defaults, ignore rules, reset modes and ancestry | Simultaneous HEAD/index/working differences, partial staging, tracked versus untracked paths and commit/parent counts: SE081-SE107 |
-| Git collaboration | Guide section 8 and Atlas distinguish fetch/pull/push, forks/PRs, conflicts and rejected pushes | Exact local/remote-tracking/server states, fast-forward-only refusal, staged conflict resolution and rejected publication: SE108-SE120, plus conflict questions SE104-SE107 |
+| Process models | Guide section 2 and Atlas process/model/evolution lessons explain selection cues, iteration versus increments, disposable prototypes, risk and concurrency | Tradeoffs with several simultaneous constraints, limits of prototype evidence, specific risk experiments and activity-state transitions: bank SE001-SE016 |
+| Agile/Scrum | Guide sections 3-4 include the values/principles, accountabilities, artifacts/commitments, Done, event purposes, empiricism and release-before-Review distinction | Delegation, cancellation authority, scope versus Goal, Goal/Done requirements, timebox/format rules and unfinished work: SE017-SE036 |
+| DevOps | Guide section 5 and Atlas explain culture, CI/delivery/deployment, human approval, blocking tests and monitoring | Checks on the wrong revision, stale approval, skipped checks, artifact mismatches, faulty boolean gates and rollout denominators: SE037-SE054 |
+| Git local state | Guide sections 6-7 explain staged snapshots, diff endpoints, restore defaults, ignore rules, reset modes and ancestry | Simultaneous HEAD/index/working differences, partial staging, tracked versus untracked paths and commit/parent counts: SE055-SE073 |
+| Git collaboration | Guide section 8 and Atlas distinguish fetch/pull/push, forks/PRs, conflicts and rejected pushes | Exact local/remote-tracking/server states, fast-forward-only refusal, staged conflict resolution and rejected publication: SE074-SE080, plus conflict questions SE071-SE073 |
 
-The guide's 15 questions and Atlas's 36 SE questions mainly test identification and one-step distinctions. They are useful first checks; the new 120-question bank adds original scenarios and executable traces rather than counting those existing questions again. External readings below are targeted references for the deeper rules, not a requirement to read every source before using the direct guide.
+The guide's 15 questions and Atlas's 36 SE questions mainly test identification and one-step distinctions. They are useful first checks; the revised 80-question bank adds original scenarios and executable traces rather than counting those existing questions again. External readings below are targeted references for the deeper rules, not a requirement to read every source before using the direct guide.
 
 ## 3. What depth is enough for this preparation?
 
@@ -176,12 +176,12 @@ These are alternative SE blocks, not extra work to stack on top of each other. L
 
 | Block | Focused time | Action |
 |---|---:|---|
-| Process models | 30 min | Direct guide sections 1-2; compare models from memory, then attempt selected SE001-SE024 scenarios |
-| Agile and Scrum | 40 min | Guide sections 3-4; use the linked Scrum rules for difficult SE025-SE054 cases |
-| DevOps | 25 min | Guide section 5; trace selected SE064-SE076 programs and identify the production gate |
+| Process models | 30 min | Direct guide sections 1-2; compare models from memory, then attempt selected SE001-SE016 scenarios |
+| Agile and Scrum | 40 min | Guide sections 3-4; use the linked Scrum rules for difficult SE017-SE036 cases |
+| DevOps | 25 min | Guide section 5; trace selected SE045-SE052 programs and identify the production gate |
 | Git and GitHub | 55 min | Guide sections 6-8; trace selected staging, reset, branch and remote questions on paper before opening explanations |
-| Mixed practice | 30 min | Attempt hard-bank Set 1 with answers closed; record wrong/uncertain questions for later review |
-| **Total** | **180 min** | A focused pass and diagnostic set, not completion of all 120 questions; reading speed and starting knowledge vary |
+| Mixed practice | 30 min | Attempt the 20-question Set 1 in 20 minutes, then spend 10 minutes reviewing mistakes |
+| **Total** | **180 min** | A focused pass and diagnostic set, not completion of all 80 questions; reading speed and starting knowledge vary |
 
 If you have only **90 minutes**, use 20 min process models, 25 min Agile/Scrum, 15 min DevOps, 20 min Git state/remote differences and 10 min recall. Start with the corresponding direct-guide sections and test a few changed scenarios; use external sources only to resolve unclear rules. This compressed route will not cover all supplementary depth.
 

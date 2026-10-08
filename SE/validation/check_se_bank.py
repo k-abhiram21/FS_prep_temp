@@ -33,9 +33,9 @@ def parse_bank():
         r"^### SE(\d{3}) — ([^\n]+)\n(.*?)(?=^### SE\d{3}|\Z)",
         md, re.M | re.S,
     )
-    require([int(n) for n, _, _ in blocks] == list(range(1, 121)),
-            "Expected SE001–SE120 exactly once, in order.")
-    require(md.count("<details>") == md.count("</details>") == 120,
+    require([int(n) for n, _, _ in blocks] == list(range(1, 81)),
+            "Expected SE001–SE080 exactly once, in order.")
+    require(md.count("<details>") == md.count("</details>") == 80,
             "Expected one closed answer disclosure per question.")
     answers = Counter()
     executable = []
@@ -75,10 +75,10 @@ def parse_bank():
             require(language == {"git": "bash", "java": "java"}[spec["kind"]],
                     f"{label}: wrong code language.")
             executable.append((label, title, source, spec))
-    require(answers == Counter(dict.fromkeys("ABCD", 30)),
+    require(answers == Counter(dict.fromkeys("ABCD", 20)),
             f"Answer positions are not balanced: {dict(answers)}")
     require(Counter(item[3]["kind"] for item in executable)
-            == Counter(git=37, java=13), "Expected 37 Git and 13 Java traces.")
+            == Counter(git=23, java=8), "Expected 23 Git and 8 Java traces.")
 
     practice = re.findall(r"^\| ([1-4]) \| (\d+) \| (\d+) \| (\d+) \| (\d+) \| (.+) \|$",
                           md, re.M)
@@ -86,12 +86,12 @@ def parse_bank():
     covered = []
     for set_number, *columns in practice:
         ids = [int(n) for n in re.findall(r"\[SE(\d{3})\]\(#se\d{3}\)", columns[-1])]
-        require(len(ids) == len(set(ids)) == 30, f"Set {set_number}: expected 30 unique IDs.")
+        require(len(ids) == len(set(ids)) == 20, f"Set {set_number}: expected 20 unique IDs.")
         counts = [sum(start <= n <= end for n in ids)
-                  for start, end in [(1, 24), (25, 54), (55, 80), (81, 120)]]
+                  for start, end in [(1, 16), (17, 36), (37, 54), (55, 80)]]
         require(counts == [int(x) for x in columns[:-1]], f"Set {set_number}: bad topic counts.")
         covered.extend(ids)
-    require(sorted(covered) == list(range(1, 121)), "Sets must cover each question exactly once.")
+    require(sorted(covered) == list(range(1, 81)), "Sets must cover each question exactly once.")
 
     # Ignore code and metadata before checking Markdown links.
     prose = re.sub(r"^" + FENCE + r"[^\n]*\n.*?^" + FENCE + r"\s*$",
@@ -188,16 +188,16 @@ def check_trace(item):
 def main():
     started = time.monotonic()
     executable = parse_bank()
-    print("PASS: 120 questions; four choices and hidden explanations each; four complete mixed sets.",
+    print("PASS: 80 questions; four choices and hidden explanations each; four complete mixed sets.",
           flush=True)
     for binary in ("git", "bash", "javac", "java"):
         require(shutil.which(binary), f"Required program not found: {binary}")
     with ThreadPoolExecutor(max_workers=4) as pool:
         failures = [result for result in pool.map(check_trace, executable) if result]
-    print(json.dumps({"git_traces": 37, "java_traces": 13, "failures": failures,
+    print(json.dumps({"git_traces": 23, "java_traces": 8, "failures": failures,
                       "elapsed_seconds": round(time.monotonic() - started, 2)}, indent=2))
     require(not failures, f"{len(failures)} executable trace(s) failed.")
-    print("PASS: all 50 executable outputs matched exactly in isolated temporary fixtures.")
+    print("PASS: all 31 executable outputs matched exactly in isolated temporary fixtures.")
 
 
 if __name__ == "__main__":

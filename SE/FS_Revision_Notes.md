@@ -4,7 +4,7 @@
 
 Test: **9 October 2026**. [Other subject guides](../FS_SUBJECT_NOTES.md).
 
-**Deeper practice:** after learning these explanations, use the [120 hard SE scenario MCQs](FS_SE_Hard_MCQ_Bank.md), with hidden reasoning and four mixed sets. The [learning map](FS_SE_Learning_Map.md) identifies the college coverage, what this guide already fills, and selected external readings for deeper rules.
+**Deeper practice:** after learning these explanations, use the [80 hard SE scenario MCQs](FS_SE_Hard_MCQ_Bank.md), with simpler wording, hidden reasoning and four mixed sets of 20. The [learning map](FS_SE_Learning_Map.md) identifies the college coverage, what this guide already fills, and selected external readings for deeper rules.
 
 **ai explnation due to lack of material** — the explanations and examples are AI-authored. The college SE units cover the main topics. This label identifies added teaching; it does not mean those sources are absent.
 

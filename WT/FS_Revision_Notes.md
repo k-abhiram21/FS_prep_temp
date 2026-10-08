@@ -4,7 +4,7 @@
 
 Test: **9 October 2026**. [Other subject guides](../FS_SUBJECT_NOTES.md).
 
-For deeper practice after this guide, use the [WT learning map and coverage audit](FS_WT_Learning_Map.md) and the [180 hard JavaScript/DOM MCQs](FS_WT_Hard_MCQ_Bank.md). The bank has hidden explanations, six mixed sets, explicit browser fixtures and repair questions for subtle method differences.
+For deeper practice after this guide, use the [WT learning map and coverage audit](FS_WT_Learning_Map.md) and the [80 hard JavaScript/DOM MCQs](FS_WT_Hard_MCQ_Bank.md). The bank has simpler wording, hidden explanations, four mixed sets of 20, explicit browser fixtures and repair questions for subtle method differences.
 
 **ai explnation due to lack of material** — this is AI-authored teaching. College examples cover callbacks, Promises, and async/await; JSON and DOM coverage is partial. The basic-language and collection explanations fill identified gaps.
 

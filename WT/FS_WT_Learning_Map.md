@@ -2,11 +2,11 @@
 
 Audited on **8 October 2026** for the screening on **9 October 2026**. Announced WT scope: **JavaScript Basics; JSON; Callbacks; Promises; Async/Await; Arrays, Sets & Maps; DOM**. The notice does not give detailed WT subtopics or a WT share of the 30 mixed-subject MCQs.
 
-**Start with the [direct WT guide](FS_Revision_Notes.md), then the [180-question hard bank](FS_WT_Hard_MCQ_Bank.md).** The repository already teaches the foundation. The remaining preparation need is recognizing exact contracts, exceptions and state changes when similar-looking implementations differ.
+**Start with the [direct WT guide](FS_Revision_Notes.md), then the [80-question hard bank](FS_WT_Hard_MCQ_Bank.md).** The repository already teaches the foundation. The remaining preparation need is recognizing exact contracts, exceptions and state changes when similar-looking implementations differ.
 
-The user's stated exam emphasis is deep understanding of small method differences. This map prioritizes those differences. The bank is original practice, not a claim that every JavaScript behavior can be covered or that the exam will use these questions.
+The user's stated exam emphasis is deep understanding of small method differences. This map prioritizes those differences. The revised bank selects 80 of the existing questions. It covers all announced areas; this map also keeps reference notes on extra rules beyond that compact selection.
 
-All 180 questions contain executable scenarios. Fifteen also ask you to choose an appropriate repair/use case, with working fixes and expected outputs in the hidden answers. Six mixed sets contain 30 questions each; use the first set to diagnose weak rules before attempting the full bank.
+All 80 questions contain code scenarios. Thirteen also ask you to choose a fix/use case, with working repairs and expected outputs in the hidden answers. Four mixed sets contain 20 questions each; use the first set to diagnose weak rules before attempting the full bank.
 
 ## 1. What the existing materials actually cover
 
@@ -32,25 +32,25 @@ PDF references use **one-based viewer pages**. The PDF and DOCX versions were ex
 
 “Foundation” means the current guide explains the idea with examples. “Deeper practice” means you can predict a changed scenario and explain why a similar method or implementation fails.
 
-| Area | Current foundation | Deeper practice target | Bank |
+| Area | Current foundation | Deeper practice target, including extra reference rules | Bank examples |
 |---|---|---|---|
-| Bindings and scope | Guide 1, 3; Atlas variables | Hoisting versus initialization; inner TDZ shadowing; typeof exception; const mutation versus rebinding; captured bindings | WT001-WT005, WT008, WT012-WT014 |
-| Defaults and function results | Guide 3; mid-paper prompts | Undefined versus null/zero; later parameter defaults; arrow expression/block; newline after return; mutation versus reassignment | WT006-WT011, WT036 |
-| this and callbacks | Guide 3, 5 | Property call versus detached function; lexical arrow this; bind versus invocation; function identity | WT015-WT017, WT115-WT119, WT174-WT176 |
-| Conversion and equality | Guide 2 | Operator-specific conversion; loose equality versus truthiness; null/undefined; NaN/signed zero; logical operands and side effects | WT018-WT027 |
-| String methods | Limited college prompts; selected guide basics | Slice/substring bounds; trim/case methods preserve original; replace/replaceAll; index zero; split limit; code units versus iteration | WT028-WT033 |
-| Array result contracts | Guide 9; Atlas arrays | Return length/value/removed array/new array/boolean/index/undefined; choose transformation, selection, accumulation or search | WT037-WT055, WT076-WT078 |
-| Array identity and mutation | Guide 9 gives shallow copy, splice/sort | Shared nested objects; alias effects; future entry changes during callbacks; length truncation; fill versus factories | WT042-WT047, WT061-WT075 |
-| Sparse arrays | Little explanatory coverage located in college sources or guide | Hole versus explicit undefined; skipped callbacks versus undefined reads; retained length versus compact selection | WT044, WT057-WT066, WT068, WT111 |
-| Set and Map | Guide 10; Atlas collections | SameValueZero versus strict equality; object identity; insert/update/reinsert order; callback signatures; property versus entry | WT079-WT096 |
-| JSON | Guide 4 adds syntax and omissions | Primitive root, undefined at different positions, non-finite numbers, cycles versus sharing, lost identity/types, replacer/reviver contracts | WT097-WT114 |
-| Callback timing and completion | College examples and Guide 5 | Synchronous versus deferred; passing versus deliberate callback factory invocation; missing return after error; callback return scope | WT115-WT120 |
-| Promise construction and chaining | College pp. 22-27; Guide 6-7 | Executor now/reaction later; resolve versus return; new Promise identity; non-callable handlers; sibling rejection handler versus later catch | WT121-WT128 |
-| Cleanup and combinators | Guide 7; college outlines | finally outcome preservation and failure replacement; all input order/cancellation; allSettled records; race versus any; empty inputs | WT129-WT138 |
-| Async/await | College pp. 27-29; Guide 8 | Start before first await; rejection versus synchronous throw; return await inside local try; sequential starts; wrong async array predicates | WT139-WT150 |
-| DOM selection and collections | Guide 11; color example | Selector syntax versus literal IDs; null versus empty list versus invalid syntax; static/live membership; text nodes; NodeList versus Array | WT151-WT155, WT179-WT180 |
-| DOM update contracts | Guide 11 gives text/HTML/create/append/remove | Move versus clone; listener/node identity after HTML replacement; fragments; rendered text; dataset strings; attribute versus current property | WT156-WT166 |
-| DOM events | Guide 12 | Capture/target/bubble; stop versus immediate stop versus cancellation; passive/cancelable; removal identity/capture; once; synchronous dispatch | WT167-WT178 |
+| Bindings and scope | Guide 1, 3; Atlas variables | Hoisting versus initialization; inner TDZ shadowing; typeof exception; const mutation versus rebinding; captured bindings | WT001-WT003, WT007-WT008 |
+| Defaults and function results | Guide 3; mid-paper prompts | Undefined versus null/zero; later parameter defaults; arrow expression/block; newline after return; mutation versus reassignment | WT004-WT006 |
+| this and callbacks | Guide 3, 5 | Property call versus detached function; lexical arrow this; bind versus invocation; function identity | WT009, WT051-WT053, WT079 |
+| Conversion and equality | Guide 2 | Operator-specific conversion; loose equality versus truthiness; null/undefined; NaN/signed zero; logical operands and side effects | WT010-WT013 |
+| String methods | Limited college prompts; selected guide basics | Slice/substring bounds; trim/case methods preserve original; replace/replaceAll; index zero; split limit; code units versus iteration | WT014-WT016 |
+| Array result contracts | Guide 9; Atlas arrays | Return length/value/removed array/new array/boolean/index/undefined; choose transformation, selection, accumulation or search | WT017-WT030 |
+| Array identity and mutation | Guide 9 gives shallow copy, splice/sort | Shared nested objects; alias effects; future entry changes during callbacks; length truncation; fill versus factories | WT021-WT024, WT034-WT036 |
+| Sparse arrays | Little explanatory coverage located in college sources or guide | Hole versus explicit undefined; skipped callbacks versus undefined reads; retained length versus compact selection | WT022, WT032-WT034, WT035 |
+| Set and Map | Guide 10; Atlas collections | SameValueZero versus strict equality; object identity; insert/update/reinsert order; callback signatures; property versus entry | WT037-WT042 |
+| JSON | Guide 4 adds syntax and omissions | Primitive root, undefined at different positions, non-finite numbers, cycles versus sharing, lost identity/types, replacer/reviver contracts | WT043-WT050 |
+| Callback timing and completion | College examples and Guide 5 | Synchronous versus deferred; passing versus deliberate callback factory invocation; missing return after error; callback return scope | WT051-WT054 |
+| Promise construction and chaining | College pp. 22-27; Guide 6-7 | Executor now/reaction later; resolve versus return; new Promise identity; non-callable handlers; sibling rejection handler versus later catch | WT055-WT059 |
+| Cleanup and combinators | Guide 7; college outlines | finally outcome preservation and failure replacement; all input order/cancellation; allSettled records; race versus any; empty inputs | WT060-WT064 |
+| Async/await | College pp. 27-29; Guide 8 | Start before first await; rejection versus synchronous throw; return await inside local try; sequential starts; wrong async array predicates | WT065-WT068 |
+| DOM selection and collections | Guide 11; color example | Selector syntax versus literal IDs; null versus empty list versus invalid syntax; static/live membership; text nodes; NodeList versus Array | WT069-WT070, WT080 |
+| DOM update contracts | Guide 11 gives text/HTML/create/append/remove | Move versus clone; listener/node identity after HTML replacement; fragments; rendered text; dataset strings; attribute versus current property | WT071-WT075 |
+| DOM events | Guide 12 | Capture/target/bubble; stop versus immediate stop versus cancellation; passive/cancelable; removal identity/capture; once; synchronous dispatch | WT076-WT079 |
 
 ## 3. Compare methods with the right questions
 
@@ -150,10 +150,10 @@ This is a **WT block**, not a plan for the entire two-hour exam or every subject
 | 20 minutes | Guide 4; serialize objects versus arrays and explain what a JSON round trip loses |
 | 35 minutes | Guide 5-8; draw the current stack, queued reactions and chain value/rejection after every step |
 | 25 minutes | Guide 11-12; separate collection membership, node identity, attribute/current property and event phase |
-| 30 minutes | Hard-bank Mixed Set 1, answers closed |
+| 30 minutes | Mixed Set 1 with answers closed (20 minutes), then review for 10 minutes |
 | 15 minutes | Review only wrong/uncertain rules, then reattempt a changed example |
-| **180 minutes** | Foundation plus diagnosis; this does not complete all 180 questions |
+| **180 minutes** | Foundation plus diagnosis; this does not complete all 80 questions |
 
-For **90 minutes**, use 15 basics/strings, 20 arrays/collections, 10 JSON, 20 async, 15 DOM, 10 targeted recall. Leave the marked supplements until the main differences are reliable. These are suggested allocations, not measured learning times.
+For **90 minutes**, use 15 basics/strings, 20 arrays/collections, 10 JSON, 20 async, 15 DOM, 10 targeted recall. Leave extra method rules in this map until the main differences are reliable. These are suggested allocations, not measured learning times.
 
 After a wrong answer, write: (1) the value/state before the step, (2) the API contract, (3) the value/state afterward, (4) why the nearest distractor would require a different method or condition. Move on when you can explain the changed case without memorized output.

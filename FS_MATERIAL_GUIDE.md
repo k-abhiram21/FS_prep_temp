@@ -36,7 +36,7 @@ Both existing SE PDFs introduce the announced topics, but coverage depth varies.
 
 The [direct SE guide](SE/FS_Revision_Notes.md), added in the newer remote commits, already supplies clearer explanations of many of these PDF gaps. Use it first; the audit separately maps its coverage and the Subject Atlas's foundation questions to the deeper practice still needed.
 
-Practice with the [120-question SE scenario bank](SE/FS_SE_Hard_MCQ_Bank.md): 24 process-model, 30 Agile/Scrum, 26 DevOps and 40 Git/GitHub questions. Answers and explanations for all four choices are hidden. Four mixed 30-question sets cover the entire bank once. The 37 Git and 13 Java pipeline traces have executable output checks; run the [validator](SE/validation/check_se_bank.py) with `python3 SE/validation/check_se_bank.py` from the repository root.
+Practice with the [80-question SE scenario bank](SE/FS_SE_Hard_MCQ_Bank.md), reduced from the existing bank for faster revision: 16 process-model, 20 Agile/Scrum, 18 DevOps and 26 Git/GitHub questions. Questions and explanations use simpler wording. Answers and explanations for all four choices stay hidden. Four mixed sets of 20 cover the bank once. The 23 Git and 8 Java pipeline traces have executable output checks; run the [validator](SE/validation/check_se_bank.py) with `python3 SE/validation/check_se_bank.py` from the repository root.
 
 | Test topic | Existing source | Reading target |
 |---|---|---|
@@ -51,7 +51,7 @@ Skip Unit 2's long requirements-engineering/SRS discussion as a first-pass FS ta
 
 **Depth update, 8 October:** start with the [direct WT guide](WT/FS_Revision_Notes.md), then use the [WT learning map and source audit](WT/FS_WT_Learning_Map.md). The map assesses both the college materials below and the newer guide/Atlas, compares similar methods, and links selected MDN and official Node documentation for deeper rules.
 
-Practice with the [180-question WT bank](WT/FS_WT_Hard_MCQ_Bank.md): 36 basics/functions/strings, 42 arrays, 18 Set/Map, 18 JSON, 36 callbacks/Promises/await and 30 DOM/events questions. Six mixed sets cover every question once. Hidden answers explain the correct choice and all distractors; 15 questions also require a repair/use-case decision and provide executable fixes. Explicit script assumptions and HTML fixtures make the traces reproducible. The [validator](WT/validation/check_wt_bank.mjs) checks 150 language questions plus 13 repairs in Node, and all 180 questions plus 15 repairs in a real browser. See the bank for runtime requirements and the partial language-only command.
+Practice with the [80-question WT bank](WT/FS_WT_Hard_MCQ_Bank.md), reduced from the existing bank: 16 basics/functions/strings, 20 arrays, 6 Set/Map, 8 JSON, 18 callbacks/Promises/await and 12 DOM/events questions. Four mixed sets of 20 cover every question once. Wording is simpler; hidden answers still explain every choice. Thirteen questions also ask for a fix and provide working repair code. The [validator](WT/validation/check_wt_bank.mjs) checks 68 language questions plus 11 repairs in Node, and all 80 questions plus 13 repairs in a real browser. See the bank for runtime requirements and the language-only command.
 
 | Test topic | Existing or added source | Coverage |
 |---|---|---|
