@@ -2,6 +2,8 @@
 
 Prepared **8 October 2026** for the **9 October** screening test. These five banks contain **70 questions each**, 350 in total. They complement the existing [80 SE questions](SE/FS_SE_Hard_MCQ_Bank.md) and [80 WT questions](WT/FS_WT_Hard_MCQ_Bank.md). Java and Python are separate banks within the announced Programming subject. The question counts are study allocations, not exam weightage.
 
+**AI update, 9 October:** your test report adds RNN, LSTM, GRU and autoencoders to the preparation scope. The [40-question supplement](AI/FS_AI_Sequence_Autoencoder_Supplement.md) supplies short notes, worked gates/shapes and primary readings; these 40 are additional to the 350 questions below.
+
 Every new bank has four choices, one best answer, hidden worked reasoning, explanations of the alternative traps, source references, a topic index, and three mixed sets of 20 plus one of 10. Code questions specify their language and inputs. Computational questions specify units, conventions and assumptions. The difficulty comes from competing plausible rules, boundary cases and state changes; the wording stays short.
 
 **ai explnation due to lack of material** — original supplementary teaching is included where the college sources are shallow or absent. This label does not mean all college material is missing. Exact code in the selected DAA traces comes from our earlier original bank; it is not a transcription of the lecturer's screen.
@@ -56,7 +58,7 @@ Reviewed [Unit I Part 1](AI/KR24-CSE-3-1-UNIT1-PART1-NOTES.pdf), [Part 2](AI/KR2
 | ANN | Neurons, activations, layers and backpropagation have substantial descriptive coverage. | AI031–046: complete forward/chain-rule calculations, parameter counts, XOR, affine-layer collapse, vanishing gradients, symmetry, batch counts, dropout and BatchNorm modes. |
 | TensorFlow | Part 1 pages 52–54 introduce tensors, graphs and differentiation. Part 2 supplies a basic model workflow. API and shape behavior are comparatively shallow. | AI047–070: 24 executable traces covering broadcasting errors, reshape/reduction, dtype failures, GradientTape scopes, disconnected gradients, Dense/Flatten, datasets, compile/fit/evaluate/predict and optimizer updates. |
 
-CNN, RNN and autoencoder material in the college pack is outside the four announced headings and is not added as a new architecture unit. L2 and dropout are supporting ANN training concepts. TensorFlow examples deliberately use **2.16.1 with Keras 3**, a stable stated API baseline rather than claiming it is the newest release.
+The original bank followed the four announced headings. Your 9 October report showed that this selection missed RNN, LSTM, GRU and autoencoders. The [supplement](AI/FS_AI_Sequence_Autoencoder_Supplement.md) now covers those four, including gates, temporal gradients, state/mask contracts, reconstruction and related AE variants. The local PDFs offer brief mentions rather than full architecture lessons (Part 1, PDF viewer page 59); primary sources fill that gap. L2 and dropout are supporting ANN training concepts. TensorFlow examples deliberately use **2.16.1 with Keras 3**, a stable stated API baseline rather than claiming it is the newest release.
 
 | External reading | Read for |
 |---|---|

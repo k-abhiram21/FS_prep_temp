@@ -7,6 +7,8 @@ Test: **9 October 2026**. [Other subject guides](../FS_SUBJECT_NOTES.md).
 **ai explnation due to lack of material** — explanations and added examples are AI-authored. The selected college AI units cover the main topics; this guide supplies the background and intermediate steps needed to study them directly.
 
 
+**Expanded coverage, 9 October:** you reported RNN, LSTM, GRU and autoencoder questions in the test. Continue with the [short explanations, 40 hard MCQs and primary sources](FS_AI_Sequence_Autoencoder_Supplement.md). The original 70-question bank remains the route for the announced topics.
+
 **Deep practice:** [70 hard MCQs with hidden explanations](FS_AI_Hard_MCQ_Bank.md) · [coverage and source-gap map](../FS_Remaining_Subjects_Learning_Map.md)
 
 ## 1. Start with data, features, and targets
@@ -682,6 +684,19 @@ Learning preprocessing from held-out data can leak information into the training
 </details>
 
 <!-- FS-MCQ-END -->
+
+## 12. RNN, LSTM, GRU and autoencoders: reported extra coverage
+
+The college Part 1 PDF only names RNN/LSTM and autoencoder applications on PDF viewer page 59. The [new supplement](FS_AI_Sequence_Autoencoder_Supplement.md) fills the missing teaching depth.
+
+| Topic | Learn and test |
+|---|---|
+| RNN | Shared weights versus changing state, order, BPTT, vanishing/exploding gradients, truncation, masks and stateful calls. |
+| LSTM | Forget/input/output gates, candidate content, cell versus hidden state, direct gradient path and four-transform parameter count. |
+| GRU | Reset versus update, explicit gate convention, one state, reset-before/after mixing and bias-count differences. |
+| Autoencoder | Reconstruction targets, bottleneck/capacity, denoising and sparse variants, VAE sampling/KL, anomaly scores and reduction axes. |
+
+Read its notes, attempt the 12-question diagnostic, then finish the remaining questions in small blocks. Worked gates, tensor shapes and executable examples connect the new topics to the ANN and TensorFlow foundations above.
 
 ## Optional source references
 

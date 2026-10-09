@@ -1,6 +1,6 @@
 # FS syllabus and where to study
 
-Updated on 5 October 2026, evening. The screening notice is the scope: coding in recursion, arrays/strings and greedy; MCQs in SE, WT, CN, AI, Java/Python and DAA. College units are broader than this notice. Use the sections below rather than reading every file cover to cover.
+Originally updated on 5 October 2026, evening; AI scope amended on 9 October after your test report. The screening notice originally set the scope: coding in recursion, arrays/strings and greedy; MCQs in SE, WT, CN, AI, Java/Python and DAA. College units are broader than this notice. Use the sections below rather than reading every file cover to cover.
 
 **Start with [the remaining-time plan](FS_REMAINING_DAYS_PLAN.md).** Your reported progress is a few string problems on 5 October; other topics are not assumed complete. You have confirmed about four study hours in college plus two to three at home, and prefer Java for coding. The older four-hour timetable has been superseded.
 
@@ -97,7 +97,7 @@ The physical-layer material found covers transmission, multiplexing and media. N
 | Classification | Same Part 2 | pp. 10–21: class types, MNIST, preprocessing, model construction, activation/loss, training/evaluation and model complexity |
 | Linear vs logistic regression | [older supervised-learning notes](AI/SUPERVISED_LEARNING_REGRESSION.pdf) | pp. 2–3 for the distinction; pp. 14–19 for logistic regression; other metrics/bias-variance sections only to repair a weak concept |
 
-The 3-1 AI folders also contain CNN, RNN/LSTM/GRU, autoencoders and other advanced units. These were not copied because they do not fill the announced-topic gaps. The extra older ML file complements the neuron-based regression notes; it is not another whole unit you must finish.
+The earlier selection left out architecture units beyond the four announced headings. On 9 October you reported RNN, LSTM, GRU and autoencoder questions in the test, so revise the [focused supplement: short explanations, 40 hard MCQs and sources](AI/FS_AI_Sequence_Autoencoder_Supplement.md). The three AI PDFs actually present here do not teach these topics in depth: Part 1 only names RNN/LSTM and autoencoder applications on PDF viewer page 59. The supplement uses primary papers and official TensorFlow/Keras references. The older ML file still complements the regression material.
 
 ## Java and Python
 

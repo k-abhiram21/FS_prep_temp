@@ -15,6 +15,7 @@ This repository holds preparation material for the FS screening test on 9 Octobe
 - [Web Technologies learning map, coverage audit and selected sources](WT/FS_WT_Learning_Map.md) — [college materials and class examples](WT/)
 - [80 hard WT JavaScript and DOM MCQs](WT/FS_WT_Hard_MCQ_Bank.md) — hidden explanations, four 20-question sets, method comparisons and 13 executable repairs
 - [350 compact hard MCQs for CN, AI, Java, Python and DAA](FS_Remaining_Subjects_Learning_Map.md) — 70 per bank, coverage audit, targeted official readings and checked code
+- [AI extra topics: RNN, LSTM, GRU and autoencoders](AI/FS_AI_Sequence_Autoencoder_Supplement.md) — short notes, 40 hard MCQs, a 12-question diagnostic and primary sources; added after your 9 October test report
 - [Computer Networks sources](CN/)
 - [Artificial Intelligence sources](AI/)
 

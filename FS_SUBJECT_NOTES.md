@@ -16,6 +16,8 @@ Updated on **8 October 2026**. The guides cover the announced topic areas; the n
 | Python programming | [Python notes](Programming/Python_FS_Revision_Notes.md) | Division, slices, collection changes, shared objects, function defaults. |
 | Data Structures & Algorithms | [DAA notes in Java](DS-JAVA/FS_Test_Revision_Notes.md) | Recursion progress, array/string methods, greedy proofs, complexity. |
 
+**AI coverage update, 9 October:** [RNN, LSTM, GRU and autoencoder supplement](AI/FS_AI_Sequence_Autoencoder_Supplement.md) adds short explanations and 40 hard MCQs for the extra topics you reported. Start with its 12-question diagnostic.
+
 ## Compact hard MCQ banks
 
 For deeper practice in fewer questions, use [the compact-bank index and coverage audit](FS_Remaining_Subjects_Learning_Map.md). It links to 70 questions each for CN, AI, Java, Python and DAA, with hidden explanations and source-based gap readings. [SE](SE/FS_SE_Hard_MCQ_Bank.md) and [WT](WT/FS_WT_Hard_MCQ_Bank.md) retain their 80-question banks. The new Java language bank is distinct from the older 160-question Java DAA bank.

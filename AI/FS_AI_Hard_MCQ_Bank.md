@@ -8,7 +8,7 @@
 
 Work in blocks of 10–15. First choose an answer without opening the explanation; then explain why the other choices fail. For code, record each state change before guessing. The four mixed sets below use every question once: three sets of 20 and one of 10. Set sizes are for revision, not exam subject weights.
 
-**Assumptions:** losses and averaging conventions are stated; logarithms in cross-entropy are natural. Positive class is class1, and matrix axes are stated. TensorFlow code uses 2.16.1, `tf.keras`, eager mode, CPU, and fresh state per block; default floating tensors are float32. Random initialization is replaced by fixed initializers where exact outputs matter. The bank focuses on the four announced topics, not CNN/RNN architecture extras.
+**Assumptions:** losses and averaging conventions are stated; logarithms in cross-entropy are natural. Positive class is class1, and matrix axes are stated. TensorFlow code uses 2.16.1, `tf.keras`, eager mode, CPU, and fresh state per block; default floating tensors are float32. Random initialization is replaced by fixed initializers where exact outputs matter. This bank retains the four announced topic groups. For RNN, LSTM, GRU and autoencoders reported in the test, use the [40-question supplement with short notes](FS_AI_Sequence_Autoencoder_Supplement.md), added 9 October.
 
 ## Coverage
 

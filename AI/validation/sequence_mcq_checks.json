@@ -1,0 +1,202 @@
+[
+  {
+    "id": "AIX001",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX002",
+    "engine": "python",
+    "expected": "[1, 4, 11]"
+  },
+  {
+    "id": "AIX003",
+    "engine": "tensorflow",
+    "expected": "11.0 6.0"
+  },
+  {
+    "id": "AIX004",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX005",
+    "engine": "tensorflow",
+    "expected": "[2, 5, 4] [2, 4] 32"
+  },
+  {
+    "id": "AIX006",
+    "engine": "tensorflow",
+    "expected": "1.0 3.0 2.0"
+  },
+  {
+    "id": "AIX007",
+    "engine": "tensorflow",
+    "expected": "3.0 2.0"
+  },
+  {
+    "id": "AIX008",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX009",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX010",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX011",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX012",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX013",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX014",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX015",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX016",
+    "engine": "tensorflow",
+    "expected": "[2, 5, 4] [2, 4] [2, 4] 128"
+  },
+  {
+    "id": "AIX017",
+    "engine": "tensorflow",
+    "expected": "0.5 0.231059"
+  },
+  {
+    "id": "AIX018",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX019",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX020",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX021",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX022",
+    "engine": "python",
+    "expected": "1.4"
+  },
+  {
+    "id": "AIX023",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX024",
+    "engine": "python",
+    "expected": "[3.0, 4.0] [0.0, 6.0]"
+  },
+  {
+    "id": "AIX025",
+    "engine": "tensorflow",
+    "expected": "96 108"
+  },
+  {
+    "id": "AIX026",
+    "engine": "tensorflow",
+    "expected": "[2, 5, 4] [2, 4] 2"
+  },
+  {
+    "id": "AIX027",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX028",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX029",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX030",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX031",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX032",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX033",
+    "engine": "tensorflow",
+    "expected": "[2.5, 0.0] 1.25"
+  },
+  {
+    "id": "AIX034",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX035",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX036",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX037",
+    "engine": "python",
+    "expected": "0.0"
+  },
+  {
+    "id": "AIX038",
+    "engine": null,
+    "expected": null
+  },
+  {
+    "id": "AIX039",
+    "engine": "tensorflow",
+    "expected": "[3, 2] [3, 4] 22"
+  },
+  {
+    "id": "AIX040",
+    "engine": null,
+    "expected": null
+  }
+]
